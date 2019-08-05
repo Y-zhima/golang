@@ -1,0 +1,109 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "git.fogcdn.top/axe/protos/goout/playbook";
+
+import "common/api.proto";
+import "google/api/annotations.proto";
+import "protoc-gen-swagger/options/annotations.proto";
+
+option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
+    info: {
+        title: "AXE运维API"
+        version : "1.0.0"
+        description: "AXE运维平台RESTful API"
+    };
+    schemes: HTTP
+    consumes: "application/json"
+    produces: "application/json"
+};
+
+service Playbook {
+    // 创建playbook项目
+    rpc Create (CreateRequest) returns (CreateResponse) {
+        option (google.api.http) = {
+            post: "/v1/playbook"
+            body: "*"
+        };
+    }
+    // 筛选playbook项目
+    rpc Filter (FilterRequest) returns (FilterResponse) {
+        option (google.api.http) = {
+            get: "/v1/playbook"
+        };
+    }
+    // 获取playbook项目
+    rpc Get (GetRequest) returns (GetResponse) {
+        option (google.api.http) = {
+            get: "/v1/playbook/{playbook_id}"
+        };
+    }
+    // 更新playbook项目
+    rpc Update (UpdateRequest) returns (UpdateResponse) {
+        option (google.api.http) = {
+            put: "/v1/playbook/{playbook_id}"
+            body: "*"
+        };
+    }
+    // 删除playbook项目
+    rpc Delete (DeleteRequest) returns (DeleteResponse) {
+        option (google.api.http) = {
+            delete: "/v1/playbook/{playbook_id}"
+        };
+    }
+}
+
+
+// 项目实例
+message ProjectObject {
+    int32 playbook_id = 1;
+}
+
+message CreateRequest {
+
+}
+
+// 创建项目请求返回
+message CreateResponse {
+    int32 playbook_id = 1;
+    common.ResponseStatus status = 2;
+}
+
+message GetRequest {
+    int32 playbook_id = 1;
+}
+
+// 获取项目请求返回
+message GetResponse {
+    ProjectObject project = 1;
+    common.ResponseStatus status = 2;
+}
+
+// 筛选项目请求
+message FilterRequest {
+    common.Paging paging = 1;
+}
+
+// 筛选项目请求返回
+message FilterResponse {
+    repeated ProjectObject projects = 1;
+    common.Paging paging = 2;
+    common.ResponseStatus status = 3;
+}
+
+message UpdateRequest {
+    int32 playbook_id = 1;
+}
+
+message UpdateResponse {
+
+}
+
+message DeleteRequest {
+    int32 playbook_id = 1;
+}
+
+message DeleteResponse {
+
+}

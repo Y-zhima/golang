@@ -1,0 +1,140 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "git.fogcdn.top/axe/protos/goout/job";
+
+import "common/api.proto";
+import "google/api/annotations.proto";
+import "protoc-gen-swagger/options/annotations.proto";
+
+option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
+    info: {
+        title: "AXE运维API - 作业平台"
+        version : "1.0.0"
+        description: "AXE运维平台RESTful API"
+    };
+    schemes: HTTP
+    consumes: "application/json"
+    produces: "application/json"
+};
+
+// 作业任务
+service Job {
+    // 创建作业任务(执行作业模板)
+    rpc Create (CreateRequest) returns (CreateResponse) {
+        option (google.api.http) = {
+            post: "/v1/jobs"
+            body: "*"
+        };
+    }
+    // 创建定时作业任务
+    rpc Schedule (ScheduleRequest) returns (ScheduleResponse) {
+        option (google.api.http) = {
+            post: "/v1/jobs/{job_id}/schedule"
+            body: "*"
+        };
+    }
+    // 查看定时作业任务
+    rpc ScheduleList (ScheduleListRequest) returns (ScheduleListResponse) {
+        option (google.api.http) = {
+            get: "/v1/jobs/{job_id}/schedule"
+        };
+    }
+    // 筛选作业任务
+    rpc Filter (FilterRequest) returns (FilterResponse) {
+        option (google.api.http) = {
+            get: "/v1/jobs"
+        };
+    }
+    // 获取作业任务
+    rpc Get (GetRequest) returns (GetResponse) {
+        option (google.api.http) = {
+            get: "/v1/jobs/{job_id}"
+        };
+    }
+    // 获取作业任务详细执行过程
+    rpc GetLog (GetLogRequest) returns (GetLogResponse) {
+        option (google.api.http) = {
+            get: "/v1/jobs/{job_id}/logs"
+        };
+    }
+    // 删除作业任务
+    rpc Delete (DeleteRequest) returns (DeleteResponse) {
+        option (google.api.http) = {
+            delete: "/v1/jobs/{job_id}"
+        };
+    }
+}
+
+
+
+// 作业实例
+message JobObject {
+    int32 job_id = 1;
+}
+
+message CreateRequest {
+
+}
+// 创建作业请求返回
+message CreateResponse {
+    int32 job_id = 1;
+    common.ResponseStatus status = 2;
+}
+
+message GetRequest {
+    int32 job_id = 1;
+}
+
+// 获取作业请求返回
+message GetResponse {
+    JobObject job = 1;
+    common.ResponseStatus status = 2;
+}
+
+message GetLogRequest {
+    int32 job_id = 1;
+}
+
+// 获取作业请求返回
+message GetLogResponse {
+    common.ResponseStatus status = 2;
+}
+
+
+// 筛选作业请求
+message FilterRequest {
+    common.Paging paging = 1;
+}
+
+// 筛选作业请求返回
+message FilterResponse {
+    repeated JobObject jobs = 1;
+    common.Paging paging = 2;
+    common.ResponseStatus status = 3;
+}
+
+message ScheduleRequest {
+    int32 job_id = 1;
+}
+
+message ScheduleResponse {
+
+}
+
+message ScheduleListRequest {
+    int32 job_id = 1;
+}
+
+message ScheduleListResponse {
+
+}
+
+message DeleteRequest {
+    int32 job_id = 1;
+}
+
+message DeleteResponse {
+
+}

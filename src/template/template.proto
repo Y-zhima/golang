@@ -1,0 +1,109 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "git.fogcdn.top/axe/protos/goout/template";
+
+import "common/api.proto";
+import "google/api/annotations.proto";
+import "protoc-gen-swagger/options/annotations.proto";
+
+option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
+    info: {
+        title: "AXE运维API - 作业模板"
+        version : "1.0.0"
+        description: "AXE运维平台RESTful API"
+    };
+    schemes: HTTP
+    consumes: "application/json"
+    produces: "application/json"
+};
+
+// 作业模板
+service Template {
+    // 创建作业模板
+    rpc Create (CreateRequest) returns (CreateResponse) {
+        option (google.api.http) = {
+            post: "/v1/template"
+            body: "*"
+        };
+    }
+    // 筛选作业模板
+    rpc Filter (FilterRequest) returns (FilterResponse) {
+        option (google.api.http) = {
+            get: "/v1/template"
+        };
+    }
+    // 获取作业模板
+    rpc Get (GetRequest) returns (GetResponse) {
+        option (google.api.http) = {
+            get: "/v1/template/{template_id}"
+        };
+    }
+    // 更新作业模板
+    rpc Update (UpdateRequest) returns (UpdateResponse) {
+        option (google.api.http) = {
+            put: "/v1/template/{template_id}"
+            body: "*"
+        };
+    }
+    // 删除作业模板
+    rpc Delete (DeleteRequest) returns (DeleteResponse) {
+        option (google.api.http) = {
+            delete: "/v1/template/{template_id}"
+        };
+    }
+}
+
+// 模板实例
+message TemplateObject {
+    int32 template_id = 1;
+}
+
+message CreateRequest {
+
+}
+
+// 创建模板请求返回
+message CreateResponse {
+    int32 template_id = 1;
+    common.ResponseStatus status = 2;
+}
+
+message GetRequest {
+    int32 template_id = 1;
+}
+
+// 获取模板请求返回
+message GetResponse {
+    TemplateObject template = 1;
+    common.ResponseStatus status = 2;
+}
+
+// 筛选模板请求
+message FilterRequest {
+    common.Paging paging = 1;
+}
+
+// 筛选模板请求返回
+message FilterResponse {
+    repeated TemplateObject templates = 1;
+    common.Paging paging = 2;
+    common.ResponseStatus status = 3;
+}
+
+message UpdateRequest {
+    int32 template_id = 1;
+}
+
+message UpdateResponse {
+
+}
+
+message DeleteRequest {
+    int32 template_id = 1;
+}
+
+message DeleteResponse {
+
+}

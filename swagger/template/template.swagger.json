@@ -1,0 +1,270 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "AXE运维API - 作业模板",
+    "description": "AXE运维平台RESTful API",
+    "version": "1.0.0"
+  },
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/template": {
+      "get": {
+        "summary": "筛选作业模板",
+        "operationId": "Filter",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoFilterResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paging.total_page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paging.page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paging.per_page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Template"
+        ]
+      },
+      "post": {
+        "summary": "创建作业模板",
+        "operationId": "Create",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoCreateResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoCreateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Template"
+        ]
+      }
+    },
+    "/v1/template/{template_id}": {
+      "get": {
+        "summary": "获取作业模板",
+        "operationId": "Get",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoGetResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "template_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Template"
+        ]
+      },
+      "delete": {
+        "summary": "删除作业模板",
+        "operationId": "Delete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoDeleteResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "template_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Template"
+        ]
+      },
+      "put": {
+        "summary": "更新作业模板",
+        "operationId": "Update",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoUpdateResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "template_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoUpdateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Template"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "commonPaging": {
+      "type": "object",
+      "properties": {
+        "total_page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "per_page": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "分页"
+    },
+    "commonResponseStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "接口返回状态码"
+    },
+    "protoCreateRequest": {
+      "type": "object"
+    },
+    "protoCreateResponse": {
+      "type": "object",
+      "properties": {
+        "template_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      },
+      "title": "创建模板请求返回"
+    },
+    "protoDeleteResponse": {
+      "type": "object"
+    },
+    "protoFilterResponse": {
+      "type": "object",
+      "properties": {
+        "templates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoTemplateObject"
+          }
+        },
+        "paging": {
+          "$ref": "#/definitions/commonPaging"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      },
+      "title": "筛选模板请求返回"
+    },
+    "protoGetResponse": {
+      "type": "object",
+      "properties": {
+        "template": {
+          "$ref": "#/definitions/protoTemplateObject"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      },
+      "title": "获取模板请求返回"
+    },
+    "protoTemplateObject": {
+      "type": "object",
+      "properties": {
+        "template_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "模板实例"
+    },
+    "protoUpdateRequest": {
+      "type": "object",
+      "properties": {
+        "template_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "protoUpdateResponse": {
+      "type": "object"
+    }
+  }
+}
