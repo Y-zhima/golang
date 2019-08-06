@@ -79,6 +79,21 @@
     "protoUploadPlaybookResponse": {
       "type": "object",
       "properties": {
+        "url": {
+          "type": "string"
+        },
+        "md5": {
+          "type": "string"
+        },
+        "filesize": {
+          "type": "string"
+        },
+        "entrypoint": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "status": {
           "$ref": "#/definitions/commonResponseStatus"
         }

@@ -38,5 +38,6 @@ message UploadPlaybookResponse {
     string url = 1;
     string md5 = 2;
     string filesize = 3;
-    common.ResponseStatus status = 4;
+    repeated string entrypoint = 4;
+    common.ResponseStatus status = 5;
 }
