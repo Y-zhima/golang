@@ -390,19 +390,19 @@ func RegisterJobHandlerClient(ctx context.Context, mux *runtime.ServeMux, client
 }
 
 var (
-	pattern_Job_Create_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "jobs"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Job_Create_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "job"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Job_Schedule_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1", "jobs", "job_id", "schedule"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Job_Schedule_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1", "job", "job_id", "schedule"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Job_ScheduleList_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1", "jobs", "job_id", "schedule"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Job_ScheduleList_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1", "job", "job_id", "schedule"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Job_Filter_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "jobs"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Job_Filter_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "job"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Job_Get_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "jobs", "job_id"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Job_Get_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "job", "job_id"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Job_GetLog_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1", "jobs", "job_id", "logs"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Job_GetLog_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1", "job", "job_id", "logs"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Job_Delete_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "jobs", "job_id"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Job_Delete_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "job", "job_id"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (

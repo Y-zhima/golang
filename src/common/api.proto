@@ -13,6 +13,13 @@ message Paging {
 
 // 接口返回状态码
 message ResponseStatus {
-    int32 code = 1;
+    StatusCode code = 1;
     string message = 2;
+}
+
+// 接口状态码
+enum StatusCode {
+    SUCCESS = 0;
+    INVALID_ARGUMENT = 400;
+    ACCESS_DENIED = 403;
 }
