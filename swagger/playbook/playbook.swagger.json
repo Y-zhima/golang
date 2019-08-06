@@ -336,9 +336,6 @@
         "url": {
           "type": "string"
         },
-        "url_type": {
-          "$ref": "#/definitions/protoUrlType"
-        },
         "version": {
           "type": "string"
         },
@@ -366,10 +363,11 @@
     "protoUrlType": {
       "type": "string",
       "enum": [
+        "UNDEFINED",
         "FILE",
         "GIT"
       ],
-      "default": "FILE"
+      "default": "UNDEFINED"
     }
   }
 }

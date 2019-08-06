@@ -56,8 +56,9 @@ service Playbook {
 
 enum UrlType //枚举URL类型
 {
-    FILE = 0; //文件下载
-    GIT = 1;  //git下载
+    UNDEFINED = 0;
+    FILE = 1; //文件下载
+    GIT = 2;  //git下载
 }
 
 // 项目实例
@@ -120,7 +121,6 @@ message UpdateRequest {
     string name = 2;
     string description = 3;
     string url = 4;
-    UrlType url_type = 5;
     string version = 6;
     repeated string entrypoint = 7;
 }
