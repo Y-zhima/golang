@@ -14,7 +14,33 @@
   "produces": [
     "application/json"
   ],
-  "paths": {},
+  "paths": {
+    "/v1/greeter/SayHello": {
+      "get": {
+        "summary": "Sends a greeting",
+        "operationId": "SayHello",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/goexampleHelloReply"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Greeter"
+        ]
+      }
+    }
+  },
   "definitions": {
     "goexampleHelloReply": {
       "type": "object",
