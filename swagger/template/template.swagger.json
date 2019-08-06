@@ -186,14 +186,23 @@
       "type": "object",
       "properties": {
         "code": {
-          "type": "integer",
-          "format": "int32"
+          "$ref": "#/definitions/commonStatusCode"
         },
         "message": {
           "type": "string"
         }
       },
       "title": "接口返回状态码"
+    },
+    "commonStatusCode": {
+      "type": "string",
+      "enum": [
+        "SUCCESS",
+        "INVALID_ARGUMENT",
+        "ACCESS_DENIED"
+      ],
+      "default": "SUCCESS",
+      "title": "接口状态码"
     },
     "protoCreateRequest": {
       "type": "object"

@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "git.fogcdn.top/axe/protos/goout/job";
+
+import "common/api.proto";
+import "google/api/annotations.proto";
+import "protoc-gen-swagger/options/annotations.proto";
+
+option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
+    info: {
+        title: "AXE运维API - 文件管理"
+        version : "1.0.0"
+        description: "AXE运维平台RESTful API"
+    };
+    schemes: HTTP
+    consumes: "application/json"
+    produces: "application/json"
+};
+
+// 文件管理
+service FileManager {
+    // 创建作业任务(执行作业模板)
+    rpc UploadPlaybook (stream UploadPlaybookRequest) returns (UploadPlaybookResponse) {
+        option (google.api.http) = {
+            put: "/v1/filemanager/upload_playbook"
+            body: "*"
+        };
+    }
+}
+
+message UploadPlaybookRequest {
+    bytes content = 1;
+}
+
+message UploadPlaybookResponse {
+    string url = 1;
+    string md5 = 2;
+    string filesize = 3;
+    repeated string entrypoint = 4;
+    common.ResponseStatus status = 5;
+}
