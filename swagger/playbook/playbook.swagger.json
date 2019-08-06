@@ -48,6 +48,12 @@
             "required": false,
             "type": "integer",
             "format": "int32"
+          },
+          {
+            "name": "keyword",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -196,7 +202,31 @@
       "title": "接口返回状态码"
     },
     "protoCreateRequest": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "url_type": {
+          "$ref": "#/definitions/protoUrlType"
+        },
+        "version": {
+          "type": "string"
+        },
+        "entrypoint": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "创建项目请求内容体"
     },
     "protoCreateResponse": {
       "type": "object",
@@ -205,6 +235,9 @@
           "type": "integer",
           "format": "int32"
         },
+        "created": {
+          "type": "string"
+        },
         "status": {
           "$ref": "#/definitions/commonResponseStatus"
         }
@@ -212,7 +245,13 @@
       "title": "创建项目请求返回"
     },
     "protoDeleteResponse": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      },
+      "title": "删除记录请求返回"
     },
     "protoFilterResponse": {
       "type": "object",
@@ -250,6 +289,33 @@
         "playbook_id": {
           "type": "integer",
           "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "url_type": {
+          "$ref": "#/definitions/protoUrlType"
+        },
+        "version": {
+          "type": "string"
+        },
+        "entrypoint": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "created": {
+          "type": "string"
+        },
+        "updated": {
+          "type": "string"
         }
       },
       "title": "项目实例"
@@ -260,11 +326,48 @@
         "playbook_id": {
           "type": "integer",
           "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "entrypoint": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
-      }
+      },
+      "title": "更新项目请求内容体"
     },
     "protoUpdateResponse": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "updated": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      },
+      "title": "更新项目请求返回"
+    },
+    "protoUrlType": {
+      "type": "string",
+      "enum": [
+        "UNDEFINED",
+        "FILE",
+        "GIT"
+      ],
+      "default": "UNDEFINED"
     }
   }
 }
