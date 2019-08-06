@@ -15,7 +15,7 @@
     "application/json"
   ],
   "paths": {
-    "/v1/jobs": {
+    "/v1/job": {
       "get": {
         "summary": "筛选作业任务",
         "operationId": "Filter",
@@ -80,7 +80,7 @@
         ]
       }
     },
-    "/v1/jobs/{job_id}": {
+    "/v1/job/{job_id}": {
       "get": {
         "summary": "获取作业任务",
         "operationId": "Get",
@@ -130,7 +130,7 @@
         ]
       }
     },
-    "/v1/jobs/{job_id}/logs": {
+    "/v1/job/{job_id}/logs": {
       "get": {
         "summary": "获取作业任务详细执行过程",
         "operationId": "GetLog",
@@ -156,7 +156,7 @@
         ]
       }
     },
-    "/v1/jobs/{job_id}/schedule": {
+    "/v1/job/{job_id}/schedule": {
       "get": {
         "summary": "查看定时作业任务",
         "operationId": "ScheduleList",
@@ -238,14 +238,23 @@
       "type": "object",
       "properties": {
         "code": {
-          "type": "integer",
-          "format": "int32"
+          "$ref": "#/definitions/commonStatusCode"
         },
         "message": {
           "type": "string"
         }
       },
       "title": "接口返回状态码"
+    },
+    "commonStatusCode": {
+      "type": "string",
+      "enum": [
+        "SUCCESS",
+        "INVALID_ARGUMENT",
+        "ACCESS_DENIED"
+      ],
+      "default": "SUCCESS",
+      "title": "接口状态码"
     },
     "protoCreateRequest": {
       "type": "object"
