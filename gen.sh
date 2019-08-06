@@ -7,6 +7,7 @@ for f in src/*/*.proto ; do
     -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway \
     -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
     --go_out=plugins=grpc:/tmp/protos \
+    --grpc-gateway_out=logtostderr=true:/tmp/protos \
     --swagger_out=logtostderr=true:swagger \
     $f
 done ;
