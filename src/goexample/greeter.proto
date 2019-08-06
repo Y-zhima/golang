@@ -15,7 +15,10 @@
 syntax = "proto3";
 
 package goexample;
+
 option go_package = "git.fogcdn.top/axe/protos/goout/goexample";
+
+import "google/api/annotations.proto";
 
 // The greeting service definition.
 service Greeter {
