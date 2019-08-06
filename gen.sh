@@ -12,4 +12,4 @@ for f in src/*/*.proto ; do
     $f
 done ;
 
-cp -rf /tmp/protos/git.fogcdn.top/axe/protos/goout goout
+cp -rf /tmp/protos/git.fogcdn.top/axe/protos/goout .

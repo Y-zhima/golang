@@ -54,22 +54,43 @@ service Playbook {
     }
 }
 
+enum UrlType //枚举URL类型
+{
+    FILE = 0; //文件下载
+    GIT = 1;  //git下载
+}
 
 // 项目实例
 message ProjectObject {
-    int32 playbook_id = 1;
+    int32 playbook_id = 1; //playbook项目ID
+    string name = 2;  //playbook项目名称
+    string description = 3; //playbook项目描述
+    string url = 4; //playbook存储在对象存储的url
+    UrlType url_type = 5; //枚举类型 0-文件下载 1-git下载
+    string version = 6; //playbook文件的版本号
+    repeated string entrypoint = 7; //playbook入口yml文件，有多个
+    string created = 10; //创建时间
+    string updated = 11; //更新时间
 }
 
+// 创建项目请求内容体
 message CreateRequest {
-
+    string name = 1;
+    string description = 2;
+    string url = 3;
+    UrlType url_type = 4;
+    string version = 5;
+    repeated string entrypoint = 6;
 }
 
 // 创建项目请求返回
 message CreateResponse {
     int32 playbook_id = 1;
-    common.ResponseStatus status = 2;
+    string created = 2;
+    common.ResponseStatus status = 3;
 }
 
+// 根据项目ID获取记录
 message GetRequest {
     int32 playbook_id = 1;
 }
@@ -83,6 +104,7 @@ message GetResponse {
 // 筛选项目请求
 message FilterRequest {
     common.Paging paging = 1;
+    string keyword = 2;
 }
 
 // 筛选项目请求返回
@@ -92,18 +114,29 @@ message FilterResponse {
     common.ResponseStatus status = 3;
 }
 
+// 更新项目请求内容体
 message UpdateRequest {
     int32 playbook_id = 1;
+    string name = 2;
+    string description = 3;
+    string url = 4;
+    UrlType url_type = 5;
+    string version = 6;
+    repeated string entrypoint = 7;
 }
 
+// 更新项目请求返回
 message UpdateResponse {
-
+    string updated = 1;
+    common.ResponseStatus status = 2;
 }
 
+// 根据ID删除记录
 message DeleteRequest {
     int32 playbook_id = 1;
 }
 
+// 删除记录请求返回
 message DeleteResponse {
-
+    common.ResponseStatus status = 1;
 }

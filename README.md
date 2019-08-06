@@ -30,4 +30,18 @@ docker run -it -v $(PWD):/opt/protos 192.168.0.103:8080/axe/protos:v0.0.1 sh gen
 1. `goout`: 根据`proto`生成的go代码
 2. `swagger`: 根据`proto`生成的swagger json文件
 
+### 合并所有的swagger
+
+```
+swagger mixin swagger/playbook/playbook.swagger.json
+```
+
+### Serve the API
+
+```
+swagger serve swagger.json -Fswagger
+```
+
+
+[参考] <http://aloyzh.com/2018/06/go-integrate-swagger/>
 ## 提交
