@@ -265,6 +265,13 @@
           "items": {
             "type": "string"
           }
+        },
+        "md5": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string",
+          "format": "int64"
         }
       },
       "title": "创建项目请求内容体"
@@ -352,6 +359,13 @@
             "type": "string"
           }
         },
+        "md5": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string",
+          "format": "int64"
+        },
         "created": {
           "type": "string"
         },
@@ -401,6 +415,13 @@
           "items": {
             "type": "string"
           }
+        },
+        "md5": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string",
+          "format": "int64"
         }
       },
       "title": "更新项目请求内容体"
