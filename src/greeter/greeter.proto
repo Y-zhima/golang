@@ -14,9 +14,9 @@
 
 syntax = "proto3";
 
-package goexample;
+package greeter;
 
-option go_package = "git.fogcdn.top/axe/protos/goout/goexample";
+option go_package = "git.fogcdn.top/axe/protos/goout/greeter";
 
 import "google/api/annotations.proto";
 

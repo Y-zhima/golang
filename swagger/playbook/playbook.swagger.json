@@ -15,7 +15,60 @@
     "application/json"
   ],
   "paths": {
-    "/v1/playbook": {
+    "/v1/playbook/create": {
+      "post": {
+        "summary": "创建playbook项目",
+        "operationId": "Create",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/playbookCreateResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/playbookCreateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Playbook"
+        ]
+      }
+    },
+    "/v1/playbook/delete/{playbook_id}": {
+      "post": {
+        "summary": "删除playbook项目",
+        "operationId": "Delete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/playbookDeleteResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "playbook_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Playbook"
+        ]
+      }
+    },
+    "/v1/playbook/filter": {
       "get": {
         "summary": "筛选playbook项目",
         "operationId": "Filter",
@@ -23,7 +76,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoFilterResponse"
+              "$ref": "#/definitions/playbookFilterResponse"
             }
           }
         },
@@ -59,34 +112,9 @@
         "tags": [
           "Playbook"
         ]
-      },
-      "post": {
-        "summary": "创建playbook项目",
-        "operationId": "Create",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/protoCreateResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/protoCreateRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Playbook"
-        ]
       }
     },
-    "/v1/playbook/{playbook_id}": {
+    "/v1/playbook/get/{playbook_id}": {
       "get": {
         "summary": "获取playbook项目",
         "operationId": "Get",
@@ -94,7 +122,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoGetResponse"
+              "$ref": "#/definitions/playbookGetResponse"
             }
           }
         },
@@ -110,39 +138,17 @@
         "tags": [
           "Playbook"
         ]
-      },
-      "delete": {
-        "summary": "删除playbook项目",
-        "operationId": "Delete",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/protoDeleteResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "playbook_id",
-            "in": "path",
-            "required": true,
-            "type": "integer",
-            "format": "int32"
-          }
-        ],
-        "tags": [
-          "Playbook"
-        ]
-      },
-      "put": {
+      }
+    },
+    "/v1/playbook/update/{playbook_id}": {
+      "post": {
         "summary": "更新playbook项目",
         "operationId": "Update",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoUpdateResponse"
+              "$ref": "#/definitions/playbookUpdateResponse"
             }
           }
         },
@@ -159,8 +165,34 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/protoUpdateRequest"
+              "$ref": "#/definitions/playbookUpdateRequest"
             }
+          }
+        ],
+        "tags": [
+          "Playbook"
+        ]
+      }
+    },
+    "/v1/playbook/version/{playbook_id}": {
+      "get": {
+        "summary": "playbook 版本列表",
+        "operationId": "Version",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/playbookVersionResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "playbook_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
           }
         ],
         "tags": [
@@ -192,8 +224,7 @@
       "type": "object",
       "properties": {
         "code": {
-          "type": "integer",
-          "format": "int32"
+          "$ref": "#/definitions/commonStatusCode"
         },
         "message": {
           "type": "string"
@@ -201,7 +232,17 @@
       },
       "title": "接口返回状态码"
     },
-    "protoCreateRequest": {
+    "commonStatusCode": {
+      "type": "string",
+      "enum": [
+        "SUCCESS",
+        "INVALID_ARGUMENT",
+        "ACCESS_DENIED"
+      ],
+      "default": "SUCCESS",
+      "title": "接口状态码"
+    },
+    "playbookCreateRequest": {
       "type": "object",
       "properties": {
         "name": {
@@ -214,7 +255,7 @@
           "type": "string"
         },
         "url_type": {
-          "$ref": "#/definitions/protoUrlType"
+          "$ref": "#/definitions/playbookUrlType"
         },
         "version": {
           "type": "string"
@@ -228,7 +269,7 @@
       },
       "title": "创建项目请求内容体"
     },
-    "protoCreateResponse": {
+    "playbookCreateResponse": {
       "type": "object",
       "properties": {
         "playbook_id": {
@@ -244,7 +285,7 @@
       },
       "title": "创建项目请求返回"
     },
-    "protoDeleteResponse": {
+    "playbookDeleteResponse": {
       "type": "object",
       "properties": {
         "status": {
@@ -253,13 +294,13 @@
       },
       "title": "删除记录请求返回"
     },
-    "protoFilterResponse": {
+    "playbookFilterResponse": {
       "type": "object",
       "properties": {
         "projects": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/protoProjectObject"
+            "$ref": "#/definitions/playbookProjectObject"
           }
         },
         "paging": {
@@ -271,11 +312,11 @@
       },
       "title": "筛选项目请求返回"
     },
-    "protoGetResponse": {
+    "playbookGetResponse": {
       "type": "object",
       "properties": {
         "project": {
-          "$ref": "#/definitions/protoProjectObject"
+          "$ref": "#/definitions/playbookProjectObject"
         },
         "status": {
           "$ref": "#/definitions/commonResponseStatus"
@@ -283,7 +324,7 @@
       },
       "title": "获取项目请求返回"
     },
-    "protoProjectObject": {
+    "playbookProjectObject": {
       "type": "object",
       "properties": {
         "playbook_id": {
@@ -300,7 +341,7 @@
           "type": "string"
         },
         "url_type": {
-          "$ref": "#/definitions/protoUrlType"
+          "$ref": "#/definitions/playbookUrlType"
         },
         "version": {
           "type": "string"
@@ -320,7 +361,23 @@
       },
       "title": "项目实例"
     },
-    "protoUpdateRequest": {
+    "playbookSaveVersionResponse": {
+      "type": "object",
+      "properties": {
+        "playbook_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "created": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      },
+      "title": "版本列表请求响应"
+    },
+    "playbookUpdateRequest": {
       "type": "object",
       "properties": {
         "playbook_id": {
@@ -348,7 +405,7 @@
       },
       "title": "更新项目请求内容体"
     },
-    "protoUpdateResponse": {
+    "playbookUpdateResponse": {
       "type": "object",
       "properties": {
         "updated": {
@@ -360,7 +417,7 @@
       },
       "title": "更新项目请求返回"
     },
-    "protoUrlType": {
+    "playbookUrlType": {
       "type": "string",
       "enum": [
         "UNDEFINED",
@@ -368,6 +425,34 @@
         "GIT"
       ],
       "default": "UNDEFINED"
+    },
+    "playbookVersionObject": {
+      "type": "object",
+      "properties": {
+        "playbook_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "url": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "title": "版本实例"
+    },
+    "playbookVersionResponse": {
+      "type": "object",
+      "properties": {
+        "versions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/playbookVersionObject"
+          }
+        }
+      },
+      "title": "版本列表请求响应"
     }
   }
 }

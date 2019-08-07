@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package proto;
+package playbook;
 
 option go_package = "git.fogcdn.top/axe/protos/goout/playbook";
 
@@ -23,35 +23,45 @@ service Playbook {
     // 创建playbook项目
     rpc Create (CreateRequest) returns (CreateResponse) {
         option (google.api.http) = {
-            post: "/v1/playbook"
+            post: "/v1/playbook/create"
             body: "*"
         };
     }
     // 筛选playbook项目
     rpc Filter (FilterRequest) returns (FilterResponse) {
         option (google.api.http) = {
-            get: "/v1/playbook"
+            get: "/v1/playbook/filter"
         };
     }
     // 获取playbook项目
     rpc Get (GetRequest) returns (GetResponse) {
         option (google.api.http) = {
-            get: "/v1/playbook/{playbook_id}"
+            get: "/v1/playbook/get/{playbook_id}"
         };
     }
     // 更新playbook项目
     rpc Update (UpdateRequest) returns (UpdateResponse) {
         option (google.api.http) = {
-            put: "/v1/playbook/{playbook_id}"
+            post: "/v1/playbook/update/{playbook_id}"
             body: "*"
         };
     }
     // 删除playbook项目
     rpc Delete (DeleteRequest) returns (DeleteResponse) {
         option (google.api.http) = {
-            delete: "/v1/playbook/{playbook_id}"
+            post: "/v1/playbook/delete/{playbook_id}"
         };
     }
+
+    // playbook 版本列表
+    rpc Version (VersionRequest) returns (VersionResponse) {
+        option (google.api.http) = {
+            get: "/v1/playbook/version/{playbook_id}"
+        };
+    }
+
+    // 保存 playbook 版本
+    rpc SaveVersion (SaveVersionRequest) returns (SaveVersionResponse) {}
 }
 
 enum UrlType //枚举URL类型
@@ -139,4 +149,35 @@ message DeleteRequest {
 // 删除记录请求返回
 message DeleteResponse {
     common.ResponseStatus status = 1;
+}
+
+// 版本实例
+message VersionObject {
+    int32 playbook_id = 1; // playbook项目ID
+    string url = 2; // playbook存储在对象存储的url
+    string version = 3; // playbook文件的版本号
+}
+
+// 版本列表请求内容体
+message VersionRequest {
+    int32 playbook_id = 1;
+}
+
+// 版本列表请求响应
+message VersionResponse {
+    repeated VersionObject versions = 1;
+}
+
+// 版本列表请求内容体
+message SaveVersionRequest {
+    int32 playbook_id = 1;
+    string url = 2;
+    string version = 3;
+}
+
+// 版本列表请求响应
+message SaveVersionResponse {
+    int32 playbook_id = 1;
+    string created = 2;
+    common.ResponseStatus status = 3;
 }

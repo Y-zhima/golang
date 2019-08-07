@@ -15,7 +15,7 @@
     "application/json"
   ],
   "paths": {
-    "/v1/jobs": {
+    "/v1/job": {
       "get": {
         "summary": "筛选作业任务",
         "operationId": "Filter",
@@ -23,7 +23,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoFilterResponse"
+              "$ref": "#/definitions/jobFilterResponse"
             }
           }
         },
@@ -61,7 +61,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoCreateResponse"
+              "$ref": "#/definitions/jobCreateResponse"
             }
           }
         },
@@ -71,7 +71,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/protoCreateRequest"
+              "$ref": "#/definitions/jobCreateRequest"
             }
           }
         ],
@@ -80,7 +80,7 @@
         ]
       }
     },
-    "/v1/jobs/{job_id}": {
+    "/v1/job/{job_id}": {
       "get": {
         "summary": "获取作业任务",
         "operationId": "Get",
@@ -88,7 +88,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoGetResponse"
+              "$ref": "#/definitions/jobGetResponse"
             }
           }
         },
@@ -112,7 +112,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoDeleteResponse"
+              "$ref": "#/definitions/jobDeleteResponse"
             }
           }
         },
@@ -130,7 +130,7 @@
         ]
       }
     },
-    "/v1/jobs/{job_id}/logs": {
+    "/v1/job/{job_id}/logs": {
       "get": {
         "summary": "获取作业任务详细执行过程",
         "operationId": "GetLog",
@@ -138,7 +138,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoGetLogResponse"
+              "$ref": "#/definitions/jobGetLogResponse"
             }
           }
         },
@@ -156,7 +156,7 @@
         ]
       }
     },
-    "/v1/jobs/{job_id}/schedule": {
+    "/v1/job/{job_id}/schedule": {
       "get": {
         "summary": "查看定时作业任务",
         "operationId": "ScheduleList",
@@ -164,7 +164,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoScheduleListResponse"
+              "$ref": "#/definitions/jobScheduleListResponse"
             }
           }
         },
@@ -188,7 +188,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoScheduleResponse"
+              "$ref": "#/definitions/jobScheduleResponse"
             }
           }
         },
@@ -205,7 +205,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/protoScheduleRequest"
+              "$ref": "#/definitions/jobScheduleRequest"
             }
           }
         ],
@@ -238,8 +238,7 @@
       "type": "object",
       "properties": {
         "code": {
-          "type": "integer",
-          "format": "int32"
+          "$ref": "#/definitions/commonStatusCode"
         },
         "message": {
           "type": "string"
@@ -247,10 +246,20 @@
       },
       "title": "接口返回状态码"
     },
-    "protoCreateRequest": {
+    "commonStatusCode": {
+      "type": "string",
+      "enum": [
+        "SUCCESS",
+        "INVALID_ARGUMENT",
+        "ACCESS_DENIED"
+      ],
+      "default": "SUCCESS",
+      "title": "接口状态码"
+    },
+    "jobCreateRequest": {
       "type": "object"
     },
-    "protoCreateResponse": {
+    "jobCreateResponse": {
       "type": "object",
       "properties": {
         "job_id": {
@@ -263,16 +272,16 @@
       },
       "title": "创建作业请求返回"
     },
-    "protoDeleteResponse": {
+    "jobDeleteResponse": {
       "type": "object"
     },
-    "protoFilterResponse": {
+    "jobFilterResponse": {
       "type": "object",
       "properties": {
         "jobs": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/protoJobObject"
+            "$ref": "#/definitions/jobJobObject"
           }
         },
         "paging": {
@@ -284,7 +293,7 @@
       },
       "title": "筛选作业请求返回"
     },
-    "protoGetLogResponse": {
+    "jobGetLogResponse": {
       "type": "object",
       "properties": {
         "status": {
@@ -293,11 +302,11 @@
       },
       "title": "获取作业请求返回"
     },
-    "protoGetResponse": {
+    "jobGetResponse": {
       "type": "object",
       "properties": {
         "job": {
-          "$ref": "#/definitions/protoJobObject"
+          "$ref": "#/definitions/jobJobObject"
         },
         "status": {
           "$ref": "#/definitions/commonResponseStatus"
@@ -305,7 +314,7 @@
       },
       "title": "获取作业请求返回"
     },
-    "protoJobObject": {
+    "jobJobObject": {
       "type": "object",
       "properties": {
         "job_id": {
@@ -315,10 +324,10 @@
       },
       "title": "作业实例"
     },
-    "protoScheduleListResponse": {
+    "jobScheduleListResponse": {
       "type": "object"
     },
-    "protoScheduleRequest": {
+    "jobScheduleRequest": {
       "type": "object",
       "properties": {
         "job_id": {
@@ -327,7 +336,7 @@
         }
       }
     },
-    "protoScheduleResponse": {
+    "jobScheduleResponse": {
       "type": "object"
     }
   }
