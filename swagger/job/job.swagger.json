@@ -23,7 +23,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoFilterResponse"
+              "$ref": "#/definitions/jobFilterResponse"
             }
           }
         },
@@ -61,7 +61,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoCreateResponse"
+              "$ref": "#/definitions/jobCreateResponse"
             }
           }
         },
@@ -71,7 +71,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/protoCreateRequest"
+              "$ref": "#/definitions/jobCreateRequest"
             }
           }
         ],
@@ -88,7 +88,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoGetResponse"
+              "$ref": "#/definitions/jobGetResponse"
             }
           }
         },
@@ -112,7 +112,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoDeleteResponse"
+              "$ref": "#/definitions/jobDeleteResponse"
             }
           }
         },
@@ -138,7 +138,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoGetLogResponse"
+              "$ref": "#/definitions/jobGetLogResponse"
             }
           }
         },
@@ -164,7 +164,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoScheduleListResponse"
+              "$ref": "#/definitions/jobScheduleListResponse"
             }
           }
         },
@@ -188,7 +188,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoScheduleResponse"
+              "$ref": "#/definitions/jobScheduleResponse"
             }
           }
         },
@@ -205,7 +205,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/protoScheduleRequest"
+              "$ref": "#/definitions/jobScheduleRequest"
             }
           }
         ],
@@ -256,10 +256,10 @@
       "default": "SUCCESS",
       "title": "接口状态码"
     },
-    "protoCreateRequest": {
+    "jobCreateRequest": {
       "type": "object"
     },
-    "protoCreateResponse": {
+    "jobCreateResponse": {
       "type": "object",
       "properties": {
         "job_id": {
@@ -272,16 +272,16 @@
       },
       "title": "创建作业请求返回"
     },
-    "protoDeleteResponse": {
+    "jobDeleteResponse": {
       "type": "object"
     },
-    "protoFilterResponse": {
+    "jobFilterResponse": {
       "type": "object",
       "properties": {
         "jobs": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/protoJobObject"
+            "$ref": "#/definitions/jobJobObject"
           }
         },
         "paging": {
@@ -293,7 +293,7 @@
       },
       "title": "筛选作业请求返回"
     },
-    "protoGetLogResponse": {
+    "jobGetLogResponse": {
       "type": "object",
       "properties": {
         "status": {
@@ -302,11 +302,11 @@
       },
       "title": "获取作业请求返回"
     },
-    "protoGetResponse": {
+    "jobGetResponse": {
       "type": "object",
       "properties": {
         "job": {
-          "$ref": "#/definitions/protoJobObject"
+          "$ref": "#/definitions/jobJobObject"
         },
         "status": {
           "$ref": "#/definitions/commonResponseStatus"
@@ -314,7 +314,7 @@
       },
       "title": "获取作业请求返回"
     },
-    "protoJobObject": {
+    "jobJobObject": {
       "type": "object",
       "properties": {
         "job_id": {
@@ -324,10 +324,10 @@
       },
       "title": "作业实例"
     },
-    "protoScheduleListResponse": {
+    "jobScheduleListResponse": {
       "type": "object"
     },
-    "protoScheduleRequest": {
+    "jobScheduleRequest": {
       "type": "object",
       "properties": {
         "job_id": {
@@ -336,7 +336,7 @@
         }
       }
     },
-    "protoScheduleResponse": {
+    "jobScheduleResponse": {
       "type": "object"
     }
   }

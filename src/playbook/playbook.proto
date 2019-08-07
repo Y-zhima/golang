@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package proto;
+package playbook;
 
 option go_package = "git.fogcdn.top/axe/protos/goout/playbook";
 
