@@ -11,8 +11,6 @@ import (
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
-	codes "google.golang.org/grpc/codes"
-	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -616,26 +614,6 @@ type TemplateServer interface {
 	Update(context.Context, *UpdateRequest) (*UpdateResponse, error)
 	// 删除作业模板
 	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
-}
-
-// UnimplementedTemplateServer can be embedded to have forward compatible implementations.
-type UnimplementedTemplateServer struct {
-}
-
-func (*UnimplementedTemplateServer) Create(ctx context.Context, req *CreateRequest) (*CreateResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
-}
-func (*UnimplementedTemplateServer) Filter(ctx context.Context, req *FilterRequest) (*FilterResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Filter not implemented")
-}
-func (*UnimplementedTemplateServer) Get(ctx context.Context, req *GetRequest) (*GetResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
-}
-func (*UnimplementedTemplateServer) Update(ctx context.Context, req *UpdateRequest) (*UpdateResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
-}
-func (*UnimplementedTemplateServer) Delete(ctx context.Context, req *DeleteRequest) (*DeleteResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
 
 func RegisterTemplateServer(s *grpc.Server, srv TemplateServer) {

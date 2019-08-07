@@ -11,8 +11,6 @@ import (
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
-	codes "google.golang.org/grpc/codes"
-	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -800,32 +798,6 @@ type JobServer interface {
 	GetLog(context.Context, *GetLogRequest) (*GetLogResponse, error)
 	// 删除作业任务
 	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
-}
-
-// UnimplementedJobServer can be embedded to have forward compatible implementations.
-type UnimplementedJobServer struct {
-}
-
-func (*UnimplementedJobServer) Create(ctx context.Context, req *CreateRequest) (*CreateResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
-}
-func (*UnimplementedJobServer) Schedule(ctx context.Context, req *ScheduleRequest) (*ScheduleResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Schedule not implemented")
-}
-func (*UnimplementedJobServer) ScheduleList(ctx context.Context, req *ScheduleListRequest) (*ScheduleListResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ScheduleList not implemented")
-}
-func (*UnimplementedJobServer) Filter(ctx context.Context, req *FilterRequest) (*FilterResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Filter not implemented")
-}
-func (*UnimplementedJobServer) Get(ctx context.Context, req *GetRequest) (*GetResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
-}
-func (*UnimplementedJobServer) GetLog(ctx context.Context, req *GetLogRequest) (*GetLogResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetLog not implemented")
-}
-func (*UnimplementedJobServer) Delete(ctx context.Context, req *DeleteRequest) (*DeleteResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
 
 func RegisterJobServer(s *grpc.Server, srv JobServer) {
