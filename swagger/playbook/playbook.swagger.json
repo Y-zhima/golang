@@ -378,7 +378,7 @@
     "playbookSaveVersionResponse": {
       "type": "object",
       "properties": {
-        "playbook_id": {
+        "version_id": {
           "type": "integer",
           "format": "int32"
         },
@@ -457,7 +457,20 @@
         "url": {
           "type": "string"
         },
+        "url_type": {
+          "$ref": "#/definitions/playbookUrlType"
+        },
         "version": {
+          "type": "string"
+        },
+        "md5": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string",
+          "format": "int64"
+        },
+        "created": {
           "type": "string"
         }
       },
