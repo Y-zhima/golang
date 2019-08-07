@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package proto;
+package file;
 
-option go_package = "git.fogcdn.top/axe/protos/goout/job";
+option go_package = "git.fogcdn.top/axe/protos/goout/file";
 
 import "common/api.proto";
 import "google/api/annotations.proto";
@@ -19,12 +19,12 @@ option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
     produces: "application/json"
 };
 
-// 文件管理
-service FileManager {
+// 文件服务
+service File {
     // 创建作业任务(执行作业模板)
     rpc UploadPlaybook (stream UploadPlaybookRequest) returns (UploadPlaybookResponse) {
         option (google.api.http) = {
-            post: "/v1/filemanager/uploadPlaybook"
+            post: "/v1/file/uploadPlaybook"
             body: "*"
         };
     }

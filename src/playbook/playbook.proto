@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package proto;
+package playbook;
 
 option go_package = "git.fogcdn.top/axe/protos/goout/playbook";
 
@@ -77,9 +77,11 @@ message ProjectObject {
     string name = 2;  //playbook项目名称
     string description = 3; //playbook项目描述
     string url = 4; //playbook存储在对象存储的url
-    UrlType url_type = 5; //枚举类型 0-文件下载 1-git下载
+    UrlType url_type = 5; //枚举类型 1-文件下载 2-git下载
     string version = 6; //playbook文件的版本号
     repeated string entrypoint = 7; //playbook入口yml文件，有多个
+    string md5 = 8; //文件md5
+    int64 size = 9; //文件大小
     string created = 10; //创建时间
     string updated = 11; //更新时间
 }
@@ -92,6 +94,8 @@ message CreateRequest {
     UrlType url_type = 4;
     string version = 5;
     repeated string entrypoint = 6;
+    string md5 = 7;
+    int64 size = 8;
 }
 
 // 创建项目请求返回
@@ -133,6 +137,8 @@ message UpdateRequest {
     string url = 4;
     string version = 6;
     repeated string entrypoint = 7;
+    string md5 = 8;
+    int64 size = 9;
 }
 
 // 更新项目请求返回

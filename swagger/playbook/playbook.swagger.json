@@ -23,7 +23,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoCreateResponse"
+              "$ref": "#/definitions/playbookCreateResponse"
             }
           }
         },
@@ -33,7 +33,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/protoCreateRequest"
+              "$ref": "#/definitions/playbookCreateRequest"
             }
           }
         ],
@@ -50,7 +50,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoDeleteResponse"
+              "$ref": "#/definitions/playbookDeleteResponse"
             }
           }
         },
@@ -76,7 +76,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoFilterResponse"
+              "$ref": "#/definitions/playbookFilterResponse"
             }
           }
         },
@@ -122,7 +122,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoGetResponse"
+              "$ref": "#/definitions/playbookGetResponse"
             }
           }
         },
@@ -148,7 +148,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoUpdateResponse"
+              "$ref": "#/definitions/playbookUpdateResponse"
             }
           }
         },
@@ -165,7 +165,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/protoUpdateRequest"
+              "$ref": "#/definitions/playbookUpdateRequest"
             }
           }
         ],
@@ -182,7 +182,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoVersionResponse"
+              "$ref": "#/definitions/playbookVersionResponse"
             }
           }
         },
@@ -242,7 +242,7 @@
       "default": "SUCCESS",
       "title": "接口状态码"
     },
-    "protoCreateRequest": {
+    "playbookCreateRequest": {
       "type": "object",
       "properties": {
         "name": {
@@ -255,7 +255,7 @@
           "type": "string"
         },
         "url_type": {
-          "$ref": "#/definitions/protoUrlType"
+          "$ref": "#/definitions/playbookUrlType"
         },
         "version": {
           "type": "string"
@@ -265,11 +265,18 @@
           "items": {
             "type": "string"
           }
+        },
+        "md5": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string",
+          "format": "int64"
         }
       },
       "title": "创建项目请求内容体"
     },
-    "protoCreateResponse": {
+    "playbookCreateResponse": {
       "type": "object",
       "properties": {
         "playbook_id": {
@@ -285,7 +292,7 @@
       },
       "title": "创建项目请求返回"
     },
-    "protoDeleteResponse": {
+    "playbookDeleteResponse": {
       "type": "object",
       "properties": {
         "status": {
@@ -294,13 +301,13 @@
       },
       "title": "删除记录请求返回"
     },
-    "protoFilterResponse": {
+    "playbookFilterResponse": {
       "type": "object",
       "properties": {
         "projects": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/protoProjectObject"
+            "$ref": "#/definitions/playbookProjectObject"
           }
         },
         "paging": {
@@ -312,11 +319,11 @@
       },
       "title": "筛选项目请求返回"
     },
-    "protoGetResponse": {
+    "playbookGetResponse": {
       "type": "object",
       "properties": {
         "project": {
-          "$ref": "#/definitions/protoProjectObject"
+          "$ref": "#/definitions/playbookProjectObject"
         },
         "status": {
           "$ref": "#/definitions/commonResponseStatus"
@@ -324,7 +331,7 @@
       },
       "title": "获取项目请求返回"
     },
-    "protoProjectObject": {
+    "playbookProjectObject": {
       "type": "object",
       "properties": {
         "playbook_id": {
@@ -341,7 +348,7 @@
           "type": "string"
         },
         "url_type": {
-          "$ref": "#/definitions/protoUrlType"
+          "$ref": "#/definitions/playbookUrlType"
         },
         "version": {
           "type": "string"
@@ -352,6 +359,13 @@
             "type": "string"
           }
         },
+        "md5": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string",
+          "format": "int64"
+        },
         "created": {
           "type": "string"
         },
@@ -361,7 +375,7 @@
       },
       "title": "项目实例"
     },
-    "protoSaveVersionResponse": {
+    "playbookSaveVersionResponse": {
       "type": "object",
       "properties": {
         "playbook_id": {
@@ -377,7 +391,7 @@
       },
       "title": "版本列表请求响应"
     },
-    "protoUpdateRequest": {
+    "playbookUpdateRequest": {
       "type": "object",
       "properties": {
         "playbook_id": {
@@ -401,11 +415,18 @@
           "items": {
             "type": "string"
           }
+        },
+        "md5": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string",
+          "format": "int64"
         }
       },
       "title": "更新项目请求内容体"
     },
-    "protoUpdateResponse": {
+    "playbookUpdateResponse": {
       "type": "object",
       "properties": {
         "updated": {
@@ -417,7 +438,7 @@
       },
       "title": "更新项目请求返回"
     },
-    "protoUrlType": {
+    "playbookUrlType": {
       "type": "string",
       "enum": [
         "UNDEFINED",
@@ -426,7 +447,7 @@
       ],
       "default": "UNDEFINED"
     },
-    "protoVersionObject": {
+    "playbookVersionObject": {
       "type": "object",
       "properties": {
         "playbook_id": {
@@ -442,13 +463,13 @@
       },
       "title": "版本实例"
     },
-    "protoVersionResponse": {
+    "playbookVersionResponse": {
       "type": "object",
       "properties": {
         "versions": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/protoVersionObject"
+            "$ref": "#/definitions/playbookVersionObject"
           }
         }
       },

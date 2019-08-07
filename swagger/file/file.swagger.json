@@ -1,0 +1,103 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "AXE运维API - 文件管理",
+    "description": "AXE运维平台RESTful API",
+    "version": "1.0.0"
+  },
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/file/uploadPlaybook": {
+      "post": {
+        "summary": "创建作业任务(执行作业模板)",
+        "operationId": "UploadPlaybook",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/fileUploadPlaybookResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": " (streaming inputs)",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/fileUploadPlaybookRequest"
+            }
+          }
+        ],
+        "tags": [
+          "File"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "commonResponseStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/commonStatusCode"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "接口返回状态码"
+    },
+    "commonStatusCode": {
+      "type": "string",
+      "enum": [
+        "SUCCESS",
+        "INVALID_ARGUMENT",
+        "ACCESS_DENIED"
+      ],
+      "default": "SUCCESS",
+      "title": "接口状态码"
+    },
+    "fileUploadPlaybookRequest": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "fileUploadPlaybookResponse": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "md5": {
+          "type": "string"
+        },
+        "filesize": {
+          "type": "string"
+        },
+        "entrypoint": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    }
+  }
+}
