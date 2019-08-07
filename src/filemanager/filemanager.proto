@@ -24,7 +24,7 @@ service FileManager {
     // 创建作业任务(执行作业模板)
     rpc UploadPlaybook (stream UploadPlaybookRequest) returns (UploadPlaybookResponse) {
         option (google.api.http) = {
-            put: "/v1/filemanager/upload_playbook"
+            post: "/v1/filemanager/uploadPlaybook"
             body: "*"
         };
     }
