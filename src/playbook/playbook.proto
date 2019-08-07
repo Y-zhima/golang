@@ -161,7 +161,11 @@ message DeleteResponse {
 message VersionObject {
     int32 playbook_id = 1; // playbook项目ID
     string url = 2; // playbook存储在对象存储的url
-    string version = 3; // playbook文件的版本号
+    UrlType url_type = 3; //枚举类型 1-文件下载 2-git下载
+    string version = 4; //playbook文件的版本号
+    string md5 = 5; //文件md5
+    int64 size = 6; //文件大小
+    string created = 7; //创建时间
 }
 
 // 版本列表请求内容体
@@ -178,7 +182,10 @@ message VersionResponse {
 message SaveVersionRequest {
     int32 playbook_id = 1;
     string url = 2;
-    string version = 3;
+    UrlType url_type = 3;
+    string version = 4;
+    string md5 = 5;
+    int64 size = 6;
 }
 
 // 版本列表请求响应
