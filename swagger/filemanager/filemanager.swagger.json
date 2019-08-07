@@ -15,8 +15,8 @@
     "application/json"
   ],
   "paths": {
-    "/v1/filemanager/upload_playbook": {
-      "put": {
+    "/v1/filemanager/uploadPlaybook": {
+      "post": {
         "summary": "创建作业任务(执行作业模板)",
         "operationId": "UploadPlaybook",
         "responses": {
