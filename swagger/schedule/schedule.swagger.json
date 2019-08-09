@@ -1,0 +1,573 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "AXE运维API - 定时任务",
+    "description": "AXE运维平台RESTful API",
+    "version": "1.0.0"
+  },
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/schedule/create": {
+      "post": {
+        "summary": "创建定时任务",
+        "operationId": "Create",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/scheduleCreateResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/scheduleCreateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Schedule"
+        ]
+      }
+    },
+    "/v1/schedule/delete/{schedule_id}": {
+      "post": {
+        "summary": "删除定时任务",
+        "operationId": "Delete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/scheduleDeleteResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "schedule_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Schedule"
+        ]
+      }
+    },
+    "/v1/schedule/filter": {
+      "get": {
+        "summary": "筛选定时任务",
+        "operationId": "Filter",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/scheduleFilterResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paging.total_page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paging.page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paging.per_page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "schedule_name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "OFF",
+              "ON"
+            ],
+            "default": "OFF"
+          }
+        ],
+        "tags": [
+          "Schedule"
+        ]
+      }
+    },
+    "/v1/schedule/get/{schedule_id}": {
+      "get": {
+        "summary": "获取定时任务",
+        "operationId": "Get",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/scheduleGetResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "schedule_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Schedule"
+        ]
+      }
+    },
+    "/v1/schedule/switchStatus/{schedule_id}": {
+      "post": {
+        "summary": "切换状态",
+        "operationId": "SwitchStatus",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/scheduleSwitchStatusResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "schedule_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Schedule"
+        ]
+      }
+    },
+    "/v1/schedule/update/{schedule_id}": {
+      "post": {
+        "summary": "更新定时任务",
+        "operationId": "Update",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/scheduleUpdateResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "schedule_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/scheduleUpdateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Schedule"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "cmdbBizObject": {
+      "type": "object",
+      "properties": {
+        "bk_biz_name": {
+          "type": "string"
+        }
+      }
+    },
+    "cmdbHostObject": {
+      "type": "object",
+      "properties": {
+        "bk_host_innerip": {
+          "type": "string"
+        }
+      }
+    },
+    "cmdbModuleObject": {
+      "type": "object",
+      "properties": {
+        "bk_module_name": {
+          "type": "string"
+        }
+      }
+    },
+    "cmdbSearchHostRequest": {
+      "type": "object",
+      "properties": {
+        "host": {
+          "$ref": "#/definitions/cmdbHostObject"
+        },
+        "module": {
+          "$ref": "#/definitions/cmdbModuleObject"
+        },
+        "set": {
+          "$ref": "#/definitions/cmdbSetObject"
+        },
+        "biz": {
+          "$ref": "#/definitions/cmdbBizObject"
+        }
+      },
+      "title": "查找主机请求"
+    },
+    "cmdbSetObject": {
+      "type": "object",
+      "properties": {
+        "bk_set_name": {
+          "type": "string"
+        }
+      }
+    },
+    "commonPaging": {
+      "type": "object",
+      "properties": {
+        "total_page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "per_page": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "分页"
+    },
+    "commonResponseStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/commonStatusCode"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "接口返回状态码"
+    },
+    "commonStatusCode": {
+      "type": "string",
+      "enum": [
+        "SUCCESS",
+        "INVALID_ARGUMENT",
+        "ACCESS_DENIED"
+      ],
+      "default": "SUCCESS",
+      "title": "接口状态码"
+    },
+    "playbookProjectObject": {
+      "type": "object",
+      "properties": {
+        "playbook_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "url_type": {
+          "$ref": "#/definitions/playbookUrlType"
+        },
+        "version": {
+          "type": "string"
+        },
+        "entrypoint": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "md5": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string",
+          "format": "int64"
+        },
+        "created": {
+          "type": "string"
+        },
+        "updated": {
+          "type": "string"
+        }
+      },
+      "title": "项目实例"
+    },
+    "playbookUrlType": {
+      "type": "string",
+      "enum": [
+        "UNDEFINED",
+        "FILE",
+        "GIT"
+      ],
+      "default": "UNDEFINED"
+    },
+    "scheduleCreateRequest": {
+      "type": "object",
+      "properties": {
+        "template_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "start_date": {
+          "type": "string"
+        },
+        "start_time": {
+          "type": "string"
+        },
+        "repeat_frequency": {
+          "$ref": "#/definitions/scheduleRepeatFrequency"
+        },
+        "scheduler_interval": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "scheduleCreateResponse": {
+      "type": "object",
+      "properties": {
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "created": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      },
+      "title": "创建定时任务请求返回"
+    },
+    "scheduleDeleteResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "scheduleFilterResponse": {
+      "type": "object",
+      "properties": {
+        "schedules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/scheduleScheduleObject"
+          }
+        },
+        "paging": {
+          "$ref": "#/definitions/commonPaging"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      },
+      "title": "筛选定时任务请求返回"
+    },
+    "scheduleGetResponse": {
+      "type": "object",
+      "properties": {
+        "schedule": {
+          "$ref": "#/definitions/scheduleScheduleObject"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      },
+      "title": "获取定时任务请求返回"
+    },
+    "scheduleRepeatFrequency": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "MINUTE",
+        "HOUR",
+        "DAY",
+        "WEEK",
+        "MONTH",
+        "YEAR"
+      ],
+      "default": "NONE"
+    },
+    "scheduleScheduleObject": {
+      "type": "object",
+      "properties": {
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "template": {
+          "$ref": "#/definitions/templateTemplateObject"
+        },
+        "name": {
+          "type": "string"
+        },
+        "start_date": {
+          "type": "string"
+        },
+        "start_time": {
+          "type": "string"
+        },
+        "repeat_frequency": {
+          "$ref": "#/definitions/scheduleRepeatFrequency"
+        },
+        "scheduler_interval": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "status": {
+          "$ref": "#/definitions/scheduleScheduleStatus"
+        }
+      },
+      "title": "定时任务实例"
+    },
+    "scheduleScheduleStatus": {
+      "type": "string",
+      "enum": [
+        "OFF",
+        "ON"
+      ],
+      "default": "OFF"
+    },
+    "scheduleSwitchStatusResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "scheduleUpdateRequest": {
+      "type": "object",
+      "properties": {
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "template_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "start_date": {
+          "type": "string"
+        },
+        "start_time": {
+          "type": "string"
+        },
+        "repeat_frequency": {
+          "$ref": "#/definitions/scheduleRepeatFrequency"
+        },
+        "scheduler_interval": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "scheduleUpdateResponse": {
+      "type": "object",
+      "properties": {
+        "updated": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "templateTemplateObject": {
+      "type": "object",
+      "properties": {
+        "template_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "cmdb_search_request": {
+          "$ref": "#/definitions/cmdbSearchHostRequest"
+        },
+        "playbook": {
+          "$ref": "#/definitions/playbookProjectObject"
+        },
+        "playbook_file_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "playbook_entrypoint_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "extra_var": {
+          "type": "string"
+        }
+      },
+      "title": "模板实例"
+    }
+  }
+}
