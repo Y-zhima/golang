@@ -15,7 +15,60 @@
     "application/json"
   ],
   "paths": {
-    "/v1/template": {
+    "/v1/template/create": {
+      "post": {
+        "summary": "创建作业模板",
+        "operationId": "Create",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateCreateResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/templateCreateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Template"
+        ]
+      }
+    },
+    "/v1/template/delete/{template_id}": {
+      "post": {
+        "summary": "删除作业模板",
+        "operationId": "Delete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateDeleteResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "template_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Template"
+        ]
+      }
+    },
+    "/v1/template/filter": {
       "get": {
         "summary": "筛选作业模板",
         "operationId": "Filter",
@@ -48,31 +101,12 @@
             "required": false,
             "type": "integer",
             "format": "int32"
-          }
-        ],
-        "tags": [
-          "Template"
-        ]
-      },
-      "post": {
-        "summary": "创建作业模板",
-        "operationId": "Create",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/templateCreateResponse"
-            }
-          }
-        },
-        "parameters": [
+          },
           {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/templateCreateRequest"
-            }
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -80,7 +114,7 @@
         ]
       }
     },
-    "/v1/template/{template_id}": {
+    "/v1/template/get/{template_id}": {
       "get": {
         "summary": "获取作业模板",
         "operationId": "Get",
@@ -104,32 +138,10 @@
         "tags": [
           "Template"
         ]
-      },
-      "delete": {
-        "summary": "删除作业模板",
-        "operationId": "Delete",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/templateDeleteResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "template_id",
-            "in": "path",
-            "required": true,
-            "type": "integer",
-            "format": "int32"
-          }
-        ],
-        "tags": [
-          "Template"
-        ]
-      },
-      "put": {
+      }
+    },
+    "/v1/template/update/{template_id}": {
+      "post": {
         "summary": "更新作业模板",
         "operationId": "Update",
         "responses": {
@@ -164,6 +176,56 @@
     }
   },
   "definitions": {
+    "cmdbBizObject": {
+      "type": "object",
+      "properties": {
+        "bk_biz_name": {
+          "type": "string"
+        }
+      }
+    },
+    "cmdbHostObject": {
+      "type": "object",
+      "properties": {
+        "bk_host_innerip": {
+          "type": "string"
+        }
+      }
+    },
+    "cmdbModuleObject": {
+      "type": "object",
+      "properties": {
+        "bk_module_name": {
+          "type": "string"
+        }
+      }
+    },
+    "cmdbSearchHostRequest": {
+      "type": "object",
+      "properties": {
+        "host": {
+          "$ref": "#/definitions/cmdbHostObject"
+        },
+        "module": {
+          "$ref": "#/definitions/cmdbModuleObject"
+        },
+        "set": {
+          "$ref": "#/definitions/cmdbSetObject"
+        },
+        "biz": {
+          "$ref": "#/definitions/cmdbBizObject"
+        }
+      },
+      "title": "查找主机请求"
+    },
+    "cmdbSetObject": {
+      "type": "object",
+      "properties": {
+        "bk_set_name": {
+          "type": "string"
+        }
+      }
+    },
     "commonPaging": {
       "type": "object",
       "properties": {
@@ -204,8 +266,87 @@
       "default": "SUCCESS",
       "title": "接口状态码"
     },
+    "playbookProjectObject": {
+      "type": "object",
+      "properties": {
+        "playbook_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "url_type": {
+          "$ref": "#/definitions/playbookUrlType"
+        },
+        "version": {
+          "type": "string"
+        },
+        "entrypoint": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "md5": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string",
+          "format": "int64"
+        },
+        "created": {
+          "type": "string"
+        },
+        "updated": {
+          "type": "string"
+        }
+      },
+      "title": "项目实例"
+    },
+    "playbookUrlType": {
+      "type": "string",
+      "enum": [
+        "UNDEFINED",
+        "FILE",
+        "GIT"
+      ],
+      "default": "UNDEFINED"
+    },
     "templateCreateRequest": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "cmdb_search_request": {
+          "$ref": "#/definitions/cmdbSearchHostRequest"
+        },
+        "playbook_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "playbook_file_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "playbook_entrypoint_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "extra_var": {
+          "type": "string"
+        }
+      }
     },
     "templateCreateResponse": {
       "type": "object",
@@ -214,6 +355,9 @@
           "type": "integer",
           "format": "int32"
         },
+        "created": {
+          "type": "string"
+        },
         "status": {
           "$ref": "#/definitions/commonResponseStatus"
         }
@@ -221,7 +365,12 @@
       "title": "创建模板请求返回"
     },
     "templateDeleteResponse": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
     },
     "templateFilterResponse": {
       "type": "object",
@@ -259,6 +408,29 @@
         "template_id": {
           "type": "integer",
           "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "cmdb_search_request": {
+          "$ref": "#/definitions/cmdbSearchHostRequest"
+        },
+        "playbook": {
+          "$ref": "#/definitions/playbookProjectObject"
+        },
+        "playbook_file_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "playbook_entrypoint_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "extra_var": {
+          "type": "string"
         }
       },
       "title": "模板实例"
@@ -269,11 +441,43 @@
         "template_id": {
           "type": "integer",
           "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "cmdb_search_request": {
+          "$ref": "#/definitions/cmdbSearchHostRequest"
+        },
+        "playbook_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "playbook_file_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "entrypoint_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "extra_var": {
+          "type": "string"
         }
       }
     },
     "templateUpdateResponse": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "updated": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
     }
   }
 }
