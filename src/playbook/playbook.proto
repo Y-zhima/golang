@@ -135,6 +135,7 @@ message UpdateRequest {
     string name = 2;
     string description = 3;
     string url = 4;
+    UrlType url_type = 5;
     string version = 6;
     repeated string entrypoint = 7;
     string md5 = 8;
@@ -157,15 +158,21 @@ message DeleteResponse {
     common.ResponseStatus status = 1;
 }
 
+message PlaybookEntrypointObject {
+    int32 playbook_entrypoint_id = 1; // 入口文件ID
+    string name = 2; // 入口文件名称
+}
+
 // 版本实例
 message VersionObject {
-    int32 playbook_id = 1; // playbook项目ID
+    int32 playbook_file_id = 1; // playbook项目ID
     string url = 2; // playbook存储在对象存储的url
-    UrlType url_type = 3; //枚举类型 1-文件下载 2-git下载
-    string version = 4; //playbook文件的版本号
-    string md5 = 5; //文件md5
-    int64 size = 6; //文件大小
-    string created = 7; //创建时间
+    UrlType url_type = 3; // 枚举类型 1-文件下载 2-git下载
+    string version = 4; // playbook文件的版本号
+    string md5 = 5; // 文件md5
+    int64 size = 6; // 文件大小
+    string created = 7; // 创建时间
+    repeated PlaybookEntrypointObject entrypoint = 8; // playbook入口文件对象
 }
 
 // 版本列表请求内容体
@@ -186,6 +193,7 @@ message SaveVersionRequest {
     string version = 4;
     string md5 = 5;
     int64 size = 6;
+    repeated string entrypoint = 7;
 }
 
 // 版本列表请求响应

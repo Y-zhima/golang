@@ -1,0 +1,1075 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "title": "common/api.proto",
+    "version": "version not set"
+  },
+  "paths": {
+    "/v1/file/uploadPlaybook": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "创建作业任务(执行作业模板)",
+        "operationId": "UploadPlaybook",
+        "parameters": [
+          {
+            "description": " (streaming inputs)",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/fileUploadPlaybookRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/fileUploadPlaybookResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/greeter/SayHello": {
+      "get": {
+        "tags": [
+          "Greeter"
+        ],
+        "summary": "Sends a greeting",
+        "operationId": "SayHello",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "name",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/greeterHelloReply"
+            }
+          }
+        }
+      }
+    },
+    "/v1/job": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "summary": "筛选作业任务",
+        "operationId": "Filter",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "paging.total_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "paging.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "paging.per_page",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/jobFilterResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Job"
+        ],
+        "summary": "创建作业任务(执行作业模板)",
+        "operationId": "Create",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/jobCreateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/jobCreateResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/job/{job_id}": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "summary": "获取作业任务",
+        "operationId": "Get",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "job_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/jobGetResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Job"
+        ],
+        "summary": "删除作业任务",
+        "operationId": "Delete",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "job_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/jobDeleteResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/job/{job_id}/logs": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "summary": "获取作业任务详细执行过程",
+        "operationId": "GetLog",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "job_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/jobGetLogResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/job/{job_id}/schedule": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "summary": "查看定时作业任务",
+        "operationId": "ScheduleList",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "job_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/jobScheduleListResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Job"
+        ],
+        "summary": "创建定时作业任务",
+        "operationId": "Schedule",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "job_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/jobScheduleRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/jobScheduleResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/playbook/create": {
+      "post": {
+        "tags": [
+          "Playbook"
+        ],
+        "summary": "创建playbook项目",
+        "operationId": "CreateMixin3",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/playbookCreateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/playbookCreateResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/playbook/delete/{playbook_id}": {
+      "post": {
+        "tags": [
+          "Playbook"
+        ],
+        "summary": "删除playbook项目",
+        "operationId": "DeleteMixin3",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "playbook_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/playbookDeleteResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/playbook/filter": {
+      "get": {
+        "tags": [
+          "Playbook"
+        ],
+        "summary": "筛选playbook项目",
+        "operationId": "FilterMixin3",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "paging.total_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "paging.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "paging.per_page",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "keyword",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/playbookFilterResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/playbook/get/{playbook_id}": {
+      "get": {
+        "tags": [
+          "Playbook"
+        ],
+        "summary": "获取playbook项目",
+        "operationId": "GetMixin3",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "playbook_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/playbookGetResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/playbook/update/{playbook_id}": {
+      "post": {
+        "tags": [
+          "Playbook"
+        ],
+        "summary": "更新playbook项目",
+        "operationId": "Update",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "playbook_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/playbookUpdateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/playbookUpdateResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/playbook/version/{playbook_id}": {
+      "get": {
+        "tags": [
+          "Playbook"
+        ],
+        "summary": "playbook 版本列表",
+        "operationId": "Version",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "playbook_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/playbookVersionResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/template": {
+      "get": {
+        "tags": [
+          "Template"
+        ],
+        "summary": "筛选作业模板",
+        "operationId": "FilterMixin4",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "paging.total_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "paging.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "paging.per_page",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateFilterResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Template"
+        ],
+        "summary": "创建作业模板",
+        "operationId": "CreateMixin4",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/templateCreateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateCreateResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/template/{template_id}": {
+      "get": {
+        "tags": [
+          "Template"
+        ],
+        "summary": "获取作业模板",
+        "operationId": "GetMixin4",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "template_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateGetResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Template"
+        ],
+        "summary": "更新作业模板",
+        "operationId": "UpdateMixin4",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "template_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/templateUpdateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateUpdateResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Template"
+        ],
+        "summary": "删除作业模板",
+        "operationId": "DeleteMixin4",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "template_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateDeleteResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "commonPaging": {
+      "type": "object",
+      "title": "分页",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "per_page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total_page": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "commonResponseStatus": {
+      "type": "object",
+      "title": "接口返回状态码",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/commonStatusCode"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "commonStatusCode": {
+      "type": "string",
+      "title": "接口状态码",
+      "default": "SUCCESS",
+      "enum": [
+        "SUCCESS",
+        "INVALID_ARGUMENT",
+        "ACCESS_DENIED"
+      ]
+    },
+    "fileUploadPlaybookRequest": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "fileUploadPlaybookResponse": {
+      "type": "object",
+      "properties": {
+        "entrypoint": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "filesize": {
+          "type": "string"
+        },
+        "md5": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "greeterHelloReply": {
+      "type": "object",
+      "title": "The response message containing the greetings",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "jobCreateRequest": {
+      "type": "object"
+    },
+    "jobCreateResponse": {
+      "type": "object",
+      "title": "创建作业请求返回",
+      "properties": {
+        "job_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "jobDeleteResponse": {
+      "type": "object"
+    },
+    "jobFilterResponse": {
+      "type": "object",
+      "title": "筛选作业请求返回",
+      "properties": {
+        "jobs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/jobJobObject"
+          }
+        },
+        "paging": {
+          "$ref": "#/definitions/commonPaging"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "jobGetLogResponse": {
+      "type": "object",
+      "title": "获取作业请求返回",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "jobGetResponse": {
+      "type": "object",
+      "title": "获取作业请求返回",
+      "properties": {
+        "job": {
+          "$ref": "#/definitions/jobJobObject"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "jobJobObject": {
+      "type": "object",
+      "title": "作业实例",
+      "properties": {
+        "job_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "jobScheduleListResponse": {
+      "type": "object"
+    },
+    "jobScheduleRequest": {
+      "type": "object",
+      "properties": {
+        "job_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "jobScheduleResponse": {
+      "type": "object"
+    },
+    "playbookCreateRequest": {
+      "type": "object",
+      "title": "创建项目请求内容体",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "entrypoint": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "md5": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string",
+          "format": "int64"
+        },
+        "url": {
+          "type": "string"
+        },
+        "url_type": {
+          "$ref": "#/definitions/playbookUrlType"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "playbookCreateResponse": {
+      "type": "object",
+      "title": "创建项目请求返回",
+      "properties": {
+        "created": {
+          "type": "string"
+        },
+        "playbook_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "playbookDeleteResponse": {
+      "type": "object",
+      "title": "删除记录请求返回",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "playbookFilterResponse": {
+      "type": "object",
+      "title": "筛选项目请求返回",
+      "properties": {
+        "paging": {
+          "$ref": "#/definitions/commonPaging"
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/playbookProjectObject"
+          }
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "playbookGetResponse": {
+      "type": "object",
+      "title": "获取项目请求返回",
+      "properties": {
+        "project": {
+          "$ref": "#/definitions/playbookProjectObject"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "playbookProjectObject": {
+      "type": "object",
+      "title": "项目实例",
+      "properties": {
+        "created": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "entrypoint": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "md5": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "playbook_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "size": {
+          "type": "string",
+          "format": "int64"
+        },
+        "updated": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "url_type": {
+          "$ref": "#/definitions/playbookUrlType"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "playbookSaveVersionResponse": {
+      "type": "object",
+      "title": "版本列表请求响应",
+      "properties": {
+        "created": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "version_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "playbookUpdateRequest": {
+      "type": "object",
+      "title": "更新项目请求内容体",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "entrypoint": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "md5": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "playbook_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "size": {
+          "type": "string",
+          "format": "int64"
+        },
+        "url": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "playbookUpdateResponse": {
+      "type": "object",
+      "title": "更新项目请求返回",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "updated": {
+          "type": "string"
+        }
+      }
+    },
+    "playbookUrlType": {
+      "type": "string",
+      "default": "UNDEFINED",
+      "enum": [
+        "UNDEFINED",
+        "FILE",
+        "GIT"
+      ]
+    },
+    "playbookVersionObject": {
+      "type": "object",
+      "title": "版本实例",
+      "properties": {
+        "created": {
+          "type": "string"
+        },
+        "md5": {
+          "type": "string"
+        },
+        "playbook_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "size": {
+          "type": "string",
+          "format": "int64"
+        },
+        "url": {
+          "type": "string"
+        },
+        "url_type": {
+          "$ref": "#/definitions/playbookUrlType"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "playbookVersionResponse": {
+      "type": "object",
+      "title": "版本列表请求响应",
+      "properties": {
+        "versions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/playbookVersionObject"
+          }
+        }
+      }
+    },
+    "templateCreateRequest": {
+      "type": "object"
+    },
+    "templateCreateResponse": {
+      "type": "object",
+      "title": "创建模板请求返回",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "template_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "templateDeleteResponse": {
+      "type": "object"
+    },
+    "templateFilterResponse": {
+      "type": "object",
+      "title": "筛选模板请求返回",
+      "properties": {
+        "paging": {
+          "$ref": "#/definitions/commonPaging"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "templates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/templateTemplateObject"
+          }
+        }
+      }
+    },
+    "templateGetResponse": {
+      "type": "object",
+      "title": "获取模板请求返回",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "template": {
+          "$ref": "#/definitions/templateTemplateObject"
+        }
+      }
+    },
+    "templateTemplateObject": {
+      "type": "object",
+      "title": "模板实例",
+      "properties": {
+        "template_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "templateUpdateRequest": {
+      "type": "object",
+      "properties": {
+        "template_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "templateUpdateResponse": {
+      "type": "object"
+    }
+  }
+}
