@@ -1,0 +1,226 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "AXE运维API - 定时任务",
+    "description": "AXE运维平台RESTful API",
+    "version": "1.0.0"
+  },
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/cmdb/instanceTopology": {
+      "get": {
+        "summary": "实例拓扑",
+        "operationId": "InstanceTopology",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbInstanceTopologyResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "level",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Cmdb"
+        ]
+      }
+    },
+    "/v1/cmdb/searchHost": {
+      "get": {
+        "summary": "查找主机",
+        "operationId": "SearchHost",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbSearchHostResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "host.bk_host_innerip",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "module.bk_module_name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "set.bk_set_name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "biz.bk_biz_name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cmdb"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "cmdbBizObject": {
+      "type": "object",
+      "properties": {
+        "bk_biz_name": {
+          "type": "string"
+        }
+      }
+    },
+    "cmdbHostInfoObject": {
+      "type": "object",
+      "properties": {
+        "host": {
+          "$ref": "#/definitions/cmdbHostObject"
+        },
+        "module": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbModuleObject"
+          }
+        },
+        "set": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbSetObject"
+          }
+        },
+        "biz": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbBizObject"
+          }
+        }
+      }
+    },
+    "cmdbHostObject": {
+      "type": "object",
+      "properties": {
+        "bk_host_innerip": {
+          "type": "string"
+        }
+      }
+    },
+    "cmdbInstanceTopologyResponse": {
+      "type": "object",
+      "properties": {
+        "instance": {
+          "$ref": "#/definitions/cmdbTopologyObject"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      },
+      "title": "拓扑实例请求返回"
+    },
+    "cmdbModuleObject": {
+      "type": "object",
+      "properties": {
+        "bk_module_name": {
+          "type": "string"
+        }
+      }
+    },
+    "cmdbSearchHostResponse": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "info": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbHostInfoObject"
+          }
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      },
+      "title": "查找主机请求返回"
+    },
+    "cmdbSetObject": {
+      "type": "object",
+      "properties": {
+        "bk_set_name": {
+          "type": "string"
+        }
+      }
+    },
+    "cmdbTopologyObject": {
+      "type": "object",
+      "properties": {
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "bk_inst_name": {
+          "type": "string"
+        },
+        "bk_obj_id": {
+          "type": "string"
+        },
+        "bk_obj_name": {
+          "type": "string"
+        },
+        "child": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbTopologyObject"
+          }
+        }
+      },
+      "title": "业务拓扑对象"
+    },
+    "commonResponseStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/commonStatusCode"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "接口返回状态码"
+    },
+    "commonStatusCode": {
+      "type": "string",
+      "enum": [
+        "SUCCESS",
+        "INVALID_ARGUMENT",
+        "ACCESS_DENIED"
+      ],
+      "default": "SUCCESS",
+      "title": "接口状态码"
+    }
+  }
+}

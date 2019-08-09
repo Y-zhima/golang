@@ -252,7 +252,7 @@ func RegisterTemplateHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 
 	})
 
-	mux.Handle("PUT", pattern_Template_Update_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Template_Update_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -272,7 +272,7 @@ func RegisterTemplateHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 
 	})
 
-	mux.Handle("DELETE", pattern_Template_Delete_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Template_Delete_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -296,15 +296,15 @@ func RegisterTemplateHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 }
 
 var (
-	pattern_Template_Create_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "template"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Template_Create_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "template", "create"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Template_Filter_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "template"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Template_Filter_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "template", "filter"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Template_Get_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "template", "template_id"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Template_Get_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"v1", "template", "get", "template_id"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Template_Update_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "template", "template_id"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Template_Update_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"v1", "template", "update", "template_id"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Template_Delete_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "template", "template_id"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Template_Delete_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"v1", "template", "delete", "template_id"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (

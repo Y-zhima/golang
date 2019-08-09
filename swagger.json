@@ -11,16 +11,81 @@
   ],
   "swagger": "2.0",
   "info": {
-    "title": "common/api.proto",
-    "version": "version not set"
+    "description": "AXE运维平台RESTful API",
+    "title": "AXE运维API - 定时任务",
+    "version": "1.0.0"
   },
   "paths": {
+    "/v1/cmdb/instanceTopology": {
+      "get": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "实例拓扑",
+        "operationId": "InstanceTopology",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "level",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbInstanceTopologyResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/searchHost": {
+      "get": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "查找主机",
+        "operationId": "SearchHost",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "host.bk_host_innerip",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "module.bk_module_name",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "set.bk_set_name",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "biz.bk_biz_name",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbSearchHostResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/file/uploadPlaybook": {
       "post": {
         "tags": [
           "File"
         ],
-        "summary": "创建作业任务(执行作业模板)",
+        "summary": "上传playbook压缩包并且解析入口yml文件",
         "operationId": "UploadPlaybook",
         "parameters": [
           {
@@ -269,7 +334,7 @@
           "Playbook"
         ],
         "summary": "创建playbook项目",
-        "operationId": "CreateMixin3",
+        "operationId": "CreateMixin4",
         "parameters": [
           {
             "name": "body",
@@ -296,7 +361,7 @@
           "Playbook"
         ],
         "summary": "删除playbook项目",
-        "operationId": "DeleteMixin3",
+        "operationId": "DeleteMixin4",
         "parameters": [
           {
             "type": "integer",
@@ -322,7 +387,7 @@
           "Playbook"
         ],
         "summary": "筛选playbook项目",
-        "operationId": "FilterMixin3",
+        "operationId": "FilterMixin4",
         "parameters": [
           {
             "type": "integer",
@@ -364,7 +429,7 @@
           "Playbook"
         ],
         "summary": "获取playbook项目",
-        "operationId": "GetMixin3",
+        "operationId": "GetMixin4",
         "parameters": [
           {
             "type": "integer",
@@ -444,13 +509,66 @@
         }
       }
     },
-    "/v1/template": {
+    "/v1/schedule/create": {
+      "post": {
+        "tags": [
+          "Schedule"
+        ],
+        "summary": "创建定时任务",
+        "operationId": "CreateMixin5",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/scheduleCreateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/scheduleCreateResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/schedule/delete/{schedule_id}": {
+      "post": {
+        "tags": [
+          "Schedule"
+        ],
+        "summary": "删除定时任务",
+        "operationId": "DeleteMixin5",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "schedule_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/scheduleDeleteResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/schedule/filter": {
       "get": {
         "tags": [
-          "Template"
+          "Schedule"
         ],
-        "summary": "筛选作业模板",
-        "operationId": "FilterMixin4",
+        "summary": "筛选定时任务",
+        "operationId": "FilterMixin5",
         "parameters": [
           {
             "type": "integer",
@@ -469,23 +587,126 @@
             "format": "int32",
             "name": "paging.per_page",
             "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "schedule_name",
+            "in": "query"
+          },
+          {
+            "enum": [
+              "OFF",
+              "ON"
+            ],
+            "type": "string",
+            "default": "OFF",
+            "name": "status",
+            "in": "query"
           }
         ],
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/templateFilterResponse"
+              "$ref": "#/definitions/scheduleFilterResponse"
             }
           }
         }
-      },
+      }
+    },
+    "/v1/schedule/get/{schedule_id}": {
+      "get": {
+        "tags": [
+          "Schedule"
+        ],
+        "summary": "获取定时任务",
+        "operationId": "GetMixin5",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "schedule_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/scheduleGetResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/schedule/switchStatus/{schedule_id}": {
+      "post": {
+        "tags": [
+          "Schedule"
+        ],
+        "summary": "切换状态",
+        "operationId": "SwitchStatus",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "schedule_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/scheduleSwitchStatusResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/schedule/update/{schedule_id}": {
+      "post": {
+        "tags": [
+          "Schedule"
+        ],
+        "summary": "更新定时任务",
+        "operationId": "UpdateMixin5",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "schedule_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/scheduleUpdateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/scheduleUpdateResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/template/create": {
       "post": {
         "tags": [
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin4",
+        "operationId": "CreateMixin6",
         "parameters": [
           {
             "name": "body",
@@ -506,13 +727,81 @@
         }
       }
     },
-    "/v1/template/{template_id}": {
+    "/v1/template/delete/{template_id}": {
+      "post": {
+        "tags": [
+          "Template"
+        ],
+        "summary": "删除作业模板",
+        "operationId": "DeleteMixin6",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "template_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateDeleteResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/template/filter": {
+      "get": {
+        "tags": [
+          "Template"
+        ],
+        "summary": "筛选作业模板",
+        "operationId": "FilterMixin6",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "paging.total_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "paging.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "name": "paging.per_page",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateFilterResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/template/get/{template_id}": {
       "get": {
         "tags": [
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin4",
+        "operationId": "GetMixin6",
         "parameters": [
           {
             "type": "integer",
@@ -530,13 +819,15 @@
             }
           }
         }
-      },
-      "put": {
+      }
+    },
+    "/v1/template/update/{template_id}": {
+      "post": {
         "tags": [
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin4",
+        "operationId": "UpdateMixin6",
         "parameters": [
           {
             "type": "integer",
@@ -562,34 +853,142 @@
             }
           }
         }
-      },
-      "delete": {
-        "tags": [
-          "Template"
-        ],
-        "summary": "删除作业模板",
-        "operationId": "DeleteMixin4",
-        "parameters": [
-          {
-            "type": "integer",
-            "format": "int32",
-            "name": "template_id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/templateDeleteResponse"
-            }
-          }
-        }
       }
     }
   },
   "definitions": {
+    "cmdbBizObject": {
+      "type": "object",
+      "properties": {
+        "bk_biz_name": {
+          "type": "string"
+        }
+      }
+    },
+    "cmdbHostInfoObject": {
+      "type": "object",
+      "properties": {
+        "biz": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbBizObject"
+          }
+        },
+        "host": {
+          "$ref": "#/definitions/cmdbHostObject"
+        },
+        "module": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbModuleObject"
+          }
+        },
+        "set": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbSetObject"
+          }
+        }
+      }
+    },
+    "cmdbHostObject": {
+      "type": "object",
+      "properties": {
+        "bk_host_innerip": {
+          "type": "string"
+        }
+      }
+    },
+    "cmdbInstanceTopologyResponse": {
+      "type": "object",
+      "title": "拓扑实例请求返回",
+      "properties": {
+        "instance": {
+          "$ref": "#/definitions/cmdbTopologyObject"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbModuleObject": {
+      "type": "object",
+      "properties": {
+        "bk_module_name": {
+          "type": "string"
+        }
+      }
+    },
+    "cmdbSearchHostRequest": {
+      "type": "object",
+      "title": "查找主机请求",
+      "properties": {
+        "biz": {
+          "$ref": "#/definitions/cmdbBizObject"
+        },
+        "host": {
+          "$ref": "#/definitions/cmdbHostObject"
+        },
+        "module": {
+          "$ref": "#/definitions/cmdbModuleObject"
+        },
+        "set": {
+          "$ref": "#/definitions/cmdbSetObject"
+        }
+      }
+    },
+    "cmdbSearchHostResponse": {
+      "type": "object",
+      "title": "查找主机请求返回",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "info": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbHostInfoObject"
+          }
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbSetObject": {
+      "type": "object",
+      "properties": {
+        "bk_set_name": {
+          "type": "string"
+        }
+      }
+    },
+    "cmdbTopologyObject": {
+      "type": "object",
+      "title": "业务拓扑对象",
+      "properties": {
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "bk_inst_name": {
+          "type": "string"
+        },
+        "bk_obj_id": {
+          "type": "string"
+        },
+        "bk_obj_name": {
+          "type": "string"
+        },
+        "child": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbTopologyObject"
+          }
+        }
+      }
+    },
     "commonPaging": {
       "type": "object",
       "title": "分页",
@@ -843,6 +1242,18 @@
         }
       }
     },
+    "playbookPlaybookEntrypointObject": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "playbook_entrypoint_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
     "playbookProjectObject": {
       "type": "object",
       "title": "项目实例",
@@ -933,6 +1344,9 @@
         "url": {
           "type": "string"
         },
+        "url_type": {
+          "$ref": "#/definitions/playbookUrlType"
+        },
         "version": {
           "type": "string"
         }
@@ -966,10 +1380,16 @@
         "created": {
           "type": "string"
         },
+        "entrypoint": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/playbookPlaybookEntrypointObject"
+          }
+        },
         "md5": {
           "type": "string"
         },
-        "playbook_id": {
+        "playbook_file_id": {
           "type": "integer",
           "format": "int32"
         },
@@ -1000,13 +1420,222 @@
         }
       }
     },
+    "scheduleCreateRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "repeat_frequency": {
+          "$ref": "#/definitions/scheduleRepeatFrequency"
+        },
+        "scheduler_interval": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "start_date": {
+          "type": "string"
+        },
+        "start_time": {
+          "type": "string"
+        },
+        "template_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "scheduleCreateResponse": {
+      "type": "object",
+      "title": "创建定时任务请求返回",
+      "properties": {
+        "created": {
+          "type": "string"
+        },
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "scheduleDeleteResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "scheduleFilterResponse": {
+      "type": "object",
+      "title": "筛选定时任务请求返回",
+      "properties": {
+        "paging": {
+          "$ref": "#/definitions/commonPaging"
+        },
+        "schedules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/scheduleScheduleObject"
+          }
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "scheduleGetResponse": {
+      "type": "object",
+      "title": "获取定时任务请求返回",
+      "properties": {
+        "schedule": {
+          "$ref": "#/definitions/scheduleScheduleObject"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "scheduleRepeatFrequency": {
+      "type": "string",
+      "default": "NONE",
+      "enum": [
+        "NONE",
+        "MINUTE",
+        "HOUR",
+        "DAY",
+        "WEEK",
+        "MONTH",
+        "YEAR"
+      ]
+    },
+    "scheduleScheduleObject": {
+      "type": "object",
+      "title": "定时任务实例",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "repeat_frequency": {
+          "$ref": "#/definitions/scheduleRepeatFrequency"
+        },
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "scheduler_interval": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "start_date": {
+          "type": "string"
+        },
+        "start_time": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/scheduleScheduleStatus"
+        },
+        "template": {
+          "$ref": "#/definitions/templateTemplateObject"
+        }
+      }
+    },
+    "scheduleScheduleStatus": {
+      "type": "string",
+      "default": "OFF",
+      "enum": [
+        "OFF",
+        "ON"
+      ]
+    },
+    "scheduleSwitchStatusResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "scheduleUpdateRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "repeat_frequency": {
+          "$ref": "#/definitions/scheduleRepeatFrequency"
+        },
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "scheduler_interval": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "start_date": {
+          "type": "string"
+        },
+        "start_time": {
+          "type": "string"
+        },
+        "template_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "scheduleUpdateResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "updated": {
+          "type": "string"
+        }
+      }
+    },
     "templateCreateRequest": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "cmdb_search_request": {
+          "$ref": "#/definitions/cmdbSearchHostRequest"
+        },
+        "description": {
+          "type": "string"
+        },
+        "extra_var": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "playbook_entrypoint_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "playbook_file_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "playbook_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
     },
     "templateCreateResponse": {
       "type": "object",
       "title": "创建模板请求返回",
       "properties": {
+        "created": {
+          "type": "string"
+        },
         "status": {
           "$ref": "#/definitions/commonResponseStatus"
         },
@@ -1017,7 +1646,12 @@
       }
     },
     "templateDeleteResponse": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
     },
     "templateFilterResponse": {
       "type": "object",
@@ -1053,6 +1687,29 @@
       "type": "object",
       "title": "模板实例",
       "properties": {
+        "cmdb_search_request": {
+          "$ref": "#/definitions/cmdbSearchHostRequest"
+        },
+        "description": {
+          "type": "string"
+        },
+        "extra_var": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "playbook": {
+          "$ref": "#/definitions/playbookProjectObject"
+        },
+        "playbook_entrypoint_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "playbook_file_id": {
+          "type": "integer",
+          "format": "int32"
+        },
         "template_id": {
           "type": "integer",
           "format": "int32"
@@ -1062,6 +1719,30 @@
     "templateUpdateRequest": {
       "type": "object",
       "properties": {
+        "cmdb_search_request": {
+          "$ref": "#/definitions/cmdbSearchHostRequest"
+        },
+        "description": {
+          "type": "string"
+        },
+        "entrypoint_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "extra_var": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "playbook_file_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "playbook_id": {
+          "type": "integer",
+          "format": "int32"
+        },
         "template_id": {
           "type": "integer",
           "format": "int32"
@@ -1069,7 +1750,15 @@
       }
     },
     "templateUpdateResponse": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "updated": {
+          "type": "string"
+        }
+      }
     }
   }
 }

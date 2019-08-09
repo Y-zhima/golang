@@ -7,6 +7,8 @@ option go_package = "git.fogcdn.top/axe/protos/goout/template";
 import "common/api.proto";
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
+import "playbook/playbook.proto";
+import "cmdb/cmdb.proto";
 
 option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
     info: {
@@ -24,50 +26,64 @@ service Template {
     // 创建作业模板
     rpc Create (CreateRequest) returns (CreateResponse) {
         option (google.api.http) = {
-            post: "/v1/template"
+            post: "/v1/template/create"
             body: "*"
         };
     }
     // 筛选作业模板
     rpc Filter (FilterRequest) returns (FilterResponse) {
         option (google.api.http) = {
-            get: "/v1/template"
+            get: "/v1/template/filter"
         };
     }
     // 获取作业模板
     rpc Get (GetRequest) returns (GetResponse) {
         option (google.api.http) = {
-            get: "/v1/template/{template_id}"
+            get: "/v1/template/get/{template_id}"
         };
     }
     // 更新作业模板
     rpc Update (UpdateRequest) returns (UpdateResponse) {
         option (google.api.http) = {
-            put: "/v1/template/{template_id}"
+            post: "/v1/template/update/{template_id}"
             body: "*"
         };
     }
     // 删除作业模板
     rpc Delete (DeleteRequest) returns (DeleteResponse) {
         option (google.api.http) = {
-            delete: "/v1/template/{template_id}"
+            post: "/v1/template/delete/{template_id}"
         };
     }
 }
 
 // 模板实例
 message TemplateObject {
-    int32 template_id = 1;
+    int32 template_id = 1; // 模板ID
+    string name = 2; // 模板名
+    string description = 3; // 模板描述
+    cmdb.SearchHostRequest cmdb_search_request = 4; // 主机查询条件
+    playbook.ProjectObject playbook = 5; // playbook 项目
+    int32 playbook_file_id = 6;
+    int32 playbook_entrypoint_id = 7; // 选择的playbook入口yml文件
+    string extra_var = 8; // 额外变量
 }
 
 message CreateRequest {
-
+    string name = 1;
+    string description = 2;
+    cmdb.SearchHostRequest cmdb_search_request = 3;
+    int32 playbook_id = 4;
+    int32 playbook_file_id = 5;
+    int32 playbook_entrypoint_id = 6;
+    string extra_var = 7;
 }
 
 // 创建模板请求返回
 message CreateResponse {
     int32 template_id = 1;
-    common.ResponseStatus status = 2;
+    string created = 2;
+    common.ResponseStatus status = 3;
 }
 
 message GetRequest {
@@ -83,6 +99,7 @@ message GetResponse {
 // 筛选模板请求
 message FilterRequest {
     common.Paging paging = 1;
+    string name = 2;
 }
 
 // 筛选模板请求返回
@@ -94,10 +111,18 @@ message FilterResponse {
 
 message UpdateRequest {
     int32 template_id = 1;
+    string name = 2;
+    string description = 3;
+    cmdb.SearchHostRequest cmdb_search_request = 4;
+    int32 playbook_id = 5;
+    int32 playbook_file_id = 6;
+    int32 entrypoint_id = 7;
+    string extra_var = 8;
 }
 
 message UpdateResponse {
-
+    string updated = 1;
+    common.ResponseStatus status = 2;
 }
 
 message DeleteRequest {
@@ -105,5 +130,5 @@ message DeleteRequest {
 }
 
 message DeleteResponse {
-
+    common.ResponseStatus status = 1;
 }
