@@ -11,6 +11,8 @@ import (
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -1249,6 +1251,32 @@ type PlaybookServer interface {
 	Version(context.Context, *VersionRequest) (*VersionResponse, error)
 	// 保存 playbook 版本
 	SaveVersion(context.Context, *SaveVersionRequest) (*SaveVersionResponse, error)
+}
+
+// UnimplementedPlaybookServer can be embedded to have forward compatible implementations.
+type UnimplementedPlaybookServer struct {
+}
+
+func (*UnimplementedPlaybookServer) Create(ctx context.Context, req *CreateRequest) (*CreateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+}
+func (*UnimplementedPlaybookServer) Filter(ctx context.Context, req *FilterRequest) (*FilterResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Filter not implemented")
+}
+func (*UnimplementedPlaybookServer) Get(ctx context.Context, req *GetRequest) (*GetResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
+}
+func (*UnimplementedPlaybookServer) Update(ctx context.Context, req *UpdateRequest) (*UpdateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
+}
+func (*UnimplementedPlaybookServer) Delete(ctx context.Context, req *DeleteRequest) (*DeleteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
+}
+func (*UnimplementedPlaybookServer) Version(ctx context.Context, req *VersionRequest) (*VersionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Version not implemented")
+}
+func (*UnimplementedPlaybookServer) SaveVersion(ctx context.Context, req *SaveVersionRequest) (*SaveVersionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SaveVersion not implemented")
 }
 
 func RegisterPlaybookServer(s *grpc.Server, srv PlaybookServer) {

@@ -1,12 +1,12 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "AXE运维API - 文件管理",
-    "description": "AXE运维平台RESTful API",
-    "version": "1.0.0"
+    "title": "file/file.proto",
+    "version": "version not set"
   },
   "schemes": [
-    "http"
+    "http",
+    "https"
   ],
   "consumes": [
     "application/json"
@@ -17,7 +17,7 @@
   "paths": {
     "/v1/file/uploadPlaybook": {
       "post": {
-        "summary": "创建作业任务(执行作业模板)",
+        "summary": "上传playbook压缩包并且解析入口yml文件",
         "operationId": "UploadPlaybook",
         "responses": {
           "200": {

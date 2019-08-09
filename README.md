@@ -39,16 +39,8 @@ docker run -it -v $(PWD):/opt/protos 192.168.0.103:8080/axe/protos:v0.0.1 sh gen
 2. `swagger`: 根据`proto`生成的swagger json文件
 
 #### swagger ui
-参考: http://aloyzh.com/2018/06/go-integrate-swagger
-
-1. 合并swagger json
 ```
-swagger mixin swagger/playbook/playbook.swagger.json
-```
-
-2. swagger serve
-```
-swagger serve swagger.json -Fswagger
+make swagger-ui
 ```
 
 ## 提交
