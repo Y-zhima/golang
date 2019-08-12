@@ -3,6 +3,7 @@ syntax = "proto3";
 package cmdb;
 
 option go_package = "git.fogcdn.top/axe/protos/goout/cmdb";
+option java_package = "top.fogcdn.axe.protos.cmdb";
 
 import "common/api.proto";
 import "google/api/annotations.proto";

@@ -22,5 +22,4 @@ swagger-ui:
 	swagger serve swagger.json -Fswagger
 
 clean:
-	@rm -rf goout
-	@rm -rf swagger
+	@rm -rf goout javaout swagger

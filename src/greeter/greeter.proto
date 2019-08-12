@@ -17,6 +17,7 @@ syntax = "proto3";
 package greeter;
 
 option go_package = "git.fogcdn.top/axe/protos/goout/greeter";
+option java_package = "top.fogcdn.axe.protos.greeter";
 
 import "google/api/annotations.proto";
 
