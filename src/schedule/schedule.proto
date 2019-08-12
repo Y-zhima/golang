@@ -3,6 +3,7 @@ syntax = "proto3";
 package schedule;
 
 option go_package = "git.fogcdn.top/axe/protos/goout/schedule";
+option java_package = "top.fogcdn.axe.protos.schedule";
 
 import "common/api.proto";
 import "google/api/annotations.proto";
