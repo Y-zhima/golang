@@ -11,8 +11,6 @@ import (
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
-	codes "google.golang.org/grpc/codes"
-	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -232,14 +230,6 @@ func (x *fileUploadPlaybookClient) CloseAndRecv() (*UploadPlaybookResponse, erro
 type FileServer interface {
 	// 上传playbook压缩包并且解析入口yml文件
 	UploadPlaybook(File_UploadPlaybookServer) error
-}
-
-// UnimplementedFileServer can be embedded to have forward compatible implementations.
-type UnimplementedFileServer struct {
-}
-
-func (*UnimplementedFileServer) UploadPlaybook(srv File_UploadPlaybookServer) error {
-	return status.Errorf(codes.Unimplemented, "method UploadPlaybook not implemented")
 }
 
 func RegisterFileServer(s *grpc.Server, srv FileServer) {

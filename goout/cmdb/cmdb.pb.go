@@ -11,8 +11,6 @@ import (
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
-	codes "google.golang.org/grpc/codes"
-	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -643,17 +641,6 @@ type CmdbServer interface {
 	InstanceTopology(context.Context, *InstanceTopologyRequest) (*InstanceTopologyResponse, error)
 	// 查找主机
 	SearchHost(context.Context, *SearchHostRequest) (*SearchHostResponse, error)
-}
-
-// UnimplementedCmdbServer can be embedded to have forward compatible implementations.
-type UnimplementedCmdbServer struct {
-}
-
-func (*UnimplementedCmdbServer) InstanceTopology(ctx context.Context, req *InstanceTopologyRequest) (*InstanceTopologyResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method InstanceTopology not implemented")
-}
-func (*UnimplementedCmdbServer) SearchHost(ctx context.Context, req *SearchHostRequest) (*SearchHostResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SearchHost not implemented")
 }
 
 func RegisterCmdbServer(s *grpc.Server, srv CmdbServer) {

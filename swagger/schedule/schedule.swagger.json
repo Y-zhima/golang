@@ -42,32 +42,6 @@
         ]
       }
     },
-    "/v1/schedule/delete/{schedule_id}": {
-      "post": {
-        "summary": "删除定时任务",
-        "operationId": "Delete",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/scheduleDeleteResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "schedule_id",
-            "in": "path",
-            "required": true,
-            "type": "integer",
-            "format": "int32"
-          }
-        ],
-        "tags": [
-          "Schedule"
-        ]
-      }
-    },
     "/v1/schedule/filter": {
       "get": {
         "summary": "筛选定时任务",
@@ -109,15 +83,11 @@
             "type": "string"
           },
           {
-            "name": "status",
+            "name": "template_id",
             "in": "query",
             "required": false,
-            "type": "string",
-            "enum": [
-              "OFF",
-              "ON"
-            ],
-            "default": "OFF"
+            "type": "integer",
+            "format": "int32"
           }
         ],
         "tags": [
@@ -213,56 +183,6 @@
     }
   },
   "definitions": {
-    "cmdbBizObject": {
-      "type": "object",
-      "properties": {
-        "bk_biz_name": {
-          "type": "string"
-        }
-      }
-    },
-    "cmdbHostObject": {
-      "type": "object",
-      "properties": {
-        "bk_host_innerip": {
-          "type": "string"
-        }
-      }
-    },
-    "cmdbModuleObject": {
-      "type": "object",
-      "properties": {
-        "bk_module_name": {
-          "type": "string"
-        }
-      }
-    },
-    "cmdbSearchHostRequest": {
-      "type": "object",
-      "properties": {
-        "host": {
-          "$ref": "#/definitions/cmdbHostObject"
-        },
-        "module": {
-          "$ref": "#/definitions/cmdbModuleObject"
-        },
-        "set": {
-          "$ref": "#/definitions/cmdbSetObject"
-        },
-        "biz": {
-          "$ref": "#/definitions/cmdbBizObject"
-        }
-      },
-      "title": "查找主机请求"
-    },
-    "cmdbSetObject": {
-      "type": "object",
-      "properties": {
-        "bk_set_name": {
-          "type": "string"
-        }
-      }
-    },
     "commonPaging": {
       "type": "object",
       "properties": {
@@ -366,18 +286,14 @@
         "name": {
           "type": "string"
         },
-        "start_date": {
-          "type": "string"
-        },
         "start_time": {
           "type": "string"
         },
-        "repeat_frequency": {
-          "$ref": "#/definitions/scheduleRepeatFrequency"
+        "end_time": {
+          "type": "string"
         },
-        "scheduler_interval": {
-          "type": "integer",
-          "format": "int32"
+        "cron_expression": {
+          "type": "string"
         }
       }
     },
@@ -396,14 +312,6 @@
         }
       },
       "title": "创建定时任务请求返回"
-    },
-    "scheduleDeleteResponse": {
-      "type": "object",
-      "properties": {
-        "status": {
-          "$ref": "#/definitions/commonResponseStatus"
-        }
-      }
     },
     "scheduleFilterResponse": {
       "type": "object",
@@ -435,19 +343,6 @@
       },
       "title": "获取定时任务请求返回"
     },
-    "scheduleRepeatFrequency": {
-      "type": "string",
-      "enum": [
-        "NONE",
-        "MINUTE",
-        "HOUR",
-        "DAY",
-        "WEEK",
-        "MONTH",
-        "YEAR"
-      ],
-      "default": "NONE"
-    },
     "scheduleScheduleObject": {
       "type": "object",
       "properties": {
@@ -461,18 +356,14 @@
         "name": {
           "type": "string"
         },
-        "start_date": {
-          "type": "string"
-        },
         "start_time": {
           "type": "string"
         },
-        "repeat_frequency": {
-          "$ref": "#/definitions/scheduleRepeatFrequency"
+        "end_time": {
+          "type": "string"
         },
-        "scheduler_interval": {
-          "type": "integer",
-          "format": "int32"
+        "cron_expression": {
+          "type": "string"
         },
         "status": {
           "$ref": "#/definitions/scheduleScheduleStatus"
@@ -510,18 +401,14 @@
         "name": {
           "type": "string"
         },
-        "start_date": {
-          "type": "string"
-        },
         "start_time": {
           "type": "string"
         },
-        "repeat_frequency": {
-          "$ref": "#/definitions/scheduleRepeatFrequency"
+        "end_time": {
+          "type": "string"
         },
-        "scheduler_interval": {
-          "type": "integer",
-          "format": "int32"
+        "cron_expression": {
+          "type": "string"
         }
       }
     },
@@ -548,9 +435,6 @@
         },
         "description": {
           "type": "string"
-        },
-        "cmdb_search_request": {
-          "$ref": "#/definitions/cmdbSearchHostRequest"
         },
         "playbook": {
           "$ref": "#/definitions/playbookProjectObject"

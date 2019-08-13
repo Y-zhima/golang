@@ -24,47 +24,47 @@ option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
 service Job {
     // 创建作业任务(执行作业模板)
     rpc Create (CreateRequest) returns (CreateResponse) {
-        option (google.api.http) = {
-            post: "/v1/job"
-            body: "*"
-        };
+//        option (google.api.http) = {
+//            post: "/v1/job"
+//            body: "*"
+//        };
     }
     // 创建定时作业任务
     rpc Schedule (ScheduleRequest) returns (ScheduleResponse) {
-        option (google.api.http) = {
-            post: "/v1/job/{job_id}/schedule"
-            body: "*"
-        };
+//        option (google.api.http) = {
+//            post: "/v1/job/{job_id}/schedule"
+//            body: "*"
+//        };
     }
     // 查看定时作业任务
     rpc ScheduleList (ScheduleListRequest) returns (ScheduleListResponse) {
-        option (google.api.http) = {
-            get: "/v1/job/{job_id}/schedule"
-        };
+//        option (google.api.http) = {
+//            get: "/v1/job/{job_id}/schedule"
+//        };
     }
     // 筛选作业任务
     rpc Filter (FilterRequest) returns (FilterResponse) {
-        option (google.api.http) = {
-            get: "/v1/job"
-        };
+//        option (google.api.http) = {
+//            get: "/v1/job"
+//        };
     }
     // 获取作业任务
     rpc Get (GetRequest) returns (GetResponse) {
-        option (google.api.http) = {
-            get: "/v1/job/{job_id}"
-        };
+//        option (google.api.http) = {
+//            get: "/v1/job/{job_id}"
+//        };
     }
     // 获取作业任务详细执行过程
     rpc GetLog (GetLogRequest) returns (GetLogResponse) {
-        option (google.api.http) = {
-            get: "/v1/job/{job_id}/logs"
-        };
+//        option (google.api.http) = {
+//            get: "/v1/job/{job_id}/logs"
+//        };
     }
     // 删除作业任务
     rpc Delete (DeleteRequest) returns (DeleteResponse) {
-        option (google.api.http) = {
-            delete: "/v1/job/{job_id}"
-        };
+//        option (google.api.http) = {
+//            delete: "/v1/job/{job_id}"
+//        };
     }
 }
 

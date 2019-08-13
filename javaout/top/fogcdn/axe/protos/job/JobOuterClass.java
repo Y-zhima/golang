@@ -40,7 +40,6 @@ public final class JobOuterClass {
       super(builder);
     }
     private JobObject() {
-      jobId_ = 0;
     }
 
     @java.lang.Override
@@ -73,7 +72,7 @@ public final class JobOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -158,11 +157,10 @@ public final class JobOuterClass {
       }
       top.fogcdn.axe.protos.job.JobOuterClass.JobObject other = (top.fogcdn.axe.protos.job.JobOuterClass.JobObject) obj;
 
-      boolean result = true;
-      result = result && (getJobId()
-          == other.getJobId());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getJobId()
+          != other.getJobId()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -346,35 +344,35 @@ public final class JobOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -448,7 +446,7 @@ public final class JobOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -541,7 +539,7 @@ public final class JobOuterClass {
               done = true;
               break;
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -610,9 +608,8 @@ public final class JobOuterClass {
       }
       top.fogcdn.axe.protos.job.JobOuterClass.CreateRequest other = (top.fogcdn.axe.protos.job.JobOuterClass.CreateRequest) obj;
 
-      boolean result = true;
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -787,35 +784,35 @@ public final class JobOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -860,7 +857,7 @@ public final class JobOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -949,7 +946,6 @@ public final class JobOuterClass {
       super(builder);
     }
     private CreateResponse() {
-      jobId_ = 0;
     }
 
     @java.lang.Override
@@ -995,7 +991,7 @@ public final class JobOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -1108,16 +1104,15 @@ public final class JobOuterClass {
       }
       top.fogcdn.axe.protos.job.JobOuterClass.CreateResponse other = (top.fogcdn.axe.protos.job.JobOuterClass.CreateResponse) obj;
 
-      boolean result = true;
-      result = result && (getJobId()
-          == other.getJobId());
-      result = result && (hasStatus() == other.hasStatus());
+      if (getJobId()
+          != other.getJobId()) return false;
+      if (hasStatus() != other.hasStatus()) return false;
       if (hasStatus()) {
-        result = result && getStatus()
-            .equals(other.getStatus());
+        if (!getStatus()
+            .equals(other.getStatus())) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -1316,35 +1311,35 @@ public final class JobOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1419,7 +1414,7 @@ public final class JobOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
+      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
@@ -1538,7 +1533,7 @@ public final class JobOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -1610,7 +1605,6 @@ public final class JobOuterClass {
       super(builder);
     }
     private GetRequest() {
-      jobId_ = 0;
     }
 
     @java.lang.Override
@@ -1643,7 +1637,7 @@ public final class JobOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -1728,11 +1722,10 @@ public final class JobOuterClass {
       }
       top.fogcdn.axe.protos.job.JobOuterClass.GetRequest other = (top.fogcdn.axe.protos.job.JobOuterClass.GetRequest) obj;
 
-      boolean result = true;
-      result = result && (getJobId()
-          == other.getJobId());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getJobId()
+          != other.getJobId()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -1912,35 +1905,35 @@ public final class JobOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -2014,7 +2007,7 @@ public final class JobOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -2164,7 +2157,7 @@ public final class JobOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -2289,19 +2282,18 @@ public final class JobOuterClass {
       }
       top.fogcdn.axe.protos.job.JobOuterClass.GetResponse other = (top.fogcdn.axe.protos.job.JobOuterClass.GetResponse) obj;
 
-      boolean result = true;
-      result = result && (hasJob() == other.hasJob());
+      if (hasJob() != other.hasJob()) return false;
       if (hasJob()) {
-        result = result && getJob()
-            .equals(other.getJob());
+        if (!getJob()
+            .equals(other.getJob())) return false;
       }
-      result = result && (hasStatus() == other.hasStatus());
+      if (hasStatus() != other.hasStatus()) return false;
       if (hasStatus()) {
-        result = result && getStatus()
-            .equals(other.getStatus());
+        if (!getStatus()
+            .equals(other.getStatus())) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -2510,35 +2502,35 @@ public final class JobOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -2587,7 +2579,7 @@ public final class JobOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.job.JobOuterClass.JobObject job_ = null;
+      private top.fogcdn.axe.protos.job.JobOuterClass.JobObject job_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.job.JobOuterClass.JobObject, top.fogcdn.axe.protos.job.JobOuterClass.JobObject.Builder, top.fogcdn.axe.protos.job.JobOuterClass.JobObjectOrBuilder> jobBuilder_;
       /**
@@ -2704,7 +2696,7 @@ public final class JobOuterClass {
         return jobBuilder_;
       }
 
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
+      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
@@ -2823,7 +2815,7 @@ public final class JobOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -2895,7 +2887,6 @@ public final class JobOuterClass {
       super(builder);
     }
     private GetLogRequest() {
-      jobId_ = 0;
     }
 
     @java.lang.Override
@@ -2928,7 +2919,7 @@ public final class JobOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -3013,11 +3004,10 @@ public final class JobOuterClass {
       }
       top.fogcdn.axe.protos.job.JobOuterClass.GetLogRequest other = (top.fogcdn.axe.protos.job.JobOuterClass.GetLogRequest) obj;
 
-      boolean result = true;
-      result = result && (getJobId()
-          == other.getJobId());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getJobId()
+          != other.getJobId()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -3197,35 +3187,35 @@ public final class JobOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -3299,7 +3289,7 @@ public final class JobOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -3423,7 +3413,7 @@ public final class JobOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -3520,14 +3510,13 @@ public final class JobOuterClass {
       }
       top.fogcdn.axe.protos.job.JobOuterClass.GetLogResponse other = (top.fogcdn.axe.protos.job.JobOuterClass.GetLogResponse) obj;
 
-      boolean result = true;
-      result = result && (hasStatus() == other.hasStatus());
+      if (hasStatus() != other.hasStatus()) return false;
       if (hasStatus()) {
-        result = result && getStatus()
-            .equals(other.getStatus());
+        if (!getStatus()
+            .equals(other.getStatus())) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -3721,35 +3710,35 @@ public final class JobOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -3795,7 +3784,7 @@ public final class JobOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
+      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
@@ -3914,7 +3903,7 @@ public final class JobOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -4038,7 +4027,7 @@ public final class JobOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -4135,14 +4124,13 @@ public final class JobOuterClass {
       }
       top.fogcdn.axe.protos.job.JobOuterClass.FilterRequest other = (top.fogcdn.axe.protos.job.JobOuterClass.FilterRequest) obj;
 
-      boolean result = true;
-      result = result && (hasPaging() == other.hasPaging());
+      if (hasPaging() != other.hasPaging()) return false;
       if (hasPaging()) {
-        result = result && getPaging()
-            .equals(other.getPaging());
+        if (!getPaging()
+            .equals(other.getPaging())) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -4336,35 +4324,35 @@ public final class JobOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -4410,7 +4398,7 @@ public final class JobOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.common.Api.Paging paging_ = null;
+      private top.fogcdn.axe.protos.common.Api.Paging paging_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder> pagingBuilder_;
       /**
@@ -4529,7 +4517,7 @@ public final class JobOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -4678,7 +4666,7 @@ public final class JobOuterClass {
               done = true;
               break;
             case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 jobs_ = new java.util.ArrayList<top.fogcdn.axe.protos.job.JobOuterClass.JobObject>();
                 mutable_bitField0_ |= 0x00000001;
               }
@@ -4713,7 +4701,7 @@ public final class JobOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -4727,7 +4715,7 @@ public final class JobOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           jobs_ = java.util.Collections.unmodifiableList(jobs_);
         }
         this.unknownFields = unknownFields.build();
@@ -4884,21 +4872,20 @@ public final class JobOuterClass {
       }
       top.fogcdn.axe.protos.job.JobOuterClass.FilterResponse other = (top.fogcdn.axe.protos.job.JobOuterClass.FilterResponse) obj;
 
-      boolean result = true;
-      result = result && getJobsList()
-          .equals(other.getJobsList());
-      result = result && (hasPaging() == other.hasPaging());
+      if (!getJobsList()
+          .equals(other.getJobsList())) return false;
+      if (hasPaging() != other.hasPaging()) return false;
       if (hasPaging()) {
-        result = result && getPaging()
-            .equals(other.getPaging());
+        if (!getPaging()
+            .equals(other.getPaging())) return false;
       }
-      result = result && (hasStatus() == other.hasStatus());
+      if (hasStatus() != other.hasStatus()) return false;
       if (hasStatus()) {
-        result = result && getStatus()
-            .equals(other.getStatus());
+        if (!getStatus()
+            .equals(other.getStatus())) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -5105,7 +5092,7 @@ public final class JobOuterClass {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (jobsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             jobs_ = java.util.Collections.unmodifiableList(jobs_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
@@ -5130,35 +5117,35 @@ public final class JobOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -5237,7 +5224,7 @@ public final class JobOuterClass {
       private java.util.List<top.fogcdn.axe.protos.job.JobOuterClass.JobObject> jobs_ =
         java.util.Collections.emptyList();
       private void ensureJobsIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           jobs_ = new java.util.ArrayList<top.fogcdn.axe.protos.job.JobOuterClass.JobObject>(jobs_);
           bitField0_ |= 0x00000001;
          }
@@ -5466,7 +5453,7 @@ public final class JobOuterClass {
           jobsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               top.fogcdn.axe.protos.job.JobOuterClass.JobObject, top.fogcdn.axe.protos.job.JobOuterClass.JobObject.Builder, top.fogcdn.axe.protos.job.JobOuterClass.JobObjectOrBuilder>(
                   jobs_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           jobs_ = null;
@@ -5474,7 +5461,7 @@ public final class JobOuterClass {
         return jobsBuilder_;
       }
 
-      private top.fogcdn.axe.protos.common.Api.Paging paging_ = null;
+      private top.fogcdn.axe.protos.common.Api.Paging paging_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder> pagingBuilder_;
       /**
@@ -5591,7 +5578,7 @@ public final class JobOuterClass {
         return pagingBuilder_;
       }
 
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
+      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
@@ -5710,7 +5697,7 @@ public final class JobOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -5782,7 +5769,6 @@ public final class JobOuterClass {
       super(builder);
     }
     private ScheduleRequest() {
-      jobId_ = 0;
     }
 
     @java.lang.Override
@@ -5815,7 +5801,7 @@ public final class JobOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -5900,11 +5886,10 @@ public final class JobOuterClass {
       }
       top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest other = (top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest) obj;
 
-      boolean result = true;
-      result = result && (getJobId()
-          == other.getJobId());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getJobId()
+          != other.getJobId()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -6084,35 +6069,35 @@ public final class JobOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -6186,7 +6171,7 @@ public final class JobOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -6279,7 +6264,7 @@ public final class JobOuterClass {
               done = true;
               break;
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -6348,9 +6333,8 @@ public final class JobOuterClass {
       }
       top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse other = (top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse) obj;
 
-      boolean result = true;
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -6525,35 +6509,35 @@ public final class JobOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -6598,7 +6582,7 @@ public final class JobOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -6670,7 +6654,6 @@ public final class JobOuterClass {
       super(builder);
     }
     private ScheduleListRequest() {
-      jobId_ = 0;
     }
 
     @java.lang.Override
@@ -6703,7 +6686,7 @@ public final class JobOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -6788,11 +6771,10 @@ public final class JobOuterClass {
       }
       top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest other = (top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest) obj;
 
-      boolean result = true;
-      result = result && (getJobId()
-          == other.getJobId());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getJobId()
+          != other.getJobId()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -6972,35 +6954,35 @@ public final class JobOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -7074,7 +7056,7 @@ public final class JobOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -7167,7 +7149,7 @@ public final class JobOuterClass {
               done = true;
               break;
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -7236,9 +7218,8 @@ public final class JobOuterClass {
       }
       top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse other = (top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse) obj;
 
-      boolean result = true;
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -7413,35 +7394,35 @@ public final class JobOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -7486,7 +7467,7 @@ public final class JobOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -7558,7 +7539,6 @@ public final class JobOuterClass {
       super(builder);
     }
     private DeleteRequest() {
-      jobId_ = 0;
     }
 
     @java.lang.Override
@@ -7591,7 +7571,7 @@ public final class JobOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -7676,11 +7656,10 @@ public final class JobOuterClass {
       }
       top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest other = (top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest) obj;
 
-      boolean result = true;
-      result = result && (getJobId()
-          == other.getJobId());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getJobId()
+          != other.getJobId()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -7860,35 +7839,35 @@ public final class JobOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -7962,7 +7941,7 @@ public final class JobOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -8055,7 +8034,7 @@ public final class JobOuterClass {
               done = true;
               break;
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -8124,9 +8103,8 @@ public final class JobOuterClass {
       }
       top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse other = (top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse) obj;
 
-      boolean result = true;
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -8301,35 +8279,35 @@ public final class JobOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -8374,7 +8352,7 @@ public final class JobOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -8527,26 +8505,21 @@ public final class JobOuterClass {
       "\001(\005\"\022\n\020ScheduleResponse\"%\n\023ScheduleListR" +
       "equest\022\016\n\006job_id\030\001 \001(\005\"\026\n\024ScheduleListRe" +
       "sponse\"\037\n\rDeleteRequest\022\016\n\006job_id\030\001 \001(\005\"" +
-      "\020\n\016DeleteResponse2\272\004\n\003Job\022E\n\006Create\022\022.jo" +
-      "b.CreateRequest\032\023.job.CreateResponse\"\022\202\323" +
-      "\344\223\002\014\"\007/v1/job:\001*\022]\n\010Schedule\022\024.job.Sched" +
-      "uleRequest\032\025.job.ScheduleResponse\"$\202\323\344\223\002" +
-      "\036\"\031/v1/job/{job_id}/schedule:\001*\022f\n\014Sched" +
-      "uleList\022\030.job.ScheduleListRequest\032\031.job." +
-      "ScheduleListResponse\"!\202\323\344\223\002\033\022\031/v1/job/{j" +
-      "ob_id}/schedule\022B\n\006Filter\022\022.job.FilterRe" +
-      "quest\032\023.job.FilterResponse\"\017\202\323\344\223\002\t\022\007/v1/" +
-      "job\022B\n\003Get\022\017.job.GetRequest\032\020.job.GetRes" +
-      "ponse\"\030\202\323\344\223\002\022\022\020/v1/job/{job_id}\022P\n\006GetLo" +
-      "g\022\022.job.GetLogRequest\032\023.job.GetLogRespon" +
-      "se\"\035\202\323\344\223\002\027\022\025/v1/job/{job_id}/logs\022K\n\006Del" +
-      "ete\022\022.job.DeleteRequest\032\023.job.DeleteResp" +
-      "onse\"\030\202\323\344\223\002\022*\020/v1/job/{job_id}B\254\001\n\031top.f" +
-      "ogcdn.axe.protos.jobZ#git.fogcdn.top/axe" +
-      "/protos/goout/job\222Ai\022@\n\033AXE\350\277\220\347\273\264API - \344" +
-      "\275\234\344\270\232\345\271\263\345\217\260\022\032AXE\350\277\220\347\273\264\345\271\263\345\217\260RESTful API2" +
-      "\0051.0.0*\001\0012\020application/json:\020application" +
-      "/jsonb\006proto3"
+      "\020\n\016DeleteResponse2\207\003\n\003Job\0223\n\006Create\022\022.jo" +
+      "b.CreateRequest\032\023.job.CreateResponse\"\000\0229" +
+      "\n\010Schedule\022\024.job.ScheduleRequest\032\025.job.S" +
+      "cheduleResponse\"\000\022E\n\014ScheduleList\022\030.job." +
+      "ScheduleListRequest\032\031.job.ScheduleListRe" +
+      "sponse\"\000\0223\n\006Filter\022\022.job.FilterRequest\032\023" +
+      ".job.FilterResponse\"\000\022*\n\003Get\022\017.job.GetRe" +
+      "quest\032\020.job.GetResponse\"\000\0223\n\006GetLog\022\022.jo" +
+      "b.GetLogRequest\032\023.job.GetLogResponse\"\000\0223" +
+      "\n\006Delete\022\022.job.DeleteRequest\032\023.job.Delet" +
+      "eResponse\"\000B\254\001\n\031top.fogcdn.axe.protos.jo" +
+      "bZ#git.fogcdn.top/axe/protos/goout/job\222A" +
+      "i\022@\n\033AXE\350\277\220\347\273\264API - \344\275\234\344\270\232\345\271\263\345\217\260\022\032AXE\350\277\220" +
+      "\347\273\264\345\271\263\345\217\260RESTful API2\0051.0.0*\001\0012\020applicat" +
+      "ion/json:\020application/jsonb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -8655,7 +8628,6 @@ public final class JobOuterClass {
         new java.lang.String[] { });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
-    registry.add(com.google.api.AnnotationsProto.http);
     registry.add(grpc.gateway.protoc_gen_swagger.options.Annotations.openapiv2Swagger);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
