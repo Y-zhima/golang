@@ -3,6 +3,7 @@ syntax = "proto3";
 package playbook;
 
 option go_package = "git.fogcdn.top/axe/protos/goout/playbook";
+option java_package = "top.fogcdn.axe.protos.playbook";
 
 import "common/api.proto";
 import "google/api/annotations.proto";

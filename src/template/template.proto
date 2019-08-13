@@ -3,6 +3,7 @@ syntax = "proto3";
 package template;
 
 option go_package = "git.fogcdn.top/axe/protos/goout/template";
+option java_package = "top.fogcdn.axe.protos.template";
 
 import "common/api.proto";
 import "google/api/annotations.proto";

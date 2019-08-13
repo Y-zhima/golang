@@ -3,6 +3,7 @@ syntax = "proto3";
 package common;
 
 option go_package = "git.fogcdn.top/axe/protos/goout/common";
+option java_package = "top.fogcdn.axe.protos.common";
 
 // 分页
 message Paging {
