@@ -1,12 +1,12 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "AXE运维API",
-    "description": "AXE运维平台RESTful API",
-    "version": "1.0.0"
+    "title": "playbook/playbook.proto",
+    "version": "version not set"
   },
   "schemes": [
-    "http"
+    "http",
+    "https"
   ],
   "consumes": [
     "application/json"

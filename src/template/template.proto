@@ -10,17 +10,6 @@ import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
 import "playbook/playbook.proto";
 
-option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
-    info: {
-        title: "AXE运维API - 作业模板"
-        version : "1.0.0"
-        description: "AXE运维平台RESTful API"
-    };
-    schemes: HTTP
-    consumes: "application/json"
-    produces: "application/json"
-};
-
 // 作业模板
 service Template {
     // 创建作业模板

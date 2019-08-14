@@ -399,6 +399,7 @@ public final class ScheduleOuterClass {
       super(builder);
     }
     private ScheduleObject() {
+      scheduleId_ = 0;
       name_ = "";
       startTime_ = "";
       endTime_ = "";
@@ -479,7 +480,7 @@ public final class ScheduleOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -832,24 +833,25 @@ public final class ScheduleOuterClass {
       }
       top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject other = (top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject) obj;
 
-      if (getScheduleId()
-          != other.getScheduleId()) return false;
-      if (hasTemplate() != other.hasTemplate()) return false;
+      boolean result = true;
+      result = result && (getScheduleId()
+          == other.getScheduleId());
+      result = result && (hasTemplate() == other.hasTemplate());
       if (hasTemplate()) {
-        if (!getTemplate()
-            .equals(other.getTemplate())) return false;
+        result = result && getTemplate()
+            .equals(other.getTemplate());
       }
-      if (!getName()
-          .equals(other.getName())) return false;
-      if (!getStartTime()
-          .equals(other.getStartTime())) return false;
-      if (!getEndTime()
-          .equals(other.getEndTime())) return false;
-      if (!getCronExpression()
-          .equals(other.getCronExpression())) return false;
-      if (status_ != other.status_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      result = result && getName()
+          .equals(other.getName());
+      result = result && getStartTime()
+          .equals(other.getStartTime());
+      result = result && getEndTime()
+          .equals(other.getEndTime());
+      result = result && getCronExpression()
+          .equals(other.getCronExpression());
+      result = result && status_ == other.status_;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -1073,35 +1075,35 @@ public final class ScheduleOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1207,7 +1209,7 @@ public final class ScheduleOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject template_;
+      private top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject template_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject, top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject.Builder, top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObjectOrBuilder> templateBuilder_;
       /**
@@ -1783,7 +1785,7 @@ public final class ScheduleOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -1895,6 +1897,7 @@ public final class ScheduleOuterClass {
       super(builder);
     }
     private CreateRequest() {
+      templateId_ = 0;
       name_ = "";
       startTime_ = "";
       endTime_ = "";
@@ -1955,7 +1958,7 @@ public final class ScheduleOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -2200,18 +2203,19 @@ public final class ScheduleOuterClass {
       }
       top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest other = (top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest) obj;
 
-      if (getTemplateId()
-          != other.getTemplateId()) return false;
-      if (!getName()
-          .equals(other.getName())) return false;
-      if (!getStartTime()
-          .equals(other.getStartTime())) return false;
-      if (!getEndTime()
-          .equals(other.getEndTime())) return false;
-      if (!getCronExpression()
-          .equals(other.getCronExpression())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      boolean result = true;
+      result = result && (getTemplateId()
+          == other.getTemplateId());
+      result = result && getName()
+          .equals(other.getName());
+      result = result && getStartTime()
+          .equals(other.getStartTime());
+      result = result && getEndTime()
+          .equals(other.getEndTime());
+      result = result && getCronExpression()
+          .equals(other.getCronExpression());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -2411,35 +2415,35 @@ public final class ScheduleOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -2805,7 +2809,7 @@ public final class ScheduleOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -2904,6 +2908,7 @@ public final class ScheduleOuterClass {
       super(builder);
     }
     private CreateResponse() {
+      scheduleId_ = 0;
       created_ = "";
     }
 
@@ -2956,7 +2961,7 @@ public final class ScheduleOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -3109,17 +3114,18 @@ public final class ScheduleOuterClass {
       }
       top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateResponse other = (top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateResponse) obj;
 
-      if (getScheduleId()
-          != other.getScheduleId()) return false;
-      if (!getCreated()
-          .equals(other.getCreated())) return false;
-      if (hasStatus() != other.hasStatus()) return false;
+      boolean result = true;
+      result = result && (getScheduleId()
+          == other.getScheduleId());
+      result = result && getCreated()
+          .equals(other.getCreated());
+      result = result && (hasStatus() == other.hasStatus());
       if (hasStatus()) {
-        if (!getStatus()
-            .equals(other.getStatus())) return false;
+        result = result && getStatus()
+            .equals(other.getStatus());
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -3323,35 +3329,35 @@ public final class ScheduleOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -3499,7 +3505,7 @@ public final class ScheduleOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
+      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
@@ -3618,7 +3624,7 @@ public final class ScheduleOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -3690,6 +3696,7 @@ public final class ScheduleOuterClass {
       super(builder);
     }
     private GetRequest() {
+      scheduleId_ = 0;
     }
 
     @java.lang.Override
@@ -3722,7 +3729,7 @@ public final class ScheduleOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -3807,10 +3814,11 @@ public final class ScheduleOuterClass {
       }
       top.fogcdn.axe.protos.schedule.ScheduleOuterClass.GetRequest other = (top.fogcdn.axe.protos.schedule.ScheduleOuterClass.GetRequest) obj;
 
-      if (getScheduleId()
-          != other.getScheduleId()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      boolean result = true;
+      result = result && (getScheduleId()
+          == other.getScheduleId());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -3990,35 +3998,35 @@ public final class ScheduleOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -4092,7 +4100,7 @@ public final class ScheduleOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -4242,7 +4250,7 @@ public final class ScheduleOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -4367,18 +4375,19 @@ public final class ScheduleOuterClass {
       }
       top.fogcdn.axe.protos.schedule.ScheduleOuterClass.GetResponse other = (top.fogcdn.axe.protos.schedule.ScheduleOuterClass.GetResponse) obj;
 
-      if (hasSchedule() != other.hasSchedule()) return false;
+      boolean result = true;
+      result = result && (hasSchedule() == other.hasSchedule());
       if (hasSchedule()) {
-        if (!getSchedule()
-            .equals(other.getSchedule())) return false;
+        result = result && getSchedule()
+            .equals(other.getSchedule());
       }
-      if (hasStatus() != other.hasStatus()) return false;
+      result = result && (hasStatus() == other.hasStatus());
       if (hasStatus()) {
-        if (!getStatus()
-            .equals(other.getStatus())) return false;
+        result = result && getStatus()
+            .equals(other.getStatus());
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -4587,35 +4596,35 @@ public final class ScheduleOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -4664,7 +4673,7 @@ public final class ScheduleOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject schedule_;
+      private top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject schedule_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject.Builder, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObjectOrBuilder> scheduleBuilder_;
       /**
@@ -4781,7 +4790,7 @@ public final class ScheduleOuterClass {
         return scheduleBuilder_;
       }
 
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
+      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
@@ -4900,7 +4909,7 @@ public final class ScheduleOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -5000,6 +5009,7 @@ public final class ScheduleOuterClass {
     }
     private FilterRequest() {
       scheduleName_ = "";
+      templateId_ = 0;
     }
 
     @java.lang.Override
@@ -5051,7 +5061,7 @@ public final class ScheduleOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -5204,17 +5214,18 @@ public final class ScheduleOuterClass {
       }
       top.fogcdn.axe.protos.schedule.ScheduleOuterClass.FilterRequest other = (top.fogcdn.axe.protos.schedule.ScheduleOuterClass.FilterRequest) obj;
 
-      if (hasPaging() != other.hasPaging()) return false;
+      boolean result = true;
+      result = result && (hasPaging() == other.hasPaging());
       if (hasPaging()) {
-        if (!getPaging()
-            .equals(other.getPaging())) return false;
+        result = result && getPaging()
+            .equals(other.getPaging());
       }
-      if (!getScheduleName()
-          .equals(other.getScheduleName())) return false;
-      if (getTemplateId()
-          != other.getTemplateId()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      result = result && getScheduleName()
+          .equals(other.getScheduleName());
+      result = result && (getTemplateId()
+          == other.getTemplateId());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -5418,35 +5429,35 @@ public final class ScheduleOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -5499,7 +5510,7 @@ public final class ScheduleOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.common.Api.Paging paging_;
+      private top.fogcdn.axe.protos.common.Api.Paging paging_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder> pagingBuilder_;
       /**
@@ -5713,7 +5724,7 @@ public final class ScheduleOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -5862,7 +5873,7 @@ public final class ScheduleOuterClass {
               done = true;
               break;
             case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 schedules_ = new java.util.ArrayList<top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject>();
                 mutable_bitField0_ |= 0x00000001;
               }
@@ -5897,7 +5908,7 @@ public final class ScheduleOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -5911,7 +5922,7 @@ public final class ScheduleOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           schedules_ = java.util.Collections.unmodifiableList(schedules_);
         }
         this.unknownFields = unknownFields.build();
@@ -6068,20 +6079,21 @@ public final class ScheduleOuterClass {
       }
       top.fogcdn.axe.protos.schedule.ScheduleOuterClass.FilterResponse other = (top.fogcdn.axe.protos.schedule.ScheduleOuterClass.FilterResponse) obj;
 
-      if (!getSchedulesList()
-          .equals(other.getSchedulesList())) return false;
-      if (hasPaging() != other.hasPaging()) return false;
+      boolean result = true;
+      result = result && getSchedulesList()
+          .equals(other.getSchedulesList());
+      result = result && (hasPaging() == other.hasPaging());
       if (hasPaging()) {
-        if (!getPaging()
-            .equals(other.getPaging())) return false;
+        result = result && getPaging()
+            .equals(other.getPaging());
       }
-      if (hasStatus() != other.hasStatus()) return false;
+      result = result && (hasStatus() == other.hasStatus());
       if (hasStatus()) {
-        if (!getStatus()
-            .equals(other.getStatus())) return false;
+        result = result && getStatus()
+            .equals(other.getStatus());
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -6288,7 +6300,7 @@ public final class ScheduleOuterClass {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (schedulesBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
             schedules_ = java.util.Collections.unmodifiableList(schedules_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
@@ -6313,35 +6325,35 @@ public final class ScheduleOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -6420,7 +6432,7 @@ public final class ScheduleOuterClass {
       private java.util.List<top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject> schedules_ =
         java.util.Collections.emptyList();
       private void ensureSchedulesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
           schedules_ = new java.util.ArrayList<top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject>(schedules_);
           bitField0_ |= 0x00000001;
          }
@@ -6649,7 +6661,7 @@ public final class ScheduleOuterClass {
           schedulesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject.Builder, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObjectOrBuilder>(
                   schedules_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
                   isClean());
           schedules_ = null;
@@ -6657,7 +6669,7 @@ public final class ScheduleOuterClass {
         return schedulesBuilder_;
       }
 
-      private top.fogcdn.axe.protos.common.Api.Paging paging_;
+      private top.fogcdn.axe.protos.common.Api.Paging paging_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder> pagingBuilder_;
       /**
@@ -6774,7 +6786,7 @@ public final class ScheduleOuterClass {
         return pagingBuilder_;
       }
 
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
+      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
@@ -6893,7 +6905,7 @@ public final class ScheduleOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -7010,6 +7022,8 @@ public final class ScheduleOuterClass {
       super(builder);
     }
     private UpdateRequest() {
+      scheduleId_ = 0;
+      templateId_ = 0;
       name_ = "";
       startTime_ = "";
       endTime_ = "";
@@ -7075,7 +7089,7 @@ public final class ScheduleOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -7336,20 +7350,21 @@ public final class ScheduleOuterClass {
       }
       top.fogcdn.axe.protos.schedule.ScheduleOuterClass.UpdateRequest other = (top.fogcdn.axe.protos.schedule.ScheduleOuterClass.UpdateRequest) obj;
 
-      if (getScheduleId()
-          != other.getScheduleId()) return false;
-      if (getTemplateId()
-          != other.getTemplateId()) return false;
-      if (!getName()
-          .equals(other.getName())) return false;
-      if (!getStartTime()
-          .equals(other.getStartTime())) return false;
-      if (!getEndTime()
-          .equals(other.getEndTime())) return false;
-      if (!getCronExpression()
-          .equals(other.getCronExpression())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      boolean result = true;
+      result = result && (getScheduleId()
+          == other.getScheduleId());
+      result = result && (getTemplateId()
+          == other.getTemplateId());
+      result = result && getName()
+          .equals(other.getName());
+      result = result && getStartTime()
+          .equals(other.getStartTime());
+      result = result && getEndTime()
+          .equals(other.getEndTime());
+      result = result && getCronExpression()
+          .equals(other.getCronExpression());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -7554,35 +7569,35 @@ public final class ScheduleOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -7977,7 +7992,7 @@ public final class ScheduleOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -8114,7 +8129,7 @@ public final class ScheduleOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -8251,15 +8266,16 @@ public final class ScheduleOuterClass {
       }
       top.fogcdn.axe.protos.schedule.ScheduleOuterClass.UpdateResponse other = (top.fogcdn.axe.protos.schedule.ScheduleOuterClass.UpdateResponse) obj;
 
-      if (!getUpdated()
-          .equals(other.getUpdated())) return false;
-      if (hasStatus() != other.hasStatus()) return false;
+      boolean result = true;
+      result = result && getUpdated()
+          .equals(other.getUpdated());
+      result = result && (hasStatus() == other.hasStatus());
       if (hasStatus()) {
-        if (!getStatus()
-            .equals(other.getStatus())) return false;
+        result = result && getStatus()
+            .equals(other.getStatus());
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -8454,35 +8470,35 @@ public final class ScheduleOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -8601,7 +8617,7 @@ public final class ScheduleOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
+      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
@@ -8720,7 +8736,7 @@ public final class ScheduleOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -8792,6 +8808,7 @@ public final class ScheduleOuterClass {
       super(builder);
     }
     private SwitchStatusRequest() {
+      scheduleId_ = 0;
     }
 
     @java.lang.Override
@@ -8824,7 +8841,7 @@ public final class ScheduleOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -8909,10 +8926,11 @@ public final class ScheduleOuterClass {
       }
       top.fogcdn.axe.protos.schedule.ScheduleOuterClass.SwitchStatusRequest other = (top.fogcdn.axe.protos.schedule.ScheduleOuterClass.SwitchStatusRequest) obj;
 
-      if (getScheduleId()
-          != other.getScheduleId()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      boolean result = true;
+      result = result && (getScheduleId()
+          == other.getScheduleId());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -9092,35 +9110,35 @@ public final class ScheduleOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -9194,7 +9212,7 @@ public final class ScheduleOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -9314,7 +9332,7 @@ public final class ScheduleOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -9411,13 +9429,14 @@ public final class ScheduleOuterClass {
       }
       top.fogcdn.axe.protos.schedule.ScheduleOuterClass.SwitchStatusResponse other = (top.fogcdn.axe.protos.schedule.ScheduleOuterClass.SwitchStatusResponse) obj;
 
-      if (hasStatus() != other.hasStatus()) return false;
+      boolean result = true;
+      result = result && (hasStatus() == other.hasStatus());
       if (hasStatus()) {
-        if (!getStatus()
-            .equals(other.getStatus())) return false;
+        result = result && getStatus()
+            .equals(other.getStatus());
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -9607,35 +9626,35 @@ public final class ScheduleOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -9681,7 +9700,7 @@ public final class ScheduleOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
+      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
@@ -9800,7 +9819,7 @@ public final class ScheduleOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -9961,12 +9980,9 @@ public final class ScheduleOuterClass {
       "edule_id}:\001*\022~\n\014SwitchStatus\022\035.schedule." +
       "SwitchStatusRequest\032\036.schedule.SwitchSta" +
       "tusResponse\"/\202\323\344\223\002)\"\'/v1/schedule/switch" +
-      "Status/{schedule_id}B\266\001\n\036top.fogcdn.axe." +
-      "protos.scheduleZ(git.fogcdn.top/axe/prot" +
-      "os/goout/schedule\222Ai\022@\n\033AXE\350\277\220\347\273\264API - \345" +
-      "\256\232\346\227\266\344\273\273\345\212\241\022\032AXE\350\277\220\347\273\264\345\271\263\345\217\260RESTful API2" +
-      "\0051.0.0*\001\0012\020application/json:\020application" +
-      "/jsonb\006proto3"
+      "Status/{schedule_id}BJ\n\036top.fogcdn.axe.p" +
+      "rotos.scheduleZ(git.fogcdn.top/axe/proto" +
+      "s/goout/scheduleb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -10053,7 +10069,6 @@ public final class ScheduleOuterClass {
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);
-    registry.add(grpc.gateway.protoc_gen_swagger.options.Annotations.openapiv2Swagger);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     top.fogcdn.axe.protos.common.Api.getDescriptor();
