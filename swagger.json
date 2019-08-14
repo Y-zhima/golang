@@ -146,19 +146,29 @@
           {
             "type": "integer",
             "format": "int32",
+            "description": "总页数.",
             "name": "paging.total_page",
             "in": "query"
           },
           {
             "type": "integer",
             "format": "int32",
+            "description": "当前页数.",
             "name": "paging.page",
             "in": "query"
           },
           {
             "type": "integer",
             "format": "int32",
+            "description": "每页显示的记录条数.",
             "name": "paging.per_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总记录数.",
+            "name": "paging.total_record",
             "in": "query"
           },
           {
@@ -275,19 +285,29 @@
           {
             "type": "integer",
             "format": "int32",
+            "description": "总页数.",
             "name": "paging.total_page",
             "in": "query"
           },
           {
             "type": "integer",
             "format": "int32",
+            "description": "当前页数.",
             "name": "paging.page",
             "in": "query"
           },
           {
             "type": "integer",
             "format": "int32",
+            "description": "每页显示的记录条数.",
             "name": "paging.per_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总记录数.",
+            "name": "paging.total_record",
             "in": "query"
           },
           {
@@ -436,19 +456,29 @@
           {
             "type": "integer",
             "format": "int32",
+            "description": "总页数.",
             "name": "paging.total_page",
             "in": "query"
           },
           {
             "type": "integer",
             "format": "int32",
+            "description": "当前页数.",
             "name": "paging.page",
             "in": "query"
           },
           {
             "type": "integer",
             "format": "int32",
+            "description": "每页显示的记录条数.",
             "name": "paging.per_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总记录数.",
+            "name": "paging.total_record",
             "in": "query"
           },
           {
@@ -654,33 +684,44 @@
       "properties": {
         "page": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "当前页数"
         },
         "per_page": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "每页显示的记录条数"
         },
         "total_page": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "总页数"
+        },
+        "total_record": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总记录数"
         }
       }
     },
     "commonResponseStatus": {
       "type": "object",
-      "title": "接口返回状态码",
+      "title": "请求返回状态",
       "properties": {
         "code": {
+          "title": "状态码",
           "$ref": "#/definitions/commonStatusCode"
         },
         "message": {
-          "type": "string"
+          "type": "string",
+          "title": "信息"
         }
       }
     },
     "commonStatusCode": {
+      "description": "- SUCCESS: 成功\n - INVALID_ARGUMENT: 参数错误\n - ACCESS_DENIED: 访问拒绝",
       "type": "string",
-      "title": "接口状态码",
+      "title": "请求返回状态码",
       "default": "SUCCESS",
       "enum": [
         "SUCCESS",
