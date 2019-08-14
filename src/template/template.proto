@@ -103,7 +103,7 @@ message UpdateRequest {
     string description = 3;
     int32 playbook_id = 4;
     int32 playbook_file_id = 5;
-    int32 entrypoint_id = 6;
+    int32 playbook_entrypoint_id = 6;
     string extra_var = 7;
 }
 
