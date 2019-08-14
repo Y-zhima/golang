@@ -9,16 +9,6 @@ import "common/api.proto";
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
 
-option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
-    info: {
-        title: "AXE运维API - 作业平台"
-        version : "1.0.0"
-        description: "AXE运维平台RESTful API"
-    };
-    schemes: HTTP
-    consumes: "application/json"
-    produces: "application/json"
-};
 
 // 作业任务
 service Job {

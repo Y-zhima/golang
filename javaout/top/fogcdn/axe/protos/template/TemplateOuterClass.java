@@ -137,8 +137,11 @@ public final class TemplateOuterClass {
       super(builder);
     }
     private TemplateObject() {
+      templateId_ = 0;
       name_ = "";
       description_ = "";
+      playbookFileId_ = 0;
+      playbookEntrypointId_ = 0;
       extraVar_ = "";
     }
 
@@ -213,7 +216,7 @@ public final class TemplateOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -522,25 +525,26 @@ public final class TemplateOuterClass {
       }
       top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject other = (top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject) obj;
 
-      if (getTemplateId()
-          != other.getTemplateId()) return false;
-      if (!getName()
-          .equals(other.getName())) return false;
-      if (!getDescription()
-          .equals(other.getDescription())) return false;
-      if (hasPlaybook() != other.hasPlaybook()) return false;
+      boolean result = true;
+      result = result && (getTemplateId()
+          == other.getTemplateId());
+      result = result && getName()
+          .equals(other.getName());
+      result = result && getDescription()
+          .equals(other.getDescription());
+      result = result && (hasPlaybook() == other.hasPlaybook());
       if (hasPlaybook()) {
-        if (!getPlaybook()
-            .equals(other.getPlaybook())) return false;
+        result = result && getPlaybook()
+            .equals(other.getPlaybook());
       }
-      if (getPlaybookFileId()
-          != other.getPlaybookFileId()) return false;
-      if (getPlaybookEntrypointId()
-          != other.getPlaybookEntrypointId()) return false;
-      if (!getExtraVar()
-          .equals(other.getExtraVar())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      result = result && (getPlaybookFileId()
+          == other.getPlaybookFileId());
+      result = result && (getPlaybookEntrypointId()
+          == other.getPlaybookEntrypointId());
+      result = result && getExtraVar()
+          .equals(other.getExtraVar());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -764,35 +768,35 @@ public final class TemplateOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1075,7 +1079,7 @@ public final class TemplateOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject playbook_;
+      private top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject playbook_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject.Builder, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObjectOrBuilder> playbookBuilder_;
       /**
@@ -1383,7 +1387,7 @@ public final class TemplateOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -1497,6 +1501,9 @@ public final class TemplateOuterClass {
     private CreateRequest() {
       name_ = "";
       description_ = "";
+      playbookId_ = 0;
+      playbookFileId_ = 0;
+      playbookEntrypointId_ = 0;
       extraVar_ = "";
     }
 
@@ -1558,7 +1565,7 @@ public final class TemplateOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -1795,20 +1802,21 @@ public final class TemplateOuterClass {
       }
       top.fogcdn.axe.protos.template.TemplateOuterClass.CreateRequest other = (top.fogcdn.axe.protos.template.TemplateOuterClass.CreateRequest) obj;
 
-      if (!getName()
-          .equals(other.getName())) return false;
-      if (!getDescription()
-          .equals(other.getDescription())) return false;
-      if (getPlaybookId()
-          != other.getPlaybookId()) return false;
-      if (getPlaybookFileId()
-          != other.getPlaybookFileId()) return false;
-      if (getPlaybookEntrypointId()
-          != other.getPlaybookEntrypointId()) return false;
-      if (!getExtraVar()
-          .equals(other.getExtraVar())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      boolean result = true;
+      result = result && getName()
+          .equals(other.getName());
+      result = result && getDescription()
+          .equals(other.getDescription());
+      result = result && (getPlaybookId()
+          == other.getPlaybookId());
+      result = result && (getPlaybookFileId()
+          == other.getPlaybookFileId());
+      result = result && (getPlaybookEntrypointId()
+          == other.getPlaybookEntrypointId());
+      result = result && getExtraVar()
+          .equals(other.getExtraVar());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -2013,35 +2021,35 @@ public final class TemplateOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -2392,7 +2400,7 @@ public final class TemplateOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -2491,6 +2499,7 @@ public final class TemplateOuterClass {
       super(builder);
     }
     private CreateResponse() {
+      templateId_ = 0;
       created_ = "";
     }
 
@@ -2543,7 +2552,7 @@ public final class TemplateOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -2696,17 +2705,18 @@ public final class TemplateOuterClass {
       }
       top.fogcdn.axe.protos.template.TemplateOuterClass.CreateResponse other = (top.fogcdn.axe.protos.template.TemplateOuterClass.CreateResponse) obj;
 
-      if (getTemplateId()
-          != other.getTemplateId()) return false;
-      if (!getCreated()
-          .equals(other.getCreated())) return false;
-      if (hasStatus() != other.hasStatus()) return false;
+      boolean result = true;
+      result = result && (getTemplateId()
+          == other.getTemplateId());
+      result = result && getCreated()
+          .equals(other.getCreated());
+      result = result && (hasStatus() == other.hasStatus());
       if (hasStatus()) {
-        if (!getStatus()
-            .equals(other.getStatus())) return false;
+        result = result && getStatus()
+            .equals(other.getStatus());
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -2910,35 +2920,35 @@ public final class TemplateOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -3086,7 +3096,7 @@ public final class TemplateOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
+      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
@@ -3205,7 +3215,7 @@ public final class TemplateOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -3277,6 +3287,7 @@ public final class TemplateOuterClass {
       super(builder);
     }
     private GetRequest() {
+      templateId_ = 0;
     }
 
     @java.lang.Override
@@ -3309,7 +3320,7 @@ public final class TemplateOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -3394,10 +3405,11 @@ public final class TemplateOuterClass {
       }
       top.fogcdn.axe.protos.template.TemplateOuterClass.GetRequest other = (top.fogcdn.axe.protos.template.TemplateOuterClass.GetRequest) obj;
 
-      if (getTemplateId()
-          != other.getTemplateId()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      boolean result = true;
+      result = result && (getTemplateId()
+          == other.getTemplateId());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -3577,35 +3589,35 @@ public final class TemplateOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -3679,7 +3691,7 @@ public final class TemplateOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -3829,7 +3841,7 @@ public final class TemplateOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -3954,18 +3966,19 @@ public final class TemplateOuterClass {
       }
       top.fogcdn.axe.protos.template.TemplateOuterClass.GetResponse other = (top.fogcdn.axe.protos.template.TemplateOuterClass.GetResponse) obj;
 
-      if (hasTemplate() != other.hasTemplate()) return false;
+      boolean result = true;
+      result = result && (hasTemplate() == other.hasTemplate());
       if (hasTemplate()) {
-        if (!getTemplate()
-            .equals(other.getTemplate())) return false;
+        result = result && getTemplate()
+            .equals(other.getTemplate());
       }
-      if (hasStatus() != other.hasStatus()) return false;
+      result = result && (hasStatus() == other.hasStatus());
       if (hasStatus()) {
-        if (!getStatus()
-            .equals(other.getStatus())) return false;
+        result = result && getStatus()
+            .equals(other.getStatus());
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -4174,35 +4187,35 @@ public final class TemplateOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -4251,7 +4264,7 @@ public final class TemplateOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject template_;
+      private top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject template_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject, top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject.Builder, top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObjectOrBuilder> templateBuilder_;
       /**
@@ -4368,7 +4381,7 @@ public final class TemplateOuterClass {
         return templateBuilder_;
       }
 
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
+      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
@@ -4487,7 +4500,7 @@ public final class TemplateOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -4645,7 +4658,7 @@ public final class TemplateOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -4822,17 +4835,18 @@ public final class TemplateOuterClass {
       }
       top.fogcdn.axe.protos.template.TemplateOuterClass.FilterRequest other = (top.fogcdn.axe.protos.template.TemplateOuterClass.FilterRequest) obj;
 
-      if (hasPaging() != other.hasPaging()) return false;
+      boolean result = true;
+      result = result && (hasPaging() == other.hasPaging());
       if (hasPaging()) {
-        if (!getPaging()
-            .equals(other.getPaging())) return false;
+        result = result && getPaging()
+            .equals(other.getPaging());
       }
-      if (!getName()
-          .equals(other.getName())) return false;
-      if (!getTemplateId()
-          .equals(other.getTemplateId())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      result = result && getName()
+          .equals(other.getName());
+      result = result && getTemplateId()
+          .equals(other.getTemplateId());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -5036,35 +5050,35 @@ public final class TemplateOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -5118,7 +5132,7 @@ public final class TemplateOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.common.Api.Paging paging_;
+      private top.fogcdn.axe.protos.common.Api.Paging paging_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder> pagingBuilder_;
       /**
@@ -5375,7 +5389,7 @@ public final class TemplateOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -5524,7 +5538,7 @@ public final class TemplateOuterClass {
               done = true;
               break;
             case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 templates_ = new java.util.ArrayList<top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject>();
                 mutable_bitField0_ |= 0x00000001;
               }
@@ -5559,7 +5573,7 @@ public final class TemplateOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -5573,7 +5587,7 @@ public final class TemplateOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           templates_ = java.util.Collections.unmodifiableList(templates_);
         }
         this.unknownFields = unknownFields.build();
@@ -5730,20 +5744,21 @@ public final class TemplateOuterClass {
       }
       top.fogcdn.axe.protos.template.TemplateOuterClass.FilterResponse other = (top.fogcdn.axe.protos.template.TemplateOuterClass.FilterResponse) obj;
 
-      if (!getTemplatesList()
-          .equals(other.getTemplatesList())) return false;
-      if (hasPaging() != other.hasPaging()) return false;
+      boolean result = true;
+      result = result && getTemplatesList()
+          .equals(other.getTemplatesList());
+      result = result && (hasPaging() == other.hasPaging());
       if (hasPaging()) {
-        if (!getPaging()
-            .equals(other.getPaging())) return false;
+        result = result && getPaging()
+            .equals(other.getPaging());
       }
-      if (hasStatus() != other.hasStatus()) return false;
+      result = result && (hasStatus() == other.hasStatus());
       if (hasStatus()) {
-        if (!getStatus()
-            .equals(other.getStatus())) return false;
+        result = result && getStatus()
+            .equals(other.getStatus());
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -5950,7 +5965,7 @@ public final class TemplateOuterClass {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (templatesBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
             templates_ = java.util.Collections.unmodifiableList(templates_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
@@ -5975,35 +5990,35 @@ public final class TemplateOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -6082,7 +6097,7 @@ public final class TemplateOuterClass {
       private java.util.List<top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject> templates_ =
         java.util.Collections.emptyList();
       private void ensureTemplatesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
           templates_ = new java.util.ArrayList<top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject>(templates_);
           bitField0_ |= 0x00000001;
          }
@@ -6311,7 +6326,7 @@ public final class TemplateOuterClass {
           templatesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject, top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject.Builder, top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObjectOrBuilder>(
                   templates_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
                   isClean());
           templates_ = null;
@@ -6319,7 +6334,7 @@ public final class TemplateOuterClass {
         return templatesBuilder_;
       }
 
-      private top.fogcdn.axe.protos.common.Api.Paging paging_;
+      private top.fogcdn.axe.protos.common.Api.Paging paging_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder> pagingBuilder_;
       /**
@@ -6436,7 +6451,7 @@ public final class TemplateOuterClass {
         return pagingBuilder_;
       }
 
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
+      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
@@ -6555,7 +6570,7 @@ public final class TemplateOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -6672,8 +6687,12 @@ public final class TemplateOuterClass {
       super(builder);
     }
     private UpdateRequest() {
+      templateId_ = 0;
       name_ = "";
       description_ = "";
+      playbookId_ = 0;
+      playbookFileId_ = 0;
+      entrypointId_ = 0;
       extraVar_ = "";
     }
 
@@ -6740,7 +6759,7 @@ public final class TemplateOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -6993,22 +7012,23 @@ public final class TemplateOuterClass {
       }
       top.fogcdn.axe.protos.template.TemplateOuterClass.UpdateRequest other = (top.fogcdn.axe.protos.template.TemplateOuterClass.UpdateRequest) obj;
 
-      if (getTemplateId()
-          != other.getTemplateId()) return false;
-      if (!getName()
-          .equals(other.getName())) return false;
-      if (!getDescription()
-          .equals(other.getDescription())) return false;
-      if (getPlaybookId()
-          != other.getPlaybookId()) return false;
-      if (getPlaybookFileId()
-          != other.getPlaybookFileId()) return false;
-      if (getEntrypointId()
-          != other.getEntrypointId()) return false;
-      if (!getExtraVar()
-          .equals(other.getExtraVar())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      boolean result = true;
+      result = result && (getTemplateId()
+          == other.getTemplateId());
+      result = result && getName()
+          .equals(other.getName());
+      result = result && getDescription()
+          .equals(other.getDescription());
+      result = result && (getPlaybookId()
+          == other.getPlaybookId());
+      result = result && (getPlaybookFileId()
+          == other.getPlaybookFileId());
+      result = result && (getEntrypointId()
+          == other.getEntrypointId());
+      result = result && getExtraVar()
+          .equals(other.getExtraVar());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -7218,35 +7238,35 @@ public final class TemplateOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -7626,7 +7646,7 @@ public final class TemplateOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -7763,7 +7783,7 @@ public final class TemplateOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -7900,15 +7920,16 @@ public final class TemplateOuterClass {
       }
       top.fogcdn.axe.protos.template.TemplateOuterClass.UpdateResponse other = (top.fogcdn.axe.protos.template.TemplateOuterClass.UpdateResponse) obj;
 
-      if (!getUpdated()
-          .equals(other.getUpdated())) return false;
-      if (hasStatus() != other.hasStatus()) return false;
+      boolean result = true;
+      result = result && getUpdated()
+          .equals(other.getUpdated());
+      result = result && (hasStatus() == other.hasStatus());
       if (hasStatus()) {
-        if (!getStatus()
-            .equals(other.getStatus())) return false;
+        result = result && getStatus()
+            .equals(other.getStatus());
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -8103,35 +8124,35 @@ public final class TemplateOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -8250,7 +8271,7 @@ public final class TemplateOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
+      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
@@ -8369,7 +8390,7 @@ public final class TemplateOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -8441,6 +8462,7 @@ public final class TemplateOuterClass {
       super(builder);
     }
     private DeleteRequest() {
+      templateId_ = 0;
     }
 
     @java.lang.Override
@@ -8473,7 +8495,7 @@ public final class TemplateOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -8558,10 +8580,11 @@ public final class TemplateOuterClass {
       }
       top.fogcdn.axe.protos.template.TemplateOuterClass.DeleteRequest other = (top.fogcdn.axe.protos.template.TemplateOuterClass.DeleteRequest) obj;
 
-      if (getTemplateId()
-          != other.getTemplateId()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      boolean result = true;
+      result = result && (getTemplateId()
+          == other.getTemplateId());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -8741,35 +8764,35 @@ public final class TemplateOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -8843,7 +8866,7 @@ public final class TemplateOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -8963,7 +8986,7 @@ public final class TemplateOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -9060,13 +9083,14 @@ public final class TemplateOuterClass {
       }
       top.fogcdn.axe.protos.template.TemplateOuterClass.DeleteResponse other = (top.fogcdn.axe.protos.template.TemplateOuterClass.DeleteResponse) obj;
 
-      if (hasStatus() != other.hasStatus()) return false;
+      boolean result = true;
+      result = result && (hasStatus() == other.hasStatus());
       if (hasStatus()) {
-        if (!getStatus()
-            .equals(other.getStatus())) return false;
+        result = result && getStatus()
+            .equals(other.getStatus());
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -9256,35 +9280,35 @@ public final class TemplateOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -9330,7 +9354,7 @@ public final class TemplateOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
+      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
@@ -9449,7 +9473,7 @@ public final class TemplateOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -9606,12 +9630,9 @@ public final class TemplateOuterClass {
       "Request\032\030.template.UpdateResponse\",\202\323\344\223\002" +
       "&\"!/v1/template/update/{template_id}:\001*\022" +
       "=\n\006Delete\022\027.template.DeleteRequest\032\030.tem" +
-      "plate.DeleteResponse\"\000B\266\001\n\036top.fogcdn.ax" +
-      "e.protos.templateZ(git.fogcdn.top/axe/pr" +
-      "otos/goout/template\222Ai\022@\n\033AXE\350\277\220\347\273\264API -" +
-      " \344\275\234\344\270\232\346\250\241\346\235\277\022\032AXE\350\277\220\347\273\264\345\271\263\345\217\260RESTful AP" +
-      "I2\0051.0.0*\001\0012\020application/json:\020applicati" +
-      "on/jsonb\006proto3"
+      "plate.DeleteResponse\"\000BJ\n\036top.fogcdn.axe" +
+      ".protos.templateZ(git.fogcdn.top/axe/pro" +
+      "tos/goout/templateb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -9698,7 +9719,6 @@ public final class TemplateOuterClass {
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);
-    registry.add(grpc.gateway.protoc_gen_swagger.options.Annotations.openapiv2Swagger);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     top.fogcdn.axe.protos.common.Api.getDescriptor();
