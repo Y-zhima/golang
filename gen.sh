@@ -1,7 +1,4 @@
 #!/bin/bash
-rm -rf /tmp/protos/javaout
-rm -rf /tmp/protos/git.fogcdn.top/axe/protos/goout
-
 mkdir swagger
 echo '{
   "consumes": [
