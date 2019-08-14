@@ -42,32 +42,6 @@
         ]
       }
     },
-    "/v1/playbook/delete/{playbook_id}": {
-      "post": {
-        "summary": "删除playbook项目",
-        "operationId": "Delete",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/playbookDeleteResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "playbook_id",
-            "in": "path",
-            "required": true,
-            "type": "integer",
-            "format": "int32"
-          }
-        ],
-        "tags": [
-          "Playbook"
-        ]
-      }
-    },
     "/v1/playbook/filter": {
       "get": {
         "summary": "筛选playbook项目",
@@ -173,32 +147,6 @@
           "Playbook"
         ]
       }
-    },
-    "/v1/playbook/version/{playbook_id}": {
-      "get": {
-        "summary": "playbook 版本列表",
-        "operationId": "Version",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/playbookVersionResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "playbook_id",
-            "in": "path",
-            "required": true,
-            "type": "integer",
-            "format": "int32"
-          }
-        ],
-        "tags": [
-          "Playbook"
-        ]
-      }
     }
   },
   "definitions": {
@@ -292,15 +240,6 @@
       },
       "title": "创建项目请求返回"
     },
-    "playbookDeleteResponse": {
-      "type": "object",
-      "properties": {
-        "status": {
-          "$ref": "#/definitions/commonResponseStatus"
-        }
-      },
-      "title": "删除记录请求返回"
-    },
     "playbookFilterResponse": {
       "type": "object",
       "properties": {
@@ -330,18 +269,6 @@
         }
       },
       "title": "获取项目请求返回"
-    },
-    "playbookPlaybookEntrypointObject": {
-      "type": "object",
-      "properties": {
-        "playbook_entrypoint_id": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "name": {
-          "type": "string"
-        }
-      }
     },
     "playbookProjectObject": {
       "type": "object",
@@ -461,53 +388,6 @@
         "GIT"
       ],
       "default": "UNDEFINED"
-    },
-    "playbookVersionObject": {
-      "type": "object",
-      "properties": {
-        "playbook_file_id": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "url": {
-          "type": "string"
-        },
-        "url_type": {
-          "$ref": "#/definitions/playbookUrlType"
-        },
-        "version": {
-          "type": "string"
-        },
-        "md5": {
-          "type": "string"
-        },
-        "size": {
-          "type": "string",
-          "format": "int64"
-        },
-        "created": {
-          "type": "string"
-        },
-        "entrypoint": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/playbookPlaybookEntrypointObject"
-          }
-        }
-      },
-      "title": "版本实例"
-    },
-    "playbookVersionResponse": {
-      "type": "object",
-      "properties": {
-        "versions": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/playbookVersionObject"
-          }
-        }
-      },
-      "title": "版本列表请求响应"
     }
   }
 }

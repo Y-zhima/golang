@@ -108,233 +108,13 @@
         }
       }
     },
-    "/v1/greeter/SayHello": {
-      "get": {
-        "tags": [
-          "Greeter"
-        ],
-        "summary": "Sends a greeting",
-        "operationId": "SayHello",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "name",
-            "in": "query"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/greeterHelloReply"
-            }
-          }
-        }
-      }
-    },
-    "/v1/job": {
-      "get": {
-        "tags": [
-          "Job"
-        ],
-        "summary": "筛选作业任务",
-        "operationId": "Filter",
-        "parameters": [
-          {
-            "type": "integer",
-            "format": "int32",
-            "name": "paging.total_page",
-            "in": "query"
-          },
-          {
-            "type": "integer",
-            "format": "int32",
-            "name": "paging.page",
-            "in": "query"
-          },
-          {
-            "type": "integer",
-            "format": "int32",
-            "name": "paging.per_page",
-            "in": "query"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/jobFilterResponse"
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Job"
-        ],
-        "summary": "创建作业任务(执行作业模板)",
-        "operationId": "Create",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/jobCreateRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/jobCreateResponse"
-            }
-          }
-        }
-      }
-    },
-    "/v1/job/{job_id}": {
-      "get": {
-        "tags": [
-          "Job"
-        ],
-        "summary": "获取作业任务",
-        "operationId": "Get",
-        "parameters": [
-          {
-            "type": "integer",
-            "format": "int32",
-            "name": "job_id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/jobGetResponse"
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Job"
-        ],
-        "summary": "删除作业任务",
-        "operationId": "Delete",
-        "parameters": [
-          {
-            "type": "integer",
-            "format": "int32",
-            "name": "job_id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/jobDeleteResponse"
-            }
-          }
-        }
-      }
-    },
-    "/v1/job/{job_id}/logs": {
-      "get": {
-        "tags": [
-          "Job"
-        ],
-        "summary": "获取作业任务详细执行过程",
-        "operationId": "GetLog",
-        "parameters": [
-          {
-            "type": "integer",
-            "format": "int32",
-            "name": "job_id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/jobGetLogResponse"
-            }
-          }
-        }
-      }
-    },
-    "/v1/job/{job_id}/schedule": {
-      "get": {
-        "tags": [
-          "Job"
-        ],
-        "summary": "查看定时作业任务",
-        "operationId": "ScheduleList",
-        "parameters": [
-          {
-            "type": "integer",
-            "format": "int32",
-            "name": "job_id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/jobScheduleListResponse"
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Job"
-        ],
-        "summary": "创建定时作业任务",
-        "operationId": "Schedule",
-        "parameters": [
-          {
-            "type": "integer",
-            "format": "int32",
-            "name": "job_id",
-            "in": "path",
-            "required": true
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/jobScheduleRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/jobScheduleResponse"
-            }
-          }
-        }
-      }
-    },
     "/v1/playbook/create": {
       "post": {
         "tags": [
           "Playbook"
         ],
         "summary": "创建playbook项目",
-        "operationId": "CreateMixin4",
+        "operationId": "Create",
         "parameters": [
           {
             "name": "body",
@@ -355,39 +135,13 @@
         }
       }
     },
-    "/v1/playbook/delete/{playbook_id}": {
-      "post": {
-        "tags": [
-          "Playbook"
-        ],
-        "summary": "删除playbook项目",
-        "operationId": "DeleteMixin4",
-        "parameters": [
-          {
-            "type": "integer",
-            "format": "int32",
-            "name": "playbook_id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/playbookDeleteResponse"
-            }
-          }
-        }
-      }
-    },
     "/v1/playbook/filter": {
       "get": {
         "tags": [
           "Playbook"
         ],
         "summary": "筛选playbook项目",
-        "operationId": "FilterMixin4",
+        "operationId": "Filter",
         "parameters": [
           {
             "type": "integer",
@@ -429,7 +183,7 @@
           "Playbook"
         ],
         "summary": "获取playbook项目",
-        "operationId": "GetMixin4",
+        "operationId": "Get",
         "parameters": [
           {
             "type": "integer",
@@ -483,39 +237,13 @@
         }
       }
     },
-    "/v1/playbook/version/{playbook_id}": {
-      "get": {
-        "tags": [
-          "Playbook"
-        ],
-        "summary": "playbook 版本列表",
-        "operationId": "Version",
-        "parameters": [
-          {
-            "type": "integer",
-            "format": "int32",
-            "name": "playbook_id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/playbookVersionResponse"
-            }
-          }
-        }
-      }
-    },
     "/v1/schedule/create": {
       "post": {
         "tags": [
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin5",
+        "operationId": "CreateMixin4",
         "parameters": [
           {
             "name": "body",
@@ -536,39 +264,13 @@
         }
       }
     },
-    "/v1/schedule/delete/{schedule_id}": {
-      "post": {
-        "tags": [
-          "Schedule"
-        ],
-        "summary": "删除定时任务",
-        "operationId": "DeleteMixin5",
-        "parameters": [
-          {
-            "type": "integer",
-            "format": "int32",
-            "name": "schedule_id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/scheduleDeleteResponse"
-            }
-          }
-        }
-      }
-    },
     "/v1/schedule/filter": {
       "get": {
         "tags": [
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin5",
+        "operationId": "FilterMixin4",
         "parameters": [
           {
             "type": "integer",
@@ -594,13 +296,9 @@
             "in": "query"
           },
           {
-            "enum": [
-              "OFF",
-              "ON"
-            ],
-            "type": "string",
-            "default": "OFF",
-            "name": "status",
+            "type": "integer",
+            "format": "int32",
+            "name": "template_id",
             "in": "query"
           }
         ],
@@ -620,7 +318,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin5",
+        "operationId": "GetMixin4",
         "parameters": [
           {
             "type": "integer",
@@ -672,7 +370,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "UpdateMixin5",
+        "operationId": "UpdateMixin4",
         "parameters": [
           {
             "type": "integer",
@@ -706,7 +404,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin6",
+        "operationId": "CreateMixin5",
         "parameters": [
           {
             "name": "body",
@@ -727,39 +425,13 @@
         }
       }
     },
-    "/v1/template/delete/{template_id}": {
-      "post": {
-        "tags": [
-          "Template"
-        ],
-        "summary": "删除作业模板",
-        "operationId": "DeleteMixin6",
-        "parameters": [
-          {
-            "type": "integer",
-            "format": "int32",
-            "name": "template_id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/templateDeleteResponse"
-            }
-          }
-        }
-      }
-    },
     "/v1/template/filter": {
       "get": {
         "tags": [
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin6",
+        "operationId": "FilterMixin5",
         "parameters": [
           {
             "type": "integer",
@@ -783,6 +455,11 @@
             "type": "string",
             "name": "name",
             "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "template_id",
+            "in": "query"
           }
         ],
         "responses": {
@@ -801,7 +478,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin6",
+        "operationId": "GetMixin5",
         "parameters": [
           {
             "type": "integer",
@@ -827,7 +504,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin6",
+        "operationId": "UpdateMixin5",
         "parameters": [
           {
             "type": "integer",
@@ -916,24 +593,6 @@
       "properties": {
         "bk_module_name": {
           "type": "string"
-        }
-      }
-    },
-    "cmdbSearchHostRequest": {
-      "type": "object",
-      "title": "查找主机请求",
-      "properties": {
-        "biz": {
-          "$ref": "#/definitions/cmdbBizObject"
-        },
-        "host": {
-          "$ref": "#/definitions/cmdbHostObject"
-        },
-        "module": {
-          "$ref": "#/definitions/cmdbModuleObject"
-        },
-        "set": {
-          "$ref": "#/definitions/cmdbSetObject"
         }
       }
     },
@@ -1061,18 +720,6 @@
         }
       }
     },
-    "greeterHelloReply": {
-      "type": "object",
-      "title": "The response message containing the greetings",
-      "properties": {
-        "message": {
-          "type": "string"
-        }
-      }
-    },
-    "jobCreateRequest": {
-      "type": "object"
-    },
     "jobCreateResponse": {
       "type": "object",
       "title": "创建作业请求返回",
@@ -1141,15 +788,6 @@
     "jobScheduleListResponse": {
       "type": "object"
     },
-    "jobScheduleRequest": {
-      "type": "object",
-      "properties": {
-        "job_id": {
-          "type": "integer",
-          "format": "int32"
-        }
-      }
-    },
     "jobScheduleResponse": {
       "type": "object"
     },
@@ -1203,15 +841,6 @@
         }
       }
     },
-    "playbookDeleteResponse": {
-      "type": "object",
-      "title": "删除记录请求返回",
-      "properties": {
-        "status": {
-          "$ref": "#/definitions/commonResponseStatus"
-        }
-      }
-    },
     "playbookFilterResponse": {
       "type": "object",
       "title": "筛选项目请求返回",
@@ -1239,18 +868,6 @@
         },
         "status": {
           "$ref": "#/definitions/commonResponseStatus"
-        }
-      }
-    },
-    "playbookPlaybookEntrypointObject": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "playbook_entrypoint_id": {
-          "type": "integer",
-          "format": "int32"
         }
       }
     },
@@ -1373,67 +990,16 @@
         "GIT"
       ]
     },
-    "playbookVersionObject": {
-      "type": "object",
-      "title": "版本实例",
-      "properties": {
-        "created": {
-          "type": "string"
-        },
-        "entrypoint": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/playbookPlaybookEntrypointObject"
-          }
-        },
-        "md5": {
-          "type": "string"
-        },
-        "playbook_file_id": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "size": {
-          "type": "string",
-          "format": "int64"
-        },
-        "url": {
-          "type": "string"
-        },
-        "url_type": {
-          "$ref": "#/definitions/playbookUrlType"
-        },
-        "version": {
-          "type": "string"
-        }
-      }
-    },
-    "playbookVersionResponse": {
-      "type": "object",
-      "title": "版本列表请求响应",
-      "properties": {
-        "versions": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/playbookVersionObject"
-          }
-        }
-      }
-    },
     "scheduleCreateRequest": {
       "type": "object",
       "properties": {
-        "name": {
+        "cron_expression": {
           "type": "string"
         },
-        "repeat_frequency": {
-          "$ref": "#/definitions/scheduleRepeatFrequency"
+        "end_time": {
+          "type": "string"
         },
-        "scheduler_interval": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "start_date": {
+        "name": {
           "type": "string"
         },
         "start_time": {
@@ -1456,14 +1022,6 @@
           "type": "integer",
           "format": "int32"
         },
-        "status": {
-          "$ref": "#/definitions/commonResponseStatus"
-        }
-      }
-    },
-    "scheduleDeleteResponse": {
-      "type": "object",
-      "properties": {
         "status": {
           "$ref": "#/definitions/commonResponseStatus"
         }
@@ -1499,39 +1057,22 @@
         }
       }
     },
-    "scheduleRepeatFrequency": {
-      "type": "string",
-      "default": "NONE",
-      "enum": [
-        "NONE",
-        "MINUTE",
-        "HOUR",
-        "DAY",
-        "WEEK",
-        "MONTH",
-        "YEAR"
-      ]
-    },
     "scheduleScheduleObject": {
       "type": "object",
       "title": "定时任务实例",
       "properties": {
-        "name": {
+        "cron_expression": {
           "type": "string"
         },
-        "repeat_frequency": {
-          "$ref": "#/definitions/scheduleRepeatFrequency"
+        "end_time": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
         },
         "schedule_id": {
           "type": "integer",
           "format": "int32"
-        },
-        "scheduler_interval": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "start_date": {
-          "type": "string"
         },
         "start_time": {
           "type": "string"
@@ -1563,22 +1104,18 @@
     "scheduleUpdateRequest": {
       "type": "object",
       "properties": {
-        "name": {
+        "cron_expression": {
           "type": "string"
         },
-        "repeat_frequency": {
-          "$ref": "#/definitions/scheduleRepeatFrequency"
+        "end_time": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
         },
         "schedule_id": {
           "type": "integer",
           "format": "int32"
-        },
-        "scheduler_interval": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "start_date": {
-          "type": "string"
         },
         "start_time": {
           "type": "string"
@@ -1603,9 +1140,6 @@
     "templateCreateRequest": {
       "type": "object",
       "properties": {
-        "cmdb_search_request": {
-          "$ref": "#/definitions/cmdbSearchHostRequest"
-        },
         "description": {
           "type": "string"
         },
@@ -1687,9 +1221,6 @@
       "type": "object",
       "title": "模板实例",
       "properties": {
-        "cmdb_search_request": {
-          "$ref": "#/definitions/cmdbSearchHostRequest"
-        },
         "description": {
           "type": "string"
         },
@@ -1719,9 +1250,6 @@
     "templateUpdateRequest": {
       "type": "object",
       "properties": {
-        "cmdb_search_request": {
-          "$ref": "#/definitions/cmdbSearchHostRequest"
-        },
         "description": {
           "type": "string"
         },

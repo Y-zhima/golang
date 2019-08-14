@@ -354,7 +354,6 @@ public final class PlaybookOuterClass {
       super(builder);
     }
     private ProjectObject() {
-      playbookId_ = 0;
       name_ = "";
       description_ = "";
       url_ = "";
@@ -362,7 +361,6 @@ public final class PlaybookOuterClass {
       version_ = "";
       entrypoint_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       md5_ = "";
-      size_ = 0L;
       created_ = "";
       updated_ = "";
     }
@@ -428,7 +426,7 @@ public final class PlaybookOuterClass {
             }
             case 58: {
               java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+              if (!((mutable_bitField0_ & 0x00000040) != 0)) {
                 entrypoint_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000040;
               }
@@ -459,7 +457,7 @@ public final class PlaybookOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -473,7 +471,7 @@ public final class PlaybookOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+        if (((mutable_bitField0_ & 0x00000040) != 0)) {
           entrypoint_ = entrypoint_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
@@ -996,30 +994,29 @@ public final class PlaybookOuterClass {
       }
       top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject other = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject) obj;
 
-      boolean result = true;
-      result = result && (getPlaybookId()
-          == other.getPlaybookId());
-      result = result && getName()
-          .equals(other.getName());
-      result = result && getDescription()
-          .equals(other.getDescription());
-      result = result && getUrl()
-          .equals(other.getUrl());
-      result = result && urlType_ == other.urlType_;
-      result = result && getVersion()
-          .equals(other.getVersion());
-      result = result && getEntrypointList()
-          .equals(other.getEntrypointList());
-      result = result && getMd5()
-          .equals(other.getMd5());
-      result = result && (getSize()
-          == other.getSize());
-      result = result && getCreated()
-          .equals(other.getCreated());
-      result = result && getUpdated()
-          .equals(other.getUpdated());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getPlaybookId()
+          != other.getPlaybookId()) return false;
+      if (!getName()
+          .equals(other.getName())) return false;
+      if (!getDescription()
+          .equals(other.getDescription())) return false;
+      if (!getUrl()
+          .equals(other.getUrl())) return false;
+      if (urlType_ != other.urlType_) return false;
+      if (!getVersion()
+          .equals(other.getVersion())) return false;
+      if (!getEntrypointList()
+          .equals(other.getEntrypointList())) return false;
+      if (!getMd5()
+          .equals(other.getMd5())) return false;
+      if (getSize()
+          != other.getSize()) return false;
+      if (!getCreated()
+          .equals(other.getCreated())) return false;
+      if (!getUpdated()
+          .equals(other.getUpdated())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -1247,7 +1244,7 @@ public final class PlaybookOuterClass {
         result.url_ = url_;
         result.urlType_ = urlType_;
         result.version_ = version_;
-        if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           entrypoint_ = entrypoint_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000040);
         }
@@ -1263,35 +1260,35 @@ public final class PlaybookOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1843,7 +1840,7 @@ public final class PlaybookOuterClass {
 
       private com.google.protobuf.LazyStringList entrypoint_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureEntrypointIsMutable() {
-        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+        if (!((bitField0_ & 0x00000040) != 0)) {
           entrypoint_ = new com.google.protobuf.LazyStringArrayList(entrypoint_);
           bitField0_ |= 0x00000040;
          }
@@ -2278,7 +2275,7 @@ public final class PlaybookOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -2439,7 +2436,6 @@ public final class PlaybookOuterClass {
       version_ = "";
       entrypoint_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       md5_ = "";
-      size_ = 0L;
     }
 
     @java.lang.Override
@@ -2498,7 +2494,7 @@ public final class PlaybookOuterClass {
             }
             case 50: {
               java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+              if (!((mutable_bitField0_ & 0x00000020) != 0)) {
                 entrypoint_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000020;
               }
@@ -2517,7 +2513,7 @@ public final class PlaybookOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -2531,7 +2527,7 @@ public final class PlaybookOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((mutable_bitField0_ & 0x00000020) != 0)) {
           entrypoint_ = entrypoint_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
@@ -2870,24 +2866,23 @@ public final class PlaybookOuterClass {
       }
       top.fogcdn.axe.protos.playbook.PlaybookOuterClass.CreateRequest other = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.CreateRequest) obj;
 
-      boolean result = true;
-      result = result && getName()
-          .equals(other.getName());
-      result = result && getDescription()
-          .equals(other.getDescription());
-      result = result && getUrl()
-          .equals(other.getUrl());
-      result = result && urlType_ == other.urlType_;
-      result = result && getVersion()
-          .equals(other.getVersion());
-      result = result && getEntrypointList()
-          .equals(other.getEntrypointList());
-      result = result && getMd5()
-          .equals(other.getMd5());
-      result = result && (getSize()
-          == other.getSize());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!getName()
+          .equals(other.getName())) return false;
+      if (!getDescription()
+          .equals(other.getDescription())) return false;
+      if (!getUrl()
+          .equals(other.getUrl())) return false;
+      if (urlType_ != other.urlType_) return false;
+      if (!getVersion()
+          .equals(other.getVersion())) return false;
+      if (!getEntrypointList()
+          .equals(other.getEntrypointList())) return false;
+      if (!getMd5()
+          .equals(other.getMd5())) return false;
+      if (getSize()
+          != other.getSize()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -3102,7 +3097,7 @@ public final class PlaybookOuterClass {
         result.url_ = url_;
         result.urlType_ = urlType_;
         result.version_ = version_;
-        if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           entrypoint_ = entrypoint_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000020);
         }
@@ -3116,35 +3111,35 @@ public final class PlaybookOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -3547,7 +3542,7 @@ public final class PlaybookOuterClass {
 
       private com.google.protobuf.LazyStringList entrypoint_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureEntrypointIsMutable() {
-        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+        if (!((bitField0_ & 0x00000020) != 0)) {
           entrypoint_ = new com.google.protobuf.LazyStringArrayList(entrypoint_);
           bitField0_ |= 0x00000020;
          }
@@ -3736,7 +3731,7 @@ public final class PlaybookOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -3835,7 +3830,6 @@ public final class PlaybookOuterClass {
       super(builder);
     }
     private CreateResponse() {
-      playbookId_ = 0;
       created_ = "";
     }
 
@@ -3888,7 +3882,7 @@ public final class PlaybookOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -4041,18 +4035,17 @@ public final class PlaybookOuterClass {
       }
       top.fogcdn.axe.protos.playbook.PlaybookOuterClass.CreateResponse other = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.CreateResponse) obj;
 
-      boolean result = true;
-      result = result && (getPlaybookId()
-          == other.getPlaybookId());
-      result = result && getCreated()
-          .equals(other.getCreated());
-      result = result && (hasStatus() == other.hasStatus());
+      if (getPlaybookId()
+          != other.getPlaybookId()) return false;
+      if (!getCreated()
+          .equals(other.getCreated())) return false;
+      if (hasStatus() != other.hasStatus()) return false;
       if (hasStatus()) {
-        result = result && getStatus()
-            .equals(other.getStatus());
+        if (!getStatus()
+            .equals(other.getStatus())) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -4256,35 +4249,35 @@ public final class PlaybookOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -4432,7 +4425,7 @@ public final class PlaybookOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
+      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
@@ -4551,7 +4544,7 @@ public final class PlaybookOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -4627,7 +4620,6 @@ public final class PlaybookOuterClass {
       super(builder);
     }
     private GetRequest() {
-      playbookId_ = 0;
     }
 
     @java.lang.Override
@@ -4660,7 +4652,7 @@ public final class PlaybookOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -4745,11 +4737,10 @@ public final class PlaybookOuterClass {
       }
       top.fogcdn.axe.protos.playbook.PlaybookOuterClass.GetRequest other = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.GetRequest) obj;
 
-      boolean result = true;
-      result = result && (getPlaybookId()
-          == other.getPlaybookId());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getPlaybookId()
+          != other.getPlaybookId()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -4933,35 +4924,35 @@ public final class PlaybookOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -5035,7 +5026,7 @@ public final class PlaybookOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -5185,7 +5176,7 @@ public final class PlaybookOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -5310,19 +5301,18 @@ public final class PlaybookOuterClass {
       }
       top.fogcdn.axe.protos.playbook.PlaybookOuterClass.GetResponse other = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.GetResponse) obj;
 
-      boolean result = true;
-      result = result && (hasProject() == other.hasProject());
+      if (hasProject() != other.hasProject()) return false;
       if (hasProject()) {
-        result = result && getProject()
-            .equals(other.getProject());
+        if (!getProject()
+            .equals(other.getProject())) return false;
       }
-      result = result && (hasStatus() == other.hasStatus());
+      if (hasStatus() != other.hasStatus()) return false;
       if (hasStatus()) {
-        result = result && getStatus()
-            .equals(other.getStatus());
+        if (!getStatus()
+            .equals(other.getStatus())) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -5531,35 +5521,35 @@ public final class PlaybookOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -5608,7 +5598,7 @@ public final class PlaybookOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject project_ = null;
+      private top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject project_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject.Builder, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObjectOrBuilder> projectBuilder_;
       /**
@@ -5725,7 +5715,7 @@ public final class PlaybookOuterClass {
         return projectBuilder_;
       }
 
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
+      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
@@ -5844,7 +5834,7 @@ public final class PlaybookOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -5985,7 +5975,7 @@ public final class PlaybookOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -6122,16 +6112,15 @@ public final class PlaybookOuterClass {
       }
       top.fogcdn.axe.protos.playbook.PlaybookOuterClass.FilterRequest other = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.FilterRequest) obj;
 
-      boolean result = true;
-      result = result && (hasPaging() == other.hasPaging());
+      if (hasPaging() != other.hasPaging()) return false;
       if (hasPaging()) {
-        result = result && getPaging()
-            .equals(other.getPaging());
+        if (!getPaging()
+            .equals(other.getPaging())) return false;
       }
-      result = result && getKeyword()
-          .equals(other.getKeyword());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!getKeyword()
+          .equals(other.getKeyword())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -6330,35 +6319,35 @@ public final class PlaybookOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -6408,7 +6397,7 @@ public final class PlaybookOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.common.Api.Paging paging_ = null;
+      private top.fogcdn.axe.protos.common.Api.Paging paging_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder> pagingBuilder_;
       /**
@@ -6596,7 +6585,7 @@ public final class PlaybookOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -6745,7 +6734,7 @@ public final class PlaybookOuterClass {
               done = true;
               break;
             case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 projects_ = new java.util.ArrayList<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject>();
                 mutable_bitField0_ |= 0x00000001;
               }
@@ -6780,7 +6769,7 @@ public final class PlaybookOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -6794,7 +6783,7 @@ public final class PlaybookOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           projects_ = java.util.Collections.unmodifiableList(projects_);
         }
         this.unknownFields = unknownFields.build();
@@ -6951,21 +6940,20 @@ public final class PlaybookOuterClass {
       }
       top.fogcdn.axe.protos.playbook.PlaybookOuterClass.FilterResponse other = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.FilterResponse) obj;
 
-      boolean result = true;
-      result = result && getProjectsList()
-          .equals(other.getProjectsList());
-      result = result && (hasPaging() == other.hasPaging());
+      if (!getProjectsList()
+          .equals(other.getProjectsList())) return false;
+      if (hasPaging() != other.hasPaging()) return false;
       if (hasPaging()) {
-        result = result && getPaging()
-            .equals(other.getPaging());
+        if (!getPaging()
+            .equals(other.getPaging())) return false;
       }
-      result = result && (hasStatus() == other.hasStatus());
+      if (hasStatus() != other.hasStatus()) return false;
       if (hasStatus()) {
-        result = result && getStatus()
-            .equals(other.getStatus());
+        if (!getStatus()
+            .equals(other.getStatus())) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -7172,7 +7160,7 @@ public final class PlaybookOuterClass {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (projectsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             projects_ = java.util.Collections.unmodifiableList(projects_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
@@ -7197,35 +7185,35 @@ public final class PlaybookOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -7304,7 +7292,7 @@ public final class PlaybookOuterClass {
       private java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject> projects_ =
         java.util.Collections.emptyList();
       private void ensureProjectsIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           projects_ = new java.util.ArrayList<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject>(projects_);
           bitField0_ |= 0x00000001;
          }
@@ -7533,7 +7521,7 @@ public final class PlaybookOuterClass {
           projectsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject.Builder, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObjectOrBuilder>(
                   projects_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           projects_ = null;
@@ -7541,7 +7529,7 @@ public final class PlaybookOuterClass {
         return projectsBuilder_;
       }
 
-      private top.fogcdn.axe.protos.common.Api.Paging paging_ = null;
+      private top.fogcdn.axe.protos.common.Api.Paging paging_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder> pagingBuilder_;
       /**
@@ -7658,7 +7646,7 @@ public final class PlaybookOuterClass {
         return pagingBuilder_;
       }
 
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
+      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
@@ -7777,7 +7765,7 @@ public final class PlaybookOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -7936,7 +7924,6 @@ public final class PlaybookOuterClass {
       super(builder);
     }
     private UpdateRequest() {
-      playbookId_ = 0;
       name_ = "";
       description_ = "";
       url_ = "";
@@ -7944,7 +7931,6 @@ public final class PlaybookOuterClass {
       version_ = "";
       entrypoint_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       md5_ = "";
-      size_ = 0L;
     }
 
     @java.lang.Override
@@ -8008,7 +7994,7 @@ public final class PlaybookOuterClass {
             }
             case 58: {
               java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+              if (!((mutable_bitField0_ & 0x00000040) != 0)) {
                 entrypoint_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000040;
               }
@@ -8027,7 +8013,7 @@ public final class PlaybookOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -8041,7 +8027,7 @@ public final class PlaybookOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+        if (((mutable_bitField0_ & 0x00000040) != 0)) {
           entrypoint_ = entrypoint_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
@@ -8396,26 +8382,25 @@ public final class PlaybookOuterClass {
       }
       top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UpdateRequest other = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UpdateRequest) obj;
 
-      boolean result = true;
-      result = result && (getPlaybookId()
-          == other.getPlaybookId());
-      result = result && getName()
-          .equals(other.getName());
-      result = result && getDescription()
-          .equals(other.getDescription());
-      result = result && getUrl()
-          .equals(other.getUrl());
-      result = result && urlType_ == other.urlType_;
-      result = result && getVersion()
-          .equals(other.getVersion());
-      result = result && getEntrypointList()
-          .equals(other.getEntrypointList());
-      result = result && getMd5()
-          .equals(other.getMd5());
-      result = result && (getSize()
-          == other.getSize());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getPlaybookId()
+          != other.getPlaybookId()) return false;
+      if (!getName()
+          .equals(other.getName())) return false;
+      if (!getDescription()
+          .equals(other.getDescription())) return false;
+      if (!getUrl()
+          .equals(other.getUrl())) return false;
+      if (urlType_ != other.urlType_) return false;
+      if (!getVersion()
+          .equals(other.getVersion())) return false;
+      if (!getEntrypointList()
+          .equals(other.getEntrypointList())) return false;
+      if (!getMd5()
+          .equals(other.getMd5())) return false;
+      if (getSize()
+          != other.getSize()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -8635,7 +8620,7 @@ public final class PlaybookOuterClass {
         result.url_ = url_;
         result.urlType_ = urlType_;
         result.version_ = version_;
-        if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           entrypoint_ = entrypoint_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000040);
         }
@@ -8649,35 +8634,35 @@ public final class PlaybookOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -9109,7 +9094,7 @@ public final class PlaybookOuterClass {
 
       private com.google.protobuf.LazyStringList entrypoint_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureEntrypointIsMutable() {
-        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+        if (!((bitField0_ & 0x00000040) != 0)) {
           entrypoint_ = new com.google.protobuf.LazyStringArrayList(entrypoint_);
           bitField0_ |= 0x00000040;
          }
@@ -9298,7 +9283,7 @@ public final class PlaybookOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -9439,7 +9424,7 @@ public final class PlaybookOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -9576,16 +9561,15 @@ public final class PlaybookOuterClass {
       }
       top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UpdateResponse other = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UpdateResponse) obj;
 
-      boolean result = true;
-      result = result && getUpdated()
-          .equals(other.getUpdated());
-      result = result && (hasStatus() == other.hasStatus());
+      if (!getUpdated()
+          .equals(other.getUpdated())) return false;
+      if (hasStatus() != other.hasStatus()) return false;
       if (hasStatus()) {
-        result = result && getStatus()
-            .equals(other.getStatus());
+        if (!getStatus()
+            .equals(other.getStatus())) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -9784,35 +9768,35 @@ public final class PlaybookOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -9931,7 +9915,7 @@ public final class PlaybookOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
+      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
@@ -10050,7 +10034,7 @@ public final class PlaybookOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -10100,1105 +10084,6 @@ public final class PlaybookOuterClass {
 
   }
 
-  public interface DeleteRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:playbook.DeleteRequest)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>int32 playbook_id = 1;</code>
-     */
-    int getPlaybookId();
-  }
-  /**
-   * <pre>
-   * 根据ID删除记录
-   * </pre>
-   *
-   * Protobuf type {@code playbook.DeleteRequest}
-   */
-  public  static final class DeleteRequest extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:playbook.DeleteRequest)
-      DeleteRequestOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use DeleteRequest.newBuilder() to construct.
-    private DeleteRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private DeleteRequest() {
-      playbookId_ = 0;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private DeleteRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              playbookId_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_DeleteRequest_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_DeleteRequest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest.class, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest.Builder.class);
-    }
-
-    public static final int PLAYBOOK_ID_FIELD_NUMBER = 1;
-    private int playbookId_;
-    /**
-     * <code>int32 playbook_id = 1;</code>
-     */
-    public int getPlaybookId() {
-      return playbookId_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (playbookId_ != 0) {
-        output.writeInt32(1, playbookId_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (playbookId_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, playbookId_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest)) {
-        return super.equals(obj);
-      }
-      top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest other = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest) obj;
-
-      boolean result = true;
-      result = result && (getPlaybookId()
-          == other.getPlaybookId());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + PLAYBOOK_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getPlaybookId();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * 根据ID删除记录
-     * </pre>
-     *
-     * Protobuf type {@code playbook.DeleteRequest}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:playbook.DeleteRequest)
-        top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_DeleteRequest_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_DeleteRequest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest.class, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest.Builder.class);
-      }
-
-      // Construct using top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        playbookId_ = 0;
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_DeleteRequest_descriptor;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest getDefaultInstanceForType() {
-        return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest build() {
-        top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest buildPartial() {
-        top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest result = new top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest(this);
-        result.playbookId_ = playbookId_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest) {
-          return mergeFrom((top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest other) {
-        if (other == top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest.getDefaultInstance()) return this;
-        if (other.getPlaybookId() != 0) {
-          setPlaybookId(other.getPlaybookId());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private int playbookId_ ;
-      /**
-       * <code>int32 playbook_id = 1;</code>
-       */
-      public int getPlaybookId() {
-        return playbookId_;
-      }
-      /**
-       * <code>int32 playbook_id = 1;</code>
-       */
-      public Builder setPlaybookId(int value) {
-        
-        playbookId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 playbook_id = 1;</code>
-       */
-      public Builder clearPlaybookId() {
-        
-        playbookId_ = 0;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:playbook.DeleteRequest)
-    }
-
-    // @@protoc_insertion_point(class_scope:playbook.DeleteRequest)
-    private static final top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest();
-    }
-
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<DeleteRequest>
-        PARSER = new com.google.protobuf.AbstractParser<DeleteRequest>() {
-      @java.lang.Override
-      public DeleteRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DeleteRequest(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<DeleteRequest> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<DeleteRequest> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteRequest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface DeleteResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:playbook.DeleteResponse)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>.common.ResponseStatus status = 1;</code>
-     */
-    boolean hasStatus();
-    /**
-     * <code>.common.ResponseStatus status = 1;</code>
-     */
-    top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
-    /**
-     * <code>.common.ResponseStatus status = 1;</code>
-     */
-    top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
-  }
-  /**
-   * <pre>
-   * 删除记录请求返回
-   * </pre>
-   *
-   * Protobuf type {@code playbook.DeleteResponse}
-   */
-  public  static final class DeleteResponse extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:playbook.DeleteResponse)
-      DeleteResponseOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use DeleteResponse.newBuilder() to construct.
-    private DeleteResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private DeleteResponse() {
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private DeleteResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder subBuilder = null;
-              if (status_ != null) {
-                subBuilder = status_.toBuilder();
-              }
-              status_ = input.readMessage(top.fogcdn.axe.protos.common.Api.ResponseStatus.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(status_);
-                status_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_DeleteResponse_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_DeleteResponse_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse.class, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse.Builder.class);
-    }
-
-    public static final int STATUS_FIELD_NUMBER = 1;
-    private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
-    /**
-     * <code>.common.ResponseStatus status = 1;</code>
-     */
-    public boolean hasStatus() {
-      return status_ != null;
-    }
-    /**
-     * <code>.common.ResponseStatus status = 1;</code>
-     */
-    public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
-      return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
-    }
-    /**
-     * <code>.common.ResponseStatus status = 1;</code>
-     */
-    public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
-      return getStatus();
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (status_ != null) {
-        output.writeMessage(1, getStatus());
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (status_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getStatus());
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse)) {
-        return super.equals(obj);
-      }
-      top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse other = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse) obj;
-
-      boolean result = true;
-      result = result && (hasStatus() == other.hasStatus());
-      if (hasStatus()) {
-        result = result && getStatus()
-            .equals(other.getStatus());
-      }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasStatus()) {
-        hash = (37 * hash) + STATUS_FIELD_NUMBER;
-        hash = (53 * hash) + getStatus().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * 删除记录请求返回
-     * </pre>
-     *
-     * Protobuf type {@code playbook.DeleteResponse}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:playbook.DeleteResponse)
-        top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_DeleteResponse_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_DeleteResponse_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse.class, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse.Builder.class);
-      }
-
-      // Construct using top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        if (statusBuilder_ == null) {
-          status_ = null;
-        } else {
-          status_ = null;
-          statusBuilder_ = null;
-        }
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_DeleteResponse_descriptor;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse getDefaultInstanceForType() {
-        return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse build() {
-        top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse buildPartial() {
-        top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse result = new top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse(this);
-        if (statusBuilder_ == null) {
-          result.status_ = status_;
-        } else {
-          result.status_ = statusBuilder_.build();
-        }
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse) {
-          return mergeFrom((top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse other) {
-        if (other == top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse.getDefaultInstance()) return this;
-        if (other.hasStatus()) {
-          mergeStatus(other.getStatus());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
-      /**
-       * <code>.common.ResponseStatus status = 1;</code>
-       */
-      public boolean hasStatus() {
-        return statusBuilder_ != null || status_ != null;
-      }
-      /**
-       * <code>.common.ResponseStatus status = 1;</code>
-       */
-      public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
-        if (statusBuilder_ == null) {
-          return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
-        } else {
-          return statusBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.common.ResponseStatus status = 1;</code>
-       */
-      public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
-        if (statusBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          status_ = value;
-          onChanged();
-        } else {
-          statusBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.common.ResponseStatus status = 1;</code>
-       */
-      public Builder setStatus(
-          top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder builderForValue) {
-        if (statusBuilder_ == null) {
-          status_ = builderForValue.build();
-          onChanged();
-        } else {
-          statusBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.common.ResponseStatus status = 1;</code>
-       */
-      public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
-        if (statusBuilder_ == null) {
-          if (status_ != null) {
-            status_ =
-              top.fogcdn.axe.protos.common.Api.ResponseStatus.newBuilder(status_).mergeFrom(value).buildPartial();
-          } else {
-            status_ = value;
-          }
-          onChanged();
-        } else {
-          statusBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.common.ResponseStatus status = 1;</code>
-       */
-      public Builder clearStatus() {
-        if (statusBuilder_ == null) {
-          status_ = null;
-          onChanged();
-        } else {
-          status_ = null;
-          statusBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.common.ResponseStatus status = 1;</code>
-       */
-      public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
-        
-        onChanged();
-        return getStatusFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.common.ResponseStatus status = 1;</code>
-       */
-      public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
-        if (statusBuilder_ != null) {
-          return statusBuilder_.getMessageOrBuilder();
-        } else {
-          return status_ == null ?
-              top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
-        }
-      }
-      /**
-       * <code>.common.ResponseStatus status = 1;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> 
-          getStatusFieldBuilder() {
-        if (statusBuilder_ == null) {
-          statusBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder>(
-                  getStatus(),
-                  getParentForChildren(),
-                  isClean());
-          status_ = null;
-        }
-        return statusBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:playbook.DeleteResponse)
-    }
-
-    // @@protoc_insertion_point(class_scope:playbook.DeleteResponse)
-    private static final top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse();
-    }
-
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<DeleteResponse>
-        PARSER = new com.google.protobuf.AbstractParser<DeleteResponse>() {
-      @java.lang.Override
-      public DeleteResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DeleteResponse(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<DeleteResponse> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<DeleteResponse> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.DeleteResponse getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface PlaybookEntrypointObjectOrBuilder extends
       // @@protoc_insertion_point(interface_extends:playbook.PlaybookEntrypointObject)
       com.google.protobuf.MessageOrBuilder {
@@ -11243,7 +10128,6 @@ public final class PlaybookOuterClass {
       super(builder);
     }
     private PlaybookEntrypointObject() {
-      playbookEntrypointId_ = 0;
       name_ = "";
     }
 
@@ -11283,7 +10167,7 @@ public final class PlaybookOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -11420,13 +10304,12 @@ public final class PlaybookOuterClass {
       }
       top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject other = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject) obj;
 
-      boolean result = true;
-      result = result && (getPlaybookEntrypointId()
-          == other.getPlaybookEntrypointId());
-      result = result && getName()
-          .equals(other.getName());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getPlaybookEntrypointId()
+          != other.getPlaybookEntrypointId()) return false;
+      if (!getName()
+          .equals(other.getName())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -11611,35 +10494,35 @@ public final class PlaybookOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -11818,7 +10701,7 @@ public final class PlaybookOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -11863,3174 +10746,6 @@ public final class PlaybookOuterClass {
 
     @java.lang.Override
     public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface VersionObjectOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:playbook.VersionObject)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * playbook项目ID
-     * </pre>
-     *
-     * <code>int32 playbook_file_id = 1;</code>
-     */
-    int getPlaybookFileId();
-
-    /**
-     * <pre>
-     * playbook存储在对象存储的url
-     * </pre>
-     *
-     * <code>string url = 2;</code>
-     */
-    java.lang.String getUrl();
-    /**
-     * <pre>
-     * playbook存储在对象存储的url
-     * </pre>
-     *
-     * <code>string url = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getUrlBytes();
-
-    /**
-     * <pre>
-     * 枚举类型 1-文件下载 2-git下载
-     * </pre>
-     *
-     * <code>.playbook.UrlType url_type = 3;</code>
-     */
-    int getUrlTypeValue();
-    /**
-     * <pre>
-     * 枚举类型 1-文件下载 2-git下载
-     * </pre>
-     *
-     * <code>.playbook.UrlType url_type = 3;</code>
-     */
-    top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType getUrlType();
-
-    /**
-     * <pre>
-     * playbook文件的版本号
-     * </pre>
-     *
-     * <code>string version = 4;</code>
-     */
-    java.lang.String getVersion();
-    /**
-     * <pre>
-     * playbook文件的版本号
-     * </pre>
-     *
-     * <code>string version = 4;</code>
-     */
-    com.google.protobuf.ByteString
-        getVersionBytes();
-
-    /**
-     * <pre>
-     * 文件md5
-     * </pre>
-     *
-     * <code>string md5 = 5;</code>
-     */
-    java.lang.String getMd5();
-    /**
-     * <pre>
-     * 文件md5
-     * </pre>
-     *
-     * <code>string md5 = 5;</code>
-     */
-    com.google.protobuf.ByteString
-        getMd5Bytes();
-
-    /**
-     * <pre>
-     * 文件大小
-     * </pre>
-     *
-     * <code>int64 size = 6;</code>
-     */
-    long getSize();
-
-    /**
-     * <pre>
-     * 创建时间
-     * </pre>
-     *
-     * <code>string created = 7;</code>
-     */
-    java.lang.String getCreated();
-    /**
-     * <pre>
-     * 创建时间
-     * </pre>
-     *
-     * <code>string created = 7;</code>
-     */
-    com.google.protobuf.ByteString
-        getCreatedBytes();
-
-    /**
-     * <pre>
-     * playbook入口文件对象
-     * </pre>
-     *
-     * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-     */
-    java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject> 
-        getEntrypointList();
-    /**
-     * <pre>
-     * playbook入口文件对象
-     * </pre>
-     *
-     * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-     */
-    top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject getEntrypoint(int index);
-    /**
-     * <pre>
-     * playbook入口文件对象
-     * </pre>
-     *
-     * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-     */
-    int getEntrypointCount();
-    /**
-     * <pre>
-     * playbook入口文件对象
-     * </pre>
-     *
-     * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-     */
-    java.util.List<? extends top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObjectOrBuilder> 
-        getEntrypointOrBuilderList();
-    /**
-     * <pre>
-     * playbook入口文件对象
-     * </pre>
-     *
-     * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-     */
-    top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObjectOrBuilder getEntrypointOrBuilder(
-        int index);
-  }
-  /**
-   * <pre>
-   * 版本实例
-   * </pre>
-   *
-   * Protobuf type {@code playbook.VersionObject}
-   */
-  public  static final class VersionObject extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:playbook.VersionObject)
-      VersionObjectOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use VersionObject.newBuilder() to construct.
-    private VersionObject(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private VersionObject() {
-      playbookFileId_ = 0;
-      url_ = "";
-      urlType_ = 0;
-      version_ = "";
-      md5_ = "";
-      size_ = 0L;
-      created_ = "";
-      entrypoint_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private VersionObject(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              playbookFileId_ = input.readInt32();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              url_ = s;
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-
-              urlType_ = rawValue;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              version_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              md5_ = s;
-              break;
-            }
-            case 48: {
-
-              size_ = input.readInt64();
-              break;
-            }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              created_ = s;
-              break;
-            }
-            case 66: {
-              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
-                entrypoint_ = new java.util.ArrayList<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject>();
-                mutable_bitField0_ |= 0x00000080;
-              }
-              entrypoint_.add(
-                  input.readMessage(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
-          entrypoint_ = java.util.Collections.unmodifiableList(entrypoint_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_VersionObject_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_VersionObject_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject.class, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject.Builder.class);
-    }
-
-    private int bitField0_;
-    public static final int PLAYBOOK_FILE_ID_FIELD_NUMBER = 1;
-    private int playbookFileId_;
-    /**
-     * <pre>
-     * playbook项目ID
-     * </pre>
-     *
-     * <code>int32 playbook_file_id = 1;</code>
-     */
-    public int getPlaybookFileId() {
-      return playbookFileId_;
-    }
-
-    public static final int URL_FIELD_NUMBER = 2;
-    private volatile java.lang.Object url_;
-    /**
-     * <pre>
-     * playbook存储在对象存储的url
-     * </pre>
-     *
-     * <code>string url = 2;</code>
-     */
-    public java.lang.String getUrl() {
-      java.lang.Object ref = url_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        url_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * playbook存储在对象存储的url
-     * </pre>
-     *
-     * <code>string url = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getUrlBytes() {
-      java.lang.Object ref = url_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        url_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int URL_TYPE_FIELD_NUMBER = 3;
-    private int urlType_;
-    /**
-     * <pre>
-     * 枚举类型 1-文件下载 2-git下载
-     * </pre>
-     *
-     * <code>.playbook.UrlType url_type = 3;</code>
-     */
-    public int getUrlTypeValue() {
-      return urlType_;
-    }
-    /**
-     * <pre>
-     * 枚举类型 1-文件下载 2-git下载
-     * </pre>
-     *
-     * <code>.playbook.UrlType url_type = 3;</code>
-     */
-    public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType getUrlType() {
-      @SuppressWarnings("deprecation")
-      top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType result = top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType.valueOf(urlType_);
-      return result == null ? top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType.UNRECOGNIZED : result;
-    }
-
-    public static final int VERSION_FIELD_NUMBER = 4;
-    private volatile java.lang.Object version_;
-    /**
-     * <pre>
-     * playbook文件的版本号
-     * </pre>
-     *
-     * <code>string version = 4;</code>
-     */
-    public java.lang.String getVersion() {
-      java.lang.Object ref = version_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        version_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * playbook文件的版本号
-     * </pre>
-     *
-     * <code>string version = 4;</code>
-     */
-    public com.google.protobuf.ByteString
-        getVersionBytes() {
-      java.lang.Object ref = version_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        version_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int MD5_FIELD_NUMBER = 5;
-    private volatile java.lang.Object md5_;
-    /**
-     * <pre>
-     * 文件md5
-     * </pre>
-     *
-     * <code>string md5 = 5;</code>
-     */
-    public java.lang.String getMd5() {
-      java.lang.Object ref = md5_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        md5_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * 文件md5
-     * </pre>
-     *
-     * <code>string md5 = 5;</code>
-     */
-    public com.google.protobuf.ByteString
-        getMd5Bytes() {
-      java.lang.Object ref = md5_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        md5_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int SIZE_FIELD_NUMBER = 6;
-    private long size_;
-    /**
-     * <pre>
-     * 文件大小
-     * </pre>
-     *
-     * <code>int64 size = 6;</code>
-     */
-    public long getSize() {
-      return size_;
-    }
-
-    public static final int CREATED_FIELD_NUMBER = 7;
-    private volatile java.lang.Object created_;
-    /**
-     * <pre>
-     * 创建时间
-     * </pre>
-     *
-     * <code>string created = 7;</code>
-     */
-    public java.lang.String getCreated() {
-      java.lang.Object ref = created_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        created_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * 创建时间
-     * </pre>
-     *
-     * <code>string created = 7;</code>
-     */
-    public com.google.protobuf.ByteString
-        getCreatedBytes() {
-      java.lang.Object ref = created_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        created_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int ENTRYPOINT_FIELD_NUMBER = 8;
-    private java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject> entrypoint_;
-    /**
-     * <pre>
-     * playbook入口文件对象
-     * </pre>
-     *
-     * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-     */
-    public java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject> getEntrypointList() {
-      return entrypoint_;
-    }
-    /**
-     * <pre>
-     * playbook入口文件对象
-     * </pre>
-     *
-     * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-     */
-    public java.util.List<? extends top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObjectOrBuilder> 
-        getEntrypointOrBuilderList() {
-      return entrypoint_;
-    }
-    /**
-     * <pre>
-     * playbook入口文件对象
-     * </pre>
-     *
-     * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-     */
-    public int getEntrypointCount() {
-      return entrypoint_.size();
-    }
-    /**
-     * <pre>
-     * playbook入口文件对象
-     * </pre>
-     *
-     * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-     */
-    public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject getEntrypoint(int index) {
-      return entrypoint_.get(index);
-    }
-    /**
-     * <pre>
-     * playbook入口文件对象
-     * </pre>
-     *
-     * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-     */
-    public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObjectOrBuilder getEntrypointOrBuilder(
-        int index) {
-      return entrypoint_.get(index);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (playbookFileId_ != 0) {
-        output.writeInt32(1, playbookFileId_);
-      }
-      if (!getUrlBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, url_);
-      }
-      if (urlType_ != top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType.UNDEFINED.getNumber()) {
-        output.writeEnum(3, urlType_);
-      }
-      if (!getVersionBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, version_);
-      }
-      if (!getMd5Bytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, md5_);
-      }
-      if (size_ != 0L) {
-        output.writeInt64(6, size_);
-      }
-      if (!getCreatedBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, created_);
-      }
-      for (int i = 0; i < entrypoint_.size(); i++) {
-        output.writeMessage(8, entrypoint_.get(i));
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (playbookFileId_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, playbookFileId_);
-      }
-      if (!getUrlBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, url_);
-      }
-      if (urlType_ != top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType.UNDEFINED.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(3, urlType_);
-      }
-      if (!getVersionBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, version_);
-      }
-      if (!getMd5Bytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, md5_);
-      }
-      if (size_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(6, size_);
-      }
-      if (!getCreatedBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, created_);
-      }
-      for (int i = 0; i < entrypoint_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(8, entrypoint_.get(i));
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject)) {
-        return super.equals(obj);
-      }
-      top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject other = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject) obj;
-
-      boolean result = true;
-      result = result && (getPlaybookFileId()
-          == other.getPlaybookFileId());
-      result = result && getUrl()
-          .equals(other.getUrl());
-      result = result && urlType_ == other.urlType_;
-      result = result && getVersion()
-          .equals(other.getVersion());
-      result = result && getMd5()
-          .equals(other.getMd5());
-      result = result && (getSize()
-          == other.getSize());
-      result = result && getCreated()
-          .equals(other.getCreated());
-      result = result && getEntrypointList()
-          .equals(other.getEntrypointList());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + PLAYBOOK_FILE_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getPlaybookFileId();
-      hash = (37 * hash) + URL_FIELD_NUMBER;
-      hash = (53 * hash) + getUrl().hashCode();
-      hash = (37 * hash) + URL_TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + urlType_;
-      hash = (37 * hash) + VERSION_FIELD_NUMBER;
-      hash = (53 * hash) + getVersion().hashCode();
-      hash = (37 * hash) + MD5_FIELD_NUMBER;
-      hash = (53 * hash) + getMd5().hashCode();
-      hash = (37 * hash) + SIZE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getSize());
-      hash = (37 * hash) + CREATED_FIELD_NUMBER;
-      hash = (53 * hash) + getCreated().hashCode();
-      if (getEntrypointCount() > 0) {
-        hash = (37 * hash) + ENTRYPOINT_FIELD_NUMBER;
-        hash = (53 * hash) + getEntrypointList().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * 版本实例
-     * </pre>
-     *
-     * Protobuf type {@code playbook.VersionObject}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:playbook.VersionObject)
-        top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObjectOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_VersionObject_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_VersionObject_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject.class, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject.Builder.class);
-      }
-
-      // Construct using top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getEntrypointFieldBuilder();
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        playbookFileId_ = 0;
-
-        url_ = "";
-
-        urlType_ = 0;
-
-        version_ = "";
-
-        md5_ = "";
-
-        size_ = 0L;
-
-        created_ = "";
-
-        if (entrypointBuilder_ == null) {
-          entrypoint_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000080);
-        } else {
-          entrypointBuilder_.clear();
-        }
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_VersionObject_descriptor;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject getDefaultInstanceForType() {
-        return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject build() {
-        top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject buildPartial() {
-        top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject result = new top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        result.playbookFileId_ = playbookFileId_;
-        result.url_ = url_;
-        result.urlType_ = urlType_;
-        result.version_ = version_;
-        result.md5_ = md5_;
-        result.size_ = size_;
-        result.created_ = created_;
-        if (entrypointBuilder_ == null) {
-          if (((bitField0_ & 0x00000080) == 0x00000080)) {
-            entrypoint_ = java.util.Collections.unmodifiableList(entrypoint_);
-            bitField0_ = (bitField0_ & ~0x00000080);
-          }
-          result.entrypoint_ = entrypoint_;
-        } else {
-          result.entrypoint_ = entrypointBuilder_.build();
-        }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject) {
-          return mergeFrom((top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject other) {
-        if (other == top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject.getDefaultInstance()) return this;
-        if (other.getPlaybookFileId() != 0) {
-          setPlaybookFileId(other.getPlaybookFileId());
-        }
-        if (!other.getUrl().isEmpty()) {
-          url_ = other.url_;
-          onChanged();
-        }
-        if (other.urlType_ != 0) {
-          setUrlTypeValue(other.getUrlTypeValue());
-        }
-        if (!other.getVersion().isEmpty()) {
-          version_ = other.version_;
-          onChanged();
-        }
-        if (!other.getMd5().isEmpty()) {
-          md5_ = other.md5_;
-          onChanged();
-        }
-        if (other.getSize() != 0L) {
-          setSize(other.getSize());
-        }
-        if (!other.getCreated().isEmpty()) {
-          created_ = other.created_;
-          onChanged();
-        }
-        if (entrypointBuilder_ == null) {
-          if (!other.entrypoint_.isEmpty()) {
-            if (entrypoint_.isEmpty()) {
-              entrypoint_ = other.entrypoint_;
-              bitField0_ = (bitField0_ & ~0x00000080);
-            } else {
-              ensureEntrypointIsMutable();
-              entrypoint_.addAll(other.entrypoint_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.entrypoint_.isEmpty()) {
-            if (entrypointBuilder_.isEmpty()) {
-              entrypointBuilder_.dispose();
-              entrypointBuilder_ = null;
-              entrypoint_ = other.entrypoint_;
-              bitField0_ = (bitField0_ & ~0x00000080);
-              entrypointBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getEntrypointFieldBuilder() : null;
-            } else {
-              entrypointBuilder_.addAllMessages(other.entrypoint_);
-            }
-          }
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private int playbookFileId_ ;
-      /**
-       * <pre>
-       * playbook项目ID
-       * </pre>
-       *
-       * <code>int32 playbook_file_id = 1;</code>
-       */
-      public int getPlaybookFileId() {
-        return playbookFileId_;
-      }
-      /**
-       * <pre>
-       * playbook项目ID
-       * </pre>
-       *
-       * <code>int32 playbook_file_id = 1;</code>
-       */
-      public Builder setPlaybookFileId(int value) {
-        
-        playbookFileId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * playbook项目ID
-       * </pre>
-       *
-       * <code>int32 playbook_file_id = 1;</code>
-       */
-      public Builder clearPlaybookFileId() {
-        
-        playbookFileId_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object url_ = "";
-      /**
-       * <pre>
-       * playbook存储在对象存储的url
-       * </pre>
-       *
-       * <code>string url = 2;</code>
-       */
-      public java.lang.String getUrl() {
-        java.lang.Object ref = url_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          url_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * playbook存储在对象存储的url
-       * </pre>
-       *
-       * <code>string url = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getUrlBytes() {
-        java.lang.Object ref = url_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          url_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * playbook存储在对象存储的url
-       * </pre>
-       *
-       * <code>string url = 2;</code>
-       */
-      public Builder setUrl(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        url_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * playbook存储在对象存储的url
-       * </pre>
-       *
-       * <code>string url = 2;</code>
-       */
-      public Builder clearUrl() {
-        
-        url_ = getDefaultInstance().getUrl();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * playbook存储在对象存储的url
-       * </pre>
-       *
-       * <code>string url = 2;</code>
-       */
-      public Builder setUrlBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        url_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int urlType_ = 0;
-      /**
-       * <pre>
-       * 枚举类型 1-文件下载 2-git下载
-       * </pre>
-       *
-       * <code>.playbook.UrlType url_type = 3;</code>
-       */
-      public int getUrlTypeValue() {
-        return urlType_;
-      }
-      /**
-       * <pre>
-       * 枚举类型 1-文件下载 2-git下载
-       * </pre>
-       *
-       * <code>.playbook.UrlType url_type = 3;</code>
-       */
-      public Builder setUrlTypeValue(int value) {
-        urlType_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 枚举类型 1-文件下载 2-git下载
-       * </pre>
-       *
-       * <code>.playbook.UrlType url_type = 3;</code>
-       */
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType getUrlType() {
-        @SuppressWarnings("deprecation")
-        top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType result = top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType.valueOf(urlType_);
-        return result == null ? top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType.UNRECOGNIZED : result;
-      }
-      /**
-       * <pre>
-       * 枚举类型 1-文件下载 2-git下载
-       * </pre>
-       *
-       * <code>.playbook.UrlType url_type = 3;</code>
-       */
-      public Builder setUrlType(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        
-        urlType_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 枚举类型 1-文件下载 2-git下载
-       * </pre>
-       *
-       * <code>.playbook.UrlType url_type = 3;</code>
-       */
-      public Builder clearUrlType() {
-        
-        urlType_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object version_ = "";
-      /**
-       * <pre>
-       * playbook文件的版本号
-       * </pre>
-       *
-       * <code>string version = 4;</code>
-       */
-      public java.lang.String getVersion() {
-        java.lang.Object ref = version_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          version_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * playbook文件的版本号
-       * </pre>
-       *
-       * <code>string version = 4;</code>
-       */
-      public com.google.protobuf.ByteString
-          getVersionBytes() {
-        java.lang.Object ref = version_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          version_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * playbook文件的版本号
-       * </pre>
-       *
-       * <code>string version = 4;</code>
-       */
-      public Builder setVersion(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        version_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * playbook文件的版本号
-       * </pre>
-       *
-       * <code>string version = 4;</code>
-       */
-      public Builder clearVersion() {
-        
-        version_ = getDefaultInstance().getVersion();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * playbook文件的版本号
-       * </pre>
-       *
-       * <code>string version = 4;</code>
-       */
-      public Builder setVersionBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        version_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object md5_ = "";
-      /**
-       * <pre>
-       * 文件md5
-       * </pre>
-       *
-       * <code>string md5 = 5;</code>
-       */
-      public java.lang.String getMd5() {
-        java.lang.Object ref = md5_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          md5_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 文件md5
-       * </pre>
-       *
-       * <code>string md5 = 5;</code>
-       */
-      public com.google.protobuf.ByteString
-          getMd5Bytes() {
-        java.lang.Object ref = md5_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          md5_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 文件md5
-       * </pre>
-       *
-       * <code>string md5 = 5;</code>
-       */
-      public Builder setMd5(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        md5_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 文件md5
-       * </pre>
-       *
-       * <code>string md5 = 5;</code>
-       */
-      public Builder clearMd5() {
-        
-        md5_ = getDefaultInstance().getMd5();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 文件md5
-       * </pre>
-       *
-       * <code>string md5 = 5;</code>
-       */
-      public Builder setMd5Bytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        md5_ = value;
-        onChanged();
-        return this;
-      }
-
-      private long size_ ;
-      /**
-       * <pre>
-       * 文件大小
-       * </pre>
-       *
-       * <code>int64 size = 6;</code>
-       */
-      public long getSize() {
-        return size_;
-      }
-      /**
-       * <pre>
-       * 文件大小
-       * </pre>
-       *
-       * <code>int64 size = 6;</code>
-       */
-      public Builder setSize(long value) {
-        
-        size_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 文件大小
-       * </pre>
-       *
-       * <code>int64 size = 6;</code>
-       */
-      public Builder clearSize() {
-        
-        size_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object created_ = "";
-      /**
-       * <pre>
-       * 创建时间
-       * </pre>
-       *
-       * <code>string created = 7;</code>
-       */
-      public java.lang.String getCreated() {
-        java.lang.Object ref = created_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          created_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 创建时间
-       * </pre>
-       *
-       * <code>string created = 7;</code>
-       */
-      public com.google.protobuf.ByteString
-          getCreatedBytes() {
-        java.lang.Object ref = created_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          created_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 创建时间
-       * </pre>
-       *
-       * <code>string created = 7;</code>
-       */
-      public Builder setCreated(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        created_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 创建时间
-       * </pre>
-       *
-       * <code>string created = 7;</code>
-       */
-      public Builder clearCreated() {
-        
-        created_ = getDefaultInstance().getCreated();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 创建时间
-       * </pre>
-       *
-       * <code>string created = 7;</code>
-       */
-      public Builder setCreatedBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        created_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject> entrypoint_ =
-        java.util.Collections.emptyList();
-      private void ensureEntrypointIsMutable() {
-        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
-          entrypoint_ = new java.util.ArrayList<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject>(entrypoint_);
-          bitField0_ |= 0x00000080;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.Builder, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObjectOrBuilder> entrypointBuilder_;
-
-      /**
-       * <pre>
-       * playbook入口文件对象
-       * </pre>
-       *
-       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-       */
-      public java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject> getEntrypointList() {
-        if (entrypointBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(entrypoint_);
-        } else {
-          return entrypointBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <pre>
-       * playbook入口文件对象
-       * </pre>
-       *
-       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-       */
-      public int getEntrypointCount() {
-        if (entrypointBuilder_ == null) {
-          return entrypoint_.size();
-        } else {
-          return entrypointBuilder_.getCount();
-        }
-      }
-      /**
-       * <pre>
-       * playbook入口文件对象
-       * </pre>
-       *
-       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-       */
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject getEntrypoint(int index) {
-        if (entrypointBuilder_ == null) {
-          return entrypoint_.get(index);
-        } else {
-          return entrypointBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <pre>
-       * playbook入口文件对象
-       * </pre>
-       *
-       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-       */
-      public Builder setEntrypoint(
-          int index, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject value) {
-        if (entrypointBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureEntrypointIsMutable();
-          entrypoint_.set(index, value);
-          onChanged();
-        } else {
-          entrypointBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * playbook入口文件对象
-       * </pre>
-       *
-       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-       */
-      public Builder setEntrypoint(
-          int index, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.Builder builderForValue) {
-        if (entrypointBuilder_ == null) {
-          ensureEntrypointIsMutable();
-          entrypoint_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          entrypointBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * playbook入口文件对象
-       * </pre>
-       *
-       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-       */
-      public Builder addEntrypoint(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject value) {
-        if (entrypointBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureEntrypointIsMutable();
-          entrypoint_.add(value);
-          onChanged();
-        } else {
-          entrypointBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * playbook入口文件对象
-       * </pre>
-       *
-       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-       */
-      public Builder addEntrypoint(
-          int index, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject value) {
-        if (entrypointBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureEntrypointIsMutable();
-          entrypoint_.add(index, value);
-          onChanged();
-        } else {
-          entrypointBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * playbook入口文件对象
-       * </pre>
-       *
-       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-       */
-      public Builder addEntrypoint(
-          top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.Builder builderForValue) {
-        if (entrypointBuilder_ == null) {
-          ensureEntrypointIsMutable();
-          entrypoint_.add(builderForValue.build());
-          onChanged();
-        } else {
-          entrypointBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * playbook入口文件对象
-       * </pre>
-       *
-       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-       */
-      public Builder addEntrypoint(
-          int index, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.Builder builderForValue) {
-        if (entrypointBuilder_ == null) {
-          ensureEntrypointIsMutable();
-          entrypoint_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          entrypointBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * playbook入口文件对象
-       * </pre>
-       *
-       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-       */
-      public Builder addAllEntrypoint(
-          java.lang.Iterable<? extends top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject> values) {
-        if (entrypointBuilder_ == null) {
-          ensureEntrypointIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, entrypoint_);
-          onChanged();
-        } else {
-          entrypointBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * playbook入口文件对象
-       * </pre>
-       *
-       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-       */
-      public Builder clearEntrypoint() {
-        if (entrypointBuilder_ == null) {
-          entrypoint_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000080);
-          onChanged();
-        } else {
-          entrypointBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * playbook入口文件对象
-       * </pre>
-       *
-       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-       */
-      public Builder removeEntrypoint(int index) {
-        if (entrypointBuilder_ == null) {
-          ensureEntrypointIsMutable();
-          entrypoint_.remove(index);
-          onChanged();
-        } else {
-          entrypointBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * playbook入口文件对象
-       * </pre>
-       *
-       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-       */
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.Builder getEntrypointBuilder(
-          int index) {
-        return getEntrypointFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <pre>
-       * playbook入口文件对象
-       * </pre>
-       *
-       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-       */
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObjectOrBuilder getEntrypointOrBuilder(
-          int index) {
-        if (entrypointBuilder_ == null) {
-          return entrypoint_.get(index);  } else {
-          return entrypointBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <pre>
-       * playbook入口文件对象
-       * </pre>
-       *
-       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-       */
-      public java.util.List<? extends top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObjectOrBuilder> 
-           getEntrypointOrBuilderList() {
-        if (entrypointBuilder_ != null) {
-          return entrypointBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(entrypoint_);
-        }
-      }
-      /**
-       * <pre>
-       * playbook入口文件对象
-       * </pre>
-       *
-       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-       */
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.Builder addEntrypointBuilder() {
-        return getEntrypointFieldBuilder().addBuilder(
-            top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       * playbook入口文件对象
-       * </pre>
-       *
-       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-       */
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.Builder addEntrypointBuilder(
-          int index) {
-        return getEntrypointFieldBuilder().addBuilder(
-            index, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       * playbook入口文件对象
-       * </pre>
-       *
-       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 8;</code>
-       */
-      public java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.Builder> 
-           getEntrypointBuilderList() {
-        return getEntrypointFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.Builder, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObjectOrBuilder> 
-          getEntrypointFieldBuilder() {
-        if (entrypointBuilder_ == null) {
-          entrypointBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.Builder, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObjectOrBuilder>(
-                  entrypoint_,
-                  ((bitField0_ & 0x00000080) == 0x00000080),
-                  getParentForChildren(),
-                  isClean());
-          entrypoint_ = null;
-        }
-        return entrypointBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:playbook.VersionObject)
-    }
-
-    // @@protoc_insertion_point(class_scope:playbook.VersionObject)
-    private static final top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject();
-    }
-
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<VersionObject>
-        PARSER = new com.google.protobuf.AbstractParser<VersionObject>() {
-      @java.lang.Override
-      public VersionObject parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new VersionObject(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<VersionObject> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<VersionObject> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface VersionRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:playbook.VersionRequest)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>int32 playbook_id = 1;</code>
-     */
-    int getPlaybookId();
-  }
-  /**
-   * <pre>
-   * 版本列表请求内容体
-   * </pre>
-   *
-   * Protobuf type {@code playbook.VersionRequest}
-   */
-  public  static final class VersionRequest extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:playbook.VersionRequest)
-      VersionRequestOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use VersionRequest.newBuilder() to construct.
-    private VersionRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private VersionRequest() {
-      playbookId_ = 0;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private VersionRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              playbookId_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_VersionRequest_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_VersionRequest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest.class, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest.Builder.class);
-    }
-
-    public static final int PLAYBOOK_ID_FIELD_NUMBER = 1;
-    private int playbookId_;
-    /**
-     * <code>int32 playbook_id = 1;</code>
-     */
-    public int getPlaybookId() {
-      return playbookId_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (playbookId_ != 0) {
-        output.writeInt32(1, playbookId_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (playbookId_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, playbookId_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest)) {
-        return super.equals(obj);
-      }
-      top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest other = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest) obj;
-
-      boolean result = true;
-      result = result && (getPlaybookId()
-          == other.getPlaybookId());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + PLAYBOOK_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getPlaybookId();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * 版本列表请求内容体
-     * </pre>
-     *
-     * Protobuf type {@code playbook.VersionRequest}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:playbook.VersionRequest)
-        top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_VersionRequest_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_VersionRequest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest.class, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest.Builder.class);
-      }
-
-      // Construct using top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        playbookId_ = 0;
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_VersionRequest_descriptor;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest getDefaultInstanceForType() {
-        return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest build() {
-        top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest buildPartial() {
-        top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest result = new top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest(this);
-        result.playbookId_ = playbookId_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest) {
-          return mergeFrom((top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest other) {
-        if (other == top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest.getDefaultInstance()) return this;
-        if (other.getPlaybookId() != 0) {
-          setPlaybookId(other.getPlaybookId());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private int playbookId_ ;
-      /**
-       * <code>int32 playbook_id = 1;</code>
-       */
-      public int getPlaybookId() {
-        return playbookId_;
-      }
-      /**
-       * <code>int32 playbook_id = 1;</code>
-       */
-      public Builder setPlaybookId(int value) {
-        
-        playbookId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 playbook_id = 1;</code>
-       */
-      public Builder clearPlaybookId() {
-        
-        playbookId_ = 0;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:playbook.VersionRequest)
-    }
-
-    // @@protoc_insertion_point(class_scope:playbook.VersionRequest)
-    private static final top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest();
-    }
-
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<VersionRequest>
-        PARSER = new com.google.protobuf.AbstractParser<VersionRequest>() {
-      @java.lang.Override
-      public VersionRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new VersionRequest(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<VersionRequest> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<VersionRequest> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionRequest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface VersionResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:playbook.VersionResponse)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>repeated .playbook.VersionObject versions = 1;</code>
-     */
-    java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject> 
-        getVersionsList();
-    /**
-     * <code>repeated .playbook.VersionObject versions = 1;</code>
-     */
-    top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject getVersions(int index);
-    /**
-     * <code>repeated .playbook.VersionObject versions = 1;</code>
-     */
-    int getVersionsCount();
-    /**
-     * <code>repeated .playbook.VersionObject versions = 1;</code>
-     */
-    java.util.List<? extends top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObjectOrBuilder> 
-        getVersionsOrBuilderList();
-    /**
-     * <code>repeated .playbook.VersionObject versions = 1;</code>
-     */
-    top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObjectOrBuilder getVersionsOrBuilder(
-        int index);
-  }
-  /**
-   * <pre>
-   * 版本列表请求响应
-   * </pre>
-   *
-   * Protobuf type {@code playbook.VersionResponse}
-   */
-  public  static final class VersionResponse extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:playbook.VersionResponse)
-      VersionResponseOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use VersionResponse.newBuilder() to construct.
-    private VersionResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private VersionResponse() {
-      versions_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private VersionResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                versions_ = new java.util.ArrayList<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              versions_.add(
-                  input.readMessage(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          versions_ = java.util.Collections.unmodifiableList(versions_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_VersionResponse_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_VersionResponse_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse.class, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse.Builder.class);
-    }
-
-    public static final int VERSIONS_FIELD_NUMBER = 1;
-    private java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject> versions_;
-    /**
-     * <code>repeated .playbook.VersionObject versions = 1;</code>
-     */
-    public java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject> getVersionsList() {
-      return versions_;
-    }
-    /**
-     * <code>repeated .playbook.VersionObject versions = 1;</code>
-     */
-    public java.util.List<? extends top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObjectOrBuilder> 
-        getVersionsOrBuilderList() {
-      return versions_;
-    }
-    /**
-     * <code>repeated .playbook.VersionObject versions = 1;</code>
-     */
-    public int getVersionsCount() {
-      return versions_.size();
-    }
-    /**
-     * <code>repeated .playbook.VersionObject versions = 1;</code>
-     */
-    public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject getVersions(int index) {
-      return versions_.get(index);
-    }
-    /**
-     * <code>repeated .playbook.VersionObject versions = 1;</code>
-     */
-    public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObjectOrBuilder getVersionsOrBuilder(
-        int index) {
-      return versions_.get(index);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      for (int i = 0; i < versions_.size(); i++) {
-        output.writeMessage(1, versions_.get(i));
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      for (int i = 0; i < versions_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, versions_.get(i));
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse)) {
-        return super.equals(obj);
-      }
-      top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse other = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse) obj;
-
-      boolean result = true;
-      result = result && getVersionsList()
-          .equals(other.getVersionsList());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (getVersionsCount() > 0) {
-        hash = (37 * hash) + VERSIONS_FIELD_NUMBER;
-        hash = (53 * hash) + getVersionsList().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * 版本列表请求响应
-     * </pre>
-     *
-     * Protobuf type {@code playbook.VersionResponse}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:playbook.VersionResponse)
-        top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_VersionResponse_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_VersionResponse_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse.class, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse.Builder.class);
-      }
-
-      // Construct using top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getVersionsFieldBuilder();
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        if (versionsBuilder_ == null) {
-          versions_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          versionsBuilder_.clear();
-        }
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.internal_static_playbook_VersionResponse_descriptor;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse getDefaultInstanceForType() {
-        return top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse build() {
-        top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse buildPartial() {
-        top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse result = new top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse(this);
-        int from_bitField0_ = bitField0_;
-        if (versionsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            versions_ = java.util.Collections.unmodifiableList(versions_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.versions_ = versions_;
-        } else {
-          result.versions_ = versionsBuilder_.build();
-        }
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse) {
-          return mergeFrom((top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse other) {
-        if (other == top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse.getDefaultInstance()) return this;
-        if (versionsBuilder_ == null) {
-          if (!other.versions_.isEmpty()) {
-            if (versions_.isEmpty()) {
-              versions_ = other.versions_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureVersionsIsMutable();
-              versions_.addAll(other.versions_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.versions_.isEmpty()) {
-            if (versionsBuilder_.isEmpty()) {
-              versionsBuilder_.dispose();
-              versionsBuilder_ = null;
-              versions_ = other.versions_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              versionsBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getVersionsFieldBuilder() : null;
-            } else {
-              versionsBuilder_.addAllMessages(other.versions_);
-            }
-          }
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject> versions_ =
-        java.util.Collections.emptyList();
-      private void ensureVersionsIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          versions_ = new java.util.ArrayList<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject>(versions_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject.Builder, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObjectOrBuilder> versionsBuilder_;
-
-      /**
-       * <code>repeated .playbook.VersionObject versions = 1;</code>
-       */
-      public java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject> getVersionsList() {
-        if (versionsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(versions_);
-        } else {
-          return versionsBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .playbook.VersionObject versions = 1;</code>
-       */
-      public int getVersionsCount() {
-        if (versionsBuilder_ == null) {
-          return versions_.size();
-        } else {
-          return versionsBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .playbook.VersionObject versions = 1;</code>
-       */
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject getVersions(int index) {
-        if (versionsBuilder_ == null) {
-          return versions_.get(index);
-        } else {
-          return versionsBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .playbook.VersionObject versions = 1;</code>
-       */
-      public Builder setVersions(
-          int index, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject value) {
-        if (versionsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureVersionsIsMutable();
-          versions_.set(index, value);
-          onChanged();
-        } else {
-          versionsBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .playbook.VersionObject versions = 1;</code>
-       */
-      public Builder setVersions(
-          int index, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject.Builder builderForValue) {
-        if (versionsBuilder_ == null) {
-          ensureVersionsIsMutable();
-          versions_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          versionsBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .playbook.VersionObject versions = 1;</code>
-       */
-      public Builder addVersions(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject value) {
-        if (versionsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureVersionsIsMutable();
-          versions_.add(value);
-          onChanged();
-        } else {
-          versionsBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .playbook.VersionObject versions = 1;</code>
-       */
-      public Builder addVersions(
-          int index, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject value) {
-        if (versionsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureVersionsIsMutable();
-          versions_.add(index, value);
-          onChanged();
-        } else {
-          versionsBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .playbook.VersionObject versions = 1;</code>
-       */
-      public Builder addVersions(
-          top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject.Builder builderForValue) {
-        if (versionsBuilder_ == null) {
-          ensureVersionsIsMutable();
-          versions_.add(builderForValue.build());
-          onChanged();
-        } else {
-          versionsBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .playbook.VersionObject versions = 1;</code>
-       */
-      public Builder addVersions(
-          int index, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject.Builder builderForValue) {
-        if (versionsBuilder_ == null) {
-          ensureVersionsIsMutable();
-          versions_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          versionsBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .playbook.VersionObject versions = 1;</code>
-       */
-      public Builder addAllVersions(
-          java.lang.Iterable<? extends top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject> values) {
-        if (versionsBuilder_ == null) {
-          ensureVersionsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, versions_);
-          onChanged();
-        } else {
-          versionsBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .playbook.VersionObject versions = 1;</code>
-       */
-      public Builder clearVersions() {
-        if (versionsBuilder_ == null) {
-          versions_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          versionsBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .playbook.VersionObject versions = 1;</code>
-       */
-      public Builder removeVersions(int index) {
-        if (versionsBuilder_ == null) {
-          ensureVersionsIsMutable();
-          versions_.remove(index);
-          onChanged();
-        } else {
-          versionsBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .playbook.VersionObject versions = 1;</code>
-       */
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject.Builder getVersionsBuilder(
-          int index) {
-        return getVersionsFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .playbook.VersionObject versions = 1;</code>
-       */
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObjectOrBuilder getVersionsOrBuilder(
-          int index) {
-        if (versionsBuilder_ == null) {
-          return versions_.get(index);  } else {
-          return versionsBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .playbook.VersionObject versions = 1;</code>
-       */
-      public java.util.List<? extends top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObjectOrBuilder> 
-           getVersionsOrBuilderList() {
-        if (versionsBuilder_ != null) {
-          return versionsBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(versions_);
-        }
-      }
-      /**
-       * <code>repeated .playbook.VersionObject versions = 1;</code>
-       */
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject.Builder addVersionsBuilder() {
-        return getVersionsFieldBuilder().addBuilder(
-            top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .playbook.VersionObject versions = 1;</code>
-       */
-      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject.Builder addVersionsBuilder(
-          int index) {
-        return getVersionsFieldBuilder().addBuilder(
-            index, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .playbook.VersionObject versions = 1;</code>
-       */
-      public java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject.Builder> 
-           getVersionsBuilderList() {
-        return getVersionsFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject.Builder, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObjectOrBuilder> 
-          getVersionsFieldBuilder() {
-        if (versionsBuilder_ == null) {
-          versionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObject.Builder, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionObjectOrBuilder>(
-                  versions_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
-                  getParentForChildren(),
-                  isClean());
-          versions_ = null;
-        }
-        return versionsBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:playbook.VersionResponse)
-    }
-
-    // @@protoc_insertion_point(class_scope:playbook.VersionResponse)
-    private static final top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse();
-    }
-
-    public static top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<VersionResponse>
-        PARSER = new com.google.protobuf.AbstractParser<VersionResponse>() {
-      @java.lang.Override
-      public VersionResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new VersionResponse(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<VersionResponse> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<VersionResponse> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.VersionResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -15125,12 +10840,10 @@ public final class PlaybookOuterClass {
       super(builder);
     }
     private SaveVersionRequest() {
-      playbookId_ = 0;
       url_ = "";
       urlType_ = 0;
       version_ = "";
       md5_ = "";
-      size_ = 0L;
       entrypoint_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
@@ -15194,7 +10907,7 @@ public final class PlaybookOuterClass {
             }
             case 58: {
               java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+              if (!((mutable_bitField0_ & 0x00000040) != 0)) {
                 entrypoint_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000040;
               }
@@ -15202,7 +10915,7 @@ public final class PlaybookOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -15216,7 +10929,7 @@ public final class PlaybookOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+        if (((mutable_bitField0_ & 0x00000040) != 0)) {
           entrypoint_ = entrypoint_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
@@ -15491,22 +11204,21 @@ public final class PlaybookOuterClass {
       }
       top.fogcdn.axe.protos.playbook.PlaybookOuterClass.SaveVersionRequest other = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.SaveVersionRequest) obj;
 
-      boolean result = true;
-      result = result && (getPlaybookId()
-          == other.getPlaybookId());
-      result = result && getUrl()
-          .equals(other.getUrl());
-      result = result && urlType_ == other.urlType_;
-      result = result && getVersion()
-          .equals(other.getVersion());
-      result = result && getMd5()
-          .equals(other.getMd5());
-      result = result && (getSize()
-          == other.getSize());
-      result = result && getEntrypointList()
-          .equals(other.getEntrypointList());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getPlaybookId()
+          != other.getPlaybookId()) return false;
+      if (!getUrl()
+          .equals(other.getUrl())) return false;
+      if (urlType_ != other.urlType_) return false;
+      if (!getVersion()
+          .equals(other.getVersion())) return false;
+      if (!getMd5()
+          .equals(other.getMd5())) return false;
+      if (getSize()
+          != other.getSize()) return false;
+      if (!getEntrypointList()
+          .equals(other.getEntrypointList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -15718,7 +11430,7 @@ public final class PlaybookOuterClass {
         result.version_ = version_;
         result.md5_ = md5_;
         result.size_ = size_;
-        if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           entrypoint_ = entrypoint_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000040);
         }
@@ -15730,35 +11442,35 @@ public final class PlaybookOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -16139,7 +11851,7 @@ public final class PlaybookOuterClass {
 
       private com.google.protobuf.LazyStringList entrypoint_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureEntrypointIsMutable() {
-        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+        if (!((bitField0_ & 0x00000040) != 0)) {
           entrypoint_ = new com.google.protobuf.LazyStringArrayList(entrypoint_);
           bitField0_ |= 0x00000040;
          }
@@ -16233,7 +11945,7 @@ public final class PlaybookOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -16332,7 +12044,6 @@ public final class PlaybookOuterClass {
       super(builder);
     }
     private SaveVersionResponse() {
-      versionId_ = 0;
       created_ = "";
     }
 
@@ -16385,7 +12096,7 @@ public final class PlaybookOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -16538,18 +12249,17 @@ public final class PlaybookOuterClass {
       }
       top.fogcdn.axe.protos.playbook.PlaybookOuterClass.SaveVersionResponse other = (top.fogcdn.axe.protos.playbook.PlaybookOuterClass.SaveVersionResponse) obj;
 
-      boolean result = true;
-      result = result && (getVersionId()
-          == other.getVersionId());
-      result = result && getCreated()
-          .equals(other.getCreated());
-      result = result && (hasStatus() == other.hasStatus());
+      if (getVersionId()
+          != other.getVersionId()) return false;
+      if (!getCreated()
+          .equals(other.getCreated())) return false;
+      if (hasStatus() != other.hasStatus()) return false;
       if (hasStatus()) {
-        result = result && getStatus()
-            .equals(other.getStatus());
+        if (!getStatus()
+            .equals(other.getStatus())) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -16753,35 +12463,35 @@ public final class PlaybookOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -16929,7 +12639,7 @@ public final class PlaybookOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
+      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
@@ -17048,7 +12758,7 @@ public final class PlaybookOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -17144,35 +12854,10 @@ public final class PlaybookOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_playbook_UpdateResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_playbook_DeleteRequest_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_playbook_DeleteRequest_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_playbook_DeleteResponse_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_playbook_DeleteResponse_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_playbook_PlaybookEntrypointObject_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_playbook_PlaybookEntrypointObject_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_playbook_VersionObject_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_playbook_VersionObject_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_playbook_VersionRequest_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_playbook_VersionRequest_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_playbook_VersionResponse_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_playbook_VersionResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_playbook_SaveVersionRequest_descriptor;
   private static final 
@@ -17222,48 +12907,32 @@ public final class PlaybookOuterClass {
       "n\030\006 \001(\t\022\022\n\nentrypoint\030\007 \003(\t\022\013\n\003md5\030\010 \001(\t" +
       "\022\014\n\004size\030\t \001(\003\"I\n\016UpdateResponse\022\017\n\007upda" +
       "ted\030\001 \001(\t\022&\n\006status\030\002 \001(\0132\026.common.Respo" +
-      "nseStatus\"$\n\rDeleteRequest\022\023\n\013playbook_i" +
-      "d\030\001 \001(\005\"8\n\016DeleteResponse\022&\n\006status\030\001 \001(" +
-      "\0132\026.common.ResponseStatus\"H\n\030PlaybookEnt" +
-      "rypointObject\022\036\n\026playbook_entrypoint_id\030" +
-      "\001 \001(\005\022\014\n\004name\030\002 \001(\t\"\320\001\n\rVersionObject\022\030\n" +
-      "\020playbook_file_id\030\001 \001(\005\022\013\n\003url\030\002 \001(\t\022#\n\010" +
-      "url_type\030\003 \001(\0162\021.playbook.UrlType\022\017\n\007ver" +
-      "sion\030\004 \001(\t\022\013\n\003md5\030\005 \001(\t\022\014\n\004size\030\006 \001(\003\022\017\n" +
-      "\007created\030\007 \001(\t\0226\n\nentrypoint\030\010 \003(\0132\".pla" +
-      "ybook.PlaybookEntrypointObject\"%\n\016Versio" +
-      "nRequest\022\023\n\013playbook_id\030\001 \001(\005\"<\n\017Version" +
-      "Response\022)\n\010versions\030\001 \003(\0132\027.playbook.Ve" +
-      "rsionObject\"\233\001\n\022SaveVersionRequest\022\023\n\013pl" +
-      "aybook_id\030\001 \001(\005\022\013\n\003url\030\002 \001(\t\022#\n\010url_type" +
-      "\030\003 \001(\0162\021.playbook.UrlType\022\017\n\007version\030\004 \001" +
-      "(\t\022\013\n\003md5\030\005 \001(\t\022\014\n\004size\030\006 \001(\003\022\022\n\nentrypo" +
-      "int\030\007 \003(\t\"b\n\023SaveVersionResponse\022\022\n\nvers" +
-      "ion_id\030\001 \001(\005\022\017\n\007created\030\002 \001(\t\022&\n\006status\030" +
-      "\003 \001(\0132\026.common.ResponseStatus*+\n\007UrlType" +
-      "\022\r\n\tUNDEFINED\020\000\022\010\n\004FILE\020\001\022\007\n\003GIT\020\0022\252\005\n\010P" +
-      "laybook\022[\n\006Create\022\027.playbook.CreateReque" +
-      "st\032\030.playbook.CreateResponse\"\036\202\323\344\223\002\030\"\023/v" +
-      "1/playbook/create:\001*\022X\n\006Filter\022\027.playboo" +
-      "k.FilterRequest\032\030.playbook.FilterRespons" +
-      "e\"\033\202\323\344\223\002\025\022\023/v1/playbook/filter\022Z\n\003Get\022\024." +
-      "playbook.GetRequest\032\025.playbook.GetRespon" +
-      "se\"&\202\323\344\223\002 \022\036/v1/playbook/get/{playbook_i" +
-      "d}\022i\n\006Update\022\027.playbook.UpdateRequest\032\030." +
-      "playbook.UpdateResponse\",\202\323\344\223\002&\"!/v1/pla" +
-      "ybook/update/{playbook_id}:\001*\022f\n\006Delete\022" +
-      "\027.playbook.DeleteRequest\032\030.playbook.Dele" +
-      "teResponse\")\202\323\344\223\002#\"!/v1/playbook/delete/" +
-      "{playbook_id}\022j\n\007Version\022\030.playbook.Vers" +
-      "ionRequest\032\031.playbook.VersionResponse\"*\202" +
-      "\323\344\223\002$\022\"/v1/playbook/version/{playbook_id" +
-      "}\022L\n\013SaveVersion\022\034.playbook.SaveVersionR" +
-      "equest\032\035.playbook.SaveVersionResponse\"\000B" +
-      "\247\001\n\036top.fogcdn.axe.protos.playbookZ(git." +
-      "fogcdn.top/axe/protos/goout/playbook\222AZ\022" +
-      "1\n\014AXE\350\277\220\347\273\264API\022\032AXE\350\277\220\347\273\264\345\271\263\345\217\260RESTful " +
-      "API2\0051.0.0*\001\0012\020application/json:\020applica" +
-      "tion/jsonb\006proto3"
+      "nseStatus\"H\n\030PlaybookEntrypointObject\022\036\n" +
+      "\026playbook_entrypoint_id\030\001 \001(\005\022\014\n\004name\030\002 " +
+      "\001(\t\"\233\001\n\022SaveVersionRequest\022\023\n\013playbook_i" +
+      "d\030\001 \001(\005\022\013\n\003url\030\002 \001(\t\022#\n\010url_type\030\003 \001(\0162\021" +
+      ".playbook.UrlType\022\017\n\007version\030\004 \001(\t\022\013\n\003md" +
+      "5\030\005 \001(\t\022\014\n\004size\030\006 \001(\003\022\022\n\nentrypoint\030\007 \003(" +
+      "\t\"b\n\023SaveVersionResponse\022\022\n\nversion_id\030\001" +
+      " \001(\005\022\017\n\007created\030\002 \001(\t\022&\n\006status\030\003 \001(\0132\026." +
+      "common.ResponseStatus*+\n\007UrlType\022\r\n\tUNDE" +
+      "FINED\020\000\022\010\n\004FILE\020\001\022\007\n\003GIT\020\0022\326\003\n\010Playbook\022" +
+      "[\n\006Create\022\027.playbook.CreateRequest\032\030.pla" +
+      "ybook.CreateResponse\"\036\202\323\344\223\002\030\"\023/v1/playbo" +
+      "ok/create:\001*\022X\n\006Filter\022\027.playbook.Filter" +
+      "Request\032\030.playbook.FilterResponse\"\033\202\323\344\223\002" +
+      "\025\022\023/v1/playbook/filter\022Z\n\003Get\022\024.playbook" +
+      ".GetRequest\032\025.playbook.GetResponse\"&\202\323\344\223" +
+      "\002 \022\036/v1/playbook/get/{playbook_id}\022i\n\006Up" +
+      "date\022\027.playbook.UpdateRequest\032\030.playbook" +
+      ".UpdateResponse\",\202\323\344\223\002&\"!/v1/playbook/up" +
+      "date/{playbook_id}:\001*\022L\n\013SaveVersion\022\034.p" +
+      "laybook.SaveVersionRequest\032\035.playbook.Sa" +
+      "veVersionResponse\"\000B\247\001\n\036top.fogcdn.axe.p" +
+      "rotos.playbookZ(git.fogcdn.top/axe/proto" +
+      "s/goout/playbook\222AZ\0221\n\014AXE\350\277\220\347\273\264API\022\032AXE" +
+      "\350\277\220\347\273\264\345\271\263\345\217\260RESTful API2\0051.0.0*\001\0012\020appli" +
+      "cation/json:\020application/jsonb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -17334,50 +13003,20 @@ public final class PlaybookOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_playbook_UpdateResponse_descriptor,
         new java.lang.String[] { "Updated", "Status", });
-    internal_static_playbook_DeleteRequest_descriptor =
-      getDescriptor().getMessageTypes().get(9);
-    internal_static_playbook_DeleteRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_playbook_DeleteRequest_descriptor,
-        new java.lang.String[] { "PlaybookId", });
-    internal_static_playbook_DeleteResponse_descriptor =
-      getDescriptor().getMessageTypes().get(10);
-    internal_static_playbook_DeleteResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_playbook_DeleteResponse_descriptor,
-        new java.lang.String[] { "Status", });
     internal_static_playbook_PlaybookEntrypointObject_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_playbook_PlaybookEntrypointObject_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_playbook_PlaybookEntrypointObject_descriptor,
         new java.lang.String[] { "PlaybookEntrypointId", "Name", });
-    internal_static_playbook_VersionObject_descriptor =
-      getDescriptor().getMessageTypes().get(12);
-    internal_static_playbook_VersionObject_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_playbook_VersionObject_descriptor,
-        new java.lang.String[] { "PlaybookFileId", "Url", "UrlType", "Version", "Md5", "Size", "Created", "Entrypoint", });
-    internal_static_playbook_VersionRequest_descriptor =
-      getDescriptor().getMessageTypes().get(13);
-    internal_static_playbook_VersionRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_playbook_VersionRequest_descriptor,
-        new java.lang.String[] { "PlaybookId", });
-    internal_static_playbook_VersionResponse_descriptor =
-      getDescriptor().getMessageTypes().get(14);
-    internal_static_playbook_VersionResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_playbook_VersionResponse_descriptor,
-        new java.lang.String[] { "Versions", });
     internal_static_playbook_SaveVersionRequest_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_playbook_SaveVersionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_playbook_SaveVersionRequest_descriptor,
         new java.lang.String[] { "PlaybookId", "Url", "UrlType", "Version", "Md5", "Size", "Entrypoint", });
     internal_static_playbook_SaveVersionResponse_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_playbook_SaveVersionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_playbook_SaveVersionResponse_descriptor,

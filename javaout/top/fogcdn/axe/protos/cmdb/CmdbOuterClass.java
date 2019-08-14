@@ -94,7 +94,6 @@ public final class CmdbOuterClass {
       super(builder);
     }
     private TopologyObject() {
-      bkInstId_ = 0;
       bkInstName_ = "";
       bkObjId_ = "";
       bkObjName_ = "";
@@ -149,7 +148,7 @@ public final class CmdbOuterClass {
               break;
             }
             case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
                 child_ = new java.util.ArrayList<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.TopologyObject>();
                 mutable_bitField0_ |= 0x00000010;
               }
@@ -158,7 +157,7 @@ public final class CmdbOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -172,7 +171,7 @@ public final class CmdbOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((mutable_bitField0_ & 0x00000010) != 0)) {
           child_ = java.util.Collections.unmodifiableList(child_);
         }
         this.unknownFields = unknownFields.build();
@@ -409,19 +408,18 @@ public final class CmdbOuterClass {
       }
       top.fogcdn.axe.protos.cmdb.CmdbOuterClass.TopologyObject other = (top.fogcdn.axe.protos.cmdb.CmdbOuterClass.TopologyObject) obj;
 
-      boolean result = true;
-      result = result && (getBkInstId()
-          == other.getBkInstId());
-      result = result && getBkInstName()
-          .equals(other.getBkInstName());
-      result = result && getBkObjId()
-          .equals(other.getBkObjId());
-      result = result && getBkObjName()
-          .equals(other.getBkObjName());
-      result = result && getChildList()
-          .equals(other.getChildList());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getBkInstId()
+          != other.getBkInstId()) return false;
+      if (!getBkInstName()
+          .equals(other.getBkInstName())) return false;
+      if (!getBkObjId()
+          .equals(other.getBkObjId())) return false;
+      if (!getBkObjName()
+          .equals(other.getBkObjName())) return false;
+      if (!getChildList()
+          .equals(other.getChildList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -628,7 +626,7 @@ public final class CmdbOuterClass {
         result.bkObjId_ = bkObjId_;
         result.bkObjName_ = bkObjName_;
         if (childBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          if (((bitField0_ & 0x00000010) != 0)) {
             child_ = java.util.Collections.unmodifiableList(child_);
             bitField0_ = (bitField0_ & ~0x00000010);
           }
@@ -643,35 +641,35 @@ public final class CmdbOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -992,7 +990,7 @@ public final class CmdbOuterClass {
       private java.util.List<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.TopologyObject> child_ =
         java.util.Collections.emptyList();
       private void ensureChildIsMutable() {
-        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+        if (!((bitField0_ & 0x00000010) != 0)) {
           child_ = new java.util.ArrayList<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.TopologyObject>(child_);
           bitField0_ |= 0x00000010;
          }
@@ -1221,7 +1219,7 @@ public final class CmdbOuterClass {
           childBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               top.fogcdn.axe.protos.cmdb.CmdbOuterClass.TopologyObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.TopologyObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.TopologyObjectOrBuilder>(
                   child_,
-                  ((bitField0_ & 0x00000010) == 0x00000010),
+                  ((bitField0_ & 0x00000010) != 0),
                   getParentForChildren(),
                   isClean());
           child_ = null;
@@ -1231,7 +1229,7 @@ public final class CmdbOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -1307,7 +1305,6 @@ public final class CmdbOuterClass {
       super(builder);
     }
     private InstanceTopologyRequest() {
-      level_ = 0;
     }
 
     @java.lang.Override
@@ -1340,7 +1337,7 @@ public final class CmdbOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -1425,11 +1422,10 @@ public final class CmdbOuterClass {
       }
       top.fogcdn.axe.protos.cmdb.CmdbOuterClass.InstanceTopologyRequest other = (top.fogcdn.axe.protos.cmdb.CmdbOuterClass.InstanceTopologyRequest) obj;
 
-      boolean result = true;
-      result = result && (getLevel()
-          == other.getLevel());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getLevel()
+          != other.getLevel()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -1613,35 +1609,35 @@ public final class CmdbOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1715,7 +1711,7 @@ public final class CmdbOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -1865,7 +1861,7 @@ public final class CmdbOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -1990,19 +1986,18 @@ public final class CmdbOuterClass {
       }
       top.fogcdn.axe.protos.cmdb.CmdbOuterClass.InstanceTopologyResponse other = (top.fogcdn.axe.protos.cmdb.CmdbOuterClass.InstanceTopologyResponse) obj;
 
-      boolean result = true;
-      result = result && (hasInstance() == other.hasInstance());
+      if (hasInstance() != other.hasInstance()) return false;
       if (hasInstance()) {
-        result = result && getInstance()
-            .equals(other.getInstance());
+        if (!getInstance()
+            .equals(other.getInstance())) return false;
       }
-      result = result && (hasStatus() == other.hasStatus());
+      if (hasStatus() != other.hasStatus()) return false;
       if (hasStatus()) {
-        result = result && getStatus()
-            .equals(other.getStatus());
+        if (!getStatus()
+            .equals(other.getStatus())) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -2211,35 +2206,35 @@ public final class CmdbOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -2288,7 +2283,7 @@ public final class CmdbOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.TopologyObject instance_ = null;
+      private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.TopologyObject instance_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.cmdb.CmdbOuterClass.TopologyObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.TopologyObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.TopologyObjectOrBuilder> instanceBuilder_;
       /**
@@ -2405,7 +2400,7 @@ public final class CmdbOuterClass {
         return instanceBuilder_;
       }
 
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
+      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
@@ -2524,7 +2519,7 @@ public final class CmdbOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -2643,7 +2638,7 @@ public final class CmdbOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -2760,11 +2755,10 @@ public final class CmdbOuterClass {
       }
       top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject other = (top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject) obj;
 
-      boolean result = true;
-      result = result && getBkHostInnerip()
-          .equals(other.getBkHostInnerip());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!getBkHostInnerip()
+          .equals(other.getBkHostInnerip())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -2944,35 +2938,35 @@ public final class CmdbOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -3110,7 +3104,7 @@ public final class CmdbOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -3229,7 +3223,7 @@ public final class CmdbOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -3346,11 +3340,10 @@ public final class CmdbOuterClass {
       }
       top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject other = (top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject) obj;
 
-      boolean result = true;
-      result = result && getBkModuleName()
-          .equals(other.getBkModuleName());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!getBkModuleName()
+          .equals(other.getBkModuleName())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -3530,35 +3523,35 @@ public final class CmdbOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -3696,7 +3689,7 @@ public final class CmdbOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -3815,7 +3808,7 @@ public final class CmdbOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -3932,11 +3925,10 @@ public final class CmdbOuterClass {
       }
       top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject other = (top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject) obj;
 
-      boolean result = true;
-      result = result && getBkSetName()
-          .equals(other.getBkSetName());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!getBkSetName()
+          .equals(other.getBkSetName())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -4116,35 +4108,35 @@ public final class CmdbOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -4282,7 +4274,7 @@ public final class CmdbOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -4401,7 +4393,7 @@ public final class CmdbOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -4518,11 +4510,10 @@ public final class CmdbOuterClass {
       }
       top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject other = (top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject) obj;
 
-      boolean result = true;
-      result = result && getBkBizName()
-          .equals(other.getBkBizName());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!getBkBizName()
+          .equals(other.getBkBizName())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -4702,35 +4693,35 @@ public final class CmdbOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -4868,7 +4859,7 @@ public final class CmdbOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -5063,7 +5054,7 @@ public final class CmdbOuterClass {
               break;
             }
             case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 module_ = new java.util.ArrayList<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject>();
                 mutable_bitField0_ |= 0x00000002;
               }
@@ -5072,7 +5063,7 @@ public final class CmdbOuterClass {
               break;
             }
             case 26: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
                 set_ = new java.util.ArrayList<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject>();
                 mutable_bitField0_ |= 0x00000004;
               }
@@ -5081,7 +5072,7 @@ public final class CmdbOuterClass {
               break;
             }
             case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
                 biz_ = new java.util.ArrayList<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject>();
                 mutable_bitField0_ |= 0x00000008;
               }
@@ -5090,7 +5081,7 @@ public final class CmdbOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -5104,13 +5095,13 @@ public final class CmdbOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
           module_ = java.util.Collections.unmodifiableList(module_);
         }
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((mutable_bitField0_ & 0x00000004) != 0)) {
           set_ = java.util.Collections.unmodifiableList(set_);
         }
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((mutable_bitField0_ & 0x00000008) != 0)) {
           biz_ = java.util.Collections.unmodifiableList(biz_);
         }
         this.unknownFields = unknownFields.build();
@@ -5323,20 +5314,19 @@ public final class CmdbOuterClass {
       }
       top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject other = (top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject) obj;
 
-      boolean result = true;
-      result = result && (hasHost() == other.hasHost());
+      if (hasHost() != other.hasHost()) return false;
       if (hasHost()) {
-        result = result && getHost()
-            .equals(other.getHost());
+        if (!getHost()
+            .equals(other.getHost())) return false;
       }
-      result = result && getModuleList()
-          .equals(other.getModuleList());
-      result = result && getSetList()
-          .equals(other.getSetList());
-      result = result && getBizList()
-          .equals(other.getBizList());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!getModuleList()
+          .equals(other.getModuleList())) return false;
+      if (!getSetList()
+          .equals(other.getSetList())) return false;
+      if (!getBizList()
+          .equals(other.getBizList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -5556,7 +5546,7 @@ public final class CmdbOuterClass {
           result.host_ = hostBuilder_.build();
         }
         if (moduleBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             module_ = java.util.Collections.unmodifiableList(module_);
             bitField0_ = (bitField0_ & ~0x00000002);
           }
@@ -5565,7 +5555,7 @@ public final class CmdbOuterClass {
           result.module_ = moduleBuilder_.build();
         }
         if (setBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          if (((bitField0_ & 0x00000004) != 0)) {
             set_ = java.util.Collections.unmodifiableList(set_);
             bitField0_ = (bitField0_ & ~0x00000004);
           }
@@ -5574,7 +5564,7 @@ public final class CmdbOuterClass {
           result.set_ = setBuilder_.build();
         }
         if (bizBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          if (((bitField0_ & 0x00000008) != 0)) {
             biz_ = java.util.Collections.unmodifiableList(biz_);
             bitField0_ = (bitField0_ & ~0x00000008);
           }
@@ -5589,35 +5579,35 @@ public final class CmdbOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -5742,7 +5732,7 @@ public final class CmdbOuterClass {
       }
       private int bitField0_;
 
-      private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject host_ = null;
+      private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject host_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObjectOrBuilder> hostBuilder_;
       /**
@@ -5862,7 +5852,7 @@ public final class CmdbOuterClass {
       private java.util.List<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject> module_ =
         java.util.Collections.emptyList();
       private void ensureModuleIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           module_ = new java.util.ArrayList<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject>(module_);
           bitField0_ |= 0x00000002;
          }
@@ -6091,7 +6081,7 @@ public final class CmdbOuterClass {
           moduleBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObjectOrBuilder>(
                   module_,
-                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           module_ = null;
@@ -6102,7 +6092,7 @@ public final class CmdbOuterClass {
       private java.util.List<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject> set_ =
         java.util.Collections.emptyList();
       private void ensureSetIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           set_ = new java.util.ArrayList<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject>(set_);
           bitField0_ |= 0x00000004;
          }
@@ -6331,7 +6321,7 @@ public final class CmdbOuterClass {
           setBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObjectOrBuilder>(
                   set_,
-                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  ((bitField0_ & 0x00000004) != 0),
                   getParentForChildren(),
                   isClean());
           set_ = null;
@@ -6342,7 +6332,7 @@ public final class CmdbOuterClass {
       private java.util.List<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject> biz_ =
         java.util.Collections.emptyList();
       private void ensureBizIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           biz_ = new java.util.ArrayList<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject>(biz_);
           bitField0_ |= 0x00000008;
          }
@@ -6571,7 +6561,7 @@ public final class CmdbOuterClass {
           bizBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObjectOrBuilder>(
                   biz_,
-                  ((bitField0_ & 0x00000008) == 0x00000008),
+                  ((bitField0_ & 0x00000008) != 0),
                   getParentForChildren(),
                   isClean());
           biz_ = null;
@@ -6581,7 +6571,7 @@ public final class CmdbOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -6783,7 +6773,7 @@ public final class CmdbOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -6964,29 +6954,28 @@ public final class CmdbOuterClass {
       }
       top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest other = (top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest) obj;
 
-      boolean result = true;
-      result = result && (hasHost() == other.hasHost());
+      if (hasHost() != other.hasHost()) return false;
       if (hasHost()) {
-        result = result && getHost()
-            .equals(other.getHost());
+        if (!getHost()
+            .equals(other.getHost())) return false;
       }
-      result = result && (hasModule() == other.hasModule());
+      if (hasModule() != other.hasModule()) return false;
       if (hasModule()) {
-        result = result && getModule()
-            .equals(other.getModule());
+        if (!getModule()
+            .equals(other.getModule())) return false;
       }
-      result = result && (hasSet() == other.hasSet());
+      if (hasSet() != other.hasSet()) return false;
       if (hasSet()) {
-        result = result && getSet()
-            .equals(other.getSet());
+        if (!getSet()
+            .equals(other.getSet())) return false;
       }
-      result = result && (hasBiz() == other.hasBiz());
+      if (hasBiz() != other.hasBiz()) return false;
       if (hasBiz()) {
-        result = result && getBiz()
-            .equals(other.getBiz());
+        if (!getBiz()
+            .equals(other.getBiz())) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -7225,35 +7214,35 @@ public final class CmdbOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -7308,7 +7297,7 @@ public final class CmdbOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject host_ = null;
+      private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject host_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObjectOrBuilder> hostBuilder_;
       /**
@@ -7425,7 +7414,7 @@ public final class CmdbOuterClass {
         return hostBuilder_;
       }
 
-      private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject module_ = null;
+      private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject module_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObjectOrBuilder> moduleBuilder_;
       /**
@@ -7542,7 +7531,7 @@ public final class CmdbOuterClass {
         return moduleBuilder_;
       }
 
-      private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject set_ = null;
+      private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject set_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObjectOrBuilder> setBuilder_;
       /**
@@ -7659,7 +7648,7 @@ public final class CmdbOuterClass {
         return setBuilder_;
       }
 
-      private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject biz_ = null;
+      private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject biz_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObjectOrBuilder> bizBuilder_;
       /**
@@ -7778,7 +7767,7 @@ public final class CmdbOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -7891,7 +7880,6 @@ public final class CmdbOuterClass {
       super(builder);
     }
     private SearchHostResponse() {
-      count_ = 0;
       info_ = java.util.Collections.emptyList();
     }
 
@@ -7925,7 +7913,7 @@ public final class CmdbOuterClass {
               break;
             }
             case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 info_ = new java.util.ArrayList<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject>();
                 mutable_bitField0_ |= 0x00000002;
               }
@@ -7947,7 +7935,7 @@ public final class CmdbOuterClass {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -7961,7 +7949,7 @@ public final class CmdbOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
           info_ = java.util.Collections.unmodifiableList(info_);
         }
         this.unknownFields = unknownFields.build();
@@ -8106,18 +8094,17 @@ public final class CmdbOuterClass {
       }
       top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostResponse other = (top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostResponse) obj;
 
-      boolean result = true;
-      result = result && (getCount()
-          == other.getCount());
-      result = result && getInfoList()
-          .equals(other.getInfoList());
-      result = result && (hasStatus() == other.hasStatus());
+      if (getCount()
+          != other.getCount()) return false;
+      if (!getInfoList()
+          .equals(other.getInfoList())) return false;
+      if (hasStatus() != other.hasStatus()) return false;
       if (hasStatus()) {
-        result = result && getStatus()
-            .equals(other.getStatus());
+        if (!getStatus()
+            .equals(other.getStatus())) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -8319,7 +8306,7 @@ public final class CmdbOuterClass {
         int to_bitField0_ = 0;
         result.count_ = count_;
         if (infoBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             info_ = java.util.Collections.unmodifiableList(info_);
             bitField0_ = (bitField0_ & ~0x00000002);
           }
@@ -8339,35 +8326,35 @@ public final class CmdbOuterClass {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -8472,7 +8459,7 @@ public final class CmdbOuterClass {
       private java.util.List<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject> info_ =
         java.util.Collections.emptyList();
       private void ensureInfoIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           info_ = new java.util.ArrayList<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject>(info_);
           bitField0_ |= 0x00000002;
          }
@@ -8701,7 +8688,7 @@ public final class CmdbOuterClass {
           infoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObjectOrBuilder>(
                   info_,
-                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           info_ = null;
@@ -8709,7 +8696,7 @@ public final class CmdbOuterClass {
         return infoBuilder_;
       }
 
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
+      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
@@ -8828,7 +8815,7 @@ public final class CmdbOuterClass {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
