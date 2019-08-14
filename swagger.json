@@ -12,7 +12,7 @@
   "swagger": "2.0",
   "info": {
     "description": "AXE运维平台RESTful API",
-    "title": "AXE运维API - 定时任务",
+    "title": "AXE运维API",
     "version": "1.0.0"
   },
   "paths": {
@@ -243,7 +243,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin4",
+        "operationId": "CreateMixin5",
         "parameters": [
           {
             "name": "body",
@@ -270,7 +270,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin4",
+        "operationId": "FilterMixin5",
         "parameters": [
           {
             "type": "integer",
@@ -318,7 +318,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin4",
+        "operationId": "GetMixin5",
         "parameters": [
           {
             "type": "integer",
@@ -370,7 +370,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "UpdateMixin4",
+        "operationId": "UpdateMixin5",
         "parameters": [
           {
             "type": "integer",
@@ -404,7 +404,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin5",
+        "operationId": "CreateMixin6",
         "parameters": [
           {
             "name": "body",
@@ -431,7 +431,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin5",
+        "operationId": "FilterMixin6",
         "parameters": [
           {
             "type": "integer",
@@ -478,7 +478,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin5",
+        "operationId": "GetMixin6",
         "parameters": [
           {
             "type": "integer",
@@ -504,7 +504,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin5",
+        "operationId": "UpdateMixin6",
         "parameters": [
           {
             "type": "integer",
