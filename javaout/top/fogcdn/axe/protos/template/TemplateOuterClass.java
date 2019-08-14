@@ -6660,9 +6660,9 @@ public final class TemplateOuterClass {
     int getPlaybookFileId();
 
     /**
-     * <code>int32 entrypoint_id = 6;</code>
+     * <code>int32 playbook_entrypoint_id = 6;</code>
      */
-    int getEntrypointId();
+    int getPlaybookEntrypointId();
 
     /**
      * <code>string extra_var = 7;</code>
@@ -6692,7 +6692,7 @@ public final class TemplateOuterClass {
       description_ = "";
       playbookId_ = 0;
       playbookFileId_ = 0;
-      entrypointId_ = 0;
+      playbookEntrypointId_ = 0;
       extraVar_ = "";
     }
 
@@ -6749,7 +6749,7 @@ public final class TemplateOuterClass {
             }
             case 48: {
 
-              entrypointId_ = input.readInt32();
+              playbookEntrypointId_ = input.readInt32();
               break;
             }
             case 58: {
@@ -6885,13 +6885,13 @@ public final class TemplateOuterClass {
       return playbookFileId_;
     }
 
-    public static final int ENTRYPOINT_ID_FIELD_NUMBER = 6;
-    private int entrypointId_;
+    public static final int PLAYBOOK_ENTRYPOINT_ID_FIELD_NUMBER = 6;
+    private int playbookEntrypointId_;
     /**
-     * <code>int32 entrypoint_id = 6;</code>
+     * <code>int32 playbook_entrypoint_id = 6;</code>
      */
-    public int getEntrypointId() {
-      return entrypointId_;
+    public int getPlaybookEntrypointId() {
+      return playbookEntrypointId_;
     }
 
     public static final int EXTRA_VAR_FIELD_NUMBER = 7;
@@ -6957,8 +6957,8 @@ public final class TemplateOuterClass {
       if (playbookFileId_ != 0) {
         output.writeInt32(5, playbookFileId_);
       }
-      if (entrypointId_ != 0) {
-        output.writeInt32(6, entrypointId_);
+      if (playbookEntrypointId_ != 0) {
+        output.writeInt32(6, playbookEntrypointId_);
       }
       if (!getExtraVarBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, extraVar_);
@@ -6990,9 +6990,9 @@ public final class TemplateOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, playbookFileId_);
       }
-      if (entrypointId_ != 0) {
+      if (playbookEntrypointId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, entrypointId_);
+          .computeInt32Size(6, playbookEntrypointId_);
       }
       if (!getExtraVarBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, extraVar_);
@@ -7023,8 +7023,8 @@ public final class TemplateOuterClass {
           == other.getPlaybookId());
       result = result && (getPlaybookFileId()
           == other.getPlaybookFileId());
-      result = result && (getEntrypointId()
-          == other.getEntrypointId());
+      result = result && (getPlaybookEntrypointId()
+          == other.getPlaybookEntrypointId());
       result = result && getExtraVar()
           .equals(other.getExtraVar());
       result = result && unknownFields.equals(other.unknownFields);
@@ -7048,8 +7048,8 @@ public final class TemplateOuterClass {
       hash = (53 * hash) + getPlaybookId();
       hash = (37 * hash) + PLAYBOOK_FILE_ID_FIELD_NUMBER;
       hash = (53 * hash) + getPlaybookFileId();
-      hash = (37 * hash) + ENTRYPOINT_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getEntrypointId();
+      hash = (37 * hash) + PLAYBOOK_ENTRYPOINT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getPlaybookEntrypointId();
       hash = (37 * hash) + EXTRA_VAR_FIELD_NUMBER;
       hash = (53 * hash) + getExtraVar().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -7195,7 +7195,7 @@ public final class TemplateOuterClass {
 
         playbookFileId_ = 0;
 
-        entrypointId_ = 0;
+        playbookEntrypointId_ = 0;
 
         extraVar_ = "";
 
@@ -7230,7 +7230,7 @@ public final class TemplateOuterClass {
         result.description_ = description_;
         result.playbookId_ = playbookId_;
         result.playbookFileId_ = playbookFileId_;
-        result.entrypointId_ = entrypointId_;
+        result.playbookEntrypointId_ = playbookEntrypointId_;
         result.extraVar_ = extraVar_;
         onBuilt();
         return result;
@@ -7297,8 +7297,8 @@ public final class TemplateOuterClass {
         if (other.getPlaybookFileId() != 0) {
           setPlaybookFileId(other.getPlaybookFileId());
         }
-        if (other.getEntrypointId() != 0) {
-          setEntrypointId(other.getEntrypointId());
+        if (other.getPlaybookEntrypointId() != 0) {
+          setPlaybookEntrypointId(other.getPlaybookEntrypointId());
         }
         if (!other.getExtraVar().isEmpty()) {
           extraVar_ = other.extraVar_;
@@ -7549,28 +7549,28 @@ public final class TemplateOuterClass {
         return this;
       }
 
-      private int entrypointId_ ;
+      private int playbookEntrypointId_ ;
       /**
-       * <code>int32 entrypoint_id = 6;</code>
+       * <code>int32 playbook_entrypoint_id = 6;</code>
        */
-      public int getEntrypointId() {
-        return entrypointId_;
+      public int getPlaybookEntrypointId() {
+        return playbookEntrypointId_;
       }
       /**
-       * <code>int32 entrypoint_id = 6;</code>
+       * <code>int32 playbook_entrypoint_id = 6;</code>
        */
-      public Builder setEntrypointId(int value) {
+      public Builder setPlaybookEntrypointId(int value) {
         
-        entrypointId_ = value;
+        playbookEntrypointId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 entrypoint_id = 6;</code>
+       * <code>int32 playbook_entrypoint_id = 6;</code>
        */
-      public Builder clearEntrypointId() {
+      public Builder clearPlaybookEntrypointId() {
         
-        entrypointId_ = 0;
+        playbookEntrypointId_ = 0;
         onChanged();
         return this;
       }
@@ -9610,29 +9610,29 @@ public final class TemplateOuterClass {
       "plate_id\030\003 \001(\t\"\205\001\n\016FilterResponse\022+\n\ttem" +
       "plates\030\001 \003(\0132\030.template.TemplateObject\022\036" +
       "\n\006paging\030\002 \001(\0132\016.common.Paging\022&\n\006status" +
-      "\030\003 \001(\0132\026.common.ResponseStatus\"\240\001\n\rUpdat" +
+      "\030\003 \001(\0132\026.common.ResponseStatus\"\251\001\n\rUpdat" +
       "eRequest\022\023\n\013template_id\030\001 \001(\005\022\014\n\004name\030\002 " +
       "\001(\t\022\023\n\013description\030\003 \001(\t\022\023\n\013playbook_id\030" +
-      "\004 \001(\005\022\030\n\020playbook_file_id\030\005 \001(\005\022\025\n\rentry" +
-      "point_id\030\006 \001(\005\022\021\n\textra_var\030\007 \001(\t\"I\n\016Upd" +
-      "ateResponse\022\017\n\007updated\030\001 \001(\t\022&\n\006status\030\002" +
-      " \001(\0132\026.common.ResponseStatus\"$\n\rDeleteRe" +
-      "quest\022\023\n\013template_id\030\001 \001(\005\"8\n\016DeleteResp" +
-      "onse\022&\n\006status\030\001 \001(\0132\026.common.ResponseSt" +
-      "atus2\307\003\n\010Template\022[\n\006Create\022\027.template.C" +
-      "reateRequest\032\030.template.CreateResponse\"\036" +
-      "\202\323\344\223\002\030\"\023/v1/template/create:\001*\022X\n\006Filter" +
-      "\022\027.template.FilterRequest\032\030.template.Fil" +
-      "terResponse\"\033\202\323\344\223\002\025\022\023/v1/template/filter" +
-      "\022Z\n\003Get\022\024.template.GetRequest\032\025.template" +
-      ".GetResponse\"&\202\323\344\223\002 \022\036/v1/template/get/{" +
-      "template_id}\022i\n\006Update\022\027.template.Update" +
-      "Request\032\030.template.UpdateResponse\",\202\323\344\223\002" +
-      "&\"!/v1/template/update/{template_id}:\001*\022" +
-      "=\n\006Delete\022\027.template.DeleteRequest\032\030.tem" +
-      "plate.DeleteResponse\"\000BJ\n\036top.fogcdn.axe" +
-      ".protos.templateZ(git.fogcdn.top/axe/pro" +
-      "tos/goout/templateb\006proto3"
+      "\004 \001(\005\022\030\n\020playbook_file_id\030\005 \001(\005\022\036\n\026playb" +
+      "ook_entrypoint_id\030\006 \001(\005\022\021\n\textra_var\030\007 \001" +
+      "(\t\"I\n\016UpdateResponse\022\017\n\007updated\030\001 \001(\t\022&\n" +
+      "\006status\030\002 \001(\0132\026.common.ResponseStatus\"$\n" +
+      "\rDeleteRequest\022\023\n\013template_id\030\001 \001(\005\"8\n\016D" +
+      "eleteResponse\022&\n\006status\030\001 \001(\0132\026.common.R" +
+      "esponseStatus2\307\003\n\010Template\022[\n\006Create\022\027.t" +
+      "emplate.CreateRequest\032\030.template.CreateR" +
+      "esponse\"\036\202\323\344\223\002\030\"\023/v1/template/create:\001*\022" +
+      "X\n\006Filter\022\027.template.FilterRequest\032\030.tem" +
+      "plate.FilterResponse\"\033\202\323\344\223\002\025\022\023/v1/templa" +
+      "te/filter\022Z\n\003Get\022\024.template.GetRequest\032\025" +
+      ".template.GetResponse\"&\202\323\344\223\002 \022\036/v1/templ" +
+      "ate/get/{template_id}\022i\n\006Update\022\027.templa" +
+      "te.UpdateRequest\032\030.template.UpdateRespon" +
+      "se\",\202\323\344\223\002&\"!/v1/template/update/{templat" +
+      "e_id}:\001*\022=\n\006Delete\022\027.template.DeleteRequ" +
+      "est\032\030.template.DeleteResponse\"\000BJ\n\036top.f" +
+      "ogcdn.axe.protos.templateZ(git.fogcdn.to" +
+      "p/axe/protos/goout/templateb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -9697,7 +9697,7 @@ public final class TemplateOuterClass {
     internal_static_template_UpdateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_template_UpdateRequest_descriptor,
-        new java.lang.String[] { "TemplateId", "Name", "Description", "PlaybookId", "PlaybookFileId", "EntrypointId", "ExtraVar", });
+        new java.lang.String[] { "TemplateId", "Name", "Description", "PlaybookId", "PlaybookFileId", "PlaybookEntrypointId", "ExtraVar", });
     internal_static_template_UpdateResponse_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_template_UpdateResponse_fieldAccessorTable = new

@@ -1253,15 +1253,15 @@
         "description": {
           "type": "string"
         },
-        "entrypoint_id": {
-          "type": "integer",
-          "format": "int32"
-        },
         "extra_var": {
           "type": "string"
         },
         "name": {
           "type": "string"
+        },
+        "playbook_entrypoint_id": {
+          "type": "integer",
+          "format": "int32"
         },
         "playbook_file_id": {
           "type": "integer",

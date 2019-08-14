@@ -380,7 +380,7 @@
           "type": "integer",
           "format": "int32"
         },
-        "entrypoint_id": {
+        "playbook_entrypoint_id": {
           "type": "integer",
           "format": "int32"
         },
