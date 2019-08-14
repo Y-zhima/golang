@@ -8966,12 +8966,9 @@ public final class CmdbOuterClass {
       "pologyResponse\"!\202\323\344\223\002\033\022\031/v1/cmdb/instanc" +
       "eTopology\022\\\n\nSearchHost\022\027.cmdb.SearchHos" +
       "tRequest\032\030.cmdb.SearchHostResponse\"\033\202\323\344\223" +
-      "\002\025\022\023/v1/cmdb/searchHostB\256\001\n\032top.fogcdn.a" +
-      "xe.protos.cmdbZ$git.fogcdn.top/axe/proto" +
-      "s/goout/cmdb\222Ai\022@\n\033AXE\350\277\220\347\273\264API - \345\256\232\346\227\266" +
-      "\344\273\273\345\212\241\022\032AXE\350\277\220\347\273\264\345\271\263\345\217\260RESTful API2\0051.0." +
-      "0*\001\0012\020application/json:\020application/json" +
-      "b\006proto3"
+      "\002\025\022\023/v1/cmdb/searchHostBB\n\032top.fogcdn.ax" +
+      "e.protos.cmdbZ$git.fogcdn.top/axe/protos" +
+      "/goout/cmdbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -9051,7 +9048,6 @@ public final class CmdbOuterClass {
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);
-    registry.add(grpc.gateway.protoc_gen_swagger.options.Annotations.openapiv2Swagger);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     top.fogcdn.axe.protos.common.Api.getDescriptor();

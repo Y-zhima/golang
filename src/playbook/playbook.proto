@@ -9,16 +9,6 @@ import "common/api.proto";
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
 
-option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
-    info: {
-        title: "AXE运维API"
-        version : "1.0.0"
-        description: "AXE运维平台RESTful API"
-    };
-    schemes: HTTP
-    consumes: "application/json"
-    produces: "application/json"
-};
 
 service Playbook {
     // 创建playbook项目
@@ -48,18 +38,18 @@ service Playbook {
         };
     }
     // 删除playbook项目
-    rpc Delete (DeleteRequest) returns (DeleteResponse) {
-        option (google.api.http) = {
-            post: "/v1/playbook/delete/{playbook_id}"
-        };
-    }
+//    rpc Delete (DeleteRequest) returns (DeleteResponse) {
+//        option (google.api.http) = {
+//            post: "/v1/playbook/delete/{playbook_id}"
+//        };
+//    }
 
     // playbook 版本列表
-    rpc Version (VersionRequest) returns (VersionResponse) {
-        option (google.api.http) = {
-            get: "/v1/playbook/version/{playbook_id}"
-        };
-    }
+//    rpc Version (VersionRequest) returns (VersionResponse) {
+//        option (google.api.http) = {
+//            get: "/v1/playbook/version/{playbook_id}"
+//        };
+//    }
 
     // 保存 playbook 版本
     rpc SaveVersion (SaveVersionRequest) returns (SaveVersionResponse) {}
@@ -150,14 +140,14 @@ message UpdateResponse {
 }
 
 // 根据ID删除记录
-message DeleteRequest {
-    int32 playbook_id = 1;
-}
+//message DeleteRequest {
+//    int32 playbook_id = 1;
+//}
 
 // 删除记录请求返回
-message DeleteResponse {
-    common.ResponseStatus status = 1;
-}
+//message DeleteResponse {
+//    common.ResponseStatus status = 1;
+//}
 
 message PlaybookEntrypointObject {
     int32 playbook_entrypoint_id = 1; // 入口文件ID
@@ -165,26 +155,26 @@ message PlaybookEntrypointObject {
 }
 
 // 版本实例
-message VersionObject {
-    int32 playbook_file_id = 1; // playbook项目ID
-    string url = 2; // playbook存储在对象存储的url
-    UrlType url_type = 3; // 枚举类型 1-文件下载 2-git下载
-    string version = 4; // playbook文件的版本号
-    string md5 = 5; // 文件md5
-    int64 size = 6; // 文件大小
-    string created = 7; // 创建时间
-    repeated PlaybookEntrypointObject entrypoint = 8; // playbook入口文件对象
-}
+//message VersionObject {
+//    int32 playbook_file_id = 1; // playbook项目ID
+//    string url = 2; // playbook存储在对象存储的url
+//    UrlType url_type = 3; // 枚举类型 1-文件下载 2-git下载
+//    string version = 4; // playbook文件的版本号
+//    string md5 = 5; // 文件md5
+//    int64 size = 6; // 文件大小
+//    string created = 7; // 创建时间
+//    repeated PlaybookEntrypointObject entrypoint = 8; // playbook入口文件对象
+//}
 
 // 版本列表请求内容体
-message VersionRequest {
-    int32 playbook_id = 1;
-}
+//message VersionRequest {
+//    int32 playbook_id = 1;
+//}
 
 // 版本列表请求响应
-message VersionResponse {
-    repeated VersionObject versions = 1;
-}
+//message VersionResponse {
+//    repeated VersionObject versions = 1;
+//}
 
 // 版本列表请求内容体
 message SaveVersionRequest {

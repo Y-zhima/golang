@@ -10,17 +10,6 @@ import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
 import "template/template.proto";
 
-option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
-    info: {
-        title: "AXE运维API - 定时任务"
-        version : "1.0.0"
-        description: "AXE运维平台RESTful API"
-    };
-    schemes: HTTP
-    consumes: "application/json"
-    produces: "application/json"
-};
-
 // 定时任务
 service Schedule {
     // 创建定时任务
@@ -50,11 +39,11 @@ service Schedule {
         };
     }
     // 删除定时任务
-    rpc Delete (DeleteRequest) returns (DeleteResponse) {
-        option (google.api.http) = {
-            post: "/v1/schedule/delete/{schedule_id}"
-        };
-    }
+//    rpc Delete (DeleteRequest) returns (DeleteResponse) {
+//        option (google.api.http) = {
+//            post: "/v1/schedule/delete/{schedule_id}"
+//        };
+//    }
 
     // 切换状态
     rpc SwitchStatus (SwitchStatusRequest) returns (SwitchStatusResponse) {
@@ -85,20 +74,18 @@ message ScheduleObject {
     int32 schedule_id = 1; // 定时任务ID
     template.TemplateObject template = 2; // 模板实例
     string name = 3; // 定时任务名
-    string start_date = 4; // 开始日期
-    string start_time = 5; // 开始时间
-    RepeatFrequency repeat_frequency = 6; // 重复频率
-    int32 scheduler_interval = 7; // 调度间隔
-    ScheduleStatus status = 8; // 任务状态
+    string start_time = 4; // 开始日期
+    string end_time = 5; // 开始时间
+    string cron_expression = 6; // 定时任务表达式
+    ScheduleStatus status = 7; // 任务状态
 }
 
 message CreateRequest {
     int32 template_id = 1;
     string name = 2;
-    string start_date = 3;
-    string start_time = 4;
-    RepeatFrequency repeat_frequency = 5;
-    int32 scheduler_interval = 6;
+    string start_time = 3;
+    string end_time = 4;
+    string cron_expression = 5;
 }
 
 // 创建定时任务请求返回
@@ -122,7 +109,7 @@ message GetResponse {
 message FilterRequest {
     common.Paging paging = 1;
     string schedule_name = 2;
-    ScheduleStatus status = 3;
+    int32 template_id = 3;
 }
 
 // 筛选定时任务请求返回
@@ -136,10 +123,9 @@ message UpdateRequest {
     int32 schedule_id = 1;
     int32 template_id = 2;
     string name = 3;
-    string start_date = 4;
-    string start_time = 5;
-    RepeatFrequency repeat_frequency = 6;
-    int32 scheduler_interval = 7;
+    string start_time = 4;
+    string end_time = 5;
+    string cron_expression = 6;
 }
 
 message UpdateResponse {
@@ -147,13 +133,13 @@ message UpdateResponse {
     common.ResponseStatus status = 2;
 }
 
-message DeleteRequest {
-    int32 schedule_id = 1;
-}
+//message DeleteRequest {
+//    int32 schedule_id = 1;
+//}
 
-message DeleteResponse {
-    common.ResponseStatus status = 1;
-}
+//message DeleteResponse {
+//    common.ResponseStatus status = 1;
+//}
 
 message SwitchStatusRequest {
     int32 schedule_id = 1;

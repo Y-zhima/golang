@@ -65,35 +65,10 @@ public final class TemplateOuterClass {
 
     /**
      * <pre>
-     * 主机查询条件
-     * </pre>
-     *
-     * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-     */
-    boolean hasCmdbSearchRequest();
-    /**
-     * <pre>
-     * 主机查询条件
-     * </pre>
-     *
-     * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-     */
-    top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest getCmdbSearchRequest();
-    /**
-     * <pre>
-     * 主机查询条件
-     * </pre>
-     *
-     * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-     */
-    top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder getCmdbSearchRequestOrBuilder();
-
-    /**
-     * <pre>
      * playbook 项目
      * </pre>
      *
-     * <code>.playbook.ProjectObject playbook = 5;</code>
+     * <code>.playbook.ProjectObject playbook = 4;</code>
      */
     boolean hasPlaybook();
     /**
@@ -101,7 +76,7 @@ public final class TemplateOuterClass {
      * playbook 项目
      * </pre>
      *
-     * <code>.playbook.ProjectObject playbook = 5;</code>
+     * <code>.playbook.ProjectObject playbook = 4;</code>
      */
     top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject getPlaybook();
     /**
@@ -109,12 +84,12 @@ public final class TemplateOuterClass {
      * playbook 项目
      * </pre>
      *
-     * <code>.playbook.ProjectObject playbook = 5;</code>
+     * <code>.playbook.ProjectObject playbook = 4;</code>
      */
     top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObjectOrBuilder getPlaybookOrBuilder();
 
     /**
-     * <code>int32 playbook_file_id = 6;</code>
+     * <code>int32 playbook_file_id = 5;</code>
      */
     int getPlaybookFileId();
 
@@ -123,7 +98,7 @@ public final class TemplateOuterClass {
      * 选择的playbook入口yml文件
      * </pre>
      *
-     * <code>int32 playbook_entrypoint_id = 7;</code>
+     * <code>int32 playbook_entrypoint_id = 6;</code>
      */
     int getPlaybookEntrypointId();
 
@@ -132,7 +107,7 @@ public final class TemplateOuterClass {
      * 额外变量
      * </pre>
      *
-     * <code>string extra_var = 8;</code>
+     * <code>string extra_var = 7;</code>
      */
     java.lang.String getExtraVar();
     /**
@@ -140,7 +115,7 @@ public final class TemplateOuterClass {
      * 额外变量
      * </pre>
      *
-     * <code>string extra_var = 8;</code>
+     * <code>string extra_var = 7;</code>
      */
     com.google.protobuf.ByteString
         getExtraVarBytes();
@@ -212,19 +187,6 @@ public final class TemplateOuterClass {
               break;
             }
             case 34: {
-              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder subBuilder = null;
-              if (cmdbSearchRequest_ != null) {
-                subBuilder = cmdbSearchRequest_.toBuilder();
-              }
-              cmdbSearchRequest_ = input.readMessage(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(cmdbSearchRequest_);
-                cmdbSearchRequest_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 42: {
               top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject.Builder subBuilder = null;
               if (playbook_ != null) {
                 subBuilder = playbook_.toBuilder();
@@ -237,17 +199,17 @@ public final class TemplateOuterClass {
 
               break;
             }
-            case 48: {
+            case 40: {
 
               playbookFileId_ = input.readInt32();
               break;
             }
-            case 56: {
+            case 48: {
 
               playbookEntrypointId_ = input.readInt32();
               break;
             }
-            case 66: {
+            case 58: {
               java.lang.String s = input.readStringRequireUtf8();
 
               extraVar_ = s;
@@ -382,47 +344,14 @@ public final class TemplateOuterClass {
       }
     }
 
-    public static final int CMDB_SEARCH_REQUEST_FIELD_NUMBER = 4;
-    private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest cmdbSearchRequest_;
-    /**
-     * <pre>
-     * 主机查询条件
-     * </pre>
-     *
-     * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-     */
-    public boolean hasCmdbSearchRequest() {
-      return cmdbSearchRequest_ != null;
-    }
-    /**
-     * <pre>
-     * 主机查询条件
-     * </pre>
-     *
-     * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-     */
-    public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest getCmdbSearchRequest() {
-      return cmdbSearchRequest_ == null ? top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.getDefaultInstance() : cmdbSearchRequest_;
-    }
-    /**
-     * <pre>
-     * 主机查询条件
-     * </pre>
-     *
-     * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-     */
-    public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder getCmdbSearchRequestOrBuilder() {
-      return getCmdbSearchRequest();
-    }
-
-    public static final int PLAYBOOK_FIELD_NUMBER = 5;
+    public static final int PLAYBOOK_FIELD_NUMBER = 4;
     private top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject playbook_;
     /**
      * <pre>
      * playbook 项目
      * </pre>
      *
-     * <code>.playbook.ProjectObject playbook = 5;</code>
+     * <code>.playbook.ProjectObject playbook = 4;</code>
      */
     public boolean hasPlaybook() {
       return playbook_ != null;
@@ -432,7 +361,7 @@ public final class TemplateOuterClass {
      * playbook 项目
      * </pre>
      *
-     * <code>.playbook.ProjectObject playbook = 5;</code>
+     * <code>.playbook.ProjectObject playbook = 4;</code>
      */
     public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject getPlaybook() {
       return playbook_ == null ? top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject.getDefaultInstance() : playbook_;
@@ -442,42 +371,42 @@ public final class TemplateOuterClass {
      * playbook 项目
      * </pre>
      *
-     * <code>.playbook.ProjectObject playbook = 5;</code>
+     * <code>.playbook.ProjectObject playbook = 4;</code>
      */
     public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObjectOrBuilder getPlaybookOrBuilder() {
       return getPlaybook();
     }
 
-    public static final int PLAYBOOK_FILE_ID_FIELD_NUMBER = 6;
+    public static final int PLAYBOOK_FILE_ID_FIELD_NUMBER = 5;
     private int playbookFileId_;
     /**
-     * <code>int32 playbook_file_id = 6;</code>
+     * <code>int32 playbook_file_id = 5;</code>
      */
     public int getPlaybookFileId() {
       return playbookFileId_;
     }
 
-    public static final int PLAYBOOK_ENTRYPOINT_ID_FIELD_NUMBER = 7;
+    public static final int PLAYBOOK_ENTRYPOINT_ID_FIELD_NUMBER = 6;
     private int playbookEntrypointId_;
     /**
      * <pre>
      * 选择的playbook入口yml文件
      * </pre>
      *
-     * <code>int32 playbook_entrypoint_id = 7;</code>
+     * <code>int32 playbook_entrypoint_id = 6;</code>
      */
     public int getPlaybookEntrypointId() {
       return playbookEntrypointId_;
     }
 
-    public static final int EXTRA_VAR_FIELD_NUMBER = 8;
+    public static final int EXTRA_VAR_FIELD_NUMBER = 7;
     private volatile java.lang.Object extraVar_;
     /**
      * <pre>
      * 额外变量
      * </pre>
      *
-     * <code>string extra_var = 8;</code>
+     * <code>string extra_var = 7;</code>
      */
     public java.lang.String getExtraVar() {
       java.lang.Object ref = extraVar_;
@@ -496,7 +425,7 @@ public final class TemplateOuterClass {
      * 额外变量
      * </pre>
      *
-     * <code>string extra_var = 8;</code>
+     * <code>string extra_var = 7;</code>
      */
     public com.google.protobuf.ByteString
         getExtraVarBytes() {
@@ -535,20 +464,17 @@ public final class TemplateOuterClass {
       if (!getDescriptionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, description_);
       }
-      if (cmdbSearchRequest_ != null) {
-        output.writeMessage(4, getCmdbSearchRequest());
-      }
       if (playbook_ != null) {
-        output.writeMessage(5, getPlaybook());
+        output.writeMessage(4, getPlaybook());
       }
       if (playbookFileId_ != 0) {
-        output.writeInt32(6, playbookFileId_);
+        output.writeInt32(5, playbookFileId_);
       }
       if (playbookEntrypointId_ != 0) {
-        output.writeInt32(7, playbookEntrypointId_);
+        output.writeInt32(6, playbookEntrypointId_);
       }
       if (!getExtraVarBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, extraVar_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, extraVar_);
       }
       unknownFields.writeTo(output);
     }
@@ -569,24 +495,20 @@ public final class TemplateOuterClass {
       if (!getDescriptionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, description_);
       }
-      if (cmdbSearchRequest_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getCmdbSearchRequest());
-      }
       if (playbook_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, getPlaybook());
+          .computeMessageSize(4, getPlaybook());
       }
       if (playbookFileId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, playbookFileId_);
+          .computeInt32Size(5, playbookFileId_);
       }
       if (playbookEntrypointId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(7, playbookEntrypointId_);
+          .computeInt32Size(6, playbookEntrypointId_);
       }
       if (!getExtraVarBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, extraVar_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, extraVar_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -610,11 +532,6 @@ public final class TemplateOuterClass {
           .equals(other.getName());
       result = result && getDescription()
           .equals(other.getDescription());
-      result = result && (hasCmdbSearchRequest() == other.hasCmdbSearchRequest());
-      if (hasCmdbSearchRequest()) {
-        result = result && getCmdbSearchRequest()
-            .equals(other.getCmdbSearchRequest());
-      }
       result = result && (hasPlaybook() == other.hasPlaybook());
       if (hasPlaybook()) {
         result = result && getPlaybook()
@@ -643,10 +560,6 @@ public final class TemplateOuterClass {
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getDescription().hashCode();
-      if (hasCmdbSearchRequest()) {
-        hash = (37 * hash) + CMDB_SEARCH_REQUEST_FIELD_NUMBER;
-        hash = (53 * hash) + getCmdbSearchRequest().hashCode();
-      }
       if (hasPlaybook()) {
         hash = (37 * hash) + PLAYBOOK_FIELD_NUMBER;
         hash = (53 * hash) + getPlaybook().hashCode();
@@ -800,12 +713,6 @@ public final class TemplateOuterClass {
 
         description_ = "";
 
-        if (cmdbSearchRequestBuilder_ == null) {
-          cmdbSearchRequest_ = null;
-        } else {
-          cmdbSearchRequest_ = null;
-          cmdbSearchRequestBuilder_ = null;
-        }
         if (playbookBuilder_ == null) {
           playbook_ = null;
         } else {
@@ -847,11 +754,6 @@ public final class TemplateOuterClass {
         result.templateId_ = templateId_;
         result.name_ = name_;
         result.description_ = description_;
-        if (cmdbSearchRequestBuilder_ == null) {
-          result.cmdbSearchRequest_ = cmdbSearchRequest_;
-        } else {
-          result.cmdbSearchRequest_ = cmdbSearchRequestBuilder_.build();
-        }
         if (playbookBuilder_ == null) {
           result.playbook_ = playbook_;
         } else {
@@ -918,9 +820,6 @@ public final class TemplateOuterClass {
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
           onChanged();
-        }
-        if (other.hasCmdbSearchRequest()) {
-          mergeCmdbSearchRequest(other.getCmdbSearchRequest());
         }
         if (other.hasPlaybook()) {
           mergePlaybook(other.getPlaybook());
@@ -1180,159 +1079,6 @@ public final class TemplateOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest cmdbSearchRequest_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder> cmdbSearchRequestBuilder_;
-      /**
-       * <pre>
-       * 主机查询条件
-       * </pre>
-       *
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-       */
-      public boolean hasCmdbSearchRequest() {
-        return cmdbSearchRequestBuilder_ != null || cmdbSearchRequest_ != null;
-      }
-      /**
-       * <pre>
-       * 主机查询条件
-       * </pre>
-       *
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-       */
-      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest getCmdbSearchRequest() {
-        if (cmdbSearchRequestBuilder_ == null) {
-          return cmdbSearchRequest_ == null ? top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.getDefaultInstance() : cmdbSearchRequest_;
-        } else {
-          return cmdbSearchRequestBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       * 主机查询条件
-       * </pre>
-       *
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-       */
-      public Builder setCmdbSearchRequest(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest value) {
-        if (cmdbSearchRequestBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          cmdbSearchRequest_ = value;
-          onChanged();
-        } else {
-          cmdbSearchRequestBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * 主机查询条件
-       * </pre>
-       *
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-       */
-      public Builder setCmdbSearchRequest(
-          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder builderForValue) {
-        if (cmdbSearchRequestBuilder_ == null) {
-          cmdbSearchRequest_ = builderForValue.build();
-          onChanged();
-        } else {
-          cmdbSearchRequestBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * 主机查询条件
-       * </pre>
-       *
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-       */
-      public Builder mergeCmdbSearchRequest(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest value) {
-        if (cmdbSearchRequestBuilder_ == null) {
-          if (cmdbSearchRequest_ != null) {
-            cmdbSearchRequest_ =
-              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.newBuilder(cmdbSearchRequest_).mergeFrom(value).buildPartial();
-          } else {
-            cmdbSearchRequest_ = value;
-          }
-          onChanged();
-        } else {
-          cmdbSearchRequestBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * 主机查询条件
-       * </pre>
-       *
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-       */
-      public Builder clearCmdbSearchRequest() {
-        if (cmdbSearchRequestBuilder_ == null) {
-          cmdbSearchRequest_ = null;
-          onChanged();
-        } else {
-          cmdbSearchRequest_ = null;
-          cmdbSearchRequestBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * 主机查询条件
-       * </pre>
-       *
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-       */
-      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder getCmdbSearchRequestBuilder() {
-        
-        onChanged();
-        return getCmdbSearchRequestFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       * 主机查询条件
-       * </pre>
-       *
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-       */
-      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder getCmdbSearchRequestOrBuilder() {
-        if (cmdbSearchRequestBuilder_ != null) {
-          return cmdbSearchRequestBuilder_.getMessageOrBuilder();
-        } else {
-          return cmdbSearchRequest_ == null ?
-              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.getDefaultInstance() : cmdbSearchRequest_;
-        }
-      }
-      /**
-       * <pre>
-       * 主机查询条件
-       * </pre>
-       *
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder> 
-          getCmdbSearchRequestFieldBuilder() {
-        if (cmdbSearchRequestBuilder_ == null) {
-          cmdbSearchRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder>(
-                  getCmdbSearchRequest(),
-                  getParentForChildren(),
-                  isClean());
-          cmdbSearchRequest_ = null;
-        }
-        return cmdbSearchRequestBuilder_;
-      }
-
       private top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject playbook_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject.Builder, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObjectOrBuilder> playbookBuilder_;
@@ -1341,7 +1087,7 @@ public final class TemplateOuterClass {
        * playbook 项目
        * </pre>
        *
-       * <code>.playbook.ProjectObject playbook = 5;</code>
+       * <code>.playbook.ProjectObject playbook = 4;</code>
        */
       public boolean hasPlaybook() {
         return playbookBuilder_ != null || playbook_ != null;
@@ -1351,7 +1097,7 @@ public final class TemplateOuterClass {
        * playbook 项目
        * </pre>
        *
-       * <code>.playbook.ProjectObject playbook = 5;</code>
+       * <code>.playbook.ProjectObject playbook = 4;</code>
        */
       public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject getPlaybook() {
         if (playbookBuilder_ == null) {
@@ -1365,7 +1111,7 @@ public final class TemplateOuterClass {
        * playbook 项目
        * </pre>
        *
-       * <code>.playbook.ProjectObject playbook = 5;</code>
+       * <code>.playbook.ProjectObject playbook = 4;</code>
        */
       public Builder setPlaybook(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject value) {
         if (playbookBuilder_ == null) {
@@ -1385,7 +1131,7 @@ public final class TemplateOuterClass {
        * playbook 项目
        * </pre>
        *
-       * <code>.playbook.ProjectObject playbook = 5;</code>
+       * <code>.playbook.ProjectObject playbook = 4;</code>
        */
       public Builder setPlaybook(
           top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject.Builder builderForValue) {
@@ -1403,7 +1149,7 @@ public final class TemplateOuterClass {
        * playbook 项目
        * </pre>
        *
-       * <code>.playbook.ProjectObject playbook = 5;</code>
+       * <code>.playbook.ProjectObject playbook = 4;</code>
        */
       public Builder mergePlaybook(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject value) {
         if (playbookBuilder_ == null) {
@@ -1425,7 +1171,7 @@ public final class TemplateOuterClass {
        * playbook 项目
        * </pre>
        *
-       * <code>.playbook.ProjectObject playbook = 5;</code>
+       * <code>.playbook.ProjectObject playbook = 4;</code>
        */
       public Builder clearPlaybook() {
         if (playbookBuilder_ == null) {
@@ -1443,7 +1189,7 @@ public final class TemplateOuterClass {
        * playbook 项目
        * </pre>
        *
-       * <code>.playbook.ProjectObject playbook = 5;</code>
+       * <code>.playbook.ProjectObject playbook = 4;</code>
        */
       public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject.Builder getPlaybookBuilder() {
         
@@ -1455,7 +1201,7 @@ public final class TemplateOuterClass {
        * playbook 项目
        * </pre>
        *
-       * <code>.playbook.ProjectObject playbook = 5;</code>
+       * <code>.playbook.ProjectObject playbook = 4;</code>
        */
       public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObjectOrBuilder getPlaybookOrBuilder() {
         if (playbookBuilder_ != null) {
@@ -1470,7 +1216,7 @@ public final class TemplateOuterClass {
        * playbook 项目
        * </pre>
        *
-       * <code>.playbook.ProjectObject playbook = 5;</code>
+       * <code>.playbook.ProjectObject playbook = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject.Builder, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObjectOrBuilder> 
@@ -1488,13 +1234,13 @@ public final class TemplateOuterClass {
 
       private int playbookFileId_ ;
       /**
-       * <code>int32 playbook_file_id = 6;</code>
+       * <code>int32 playbook_file_id = 5;</code>
        */
       public int getPlaybookFileId() {
         return playbookFileId_;
       }
       /**
-       * <code>int32 playbook_file_id = 6;</code>
+       * <code>int32 playbook_file_id = 5;</code>
        */
       public Builder setPlaybookFileId(int value) {
         
@@ -1503,7 +1249,7 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
-       * <code>int32 playbook_file_id = 6;</code>
+       * <code>int32 playbook_file_id = 5;</code>
        */
       public Builder clearPlaybookFileId() {
         
@@ -1518,7 +1264,7 @@ public final class TemplateOuterClass {
        * 选择的playbook入口yml文件
        * </pre>
        *
-       * <code>int32 playbook_entrypoint_id = 7;</code>
+       * <code>int32 playbook_entrypoint_id = 6;</code>
        */
       public int getPlaybookEntrypointId() {
         return playbookEntrypointId_;
@@ -1528,7 +1274,7 @@ public final class TemplateOuterClass {
        * 选择的playbook入口yml文件
        * </pre>
        *
-       * <code>int32 playbook_entrypoint_id = 7;</code>
+       * <code>int32 playbook_entrypoint_id = 6;</code>
        */
       public Builder setPlaybookEntrypointId(int value) {
         
@@ -1541,7 +1287,7 @@ public final class TemplateOuterClass {
        * 选择的playbook入口yml文件
        * </pre>
        *
-       * <code>int32 playbook_entrypoint_id = 7;</code>
+       * <code>int32 playbook_entrypoint_id = 6;</code>
        */
       public Builder clearPlaybookEntrypointId() {
         
@@ -1556,7 +1302,7 @@ public final class TemplateOuterClass {
        * 额外变量
        * </pre>
        *
-       * <code>string extra_var = 8;</code>
+       * <code>string extra_var = 7;</code>
        */
       public java.lang.String getExtraVar() {
         java.lang.Object ref = extraVar_;
@@ -1575,7 +1321,7 @@ public final class TemplateOuterClass {
        * 额外变量
        * </pre>
        *
-       * <code>string extra_var = 8;</code>
+       * <code>string extra_var = 7;</code>
        */
       public com.google.protobuf.ByteString
           getExtraVarBytes() {
@@ -1595,7 +1341,7 @@ public final class TemplateOuterClass {
        * 额外变量
        * </pre>
        *
-       * <code>string extra_var = 8;</code>
+       * <code>string extra_var = 7;</code>
        */
       public Builder setExtraVar(
           java.lang.String value) {
@@ -1612,7 +1358,7 @@ public final class TemplateOuterClass {
        * 额外变量
        * </pre>
        *
-       * <code>string extra_var = 8;</code>
+       * <code>string extra_var = 7;</code>
        */
       public Builder clearExtraVar() {
         
@@ -1625,7 +1371,7 @@ public final class TemplateOuterClass {
        * 额外变量
        * </pre>
        *
-       * <code>string extra_var = 8;</code>
+       * <code>string extra_var = 7;</code>
        */
       public Builder setExtraVarBytes(
           com.google.protobuf.ByteString value) {
@@ -1716,39 +1462,26 @@ public final class TemplateOuterClass {
         getDescriptionBytes();
 
     /**
-     * <code>.cmdb.SearchHostRequest cmdb_search_request = 3;</code>
-     */
-    boolean hasCmdbSearchRequest();
-    /**
-     * <code>.cmdb.SearchHostRequest cmdb_search_request = 3;</code>
-     */
-    top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest getCmdbSearchRequest();
-    /**
-     * <code>.cmdb.SearchHostRequest cmdb_search_request = 3;</code>
-     */
-    top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder getCmdbSearchRequestOrBuilder();
-
-    /**
-     * <code>int32 playbook_id = 4;</code>
+     * <code>int32 playbook_id = 3;</code>
      */
     int getPlaybookId();
 
     /**
-     * <code>int32 playbook_file_id = 5;</code>
+     * <code>int32 playbook_file_id = 4;</code>
      */
     int getPlaybookFileId();
 
     /**
-     * <code>int32 playbook_entrypoint_id = 6;</code>
+     * <code>int32 playbook_entrypoint_id = 5;</code>
      */
     int getPlaybookEntrypointId();
 
     /**
-     * <code>string extra_var = 7;</code>
+     * <code>string extra_var = 6;</code>
      */
     java.lang.String getExtraVar();
     /**
-     * <code>string extra_var = 7;</code>
+     * <code>string extra_var = 6;</code>
      */
     com.google.protobuf.ByteString
         getExtraVarBytes();
@@ -1810,35 +1543,22 @@ public final class TemplateOuterClass {
               description_ = s;
               break;
             }
-            case 26: {
-              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder subBuilder = null;
-              if (cmdbSearchRequest_ != null) {
-                subBuilder = cmdbSearchRequest_.toBuilder();
-              }
-              cmdbSearchRequest_ = input.readMessage(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(cmdbSearchRequest_);
-                cmdbSearchRequest_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 32: {
+            case 24: {
 
               playbookId_ = input.readInt32();
               break;
             }
-            case 40: {
+            case 32: {
 
               playbookFileId_ = input.readInt32();
               break;
             }
-            case 48: {
+            case 40: {
 
               playbookEntrypointId_ = input.readInt32();
               break;
             }
-            case 58: {
+            case 50: {
               java.lang.String s = input.readStringRequireUtf8();
 
               extraVar_ = s;
@@ -1944,58 +1664,37 @@ public final class TemplateOuterClass {
       }
     }
 
-    public static final int CMDB_SEARCH_REQUEST_FIELD_NUMBER = 3;
-    private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest cmdbSearchRequest_;
-    /**
-     * <code>.cmdb.SearchHostRequest cmdb_search_request = 3;</code>
-     */
-    public boolean hasCmdbSearchRequest() {
-      return cmdbSearchRequest_ != null;
-    }
-    /**
-     * <code>.cmdb.SearchHostRequest cmdb_search_request = 3;</code>
-     */
-    public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest getCmdbSearchRequest() {
-      return cmdbSearchRequest_ == null ? top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.getDefaultInstance() : cmdbSearchRequest_;
-    }
-    /**
-     * <code>.cmdb.SearchHostRequest cmdb_search_request = 3;</code>
-     */
-    public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder getCmdbSearchRequestOrBuilder() {
-      return getCmdbSearchRequest();
-    }
-
-    public static final int PLAYBOOK_ID_FIELD_NUMBER = 4;
+    public static final int PLAYBOOK_ID_FIELD_NUMBER = 3;
     private int playbookId_;
     /**
-     * <code>int32 playbook_id = 4;</code>
+     * <code>int32 playbook_id = 3;</code>
      */
     public int getPlaybookId() {
       return playbookId_;
     }
 
-    public static final int PLAYBOOK_FILE_ID_FIELD_NUMBER = 5;
+    public static final int PLAYBOOK_FILE_ID_FIELD_NUMBER = 4;
     private int playbookFileId_;
     /**
-     * <code>int32 playbook_file_id = 5;</code>
+     * <code>int32 playbook_file_id = 4;</code>
      */
     public int getPlaybookFileId() {
       return playbookFileId_;
     }
 
-    public static final int PLAYBOOK_ENTRYPOINT_ID_FIELD_NUMBER = 6;
+    public static final int PLAYBOOK_ENTRYPOINT_ID_FIELD_NUMBER = 5;
     private int playbookEntrypointId_;
     /**
-     * <code>int32 playbook_entrypoint_id = 6;</code>
+     * <code>int32 playbook_entrypoint_id = 5;</code>
      */
     public int getPlaybookEntrypointId() {
       return playbookEntrypointId_;
     }
 
-    public static final int EXTRA_VAR_FIELD_NUMBER = 7;
+    public static final int EXTRA_VAR_FIELD_NUMBER = 6;
     private volatile java.lang.Object extraVar_;
     /**
-     * <code>string extra_var = 7;</code>
+     * <code>string extra_var = 6;</code>
      */
     public java.lang.String getExtraVar() {
       java.lang.Object ref = extraVar_;
@@ -2010,7 +1709,7 @@ public final class TemplateOuterClass {
       }
     }
     /**
-     * <code>string extra_var = 7;</code>
+     * <code>string extra_var = 6;</code>
      */
     public com.google.protobuf.ByteString
         getExtraVarBytes() {
@@ -2046,20 +1745,17 @@ public final class TemplateOuterClass {
       if (!getDescriptionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
       }
-      if (cmdbSearchRequest_ != null) {
-        output.writeMessage(3, getCmdbSearchRequest());
-      }
       if (playbookId_ != 0) {
-        output.writeInt32(4, playbookId_);
+        output.writeInt32(3, playbookId_);
       }
       if (playbookFileId_ != 0) {
-        output.writeInt32(5, playbookFileId_);
+        output.writeInt32(4, playbookFileId_);
       }
       if (playbookEntrypointId_ != 0) {
-        output.writeInt32(6, playbookEntrypointId_);
+        output.writeInt32(5, playbookEntrypointId_);
       }
       if (!getExtraVarBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, extraVar_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, extraVar_);
       }
       unknownFields.writeTo(output);
     }
@@ -2076,24 +1772,20 @@ public final class TemplateOuterClass {
       if (!getDescriptionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
       }
-      if (cmdbSearchRequest_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getCmdbSearchRequest());
-      }
       if (playbookId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, playbookId_);
+          .computeInt32Size(3, playbookId_);
       }
       if (playbookFileId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, playbookFileId_);
+          .computeInt32Size(4, playbookFileId_);
       }
       if (playbookEntrypointId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, playbookEntrypointId_);
+          .computeInt32Size(5, playbookEntrypointId_);
       }
       if (!getExtraVarBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, extraVar_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, extraVar_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2115,11 +1807,6 @@ public final class TemplateOuterClass {
           .equals(other.getName());
       result = result && getDescription()
           .equals(other.getDescription());
-      result = result && (hasCmdbSearchRequest() == other.hasCmdbSearchRequest());
-      if (hasCmdbSearchRequest()) {
-        result = result && getCmdbSearchRequest()
-            .equals(other.getCmdbSearchRequest());
-      }
       result = result && (getPlaybookId()
           == other.getPlaybookId());
       result = result && (getPlaybookFileId()
@@ -2143,10 +1830,6 @@ public final class TemplateOuterClass {
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getDescription().hashCode();
-      if (hasCmdbSearchRequest()) {
-        hash = (37 * hash) + CMDB_SEARCH_REQUEST_FIELD_NUMBER;
-        hash = (53 * hash) + getCmdbSearchRequest().hashCode();
-      }
       hash = (37 * hash) + PLAYBOOK_ID_FIELD_NUMBER;
       hash = (53 * hash) + getPlaybookId();
       hash = (37 * hash) + PLAYBOOK_FILE_ID_FIELD_NUMBER;
@@ -2292,12 +1975,6 @@ public final class TemplateOuterClass {
 
         description_ = "";
 
-        if (cmdbSearchRequestBuilder_ == null) {
-          cmdbSearchRequest_ = null;
-        } else {
-          cmdbSearchRequest_ = null;
-          cmdbSearchRequestBuilder_ = null;
-        }
         playbookId_ = 0;
 
         playbookFileId_ = 0;
@@ -2334,11 +2011,6 @@ public final class TemplateOuterClass {
         top.fogcdn.axe.protos.template.TemplateOuterClass.CreateRequest result = new top.fogcdn.axe.protos.template.TemplateOuterClass.CreateRequest(this);
         result.name_ = name_;
         result.description_ = description_;
-        if (cmdbSearchRequestBuilder_ == null) {
-          result.cmdbSearchRequest_ = cmdbSearchRequest_;
-        } else {
-          result.cmdbSearchRequest_ = cmdbSearchRequestBuilder_.build();
-        }
         result.playbookId_ = playbookId_;
         result.playbookFileId_ = playbookFileId_;
         result.playbookEntrypointId_ = playbookEntrypointId_;
@@ -2398,9 +2070,6 @@ public final class TemplateOuterClass {
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
           onChanged();
-        }
-        if (other.hasCmdbSearchRequest()) {
-          mergeCmdbSearchRequest(other.getCmdbSearchRequest());
         }
         if (other.getPlaybookId() != 0) {
           setPlaybookId(other.getPlaybookId());
@@ -2582,132 +2251,15 @@ public final class TemplateOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest cmdbSearchRequest_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder> cmdbSearchRequestBuilder_;
-      /**
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 3;</code>
-       */
-      public boolean hasCmdbSearchRequest() {
-        return cmdbSearchRequestBuilder_ != null || cmdbSearchRequest_ != null;
-      }
-      /**
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 3;</code>
-       */
-      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest getCmdbSearchRequest() {
-        if (cmdbSearchRequestBuilder_ == null) {
-          return cmdbSearchRequest_ == null ? top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.getDefaultInstance() : cmdbSearchRequest_;
-        } else {
-          return cmdbSearchRequestBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 3;</code>
-       */
-      public Builder setCmdbSearchRequest(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest value) {
-        if (cmdbSearchRequestBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          cmdbSearchRequest_ = value;
-          onChanged();
-        } else {
-          cmdbSearchRequestBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 3;</code>
-       */
-      public Builder setCmdbSearchRequest(
-          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder builderForValue) {
-        if (cmdbSearchRequestBuilder_ == null) {
-          cmdbSearchRequest_ = builderForValue.build();
-          onChanged();
-        } else {
-          cmdbSearchRequestBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 3;</code>
-       */
-      public Builder mergeCmdbSearchRequest(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest value) {
-        if (cmdbSearchRequestBuilder_ == null) {
-          if (cmdbSearchRequest_ != null) {
-            cmdbSearchRequest_ =
-              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.newBuilder(cmdbSearchRequest_).mergeFrom(value).buildPartial();
-          } else {
-            cmdbSearchRequest_ = value;
-          }
-          onChanged();
-        } else {
-          cmdbSearchRequestBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 3;</code>
-       */
-      public Builder clearCmdbSearchRequest() {
-        if (cmdbSearchRequestBuilder_ == null) {
-          cmdbSearchRequest_ = null;
-          onChanged();
-        } else {
-          cmdbSearchRequest_ = null;
-          cmdbSearchRequestBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 3;</code>
-       */
-      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder getCmdbSearchRequestBuilder() {
-        
-        onChanged();
-        return getCmdbSearchRequestFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 3;</code>
-       */
-      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder getCmdbSearchRequestOrBuilder() {
-        if (cmdbSearchRequestBuilder_ != null) {
-          return cmdbSearchRequestBuilder_.getMessageOrBuilder();
-        } else {
-          return cmdbSearchRequest_ == null ?
-              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.getDefaultInstance() : cmdbSearchRequest_;
-        }
-      }
-      /**
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder> 
-          getCmdbSearchRequestFieldBuilder() {
-        if (cmdbSearchRequestBuilder_ == null) {
-          cmdbSearchRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder>(
-                  getCmdbSearchRequest(),
-                  getParentForChildren(),
-                  isClean());
-          cmdbSearchRequest_ = null;
-        }
-        return cmdbSearchRequestBuilder_;
-      }
-
       private int playbookId_ ;
       /**
-       * <code>int32 playbook_id = 4;</code>
+       * <code>int32 playbook_id = 3;</code>
        */
       public int getPlaybookId() {
         return playbookId_;
       }
       /**
-       * <code>int32 playbook_id = 4;</code>
+       * <code>int32 playbook_id = 3;</code>
        */
       public Builder setPlaybookId(int value) {
         
@@ -2716,7 +2268,7 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
-       * <code>int32 playbook_id = 4;</code>
+       * <code>int32 playbook_id = 3;</code>
        */
       public Builder clearPlaybookId() {
         
@@ -2727,13 +2279,13 @@ public final class TemplateOuterClass {
 
       private int playbookFileId_ ;
       /**
-       * <code>int32 playbook_file_id = 5;</code>
+       * <code>int32 playbook_file_id = 4;</code>
        */
       public int getPlaybookFileId() {
         return playbookFileId_;
       }
       /**
-       * <code>int32 playbook_file_id = 5;</code>
+       * <code>int32 playbook_file_id = 4;</code>
        */
       public Builder setPlaybookFileId(int value) {
         
@@ -2742,7 +2294,7 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
-       * <code>int32 playbook_file_id = 5;</code>
+       * <code>int32 playbook_file_id = 4;</code>
        */
       public Builder clearPlaybookFileId() {
         
@@ -2753,13 +2305,13 @@ public final class TemplateOuterClass {
 
       private int playbookEntrypointId_ ;
       /**
-       * <code>int32 playbook_entrypoint_id = 6;</code>
+       * <code>int32 playbook_entrypoint_id = 5;</code>
        */
       public int getPlaybookEntrypointId() {
         return playbookEntrypointId_;
       }
       /**
-       * <code>int32 playbook_entrypoint_id = 6;</code>
+       * <code>int32 playbook_entrypoint_id = 5;</code>
        */
       public Builder setPlaybookEntrypointId(int value) {
         
@@ -2768,7 +2320,7 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
-       * <code>int32 playbook_entrypoint_id = 6;</code>
+       * <code>int32 playbook_entrypoint_id = 5;</code>
        */
       public Builder clearPlaybookEntrypointId() {
         
@@ -2779,7 +2331,7 @@ public final class TemplateOuterClass {
 
       private java.lang.Object extraVar_ = "";
       /**
-       * <code>string extra_var = 7;</code>
+       * <code>string extra_var = 6;</code>
        */
       public java.lang.String getExtraVar() {
         java.lang.Object ref = extraVar_;
@@ -2794,7 +2346,7 @@ public final class TemplateOuterClass {
         }
       }
       /**
-       * <code>string extra_var = 7;</code>
+       * <code>string extra_var = 6;</code>
        */
       public com.google.protobuf.ByteString
           getExtraVarBytes() {
@@ -2810,7 +2362,7 @@ public final class TemplateOuterClass {
         }
       }
       /**
-       * <code>string extra_var = 7;</code>
+       * <code>string extra_var = 6;</code>
        */
       public Builder setExtraVar(
           java.lang.String value) {
@@ -2823,7 +2375,7 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
-       * <code>string extra_var = 7;</code>
+       * <code>string extra_var = 6;</code>
        */
       public Builder clearExtraVar() {
         
@@ -2832,7 +2384,7 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
-       * <code>string extra_var = 7;</code>
+       * <code>string extra_var = 6;</code>
        */
       public Builder setExtraVarBytes(
           com.google.protobuf.ByteString value) {
@@ -5024,6 +4576,16 @@ public final class TemplateOuterClass {
      */
     com.google.protobuf.ByteString
         getNameBytes();
+
+    /**
+     * <code>string template_id = 3;</code>
+     */
+    java.lang.String getTemplateId();
+    /**
+     * <code>string template_id = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getTemplateIdBytes();
   }
   /**
    * <pre>
@@ -5043,6 +4605,7 @@ public final class TemplateOuterClass {
     }
     private FilterRequest() {
       name_ = "";
+      templateId_ = "";
     }
 
     @java.lang.Override
@@ -5086,6 +4649,12 @@ public final class TemplateOuterClass {
               java.lang.String s = input.readStringRequireUtf8();
 
               name_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              templateId_ = s;
               break;
             }
             default: {
@@ -5175,6 +4744,40 @@ public final class TemplateOuterClass {
       }
     }
 
+    public static final int TEMPLATE_ID_FIELD_NUMBER = 3;
+    private volatile java.lang.Object templateId_;
+    /**
+     * <code>string template_id = 3;</code>
+     */
+    public java.lang.String getTemplateId() {
+      java.lang.Object ref = templateId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        templateId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string template_id = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTemplateIdBytes() {
+      java.lang.Object ref = templateId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        templateId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5195,6 +4798,9 @@ public final class TemplateOuterClass {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
+      if (!getTemplateIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, templateId_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -5210,6 +4816,9 @@ public final class TemplateOuterClass {
       }
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      }
+      if (!getTemplateIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, templateId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5234,6 +4843,8 @@ public final class TemplateOuterClass {
       }
       result = result && getName()
           .equals(other.getName());
+      result = result && getTemplateId()
+          .equals(other.getTemplateId());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -5251,6 +4862,8 @@ public final class TemplateOuterClass {
       }
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + TEMPLATE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getTemplateId().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5396,6 +5009,8 @@ public final class TemplateOuterClass {
         }
         name_ = "";
 
+        templateId_ = "";
+
         return this;
       }
 
@@ -5428,6 +5043,7 @@ public final class TemplateOuterClass {
           result.paging_ = pagingBuilder_.build();
         }
         result.name_ = name_;
+        result.templateId_ = templateId_;
         onBuilt();
         return result;
       }
@@ -5481,6 +5097,10 @@ public final class TemplateOuterClass {
         }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          onChanged();
+        }
+        if (!other.getTemplateId().isEmpty()) {
+          templateId_ = other.templateId_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -5694,6 +5314,75 @@ public final class TemplateOuterClass {
   checkByteStringIsUtf8(value);
         
         name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object templateId_ = "";
+      /**
+       * <code>string template_id = 3;</code>
+       */
+      public java.lang.String getTemplateId() {
+        java.lang.Object ref = templateId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          templateId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string template_id = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTemplateIdBytes() {
+        java.lang.Object ref = templateId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          templateId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string template_id = 3;</code>
+       */
+      public Builder setTemplateId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        templateId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string template_id = 3;</code>
+       */
+      public Builder clearTemplateId() {
+        
+        templateId_ = getDefaultInstance().getTemplateId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string template_id = 3;</code>
+       */
+      public Builder setTemplateIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        templateId_ = value;
         onChanged();
         return this;
       }
@@ -6961,39 +6650,26 @@ public final class TemplateOuterClass {
         getDescriptionBytes();
 
     /**
-     * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-     */
-    boolean hasCmdbSearchRequest();
-    /**
-     * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-     */
-    top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest getCmdbSearchRequest();
-    /**
-     * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-     */
-    top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder getCmdbSearchRequestOrBuilder();
-
-    /**
-     * <code>int32 playbook_id = 5;</code>
+     * <code>int32 playbook_id = 4;</code>
      */
     int getPlaybookId();
 
     /**
-     * <code>int32 playbook_file_id = 6;</code>
+     * <code>int32 playbook_file_id = 5;</code>
      */
     int getPlaybookFileId();
 
     /**
-     * <code>int32 entrypoint_id = 7;</code>
+     * <code>int32 playbook_entrypoint_id = 6;</code>
      */
-    int getEntrypointId();
+    int getPlaybookEntrypointId();
 
     /**
-     * <code>string extra_var = 8;</code>
+     * <code>string extra_var = 7;</code>
      */
     java.lang.String getExtraVar();
     /**
-     * <code>string extra_var = 8;</code>
+     * <code>string extra_var = 7;</code>
      */
     com.google.protobuf.ByteString
         getExtraVarBytes();
@@ -7016,7 +6692,7 @@ public final class TemplateOuterClass {
       description_ = "";
       playbookId_ = 0;
       playbookFileId_ = 0;
-      entrypointId_ = 0;
+      playbookEntrypointId_ = 0;
       extraVar_ = "";
     }
 
@@ -7061,35 +6737,22 @@ public final class TemplateOuterClass {
               description_ = s;
               break;
             }
-            case 34: {
-              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder subBuilder = null;
-              if (cmdbSearchRequest_ != null) {
-                subBuilder = cmdbSearchRequest_.toBuilder();
-              }
-              cmdbSearchRequest_ = input.readMessage(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(cmdbSearchRequest_);
-                cmdbSearchRequest_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 40: {
+            case 32: {
 
               playbookId_ = input.readInt32();
               break;
             }
-            case 48: {
+            case 40: {
 
               playbookFileId_ = input.readInt32();
               break;
             }
-            case 56: {
+            case 48: {
 
-              entrypointId_ = input.readInt32();
+              playbookEntrypointId_ = input.readInt32();
               break;
             }
-            case 66: {
+            case 58: {
               java.lang.String s = input.readStringRequireUtf8();
 
               extraVar_ = s;
@@ -7204,58 +6867,37 @@ public final class TemplateOuterClass {
       }
     }
 
-    public static final int CMDB_SEARCH_REQUEST_FIELD_NUMBER = 4;
-    private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest cmdbSearchRequest_;
-    /**
-     * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-     */
-    public boolean hasCmdbSearchRequest() {
-      return cmdbSearchRequest_ != null;
-    }
-    /**
-     * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-     */
-    public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest getCmdbSearchRequest() {
-      return cmdbSearchRequest_ == null ? top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.getDefaultInstance() : cmdbSearchRequest_;
-    }
-    /**
-     * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-     */
-    public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder getCmdbSearchRequestOrBuilder() {
-      return getCmdbSearchRequest();
-    }
-
-    public static final int PLAYBOOK_ID_FIELD_NUMBER = 5;
+    public static final int PLAYBOOK_ID_FIELD_NUMBER = 4;
     private int playbookId_;
     /**
-     * <code>int32 playbook_id = 5;</code>
+     * <code>int32 playbook_id = 4;</code>
      */
     public int getPlaybookId() {
       return playbookId_;
     }
 
-    public static final int PLAYBOOK_FILE_ID_FIELD_NUMBER = 6;
+    public static final int PLAYBOOK_FILE_ID_FIELD_NUMBER = 5;
     private int playbookFileId_;
     /**
-     * <code>int32 playbook_file_id = 6;</code>
+     * <code>int32 playbook_file_id = 5;</code>
      */
     public int getPlaybookFileId() {
       return playbookFileId_;
     }
 
-    public static final int ENTRYPOINT_ID_FIELD_NUMBER = 7;
-    private int entrypointId_;
+    public static final int PLAYBOOK_ENTRYPOINT_ID_FIELD_NUMBER = 6;
+    private int playbookEntrypointId_;
     /**
-     * <code>int32 entrypoint_id = 7;</code>
+     * <code>int32 playbook_entrypoint_id = 6;</code>
      */
-    public int getEntrypointId() {
-      return entrypointId_;
+    public int getPlaybookEntrypointId() {
+      return playbookEntrypointId_;
     }
 
-    public static final int EXTRA_VAR_FIELD_NUMBER = 8;
+    public static final int EXTRA_VAR_FIELD_NUMBER = 7;
     private volatile java.lang.Object extraVar_;
     /**
-     * <code>string extra_var = 8;</code>
+     * <code>string extra_var = 7;</code>
      */
     public java.lang.String getExtraVar() {
       java.lang.Object ref = extraVar_;
@@ -7270,7 +6912,7 @@ public final class TemplateOuterClass {
       }
     }
     /**
-     * <code>string extra_var = 8;</code>
+     * <code>string extra_var = 7;</code>
      */
     public com.google.protobuf.ByteString
         getExtraVarBytes() {
@@ -7309,20 +6951,17 @@ public final class TemplateOuterClass {
       if (!getDescriptionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, description_);
       }
-      if (cmdbSearchRequest_ != null) {
-        output.writeMessage(4, getCmdbSearchRequest());
-      }
       if (playbookId_ != 0) {
-        output.writeInt32(5, playbookId_);
+        output.writeInt32(4, playbookId_);
       }
       if (playbookFileId_ != 0) {
-        output.writeInt32(6, playbookFileId_);
+        output.writeInt32(5, playbookFileId_);
       }
-      if (entrypointId_ != 0) {
-        output.writeInt32(7, entrypointId_);
+      if (playbookEntrypointId_ != 0) {
+        output.writeInt32(6, playbookEntrypointId_);
       }
       if (!getExtraVarBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, extraVar_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, extraVar_);
       }
       unknownFields.writeTo(output);
     }
@@ -7343,24 +6982,20 @@ public final class TemplateOuterClass {
       if (!getDescriptionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, description_);
       }
-      if (cmdbSearchRequest_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getCmdbSearchRequest());
-      }
       if (playbookId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, playbookId_);
+          .computeInt32Size(4, playbookId_);
       }
       if (playbookFileId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, playbookFileId_);
+          .computeInt32Size(5, playbookFileId_);
       }
-      if (entrypointId_ != 0) {
+      if (playbookEntrypointId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(7, entrypointId_);
+          .computeInt32Size(6, playbookEntrypointId_);
       }
       if (!getExtraVarBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, extraVar_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, extraVar_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7384,17 +7019,12 @@ public final class TemplateOuterClass {
           .equals(other.getName());
       result = result && getDescription()
           .equals(other.getDescription());
-      result = result && (hasCmdbSearchRequest() == other.hasCmdbSearchRequest());
-      if (hasCmdbSearchRequest()) {
-        result = result && getCmdbSearchRequest()
-            .equals(other.getCmdbSearchRequest());
-      }
       result = result && (getPlaybookId()
           == other.getPlaybookId());
       result = result && (getPlaybookFileId()
           == other.getPlaybookFileId());
-      result = result && (getEntrypointId()
-          == other.getEntrypointId());
+      result = result && (getPlaybookEntrypointId()
+          == other.getPlaybookEntrypointId());
       result = result && getExtraVar()
           .equals(other.getExtraVar());
       result = result && unknownFields.equals(other.unknownFields);
@@ -7414,16 +7044,12 @@ public final class TemplateOuterClass {
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getDescription().hashCode();
-      if (hasCmdbSearchRequest()) {
-        hash = (37 * hash) + CMDB_SEARCH_REQUEST_FIELD_NUMBER;
-        hash = (53 * hash) + getCmdbSearchRequest().hashCode();
-      }
       hash = (37 * hash) + PLAYBOOK_ID_FIELD_NUMBER;
       hash = (53 * hash) + getPlaybookId();
       hash = (37 * hash) + PLAYBOOK_FILE_ID_FIELD_NUMBER;
       hash = (53 * hash) + getPlaybookFileId();
-      hash = (37 * hash) + ENTRYPOINT_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getEntrypointId();
+      hash = (37 * hash) + PLAYBOOK_ENTRYPOINT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getPlaybookEntrypointId();
       hash = (37 * hash) + EXTRA_VAR_FIELD_NUMBER;
       hash = (53 * hash) + getExtraVar().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -7565,17 +7191,11 @@ public final class TemplateOuterClass {
 
         description_ = "";
 
-        if (cmdbSearchRequestBuilder_ == null) {
-          cmdbSearchRequest_ = null;
-        } else {
-          cmdbSearchRequest_ = null;
-          cmdbSearchRequestBuilder_ = null;
-        }
         playbookId_ = 0;
 
         playbookFileId_ = 0;
 
-        entrypointId_ = 0;
+        playbookEntrypointId_ = 0;
 
         extraVar_ = "";
 
@@ -7608,14 +7228,9 @@ public final class TemplateOuterClass {
         result.templateId_ = templateId_;
         result.name_ = name_;
         result.description_ = description_;
-        if (cmdbSearchRequestBuilder_ == null) {
-          result.cmdbSearchRequest_ = cmdbSearchRequest_;
-        } else {
-          result.cmdbSearchRequest_ = cmdbSearchRequestBuilder_.build();
-        }
         result.playbookId_ = playbookId_;
         result.playbookFileId_ = playbookFileId_;
-        result.entrypointId_ = entrypointId_;
+        result.playbookEntrypointId_ = playbookEntrypointId_;
         result.extraVar_ = extraVar_;
         onBuilt();
         return result;
@@ -7676,17 +7291,14 @@ public final class TemplateOuterClass {
           description_ = other.description_;
           onChanged();
         }
-        if (other.hasCmdbSearchRequest()) {
-          mergeCmdbSearchRequest(other.getCmdbSearchRequest());
-        }
         if (other.getPlaybookId() != 0) {
           setPlaybookId(other.getPlaybookId());
         }
         if (other.getPlaybookFileId() != 0) {
           setPlaybookFileId(other.getPlaybookFileId());
         }
-        if (other.getEntrypointId() != 0) {
-          setEntrypointId(other.getEntrypointId());
+        if (other.getPlaybookEntrypointId() != 0) {
+          setPlaybookEntrypointId(other.getPlaybookEntrypointId());
         }
         if (!other.getExtraVar().isEmpty()) {
           extraVar_ = other.extraVar_;
@@ -7885,132 +7497,15 @@ public final class TemplateOuterClass {
         return this;
       }
 
-      private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest cmdbSearchRequest_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder> cmdbSearchRequestBuilder_;
-      /**
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-       */
-      public boolean hasCmdbSearchRequest() {
-        return cmdbSearchRequestBuilder_ != null || cmdbSearchRequest_ != null;
-      }
-      /**
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-       */
-      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest getCmdbSearchRequest() {
-        if (cmdbSearchRequestBuilder_ == null) {
-          return cmdbSearchRequest_ == null ? top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.getDefaultInstance() : cmdbSearchRequest_;
-        } else {
-          return cmdbSearchRequestBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-       */
-      public Builder setCmdbSearchRequest(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest value) {
-        if (cmdbSearchRequestBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          cmdbSearchRequest_ = value;
-          onChanged();
-        } else {
-          cmdbSearchRequestBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-       */
-      public Builder setCmdbSearchRequest(
-          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder builderForValue) {
-        if (cmdbSearchRequestBuilder_ == null) {
-          cmdbSearchRequest_ = builderForValue.build();
-          onChanged();
-        } else {
-          cmdbSearchRequestBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-       */
-      public Builder mergeCmdbSearchRequest(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest value) {
-        if (cmdbSearchRequestBuilder_ == null) {
-          if (cmdbSearchRequest_ != null) {
-            cmdbSearchRequest_ =
-              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.newBuilder(cmdbSearchRequest_).mergeFrom(value).buildPartial();
-          } else {
-            cmdbSearchRequest_ = value;
-          }
-          onChanged();
-        } else {
-          cmdbSearchRequestBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-       */
-      public Builder clearCmdbSearchRequest() {
-        if (cmdbSearchRequestBuilder_ == null) {
-          cmdbSearchRequest_ = null;
-          onChanged();
-        } else {
-          cmdbSearchRequest_ = null;
-          cmdbSearchRequestBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-       */
-      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder getCmdbSearchRequestBuilder() {
-        
-        onChanged();
-        return getCmdbSearchRequestFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-       */
-      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder getCmdbSearchRequestOrBuilder() {
-        if (cmdbSearchRequestBuilder_ != null) {
-          return cmdbSearchRequestBuilder_.getMessageOrBuilder();
-        } else {
-          return cmdbSearchRequest_ == null ?
-              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.getDefaultInstance() : cmdbSearchRequest_;
-        }
-      }
-      /**
-       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder> 
-          getCmdbSearchRequestFieldBuilder() {
-        if (cmdbSearchRequestBuilder_ == null) {
-          cmdbSearchRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder>(
-                  getCmdbSearchRequest(),
-                  getParentForChildren(),
-                  isClean());
-          cmdbSearchRequest_ = null;
-        }
-        return cmdbSearchRequestBuilder_;
-      }
-
       private int playbookId_ ;
       /**
-       * <code>int32 playbook_id = 5;</code>
+       * <code>int32 playbook_id = 4;</code>
        */
       public int getPlaybookId() {
         return playbookId_;
       }
       /**
-       * <code>int32 playbook_id = 5;</code>
+       * <code>int32 playbook_id = 4;</code>
        */
       public Builder setPlaybookId(int value) {
         
@@ -8019,7 +7514,7 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
-       * <code>int32 playbook_id = 5;</code>
+       * <code>int32 playbook_id = 4;</code>
        */
       public Builder clearPlaybookId() {
         
@@ -8030,13 +7525,13 @@ public final class TemplateOuterClass {
 
       private int playbookFileId_ ;
       /**
-       * <code>int32 playbook_file_id = 6;</code>
+       * <code>int32 playbook_file_id = 5;</code>
        */
       public int getPlaybookFileId() {
         return playbookFileId_;
       }
       /**
-       * <code>int32 playbook_file_id = 6;</code>
+       * <code>int32 playbook_file_id = 5;</code>
        */
       public Builder setPlaybookFileId(int value) {
         
@@ -8045,7 +7540,7 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
-       * <code>int32 playbook_file_id = 6;</code>
+       * <code>int32 playbook_file_id = 5;</code>
        */
       public Builder clearPlaybookFileId() {
         
@@ -8054,35 +7549,35 @@ public final class TemplateOuterClass {
         return this;
       }
 
-      private int entrypointId_ ;
+      private int playbookEntrypointId_ ;
       /**
-       * <code>int32 entrypoint_id = 7;</code>
+       * <code>int32 playbook_entrypoint_id = 6;</code>
        */
-      public int getEntrypointId() {
-        return entrypointId_;
+      public int getPlaybookEntrypointId() {
+        return playbookEntrypointId_;
       }
       /**
-       * <code>int32 entrypoint_id = 7;</code>
+       * <code>int32 playbook_entrypoint_id = 6;</code>
        */
-      public Builder setEntrypointId(int value) {
+      public Builder setPlaybookEntrypointId(int value) {
         
-        entrypointId_ = value;
+        playbookEntrypointId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 entrypoint_id = 7;</code>
+       * <code>int32 playbook_entrypoint_id = 6;</code>
        */
-      public Builder clearEntrypointId() {
+      public Builder clearPlaybookEntrypointId() {
         
-        entrypointId_ = 0;
+        playbookEntrypointId_ = 0;
         onChanged();
         return this;
       }
 
       private java.lang.Object extraVar_ = "";
       /**
-       * <code>string extra_var = 8;</code>
+       * <code>string extra_var = 7;</code>
        */
       public java.lang.String getExtraVar() {
         java.lang.Object ref = extraVar_;
@@ -8097,7 +7592,7 @@ public final class TemplateOuterClass {
         }
       }
       /**
-       * <code>string extra_var = 8;</code>
+       * <code>string extra_var = 7;</code>
        */
       public com.google.protobuf.ByteString
           getExtraVarBytes() {
@@ -8113,7 +7608,7 @@ public final class TemplateOuterClass {
         }
       }
       /**
-       * <code>string extra_var = 8;</code>
+       * <code>string extra_var = 7;</code>
        */
       public Builder setExtraVar(
           java.lang.String value) {
@@ -8126,7 +7621,7 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
-       * <code>string extra_var = 8;</code>
+       * <code>string extra_var = 7;</code>
        */
       public Builder clearExtraVar() {
         
@@ -8135,7 +7630,7 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
-       * <code>string extra_var = 8;</code>
+       * <code>string extra_var = 7;</code>
        */
       public Builder setExtraVarBytes(
           com.google.protobuf.ByteString value) {
@@ -10095,57 +9590,49 @@ public final class TemplateOuterClass {
       "\n\027template/template.proto\022\010template\032\020com" +
       "mon/api.proto\032\034google/api/annotations.pr" +
       "oto\032,protoc-gen-swagger/options/annotati" +
-      "ons.proto\032\027playbook/playbook.proto\032\017cmdb" +
-      "/cmdb.proto\"\366\001\n\016TemplateObject\022\023\n\013templa" +
-      "te_id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013description" +
-      "\030\003 \001(\t\0224\n\023cmdb_search_request\030\004 \001(\0132\027.cm" +
-      "db.SearchHostRequest\022)\n\010playbook\030\005 \001(\0132\027" +
-      ".playbook.ProjectObject\022\030\n\020playbook_file" +
-      "_id\030\006 \001(\005\022\036\n\026playbook_entrypoint_id\030\007 \001(" +
-      "\005\022\021\n\textra_var\030\010 \001(\t\"\312\001\n\rCreateRequest\022\014" +
-      "\n\004name\030\001 \001(\t\022\023\n\013description\030\002 \001(\t\0224\n\023cmd" +
-      "b_search_request\030\003 \001(\0132\027.cmdb.SearchHost" +
-      "Request\022\023\n\013playbook_id\030\004 \001(\005\022\030\n\020playbook" +
-      "_file_id\030\005 \001(\005\022\036\n\026playbook_entrypoint_id" +
-      "\030\006 \001(\005\022\021\n\textra_var\030\007 \001(\t\"^\n\016CreateRespo" +
-      "nse\022\023\n\013template_id\030\001 \001(\005\022\017\n\007created\030\002 \001(" +
-      "\t\022&\n\006status\030\003 \001(\0132\026.common.ResponseStatu" +
-      "s\"!\n\nGetRequest\022\023\n\013template_id\030\001 \001(\005\"a\n\013" +
-      "GetResponse\022*\n\010template\030\001 \001(\0132\030.template" +
-      ".TemplateObject\022&\n\006status\030\002 \001(\0132\026.common" +
-      ".ResponseStatus\"=\n\rFilterRequest\022\036\n\006pagi" +
-      "ng\030\001 \001(\0132\016.common.Paging\022\014\n\004name\030\002 \001(\t\"\205" +
-      "\001\n\016FilterResponse\022+\n\ttemplates\030\001 \003(\0132\030.t" +
-      "emplate.TemplateObject\022\036\n\006paging\030\002 \001(\0132\016" +
-      ".common.Paging\022&\n\006status\030\003 \001(\0132\026.common." +
-      "ResponseStatus\"\326\001\n\rUpdateRequest\022\023\n\013temp" +
-      "late_id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013descripti" +
-      "on\030\003 \001(\t\0224\n\023cmdb_search_request\030\004 \001(\0132\027." +
-      "cmdb.SearchHostRequest\022\023\n\013playbook_id\030\005 " +
-      "\001(\005\022\030\n\020playbook_file_id\030\006 \001(\005\022\025\n\rentrypo" +
-      "int_id\030\007 \001(\005\022\021\n\textra_var\030\010 \001(\t\"I\n\016Updat" +
-      "eResponse\022\017\n\007updated\030\001 \001(\t\022&\n\006status\030\002 \001" +
-      "(\0132\026.common.ResponseStatus\"$\n\rDeleteRequ" +
-      "est\022\023\n\013template_id\030\001 \001(\005\"8\n\016DeleteRespon" +
-      "se\022&\n\006status\030\001 \001(\0132\026.common.ResponseStat" +
-      "us2\360\003\n\010Template\022[\n\006Create\022\027.template.Cre" +
-      "ateRequest\032\030.template.CreateResponse\"\036\202\323" +
-      "\344\223\002\030\"\023/v1/template/create:\001*\022X\n\006Filter\022\027" +
-      ".template.FilterRequest\032\030.template.Filte" +
-      "rResponse\"\033\202\323\344\223\002\025\022\023/v1/template/filter\022Z" +
-      "\n\003Get\022\024.template.GetRequest\032\025.template.G" +
-      "etResponse\"&\202\323\344\223\002 \022\036/v1/template/get/{te" +
-      "mplate_id}\022i\n\006Update\022\027.template.UpdateRe" +
-      "quest\032\030.template.UpdateResponse\",\202\323\344\223\002&\"" +
-      "!/v1/template/update/{template_id}:\001*\022f\n" +
-      "\006Delete\022\027.template.DeleteRequest\032\030.templ" +
-      "ate.DeleteResponse\")\202\323\344\223\002#\"!/v1/template" +
-      "/delete/{template_id}B\266\001\n\036top.fogcdn.axe" +
-      ".protos.templateZ(git.fogcdn.top/axe/pro" +
-      "tos/goout/template\222Ai\022@\n\033AXE\350\277\220\347\273\264API - " +
-      "\344\275\234\344\270\232\346\250\241\346\235\277\022\032AXE\350\277\220\347\273\264\345\271\263\345\217\260RESTful API" +
-      "2\0051.0.0*\001\0012\020application/json:\020applicatio" +
-      "n/jsonb\006proto3"
+      "ons.proto\032\027playbook/playbook.proto\"\300\001\n\016T" +
+      "emplateObject\022\023\n\013template_id\030\001 \001(\005\022\014\n\004na" +
+      "me\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022)\n\010playboo" +
+      "k\030\004 \001(\0132\027.playbook.ProjectObject\022\030\n\020play" +
+      "book_file_id\030\005 \001(\005\022\036\n\026playbook_entrypoin" +
+      "t_id\030\006 \001(\005\022\021\n\textra_var\030\007 \001(\t\"\224\001\n\rCreate" +
+      "Request\022\014\n\004name\030\001 \001(\t\022\023\n\013description\030\002 \001" +
+      "(\t\022\023\n\013playbook_id\030\003 \001(\005\022\030\n\020playbook_file" +
+      "_id\030\004 \001(\005\022\036\n\026playbook_entrypoint_id\030\005 \001(" +
+      "\005\022\021\n\textra_var\030\006 \001(\t\"^\n\016CreateResponse\022\023" +
+      "\n\013template_id\030\001 \001(\005\022\017\n\007created\030\002 \001(\t\022&\n\006" +
+      "status\030\003 \001(\0132\026.common.ResponseStatus\"!\n\n" +
+      "GetRequest\022\023\n\013template_id\030\001 \001(\005\"a\n\013GetRe" +
+      "sponse\022*\n\010template\030\001 \001(\0132\030.template.Temp" +
+      "lateObject\022&\n\006status\030\002 \001(\0132\026.common.Resp" +
+      "onseStatus\"R\n\rFilterRequest\022\036\n\006paging\030\001 " +
+      "\001(\0132\016.common.Paging\022\014\n\004name\030\002 \001(\t\022\023\n\013tem" +
+      "plate_id\030\003 \001(\t\"\205\001\n\016FilterResponse\022+\n\ttem" +
+      "plates\030\001 \003(\0132\030.template.TemplateObject\022\036" +
+      "\n\006paging\030\002 \001(\0132\016.common.Paging\022&\n\006status" +
+      "\030\003 \001(\0132\026.common.ResponseStatus\"\251\001\n\rUpdat" +
+      "eRequest\022\023\n\013template_id\030\001 \001(\005\022\014\n\004name\030\002 " +
+      "\001(\t\022\023\n\013description\030\003 \001(\t\022\023\n\013playbook_id\030" +
+      "\004 \001(\005\022\030\n\020playbook_file_id\030\005 \001(\005\022\036\n\026playb" +
+      "ook_entrypoint_id\030\006 \001(\005\022\021\n\textra_var\030\007 \001" +
+      "(\t\"I\n\016UpdateResponse\022\017\n\007updated\030\001 \001(\t\022&\n" +
+      "\006status\030\002 \001(\0132\026.common.ResponseStatus\"$\n" +
+      "\rDeleteRequest\022\023\n\013template_id\030\001 \001(\005\"8\n\016D" +
+      "eleteResponse\022&\n\006status\030\001 \001(\0132\026.common.R" +
+      "esponseStatus2\307\003\n\010Template\022[\n\006Create\022\027.t" +
+      "emplate.CreateRequest\032\030.template.CreateR" +
+      "esponse\"\036\202\323\344\223\002\030\"\023/v1/template/create:\001*\022" +
+      "X\n\006Filter\022\027.template.FilterRequest\032\030.tem" +
+      "plate.FilterResponse\"\033\202\323\344\223\002\025\022\023/v1/templa" +
+      "te/filter\022Z\n\003Get\022\024.template.GetRequest\032\025" +
+      ".template.GetResponse\"&\202\323\344\223\002 \022\036/v1/templ" +
+      "ate/get/{template_id}\022i\n\006Update\022\027.templa" +
+      "te.UpdateRequest\032\030.template.UpdateRespon" +
+      "se\",\202\323\344\223\002&\"!/v1/template/update/{templat" +
+      "e_id}:\001*\022=\n\006Delete\022\027.template.DeleteRequ" +
+      "est\032\030.template.DeleteResponse\"\000BJ\n\036top.f" +
+      "ogcdn.axe.protos.templateZ(git.fogcdn.to" +
+      "p/axe/protos/goout/templateb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -10162,20 +9649,19 @@ public final class TemplateOuterClass {
           com.google.api.AnnotationsProto.getDescriptor(),
           grpc.gateway.protoc_gen_swagger.options.Annotations.getDescriptor(),
           top.fogcdn.axe.protos.playbook.PlaybookOuterClass.getDescriptor(),
-          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.getDescriptor(),
         }, assigner);
     internal_static_template_TemplateObject_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_template_TemplateObject_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_template_TemplateObject_descriptor,
-        new java.lang.String[] { "TemplateId", "Name", "Description", "CmdbSearchRequest", "Playbook", "PlaybookFileId", "PlaybookEntrypointId", "ExtraVar", });
+        new java.lang.String[] { "TemplateId", "Name", "Description", "Playbook", "PlaybookFileId", "PlaybookEntrypointId", "ExtraVar", });
     internal_static_template_CreateRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_template_CreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_template_CreateRequest_descriptor,
-        new java.lang.String[] { "Name", "Description", "CmdbSearchRequest", "PlaybookId", "PlaybookFileId", "PlaybookEntrypointId", "ExtraVar", });
+        new java.lang.String[] { "Name", "Description", "PlaybookId", "PlaybookFileId", "PlaybookEntrypointId", "ExtraVar", });
     internal_static_template_CreateResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_template_CreateResponse_fieldAccessorTable = new
@@ -10199,7 +9685,7 @@ public final class TemplateOuterClass {
     internal_static_template_FilterRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_template_FilterRequest_descriptor,
-        new java.lang.String[] { "Paging", "Name", });
+        new java.lang.String[] { "Paging", "Name", "TemplateId", });
     internal_static_template_FilterResponse_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_template_FilterResponse_fieldAccessorTable = new
@@ -10211,7 +9697,7 @@ public final class TemplateOuterClass {
     internal_static_template_UpdateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_template_UpdateRequest_descriptor,
-        new java.lang.String[] { "TemplateId", "Name", "Description", "CmdbSearchRequest", "PlaybookId", "PlaybookFileId", "EntrypointId", "ExtraVar", });
+        new java.lang.String[] { "TemplateId", "Name", "Description", "PlaybookId", "PlaybookFileId", "PlaybookEntrypointId", "ExtraVar", });
     internal_static_template_UpdateResponse_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_template_UpdateResponse_fieldAccessorTable = new
@@ -10233,14 +9719,12 @@ public final class TemplateOuterClass {
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);
-    registry.add(grpc.gateway.protoc_gen_swagger.options.Annotations.openapiv2Swagger);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     top.fogcdn.axe.protos.common.Api.getDescriptor();
     com.google.api.AnnotationsProto.getDescriptor();
     grpc.gateway.protoc_gen_swagger.options.Annotations.getDescriptor();
     top.fogcdn.axe.protos.playbook.PlaybookOuterClass.getDescriptor();
-    top.fogcdn.axe.protos.cmdb.CmdbOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

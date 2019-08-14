@@ -1,12 +1,12 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "AXE运维API - 作业模板",
-    "description": "AXE运维平台RESTful API",
-    "version": "1.0.0"
+    "title": "template/template.proto",
+    "version": "version not set"
   },
   "schemes": [
-    "http"
+    "http",
+    "https"
   ],
   "consumes": [
     "application/json"
@@ -35,32 +35,6 @@
             "schema": {
               "$ref": "#/definitions/templateCreateRequest"
             }
-          }
-        ],
-        "tags": [
-          "Template"
-        ]
-      }
-    },
-    "/v1/template/delete/{template_id}": {
-      "post": {
-        "summary": "删除作业模板",
-        "operationId": "Delete",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/templateDeleteResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "template_id",
-            "in": "path",
-            "required": true,
-            "type": "integer",
-            "format": "int32"
           }
         ],
         "tags": [
@@ -104,6 +78,12 @@
           },
           {
             "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "template_id",
             "in": "query",
             "required": false,
             "type": "string"
@@ -176,56 +156,6 @@
     }
   },
   "definitions": {
-    "cmdbBizObject": {
-      "type": "object",
-      "properties": {
-        "bk_biz_name": {
-          "type": "string"
-        }
-      }
-    },
-    "cmdbHostObject": {
-      "type": "object",
-      "properties": {
-        "bk_host_innerip": {
-          "type": "string"
-        }
-      }
-    },
-    "cmdbModuleObject": {
-      "type": "object",
-      "properties": {
-        "bk_module_name": {
-          "type": "string"
-        }
-      }
-    },
-    "cmdbSearchHostRequest": {
-      "type": "object",
-      "properties": {
-        "host": {
-          "$ref": "#/definitions/cmdbHostObject"
-        },
-        "module": {
-          "$ref": "#/definitions/cmdbModuleObject"
-        },
-        "set": {
-          "$ref": "#/definitions/cmdbSetObject"
-        },
-        "biz": {
-          "$ref": "#/definitions/cmdbBizObject"
-        }
-      },
-      "title": "查找主机请求"
-    },
-    "cmdbSetObject": {
-      "type": "object",
-      "properties": {
-        "bk_set_name": {
-          "type": "string"
-        }
-      }
-    },
     "commonPaging": {
       "type": "object",
       "properties": {
@@ -328,9 +258,6 @@
         "description": {
           "type": "string"
         },
-        "cmdb_search_request": {
-          "$ref": "#/definitions/cmdbSearchHostRequest"
-        },
         "playbook_id": {
           "type": "integer",
           "format": "int32"
@@ -415,9 +342,6 @@
         "description": {
           "type": "string"
         },
-        "cmdb_search_request": {
-          "$ref": "#/definitions/cmdbSearchHostRequest"
-        },
         "playbook": {
           "$ref": "#/definitions/playbookProjectObject"
         },
@@ -448,9 +372,6 @@
         "description": {
           "type": "string"
         },
-        "cmdb_search_request": {
-          "$ref": "#/definitions/cmdbSearchHostRequest"
-        },
         "playbook_id": {
           "type": "integer",
           "format": "int32"
@@ -459,7 +380,7 @@
           "type": "integer",
           "format": "int32"
         },
-        "entrypoint_id": {
+        "playbook_entrypoint_id": {
           "type": "integer",
           "format": "int32"
         },

@@ -316,69 +316,61 @@ public final class ScheduleOuterClass {
      * 开始日期
      * </pre>
      *
-     * <code>string start_date = 4;</code>
+     * <code>string start_time = 4;</code>
      */
-    java.lang.String getStartDate();
+    java.lang.String getStartTime();
     /**
      * <pre>
      * 开始日期
      * </pre>
      *
-     * <code>string start_date = 4;</code>
-     */
-    com.google.protobuf.ByteString
-        getStartDateBytes();
-
-    /**
-     * <pre>
-     * 开始时间
-     * </pre>
-     *
-     * <code>string start_time = 5;</code>
-     */
-    java.lang.String getStartTime();
-    /**
-     * <pre>
-     * 开始时间
-     * </pre>
-     *
-     * <code>string start_time = 5;</code>
+     * <code>string start_time = 4;</code>
      */
     com.google.protobuf.ByteString
         getStartTimeBytes();
 
     /**
      * <pre>
-     * 重复频率
+     * 开始时间
      * </pre>
      *
-     * <code>.schedule.RepeatFrequency repeat_frequency = 6;</code>
+     * <code>string end_time = 5;</code>
      */
-    int getRepeatFrequencyValue();
+    java.lang.String getEndTime();
     /**
      * <pre>
-     * 重复频率
+     * 开始时间
      * </pre>
      *
-     * <code>.schedule.RepeatFrequency repeat_frequency = 6;</code>
+     * <code>string end_time = 5;</code>
      */
-    top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency getRepeatFrequency();
+    com.google.protobuf.ByteString
+        getEndTimeBytes();
 
     /**
      * <pre>
-     * 调度间隔
+     * 定时任务表达式
      * </pre>
      *
-     * <code>int32 scheduler_interval = 7;</code>
+     * <code>string cron_expression = 6;</code>
      */
-    int getSchedulerInterval();
+    java.lang.String getCronExpression();
+    /**
+     * <pre>
+     * 定时任务表达式
+     * </pre>
+     *
+     * <code>string cron_expression = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getCronExpressionBytes();
 
     /**
      * <pre>
      * 任务状态
      * </pre>
      *
-     * <code>.schedule.ScheduleStatus status = 8;</code>
+     * <code>.schedule.ScheduleStatus status = 7;</code>
      */
     int getStatusValue();
     /**
@@ -386,7 +378,7 @@ public final class ScheduleOuterClass {
      * 任务状态
      * </pre>
      *
-     * <code>.schedule.ScheduleStatus status = 8;</code>
+     * <code>.schedule.ScheduleStatus status = 7;</code>
      */
     top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleStatus getStatus();
   }
@@ -409,10 +401,9 @@ public final class ScheduleOuterClass {
     private ScheduleObject() {
       scheduleId_ = 0;
       name_ = "";
-      startDate_ = "";
       startTime_ = "";
-      repeatFrequency_ = 0;
-      schedulerInterval_ = 0;
+      endTime_ = "";
+      cronExpression_ = "";
       status_ = 0;
     }
 
@@ -467,27 +458,22 @@ public final class ScheduleOuterClass {
             case 34: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              startDate_ = s;
+              startTime_ = s;
               break;
             }
             case 42: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              startTime_ = s;
+              endTime_ = s;
               break;
             }
-            case 48: {
-              int rawValue = input.readEnum();
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              repeatFrequency_ = rawValue;
+              cronExpression_ = s;
               break;
             }
             case 56: {
-
-              schedulerInterval_ = input.readInt32();
-              break;
-            }
-            case 64: {
               int rawValue = input.readEnum();
 
               status_ = rawValue;
@@ -613,56 +599,14 @@ public final class ScheduleOuterClass {
       }
     }
 
-    public static final int START_DATE_FIELD_NUMBER = 4;
-    private volatile java.lang.Object startDate_;
-    /**
-     * <pre>
-     * 开始日期
-     * </pre>
-     *
-     * <code>string start_date = 4;</code>
-     */
-    public java.lang.String getStartDate() {
-      java.lang.Object ref = startDate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        startDate_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * 开始日期
-     * </pre>
-     *
-     * <code>string start_date = 4;</code>
-     */
-    public com.google.protobuf.ByteString
-        getStartDateBytes() {
-      java.lang.Object ref = startDate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        startDate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int START_TIME_FIELD_NUMBER = 5;
+    public static final int START_TIME_FIELD_NUMBER = 4;
     private volatile java.lang.Object startTime_;
     /**
      * <pre>
-     * 开始时间
+     * 开始日期
      * </pre>
      *
-     * <code>string start_time = 5;</code>
+     * <code>string start_time = 4;</code>
      */
     public java.lang.String getStartTime() {
       java.lang.Object ref = startTime_;
@@ -678,10 +622,10 @@ public final class ScheduleOuterClass {
     }
     /**
      * <pre>
-     * 开始时间
+     * 开始日期
      * </pre>
      *
-     * <code>string start_time = 5;</code>
+     * <code>string start_time = 4;</code>
      */
     public com.google.protobuf.ByteString
         getStartTimeBytes() {
@@ -697,52 +641,98 @@ public final class ScheduleOuterClass {
       }
     }
 
-    public static final int REPEAT_FREQUENCY_FIELD_NUMBER = 6;
-    private int repeatFrequency_;
+    public static final int END_TIME_FIELD_NUMBER = 5;
+    private volatile java.lang.Object endTime_;
     /**
      * <pre>
-     * 重复频率
+     * 开始时间
      * </pre>
      *
-     * <code>.schedule.RepeatFrequency repeat_frequency = 6;</code>
+     * <code>string end_time = 5;</code>
      */
-    public int getRepeatFrequencyValue() {
-      return repeatFrequency_;
+    public java.lang.String getEndTime() {
+      java.lang.Object ref = endTime_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        endTime_ = s;
+        return s;
+      }
     }
     /**
      * <pre>
-     * 重复频率
+     * 开始时间
      * </pre>
      *
-     * <code>.schedule.RepeatFrequency repeat_frequency = 6;</code>
+     * <code>string end_time = 5;</code>
      */
-    public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency getRepeatFrequency() {
-      @SuppressWarnings("deprecation")
-      top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency result = top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency.valueOf(repeatFrequency_);
-      return result == null ? top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency.UNRECOGNIZED : result;
+    public com.google.protobuf.ByteString
+        getEndTimeBytes() {
+      java.lang.Object ref = endTime_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        endTime_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
-    public static final int SCHEDULER_INTERVAL_FIELD_NUMBER = 7;
-    private int schedulerInterval_;
+    public static final int CRON_EXPRESSION_FIELD_NUMBER = 6;
+    private volatile java.lang.Object cronExpression_;
     /**
      * <pre>
-     * 调度间隔
+     * 定时任务表达式
      * </pre>
      *
-     * <code>int32 scheduler_interval = 7;</code>
+     * <code>string cron_expression = 6;</code>
      */
-    public int getSchedulerInterval() {
-      return schedulerInterval_;
+    public java.lang.String getCronExpression() {
+      java.lang.Object ref = cronExpression_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        cronExpression_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 定时任务表达式
+     * </pre>
+     *
+     * <code>string cron_expression = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCronExpressionBytes() {
+      java.lang.Object ref = cronExpression_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        cronExpression_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
-    public static final int STATUS_FIELD_NUMBER = 8;
+    public static final int STATUS_FIELD_NUMBER = 7;
     private int status_;
     /**
      * <pre>
      * 任务状态
      * </pre>
      *
-     * <code>.schedule.ScheduleStatus status = 8;</code>
+     * <code>.schedule.ScheduleStatus status = 7;</code>
      */
     public int getStatusValue() {
       return status_;
@@ -752,7 +742,7 @@ public final class ScheduleOuterClass {
      * 任务状态
      * </pre>
      *
-     * <code>.schedule.ScheduleStatus status = 8;</code>
+     * <code>.schedule.ScheduleStatus status = 7;</code>
      */
     public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleStatus getStatus() {
       @SuppressWarnings("deprecation")
@@ -783,20 +773,17 @@ public final class ScheduleOuterClass {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, name_);
       }
-      if (!getStartDateBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, startDate_);
-      }
       if (!getStartTimeBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, startTime_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, startTime_);
       }
-      if (repeatFrequency_ != top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency.NONE.getNumber()) {
-        output.writeEnum(6, repeatFrequency_);
+      if (!getEndTimeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, endTime_);
       }
-      if (schedulerInterval_ != 0) {
-        output.writeInt32(7, schedulerInterval_);
+      if (!getCronExpressionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, cronExpression_);
       }
       if (status_ != top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleStatus.OFF.getNumber()) {
-        output.writeEnum(8, status_);
+        output.writeEnum(7, status_);
       }
       unknownFields.writeTo(output);
     }
@@ -818,23 +805,18 @@ public final class ScheduleOuterClass {
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, name_);
       }
-      if (!getStartDateBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, startDate_);
-      }
       if (!getStartTimeBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, startTime_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, startTime_);
       }
-      if (repeatFrequency_ != top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency.NONE.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(6, repeatFrequency_);
+      if (!getEndTimeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, endTime_);
       }
-      if (schedulerInterval_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(7, schedulerInterval_);
+      if (!getCronExpressionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, cronExpression_);
       }
       if (status_ != top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleStatus.OFF.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(8, status_);
+          .computeEnumSize(7, status_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -861,13 +843,12 @@ public final class ScheduleOuterClass {
       }
       result = result && getName()
           .equals(other.getName());
-      result = result && getStartDate()
-          .equals(other.getStartDate());
       result = result && getStartTime()
           .equals(other.getStartTime());
-      result = result && repeatFrequency_ == other.repeatFrequency_;
-      result = result && (getSchedulerInterval()
-          == other.getSchedulerInterval());
+      result = result && getEndTime()
+          .equals(other.getEndTime());
+      result = result && getCronExpression()
+          .equals(other.getCronExpression());
       result = result && status_ == other.status_;
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -888,14 +869,12 @@ public final class ScheduleOuterClass {
       }
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + START_DATE_FIELD_NUMBER;
-      hash = (53 * hash) + getStartDate().hashCode();
       hash = (37 * hash) + START_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getStartTime().hashCode();
-      hash = (37 * hash) + REPEAT_FREQUENCY_FIELD_NUMBER;
-      hash = (53 * hash) + repeatFrequency_;
-      hash = (37 * hash) + SCHEDULER_INTERVAL_FIELD_NUMBER;
-      hash = (53 * hash) + getSchedulerInterval();
+      hash = (37 * hash) + END_TIME_FIELD_NUMBER;
+      hash = (53 * hash) + getEndTime().hashCode();
+      hash = (37 * hash) + CRON_EXPRESSION_FIELD_NUMBER;
+      hash = (53 * hash) + getCronExpression().hashCode();
       hash = (37 * hash) + STATUS_FIELD_NUMBER;
       hash = (53 * hash) + status_;
       hash = (29 * hash) + unknownFields.hashCode();
@@ -1045,13 +1024,11 @@ public final class ScheduleOuterClass {
         }
         name_ = "";
 
-        startDate_ = "";
-
         startTime_ = "";
 
-        repeatFrequency_ = 0;
+        endTime_ = "";
 
-        schedulerInterval_ = 0;
+        cronExpression_ = "";
 
         status_ = 0;
 
@@ -1088,10 +1065,9 @@ public final class ScheduleOuterClass {
           result.template_ = templateBuilder_.build();
         }
         result.name_ = name_;
-        result.startDate_ = startDate_;
         result.startTime_ = startTime_;
-        result.repeatFrequency_ = repeatFrequency_;
-        result.schedulerInterval_ = schedulerInterval_;
+        result.endTime_ = endTime_;
+        result.cronExpression_ = cronExpression_;
         result.status_ = status_;
         onBuilt();
         return result;
@@ -1151,19 +1127,17 @@ public final class ScheduleOuterClass {
           name_ = other.name_;
           onChanged();
         }
-        if (!other.getStartDate().isEmpty()) {
-          startDate_ = other.startDate_;
-          onChanged();
-        }
         if (!other.getStartTime().isEmpty()) {
           startTime_ = other.startTime_;
           onChanged();
         }
-        if (other.repeatFrequency_ != 0) {
-          setRepeatFrequencyValue(other.getRepeatFrequencyValue());
+        if (!other.getEndTime().isEmpty()) {
+          endTime_ = other.endTime_;
+          onChanged();
         }
-        if (other.getSchedulerInterval() != 0) {
-          setSchedulerInterval(other.getSchedulerInterval());
+        if (!other.getCronExpression().isEmpty()) {
+          cronExpression_ = other.cronExpression_;
+          onChanged();
         }
         if (other.status_ != 0) {
           setStatusValue(other.getStatusValue());
@@ -1477,102 +1451,13 @@ public final class ScheduleOuterClass {
         return this;
       }
 
-      private java.lang.Object startDate_ = "";
-      /**
-       * <pre>
-       * 开始日期
-       * </pre>
-       *
-       * <code>string start_date = 4;</code>
-       */
-      public java.lang.String getStartDate() {
-        java.lang.Object ref = startDate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          startDate_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 开始日期
-       * </pre>
-       *
-       * <code>string start_date = 4;</code>
-       */
-      public com.google.protobuf.ByteString
-          getStartDateBytes() {
-        java.lang.Object ref = startDate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          startDate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 开始日期
-       * </pre>
-       *
-       * <code>string start_date = 4;</code>
-       */
-      public Builder setStartDate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        startDate_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 开始日期
-       * </pre>
-       *
-       * <code>string start_date = 4;</code>
-       */
-      public Builder clearStartDate() {
-        
-        startDate_ = getDefaultInstance().getStartDate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 开始日期
-       * </pre>
-       *
-       * <code>string start_date = 4;</code>
-       */
-      public Builder setStartDateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        startDate_ = value;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object startTime_ = "";
       /**
        * <pre>
-       * 开始时间
+       * 开始日期
        * </pre>
        *
-       * <code>string start_time = 5;</code>
+       * <code>string start_time = 4;</code>
        */
       public java.lang.String getStartTime() {
         java.lang.Object ref = startTime_;
@@ -1588,10 +1473,10 @@ public final class ScheduleOuterClass {
       }
       /**
        * <pre>
-       * 开始时间
+       * 开始日期
        * </pre>
        *
-       * <code>string start_time = 5;</code>
+       * <code>string start_time = 4;</code>
        */
       public com.google.protobuf.ByteString
           getStartTimeBytes() {
@@ -1608,10 +1493,10 @@ public final class ScheduleOuterClass {
       }
       /**
        * <pre>
-       * 开始时间
+       * 开始日期
        * </pre>
        *
-       * <code>string start_time = 5;</code>
+       * <code>string start_time = 4;</code>
        */
       public Builder setStartTime(
           java.lang.String value) {
@@ -1625,10 +1510,10 @@ public final class ScheduleOuterClass {
       }
       /**
        * <pre>
-       * 开始时间
+       * 开始日期
        * </pre>
        *
-       * <code>string start_time = 5;</code>
+       * <code>string start_time = 4;</code>
        */
       public Builder clearStartTime() {
         
@@ -1638,10 +1523,10 @@ public final class ScheduleOuterClass {
       }
       /**
        * <pre>
-       * 开始时间
+       * 开始日期
        * </pre>
        *
-       * <code>string start_time = 5;</code>
+       * <code>string start_time = 4;</code>
        */
       public Builder setStartTimeBytes(
           com.google.protobuf.ByteString value) {
@@ -1655,105 +1540,180 @@ public final class ScheduleOuterClass {
         return this;
       }
 
-      private int repeatFrequency_ = 0;
+      private java.lang.Object endTime_ = "";
       /**
        * <pre>
-       * 重复频率
+       * 开始时间
        * </pre>
        *
-       * <code>.schedule.RepeatFrequency repeat_frequency = 6;</code>
+       * <code>string end_time = 5;</code>
        */
-      public int getRepeatFrequencyValue() {
-        return repeatFrequency_;
-      }
-      /**
-       * <pre>
-       * 重复频率
-       * </pre>
-       *
-       * <code>.schedule.RepeatFrequency repeat_frequency = 6;</code>
-       */
-      public Builder setRepeatFrequencyValue(int value) {
-        repeatFrequency_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 重复频率
-       * </pre>
-       *
-       * <code>.schedule.RepeatFrequency repeat_frequency = 6;</code>
-       */
-      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency getRepeatFrequency() {
-        @SuppressWarnings("deprecation")
-        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency result = top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency.valueOf(repeatFrequency_);
-        return result == null ? top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency.UNRECOGNIZED : result;
-      }
-      /**
-       * <pre>
-       * 重复频率
-       * </pre>
-       *
-       * <code>.schedule.RepeatFrequency repeat_frequency = 6;</code>
-       */
-      public Builder setRepeatFrequency(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency value) {
-        if (value == null) {
-          throw new NullPointerException();
+      public java.lang.String getEndTime() {
+        java.lang.Object ref = endTime_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          endTime_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
         }
-        
-        repeatFrequency_ = value.getNumber();
+      }
+      /**
+       * <pre>
+       * 开始时间
+       * </pre>
+       *
+       * <code>string end_time = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getEndTimeBytes() {
+        java.lang.Object ref = endTime_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          endTime_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 开始时间
+       * </pre>
+       *
+       * <code>string end_time = 5;</code>
+       */
+      public Builder setEndTime(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        endTime_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * 重复频率
+       * 开始时间
        * </pre>
        *
-       * <code>.schedule.RepeatFrequency repeat_frequency = 6;</code>
+       * <code>string end_time = 5;</code>
        */
-      public Builder clearRepeatFrequency() {
+      public Builder clearEndTime() {
         
-        repeatFrequency_ = 0;
+        endTime_ = getDefaultInstance().getEndTime();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 开始时间
+       * </pre>
+       *
+       * <code>string end_time = 5;</code>
+       */
+      public Builder setEndTimeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        endTime_ = value;
         onChanged();
         return this;
       }
 
-      private int schedulerInterval_ ;
+      private java.lang.Object cronExpression_ = "";
       /**
        * <pre>
-       * 调度间隔
+       * 定时任务表达式
        * </pre>
        *
-       * <code>int32 scheduler_interval = 7;</code>
+       * <code>string cron_expression = 6;</code>
        */
-      public int getSchedulerInterval() {
-        return schedulerInterval_;
+      public java.lang.String getCronExpression() {
+        java.lang.Object ref = cronExpression_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          cronExpression_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
        * <pre>
-       * 调度间隔
+       * 定时任务表达式
        * </pre>
        *
-       * <code>int32 scheduler_interval = 7;</code>
+       * <code>string cron_expression = 6;</code>
        */
-      public Builder setSchedulerInterval(int value) {
-        
-        schedulerInterval_ = value;
+      public com.google.protobuf.ByteString
+          getCronExpressionBytes() {
+        java.lang.Object ref = cronExpression_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          cronExpression_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 定时任务表达式
+       * </pre>
+       *
+       * <code>string cron_expression = 6;</code>
+       */
+      public Builder setCronExpression(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        cronExpression_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * 调度间隔
+       * 定时任务表达式
        * </pre>
        *
-       * <code>int32 scheduler_interval = 7;</code>
+       * <code>string cron_expression = 6;</code>
        */
-      public Builder clearSchedulerInterval() {
+      public Builder clearCronExpression() {
         
-        schedulerInterval_ = 0;
+        cronExpression_ = getDefaultInstance().getCronExpression();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 定时任务表达式
+       * </pre>
+       *
+       * <code>string cron_expression = 6;</code>
+       */
+      public Builder setCronExpressionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        cronExpression_ = value;
         onChanged();
         return this;
       }
@@ -1764,7 +1724,7 @@ public final class ScheduleOuterClass {
        * 任务状态
        * </pre>
        *
-       * <code>.schedule.ScheduleStatus status = 8;</code>
+       * <code>.schedule.ScheduleStatus status = 7;</code>
        */
       public int getStatusValue() {
         return status_;
@@ -1774,7 +1734,7 @@ public final class ScheduleOuterClass {
        * 任务状态
        * </pre>
        *
-       * <code>.schedule.ScheduleStatus status = 8;</code>
+       * <code>.schedule.ScheduleStatus status = 7;</code>
        */
       public Builder setStatusValue(int value) {
         status_ = value;
@@ -1786,7 +1746,7 @@ public final class ScheduleOuterClass {
        * 任务状态
        * </pre>
        *
-       * <code>.schedule.ScheduleStatus status = 8;</code>
+       * <code>.schedule.ScheduleStatus status = 7;</code>
        */
       public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleStatus getStatus() {
         @SuppressWarnings("deprecation")
@@ -1798,7 +1758,7 @@ public final class ScheduleOuterClass {
        * 任务状态
        * </pre>
        *
-       * <code>.schedule.ScheduleStatus status = 8;</code>
+       * <code>.schedule.ScheduleStatus status = 7;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleStatus value) {
         if (value == null) {
@@ -1814,7 +1774,7 @@ public final class ScheduleOuterClass {
        * 任务状态
        * </pre>
        *
-       * <code>.schedule.ScheduleStatus status = 8;</code>
+       * <code>.schedule.ScheduleStatus status = 7;</code>
        */
       public Builder clearStatus() {
         
@@ -1895,38 +1855,34 @@ public final class ScheduleOuterClass {
         getNameBytes();
 
     /**
-     * <code>string start_date = 3;</code>
-     */
-    java.lang.String getStartDate();
-    /**
-     * <code>string start_date = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getStartDateBytes();
-
-    /**
-     * <code>string start_time = 4;</code>
+     * <code>string start_time = 3;</code>
      */
     java.lang.String getStartTime();
     /**
-     * <code>string start_time = 4;</code>
+     * <code>string start_time = 3;</code>
      */
     com.google.protobuf.ByteString
         getStartTimeBytes();
 
     /**
-     * <code>.schedule.RepeatFrequency repeat_frequency = 5;</code>
+     * <code>string end_time = 4;</code>
      */
-    int getRepeatFrequencyValue();
+    java.lang.String getEndTime();
     /**
-     * <code>.schedule.RepeatFrequency repeat_frequency = 5;</code>
+     * <code>string end_time = 4;</code>
      */
-    top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency getRepeatFrequency();
+    com.google.protobuf.ByteString
+        getEndTimeBytes();
 
     /**
-     * <code>int32 scheduler_interval = 6;</code>
+     * <code>string cron_expression = 5;</code>
      */
-    int getSchedulerInterval();
+    java.lang.String getCronExpression();
+    /**
+     * <code>string cron_expression = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getCronExpressionBytes();
   }
   /**
    * Protobuf type {@code schedule.CreateRequest}
@@ -1943,10 +1899,9 @@ public final class ScheduleOuterClass {
     private CreateRequest() {
       templateId_ = 0;
       name_ = "";
-      startDate_ = "";
       startTime_ = "";
-      repeatFrequency_ = 0;
-      schedulerInterval_ = 0;
+      endTime_ = "";
+      cronExpression_ = "";
     }
 
     @java.lang.Override
@@ -1987,24 +1942,19 @@ public final class ScheduleOuterClass {
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              startDate_ = s;
+              startTime_ = s;
               break;
             }
             case 34: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              startTime_ = s;
+              endTime_ = s;
               break;
             }
-            case 40: {
-              int rawValue = input.readEnum();
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              repeatFrequency_ = rawValue;
-              break;
-            }
-            case 48: {
-
-              schedulerInterval_ = input.readInt32();
+              cronExpression_ = s;
               break;
             }
             default: {
@@ -2082,44 +2032,10 @@ public final class ScheduleOuterClass {
       }
     }
 
-    public static final int START_DATE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object startDate_;
-    /**
-     * <code>string start_date = 3;</code>
-     */
-    public java.lang.String getStartDate() {
-      java.lang.Object ref = startDate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        startDate_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string start_date = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getStartDateBytes() {
-      java.lang.Object ref = startDate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        startDate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int START_TIME_FIELD_NUMBER = 4;
+    public static final int START_TIME_FIELD_NUMBER = 3;
     private volatile java.lang.Object startTime_;
     /**
-     * <code>string start_time = 4;</code>
+     * <code>string start_time = 3;</code>
      */
     public java.lang.String getStartTime() {
       java.lang.Object ref = startTime_;
@@ -2134,7 +2050,7 @@ public final class ScheduleOuterClass {
       }
     }
     /**
-     * <code>string start_time = 4;</code>
+     * <code>string start_time = 3;</code>
      */
     public com.google.protobuf.ByteString
         getStartTimeBytes() {
@@ -2150,30 +2066,72 @@ public final class ScheduleOuterClass {
       }
     }
 
-    public static final int REPEAT_FREQUENCY_FIELD_NUMBER = 5;
-    private int repeatFrequency_;
+    public static final int END_TIME_FIELD_NUMBER = 4;
+    private volatile java.lang.Object endTime_;
     /**
-     * <code>.schedule.RepeatFrequency repeat_frequency = 5;</code>
+     * <code>string end_time = 4;</code>
      */
-    public int getRepeatFrequencyValue() {
-      return repeatFrequency_;
+    public java.lang.String getEndTime() {
+      java.lang.Object ref = endTime_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        endTime_ = s;
+        return s;
+      }
     }
     /**
-     * <code>.schedule.RepeatFrequency repeat_frequency = 5;</code>
+     * <code>string end_time = 4;</code>
      */
-    public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency getRepeatFrequency() {
-      @SuppressWarnings("deprecation")
-      top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency result = top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency.valueOf(repeatFrequency_);
-      return result == null ? top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency.UNRECOGNIZED : result;
+    public com.google.protobuf.ByteString
+        getEndTimeBytes() {
+      java.lang.Object ref = endTime_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        endTime_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
-    public static final int SCHEDULER_INTERVAL_FIELD_NUMBER = 6;
-    private int schedulerInterval_;
+    public static final int CRON_EXPRESSION_FIELD_NUMBER = 5;
+    private volatile java.lang.Object cronExpression_;
     /**
-     * <code>int32 scheduler_interval = 6;</code>
+     * <code>string cron_expression = 5;</code>
      */
-    public int getSchedulerInterval() {
-      return schedulerInterval_;
+    public java.lang.String getCronExpression() {
+      java.lang.Object ref = cronExpression_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        cronExpression_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string cron_expression = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCronExpressionBytes() {
+      java.lang.Object ref = cronExpression_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        cronExpression_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2196,17 +2154,14 @@ public final class ScheduleOuterClass {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
-      if (!getStartDateBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, startDate_);
-      }
       if (!getStartTimeBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, startTime_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, startTime_);
       }
-      if (repeatFrequency_ != top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency.NONE.getNumber()) {
-        output.writeEnum(5, repeatFrequency_);
+      if (!getEndTimeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, endTime_);
       }
-      if (schedulerInterval_ != 0) {
-        output.writeInt32(6, schedulerInterval_);
+      if (!getCronExpressionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, cronExpression_);
       }
       unknownFields.writeTo(output);
     }
@@ -2224,19 +2179,14 @@ public final class ScheduleOuterClass {
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
-      if (!getStartDateBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, startDate_);
-      }
       if (!getStartTimeBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, startTime_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, startTime_);
       }
-      if (repeatFrequency_ != top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency.NONE.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(5, repeatFrequency_);
+      if (!getEndTimeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, endTime_);
       }
-      if (schedulerInterval_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, schedulerInterval_);
+      if (!getCronExpressionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, cronExpression_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2258,13 +2208,12 @@ public final class ScheduleOuterClass {
           == other.getTemplateId());
       result = result && getName()
           .equals(other.getName());
-      result = result && getStartDate()
-          .equals(other.getStartDate());
       result = result && getStartTime()
           .equals(other.getStartTime());
-      result = result && repeatFrequency_ == other.repeatFrequency_;
-      result = result && (getSchedulerInterval()
-          == other.getSchedulerInterval());
+      result = result && getEndTime()
+          .equals(other.getEndTime());
+      result = result && getCronExpression()
+          .equals(other.getCronExpression());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2280,14 +2229,12 @@ public final class ScheduleOuterClass {
       hash = (53 * hash) + getTemplateId();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + START_DATE_FIELD_NUMBER;
-      hash = (53 * hash) + getStartDate().hashCode();
       hash = (37 * hash) + START_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getStartTime().hashCode();
-      hash = (37 * hash) + REPEAT_FREQUENCY_FIELD_NUMBER;
-      hash = (53 * hash) + repeatFrequency_;
-      hash = (37 * hash) + SCHEDULER_INTERVAL_FIELD_NUMBER;
-      hash = (53 * hash) + getSchedulerInterval();
+      hash = (37 * hash) + END_TIME_FIELD_NUMBER;
+      hash = (53 * hash) + getEndTime().hashCode();
+      hash = (37 * hash) + CRON_EXPRESSION_FIELD_NUMBER;
+      hash = (53 * hash) + getCronExpression().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2425,13 +2372,11 @@ public final class ScheduleOuterClass {
 
         name_ = "";
 
-        startDate_ = "";
-
         startTime_ = "";
 
-        repeatFrequency_ = 0;
+        endTime_ = "";
 
-        schedulerInterval_ = 0;
+        cronExpression_ = "";
 
         return this;
       }
@@ -2461,10 +2406,9 @@ public final class ScheduleOuterClass {
         top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest result = new top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest(this);
         result.templateId_ = templateId_;
         result.name_ = name_;
-        result.startDate_ = startDate_;
         result.startTime_ = startTime_;
-        result.repeatFrequency_ = repeatFrequency_;
-        result.schedulerInterval_ = schedulerInterval_;
+        result.endTime_ = endTime_;
+        result.cronExpression_ = cronExpression_;
         onBuilt();
         return result;
       }
@@ -2520,19 +2464,17 @@ public final class ScheduleOuterClass {
           name_ = other.name_;
           onChanged();
         }
-        if (!other.getStartDate().isEmpty()) {
-          startDate_ = other.startDate_;
-          onChanged();
-        }
         if (!other.getStartTime().isEmpty()) {
           startTime_ = other.startTime_;
           onChanged();
         }
-        if (other.repeatFrequency_ != 0) {
-          setRepeatFrequencyValue(other.getRepeatFrequencyValue());
+        if (!other.getEndTime().isEmpty()) {
+          endTime_ = other.endTime_;
+          onChanged();
         }
-        if (other.getSchedulerInterval() != 0) {
-          setSchedulerInterval(other.getSchedulerInterval());
+        if (!other.getCronExpression().isEmpty()) {
+          cronExpression_ = other.cronExpression_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2658,78 +2600,9 @@ public final class ScheduleOuterClass {
         return this;
       }
 
-      private java.lang.Object startDate_ = "";
-      /**
-       * <code>string start_date = 3;</code>
-       */
-      public java.lang.String getStartDate() {
-        java.lang.Object ref = startDate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          startDate_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string start_date = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getStartDateBytes() {
-        java.lang.Object ref = startDate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          startDate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string start_date = 3;</code>
-       */
-      public Builder setStartDate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        startDate_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string start_date = 3;</code>
-       */
-      public Builder clearStartDate() {
-        
-        startDate_ = getDefaultInstance().getStartDate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string start_date = 3;</code>
-       */
-      public Builder setStartDateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        startDate_ = value;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object startTime_ = "";
       /**
-       * <code>string start_time = 4;</code>
+       * <code>string start_time = 3;</code>
        */
       public java.lang.String getStartTime() {
         java.lang.Object ref = startTime_;
@@ -2744,7 +2617,7 @@ public final class ScheduleOuterClass {
         }
       }
       /**
-       * <code>string start_time = 4;</code>
+       * <code>string start_time = 3;</code>
        */
       public com.google.protobuf.ByteString
           getStartTimeBytes() {
@@ -2760,7 +2633,7 @@ public final class ScheduleOuterClass {
         }
       }
       /**
-       * <code>string start_time = 4;</code>
+       * <code>string start_time = 3;</code>
        */
       public Builder setStartTime(
           java.lang.String value) {
@@ -2773,7 +2646,7 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
-       * <code>string start_time = 4;</code>
+       * <code>string start_time = 3;</code>
        */
       public Builder clearStartTime() {
         
@@ -2782,7 +2655,7 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
-       * <code>string start_time = 4;</code>
+       * <code>string start_time = 3;</code>
        */
       public Builder setStartTimeBytes(
           com.google.protobuf.ByteString value) {
@@ -2796,73 +2669,140 @@ public final class ScheduleOuterClass {
         return this;
       }
 
-      private int repeatFrequency_ = 0;
+      private java.lang.Object endTime_ = "";
       /**
-       * <code>.schedule.RepeatFrequency repeat_frequency = 5;</code>
+       * <code>string end_time = 4;</code>
        */
-      public int getRepeatFrequencyValue() {
-        return repeatFrequency_;
-      }
-      /**
-       * <code>.schedule.RepeatFrequency repeat_frequency = 5;</code>
-       */
-      public Builder setRepeatFrequencyValue(int value) {
-        repeatFrequency_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.schedule.RepeatFrequency repeat_frequency = 5;</code>
-       */
-      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency getRepeatFrequency() {
-        @SuppressWarnings("deprecation")
-        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency result = top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency.valueOf(repeatFrequency_);
-        return result == null ? top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency.UNRECOGNIZED : result;
-      }
-      /**
-       * <code>.schedule.RepeatFrequency repeat_frequency = 5;</code>
-       */
-      public Builder setRepeatFrequency(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency value) {
-        if (value == null) {
-          throw new NullPointerException();
+      public java.lang.String getEndTime() {
+        java.lang.Object ref = endTime_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          endTime_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
         }
-        
-        repeatFrequency_ = value.getNumber();
+      }
+      /**
+       * <code>string end_time = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getEndTimeBytes() {
+        java.lang.Object ref = endTime_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          endTime_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string end_time = 4;</code>
+       */
+      public Builder setEndTime(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        endTime_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>.schedule.RepeatFrequency repeat_frequency = 5;</code>
+       * <code>string end_time = 4;</code>
        */
-      public Builder clearRepeatFrequency() {
+      public Builder clearEndTime() {
         
-        repeatFrequency_ = 0;
+        endTime_ = getDefaultInstance().getEndTime();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string end_time = 4;</code>
+       */
+      public Builder setEndTimeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        endTime_ = value;
         onChanged();
         return this;
       }
 
-      private int schedulerInterval_ ;
+      private java.lang.Object cronExpression_ = "";
       /**
-       * <code>int32 scheduler_interval = 6;</code>
+       * <code>string cron_expression = 5;</code>
        */
-      public int getSchedulerInterval() {
-        return schedulerInterval_;
+      public java.lang.String getCronExpression() {
+        java.lang.Object ref = cronExpression_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          cronExpression_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 scheduler_interval = 6;</code>
+       * <code>string cron_expression = 5;</code>
        */
-      public Builder setSchedulerInterval(int value) {
-        
-        schedulerInterval_ = value;
+      public com.google.protobuf.ByteString
+          getCronExpressionBytes() {
+        java.lang.Object ref = cronExpression_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          cronExpression_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string cron_expression = 5;</code>
+       */
+      public Builder setCronExpression(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        cronExpression_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 scheduler_interval = 6;</code>
+       * <code>string cron_expression = 5;</code>
        */
-      public Builder clearSchedulerInterval() {
+      public Builder clearCronExpression() {
         
-        schedulerInterval_ = 0;
+        cronExpression_ = getDefaultInstance().getCronExpression();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string cron_expression = 5;</code>
+       */
+      public Builder setCronExpressionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        cronExpression_ = value;
         onChanged();
         return this;
       }
@@ -5047,13 +4987,9 @@ public final class ScheduleOuterClass {
         getScheduleNameBytes();
 
     /**
-     * <code>.schedule.ScheduleStatus status = 3;</code>
+     * <code>int32 template_id = 3;</code>
      */
-    int getStatusValue();
-    /**
-     * <code>.schedule.ScheduleStatus status = 3;</code>
-     */
-    top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleStatus getStatus();
+    int getTemplateId();
   }
   /**
    * <pre>
@@ -5073,7 +5009,7 @@ public final class ScheduleOuterClass {
     }
     private FilterRequest() {
       scheduleName_ = "";
-      status_ = 0;
+      templateId_ = 0;
     }
 
     @java.lang.Override
@@ -5120,9 +5056,8 @@ public final class ScheduleOuterClass {
               break;
             }
             case 24: {
-              int rawValue = input.readEnum();
 
-              status_ = rawValue;
+              templateId_ = input.readInt32();
               break;
             }
             default: {
@@ -5212,21 +5147,13 @@ public final class ScheduleOuterClass {
       }
     }
 
-    public static final int STATUS_FIELD_NUMBER = 3;
-    private int status_;
+    public static final int TEMPLATE_ID_FIELD_NUMBER = 3;
+    private int templateId_;
     /**
-     * <code>.schedule.ScheduleStatus status = 3;</code>
+     * <code>int32 template_id = 3;</code>
      */
-    public int getStatusValue() {
-      return status_;
-    }
-    /**
-     * <code>.schedule.ScheduleStatus status = 3;</code>
-     */
-    public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleStatus getStatus() {
-      @SuppressWarnings("deprecation")
-      top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleStatus result = top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleStatus.valueOf(status_);
-      return result == null ? top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleStatus.UNRECOGNIZED : result;
+    public int getTemplateId() {
+      return templateId_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5249,8 +5176,8 @@ public final class ScheduleOuterClass {
       if (!getScheduleNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, scheduleName_);
       }
-      if (status_ != top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleStatus.OFF.getNumber()) {
-        output.writeEnum(3, status_);
+      if (templateId_ != 0) {
+        output.writeInt32(3, templateId_);
       }
       unknownFields.writeTo(output);
     }
@@ -5268,9 +5195,9 @@ public final class ScheduleOuterClass {
       if (!getScheduleNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, scheduleName_);
       }
-      if (status_ != top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleStatus.OFF.getNumber()) {
+      if (templateId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(3, status_);
+          .computeInt32Size(3, templateId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5295,7 +5222,8 @@ public final class ScheduleOuterClass {
       }
       result = result && getScheduleName()
           .equals(other.getScheduleName());
-      result = result && status_ == other.status_;
+      result = result && (getTemplateId()
+          == other.getTemplateId());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -5313,8 +5241,8 @@ public final class ScheduleOuterClass {
       }
       hash = (37 * hash) + SCHEDULE_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getScheduleName().hashCode();
-      hash = (37 * hash) + STATUS_FIELD_NUMBER;
-      hash = (53 * hash) + status_;
+      hash = (37 * hash) + TEMPLATE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getTemplateId();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5460,7 +5388,7 @@ public final class ScheduleOuterClass {
         }
         scheduleName_ = "";
 
-        status_ = 0;
+        templateId_ = 0;
 
         return this;
       }
@@ -5494,7 +5422,7 @@ public final class ScheduleOuterClass {
           result.paging_ = pagingBuilder_.build();
         }
         result.scheduleName_ = scheduleName_;
-        result.status_ = status_;
+        result.templateId_ = templateId_;
         onBuilt();
         return result;
       }
@@ -5550,8 +5478,8 @@ public final class ScheduleOuterClass {
           scheduleName_ = other.scheduleName_;
           onChanged();
         }
-        if (other.status_ != 0) {
-          setStatusValue(other.getStatusValue());
+        if (other.getTemplateId() != 0) {
+          setTemplateId(other.getTemplateId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5768,47 +5696,28 @@ public final class ScheduleOuterClass {
         return this;
       }
 
-      private int status_ = 0;
+      private int templateId_ ;
       /**
-       * <code>.schedule.ScheduleStatus status = 3;</code>
+       * <code>int32 template_id = 3;</code>
        */
-      public int getStatusValue() {
-        return status_;
+      public int getTemplateId() {
+        return templateId_;
       }
       /**
-       * <code>.schedule.ScheduleStatus status = 3;</code>
+       * <code>int32 template_id = 3;</code>
        */
-      public Builder setStatusValue(int value) {
-        status_ = value;
+      public Builder setTemplateId(int value) {
+        
+        templateId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>.schedule.ScheduleStatus status = 3;</code>
+       * <code>int32 template_id = 3;</code>
        */
-      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleStatus getStatus() {
-        @SuppressWarnings("deprecation")
-        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleStatus result = top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleStatus.valueOf(status_);
-        return result == null ? top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleStatus.UNRECOGNIZED : result;
-      }
-      /**
-       * <code>.schedule.ScheduleStatus status = 3;</code>
-       */
-      public Builder setStatus(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleStatus value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
+      public Builder clearTemplateId() {
         
-        status_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.schedule.ScheduleStatus status = 3;</code>
-       */
-      public Builder clearStatus() {
-        
-        status_ = 0;
+        templateId_ = 0;
         onChanged();
         return this;
       }
@@ -7071,38 +6980,34 @@ public final class ScheduleOuterClass {
         getNameBytes();
 
     /**
-     * <code>string start_date = 4;</code>
-     */
-    java.lang.String getStartDate();
-    /**
-     * <code>string start_date = 4;</code>
-     */
-    com.google.protobuf.ByteString
-        getStartDateBytes();
-
-    /**
-     * <code>string start_time = 5;</code>
+     * <code>string start_time = 4;</code>
      */
     java.lang.String getStartTime();
     /**
-     * <code>string start_time = 5;</code>
+     * <code>string start_time = 4;</code>
      */
     com.google.protobuf.ByteString
         getStartTimeBytes();
 
     /**
-     * <code>.schedule.RepeatFrequency repeat_frequency = 6;</code>
+     * <code>string end_time = 5;</code>
      */
-    int getRepeatFrequencyValue();
+    java.lang.String getEndTime();
     /**
-     * <code>.schedule.RepeatFrequency repeat_frequency = 6;</code>
+     * <code>string end_time = 5;</code>
      */
-    top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency getRepeatFrequency();
+    com.google.protobuf.ByteString
+        getEndTimeBytes();
 
     /**
-     * <code>int32 scheduler_interval = 7;</code>
+     * <code>string cron_expression = 6;</code>
      */
-    int getSchedulerInterval();
+    java.lang.String getCronExpression();
+    /**
+     * <code>string cron_expression = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getCronExpressionBytes();
   }
   /**
    * Protobuf type {@code schedule.UpdateRequest}
@@ -7120,10 +7025,9 @@ public final class ScheduleOuterClass {
       scheduleId_ = 0;
       templateId_ = 0;
       name_ = "";
-      startDate_ = "";
       startTime_ = "";
-      repeatFrequency_ = 0;
-      schedulerInterval_ = 0;
+      endTime_ = "";
+      cronExpression_ = "";
     }
 
     @java.lang.Override
@@ -7169,24 +7073,19 @@ public final class ScheduleOuterClass {
             case 34: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              startDate_ = s;
+              startTime_ = s;
               break;
             }
             case 42: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              startTime_ = s;
+              endTime_ = s;
               break;
             }
-            case 48: {
-              int rawValue = input.readEnum();
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              repeatFrequency_ = rawValue;
-              break;
-            }
-            case 56: {
-
-              schedulerInterval_ = input.readInt32();
+              cronExpression_ = s;
               break;
             }
             default: {
@@ -7273,44 +7172,10 @@ public final class ScheduleOuterClass {
       }
     }
 
-    public static final int START_DATE_FIELD_NUMBER = 4;
-    private volatile java.lang.Object startDate_;
-    /**
-     * <code>string start_date = 4;</code>
-     */
-    public java.lang.String getStartDate() {
-      java.lang.Object ref = startDate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        startDate_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string start_date = 4;</code>
-     */
-    public com.google.protobuf.ByteString
-        getStartDateBytes() {
-      java.lang.Object ref = startDate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        startDate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int START_TIME_FIELD_NUMBER = 5;
+    public static final int START_TIME_FIELD_NUMBER = 4;
     private volatile java.lang.Object startTime_;
     /**
-     * <code>string start_time = 5;</code>
+     * <code>string start_time = 4;</code>
      */
     public java.lang.String getStartTime() {
       java.lang.Object ref = startTime_;
@@ -7325,7 +7190,7 @@ public final class ScheduleOuterClass {
       }
     }
     /**
-     * <code>string start_time = 5;</code>
+     * <code>string start_time = 4;</code>
      */
     public com.google.protobuf.ByteString
         getStartTimeBytes() {
@@ -7341,30 +7206,72 @@ public final class ScheduleOuterClass {
       }
     }
 
-    public static final int REPEAT_FREQUENCY_FIELD_NUMBER = 6;
-    private int repeatFrequency_;
+    public static final int END_TIME_FIELD_NUMBER = 5;
+    private volatile java.lang.Object endTime_;
     /**
-     * <code>.schedule.RepeatFrequency repeat_frequency = 6;</code>
+     * <code>string end_time = 5;</code>
      */
-    public int getRepeatFrequencyValue() {
-      return repeatFrequency_;
+    public java.lang.String getEndTime() {
+      java.lang.Object ref = endTime_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        endTime_ = s;
+        return s;
+      }
     }
     /**
-     * <code>.schedule.RepeatFrequency repeat_frequency = 6;</code>
+     * <code>string end_time = 5;</code>
      */
-    public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency getRepeatFrequency() {
-      @SuppressWarnings("deprecation")
-      top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency result = top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency.valueOf(repeatFrequency_);
-      return result == null ? top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency.UNRECOGNIZED : result;
+    public com.google.protobuf.ByteString
+        getEndTimeBytes() {
+      java.lang.Object ref = endTime_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        endTime_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
-    public static final int SCHEDULER_INTERVAL_FIELD_NUMBER = 7;
-    private int schedulerInterval_;
+    public static final int CRON_EXPRESSION_FIELD_NUMBER = 6;
+    private volatile java.lang.Object cronExpression_;
     /**
-     * <code>int32 scheduler_interval = 7;</code>
+     * <code>string cron_expression = 6;</code>
      */
-    public int getSchedulerInterval() {
-      return schedulerInterval_;
+    public java.lang.String getCronExpression() {
+      java.lang.Object ref = cronExpression_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        cronExpression_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string cron_expression = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCronExpressionBytes() {
+      java.lang.Object ref = cronExpression_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        cronExpression_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -7390,17 +7297,14 @@ public final class ScheduleOuterClass {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, name_);
       }
-      if (!getStartDateBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, startDate_);
-      }
       if (!getStartTimeBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, startTime_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, startTime_);
       }
-      if (repeatFrequency_ != top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency.NONE.getNumber()) {
-        output.writeEnum(6, repeatFrequency_);
+      if (!getEndTimeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, endTime_);
       }
-      if (schedulerInterval_ != 0) {
-        output.writeInt32(7, schedulerInterval_);
+      if (!getCronExpressionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, cronExpression_);
       }
       unknownFields.writeTo(output);
     }
@@ -7422,19 +7326,14 @@ public final class ScheduleOuterClass {
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, name_);
       }
-      if (!getStartDateBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, startDate_);
-      }
       if (!getStartTimeBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, startTime_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, startTime_);
       }
-      if (repeatFrequency_ != top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency.NONE.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(6, repeatFrequency_);
+      if (!getEndTimeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, endTime_);
       }
-      if (schedulerInterval_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(7, schedulerInterval_);
+      if (!getCronExpressionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, cronExpression_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7458,13 +7357,12 @@ public final class ScheduleOuterClass {
           == other.getTemplateId());
       result = result && getName()
           .equals(other.getName());
-      result = result && getStartDate()
-          .equals(other.getStartDate());
       result = result && getStartTime()
           .equals(other.getStartTime());
-      result = result && repeatFrequency_ == other.repeatFrequency_;
-      result = result && (getSchedulerInterval()
-          == other.getSchedulerInterval());
+      result = result && getEndTime()
+          .equals(other.getEndTime());
+      result = result && getCronExpression()
+          .equals(other.getCronExpression());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -7482,14 +7380,12 @@ public final class ScheduleOuterClass {
       hash = (53 * hash) + getTemplateId();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + START_DATE_FIELD_NUMBER;
-      hash = (53 * hash) + getStartDate().hashCode();
       hash = (37 * hash) + START_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getStartTime().hashCode();
-      hash = (37 * hash) + REPEAT_FREQUENCY_FIELD_NUMBER;
-      hash = (53 * hash) + repeatFrequency_;
-      hash = (37 * hash) + SCHEDULER_INTERVAL_FIELD_NUMBER;
-      hash = (53 * hash) + getSchedulerInterval();
+      hash = (37 * hash) + END_TIME_FIELD_NUMBER;
+      hash = (53 * hash) + getEndTime().hashCode();
+      hash = (37 * hash) + CRON_EXPRESSION_FIELD_NUMBER;
+      hash = (53 * hash) + getCronExpression().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -7629,13 +7525,11 @@ public final class ScheduleOuterClass {
 
         name_ = "";
 
-        startDate_ = "";
-
         startTime_ = "";
 
-        repeatFrequency_ = 0;
+        endTime_ = "";
 
-        schedulerInterval_ = 0;
+        cronExpression_ = "";
 
         return this;
       }
@@ -7666,10 +7560,9 @@ public final class ScheduleOuterClass {
         result.scheduleId_ = scheduleId_;
         result.templateId_ = templateId_;
         result.name_ = name_;
-        result.startDate_ = startDate_;
         result.startTime_ = startTime_;
-        result.repeatFrequency_ = repeatFrequency_;
-        result.schedulerInterval_ = schedulerInterval_;
+        result.endTime_ = endTime_;
+        result.cronExpression_ = cronExpression_;
         onBuilt();
         return result;
       }
@@ -7728,19 +7621,17 @@ public final class ScheduleOuterClass {
           name_ = other.name_;
           onChanged();
         }
-        if (!other.getStartDate().isEmpty()) {
-          startDate_ = other.startDate_;
-          onChanged();
-        }
         if (!other.getStartTime().isEmpty()) {
           startTime_ = other.startTime_;
           onChanged();
         }
-        if (other.repeatFrequency_ != 0) {
-          setRepeatFrequencyValue(other.getRepeatFrequencyValue());
+        if (!other.getEndTime().isEmpty()) {
+          endTime_ = other.endTime_;
+          onChanged();
         }
-        if (other.getSchedulerInterval() != 0) {
-          setSchedulerInterval(other.getSchedulerInterval());
+        if (!other.getCronExpression().isEmpty()) {
+          cronExpression_ = other.cronExpression_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -7892,78 +7783,9 @@ public final class ScheduleOuterClass {
         return this;
       }
 
-      private java.lang.Object startDate_ = "";
-      /**
-       * <code>string start_date = 4;</code>
-       */
-      public java.lang.String getStartDate() {
-        java.lang.Object ref = startDate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          startDate_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string start_date = 4;</code>
-       */
-      public com.google.protobuf.ByteString
-          getStartDateBytes() {
-        java.lang.Object ref = startDate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          startDate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string start_date = 4;</code>
-       */
-      public Builder setStartDate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        startDate_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string start_date = 4;</code>
-       */
-      public Builder clearStartDate() {
-        
-        startDate_ = getDefaultInstance().getStartDate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string start_date = 4;</code>
-       */
-      public Builder setStartDateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        startDate_ = value;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object startTime_ = "";
       /**
-       * <code>string start_time = 5;</code>
+       * <code>string start_time = 4;</code>
        */
       public java.lang.String getStartTime() {
         java.lang.Object ref = startTime_;
@@ -7978,7 +7800,7 @@ public final class ScheduleOuterClass {
         }
       }
       /**
-       * <code>string start_time = 5;</code>
+       * <code>string start_time = 4;</code>
        */
       public com.google.protobuf.ByteString
           getStartTimeBytes() {
@@ -7994,7 +7816,7 @@ public final class ScheduleOuterClass {
         }
       }
       /**
-       * <code>string start_time = 5;</code>
+       * <code>string start_time = 4;</code>
        */
       public Builder setStartTime(
           java.lang.String value) {
@@ -8007,7 +7829,7 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
-       * <code>string start_time = 5;</code>
+       * <code>string start_time = 4;</code>
        */
       public Builder clearStartTime() {
         
@@ -8016,7 +7838,7 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
-       * <code>string start_time = 5;</code>
+       * <code>string start_time = 4;</code>
        */
       public Builder setStartTimeBytes(
           com.google.protobuf.ByteString value) {
@@ -8030,73 +7852,140 @@ public final class ScheduleOuterClass {
         return this;
       }
 
-      private int repeatFrequency_ = 0;
+      private java.lang.Object endTime_ = "";
       /**
-       * <code>.schedule.RepeatFrequency repeat_frequency = 6;</code>
+       * <code>string end_time = 5;</code>
        */
-      public int getRepeatFrequencyValue() {
-        return repeatFrequency_;
-      }
-      /**
-       * <code>.schedule.RepeatFrequency repeat_frequency = 6;</code>
-       */
-      public Builder setRepeatFrequencyValue(int value) {
-        repeatFrequency_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.schedule.RepeatFrequency repeat_frequency = 6;</code>
-       */
-      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency getRepeatFrequency() {
-        @SuppressWarnings("deprecation")
-        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency result = top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency.valueOf(repeatFrequency_);
-        return result == null ? top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency.UNRECOGNIZED : result;
-      }
-      /**
-       * <code>.schedule.RepeatFrequency repeat_frequency = 6;</code>
-       */
-      public Builder setRepeatFrequency(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.RepeatFrequency value) {
-        if (value == null) {
-          throw new NullPointerException();
+      public java.lang.String getEndTime() {
+        java.lang.Object ref = endTime_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          endTime_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
         }
-        
-        repeatFrequency_ = value.getNumber();
+      }
+      /**
+       * <code>string end_time = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getEndTimeBytes() {
+        java.lang.Object ref = endTime_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          endTime_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string end_time = 5;</code>
+       */
+      public Builder setEndTime(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        endTime_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>.schedule.RepeatFrequency repeat_frequency = 6;</code>
+       * <code>string end_time = 5;</code>
        */
-      public Builder clearRepeatFrequency() {
+      public Builder clearEndTime() {
         
-        repeatFrequency_ = 0;
+        endTime_ = getDefaultInstance().getEndTime();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string end_time = 5;</code>
+       */
+      public Builder setEndTimeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        endTime_ = value;
         onChanged();
         return this;
       }
 
-      private int schedulerInterval_ ;
+      private java.lang.Object cronExpression_ = "";
       /**
-       * <code>int32 scheduler_interval = 7;</code>
+       * <code>string cron_expression = 6;</code>
        */
-      public int getSchedulerInterval() {
-        return schedulerInterval_;
+      public java.lang.String getCronExpression() {
+        java.lang.Object ref = cronExpression_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          cronExpression_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 scheduler_interval = 7;</code>
+       * <code>string cron_expression = 6;</code>
        */
-      public Builder setSchedulerInterval(int value) {
-        
-        schedulerInterval_ = value;
+      public com.google.protobuf.ByteString
+          getCronExpressionBytes() {
+        java.lang.Object ref = cronExpression_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          cronExpression_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string cron_expression = 6;</code>
+       */
+      public Builder setCronExpression(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        cronExpression_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 scheduler_interval = 7;</code>
+       * <code>string cron_expression = 6;</code>
        */
-      public Builder clearSchedulerInterval() {
+      public Builder clearCronExpression() {
         
-        schedulerInterval_ = 0;
+        cronExpression_ = getDefaultInstance().getCronExpression();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string cron_expression = 6;</code>
+       */
+      public Builder setCronExpressionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        cronExpression_ = value;
         onChanged();
         return this;
       }
@@ -8892,1089 +8781,6 @@ public final class ScheduleOuterClass {
 
     @java.lang.Override
     public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.UpdateResponse getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface DeleteRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:schedule.DeleteRequest)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>int32 schedule_id = 1;</code>
-     */
-    int getScheduleId();
-  }
-  /**
-   * Protobuf type {@code schedule.DeleteRequest}
-   */
-  public  static final class DeleteRequest extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:schedule.DeleteRequest)
-      DeleteRequestOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use DeleteRequest.newBuilder() to construct.
-    private DeleteRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private DeleteRequest() {
-      scheduleId_ = 0;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private DeleteRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              scheduleId_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_DeleteRequest_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_DeleteRequest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest.class, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest.Builder.class);
-    }
-
-    public static final int SCHEDULE_ID_FIELD_NUMBER = 1;
-    private int scheduleId_;
-    /**
-     * <code>int32 schedule_id = 1;</code>
-     */
-    public int getScheduleId() {
-      return scheduleId_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (scheduleId_ != 0) {
-        output.writeInt32(1, scheduleId_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (scheduleId_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, scheduleId_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest)) {
-        return super.equals(obj);
-      }
-      top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest other = (top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest) obj;
-
-      boolean result = true;
-      result = result && (getScheduleId()
-          == other.getScheduleId());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + SCHEDULE_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getScheduleId();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code schedule.DeleteRequest}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:schedule.DeleteRequest)
-        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_DeleteRequest_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_DeleteRequest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest.class, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest.Builder.class);
-      }
-
-      // Construct using top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        scheduleId_ = 0;
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_DeleteRequest_descriptor;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest getDefaultInstanceForType() {
-        return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest build() {
-        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest buildPartial() {
-        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest result = new top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest(this);
-        result.scheduleId_ = scheduleId_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest) {
-          return mergeFrom((top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest other) {
-        if (other == top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest.getDefaultInstance()) return this;
-        if (other.getScheduleId() != 0) {
-          setScheduleId(other.getScheduleId());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private int scheduleId_ ;
-      /**
-       * <code>int32 schedule_id = 1;</code>
-       */
-      public int getScheduleId() {
-        return scheduleId_;
-      }
-      /**
-       * <code>int32 schedule_id = 1;</code>
-       */
-      public Builder setScheduleId(int value) {
-        
-        scheduleId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 schedule_id = 1;</code>
-       */
-      public Builder clearScheduleId() {
-        
-        scheduleId_ = 0;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:schedule.DeleteRequest)
-    }
-
-    // @@protoc_insertion_point(class_scope:schedule.DeleteRequest)
-    private static final top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest();
-    }
-
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<DeleteRequest>
-        PARSER = new com.google.protobuf.AbstractParser<DeleteRequest>() {
-      @java.lang.Override
-      public DeleteRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DeleteRequest(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<DeleteRequest> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<DeleteRequest> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteRequest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface DeleteResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:schedule.DeleteResponse)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>.common.ResponseStatus status = 1;</code>
-     */
-    boolean hasStatus();
-    /**
-     * <code>.common.ResponseStatus status = 1;</code>
-     */
-    top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
-    /**
-     * <code>.common.ResponseStatus status = 1;</code>
-     */
-    top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
-  }
-  /**
-   * Protobuf type {@code schedule.DeleteResponse}
-   */
-  public  static final class DeleteResponse extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:schedule.DeleteResponse)
-      DeleteResponseOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use DeleteResponse.newBuilder() to construct.
-    private DeleteResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private DeleteResponse() {
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private DeleteResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder subBuilder = null;
-              if (status_ != null) {
-                subBuilder = status_.toBuilder();
-              }
-              status_ = input.readMessage(top.fogcdn.axe.protos.common.Api.ResponseStatus.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(status_);
-                status_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_DeleteResponse_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_DeleteResponse_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse.class, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse.Builder.class);
-    }
-
-    public static final int STATUS_FIELD_NUMBER = 1;
-    private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
-    /**
-     * <code>.common.ResponseStatus status = 1;</code>
-     */
-    public boolean hasStatus() {
-      return status_ != null;
-    }
-    /**
-     * <code>.common.ResponseStatus status = 1;</code>
-     */
-    public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
-      return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
-    }
-    /**
-     * <code>.common.ResponseStatus status = 1;</code>
-     */
-    public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
-      return getStatus();
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (status_ != null) {
-        output.writeMessage(1, getStatus());
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (status_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getStatus());
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse)) {
-        return super.equals(obj);
-      }
-      top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse other = (top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse) obj;
-
-      boolean result = true;
-      result = result && (hasStatus() == other.hasStatus());
-      if (hasStatus()) {
-        result = result && getStatus()
-            .equals(other.getStatus());
-      }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasStatus()) {
-        hash = (37 * hash) + STATUS_FIELD_NUMBER;
-        hash = (53 * hash) + getStatus().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code schedule.DeleteResponse}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:schedule.DeleteResponse)
-        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_DeleteResponse_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_DeleteResponse_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse.class, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse.Builder.class);
-      }
-
-      // Construct using top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        if (statusBuilder_ == null) {
-          status_ = null;
-        } else {
-          status_ = null;
-          statusBuilder_ = null;
-        }
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_DeleteResponse_descriptor;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse getDefaultInstanceForType() {
-        return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse build() {
-        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse buildPartial() {
-        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse result = new top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse(this);
-        if (statusBuilder_ == null) {
-          result.status_ = status_;
-        } else {
-          result.status_ = statusBuilder_.build();
-        }
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse) {
-          return mergeFrom((top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse other) {
-        if (other == top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse.getDefaultInstance()) return this;
-        if (other.hasStatus()) {
-          mergeStatus(other.getStatus());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
-      /**
-       * <code>.common.ResponseStatus status = 1;</code>
-       */
-      public boolean hasStatus() {
-        return statusBuilder_ != null || status_ != null;
-      }
-      /**
-       * <code>.common.ResponseStatus status = 1;</code>
-       */
-      public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
-        if (statusBuilder_ == null) {
-          return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
-        } else {
-          return statusBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.common.ResponseStatus status = 1;</code>
-       */
-      public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
-        if (statusBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          status_ = value;
-          onChanged();
-        } else {
-          statusBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.common.ResponseStatus status = 1;</code>
-       */
-      public Builder setStatus(
-          top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder builderForValue) {
-        if (statusBuilder_ == null) {
-          status_ = builderForValue.build();
-          onChanged();
-        } else {
-          statusBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.common.ResponseStatus status = 1;</code>
-       */
-      public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
-        if (statusBuilder_ == null) {
-          if (status_ != null) {
-            status_ =
-              top.fogcdn.axe.protos.common.Api.ResponseStatus.newBuilder(status_).mergeFrom(value).buildPartial();
-          } else {
-            status_ = value;
-          }
-          onChanged();
-        } else {
-          statusBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.common.ResponseStatus status = 1;</code>
-       */
-      public Builder clearStatus() {
-        if (statusBuilder_ == null) {
-          status_ = null;
-          onChanged();
-        } else {
-          status_ = null;
-          statusBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.common.ResponseStatus status = 1;</code>
-       */
-      public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
-        
-        onChanged();
-        return getStatusFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.common.ResponseStatus status = 1;</code>
-       */
-      public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
-        if (statusBuilder_ != null) {
-          return statusBuilder_.getMessageOrBuilder();
-        } else {
-          return status_ == null ?
-              top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
-        }
-      }
-      /**
-       * <code>.common.ResponseStatus status = 1;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> 
-          getStatusFieldBuilder() {
-        if (statusBuilder_ == null) {
-          statusBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder>(
-                  getStatus(),
-                  getParentForChildren(),
-                  isClean());
-          status_ = null;
-        }
-        return statusBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:schedule.DeleteResponse)
-    }
-
-    // @@protoc_insertion_point(class_scope:schedule.DeleteResponse)
-    private static final top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse();
-    }
-
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<DeleteResponse>
-        PARSER = new com.google.protobuf.AbstractParser<DeleteResponse>() {
-      @java.lang.Override
-      public DeleteResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DeleteResponse(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<DeleteResponse> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<DeleteResponse> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.DeleteResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -11109,16 +9915,6 @@ public final class ScheduleOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_schedule_UpdateResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_schedule_DeleteRequest_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_schedule_DeleteRequest_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_schedule_DeleteResponse_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_schedule_DeleteResponse_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_schedule_SwitchStatusRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -11140,66 +9936,53 @@ public final class ScheduleOuterClass {
       "\n\027schedule/schedule.proto\022\010schedule\032\020com" +
       "mon/api.proto\032\034google/api/annotations.pr" +
       "oto\032,protoc-gen-swagger/options/annotati" +
-      "ons.proto\032\027template/template.proto\"\202\002\n\016S" +
+      "ons.proto\032\027template/template.proto\"\310\001\n\016S" +
       "cheduleObject\022\023\n\013schedule_id\030\001 \001(\005\022*\n\010te" +
       "mplate\030\002 \001(\0132\030.template.TemplateObject\022\014" +
-      "\n\004name\030\003 \001(\t\022\022\n\nstart_date\030\004 \001(\t\022\022\n\nstar" +
-      "t_time\030\005 \001(\t\0223\n\020repeat_frequency\030\006 \001(\0162\031" +
-      ".schedule.RepeatFrequency\022\032\n\022scheduler_i" +
-      "nterval\030\007 \001(\005\022(\n\006status\030\010 \001(\0162\030.schedule" +
-      ".ScheduleStatus\"\253\001\n\rCreateRequest\022\023\n\013tem" +
-      "plate_id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\022\n\nstart_da" +
-      "te\030\003 \001(\t\022\022\n\nstart_time\030\004 \001(\t\0223\n\020repeat_f" +
-      "requency\030\005 \001(\0162\031.schedule.RepeatFrequenc" +
-      "y\022\032\n\022scheduler_interval\030\006 \001(\005\"^\n\016CreateR" +
-      "esponse\022\023\n\013schedule_id\030\001 \001(\005\022\017\n\007created\030" +
-      "\002 \001(\t\022&\n\006status\030\003 \001(\0132\026.common.ResponseS" +
-      "tatus\"!\n\nGetRequest\022\023\n\013schedule_id\030\001 \001(\005" +
-      "\"a\n\013GetResponse\022*\n\010schedule\030\001 \001(\0132\030.sche" +
-      "dule.ScheduleObject\022&\n\006status\030\002 \001(\0132\026.co" +
-      "mmon.ResponseStatus\"p\n\rFilterRequest\022\036\n\006" +
-      "paging\030\001 \001(\0132\016.common.Paging\022\025\n\rschedule" +
-      "_name\030\002 \001(\t\022(\n\006status\030\003 \001(\0162\030.schedule.S" +
-      "cheduleStatus\"\205\001\n\016FilterResponse\022+\n\tsche" +
-      "dules\030\001 \003(\0132\030.schedule.ScheduleObject\022\036\n" +
-      "\006paging\030\002 \001(\0132\016.common.Paging\022&\n\006status\030" +
-      "\003 \001(\0132\026.common.ResponseStatus\"\300\001\n\rUpdate" +
-      "Request\022\023\n\013schedule_id\030\001 \001(\005\022\023\n\013template" +
-      "_id\030\002 \001(\005\022\014\n\004name\030\003 \001(\t\022\022\n\nstart_date\030\004 " +
-      "\001(\t\022\022\n\nstart_time\030\005 \001(\t\0223\n\020repeat_freque" +
-      "ncy\030\006 \001(\0162\031.schedule.RepeatFrequency\022\032\n\022" +
-      "scheduler_interval\030\007 \001(\005\"I\n\016UpdateRespon" +
-      "se\022\017\n\007updated\030\001 \001(\t\022&\n\006status\030\002 \001(\0132\026.co" +
-      "mmon.ResponseStatus\"$\n\rDeleteRequest\022\023\n\013" +
-      "schedule_id\030\001 \001(\005\"8\n\016DeleteResponse\022&\n\006s" +
-      "tatus\030\001 \001(\0132\026.common.ResponseStatus\"*\n\023S" +
-      "witchStatusRequest\022\023\n\013schedule_id\030\001 \001(\005\"" +
-      ">\n\024SwitchStatusResponse\022&\n\006status\030\001 \001(\0132" +
-      "\026.common.ResponseStatus*Y\n\017RepeatFrequen" +
-      "cy\022\010\n\004NONE\020\000\022\n\n\006MINUTE\020\001\022\010\n\004HOUR\020\002\022\007\n\003DA" +
-      "Y\020\003\022\010\n\004WEEK\020\004\022\t\n\005MONTH\020\005\022\010\n\004YEAR\020\006*!\n\016Sc" +
-      "heduleStatus\022\007\n\003OFF\020\000\022\006\n\002ON\020\0012\360\004\n\010Schedu" +
-      "le\022[\n\006Create\022\027.schedule.CreateRequest\032\030." +
-      "schedule.CreateResponse\"\036\202\323\344\223\002\030\"\023/v1/sch" +
-      "edule/create:\001*\022X\n\006Filter\022\027.schedule.Fil" +
-      "terRequest\032\030.schedule.FilterResponse\"\033\202\323" +
-      "\344\223\002\025\022\023/v1/schedule/filter\022Z\n\003Get\022\024.sched" +
-      "ule.GetRequest\032\025.schedule.GetResponse\"&\202" +
-      "\323\344\223\002 \022\036/v1/schedule/get/{schedule_id}\022i\n" +
-      "\006Update\022\027.schedule.UpdateRequest\032\030.sched" +
-      "ule.UpdateResponse\",\202\323\344\223\002&\"!/v1/schedule" +
-      "/update/{schedule_id}:\001*\022f\n\006Delete\022\027.sch" +
-      "edule.DeleteRequest\032\030.schedule.DeleteRes" +
-      "ponse\")\202\323\344\223\002#\"!/v1/schedule/delete/{sche" +
-      "dule_id}\022~\n\014SwitchStatus\022\035.schedule.Swit" +
-      "chStatusRequest\032\036.schedule.SwitchStatusR" +
-      "esponse\"/\202\323\344\223\002)\"\'/v1/schedule/switchStat" +
-      "us/{schedule_id}B\266\001\n\036top.fogcdn.axe.prot" +
-      "os.scheduleZ(git.fogcdn.top/axe/protos/g" +
-      "oout/schedule\222Ai\022@\n\033AXE\350\277\220\347\273\264API - \345\256\232\346\227" +
-      "\266\344\273\273\345\212\241\022\032AXE\350\277\220\347\273\264\345\271\263\345\217\260RESTful API2\0051.0" +
-      ".0*\001\0012\020application/json:\020application/jso" +
-      "nb\006proto3"
+      "\n\004name\030\003 \001(\t\022\022\n\nstart_time\030\004 \001(\t\022\020\n\010end_" +
+      "time\030\005 \001(\t\022\027\n\017cron_expression\030\006 \001(\t\022(\n\006s" +
+      "tatus\030\007 \001(\0162\030.schedule.ScheduleStatus\"q\n" +
+      "\rCreateRequest\022\023\n\013template_id\030\001 \001(\005\022\014\n\004n" +
+      "ame\030\002 \001(\t\022\022\n\nstart_time\030\003 \001(\t\022\020\n\010end_tim" +
+      "e\030\004 \001(\t\022\027\n\017cron_expression\030\005 \001(\t\"^\n\016Crea" +
+      "teResponse\022\023\n\013schedule_id\030\001 \001(\005\022\017\n\007creat" +
+      "ed\030\002 \001(\t\022&\n\006status\030\003 \001(\0132\026.common.Respon" +
+      "seStatus\"!\n\nGetRequest\022\023\n\013schedule_id\030\001 " +
+      "\001(\005\"a\n\013GetResponse\022*\n\010schedule\030\001 \001(\0132\030.s" +
+      "chedule.ScheduleObject\022&\n\006status\030\002 \001(\0132\026" +
+      ".common.ResponseStatus\"[\n\rFilterRequest\022" +
+      "\036\n\006paging\030\001 \001(\0132\016.common.Paging\022\025\n\rsched" +
+      "ule_name\030\002 \001(\t\022\023\n\013template_id\030\003 \001(\005\"\205\001\n\016" +
+      "FilterResponse\022+\n\tschedules\030\001 \003(\0132\030.sche" +
+      "dule.ScheduleObject\022\036\n\006paging\030\002 \001(\0132\016.co" +
+      "mmon.Paging\022&\n\006status\030\003 \001(\0132\026.common.Res" +
+      "ponseStatus\"\206\001\n\rUpdateRequest\022\023\n\013schedul" +
+      "e_id\030\001 \001(\005\022\023\n\013template_id\030\002 \001(\005\022\014\n\004name\030" +
+      "\003 \001(\t\022\022\n\nstart_time\030\004 \001(\t\022\020\n\010end_time\030\005 " +
+      "\001(\t\022\027\n\017cron_expression\030\006 \001(\t\"I\n\016UpdateRe" +
+      "sponse\022\017\n\007updated\030\001 \001(\t\022&\n\006status\030\002 \001(\0132" +
+      "\026.common.ResponseStatus\"*\n\023SwitchStatusR" +
+      "equest\022\023\n\013schedule_id\030\001 \001(\005\">\n\024SwitchSta" +
+      "tusResponse\022&\n\006status\030\001 \001(\0132\026.common.Res" +
+      "ponseStatus*Y\n\017RepeatFrequency\022\010\n\004NONE\020\000" +
+      "\022\n\n\006MINUTE\020\001\022\010\n\004HOUR\020\002\022\007\n\003DAY\020\003\022\010\n\004WEEK\020" +
+      "\004\022\t\n\005MONTH\020\005\022\010\n\004YEAR\020\006*!\n\016ScheduleStatus" +
+      "\022\007\n\003OFF\020\000\022\006\n\002ON\020\0012\210\004\n\010Schedule\022[\n\006Create" +
+      "\022\027.schedule.CreateRequest\032\030.schedule.Cre" +
+      "ateResponse\"\036\202\323\344\223\002\030\"\023/v1/schedule/create" +
+      ":\001*\022X\n\006Filter\022\027.schedule.FilterRequest\032\030" +
+      ".schedule.FilterResponse\"\033\202\323\344\223\002\025\022\023/v1/sc" +
+      "hedule/filter\022Z\n\003Get\022\024.schedule.GetReque" +
+      "st\032\025.schedule.GetResponse\"&\202\323\344\223\002 \022\036/v1/s" +
+      "chedule/get/{schedule_id}\022i\n\006Update\022\027.sc" +
+      "hedule.UpdateRequest\032\030.schedule.UpdateRe" +
+      "sponse\",\202\323\344\223\002&\"!/v1/schedule/update/{sch" +
+      "edule_id}:\001*\022~\n\014SwitchStatus\022\035.schedule." +
+      "SwitchStatusRequest\032\036.schedule.SwitchSta" +
+      "tusResponse\"/\202\323\344\223\002)\"\'/v1/schedule/switch" +
+      "Status/{schedule_id}BJ\n\036top.fogcdn.axe.p" +
+      "rotos.scheduleZ(git.fogcdn.top/axe/proto" +
+      "s/goout/scheduleb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -11222,13 +10005,13 @@ public final class ScheduleOuterClass {
     internal_static_schedule_ScheduleObject_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_schedule_ScheduleObject_descriptor,
-        new java.lang.String[] { "ScheduleId", "Template", "Name", "StartDate", "StartTime", "RepeatFrequency", "SchedulerInterval", "Status", });
+        new java.lang.String[] { "ScheduleId", "Template", "Name", "StartTime", "EndTime", "CronExpression", "Status", });
     internal_static_schedule_CreateRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_schedule_CreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_schedule_CreateRequest_descriptor,
-        new java.lang.String[] { "TemplateId", "Name", "StartDate", "StartTime", "RepeatFrequency", "SchedulerInterval", });
+        new java.lang.String[] { "TemplateId", "Name", "StartTime", "EndTime", "CronExpression", });
     internal_static_schedule_CreateResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_schedule_CreateResponse_fieldAccessorTable = new
@@ -11252,7 +10035,7 @@ public final class ScheduleOuterClass {
     internal_static_schedule_FilterRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_schedule_FilterRequest_descriptor,
-        new java.lang.String[] { "Paging", "ScheduleName", "Status", });
+        new java.lang.String[] { "Paging", "ScheduleName", "TemplateId", });
     internal_static_schedule_FilterResponse_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_schedule_FilterResponse_fieldAccessorTable = new
@@ -11264,33 +10047,21 @@ public final class ScheduleOuterClass {
     internal_static_schedule_UpdateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_schedule_UpdateRequest_descriptor,
-        new java.lang.String[] { "ScheduleId", "TemplateId", "Name", "StartDate", "StartTime", "RepeatFrequency", "SchedulerInterval", });
+        new java.lang.String[] { "ScheduleId", "TemplateId", "Name", "StartTime", "EndTime", "CronExpression", });
     internal_static_schedule_UpdateResponse_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_schedule_UpdateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_schedule_UpdateResponse_descriptor,
         new java.lang.String[] { "Updated", "Status", });
-    internal_static_schedule_DeleteRequest_descriptor =
-      getDescriptor().getMessageTypes().get(9);
-    internal_static_schedule_DeleteRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_schedule_DeleteRequest_descriptor,
-        new java.lang.String[] { "ScheduleId", });
-    internal_static_schedule_DeleteResponse_descriptor =
-      getDescriptor().getMessageTypes().get(10);
-    internal_static_schedule_DeleteResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_schedule_DeleteResponse_descriptor,
-        new java.lang.String[] { "Status", });
     internal_static_schedule_SwitchStatusRequest_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_schedule_SwitchStatusRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_schedule_SwitchStatusRequest_descriptor,
         new java.lang.String[] { "ScheduleId", });
     internal_static_schedule_SwitchStatusResponse_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_schedule_SwitchStatusResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_schedule_SwitchStatusResponse_descriptor,
@@ -11298,7 +10069,6 @@ public final class ScheduleOuterClass {
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);
-    registry.add(grpc.gateway.protoc_gen_swagger.options.Annotations.openapiv2Swagger);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     top.fogcdn.axe.protos.common.Api.getDescriptor();

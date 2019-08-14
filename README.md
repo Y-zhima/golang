@@ -27,16 +27,11 @@ service File {
 make
 ```
 
-**Windows环境下可以直接运行docker命令**
-
-```
-docker run -it -v $(PWD):/opt/protos 192.168.0.103:8080/axe/protos:v0.0.1 sh gen.sh
-```
-
 ### 自动生成目录
 
-1. `goout`: 根据`proto`生成的go代码
-2. `swagger`: 根据`proto`生成的swagger json文件
+- `goout`: 根据`proto`生成的go代码
+- `javaout`: 根据`proto`生成的java代码
+- `swagger`: 根据`proto`生成的swagger json文件
 
 #### swagger ui
 ```

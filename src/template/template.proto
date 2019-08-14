@@ -9,18 +9,6 @@ import "common/api.proto";
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
 import "playbook/playbook.proto";
-import "cmdb/cmdb.proto";
-
-option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
-    info: {
-        title: "AXE运维API - 作业模板"
-        version : "1.0.0"
-        description: "AXE运维平台RESTful API"
-    };
-    schemes: HTTP
-    consumes: "application/json"
-    produces: "application/json"
-};
 
 // 作业模板
 service Template {
@@ -52,9 +40,9 @@ service Template {
     }
     // 删除作业模板
     rpc Delete (DeleteRequest) returns (DeleteResponse) {
-        option (google.api.http) = {
-            post: "/v1/template/delete/{template_id}"
-        };
+//        option (google.api.http) = {
+//            post: "/v1/template/delete/{template_id}"
+//        };
     }
 }
 
@@ -63,21 +51,19 @@ message TemplateObject {
     int32 template_id = 1; // 模板ID
     string name = 2; // 模板名
     string description = 3; // 模板描述
-    cmdb.SearchHostRequest cmdb_search_request = 4; // 主机查询条件
-    playbook.ProjectObject playbook = 5; // playbook 项目
-    int32 playbook_file_id = 6;
-    int32 playbook_entrypoint_id = 7; // 选择的playbook入口yml文件
-    string extra_var = 8; // 额外变量
+    playbook.ProjectObject playbook = 4; // playbook 项目
+    int32 playbook_file_id = 5;
+    int32 playbook_entrypoint_id = 6; // 选择的playbook入口yml文件
+    string extra_var = 7; // 额外变量
 }
 
 message CreateRequest {
     string name = 1;
     string description = 2;
-    cmdb.SearchHostRequest cmdb_search_request = 3;
-    int32 playbook_id = 4;
-    int32 playbook_file_id = 5;
-    int32 playbook_entrypoint_id = 6;
-    string extra_var = 7;
+    int32 playbook_id = 3;
+    int32 playbook_file_id = 4;
+    int32 playbook_entrypoint_id = 5;
+    string extra_var = 6;
 }
 
 // 创建模板请求返回
@@ -101,6 +87,7 @@ message GetResponse {
 message FilterRequest {
     common.Paging paging = 1;
     string name = 2;
+    string template_id = 3;
 }
 
 // 筛选模板请求返回
@@ -114,11 +101,10 @@ message UpdateRequest {
     int32 template_id = 1;
     string name = 2;
     string description = 3;
-    cmdb.SearchHostRequest cmdb_search_request = 4;
-    int32 playbook_id = 5;
-    int32 playbook_file_id = 6;
-    int32 entrypoint_id = 7;
-    string extra_var = 8;
+    int32 playbook_id = 4;
+    int32 playbook_file_id = 5;
+    int32 playbook_entrypoint_id = 6;
+    string extra_var = 7;
 }
 
 message UpdateResponse {
