@@ -16,7 +16,7 @@ public final class Api {
   }
   /**
    * <pre>
-   * 接口状态码
+   * 请求返回状态码
    * </pre>
    *
    * Protobuf enum {@code common.StatusCode}
@@ -24,14 +24,26 @@ public final class Api {
   public enum StatusCode
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
+     * <pre>
+     * 成功
+     * </pre>
+     *
      * <code>SUCCESS = 0;</code>
      */
     SUCCESS(0),
     /**
+     * <pre>
+     * 参数错误
+     * </pre>
+     *
      * <code>INVALID_ARGUMENT = 400;</code>
      */
     INVALID_ARGUMENT(400),
     /**
+     * <pre>
+     * 访问拒绝
+     * </pre>
+     *
      * <code>ACCESS_DENIED = 403;</code>
      */
     ACCESS_DENIED(403),
@@ -39,14 +51,26 @@ public final class Api {
     ;
 
     /**
+     * <pre>
+     * 成功
+     * </pre>
+     *
      * <code>SUCCESS = 0;</code>
      */
     public static final int SUCCESS_VALUE = 0;
     /**
+     * <pre>
+     * 参数错误
+     * </pre>
+     *
      * <code>INVALID_ARGUMENT = 400;</code>
      */
     public static final int INVALID_ARGUMENT_VALUE = 400;
     /**
+     * <pre>
+     * 访问拒绝
+     * </pre>
+     *
      * <code>ACCESS_DENIED = 403;</code>
      */
     public static final int ACCESS_DENIED_VALUE = 403;
@@ -130,19 +154,40 @@ public final class Api {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 总页数
+     * </pre>
+     *
      * <code>int32 total_page = 1;</code>
      */
     int getTotalPage();
 
     /**
+     * <pre>
+     * 当前页数
+     * </pre>
+     *
      * <code>int32 page = 2;</code>
      */
     int getPage();
 
     /**
+     * <pre>
+     * 每页显示的记录条数
+     * </pre>
+     *
      * <code>int32 per_page = 3;</code>
      */
     int getPerPage();
+
+    /**
+     * <pre>
+     * 总记录数
+     * </pre>
+     *
+     * <code>int32 total_record = 4;</code>
+     */
+    int getTotalRecord();
   }
   /**
    * <pre>
@@ -164,6 +209,7 @@ public final class Api {
       totalPage_ = 0;
       page_ = 0;
       perPage_ = 0;
+      totalRecord_ = 0;
     }
 
     @java.lang.Override
@@ -205,6 +251,11 @@ public final class Api {
               perPage_ = input.readInt32();
               break;
             }
+            case 32: {
+
+              totalRecord_ = input.readInt32();
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -240,6 +291,10 @@ public final class Api {
     public static final int TOTAL_PAGE_FIELD_NUMBER = 1;
     private int totalPage_;
     /**
+     * <pre>
+     * 总页数
+     * </pre>
+     *
      * <code>int32 total_page = 1;</code>
      */
     public int getTotalPage() {
@@ -249,6 +304,10 @@ public final class Api {
     public static final int PAGE_FIELD_NUMBER = 2;
     private int page_;
     /**
+     * <pre>
+     * 当前页数
+     * </pre>
+     *
      * <code>int32 page = 2;</code>
      */
     public int getPage() {
@@ -258,10 +317,27 @@ public final class Api {
     public static final int PER_PAGE_FIELD_NUMBER = 3;
     private int perPage_;
     /**
+     * <pre>
+     * 每页显示的记录条数
+     * </pre>
+     *
      * <code>int32 per_page = 3;</code>
      */
     public int getPerPage() {
       return perPage_;
+    }
+
+    public static final int TOTAL_RECORD_FIELD_NUMBER = 4;
+    private int totalRecord_;
+    /**
+     * <pre>
+     * 总记录数
+     * </pre>
+     *
+     * <code>int32 total_record = 4;</code>
+     */
+    public int getTotalRecord() {
+      return totalRecord_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -287,6 +363,9 @@ public final class Api {
       if (perPage_ != 0) {
         output.writeInt32(3, perPage_);
       }
+      if (totalRecord_ != 0) {
+        output.writeInt32(4, totalRecord_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -307,6 +386,10 @@ public final class Api {
       if (perPage_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, perPage_);
+      }
+      if (totalRecord_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, totalRecord_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -330,6 +413,8 @@ public final class Api {
           == other.getPage());
       result = result && (getPerPage()
           == other.getPerPage());
+      result = result && (getTotalRecord()
+          == other.getTotalRecord());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -347,6 +432,8 @@ public final class Api {
       hash = (53 * hash) + getPage();
       hash = (37 * hash) + PER_PAGE_FIELD_NUMBER;
       hash = (53 * hash) + getPerPage();
+      hash = (37 * hash) + TOTAL_RECORD_FIELD_NUMBER;
+      hash = (53 * hash) + getTotalRecord();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -490,6 +577,8 @@ public final class Api {
 
         perPage_ = 0;
 
+        totalRecord_ = 0;
+
         return this;
       }
 
@@ -519,6 +608,7 @@ public final class Api {
         result.totalPage_ = totalPage_;
         result.page_ = page_;
         result.perPage_ = perPage_;
+        result.totalRecord_ = totalRecord_;
         onBuilt();
         return result;
       }
@@ -576,6 +666,9 @@ public final class Api {
         if (other.getPerPage() != 0) {
           setPerPage(other.getPerPage());
         }
+        if (other.getTotalRecord() != 0) {
+          setTotalRecord(other.getTotalRecord());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -607,12 +700,20 @@ public final class Api {
 
       private int totalPage_ ;
       /**
+       * <pre>
+       * 总页数
+       * </pre>
+       *
        * <code>int32 total_page = 1;</code>
        */
       public int getTotalPage() {
         return totalPage_;
       }
       /**
+       * <pre>
+       * 总页数
+       * </pre>
+       *
        * <code>int32 total_page = 1;</code>
        */
       public Builder setTotalPage(int value) {
@@ -622,6 +723,10 @@ public final class Api {
         return this;
       }
       /**
+       * <pre>
+       * 总页数
+       * </pre>
+       *
        * <code>int32 total_page = 1;</code>
        */
       public Builder clearTotalPage() {
@@ -633,12 +738,20 @@ public final class Api {
 
       private int page_ ;
       /**
+       * <pre>
+       * 当前页数
+       * </pre>
+       *
        * <code>int32 page = 2;</code>
        */
       public int getPage() {
         return page_;
       }
       /**
+       * <pre>
+       * 当前页数
+       * </pre>
+       *
        * <code>int32 page = 2;</code>
        */
       public Builder setPage(int value) {
@@ -648,6 +761,10 @@ public final class Api {
         return this;
       }
       /**
+       * <pre>
+       * 当前页数
+       * </pre>
+       *
        * <code>int32 page = 2;</code>
        */
       public Builder clearPage() {
@@ -659,12 +776,20 @@ public final class Api {
 
       private int perPage_ ;
       /**
+       * <pre>
+       * 每页显示的记录条数
+       * </pre>
+       *
        * <code>int32 per_page = 3;</code>
        */
       public int getPerPage() {
         return perPage_;
       }
       /**
+       * <pre>
+       * 每页显示的记录条数
+       * </pre>
+       *
        * <code>int32 per_page = 3;</code>
        */
       public Builder setPerPage(int value) {
@@ -674,11 +799,53 @@ public final class Api {
         return this;
       }
       /**
+       * <pre>
+       * 每页显示的记录条数
+       * </pre>
+       *
        * <code>int32 per_page = 3;</code>
        */
       public Builder clearPerPage() {
         
         perPage_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int totalRecord_ ;
+      /**
+       * <pre>
+       * 总记录数
+       * </pre>
+       *
+       * <code>int32 total_record = 4;</code>
+       */
+      public int getTotalRecord() {
+        return totalRecord_;
+      }
+      /**
+       * <pre>
+       * 总记录数
+       * </pre>
+       *
+       * <code>int32 total_record = 4;</code>
+       */
+      public Builder setTotalRecord(int value) {
+        
+        totalRecord_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 总记录数
+       * </pre>
+       *
+       * <code>int32 total_record = 4;</code>
+       */
+      public Builder clearTotalRecord() {
+        
+        totalRecord_ = 0;
         onChanged();
         return this;
       }
@@ -740,19 +907,35 @@ public final class Api {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 状态码
+     * </pre>
+     *
      * <code>.common.StatusCode code = 1;</code>
      */
     int getCodeValue();
     /**
+     * <pre>
+     * 状态码
+     * </pre>
+     *
      * <code>.common.StatusCode code = 1;</code>
      */
     top.fogcdn.axe.protos.common.Api.StatusCode getCode();
 
     /**
+     * <pre>
+     * 信息
+     * </pre>
+     *
      * <code>string message = 2;</code>
      */
     java.lang.String getMessage();
     /**
+     * <pre>
+     * 信息
+     * </pre>
+     *
      * <code>string message = 2;</code>
      */
     com.google.protobuf.ByteString
@@ -760,7 +943,7 @@ public final class Api {
   }
   /**
    * <pre>
-   * 接口返回状态码
+   * 请求返回状态
    * </pre>
    *
    * Protobuf type {@code common.ResponseStatus}
@@ -850,12 +1033,20 @@ public final class Api {
     public static final int CODE_FIELD_NUMBER = 1;
     private int code_;
     /**
+     * <pre>
+     * 状态码
+     * </pre>
+     *
      * <code>.common.StatusCode code = 1;</code>
      */
     public int getCodeValue() {
       return code_;
     }
     /**
+     * <pre>
+     * 状态码
+     * </pre>
+     *
      * <code>.common.StatusCode code = 1;</code>
      */
     public top.fogcdn.axe.protos.common.Api.StatusCode getCode() {
@@ -867,6 +1058,10 @@ public final class Api {
     public static final int MESSAGE_FIELD_NUMBER = 2;
     private volatile java.lang.Object message_;
     /**
+     * <pre>
+     * 信息
+     * </pre>
+     *
      * <code>string message = 2;</code>
      */
     public java.lang.String getMessage() {
@@ -882,6 +1077,10 @@ public final class Api {
       }
     }
     /**
+     * <pre>
+     * 信息
+     * </pre>
+     *
      * <code>string message = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -1065,7 +1264,7 @@ public final class Api {
     }
     /**
      * <pre>
-     * 接口返回状态码
+     * 请求返回状态
      * </pre>
      *
      * Protobuf type {@code common.ResponseStatus}
@@ -1223,12 +1422,20 @@ public final class Api {
 
       private int code_ = 0;
       /**
+       * <pre>
+       * 状态码
+       * </pre>
+       *
        * <code>.common.StatusCode code = 1;</code>
        */
       public int getCodeValue() {
         return code_;
       }
       /**
+       * <pre>
+       * 状态码
+       * </pre>
+       *
        * <code>.common.StatusCode code = 1;</code>
        */
       public Builder setCodeValue(int value) {
@@ -1237,6 +1444,10 @@ public final class Api {
         return this;
       }
       /**
+       * <pre>
+       * 状态码
+       * </pre>
+       *
        * <code>.common.StatusCode code = 1;</code>
        */
       public top.fogcdn.axe.protos.common.Api.StatusCode getCode() {
@@ -1245,6 +1456,10 @@ public final class Api {
         return result == null ? top.fogcdn.axe.protos.common.Api.StatusCode.UNRECOGNIZED : result;
       }
       /**
+       * <pre>
+       * 状态码
+       * </pre>
+       *
        * <code>.common.StatusCode code = 1;</code>
        */
       public Builder setCode(top.fogcdn.axe.protos.common.Api.StatusCode value) {
@@ -1257,6 +1472,10 @@ public final class Api {
         return this;
       }
       /**
+       * <pre>
+       * 状态码
+       * </pre>
+       *
        * <code>.common.StatusCode code = 1;</code>
        */
       public Builder clearCode() {
@@ -1268,6 +1487,10 @@ public final class Api {
 
       private java.lang.Object message_ = "";
       /**
+       * <pre>
+       * 信息
+       * </pre>
+       *
        * <code>string message = 2;</code>
        */
       public java.lang.String getMessage() {
@@ -1283,6 +1506,10 @@ public final class Api {
         }
       }
       /**
+       * <pre>
+       * 信息
+       * </pre>
+       *
        * <code>string message = 2;</code>
        */
       public com.google.protobuf.ByteString
@@ -1299,6 +1526,10 @@ public final class Api {
         }
       }
       /**
+       * <pre>
+       * 信息
+       * </pre>
+       *
        * <code>string message = 2;</code>
        */
       public Builder setMessage(
@@ -1312,6 +1543,10 @@ public final class Api {
         return this;
       }
       /**
+       * <pre>
+       * 信息
+       * </pre>
+       *
        * <code>string message = 2;</code>
        */
       public Builder clearMessage() {
@@ -1321,6 +1556,10 @@ public final class Api {
         return this;
       }
       /**
+       * <pre>
+       * 信息
+       * </pre>
+       *
        * <code>string message = 2;</code>
        */
       public Builder setMessageBytes(
@@ -1406,14 +1645,15 @@ public final class Api {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\020common/api.proto\022\006common\"<\n\006Paging\022\022\n\n" +
+      "\n\020common/api.proto\022\006common\"R\n\006Paging\022\022\n\n" +
       "total_page\030\001 \001(\005\022\014\n\004page\030\002 \001(\005\022\020\n\010per_pa" +
-      "ge\030\003 \001(\005\"C\n\016ResponseStatus\022 \n\004code\030\001 \001(\016" +
-      "2\022.common.StatusCode\022\017\n\007message\030\002 \001(\t*D\n" +
-      "\nStatusCode\022\013\n\007SUCCESS\020\000\022\025\n\020INVALID_ARGU" +
-      "MENT\020\220\003\022\022\n\rACCESS_DENIED\020\223\003BF\n\034top.fogcd" +
-      "n.axe.protos.commonZ&git.fogcdn.top/axe/" +
-      "protos/goout/commonb\006proto3"
+      "ge\030\003 \001(\005\022\024\n\014total_record\030\004 \001(\005\"C\n\016Respon" +
+      "seStatus\022 \n\004code\030\001 \001(\0162\022.common.StatusCo" +
+      "de\022\017\n\007message\030\002 \001(\t*D\n\nStatusCode\022\013\n\007SUC" +
+      "CESS\020\000\022\025\n\020INVALID_ARGUMENT\020\220\003\022\022\n\rACCESS_" +
+      "DENIED\020\223\003BF\n\034top.fogcdn.axe.protos.commo" +
+      "nZ&git.fogcdn.top/axe/protos/goout/commo" +
+      "nb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1432,7 +1672,7 @@ public final class Api {
     internal_static_common_Paging_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_common_Paging_descriptor,
-        new java.lang.String[] { "TotalPage", "Page", "PerPage", });
+        new java.lang.String[] { "TotalPage", "Page", "PerPage", "TotalRecord", });
     internal_static_common_ResponseStatus_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_common_ResponseStatus_fieldAccessorTable = new
