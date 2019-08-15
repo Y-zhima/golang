@@ -49,13 +49,15 @@
       "type": "object",
       "properties": {
         "code": {
-          "$ref": "#/definitions/commonStatusCode"
+          "$ref": "#/definitions/commonStatusCode",
+          "title": "状态码"
         },
         "message": {
-          "type": "string"
+          "type": "string",
+          "title": "信息"
         }
       },
-      "title": "接口返回状态码"
+      "title": "请求返回状态"
     },
     "commonStatusCode": {
       "type": "string",
@@ -65,7 +67,8 @@
         "ACCESS_DENIED"
       ],
       "default": "SUCCESS",
-      "title": "接口状态码"
+      "description": "- SUCCESS: 成功\n - INVALID_ARGUMENT: 参数错误\n - ACCESS_DENIED: 访问拒绝",
+      "title": "请求返回状态码"
     },
     "fileUploadPlaybookRequest": {
       "type": "object",

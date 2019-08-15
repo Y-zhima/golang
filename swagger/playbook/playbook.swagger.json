@@ -57,6 +57,7 @@
         "parameters": [
           {
             "name": "paging.total_page",
+            "description": "总页数.",
             "in": "query",
             "required": false,
             "type": "integer",
@@ -64,6 +65,7 @@
           },
           {
             "name": "paging.page",
+            "description": "当前页数.",
             "in": "query",
             "required": false,
             "type": "integer",
@@ -71,6 +73,15 @@
           },
           {
             "name": "paging.per_page",
+            "description": "每页显示的记录条数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paging.total_record",
+            "description": "总记录数.",
             "in": "query",
             "required": false,
             "type": "integer",
@@ -155,15 +166,23 @@
       "properties": {
         "total_page": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "总页数"
         },
         "page": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "当前页数"
         },
         "per_page": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "每页显示的记录条数"
+        },
+        "total_record": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总记录数"
         }
       },
       "title": "分页"
@@ -172,13 +191,15 @@
       "type": "object",
       "properties": {
         "code": {
-          "$ref": "#/definitions/commonStatusCode"
+          "$ref": "#/definitions/commonStatusCode",
+          "title": "状态码"
         },
         "message": {
-          "type": "string"
+          "type": "string",
+          "title": "信息"
         }
       },
-      "title": "接口返回状态码"
+      "title": "请求返回状态"
     },
     "commonStatusCode": {
       "type": "string",
@@ -188,7 +209,8 @@
         "ACCESS_DENIED"
       ],
       "default": "SUCCESS",
-      "title": "接口状态码"
+      "description": "- SUCCESS: 成功\n - INVALID_ARGUMENT: 参数错误\n - ACCESS_DENIED: 访问拒绝",
+      "title": "请求返回状态码"
     },
     "playbookCreateRequest": {
       "type": "object",
