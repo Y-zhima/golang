@@ -91,22 +91,24 @@ message HostInfoObject {
 
 // 查找主机请求
 message SearchHostRequest {
+    // 分页信息
+    common.Paging paging = 1;
     // 主机对象
-    HostObject host = 1;
+    HostObject host = 2;
     // 模块对象
-    ModuleObject module = 2;
+    ModuleObject module = 3;
     // 集群对象
-    SetObject set = 3;
+    SetObject set = 4;
     // 业务对象
-    BizObject biz = 4;
+    BizObject biz = 5;
 }
 
 // 查找主机请求返回
 message SearchHostResponse {
-    // 返回总条数
-    int32 count = 1;
-    // 主机信息
-    repeated HostInfoObject info = 2;
+    // 分页信息
+    common.Paging paging = 1;
     // 状态码
-    common.ResponseStatus status = 3;
+    common.ResponseStatus status = 2;
+    // 主机信息
+    repeated HostInfoObject info = 3;
 }

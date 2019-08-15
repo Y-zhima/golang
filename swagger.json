@@ -42,6 +42,34 @@
         "operationId": "SearchHost",
         "parameters": [
           {
+            "type": "integer",
+            "format": "int32",
+            "description": "总页数.",
+            "name": "paging.total_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页数.",
+            "name": "paging.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页显示的记录条数.",
+            "name": "paging.per_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总记录数.",
+            "name": "paging.total_record",
+            "in": "query"
+          },
+          {
             "type": "string",
             "description": "内网IP.",
             "name": "host.bk_host_innerip",
@@ -651,17 +679,16 @@
       "type": "object",
       "title": "查找主机请求返回",
       "properties": {
-        "count": {
-          "type": "integer",
-          "format": "int32",
-          "title": "返回总条数"
-        },
         "info": {
           "type": "array",
           "title": "主机信息",
           "items": {
             "$ref": "#/definitions/cmdbHostInfoObject"
           }
+        },
+        "paging": {
+          "title": "分页信息",
+          "$ref": "#/definitions/commonPaging"
         },
         "status": {
           "title": "状态码",
