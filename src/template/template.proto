@@ -40,82 +40,123 @@ service Template {
     }
     // 删除作业模板
     rpc Delete (DeleteRequest) returns (DeleteResponse) {
-//        option (google.api.http) = {
-//            post: "/v1/template/delete/{template_id}"
-//        };
+        //        option (google.api.http) = {
+        //            post: "/v1/template/delete/{template_id}"
+        //        };
     }
 }
 
 // 模板实例
 message TemplateObject {
-    int32 template_id = 1; // 模板ID
-    string name = 2; // 模板名
-    string description = 3; // 模板描述
-    playbook.ProjectObject playbook = 4; // playbook 项目
+    // 模板ID
+    int32 template_id = 1;
+    // 模板名
+    string name = 2;
+    // 模板描述
+    string description = 3;
+    // playbook 项目
+    playbook.ProjectObject playbook = 4;
+    // 选择的playbook项目对应的playbook_file
     int32 playbook_file_id = 5;
-    int32 playbook_entrypoint_id = 6; // 选择的playbook入口yml文件
-    string extra_var = 7; // 额外变量
+    // 选择的playbook入口yml文件
+    int32 playbook_entrypoint_id = 6;
+    // 额外变量
+    string extra_var = 7;
 }
 
+// 创建模板请求
 message CreateRequest {
+    // 模板名
     string name = 1;
+    // 模板描述
     string description = 2;
+    // playbook 项目id
     int32 playbook_id = 3;
+    // 选择的playbook项目对应的playbook_file
     int32 playbook_file_id = 4;
+    // 选择的playbook入口yml文件
     int32 playbook_entrypoint_id = 5;
+    // 额外变量
     string extra_var = 6;
 }
 
 // 创建模板请求返回
 message CreateResponse {
+    // 模板ID
     int32 template_id = 1;
+    // 模板创建的时间
     string created = 2;
+    // 请求返回状态
     common.ResponseStatus status = 3;
 }
 
 message GetRequest {
+    // 模板ID
     int32 template_id = 1;
 }
 
 // 获取模板请求返回
 message GetResponse {
+    // 请求返回的模板
     TemplateObject template = 1;
+    // 请求返回状态
     common.ResponseStatus status = 2;
 }
 
 // 筛选模板请求
 message FilterRequest {
+    // 分页信息
     common.Paging paging = 1;
+    // 模板名的一部分，模糊查询时的关键字
     string name = 2;
+    // 模板ID
     string template_id = 3;
 }
 
 // 筛选模板请求返回
 message FilterResponse {
+    // 请求返回的模板
     repeated TemplateObject templates = 1;
+    // 分页信息
     common.Paging paging = 2;
+    // 请求返回状态
     common.ResponseStatus status = 3;
 }
 
+// 更新模板请求
 message UpdateRequest {
+    // 模板ID
     int32 template_id = 1;
+    // 模板名
     string name = 2;
+    // 模板描述
     string description = 3;
+    // playbook项目的id
     int32 playbook_id = 4;
+    // 所选playbook项目对应的playbookFile的id
     int32 playbook_file_id = 5;
+    // 所选playbook项目对应的入口yml文件的id
     int32 playbook_entrypoint_id = 6;
+    // 额外变量
     string extra_var = 7;
 }
 
+// 更新请求返回
 message UpdateResponse {
+    // 模板更新的时间
     string updated = 1;
+    // 请求返回的状态
     common.ResponseStatus status = 2;
 }
 
+// 删除模板请求
 message DeleteRequest {
+    //模板ID
     int32 template_id = 1;
 }
 
+// 删除请求返回
 message DeleteResponse {
+    // 请求返回的状态
     common.ResponseStatus status = 1;
 }
