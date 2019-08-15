@@ -89,6 +89,10 @@ public final class TemplateOuterClass {
     top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObjectOrBuilder getPlaybookOrBuilder();
 
     /**
+     * <pre>
+     * 选择的playbook项目对应的playbook_file
+     * </pre>
+     *
      * <code>int32 playbook_file_id = 5;</code>
      */
     int getPlaybookFileId();
@@ -380,6 +384,10 @@ public final class TemplateOuterClass {
     public static final int PLAYBOOK_FILE_ID_FIELD_NUMBER = 5;
     private int playbookFileId_;
     /**
+     * <pre>
+     * 选择的playbook项目对应的playbook_file
+     * </pre>
+     *
      * <code>int32 playbook_file_id = 5;</code>
      */
     public int getPlaybookFileId() {
@@ -1234,12 +1242,20 @@ public final class TemplateOuterClass {
 
       private int playbookFileId_ ;
       /**
+       * <pre>
+       * 选择的playbook项目对应的playbook_file
+       * </pre>
+       *
        * <code>int32 playbook_file_id = 5;</code>
        */
       public int getPlaybookFileId() {
         return playbookFileId_;
       }
       /**
+       * <pre>
+       * 选择的playbook项目对应的playbook_file
+       * </pre>
+       *
        * <code>int32 playbook_file_id = 5;</code>
        */
       public Builder setPlaybookFileId(int value) {
@@ -1249,6 +1265,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 选择的playbook项目对应的playbook_file
+       * </pre>
+       *
        * <code>int32 playbook_file_id = 5;</code>
        */
       public Builder clearPlaybookFileId() {
@@ -1442,51 +1462,91 @@ public final class TemplateOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 模板名
+     * </pre>
+     *
      * <code>string name = 1;</code>
      */
     java.lang.String getName();
     /**
+     * <pre>
+     * 模板名
+     * </pre>
+     *
      * <code>string name = 1;</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
+     * <pre>
+     * 模板描述
+     * </pre>
+     *
      * <code>string description = 2;</code>
      */
     java.lang.String getDescription();
     /**
+     * <pre>
+     * 模板描述
+     * </pre>
+     *
      * <code>string description = 2;</code>
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
 
     /**
+     * <pre>
+     * playbook 项目id
+     * </pre>
+     *
      * <code>int32 playbook_id = 3;</code>
      */
     int getPlaybookId();
 
     /**
+     * <pre>
+     * 选择的playbook项目对应的playbook_file
+     * </pre>
+     *
      * <code>int32 playbook_file_id = 4;</code>
      */
     int getPlaybookFileId();
 
     /**
+     * <pre>
+     * 选择的playbook入口yml文件
+     * </pre>
+     *
      * <code>int32 playbook_entrypoint_id = 5;</code>
      */
     int getPlaybookEntrypointId();
 
     /**
+     * <pre>
+     * 额外变量
+     * </pre>
+     *
      * <code>string extra_var = 6;</code>
      */
     java.lang.String getExtraVar();
     /**
+     * <pre>
+     * 额外变量
+     * </pre>
+     *
      * <code>string extra_var = 6;</code>
      */
     com.google.protobuf.ByteString
         getExtraVarBytes();
   }
   /**
+   * <pre>
+   * 创建模板请求
+   * </pre>
+   *
    * Protobuf type {@code template.CreateRequest}
    */
   public  static final class CreateRequest extends
@@ -1599,6 +1659,10 @@ public final class TemplateOuterClass {
     public static final int NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object name_;
     /**
+     * <pre>
+     * 模板名
+     * </pre>
+     *
      * <code>string name = 1;</code>
      */
     public java.lang.String getName() {
@@ -1614,6 +1678,10 @@ public final class TemplateOuterClass {
       }
     }
     /**
+     * <pre>
+     * 模板名
+     * </pre>
+     *
      * <code>string name = 1;</code>
      */
     public com.google.protobuf.ByteString
@@ -1633,6 +1701,10 @@ public final class TemplateOuterClass {
     public static final int DESCRIPTION_FIELD_NUMBER = 2;
     private volatile java.lang.Object description_;
     /**
+     * <pre>
+     * 模板描述
+     * </pre>
+     *
      * <code>string description = 2;</code>
      */
     public java.lang.String getDescription() {
@@ -1648,6 +1720,10 @@ public final class TemplateOuterClass {
       }
     }
     /**
+     * <pre>
+     * 模板描述
+     * </pre>
+     *
      * <code>string description = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -1667,6 +1743,10 @@ public final class TemplateOuterClass {
     public static final int PLAYBOOK_ID_FIELD_NUMBER = 3;
     private int playbookId_;
     /**
+     * <pre>
+     * playbook 项目id
+     * </pre>
+     *
      * <code>int32 playbook_id = 3;</code>
      */
     public int getPlaybookId() {
@@ -1676,6 +1756,10 @@ public final class TemplateOuterClass {
     public static final int PLAYBOOK_FILE_ID_FIELD_NUMBER = 4;
     private int playbookFileId_;
     /**
+     * <pre>
+     * 选择的playbook项目对应的playbook_file
+     * </pre>
+     *
      * <code>int32 playbook_file_id = 4;</code>
      */
     public int getPlaybookFileId() {
@@ -1685,6 +1769,10 @@ public final class TemplateOuterClass {
     public static final int PLAYBOOK_ENTRYPOINT_ID_FIELD_NUMBER = 5;
     private int playbookEntrypointId_;
     /**
+     * <pre>
+     * 选择的playbook入口yml文件
+     * </pre>
+     *
      * <code>int32 playbook_entrypoint_id = 5;</code>
      */
     public int getPlaybookEntrypointId() {
@@ -1694,6 +1782,10 @@ public final class TemplateOuterClass {
     public static final int EXTRA_VAR_FIELD_NUMBER = 6;
     private volatile java.lang.Object extraVar_;
     /**
+     * <pre>
+     * 额外变量
+     * </pre>
+     *
      * <code>string extra_var = 6;</code>
      */
     public java.lang.String getExtraVar() {
@@ -1709,6 +1801,10 @@ public final class TemplateOuterClass {
       }
     }
     /**
+     * <pre>
+     * 额外变量
+     * </pre>
+     *
      * <code>string extra_var = 6;</code>
      */
     public com.google.protobuf.ByteString
@@ -1934,6 +2030,10 @@ public final class TemplateOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * 创建模板请求
+     * </pre>
+     *
      * Protobuf type {@code template.CreateRequest}
      */
     public static final class Builder extends
@@ -2115,6 +2215,10 @@ public final class TemplateOuterClass {
 
       private java.lang.Object name_ = "";
       /**
+       * <pre>
+       * 模板名
+       * </pre>
+       *
        * <code>string name = 1;</code>
        */
       public java.lang.String getName() {
@@ -2130,6 +2234,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 模板名
+       * </pre>
+       *
        * <code>string name = 1;</code>
        */
       public com.google.protobuf.ByteString
@@ -2146,6 +2254,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 模板名
+       * </pre>
+       *
        * <code>string name = 1;</code>
        */
       public Builder setName(
@@ -2159,6 +2271,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板名
+       * </pre>
+       *
        * <code>string name = 1;</code>
        */
       public Builder clearName() {
@@ -2168,6 +2284,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板名
+       * </pre>
+       *
        * <code>string name = 1;</code>
        */
       public Builder setNameBytes(
@@ -2184,6 +2304,10 @@ public final class TemplateOuterClass {
 
       private java.lang.Object description_ = "";
       /**
+       * <pre>
+       * 模板描述
+       * </pre>
+       *
        * <code>string description = 2;</code>
        */
       public java.lang.String getDescription() {
@@ -2199,6 +2323,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 模板描述
+       * </pre>
+       *
        * <code>string description = 2;</code>
        */
       public com.google.protobuf.ByteString
@@ -2215,6 +2343,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 模板描述
+       * </pre>
+       *
        * <code>string description = 2;</code>
        */
       public Builder setDescription(
@@ -2228,6 +2360,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板描述
+       * </pre>
+       *
        * <code>string description = 2;</code>
        */
       public Builder clearDescription() {
@@ -2237,6 +2373,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板描述
+       * </pre>
+       *
        * <code>string description = 2;</code>
        */
       public Builder setDescriptionBytes(
@@ -2253,12 +2393,20 @@ public final class TemplateOuterClass {
 
       private int playbookId_ ;
       /**
+       * <pre>
+       * playbook 项目id
+       * </pre>
+       *
        * <code>int32 playbook_id = 3;</code>
        */
       public int getPlaybookId() {
         return playbookId_;
       }
       /**
+       * <pre>
+       * playbook 项目id
+       * </pre>
+       *
        * <code>int32 playbook_id = 3;</code>
        */
       public Builder setPlaybookId(int value) {
@@ -2268,6 +2416,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook 项目id
+       * </pre>
+       *
        * <code>int32 playbook_id = 3;</code>
        */
       public Builder clearPlaybookId() {
@@ -2279,12 +2431,20 @@ public final class TemplateOuterClass {
 
       private int playbookFileId_ ;
       /**
+       * <pre>
+       * 选择的playbook项目对应的playbook_file
+       * </pre>
+       *
        * <code>int32 playbook_file_id = 4;</code>
        */
       public int getPlaybookFileId() {
         return playbookFileId_;
       }
       /**
+       * <pre>
+       * 选择的playbook项目对应的playbook_file
+       * </pre>
+       *
        * <code>int32 playbook_file_id = 4;</code>
        */
       public Builder setPlaybookFileId(int value) {
@@ -2294,6 +2454,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 选择的playbook项目对应的playbook_file
+       * </pre>
+       *
        * <code>int32 playbook_file_id = 4;</code>
        */
       public Builder clearPlaybookFileId() {
@@ -2305,12 +2469,20 @@ public final class TemplateOuterClass {
 
       private int playbookEntrypointId_ ;
       /**
+       * <pre>
+       * 选择的playbook入口yml文件
+       * </pre>
+       *
        * <code>int32 playbook_entrypoint_id = 5;</code>
        */
       public int getPlaybookEntrypointId() {
         return playbookEntrypointId_;
       }
       /**
+       * <pre>
+       * 选择的playbook入口yml文件
+       * </pre>
+       *
        * <code>int32 playbook_entrypoint_id = 5;</code>
        */
       public Builder setPlaybookEntrypointId(int value) {
@@ -2320,6 +2492,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 选择的playbook入口yml文件
+       * </pre>
+       *
        * <code>int32 playbook_entrypoint_id = 5;</code>
        */
       public Builder clearPlaybookEntrypointId() {
@@ -2331,6 +2507,10 @@ public final class TemplateOuterClass {
 
       private java.lang.Object extraVar_ = "";
       /**
+       * <pre>
+       * 额外变量
+       * </pre>
+       *
        * <code>string extra_var = 6;</code>
        */
       public java.lang.String getExtraVar() {
@@ -2346,6 +2526,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 额外变量
+       * </pre>
+       *
        * <code>string extra_var = 6;</code>
        */
       public com.google.protobuf.ByteString
@@ -2362,6 +2546,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 额外变量
+       * </pre>
+       *
        * <code>string extra_var = 6;</code>
        */
       public Builder setExtraVar(
@@ -2375,6 +2563,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 额外变量
+       * </pre>
+       *
        * <code>string extra_var = 6;</code>
        */
       public Builder clearExtraVar() {
@@ -2384,6 +2576,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 额外变量
+       * </pre>
+       *
        * <code>string extra_var = 6;</code>
        */
       public Builder setExtraVarBytes(
@@ -2455,29 +2651,53 @@ public final class TemplateOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 模板ID
+     * </pre>
+     *
      * <code>int32 template_id = 1;</code>
      */
     int getTemplateId();
 
     /**
+     * <pre>
+     * 模板创建的时间
+     * </pre>
+     *
      * <code>string created = 2;</code>
      */
     java.lang.String getCreated();
     /**
+     * <pre>
+     * 模板创建的时间
+     * </pre>
+     *
      * <code>string created = 2;</code>
      */
     com.google.protobuf.ByteString
         getCreatedBytes();
 
     /**
+     * <pre>
+     * 请求返回状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     boolean hasStatus();
     /**
+     * <pre>
+     * 请求返回状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
     /**
+     * <pre>
+     * 请求返回状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
@@ -2586,6 +2806,10 @@ public final class TemplateOuterClass {
     public static final int TEMPLATE_ID_FIELD_NUMBER = 1;
     private int templateId_;
     /**
+     * <pre>
+     * 模板ID
+     * </pre>
+     *
      * <code>int32 template_id = 1;</code>
      */
     public int getTemplateId() {
@@ -2595,6 +2819,10 @@ public final class TemplateOuterClass {
     public static final int CREATED_FIELD_NUMBER = 2;
     private volatile java.lang.Object created_;
     /**
+     * <pre>
+     * 模板创建的时间
+     * </pre>
+     *
      * <code>string created = 2;</code>
      */
     public java.lang.String getCreated() {
@@ -2610,6 +2838,10 @@ public final class TemplateOuterClass {
       }
     }
     /**
+     * <pre>
+     * 模板创建的时间
+     * </pre>
+     *
      * <code>string created = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -2629,18 +2861,30 @@ public final class TemplateOuterClass {
     public static final int STATUS_FIELD_NUMBER = 3;
     private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
     /**
+     * <pre>
+     * 请求返回状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
     }
     /**
+     * <pre>
+     * 请求返回状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
       return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
     }
     /**
+     * <pre>
+     * 请求返回状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -3003,12 +3247,20 @@ public final class TemplateOuterClass {
 
       private int templateId_ ;
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>int32 template_id = 1;</code>
        */
       public int getTemplateId() {
         return templateId_;
       }
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>int32 template_id = 1;</code>
        */
       public Builder setTemplateId(int value) {
@@ -3018,6 +3270,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>int32 template_id = 1;</code>
        */
       public Builder clearTemplateId() {
@@ -3029,6 +3285,10 @@ public final class TemplateOuterClass {
 
       private java.lang.Object created_ = "";
       /**
+       * <pre>
+       * 模板创建的时间
+       * </pre>
+       *
        * <code>string created = 2;</code>
        */
       public java.lang.String getCreated() {
@@ -3044,6 +3304,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 模板创建的时间
+       * </pre>
+       *
        * <code>string created = 2;</code>
        */
       public com.google.protobuf.ByteString
@@ -3060,6 +3324,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 模板创建的时间
+       * </pre>
+       *
        * <code>string created = 2;</code>
        */
       public Builder setCreated(
@@ -3073,6 +3341,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板创建的时间
+       * </pre>
+       *
        * <code>string created = 2;</code>
        */
       public Builder clearCreated() {
@@ -3082,6 +3354,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板创建的时间
+       * </pre>
+       *
        * <code>string created = 2;</code>
        */
       public Builder setCreatedBytes(
@@ -3100,12 +3376,20 @@ public final class TemplateOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
@@ -3116,6 +3400,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -3132,6 +3420,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder setStatus(
@@ -3146,6 +3438,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -3164,6 +3460,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder clearStatus() {
@@ -3178,6 +3478,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
@@ -3186,6 +3490,10 @@ public final class TemplateOuterClass {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -3197,6 +3505,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -3270,6 +3582,10 @@ public final class TemplateOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 模板ID
+     * </pre>
+     *
      * <code>int32 template_id = 1;</code>
      */
     int getTemplateId();
@@ -3354,6 +3670,10 @@ public final class TemplateOuterClass {
     public static final int TEMPLATE_ID_FIELD_NUMBER = 1;
     private int templateId_;
     /**
+     * <pre>
+     * 模板ID
+     * </pre>
+     *
      * <code>int32 template_id = 1;</code>
      */
     public int getTemplateId() {
@@ -3665,12 +3985,20 @@ public final class TemplateOuterClass {
 
       private int templateId_ ;
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>int32 template_id = 1;</code>
        */
       public int getTemplateId() {
         return templateId_;
       }
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>int32 template_id = 1;</code>
        */
       public Builder setTemplateId(int value) {
@@ -3680,6 +4008,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>int32 template_id = 1;</code>
        */
       public Builder clearTemplateId() {
@@ -3746,27 +4078,51 @@ public final class TemplateOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 请求返回的模板
+     * </pre>
+     *
      * <code>.template.TemplateObject template = 1;</code>
      */
     boolean hasTemplate();
     /**
+     * <pre>
+     * 请求返回的模板
+     * </pre>
+     *
      * <code>.template.TemplateObject template = 1;</code>
      */
     top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject getTemplate();
     /**
+     * <pre>
+     * 请求返回的模板
+     * </pre>
+     *
      * <code>.template.TemplateObject template = 1;</code>
      */
     top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObjectOrBuilder getTemplateOrBuilder();
 
     /**
+     * <pre>
+     * 请求返回状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     boolean hasStatus();
     /**
+     * <pre>
+     * 请求返回状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
     /**
+     * <pre>
+     * 请求返回状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
@@ -3875,18 +4231,30 @@ public final class TemplateOuterClass {
     public static final int TEMPLATE_FIELD_NUMBER = 1;
     private top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject template_;
     /**
+     * <pre>
+     * 请求返回的模板
+     * </pre>
+     *
      * <code>.template.TemplateObject template = 1;</code>
      */
     public boolean hasTemplate() {
       return template_ != null;
     }
     /**
+     * <pre>
+     * 请求返回的模板
+     * </pre>
+     *
      * <code>.template.TemplateObject template = 1;</code>
      */
     public top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject getTemplate() {
       return template_ == null ? top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject.getDefaultInstance() : template_;
     }
     /**
+     * <pre>
+     * 请求返回的模板
+     * </pre>
+     *
      * <code>.template.TemplateObject template = 1;</code>
      */
     public top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObjectOrBuilder getTemplateOrBuilder() {
@@ -3896,18 +4264,30 @@ public final class TemplateOuterClass {
     public static final int STATUS_FIELD_NUMBER = 2;
     private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
     /**
+     * <pre>
+     * 请求返回状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
     }
     /**
+     * <pre>
+     * 请求返回状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
       return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
     }
     /**
+     * <pre>
+     * 请求返回状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -4268,12 +4648,20 @@ public final class TemplateOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject, top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject.Builder, top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObjectOrBuilder> templateBuilder_;
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>.template.TemplateObject template = 1;</code>
        */
       public boolean hasTemplate() {
         return templateBuilder_ != null || template_ != null;
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>.template.TemplateObject template = 1;</code>
        */
       public top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject getTemplate() {
@@ -4284,6 +4672,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>.template.TemplateObject template = 1;</code>
        */
       public Builder setTemplate(top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject value) {
@@ -4300,6 +4692,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>.template.TemplateObject template = 1;</code>
        */
       public Builder setTemplate(
@@ -4314,6 +4710,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>.template.TemplateObject template = 1;</code>
        */
       public Builder mergeTemplate(top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject value) {
@@ -4332,6 +4732,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>.template.TemplateObject template = 1;</code>
        */
       public Builder clearTemplate() {
@@ -4346,6 +4750,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>.template.TemplateObject template = 1;</code>
        */
       public top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject.Builder getTemplateBuilder() {
@@ -4354,6 +4762,10 @@ public final class TemplateOuterClass {
         return getTemplateFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>.template.TemplateObject template = 1;</code>
        */
       public top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObjectOrBuilder getTemplateOrBuilder() {
@@ -4365,6 +4777,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>.template.TemplateObject template = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -4385,12 +4801,20 @@ public final class TemplateOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
@@ -4401,6 +4825,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -4417,6 +4845,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder setStatus(
@@ -4431,6 +4863,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -4449,6 +4885,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder clearStatus() {
@@ -4463,6 +4903,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
@@ -4471,6 +4915,10 @@ public final class TemplateOuterClass {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -4482,6 +4930,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -4555,33 +5007,61 @@ public final class TemplateOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     boolean hasPaging();
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     top.fogcdn.axe.protos.common.Api.Paging getPaging();
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder();
 
     /**
+     * <pre>
+     * 模板名的一部分，模糊查询时的关键字
+     * </pre>
+     *
      * <code>string name = 2;</code>
      */
     java.lang.String getName();
     /**
+     * <pre>
+     * 模板名的一部分，模糊查询时的关键字
+     * </pre>
+     *
      * <code>string name = 2;</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
+     * <pre>
+     * 模板ID
+     * </pre>
+     *
      * <code>string template_id = 3;</code>
      */
     java.lang.String getTemplateId();
     /**
+     * <pre>
+     * 模板ID
+     * </pre>
+     *
      * <code>string template_id = 3;</code>
      */
     com.google.protobuf.ByteString
@@ -4692,18 +5172,30 @@ public final class TemplateOuterClass {
     public static final int PAGING_FIELD_NUMBER = 1;
     private top.fogcdn.axe.protos.common.Api.Paging paging_;
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     public boolean hasPaging() {
       return paging_ != null;
     }
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     public top.fogcdn.axe.protos.common.Api.Paging getPaging() {
       return paging_ == null ? top.fogcdn.axe.protos.common.Api.Paging.getDefaultInstance() : paging_;
     }
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     public top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder() {
@@ -4713,6 +5205,10 @@ public final class TemplateOuterClass {
     public static final int NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object name_;
     /**
+     * <pre>
+     * 模板名的一部分，模糊查询时的关键字
+     * </pre>
+     *
      * <code>string name = 2;</code>
      */
     public java.lang.String getName() {
@@ -4728,6 +5224,10 @@ public final class TemplateOuterClass {
       }
     }
     /**
+     * <pre>
+     * 模板名的一部分，模糊查询时的关键字
+     * </pre>
+     *
      * <code>string name = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -4747,6 +5247,10 @@ public final class TemplateOuterClass {
     public static final int TEMPLATE_ID_FIELD_NUMBER = 3;
     private volatile java.lang.Object templateId_;
     /**
+     * <pre>
+     * 模板ID
+     * </pre>
+     *
      * <code>string template_id = 3;</code>
      */
     public java.lang.String getTemplateId() {
@@ -4762,6 +5266,10 @@ public final class TemplateOuterClass {
       }
     }
     /**
+     * <pre>
+     * 模板ID
+     * </pre>
+     *
      * <code>string template_id = 3;</code>
      */
     public com.google.protobuf.ByteString
@@ -5136,12 +5644,20 @@ public final class TemplateOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder> pagingBuilder_;
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public boolean hasPaging() {
         return pagingBuilder_ != null || paging_ != null;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public top.fogcdn.axe.protos.common.Api.Paging getPaging() {
@@ -5152,6 +5668,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public Builder setPaging(top.fogcdn.axe.protos.common.Api.Paging value) {
@@ -5168,6 +5688,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public Builder setPaging(
@@ -5182,6 +5706,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public Builder mergePaging(top.fogcdn.axe.protos.common.Api.Paging value) {
@@ -5200,6 +5728,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public Builder clearPaging() {
@@ -5214,6 +5746,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public top.fogcdn.axe.protos.common.Api.Paging.Builder getPagingBuilder() {
@@ -5222,6 +5758,10 @@ public final class TemplateOuterClass {
         return getPagingFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder() {
@@ -5233,6 +5773,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -5251,6 +5795,10 @@ public final class TemplateOuterClass {
 
       private java.lang.Object name_ = "";
       /**
+       * <pre>
+       * 模板名的一部分，模糊查询时的关键字
+       * </pre>
+       *
        * <code>string name = 2;</code>
        */
       public java.lang.String getName() {
@@ -5266,6 +5814,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 模板名的一部分，模糊查询时的关键字
+       * </pre>
+       *
        * <code>string name = 2;</code>
        */
       public com.google.protobuf.ByteString
@@ -5282,6 +5834,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 模板名的一部分，模糊查询时的关键字
+       * </pre>
+       *
        * <code>string name = 2;</code>
        */
       public Builder setName(
@@ -5295,6 +5851,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板名的一部分，模糊查询时的关键字
+       * </pre>
+       *
        * <code>string name = 2;</code>
        */
       public Builder clearName() {
@@ -5304,6 +5864,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板名的一部分，模糊查询时的关键字
+       * </pre>
+       *
        * <code>string name = 2;</code>
        */
       public Builder setNameBytes(
@@ -5320,6 +5884,10 @@ public final class TemplateOuterClass {
 
       private java.lang.Object templateId_ = "";
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>string template_id = 3;</code>
        */
       public java.lang.String getTemplateId() {
@@ -5335,6 +5903,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>string template_id = 3;</code>
        */
       public com.google.protobuf.ByteString
@@ -5351,6 +5923,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>string template_id = 3;</code>
        */
       public Builder setTemplateId(
@@ -5364,6 +5940,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>string template_id = 3;</code>
        */
       public Builder clearTemplateId() {
@@ -5373,6 +5953,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>string template_id = 3;</code>
        */
       public Builder setTemplateIdBytes(
@@ -5444,51 +6028,95 @@ public final class TemplateOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 请求返回的模板
+     * </pre>
+     *
      * <code>repeated .template.TemplateObject templates = 1;</code>
      */
     java.util.List<top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject> 
         getTemplatesList();
     /**
+     * <pre>
+     * 请求返回的模板
+     * </pre>
+     *
      * <code>repeated .template.TemplateObject templates = 1;</code>
      */
     top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject getTemplates(int index);
     /**
+     * <pre>
+     * 请求返回的模板
+     * </pre>
+     *
      * <code>repeated .template.TemplateObject templates = 1;</code>
      */
     int getTemplatesCount();
     /**
+     * <pre>
+     * 请求返回的模板
+     * </pre>
+     *
      * <code>repeated .template.TemplateObject templates = 1;</code>
      */
     java.util.List<? extends top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObjectOrBuilder> 
         getTemplatesOrBuilderList();
     /**
+     * <pre>
+     * 请求返回的模板
+     * </pre>
+     *
      * <code>repeated .template.TemplateObject templates = 1;</code>
      */
     top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObjectOrBuilder getTemplatesOrBuilder(
         int index);
 
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     boolean hasPaging();
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.Paging getPaging();
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder();
 
     /**
+     * <pre>
+     * 请求返回状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     boolean hasStatus();
     /**
+     * <pre>
+     * 请求返回状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
     /**
+     * <pre>
+     * 请求返回状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
@@ -5611,12 +6239,20 @@ public final class TemplateOuterClass {
     public static final int TEMPLATES_FIELD_NUMBER = 1;
     private java.util.List<top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject> templates_;
     /**
+     * <pre>
+     * 请求返回的模板
+     * </pre>
+     *
      * <code>repeated .template.TemplateObject templates = 1;</code>
      */
     public java.util.List<top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject> getTemplatesList() {
       return templates_;
     }
     /**
+     * <pre>
+     * 请求返回的模板
+     * </pre>
+     *
      * <code>repeated .template.TemplateObject templates = 1;</code>
      */
     public java.util.List<? extends top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObjectOrBuilder> 
@@ -5624,18 +6260,30 @@ public final class TemplateOuterClass {
       return templates_;
     }
     /**
+     * <pre>
+     * 请求返回的模板
+     * </pre>
+     *
      * <code>repeated .template.TemplateObject templates = 1;</code>
      */
     public int getTemplatesCount() {
       return templates_.size();
     }
     /**
+     * <pre>
+     * 请求返回的模板
+     * </pre>
+     *
      * <code>repeated .template.TemplateObject templates = 1;</code>
      */
     public top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject getTemplates(int index) {
       return templates_.get(index);
     }
     /**
+     * <pre>
+     * 请求返回的模板
+     * </pre>
+     *
      * <code>repeated .template.TemplateObject templates = 1;</code>
      */
     public top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObjectOrBuilder getTemplatesOrBuilder(
@@ -5646,18 +6294,30 @@ public final class TemplateOuterClass {
     public static final int PAGING_FIELD_NUMBER = 2;
     private top.fogcdn.axe.protos.common.Api.Paging paging_;
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     public boolean hasPaging() {
       return paging_ != null;
     }
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.Paging getPaging() {
       return paging_ == null ? top.fogcdn.axe.protos.common.Api.Paging.getDefaultInstance() : paging_;
     }
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder() {
@@ -5667,18 +6327,30 @@ public final class TemplateOuterClass {
     public static final int STATUS_FIELD_NUMBER = 3;
     private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
     /**
+     * <pre>
+     * 请求返回状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
     }
     /**
+     * <pre>
+     * 请求返回状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
       return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
     }
     /**
+     * <pre>
+     * 请求返回状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -6107,6 +6779,10 @@ public final class TemplateOuterClass {
           top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject, top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject.Builder, top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObjectOrBuilder> templatesBuilder_;
 
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>repeated .template.TemplateObject templates = 1;</code>
        */
       public java.util.List<top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject> getTemplatesList() {
@@ -6117,6 +6793,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>repeated .template.TemplateObject templates = 1;</code>
        */
       public int getTemplatesCount() {
@@ -6127,6 +6807,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>repeated .template.TemplateObject templates = 1;</code>
        */
       public top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject getTemplates(int index) {
@@ -6137,6 +6821,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>repeated .template.TemplateObject templates = 1;</code>
        */
       public Builder setTemplates(
@@ -6154,6 +6842,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>repeated .template.TemplateObject templates = 1;</code>
        */
       public Builder setTemplates(
@@ -6168,6 +6860,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>repeated .template.TemplateObject templates = 1;</code>
        */
       public Builder addTemplates(top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject value) {
@@ -6184,6 +6880,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>repeated .template.TemplateObject templates = 1;</code>
        */
       public Builder addTemplates(
@@ -6201,6 +6901,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>repeated .template.TemplateObject templates = 1;</code>
        */
       public Builder addTemplates(
@@ -6215,6 +6919,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>repeated .template.TemplateObject templates = 1;</code>
        */
       public Builder addTemplates(
@@ -6229,6 +6937,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>repeated .template.TemplateObject templates = 1;</code>
        */
       public Builder addAllTemplates(
@@ -6244,6 +6956,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>repeated .template.TemplateObject templates = 1;</code>
        */
       public Builder clearTemplates() {
@@ -6257,6 +6973,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>repeated .template.TemplateObject templates = 1;</code>
        */
       public Builder removeTemplates(int index) {
@@ -6270,6 +6990,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>repeated .template.TemplateObject templates = 1;</code>
        */
       public top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject.Builder getTemplatesBuilder(
@@ -6277,6 +7001,10 @@ public final class TemplateOuterClass {
         return getTemplatesFieldBuilder().getBuilder(index);
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>repeated .template.TemplateObject templates = 1;</code>
        */
       public top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObjectOrBuilder getTemplatesOrBuilder(
@@ -6287,6 +7015,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>repeated .template.TemplateObject templates = 1;</code>
        */
       public java.util.List<? extends top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObjectOrBuilder> 
@@ -6298,6 +7030,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>repeated .template.TemplateObject templates = 1;</code>
        */
       public top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject.Builder addTemplatesBuilder() {
@@ -6305,6 +7041,10 @@ public final class TemplateOuterClass {
             top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject.getDefaultInstance());
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>repeated .template.TemplateObject templates = 1;</code>
        */
       public top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject.Builder addTemplatesBuilder(
@@ -6313,6 +7053,10 @@ public final class TemplateOuterClass {
             index, top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject.getDefaultInstance());
       }
       /**
+       * <pre>
+       * 请求返回的模板
+       * </pre>
+       *
        * <code>repeated .template.TemplateObject templates = 1;</code>
        */
       public java.util.List<top.fogcdn.axe.protos.template.TemplateOuterClass.TemplateObject.Builder> 
@@ -6338,12 +7082,20 @@ public final class TemplateOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder> pagingBuilder_;
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public boolean hasPaging() {
         return pagingBuilder_ != null || paging_ != null;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.Paging getPaging() {
@@ -6354,6 +7106,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public Builder setPaging(top.fogcdn.axe.protos.common.Api.Paging value) {
@@ -6370,6 +7126,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public Builder setPaging(
@@ -6384,6 +7144,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public Builder mergePaging(top.fogcdn.axe.protos.common.Api.Paging value) {
@@ -6402,6 +7166,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public Builder clearPaging() {
@@ -6416,6 +7184,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.Paging.Builder getPagingBuilder() {
@@ -6424,6 +7196,10 @@ public final class TemplateOuterClass {
         return getPagingFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder() {
@@ -6435,6 +7211,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -6455,12 +7235,20 @@ public final class TemplateOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
@@ -6471,6 +7259,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -6487,6 +7279,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder setStatus(
@@ -6501,6 +7297,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -6519,6 +7319,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder clearStatus() {
@@ -6533,6 +7337,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
@@ -6541,6 +7349,10 @@ public final class TemplateOuterClass {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -6552,6 +7364,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 请求返回状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -6625,56 +7441,100 @@ public final class TemplateOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 模板ID
+     * </pre>
+     *
      * <code>int32 template_id = 1;</code>
      */
     int getTemplateId();
 
     /**
+     * <pre>
+     * 模板名
+     * </pre>
+     *
      * <code>string name = 2;</code>
      */
     java.lang.String getName();
     /**
+     * <pre>
+     * 模板名
+     * </pre>
+     *
      * <code>string name = 2;</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
+     * <pre>
+     * 模板描述
+     * </pre>
+     *
      * <code>string description = 3;</code>
      */
     java.lang.String getDescription();
     /**
+     * <pre>
+     * 模板描述
+     * </pre>
+     *
      * <code>string description = 3;</code>
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
 
     /**
+     * <pre>
+     * playbook项目的id
+     * </pre>
+     *
      * <code>int32 playbook_id = 4;</code>
      */
     int getPlaybookId();
 
     /**
+     * <pre>
+     * 所选playbook项目对应的playbookFile的id
+     * </pre>
+     *
      * <code>int32 playbook_file_id = 5;</code>
      */
     int getPlaybookFileId();
 
     /**
+     * <pre>
+     * 所选playbook项目对应的入口yml文件的id
+     * </pre>
+     *
      * <code>int32 playbook_entrypoint_id = 6;</code>
      */
     int getPlaybookEntrypointId();
 
     /**
+     * <pre>
+     * 额外变量
+     * </pre>
+     *
      * <code>string extra_var = 7;</code>
      */
     java.lang.String getExtraVar();
     /**
+     * <pre>
+     * 额外变量
+     * </pre>
+     *
      * <code>string extra_var = 7;</code>
      */
     com.google.protobuf.ByteString
         getExtraVarBytes();
   }
   /**
+   * <pre>
+   * 更新模板请求
+   * </pre>
+   *
    * Protobuf type {@code template.UpdateRequest}
    */
   public  static final class UpdateRequest extends
@@ -6793,6 +7653,10 @@ public final class TemplateOuterClass {
     public static final int TEMPLATE_ID_FIELD_NUMBER = 1;
     private int templateId_;
     /**
+     * <pre>
+     * 模板ID
+     * </pre>
+     *
      * <code>int32 template_id = 1;</code>
      */
     public int getTemplateId() {
@@ -6802,6 +7666,10 @@ public final class TemplateOuterClass {
     public static final int NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object name_;
     /**
+     * <pre>
+     * 模板名
+     * </pre>
+     *
      * <code>string name = 2;</code>
      */
     public java.lang.String getName() {
@@ -6817,6 +7685,10 @@ public final class TemplateOuterClass {
       }
     }
     /**
+     * <pre>
+     * 模板名
+     * </pre>
+     *
      * <code>string name = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -6836,6 +7708,10 @@ public final class TemplateOuterClass {
     public static final int DESCRIPTION_FIELD_NUMBER = 3;
     private volatile java.lang.Object description_;
     /**
+     * <pre>
+     * 模板描述
+     * </pre>
+     *
      * <code>string description = 3;</code>
      */
     public java.lang.String getDescription() {
@@ -6851,6 +7727,10 @@ public final class TemplateOuterClass {
       }
     }
     /**
+     * <pre>
+     * 模板描述
+     * </pre>
+     *
      * <code>string description = 3;</code>
      */
     public com.google.protobuf.ByteString
@@ -6870,6 +7750,10 @@ public final class TemplateOuterClass {
     public static final int PLAYBOOK_ID_FIELD_NUMBER = 4;
     private int playbookId_;
     /**
+     * <pre>
+     * playbook项目的id
+     * </pre>
+     *
      * <code>int32 playbook_id = 4;</code>
      */
     public int getPlaybookId() {
@@ -6879,6 +7763,10 @@ public final class TemplateOuterClass {
     public static final int PLAYBOOK_FILE_ID_FIELD_NUMBER = 5;
     private int playbookFileId_;
     /**
+     * <pre>
+     * 所选playbook项目对应的playbookFile的id
+     * </pre>
+     *
      * <code>int32 playbook_file_id = 5;</code>
      */
     public int getPlaybookFileId() {
@@ -6888,6 +7776,10 @@ public final class TemplateOuterClass {
     public static final int PLAYBOOK_ENTRYPOINT_ID_FIELD_NUMBER = 6;
     private int playbookEntrypointId_;
     /**
+     * <pre>
+     * 所选playbook项目对应的入口yml文件的id
+     * </pre>
+     *
      * <code>int32 playbook_entrypoint_id = 6;</code>
      */
     public int getPlaybookEntrypointId() {
@@ -6897,6 +7789,10 @@ public final class TemplateOuterClass {
     public static final int EXTRA_VAR_FIELD_NUMBER = 7;
     private volatile java.lang.Object extraVar_;
     /**
+     * <pre>
+     * 额外变量
+     * </pre>
+     *
      * <code>string extra_var = 7;</code>
      */
     public java.lang.String getExtraVar() {
@@ -6912,6 +7808,10 @@ public final class TemplateOuterClass {
       }
     }
     /**
+     * <pre>
+     * 额外变量
+     * </pre>
+     *
      * <code>string extra_var = 7;</code>
      */
     public com.google.protobuf.ByteString
@@ -7148,6 +8048,10 @@ public final class TemplateOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * 更新模板请求
+     * </pre>
+     *
      * Protobuf type {@code template.UpdateRequest}
      */
     public static final class Builder extends
@@ -7335,12 +8239,20 @@ public final class TemplateOuterClass {
 
       private int templateId_ ;
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>int32 template_id = 1;</code>
        */
       public int getTemplateId() {
         return templateId_;
       }
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>int32 template_id = 1;</code>
        */
       public Builder setTemplateId(int value) {
@@ -7350,6 +8262,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>int32 template_id = 1;</code>
        */
       public Builder clearTemplateId() {
@@ -7361,6 +8277,10 @@ public final class TemplateOuterClass {
 
       private java.lang.Object name_ = "";
       /**
+       * <pre>
+       * 模板名
+       * </pre>
+       *
        * <code>string name = 2;</code>
        */
       public java.lang.String getName() {
@@ -7376,6 +8296,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 模板名
+       * </pre>
+       *
        * <code>string name = 2;</code>
        */
       public com.google.protobuf.ByteString
@@ -7392,6 +8316,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 模板名
+       * </pre>
+       *
        * <code>string name = 2;</code>
        */
       public Builder setName(
@@ -7405,6 +8333,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板名
+       * </pre>
+       *
        * <code>string name = 2;</code>
        */
       public Builder clearName() {
@@ -7414,6 +8346,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板名
+       * </pre>
+       *
        * <code>string name = 2;</code>
        */
       public Builder setNameBytes(
@@ -7430,6 +8366,10 @@ public final class TemplateOuterClass {
 
       private java.lang.Object description_ = "";
       /**
+       * <pre>
+       * 模板描述
+       * </pre>
+       *
        * <code>string description = 3;</code>
        */
       public java.lang.String getDescription() {
@@ -7445,6 +8385,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 模板描述
+       * </pre>
+       *
        * <code>string description = 3;</code>
        */
       public com.google.protobuf.ByteString
@@ -7461,6 +8405,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 模板描述
+       * </pre>
+       *
        * <code>string description = 3;</code>
        */
       public Builder setDescription(
@@ -7474,6 +8422,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板描述
+       * </pre>
+       *
        * <code>string description = 3;</code>
        */
       public Builder clearDescription() {
@@ -7483,6 +8435,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板描述
+       * </pre>
+       *
        * <code>string description = 3;</code>
        */
       public Builder setDescriptionBytes(
@@ -7499,12 +8455,20 @@ public final class TemplateOuterClass {
 
       private int playbookId_ ;
       /**
+       * <pre>
+       * playbook项目的id
+       * </pre>
+       *
        * <code>int32 playbook_id = 4;</code>
        */
       public int getPlaybookId() {
         return playbookId_;
       }
       /**
+       * <pre>
+       * playbook项目的id
+       * </pre>
+       *
        * <code>int32 playbook_id = 4;</code>
        */
       public Builder setPlaybookId(int value) {
@@ -7514,6 +8478,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook项目的id
+       * </pre>
+       *
        * <code>int32 playbook_id = 4;</code>
        */
       public Builder clearPlaybookId() {
@@ -7525,12 +8493,20 @@ public final class TemplateOuterClass {
 
       private int playbookFileId_ ;
       /**
+       * <pre>
+       * 所选playbook项目对应的playbookFile的id
+       * </pre>
+       *
        * <code>int32 playbook_file_id = 5;</code>
        */
       public int getPlaybookFileId() {
         return playbookFileId_;
       }
       /**
+       * <pre>
+       * 所选playbook项目对应的playbookFile的id
+       * </pre>
+       *
        * <code>int32 playbook_file_id = 5;</code>
        */
       public Builder setPlaybookFileId(int value) {
@@ -7540,6 +8516,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 所选playbook项目对应的playbookFile的id
+       * </pre>
+       *
        * <code>int32 playbook_file_id = 5;</code>
        */
       public Builder clearPlaybookFileId() {
@@ -7551,12 +8531,20 @@ public final class TemplateOuterClass {
 
       private int playbookEntrypointId_ ;
       /**
+       * <pre>
+       * 所选playbook项目对应的入口yml文件的id
+       * </pre>
+       *
        * <code>int32 playbook_entrypoint_id = 6;</code>
        */
       public int getPlaybookEntrypointId() {
         return playbookEntrypointId_;
       }
       /**
+       * <pre>
+       * 所选playbook项目对应的入口yml文件的id
+       * </pre>
+       *
        * <code>int32 playbook_entrypoint_id = 6;</code>
        */
       public Builder setPlaybookEntrypointId(int value) {
@@ -7566,6 +8554,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 所选playbook项目对应的入口yml文件的id
+       * </pre>
+       *
        * <code>int32 playbook_entrypoint_id = 6;</code>
        */
       public Builder clearPlaybookEntrypointId() {
@@ -7577,6 +8569,10 @@ public final class TemplateOuterClass {
 
       private java.lang.Object extraVar_ = "";
       /**
+       * <pre>
+       * 额外变量
+       * </pre>
+       *
        * <code>string extra_var = 7;</code>
        */
       public java.lang.String getExtraVar() {
@@ -7592,6 +8588,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 额外变量
+       * </pre>
+       *
        * <code>string extra_var = 7;</code>
        */
       public com.google.protobuf.ByteString
@@ -7608,6 +8608,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 额外变量
+       * </pre>
+       *
        * <code>string extra_var = 7;</code>
        */
       public Builder setExtraVar(
@@ -7621,6 +8625,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 额外变量
+       * </pre>
+       *
        * <code>string extra_var = 7;</code>
        */
       public Builder clearExtraVar() {
@@ -7630,6 +8638,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 额外变量
+       * </pre>
+       *
        * <code>string extra_var = 7;</code>
        */
       public Builder setExtraVarBytes(
@@ -7701,29 +8713,53 @@ public final class TemplateOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 模板更新的时间
+     * </pre>
+     *
      * <code>string updated = 1;</code>
      */
     java.lang.String getUpdated();
     /**
+     * <pre>
+     * 模板更新的时间
+     * </pre>
+     *
      * <code>string updated = 1;</code>
      */
     com.google.protobuf.ByteString
         getUpdatedBytes();
 
     /**
+     * <pre>
+     * 请求返回的状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     boolean hasStatus();
     /**
+     * <pre>
+     * 请求返回的状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
     /**
+     * <pre>
+     * 请求返回的状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
   }
   /**
+   * <pre>
+   * 更新请求返回
+   * </pre>
+   *
    * Protobuf type {@code template.UpdateResponse}
    */
   public  static final class UpdateResponse extends
@@ -7817,6 +8853,10 @@ public final class TemplateOuterClass {
     public static final int UPDATED_FIELD_NUMBER = 1;
     private volatile java.lang.Object updated_;
     /**
+     * <pre>
+     * 模板更新的时间
+     * </pre>
+     *
      * <code>string updated = 1;</code>
      */
     public java.lang.String getUpdated() {
@@ -7832,6 +8872,10 @@ public final class TemplateOuterClass {
       }
     }
     /**
+     * <pre>
+     * 模板更新的时间
+     * </pre>
+     *
      * <code>string updated = 1;</code>
      */
     public com.google.protobuf.ByteString
@@ -7851,18 +8895,30 @@ public final class TemplateOuterClass {
     public static final int STATUS_FIELD_NUMBER = 2;
     private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
     /**
+     * <pre>
+     * 请求返回的状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
     }
     /**
+     * <pre>
+     * 请求返回的状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
       return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
     }
     /**
+     * <pre>
+     * 请求返回的状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -8041,6 +9097,10 @@ public final class TemplateOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * 更新请求返回
+     * </pre>
+     *
      * Protobuf type {@code template.UpdateResponse}
      */
     public static final class Builder extends
@@ -8204,6 +9264,10 @@ public final class TemplateOuterClass {
 
       private java.lang.Object updated_ = "";
       /**
+       * <pre>
+       * 模板更新的时间
+       * </pre>
+       *
        * <code>string updated = 1;</code>
        */
       public java.lang.String getUpdated() {
@@ -8219,6 +9283,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 模板更新的时间
+       * </pre>
+       *
        * <code>string updated = 1;</code>
        */
       public com.google.protobuf.ByteString
@@ -8235,6 +9303,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 模板更新的时间
+       * </pre>
+       *
        * <code>string updated = 1;</code>
        */
       public Builder setUpdated(
@@ -8248,6 +9320,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板更新的时间
+       * </pre>
+       *
        * <code>string updated = 1;</code>
        */
       public Builder clearUpdated() {
@@ -8257,6 +9333,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板更新的时间
+       * </pre>
+       *
        * <code>string updated = 1;</code>
        */
       public Builder setUpdatedBytes(
@@ -8275,12 +9355,20 @@ public final class TemplateOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
+       * <pre>
+       * 请求返回的状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
       }
       /**
+       * <pre>
+       * 请求返回的状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
@@ -8291,6 +9379,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 请求返回的状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -8307,6 +9399,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回的状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder setStatus(
@@ -8321,6 +9417,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回的状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -8339,6 +9439,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回的状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder clearStatus() {
@@ -8353,6 +9457,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回的状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
@@ -8361,6 +9469,10 @@ public final class TemplateOuterClass {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 请求返回的状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -8372,6 +9484,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 请求返回的状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -8445,11 +9561,19 @@ public final class TemplateOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     *模板ID
+     * </pre>
+     *
      * <code>int32 template_id = 1;</code>
      */
     int getTemplateId();
   }
   /**
+   * <pre>
+   * 删除模板请求
+   * </pre>
+   *
    * Protobuf type {@code template.DeleteRequest}
    */
   public  static final class DeleteRequest extends
@@ -8529,6 +9653,10 @@ public final class TemplateOuterClass {
     public static final int TEMPLATE_ID_FIELD_NUMBER = 1;
     private int templateId_;
     /**
+     * <pre>
+     *模板ID
+     * </pre>
+     *
      * <code>int32 template_id = 1;</code>
      */
     public int getTemplateId() {
@@ -8692,6 +9820,10 @@ public final class TemplateOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * 删除模板请求
+     * </pre>
+     *
      * Protobuf type {@code template.DeleteRequest}
      */
     public static final class Builder extends
@@ -8840,12 +9972,20 @@ public final class TemplateOuterClass {
 
       private int templateId_ ;
       /**
+       * <pre>
+       *模板ID
+       * </pre>
+       *
        * <code>int32 template_id = 1;</code>
        */
       public int getTemplateId() {
         return templateId_;
       }
       /**
+       * <pre>
+       *模板ID
+       * </pre>
+       *
        * <code>int32 template_id = 1;</code>
        */
       public Builder setTemplateId(int value) {
@@ -8855,6 +9995,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       *模板ID
+       * </pre>
+       *
        * <code>int32 template_id = 1;</code>
        */
       public Builder clearTemplateId() {
@@ -8921,19 +10065,35 @@ public final class TemplateOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 请求返回的状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 1;</code>
      */
     boolean hasStatus();
     /**
+     * <pre>
+     * 请求返回的状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 1;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
     /**
+     * <pre>
+     * 请求返回的状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 1;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
   }
   /**
+   * <pre>
+   * 删除请求返回
+   * </pre>
+   *
    * Protobuf type {@code template.DeleteResponse}
    */
   public  static final class DeleteResponse extends
@@ -9020,18 +10180,30 @@ public final class TemplateOuterClass {
     public static final int STATUS_FIELD_NUMBER = 1;
     private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
     /**
+     * <pre>
+     * 请求返回的状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 1;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
     }
     /**
+     * <pre>
+     * 请求返回的状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 1;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
       return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
     }
     /**
+     * <pre>
+     * 请求返回的状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 1;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -9200,6 +10372,10 @@ public final class TemplateOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * 删除请求返回
+     * </pre>
+     *
      * Protobuf type {@code template.DeleteResponse}
      */
     public static final class Builder extends
@@ -9358,12 +10534,20 @@ public final class TemplateOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
+       * <pre>
+       * 请求返回的状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 1;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
       }
       /**
+       * <pre>
+       * 请求返回的状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 1;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
@@ -9374,6 +10558,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 请求返回的状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 1;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -9390,6 +10578,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回的状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 1;</code>
        */
       public Builder setStatus(
@@ -9404,6 +10596,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回的状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 1;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -9422,6 +10618,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回的状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 1;</code>
        */
       public Builder clearStatus() {
@@ -9436,6 +10636,10 @@ public final class TemplateOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 请求返回的状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 1;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
@@ -9444,6 +10648,10 @@ public final class TemplateOuterClass {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 请求返回的状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 1;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -9455,6 +10663,10 @@ public final class TemplateOuterClass {
         }
       }
       /**
+       * <pre>
+       * 请求返回的状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<

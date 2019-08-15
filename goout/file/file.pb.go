@@ -27,7 +27,9 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
+// 上传playbook压缩包并且解析入口yml文件的请求体
 type UploadPlaybookRequest struct {
+	// 上传的playbook压缩包
 	Content              []byte   `protobuf:"bytes,1,opt,name=content,proto3" json:"content,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -67,10 +69,15 @@ func (m *UploadPlaybookRequest) GetContent() []byte {
 }
 
 type UploadPlaybookResponse struct {
-	Url                  string                 `protobuf:"bytes,1,opt,name=url,proto3" json:"url,omitempty"`
-	Md5                  string                 `protobuf:"bytes,2,opt,name=md5,proto3" json:"md5,omitempty"`
-	Filesize             string                 `protobuf:"bytes,3,opt,name=filesize,proto3" json:"filesize,omitempty"`
-	Entrypoint           []string               `protobuf:"bytes,4,rep,name=entrypoint,proto3" json:"entrypoint,omitempty"`
+	// 解析出来的playbook项目存储在对象存储的url
+	Url string `protobuf:"bytes,1,opt,name=url,proto3" json:"url,omitempty"`
+	// 解析出来的playbook项目文件md5
+	Md5 string `protobuf:"bytes,2,opt,name=md5,proto3" json:"md5,omitempty"`
+	// 解析出来的playbook项目文件大小
+	Filesize string `protobuf:"bytes,3,opt,name=filesize,proto3" json:"filesize,omitempty"`
+	// 解析出来的playbook项目入口yml文件，有多个
+	Entrypoint []string `protobuf:"bytes,4,rep,name=entrypoint,proto3" json:"entrypoint,omitempty"`
+	// 返回的请求状态
 	Status               *common.ResponseStatus `protobuf:"bytes,5,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`

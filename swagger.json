@@ -23,14 +23,6 @@
         ],
         "summary": "实例拓扑",
         "operationId": "InstanceTopology",
-        "parameters": [
-          {
-            "type": "integer",
-            "format": "int32",
-            "name": "level",
-            "in": "query"
-          }
-        ],
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -51,21 +43,25 @@
         "parameters": [
           {
             "type": "string",
+            "description": "内网IP.",
             "name": "host.bk_host_innerip",
             "in": "query"
           },
           {
             "type": "string",
+            "description": "模块名.",
             "name": "module.bk_module_name",
             "in": "query"
           },
           {
             "type": "string",
+            "description": "集群名.",
             "name": "set.bk_set_name",
             "in": "query"
           },
           {
             "type": "string",
+            "description": "业务名.",
             "name": "biz.bk_biz_name",
             "in": "query"
           }
@@ -173,6 +169,7 @@
           },
           {
             "type": "string",
+            "description": "用于模糊筛选的playbook项目名称的关键字.",
             "name": "keyword",
             "in": "query"
           }
@@ -198,6 +195,7 @@
           {
             "type": "integer",
             "format": "int32",
+            "description": "playbook项目ID",
             "name": "playbook_id",
             "in": "path",
             "required": true
@@ -224,6 +222,7 @@
           {
             "type": "integer",
             "format": "int32",
+            "description": "playbook项目ID",
             "name": "playbook_id",
             "in": "path",
             "required": true
@@ -312,12 +311,14 @@
           },
           {
             "type": "string",
+            "description": "用于筛选的定时任务名字的关键字.",
             "name": "schedule_name",
             "in": "query"
           },
           {
             "type": "integer",
             "format": "int32",
+            "description": "模板ID.",
             "name": "template_id",
             "in": "query"
           }
@@ -343,6 +344,7 @@
           {
             "type": "integer",
             "format": "int32",
+            "description": "定时任务ID",
             "name": "schedule_id",
             "in": "path",
             "required": true
@@ -369,6 +371,7 @@
           {
             "type": "integer",
             "format": "int32",
+            "description": "定时任务ID",
             "name": "schedule_id",
             "in": "path",
             "required": true
@@ -395,6 +398,7 @@
           {
             "type": "integer",
             "format": "int32",
+            "description": "定时任务ID",
             "name": "schedule_id",
             "in": "path",
             "required": true
@@ -483,11 +487,13 @@
           },
           {
             "type": "string",
+            "description": "模板名的一部分，模糊查询时的关键字.",
             "name": "name",
             "in": "query"
           },
           {
             "type": "string",
+            "description": "模板ID.",
             "name": "template_id",
             "in": "query"
           }
@@ -513,6 +519,7 @@
           {
             "type": "integer",
             "format": "int32",
+            "description": "模板ID",
             "name": "template_id",
             "in": "path",
             "required": true
@@ -539,6 +546,7 @@
           {
             "type": "integer",
             "format": "int32",
+            "description": "模板ID",
             "name": "template_id",
             "in": "path",
             "required": true
@@ -566,32 +574,39 @@
   "definitions": {
     "cmdbBizObject": {
       "type": "object",
+      "title": "业务",
       "properties": {
         "bk_biz_name": {
-          "type": "string"
+          "type": "string",
+          "title": "业务名"
         }
       }
     },
     "cmdbHostInfoObject": {
       "type": "object",
+      "title": "主机内容信息",
       "properties": {
         "biz": {
           "type": "array",
+          "title": "业务对象",
           "items": {
             "$ref": "#/definitions/cmdbBizObject"
           }
         },
         "host": {
+          "title": "主机对象",
           "$ref": "#/definitions/cmdbHostObject"
         },
         "module": {
           "type": "array",
+          "title": "模块对象",
           "items": {
             "$ref": "#/definitions/cmdbModuleObject"
           }
         },
         "set": {
           "type": "array",
+          "title": "集群对象",
           "items": {
             "$ref": "#/definitions/cmdbSetObject"
           }
@@ -600,9 +615,11 @@
     },
     "cmdbHostObject": {
       "type": "object",
+      "title": "主机",
       "properties": {
         "bk_host_innerip": {
-          "type": "string"
+          "type": "string",
+          "title": "内网IP"
         }
       }
     },
@@ -611,18 +628,22 @@
       "title": "拓扑实例请求返回",
       "properties": {
         "instance": {
+          "title": "业务拓扑对象",
           "$ref": "#/definitions/cmdbTopologyObject"
         },
         "status": {
+          "title": "状态码",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
     },
     "cmdbModuleObject": {
       "type": "object",
+      "title": "模块",
       "properties": {
         "bk_module_name": {
-          "type": "string"
+          "type": "string",
+          "title": "模块名"
         }
       }
     },
@@ -632,24 +653,29 @@
       "properties": {
         "count": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "返回总条数"
         },
         "info": {
           "type": "array",
+          "title": "主机信息",
           "items": {
             "$ref": "#/definitions/cmdbHostInfoObject"
           }
         },
         "status": {
+          "title": "状态码",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
     },
     "cmdbSetObject": {
       "type": "object",
+      "title": "集群",
       "properties": {
         "bk_set_name": {
-          "type": "string"
+          "type": "string",
+          "title": "集群名"
         }
       }
     },
@@ -659,19 +685,24 @@
       "properties": {
         "bk_inst_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "业务ID"
         },
         "bk_inst_name": {
-          "type": "string"
+          "type": "string",
+          "title": "业务名称"
         },
         "bk_obj_id": {
-          "type": "string"
+          "type": "string",
+          "title": "对象ID"
         },
         "bk_obj_name": {
-          "type": "string"
+          "type": "string",
+          "title": "对象名称"
         },
         "child": {
           "type": "array",
+          "title": "子对象",
           "items": {
             "$ref": "#/definitions/cmdbTopologyObject"
           }
@@ -731,10 +762,12 @@
     },
     "fileUploadPlaybookRequest": {
       "type": "object",
+      "title": "上传playbook压缩包并且解析入口yml文件的请求体",
       "properties": {
         "content": {
           "type": "string",
-          "format": "byte"
+          "format": "byte",
+          "title": "上传的playbook压缩包"
         }
       }
     },
@@ -743,126 +776,151 @@
       "properties": {
         "entrypoint": {
           "type": "array",
+          "title": "解析出来的playbook项目入口yml文件，有多个",
           "items": {
             "type": "string"
           }
         },
         "filesize": {
-          "type": "string"
+          "type": "string",
+          "title": "解析出来的playbook项目文件大小"
         },
         "md5": {
-          "type": "string"
+          "type": "string",
+          "title": "解析出来的playbook项目文件md5"
         },
         "status": {
+          "title": "返回的请求状态",
           "$ref": "#/definitions/commonResponseStatus"
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "title": "解析出来的playbook项目存储在对象存储的url"
         }
       }
     },
     "jobCreateResponse": {
       "type": "object",
-      "title": "创建作业请求返回",
+      "title": "创建作业任务请求返回",
       "properties": {
         "job_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "作业任务ID"
         },
         "status": {
+          "title": "返回的请求状态",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
     },
     "jobDeleteResponse": {
-      "type": "object"
+      "type": "object",
+      "title": "删除作业任务请求返回"
     },
     "jobFilterResponse": {
       "type": "object",
-      "title": "筛选作业请求返回",
+      "title": "筛选作业任务请求返回",
       "properties": {
         "jobs": {
           "type": "array",
+          "title": "筛选到的多个作业任务实例",
           "items": {
             "$ref": "#/definitions/jobJobObject"
           }
         },
         "paging": {
+          "title": "分页信息",
           "$ref": "#/definitions/commonPaging"
         },
         "status": {
+          "title": "返回的请求状态",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
     },
     "jobGetLogResponse": {
       "type": "object",
-      "title": "获取作业请求返回",
+      "title": "获取作业任务详细执行过程请求返回",
       "properties": {
         "status": {
+          "title": "返回的请求状态",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
     },
     "jobGetResponse": {
       "type": "object",
-      "title": "获取作业请求返回",
+      "title": "获取作业任务请求返回",
       "properties": {
         "job": {
+          "title": "获取的作业任务实例",
           "$ref": "#/definitions/jobJobObject"
         },
         "status": {
+          "title": "返回的请求状态",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
     },
     "jobJobObject": {
       "type": "object",
-      "title": "作业实例",
+      "title": "作业任务实例",
       "properties": {
         "job_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "作业任务ID"
         }
       }
     },
     "jobScheduleListResponse": {
-      "type": "object"
+      "type": "object",
+      "title": "查看定时作业任务请求返回"
     },
     "jobScheduleResponse": {
-      "type": "object"
+      "type": "object",
+      "title": "创建定时作业任务请求返回"
     },
     "playbookCreateRequest": {
       "type": "object",
       "title": "创建项目请求内容体",
       "properties": {
         "description": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目描述"
         },
         "entrypoint": {
           "type": "array",
+          "title": "playbook入口yml文件，有多个",
           "items": {
             "type": "string"
           }
         },
         "md5": {
-          "type": "string"
+          "type": "string",
+          "title": "文件md5"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目名称"
         },
         "size": {
           "type": "string",
-          "format": "int64"
+          "format": "int64",
+          "title": "文件大小"
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook存储在对象存储的url"
         },
         "url_type": {
+          "title": "枚举类型 1-文件下载 2-git下载",
           "$ref": "#/definitions/playbookUrlType"
         },
         "version": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook文件的版本号"
         }
       }
     },
@@ -871,13 +929,16 @@
       "title": "创建项目请求返回",
       "properties": {
         "created": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目创建时间"
         },
         "playbook_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "playbook项目ID"
         },
         "status": {
+          "title": "返回的请求状态",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
@@ -887,15 +948,18 @@
       "title": "筛选项目请求返回",
       "properties": {
         "paging": {
+          "title": "分页信息",
           "$ref": "#/definitions/commonPaging"
         },
         "projects": {
           "type": "array",
+          "title": "返回的筛选到的多个项目实例",
           "items": {
             "$ref": "#/definitions/playbookProjectObject"
           }
         },
         "status": {
+          "title": "返回的请求状态",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
@@ -905,9 +969,11 @@
       "title": "获取项目请求返回",
       "properties": {
         "project": {
+          "title": "返回的项目实例",
           "$ref": "#/definitions/playbookProjectObject"
         },
         "status": {
+          "title": "返回的请求状态",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
@@ -917,42 +983,53 @@
       "title": "项目实例",
       "properties": {
         "created": {
-          "type": "string"
+          "type": "string",
+          "title": "创建时间"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目描述"
         },
         "entrypoint": {
           "type": "array",
+          "title": "playbook入口yml文件，有多个",
           "items": {
             "type": "string"
           }
         },
         "md5": {
-          "type": "string"
+          "type": "string",
+          "title": "文件md5"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目名称"
         },
         "playbook_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "playbook项目ID"
         },
         "size": {
           "type": "string",
-          "format": "int64"
+          "format": "int64",
+          "title": "文件大小"
         },
         "updated": {
-          "type": "string"
+          "type": "string",
+          "title": "更新时间"
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook存储在对象存储的url"
         },
         "url_type": {
+          "title": "枚举类型 1-文件下载 2-git下载",
           "$ref": "#/definitions/playbookUrlType"
         },
         "version": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook文件的版本号"
         }
       }
     },
@@ -961,14 +1038,17 @@
       "title": "版本列表请求响应",
       "properties": {
         "created": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目创建时间"
         },
         "status": {
+          "title": "返回的请求状态",
           "$ref": "#/definitions/commonResponseStatus"
         },
         "version_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "版本信息"
         }
       }
     },
@@ -977,36 +1057,45 @@
       "title": "更新项目请求内容体",
       "properties": {
         "description": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目描述"
         },
         "entrypoint": {
           "type": "array",
+          "title": "playbook入口yml文件，有多个",
           "items": {
             "type": "string"
           }
         },
         "md5": {
-          "type": "string"
+          "type": "string",
+          "title": "文件md5"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目名称"
         },
         "playbook_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "playbook项目ID"
         },
         "size": {
           "type": "string",
-          "format": "int64"
+          "format": "int64",
+          "title": "文件大小"
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook存储在对象存储的url"
         },
         "url_type": {
+          "title": "枚举类型 1-文件下载 2-git下载",
           "$ref": "#/definitions/playbookUrlType"
         },
         "version": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook文件的版本号"
         }
       }
     },
@@ -1015,15 +1104,19 @@
       "title": "更新项目请求返回",
       "properties": {
         "status": {
+          "title": "返回的请求状态",
           "$ref": "#/definitions/commonResponseStatus"
         },
         "updated": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目更新时间"
         }
       }
     },
     "playbookUrlType": {
+      "description": "- UNDEFINED: 未定义\n - FILE: 文件下载\n - GIT: git下载",
       "type": "string",
+      "title": "枚举URL类型",
       "default": "UNDEFINED",
       "enum": [
         "UNDEFINED",
@@ -1033,22 +1126,28 @@
     },
     "scheduleCreateRequest": {
       "type": "object",
+      "title": "创建定时任务请求",
       "properties": {
         "cron_expression": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务表达式"
         },
         "end_time": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务结束时间"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务名"
         },
         "start_time": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务开始时间"
         },
         "template_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "模板ID"
         }
       }
     },
@@ -1057,13 +1156,16 @@
       "title": "创建定时任务请求返回",
       "properties": {
         "created": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务创建时间"
         },
         "schedule_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "定时任务ID"
         },
         "status": {
+          "title": "返回请求状态",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
@@ -1073,15 +1175,18 @@
       "title": "筛选定时任务请求返回",
       "properties": {
         "paging": {
+          "title": "分页信息",
           "$ref": "#/definitions/commonPaging"
         },
         "schedules": {
           "type": "array",
+          "title": "筛选到的多个定时任务实例",
           "items": {
             "$ref": "#/definitions/scheduleScheduleObject"
           }
         },
         "status": {
+          "title": "返回的请求状态",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
@@ -1091,9 +1196,11 @@
       "title": "获取定时任务请求返回",
       "properties": {
         "schedule": {
+          "title": "定时任务实例",
           "$ref": "#/definitions/scheduleScheduleObject"
         },
         "status": {
+          "title": "返回的请求状态",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
@@ -1103,31 +1210,39 @@
       "title": "定时任务实例",
       "properties": {
         "cron_expression": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务表达式"
         },
         "end_time": {
-          "type": "string"
+          "type": "string",
+          "title": "开始时间"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务名"
         },
         "schedule_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "定时任务ID"
         },
         "start_time": {
-          "type": "string"
+          "type": "string",
+          "title": "开始日期"
         },
         "status": {
+          "title": "任务状态",
           "$ref": "#/definitions/scheduleScheduleStatus"
         },
         "template": {
+          "title": "模板实例",
           "$ref": "#/definitions/templateTemplateObject"
         }
       }
     },
     "scheduleScheduleStatus": {
       "type": "string",
+      "title": "任务状态",
       "default": "OFF",
       "enum": [
         "OFF",
@@ -1136,71 +1251,90 @@
     },
     "scheduleSwitchStatusResponse": {
       "type": "object",
+      "title": "切换定时任务状态请求返回",
       "properties": {
         "status": {
+          "title": "返回的请求状态",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
     },
     "scheduleUpdateRequest": {
       "type": "object",
+      "title": "更新定时任务请求",
       "properties": {
         "cron_expression": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务表达式"
         },
         "end_time": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务结束时间"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务名字"
         },
         "schedule_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "定时任务ID"
         },
         "start_time": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务开启时间"
         },
         "template_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "模板ID"
         }
       }
     },
     "scheduleUpdateResponse": {
       "type": "object",
+      "title": "更新请求返回",
       "properties": {
         "status": {
+          "title": "返回的请求状态",
           "$ref": "#/definitions/commonResponseStatus"
         },
         "updated": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务更新时间"
         }
       }
     },
     "templateCreateRequest": {
       "type": "object",
+      "title": "创建模板请求",
       "properties": {
         "description": {
-          "type": "string"
+          "type": "string",
+          "title": "模板描述"
         },
         "extra_var": {
-          "type": "string"
+          "type": "string",
+          "title": "额外变量"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "模板名"
         },
         "playbook_entrypoint_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "选择的playbook入口yml文件"
         },
         "playbook_file_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "选择的playbook项目对应的playbook_file"
         },
         "playbook_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "playbook 项目id"
         }
       }
     },
@@ -1209,21 +1343,26 @@
       "title": "创建模板请求返回",
       "properties": {
         "created": {
-          "type": "string"
+          "type": "string",
+          "title": "模板创建的时间"
         },
         "status": {
+          "title": "请求返回状态",
           "$ref": "#/definitions/commonResponseStatus"
         },
         "template_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "模板ID"
         }
       }
     },
     "templateDeleteResponse": {
       "type": "object",
+      "title": "删除请求返回",
       "properties": {
         "status": {
+          "title": "请求返回的状态",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
@@ -1233,13 +1372,16 @@
       "title": "筛选模板请求返回",
       "properties": {
         "paging": {
+          "title": "分页信息",
           "$ref": "#/definitions/commonPaging"
         },
         "status": {
+          "title": "请求返回状态",
           "$ref": "#/definitions/commonResponseStatus"
         },
         "templates": {
           "type": "array",
+          "title": "请求返回的模板",
           "items": {
             "$ref": "#/definitions/templateTemplateObject"
           }
@@ -1251,9 +1393,11 @@
       "title": "获取模板请求返回",
       "properties": {
         "status": {
+          "title": "请求返回状态",
           "$ref": "#/definitions/commonResponseStatus"
         },
         "template": {
+          "title": "请求返回的模板",
           "$ref": "#/definitions/templateTemplateObject"
         }
       }
@@ -1263,69 +1407,87 @@
       "title": "模板实例",
       "properties": {
         "description": {
-          "type": "string"
+          "type": "string",
+          "title": "模板描述"
         },
         "extra_var": {
-          "type": "string"
+          "type": "string",
+          "title": "额外变量"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "模板名"
         },
         "playbook": {
+          "title": "playbook 项目",
           "$ref": "#/definitions/playbookProjectObject"
         },
         "playbook_entrypoint_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "选择的playbook入口yml文件"
         },
         "playbook_file_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "选择的playbook项目对应的playbook_file"
         },
         "template_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "模板ID"
         }
       }
     },
     "templateUpdateRequest": {
       "type": "object",
+      "title": "更新模板请求",
       "properties": {
         "description": {
-          "type": "string"
+          "type": "string",
+          "title": "模板描述"
         },
         "extra_var": {
-          "type": "string"
+          "type": "string",
+          "title": "额外变量"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "模板名"
         },
         "playbook_entrypoint_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "所选playbook项目对应的入口yml文件的id"
         },
         "playbook_file_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "所选playbook项目对应的playbookFile的id"
         },
         "playbook_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "playbook项目的id"
         },
         "template_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "模板ID"
         }
       }
     },
     "templateUpdateResponse": {
       "type": "object",
+      "title": "更新请求返回",
       "properties": {
         "status": {
+          "title": "请求返回的状态",
           "$ref": "#/definitions/commonResponseStatus"
         },
         "updated": {
-          "type": "string"
+          "type": "string",
+          "title": "模板更新的时间"
         }
       }
     }

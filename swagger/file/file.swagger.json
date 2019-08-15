@@ -75,30 +75,37 @@
       "properties": {
         "content": {
           "type": "string",
-          "format": "byte"
+          "format": "byte",
+          "title": "上传的playbook压缩包"
         }
-      }
+      },
+      "title": "上传playbook压缩包并且解析入口yml文件的请求体"
     },
     "fileUploadPlaybookResponse": {
       "type": "object",
       "properties": {
         "url": {
-          "type": "string"
+          "type": "string",
+          "title": "解析出来的playbook项目存储在对象存储的url"
         },
         "md5": {
-          "type": "string"
+          "type": "string",
+          "title": "解析出来的playbook项目文件md5"
         },
         "filesize": {
-          "type": "string"
+          "type": "string",
+          "title": "解析出来的playbook项目文件大小"
         },
         "entrypoint": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "title": "解析出来的playbook项目入口yml文件，有多个"
         },
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
         }
       }
     }

@@ -28,6 +28,7 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
+// 任务状态
 type ScheduleStatus int32
 
 const (
@@ -55,16 +56,23 @@ func (ScheduleStatus) EnumDescriptor() ([]byte, []int) {
 
 // 定时任务实例
 type ScheduleObject struct {
-	ScheduleId           int32                    `protobuf:"varint,1,opt,name=schedule_id,json=scheduleId,proto3" json:"schedule_id,omitempty"`
-	Template             *template.TemplateObject `protobuf:"bytes,2,opt,name=template,proto3" json:"template,omitempty"`
-	Name                 string                   `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	StartTime            string                   `protobuf:"bytes,4,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
-	EndTime              string                   `protobuf:"bytes,5,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
-	CronExpression       string                   `protobuf:"bytes,6,opt,name=cron_expression,json=cronExpression,proto3" json:"cron_expression,omitempty"`
-	Status               ScheduleStatus           `protobuf:"varint,7,opt,name=status,proto3,enum=schedule.ScheduleStatus" json:"status,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}                 `json:"-"`
-	XXX_unrecognized     []byte                   `json:"-"`
-	XXX_sizecache        int32                    `json:"-"`
+	// 定时任务ID
+	ScheduleId int32 `protobuf:"varint,1,opt,name=schedule_id,json=scheduleId,proto3" json:"schedule_id,omitempty"`
+	// 模板实例
+	Template *template.TemplateObject `protobuf:"bytes,2,opt,name=template,proto3" json:"template,omitempty"`
+	// 定时任务名
+	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
+	// 开始日期
+	StartTime string `protobuf:"bytes,4,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	// 开始时间
+	EndTime string `protobuf:"bytes,5,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	// 定时任务表达式
+	CronExpression string `protobuf:"bytes,6,opt,name=cron_expression,json=cronExpression,proto3" json:"cron_expression,omitempty"`
+	// 任务状态
+	Status               ScheduleStatus `protobuf:"varint,7,opt,name=status,proto3,enum=schedule.ScheduleStatus" json:"status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
 }
 
 func (m *ScheduleObject) Reset()         { *m = ScheduleObject{} }
@@ -141,11 +149,17 @@ func (m *ScheduleObject) GetStatus() ScheduleStatus {
 	return ScheduleStatus_OFF
 }
 
+// 创建定时任务请求
 type CreateRequest struct {
-	TemplateId           int32    `protobuf:"varint,1,opt,name=template_id,json=templateId,proto3" json:"template_id,omitempty"`
-	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	StartTime            string   `protobuf:"bytes,3,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
-	EndTime              string   `protobuf:"bytes,4,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	// 模板ID
+	TemplateId int32 `protobuf:"varint,1,opt,name=template_id,json=templateId,proto3" json:"template_id,omitempty"`
+	// 定时任务名
+	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	// 定时任务开始时间
+	StartTime string `protobuf:"bytes,3,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	// 定时任务结束时间
+	EndTime string `protobuf:"bytes,4,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	// 定时任务表达式
 	CronExpression       string   `protobuf:"bytes,5,opt,name=cron_expression,json=cronExpression,proto3" json:"cron_expression,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -214,8 +228,11 @@ func (m *CreateRequest) GetCronExpression() string {
 
 // 创建定时任务请求返回
 type CreateResponse struct {
-	ScheduleId           int32                  `protobuf:"varint,1,opt,name=schedule_id,json=scheduleId,proto3" json:"schedule_id,omitempty"`
-	Created              string                 `protobuf:"bytes,2,opt,name=created,proto3" json:"created,omitempty"`
+	// 定时任务ID
+	ScheduleId int32 `protobuf:"varint,1,opt,name=schedule_id,json=scheduleId,proto3" json:"schedule_id,omitempty"`
+	// 定时任务创建时间
+	Created string `protobuf:"bytes,2,opt,name=created,proto3" json:"created,omitempty"`
+	// 返回请求状态
 	Status               *common.ResponseStatus `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`
@@ -268,7 +285,9 @@ func (m *CreateResponse) GetStatus() *common.ResponseStatus {
 	return nil
 }
 
+// 获取定时任务请求
 type GetRequest struct {
+	// 定时任务ID
 	ScheduleId           int32    `protobuf:"varint,1,opt,name=schedule_id,json=scheduleId,proto3" json:"schedule_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -309,7 +328,9 @@ func (m *GetRequest) GetScheduleId() int32 {
 
 // 获取定时任务请求返回
 type GetResponse struct {
-	Schedule             *ScheduleObject        `protobuf:"bytes,1,opt,name=schedule,proto3" json:"schedule,omitempty"`
+	// 定时任务实例
+	Schedule *ScheduleObject `protobuf:"bytes,1,opt,name=schedule,proto3" json:"schedule,omitempty"`
+	// 返回的请求状态
 	Status               *common.ResponseStatus `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`
@@ -357,12 +378,15 @@ func (m *GetResponse) GetStatus() *common.ResponseStatus {
 
 // 筛选定时任务请求
 type FilterRequest struct {
-	Paging               *common.Paging `protobuf:"bytes,1,opt,name=paging,proto3" json:"paging,omitempty"`
-	ScheduleName         string         `protobuf:"bytes,2,opt,name=schedule_name,json=scheduleName,proto3" json:"schedule_name,omitempty"`
-	TemplateId           int32          `protobuf:"varint,3,opt,name=template_id,json=templateId,proto3" json:"template_id,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
+	// 分页信息
+	Paging *common.Paging `protobuf:"bytes,1,opt,name=paging,proto3" json:"paging,omitempty"`
+	// 用于筛选的定时任务名字的关键字
+	ScheduleName string `protobuf:"bytes,2,opt,name=schedule_name,json=scheduleName,proto3" json:"schedule_name,omitempty"`
+	// 模板ID
+	TemplateId           int32    `protobuf:"varint,3,opt,name=template_id,json=templateId,proto3" json:"template_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *FilterRequest) Reset()         { *m = FilterRequest{} }
@@ -413,8 +437,11 @@ func (m *FilterRequest) GetTemplateId() int32 {
 
 // 筛选定时任务请求返回
 type FilterResponse struct {
-	Schedules            []*ScheduleObject      `protobuf:"bytes,1,rep,name=schedules,proto3" json:"schedules,omitempty"`
-	Paging               *common.Paging         `protobuf:"bytes,2,opt,name=paging,proto3" json:"paging,omitempty"`
+	// 筛选到的多个定时任务实例
+	Schedules []*ScheduleObject `protobuf:"bytes,1,rep,name=schedules,proto3" json:"schedules,omitempty"`
+	// 分页信息
+	Paging *common.Paging `protobuf:"bytes,2,opt,name=paging,proto3" json:"paging,omitempty"`
+	// 返回的请求状态
 	Status               *common.ResponseStatus `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`
@@ -467,12 +494,19 @@ func (m *FilterResponse) GetStatus() *common.ResponseStatus {
 	return nil
 }
 
+// 更新定时任务请求
 type UpdateRequest struct {
-	ScheduleId           int32    `protobuf:"varint,1,opt,name=schedule_id,json=scheduleId,proto3" json:"schedule_id,omitempty"`
-	TemplateId           int32    `protobuf:"varint,2,opt,name=template_id,json=templateId,proto3" json:"template_id,omitempty"`
-	Name                 string   `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	StartTime            string   `protobuf:"bytes,4,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
-	EndTime              string   `protobuf:"bytes,5,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	// 定时任务ID
+	ScheduleId int32 `protobuf:"varint,1,opt,name=schedule_id,json=scheduleId,proto3" json:"schedule_id,omitempty"`
+	// 模板ID
+	TemplateId int32 `protobuf:"varint,2,opt,name=template_id,json=templateId,proto3" json:"template_id,omitempty"`
+	// 定时任务名字
+	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
+	// 定时任务开启时间
+	StartTime string `protobuf:"bytes,4,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	// 定时任务结束时间
+	EndTime string `protobuf:"bytes,5,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	// 定时任务表达式
 	CronExpression       string   `protobuf:"bytes,6,opt,name=cron_expression,json=cronExpression,proto3" json:"cron_expression,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -546,8 +580,11 @@ func (m *UpdateRequest) GetCronExpression() string {
 	return ""
 }
 
+// 更新请求返回
 type UpdateResponse struct {
-	Updated              string                 `protobuf:"bytes,1,opt,name=updated,proto3" json:"updated,omitempty"`
+	// 定时任务更新时间
+	Updated string `protobuf:"bytes,1,opt,name=updated,proto3" json:"updated,omitempty"`
+	// 返回的请求状态
 	Status               *common.ResponseStatus `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`
@@ -593,7 +630,9 @@ func (m *UpdateResponse) GetStatus() *common.ResponseStatus {
 	return nil
 }
 
+// 切换定时任务状态请求
 type SwitchStatusRequest struct {
+	// 定时任务ID
 	ScheduleId           int32    `protobuf:"varint,1,opt,name=schedule_id,json=scheduleId,proto3" json:"schedule_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -632,7 +671,9 @@ func (m *SwitchStatusRequest) GetScheduleId() int32 {
 	return 0
 }
 
+// 切换定时任务状态请求返回
 type SwitchStatusResponse struct {
+	// 返回的请求状态
 	Status               *common.ResponseStatus `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`

@@ -72,16 +72,19 @@
       "properties": {
         "job_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "作业任务ID"
         },
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
         }
       },
-      "title": "创建作业请求返回"
+      "title": "创建作业任务请求返回"
     },
     "jobDeleteResponse": {
-      "type": "object"
+      "type": "object",
+      "title": "删除作业任务请求返回"
     },
     "jobFilterResponse": {
       "type": "object",
@@ -90,53 +93,62 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/jobJobObject"
-          }
+          },
+          "title": "筛选到的多个作业任务实例"
         },
         "paging": {
-          "$ref": "#/definitions/commonPaging"
+          "$ref": "#/definitions/commonPaging",
+          "title": "分页信息"
         },
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
         }
       },
-      "title": "筛选作业请求返回"
+      "title": "筛选作业任务请求返回"
     },
     "jobGetLogResponse": {
       "type": "object",
       "properties": {
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
         }
       },
-      "title": "获取作业请求返回"
+      "title": "获取作业任务详细执行过程请求返回"
     },
     "jobGetResponse": {
       "type": "object",
       "properties": {
         "job": {
-          "$ref": "#/definitions/jobJobObject"
+          "$ref": "#/definitions/jobJobObject",
+          "title": "获取的作业任务实例"
         },
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
         }
       },
-      "title": "获取作业请求返回"
+      "title": "获取作业任务请求返回"
     },
     "jobJobObject": {
       "type": "object",
       "properties": {
         "job_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "作业任务ID"
         }
       },
-      "title": "作业实例"
+      "title": "作业任务实例"
     },
     "jobScheduleListResponse": {
-      "type": "object"
+      "type": "object",
+      "title": "查看定时作业任务请求返回"
     },
     "jobScheduleResponse": {
-      "type": "object"
+      "type": "object",
+      "title": "创建定时作业任务请求返回"
     }
   }
 }
