@@ -38,104 +38,148 @@ service Playbook {
         };
     }
     // 删除playbook项目
-//    rpc Delete (DeleteRequest) returns (DeleteResponse) {
-//        option (google.api.http) = {
-//            post: "/v1/playbook/delete/{playbook_id}"
-//        };
-//    }
+    //    rpc Delete (DeleteRequest) returns (DeleteResponse) {
+    //        option (google.api.http) = {
+    //            post: "/v1/playbook/delete/{playbook_id}"
+    //        };
+    //    }
 
     // playbook 版本列表
-//    rpc Version (VersionRequest) returns (VersionResponse) {
-//        option (google.api.http) = {
-//            get: "/v1/playbook/version/{playbook_id}"
-//        };
-//    }
+    //    rpc Version (VersionRequest) returns (VersionResponse) {
+    //        option (google.api.http) = {
+    //            get: "/v1/playbook/version/{playbook_id}"
+    //        };
+    //    }
 
     // 保存 playbook 版本
-    rpc SaveVersion (SaveVersionRequest) returns (SaveVersionResponse) {}
+    rpc SaveVersion (SaveVersionRequest) returns (SaveVersionResponse) {
+    }
 }
-
-enum UrlType //枚举URL类型
-{
+// 枚举URL类型
+enum UrlType {
+    // 未定义
     UNDEFINED = 0;
-    FILE = 1; //文件下载
-    GIT = 2;  //git下载
+    // 文件下载
+    FILE = 1;
+    // git下载
+    GIT = 2;
 }
 
 // 项目实例
 message ProjectObject {
-    int32 playbook_id = 1; //playbook项目ID
-    string name = 2;  //playbook项目名称
-    string description = 3; //playbook项目描述
-    string url = 4; //playbook存储在对象存储的url
-    UrlType url_type = 5; //枚举类型 1-文件下载 2-git下载
-    string version = 6; //playbook文件的版本号
-    repeated string entrypoint = 7; //playbook入口yml文件，有多个
-    string md5 = 8; //文件md5
-    int64 size = 9; //文件大小
-    string created = 10; //创建时间
-    string updated = 11; //更新时间
+    // playbook项目ID
+    int32 playbook_id = 1;
+    // playbook项目名称
+    string name = 2;
+    // playbook项目描述
+    string description = 3;
+    // playbook存储在对象存储的url
+    string url = 4;
+    // 枚举类型 1-文件下载 2-git下载
+    UrlType url_type = 5;
+    // playbook文件的版本号
+    string version = 6;
+    // playbook入口yml文件，有多个
+    repeated string entrypoint = 7;
+    // 文件md5
+    string md5 = 8;
+    // 文件大小
+    int64 size = 9;
+    // 创建时间
+    string created = 10;
+    // 更新时间
+    string updated = 11;
 }
 
 // 创建项目请求内容体
 message CreateRequest {
+    // playbook项目名称
     string name = 1;
+    // playbook项目描述
     string description = 2;
+    // playbook存储在对象存储的url
     string url = 3;
+    // 枚举类型 1-文件下载 2-git下载
     UrlType url_type = 4;
+    // playbook文件的版本号
     string version = 5;
+    // playbook入口yml文件，有多个
     repeated string entrypoint = 6;
+    // 文件md5
     string md5 = 7;
+    // 文件大小
     int64 size = 8;
 }
 
 // 创建项目请求返回
 message CreateResponse {
+    // playbook项目ID
     int32 playbook_id = 1;
+    // playbook项目创建时间
     string created = 2;
+    // 返回的请求状态
     common.ResponseStatus status = 3;
 }
 
 // 根据项目ID获取记录
 message GetRequest {
+    // playbook项目ID
     int32 playbook_id = 1;
 }
 
 // 获取项目请求返回
 message GetResponse {
+    // 返回的项目实例
     ProjectObject project = 1;
+    // 返回的请求状态
     common.ResponseStatus status = 2;
 }
 
 // 筛选项目请求
 message FilterRequest {
+    // 分页信息
     common.Paging paging = 1;
+    // 用于模糊筛选的playbook项目名称的关键字
     string keyword = 2;
 }
 
 // 筛选项目请求返回
 message FilterResponse {
+    // 返回的筛选到的多个项目实例
     repeated ProjectObject projects = 1;
+    // 分页信息
     common.Paging paging = 2;
+    // 返回的请求状态
     common.ResponseStatus status = 3;
 }
 
 // 更新项目请求内容体
 message UpdateRequest {
+    // playbook项目ID
     int32 playbook_id = 1;
+    // playbook项目名称
     string name = 2;
+    // playbook项目描述
     string description = 3;
+    // playbook存储在对象存储的url
     string url = 4;
+    // 枚举类型 1-文件下载 2-git下载
     UrlType url_type = 5;
+    // playbook文件的版本号
     string version = 6;
+    // playbook入口yml文件，有多个
     repeated string entrypoint = 7;
+    // 文件md5
     string md5 = 8;
+    // 文件大小
     int64 size = 9;
 }
 
 // 更新项目请求返回
 message UpdateResponse {
+    // playbook项目更新时间
     string updated = 1;
+    // 返回的请求状态
     common.ResponseStatus status = 2;
 }
 
@@ -149,9 +193,12 @@ message UpdateResponse {
 //    common.ResponseStatus status = 1;
 //}
 
+// playbook入口文件实例
 message PlaybookEntrypointObject {
-    int32 playbook_entrypoint_id = 1; // 入口文件ID
-    string name = 2; // 入口文件名称
+    // 入口文件ID
+    int32 playbook_entrypoint_id = 1;
+    // 入口文件名称
+    string name = 2;
 }
 
 // 版本实例
@@ -178,18 +225,28 @@ message PlaybookEntrypointObject {
 
 // 版本列表请求内容体
 message SaveVersionRequest {
+    // playbook项目ID
     int32 playbook_id = 1;
+    // playbook存储在对象存储的url
     string url = 2;
+    // 枚举类型 1-文件下载 2-git下载
     UrlType url_type = 3;
+    // playbook文件的版本号
     string version = 4;
+    // 文件md5
     string md5 = 5;
+    // 文件大小
     int64 size = 6;
+    // playbook入口yml文件，有多个
     repeated string entrypoint = 7;
 }
 
 // 版本列表请求响应
 message SaveVersionResponse {
+    // 版本信息
     int32 version_id = 1;
+    // playbook项目创建时间
     string created = 2;
+    // 返回的请求状态
     common.ResponseStatus status = 3;
 }
