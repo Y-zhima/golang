@@ -15,149 +15,6 @@ public final class ScheduleOuterClass {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   /**
-   * Protobuf enum {@code schedule.RepeatFrequency}
-   */
-  public enum RepeatFrequency
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>NONE = 0;</code>
-     */
-    NONE(0),
-    /**
-     * <code>MINUTE = 1;</code>
-     */
-    MINUTE(1),
-    /**
-     * <code>HOUR = 2;</code>
-     */
-    HOUR(2),
-    /**
-     * <code>DAY = 3;</code>
-     */
-    DAY(3),
-    /**
-     * <code>WEEK = 4;</code>
-     */
-    WEEK(4),
-    /**
-     * <code>MONTH = 5;</code>
-     */
-    MONTH(5),
-    /**
-     * <code>YEAR = 6;</code>
-     */
-    YEAR(6),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <code>NONE = 0;</code>
-     */
-    public static final int NONE_VALUE = 0;
-    /**
-     * <code>MINUTE = 1;</code>
-     */
-    public static final int MINUTE_VALUE = 1;
-    /**
-     * <code>HOUR = 2;</code>
-     */
-    public static final int HOUR_VALUE = 2;
-    /**
-     * <code>DAY = 3;</code>
-     */
-    public static final int DAY_VALUE = 3;
-    /**
-     * <code>WEEK = 4;</code>
-     */
-    public static final int WEEK_VALUE = 4;
-    /**
-     * <code>MONTH = 5;</code>
-     */
-    public static final int MONTH_VALUE = 5;
-    /**
-     * <code>YEAR = 6;</code>
-     */
-    public static final int YEAR_VALUE = 6;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static RepeatFrequency valueOf(int value) {
-      return forNumber(value);
-    }
-
-    public static RepeatFrequency forNumber(int value) {
-      switch (value) {
-        case 0: return NONE;
-        case 1: return MINUTE;
-        case 2: return HOUR;
-        case 3: return DAY;
-        case 4: return WEEK;
-        case 5: return MONTH;
-        case 6: return YEAR;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<RepeatFrequency>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        RepeatFrequency> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<RepeatFrequency>() {
-            public RepeatFrequency findValueByNumber(int number) {
-              return RepeatFrequency.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.getDescriptor().getEnumTypes().get(0);
-    }
-
-    private static final RepeatFrequency[] VALUES = values();
-
-    public static RepeatFrequency valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private RepeatFrequency(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:schedule.RepeatFrequency)
-  }
-
-  /**
    * Protobuf enum {@code schedule.ScheduleStatus}
    */
   public enum ScheduleStatus
@@ -229,7 +86,7 @@ public final class ScheduleOuterClass {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.getDescriptor().getEnumTypes().get(1);
+      return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.getDescriptor().getEnumTypes().get(0);
     }
 
     private static final ScheduleStatus[] VALUES = values();
@@ -9964,25 +9821,23 @@ public final class ScheduleOuterClass {
       "\026.common.ResponseStatus\"*\n\023SwitchStatusR" +
       "equest\022\023\n\013schedule_id\030\001 \001(\005\">\n\024SwitchSta" +
       "tusResponse\022&\n\006status\030\001 \001(\0132\026.common.Res" +
-      "ponseStatus*Y\n\017RepeatFrequency\022\010\n\004NONE\020\000" +
-      "\022\n\n\006MINUTE\020\001\022\010\n\004HOUR\020\002\022\007\n\003DAY\020\003\022\010\n\004WEEK\020" +
-      "\004\022\t\n\005MONTH\020\005\022\010\n\004YEAR\020\006*!\n\016ScheduleStatus" +
-      "\022\007\n\003OFF\020\000\022\006\n\002ON\020\0012\210\004\n\010Schedule\022[\n\006Create" +
-      "\022\027.schedule.CreateRequest\032\030.schedule.Cre" +
-      "ateResponse\"\036\202\323\344\223\002\030\"\023/v1/schedule/create" +
-      ":\001*\022X\n\006Filter\022\027.schedule.FilterRequest\032\030" +
-      ".schedule.FilterResponse\"\033\202\323\344\223\002\025\022\023/v1/sc" +
-      "hedule/filter\022Z\n\003Get\022\024.schedule.GetReque" +
-      "st\032\025.schedule.GetResponse\"&\202\323\344\223\002 \022\036/v1/s" +
-      "chedule/get/{schedule_id}\022i\n\006Update\022\027.sc" +
-      "hedule.UpdateRequest\032\030.schedule.UpdateRe" +
-      "sponse\",\202\323\344\223\002&\"!/v1/schedule/update/{sch" +
-      "edule_id}:\001*\022~\n\014SwitchStatus\022\035.schedule." +
-      "SwitchStatusRequest\032\036.schedule.SwitchSta" +
-      "tusResponse\"/\202\323\344\223\002)\"\'/v1/schedule/switch" +
-      "Status/{schedule_id}BJ\n\036top.fogcdn.axe.p" +
-      "rotos.scheduleZ(git.fogcdn.top/axe/proto" +
-      "s/goout/scheduleb\006proto3"
+      "ponseStatus*!\n\016ScheduleStatus\022\007\n\003OFF\020\000\022\006" +
+      "\n\002ON\020\0012\210\004\n\010Schedule\022[\n\006Create\022\027.schedule" +
+      ".CreateRequest\032\030.schedule.CreateResponse" +
+      "\"\036\202\323\344\223\002\030\"\023/v1/schedule/create:\001*\022X\n\006Filt" +
+      "er\022\027.schedule.FilterRequest\032\030.schedule.F" +
+      "ilterResponse\"\033\202\323\344\223\002\025\022\023/v1/schedule/filt" +
+      "er\022Z\n\003Get\022\024.schedule.GetRequest\032\025.schedu" +
+      "le.GetResponse\"&\202\323\344\223\002 \022\036/v1/schedule/get" +
+      "/{schedule_id}\022i\n\006Update\022\027.schedule.Upda" +
+      "teRequest\032\030.schedule.UpdateResponse\",\202\323\344" +
+      "\223\002&\"!/v1/schedule/update/{schedule_id}:\001" +
+      "*\022~\n\014SwitchStatus\022\035.schedule.SwitchStatu" +
+      "sRequest\032\036.schedule.SwitchStatusResponse" +
+      "\"/\202\323\344\223\002)\"\'/v1/schedule/switchStatus/{sch" +
+      "edule_id}BJ\n\036top.fogcdn.axe.protos.sched" +
+      "uleZ(git.fogcdn.top/axe/protos/goout/sch" +
+      "eduleb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
