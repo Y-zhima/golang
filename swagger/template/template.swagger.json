@@ -222,6 +222,21 @@
       "description": "- SUCCESS: 成功\n - INVALID_ARGUMENT: 参数错误\n - ACCESS_DENIED: 访问拒绝",
       "title": "请求返回状态码"
     },
+    "playbookPlaybookEntrypointObject": {
+      "type": "object",
+      "properties": {
+        "playbook_entrypoint_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "入口文件ID"
+        },
+        "name": {
+          "type": "string",
+          "title": "入口文件名称"
+        }
+      },
+      "title": "playbook入口文件实例"
+    },
     "playbookProjectObject": {
       "type": "object",
       "properties": {
@@ -253,7 +268,7 @@
         "entrypoint": {
           "type": "array",
           "items": {
-            "type": "string"
+            "$ref": "#/definitions/playbookPlaybookEntrypointObject"
           },
           "title": "playbook入口yml文件，有多个"
         },
@@ -273,6 +288,11 @@
         "updated": {
           "type": "string",
           "title": "更新时间"
+        },
+        "playbook_file_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "playbook项目文件ID"
         }
       },
       "title": "项目实例"
