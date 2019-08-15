@@ -19,11 +19,19 @@ public final class FileOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 上传的playbook压缩包
+     * </pre>
+     *
      * <code>bytes content = 1;</code>
      */
     com.google.protobuf.ByteString getContent();
   }
   /**
+   * <pre>
+   * 上传playbook压缩包并且解析入口yml文件的请求体
+   * </pre>
+   *
    * Protobuf type {@code file.UploadPlaybookRequest}
    */
   public  static final class UploadPlaybookRequest extends
@@ -103,6 +111,10 @@ public final class FileOuterClass {
     public static final int CONTENT_FIELD_NUMBER = 1;
     private com.google.protobuf.ByteString content_;
     /**
+     * <pre>
+     * 上传的playbook压缩包
+     * </pre>
+     *
      * <code>bytes content = 1;</code>
      */
     public com.google.protobuf.ByteString getContent() {
@@ -266,6 +278,10 @@ public final class FileOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * 上传playbook压缩包并且解析入口yml文件的请求体
+     * </pre>
+     *
      * Protobuf type {@code file.UploadPlaybookRequest}
      */
     public static final class Builder extends
@@ -414,12 +430,20 @@ public final class FileOuterClass {
 
       private com.google.protobuf.ByteString content_ = com.google.protobuf.ByteString.EMPTY;
       /**
+       * <pre>
+       * 上传的playbook压缩包
+       * </pre>
+       *
        * <code>bytes content = 1;</code>
        */
       public com.google.protobuf.ByteString getContent() {
         return content_;
       }
       /**
+       * <pre>
+       * 上传的playbook压缩包
+       * </pre>
+       *
        * <code>bytes content = 1;</code>
        */
       public Builder setContent(com.google.protobuf.ByteString value) {
@@ -432,6 +456,10 @@ public final class FileOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 上传的playbook压缩包
+       * </pre>
+       *
        * <code>bytes content = 1;</code>
        */
       public Builder clearContent() {
@@ -498,63 +526,115 @@ public final class FileOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 解析出来的playbook项目存储在对象存储的url
+     * </pre>
+     *
      * <code>string url = 1;</code>
      */
     java.lang.String getUrl();
     /**
+     * <pre>
+     * 解析出来的playbook项目存储在对象存储的url
+     * </pre>
+     *
      * <code>string url = 1;</code>
      */
     com.google.protobuf.ByteString
         getUrlBytes();
 
     /**
+     * <pre>
+     * 解析出来的playbook项目文件md5
+     * </pre>
+     *
      * <code>string md5 = 2;</code>
      */
     java.lang.String getMd5();
     /**
+     * <pre>
+     * 解析出来的playbook项目文件md5
+     * </pre>
+     *
      * <code>string md5 = 2;</code>
      */
     com.google.protobuf.ByteString
         getMd5Bytes();
 
     /**
+     * <pre>
+     * 解析出来的playbook项目文件大小
+     * </pre>
+     *
      * <code>string filesize = 3;</code>
      */
     java.lang.String getFilesize();
     /**
+     * <pre>
+     * 解析出来的playbook项目文件大小
+     * </pre>
+     *
      * <code>string filesize = 3;</code>
      */
     com.google.protobuf.ByteString
         getFilesizeBytes();
 
     /**
+     * <pre>
+     * 解析出来的playbook项目入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 4;</code>
      */
     java.util.List<java.lang.String>
         getEntrypointList();
     /**
+     * <pre>
+     * 解析出来的playbook项目入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 4;</code>
      */
     int getEntrypointCount();
     /**
+     * <pre>
+     * 解析出来的playbook项目入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 4;</code>
      */
     java.lang.String getEntrypoint(int index);
     /**
+     * <pre>
+     * 解析出来的playbook项目入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 4;</code>
      */
     com.google.protobuf.ByteString
         getEntrypointBytes(int index);
 
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 5;</code>
      */
     boolean hasStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 5;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 5;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
@@ -681,6 +761,10 @@ public final class FileOuterClass {
     public static final int URL_FIELD_NUMBER = 1;
     private volatile java.lang.Object url_;
     /**
+     * <pre>
+     * 解析出来的playbook项目存储在对象存储的url
+     * </pre>
+     *
      * <code>string url = 1;</code>
      */
     public java.lang.String getUrl() {
@@ -696,6 +780,10 @@ public final class FileOuterClass {
       }
     }
     /**
+     * <pre>
+     * 解析出来的playbook项目存储在对象存储的url
+     * </pre>
+     *
      * <code>string url = 1;</code>
      */
     public com.google.protobuf.ByteString
@@ -715,6 +803,10 @@ public final class FileOuterClass {
     public static final int MD5_FIELD_NUMBER = 2;
     private volatile java.lang.Object md5_;
     /**
+     * <pre>
+     * 解析出来的playbook项目文件md5
+     * </pre>
+     *
      * <code>string md5 = 2;</code>
      */
     public java.lang.String getMd5() {
@@ -730,6 +822,10 @@ public final class FileOuterClass {
       }
     }
     /**
+     * <pre>
+     * 解析出来的playbook项目文件md5
+     * </pre>
+     *
      * <code>string md5 = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -749,6 +845,10 @@ public final class FileOuterClass {
     public static final int FILESIZE_FIELD_NUMBER = 3;
     private volatile java.lang.Object filesize_;
     /**
+     * <pre>
+     * 解析出来的playbook项目文件大小
+     * </pre>
+     *
      * <code>string filesize = 3;</code>
      */
     public java.lang.String getFilesize() {
@@ -764,6 +864,10 @@ public final class FileOuterClass {
       }
     }
     /**
+     * <pre>
+     * 解析出来的playbook项目文件大小
+     * </pre>
+     *
      * <code>string filesize = 3;</code>
      */
     public com.google.protobuf.ByteString
@@ -783,6 +887,10 @@ public final class FileOuterClass {
     public static final int ENTRYPOINT_FIELD_NUMBER = 4;
     private com.google.protobuf.LazyStringList entrypoint_;
     /**
+     * <pre>
+     * 解析出来的playbook项目入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 4;</code>
      */
     public com.google.protobuf.ProtocolStringList
@@ -790,18 +898,30 @@ public final class FileOuterClass {
       return entrypoint_;
     }
     /**
+     * <pre>
+     * 解析出来的playbook项目入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 4;</code>
      */
     public int getEntrypointCount() {
       return entrypoint_.size();
     }
     /**
+     * <pre>
+     * 解析出来的playbook项目入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 4;</code>
      */
     public java.lang.String getEntrypoint(int index) {
       return entrypoint_.get(index);
     }
     /**
+     * <pre>
+     * 解析出来的playbook项目入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 4;</code>
      */
     public com.google.protobuf.ByteString
@@ -812,18 +932,30 @@ public final class FileOuterClass {
     public static final int STATUS_FIELD_NUMBER = 5;
     private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 5;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 5;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
       return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 5;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -1237,6 +1369,10 @@ public final class FileOuterClass {
 
       private java.lang.Object url_ = "";
       /**
+       * <pre>
+       * 解析出来的playbook项目存储在对象存储的url
+       * </pre>
+       *
        * <code>string url = 1;</code>
        */
       public java.lang.String getUrl() {
@@ -1252,6 +1388,10 @@ public final class FileOuterClass {
         }
       }
       /**
+       * <pre>
+       * 解析出来的playbook项目存储在对象存储的url
+       * </pre>
+       *
        * <code>string url = 1;</code>
        */
       public com.google.protobuf.ByteString
@@ -1268,6 +1408,10 @@ public final class FileOuterClass {
         }
       }
       /**
+       * <pre>
+       * 解析出来的playbook项目存储在对象存储的url
+       * </pre>
+       *
        * <code>string url = 1;</code>
        */
       public Builder setUrl(
@@ -1281,6 +1425,10 @@ public final class FileOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 解析出来的playbook项目存储在对象存储的url
+       * </pre>
+       *
        * <code>string url = 1;</code>
        */
       public Builder clearUrl() {
@@ -1290,6 +1438,10 @@ public final class FileOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 解析出来的playbook项目存储在对象存储的url
+       * </pre>
+       *
        * <code>string url = 1;</code>
        */
       public Builder setUrlBytes(
@@ -1306,6 +1458,10 @@ public final class FileOuterClass {
 
       private java.lang.Object md5_ = "";
       /**
+       * <pre>
+       * 解析出来的playbook项目文件md5
+       * </pre>
+       *
        * <code>string md5 = 2;</code>
        */
       public java.lang.String getMd5() {
@@ -1321,6 +1477,10 @@ public final class FileOuterClass {
         }
       }
       /**
+       * <pre>
+       * 解析出来的playbook项目文件md5
+       * </pre>
+       *
        * <code>string md5 = 2;</code>
        */
       public com.google.protobuf.ByteString
@@ -1337,6 +1497,10 @@ public final class FileOuterClass {
         }
       }
       /**
+       * <pre>
+       * 解析出来的playbook项目文件md5
+       * </pre>
+       *
        * <code>string md5 = 2;</code>
        */
       public Builder setMd5(
@@ -1350,6 +1514,10 @@ public final class FileOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 解析出来的playbook项目文件md5
+       * </pre>
+       *
        * <code>string md5 = 2;</code>
        */
       public Builder clearMd5() {
@@ -1359,6 +1527,10 @@ public final class FileOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 解析出来的playbook项目文件md5
+       * </pre>
+       *
        * <code>string md5 = 2;</code>
        */
       public Builder setMd5Bytes(
@@ -1375,6 +1547,10 @@ public final class FileOuterClass {
 
       private java.lang.Object filesize_ = "";
       /**
+       * <pre>
+       * 解析出来的playbook项目文件大小
+       * </pre>
+       *
        * <code>string filesize = 3;</code>
        */
       public java.lang.String getFilesize() {
@@ -1390,6 +1566,10 @@ public final class FileOuterClass {
         }
       }
       /**
+       * <pre>
+       * 解析出来的playbook项目文件大小
+       * </pre>
+       *
        * <code>string filesize = 3;</code>
        */
       public com.google.protobuf.ByteString
@@ -1406,6 +1586,10 @@ public final class FileOuterClass {
         }
       }
       /**
+       * <pre>
+       * 解析出来的playbook项目文件大小
+       * </pre>
+       *
        * <code>string filesize = 3;</code>
        */
       public Builder setFilesize(
@@ -1419,6 +1603,10 @@ public final class FileOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 解析出来的playbook项目文件大小
+       * </pre>
+       *
        * <code>string filesize = 3;</code>
        */
       public Builder clearFilesize() {
@@ -1428,6 +1616,10 @@ public final class FileOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 解析出来的playbook项目文件大小
+       * </pre>
+       *
        * <code>string filesize = 3;</code>
        */
       public Builder setFilesizeBytes(
@@ -1450,6 +1642,10 @@ public final class FileOuterClass {
          }
       }
       /**
+       * <pre>
+       * 解析出来的playbook项目入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 4;</code>
        */
       public com.google.protobuf.ProtocolStringList
@@ -1457,18 +1653,30 @@ public final class FileOuterClass {
         return entrypoint_.getUnmodifiableView();
       }
       /**
+       * <pre>
+       * 解析出来的playbook项目入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 4;</code>
        */
       public int getEntrypointCount() {
         return entrypoint_.size();
       }
       /**
+       * <pre>
+       * 解析出来的playbook项目入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 4;</code>
        */
       public java.lang.String getEntrypoint(int index) {
         return entrypoint_.get(index);
       }
       /**
+       * <pre>
+       * 解析出来的playbook项目入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 4;</code>
        */
       public com.google.protobuf.ByteString
@@ -1476,6 +1684,10 @@ public final class FileOuterClass {
         return entrypoint_.getByteString(index);
       }
       /**
+       * <pre>
+       * 解析出来的playbook项目入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 4;</code>
        */
       public Builder setEntrypoint(
@@ -1489,6 +1701,10 @@ public final class FileOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 解析出来的playbook项目入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 4;</code>
        */
       public Builder addEntrypoint(
@@ -1502,6 +1718,10 @@ public final class FileOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 解析出来的playbook项目入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 4;</code>
        */
       public Builder addAllEntrypoint(
@@ -1513,6 +1733,10 @@ public final class FileOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 解析出来的playbook项目入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 4;</code>
        */
       public Builder clearEntrypoint() {
@@ -1522,6 +1746,10 @@ public final class FileOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 解析出来的playbook项目入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 4;</code>
        */
       public Builder addEntrypointBytes(
@@ -1540,12 +1768,20 @@ public final class FileOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 5;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 5;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
@@ -1556,6 +1792,10 @@ public final class FileOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 5;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -1572,6 +1812,10 @@ public final class FileOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 5;</code>
        */
       public Builder setStatus(
@@ -1586,6 +1830,10 @@ public final class FileOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 5;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -1604,6 +1852,10 @@ public final class FileOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 5;</code>
        */
       public Builder clearStatus() {
@@ -1618,6 +1870,10 @@ public final class FileOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 5;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
@@ -1626,6 +1882,10 @@ public final class FileOuterClass {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 5;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -1637,6 +1897,10 @@ public final class FileOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<

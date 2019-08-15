@@ -19,13 +19,17 @@ public final class JobOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 作业任务ID
+     * </pre>
+     *
      * <code>int32 job_id = 1;</code>
      */
     int getJobId();
   }
   /**
    * <pre>
-   * 作业实例
+   * 作业任务实例
    * </pre>
    *
    * Protobuf type {@code job.JobObject}
@@ -107,6 +111,10 @@ public final class JobOuterClass {
     public static final int JOB_ID_FIELD_NUMBER = 1;
     private int jobId_;
     /**
+     * <pre>
+     * 作业任务ID
+     * </pre>
+     *
      * <code>int32 job_id = 1;</code>
      */
     public int getJobId() {
@@ -271,7 +279,7 @@ public final class JobOuterClass {
     }
     /**
      * <pre>
-     * 作业实例
+     * 作业任务实例
      * </pre>
      *
      * Protobuf type {@code job.JobObject}
@@ -422,12 +430,20 @@ public final class JobOuterClass {
 
       private int jobId_ ;
       /**
+       * <pre>
+       * 作业任务ID
+       * </pre>
+       *
        * <code>int32 job_id = 1;</code>
        */
       public int getJobId() {
         return jobId_;
       }
       /**
+       * <pre>
+       * 作业任务ID
+       * </pre>
+       *
        * <code>int32 job_id = 1;</code>
        */
       public Builder setJobId(int value) {
@@ -437,6 +453,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 作业任务ID
+       * </pre>
+       *
        * <code>int32 job_id = 1;</code>
        */
       public Builder clearJobId() {
@@ -503,6 +523,10 @@ public final class JobOuterClass {
       com.google.protobuf.MessageOrBuilder {
   }
   /**
+   * <pre>
+   * 创建作业任务(执行作业模板)请求
+   * </pre>
+   *
    * Protobuf type {@code job.CreateRequest}
    */
   public  static final class CreateRequest extends
@@ -718,6 +742,10 @@ public final class JobOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * 创建作业任务(执行作业模板)请求
+     * </pre>
+     *
      * Protobuf type {@code job.CreateRequest}
      */
     public static final class Builder extends
@@ -915,26 +943,42 @@ public final class JobOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 作业任务ID
+     * </pre>
+     *
      * <code>int32 job_id = 1;</code>
      */
     int getJobId();
 
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     boolean hasStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
   }
   /**
    * <pre>
-   * 创建作业请求返回
+   * 创建作业任务请求返回
    * </pre>
    *
    * Protobuf type {@code job.CreateResponse}
@@ -1029,6 +1073,10 @@ public final class JobOuterClass {
     public static final int JOB_ID_FIELD_NUMBER = 1;
     private int jobId_;
     /**
+     * <pre>
+     * 作业任务ID
+     * </pre>
+     *
      * <code>int32 job_id = 1;</code>
      */
     public int getJobId() {
@@ -1038,18 +1086,30 @@ public final class JobOuterClass {
     public static final int STATUS_FIELD_NUMBER = 2;
     private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
       return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -1230,7 +1290,7 @@ public final class JobOuterClass {
     }
     /**
      * <pre>
-     * 创建作业请求返回
+     * 创建作业任务请求返回
      * </pre>
      *
      * Protobuf type {@code job.CreateResponse}
@@ -1395,12 +1455,20 @@ public final class JobOuterClass {
 
       private int jobId_ ;
       /**
+       * <pre>
+       * 作业任务ID
+       * </pre>
+       *
        * <code>int32 job_id = 1;</code>
        */
       public int getJobId() {
         return jobId_;
       }
       /**
+       * <pre>
+       * 作业任务ID
+       * </pre>
+       *
        * <code>int32 job_id = 1;</code>
        */
       public Builder setJobId(int value) {
@@ -1410,6 +1478,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 作业任务ID
+       * </pre>
+       *
        * <code>int32 job_id = 1;</code>
        */
       public Builder clearJobId() {
@@ -1423,12 +1495,20 @@ public final class JobOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
@@ -1439,6 +1519,10 @@ public final class JobOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -1455,6 +1539,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder setStatus(
@@ -1469,6 +1557,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -1487,6 +1579,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder clearStatus() {
@@ -1501,6 +1597,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
@@ -1509,6 +1609,10 @@ public final class JobOuterClass {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -1520,6 +1624,10 @@ public final class JobOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1593,11 +1701,19 @@ public final class JobOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 作业任务ID
+     * </pre>
+     *
      * <code>int32 job_id = 1;</code>
      */
     int getJobId();
   }
   /**
+   * <pre>
+   * 获取作业任务请求
+   * </pre>
+   *
    * Protobuf type {@code job.GetRequest}
    */
   public  static final class GetRequest extends
@@ -1677,6 +1793,10 @@ public final class JobOuterClass {
     public static final int JOB_ID_FIELD_NUMBER = 1;
     private int jobId_;
     /**
+     * <pre>
+     * 作业任务ID
+     * </pre>
+     *
      * <code>int32 job_id = 1;</code>
      */
     public int getJobId() {
@@ -1840,6 +1960,10 @@ public final class JobOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * 获取作业任务请求
+     * </pre>
+     *
      * Protobuf type {@code job.GetRequest}
      */
     public static final class Builder extends
@@ -1988,12 +2112,20 @@ public final class JobOuterClass {
 
       private int jobId_ ;
       /**
+       * <pre>
+       * 作业任务ID
+       * </pre>
+       *
        * <code>int32 job_id = 1;</code>
        */
       public int getJobId() {
         return jobId_;
       }
       /**
+       * <pre>
+       * 作业任务ID
+       * </pre>
+       *
        * <code>int32 job_id = 1;</code>
        */
       public Builder setJobId(int value) {
@@ -2003,6 +2135,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 作业任务ID
+       * </pre>
+       *
        * <code>int32 job_id = 1;</code>
        */
       public Builder clearJobId() {
@@ -2069,34 +2205,58 @@ public final class JobOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 获取的作业任务实例
+     * </pre>
+     *
      * <code>.job.JobObject job = 1;</code>
      */
     boolean hasJob();
     /**
+     * <pre>
+     * 获取的作业任务实例
+     * </pre>
+     *
      * <code>.job.JobObject job = 1;</code>
      */
     top.fogcdn.axe.protos.job.JobOuterClass.JobObject getJob();
     /**
+     * <pre>
+     * 获取的作业任务实例
+     * </pre>
+     *
      * <code>.job.JobObject job = 1;</code>
      */
     top.fogcdn.axe.protos.job.JobOuterClass.JobObjectOrBuilder getJobOrBuilder();
 
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     boolean hasStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
   }
   /**
    * <pre>
-   * 获取作业请求返回
+   * 获取作业任务请求返回
    * </pre>
    *
    * Protobuf type {@code job.GetResponse}
@@ -2198,18 +2358,30 @@ public final class JobOuterClass {
     public static final int JOB_FIELD_NUMBER = 1;
     private top.fogcdn.axe.protos.job.JobOuterClass.JobObject job_;
     /**
+     * <pre>
+     * 获取的作业任务实例
+     * </pre>
+     *
      * <code>.job.JobObject job = 1;</code>
      */
     public boolean hasJob() {
       return job_ != null;
     }
     /**
+     * <pre>
+     * 获取的作业任务实例
+     * </pre>
+     *
      * <code>.job.JobObject job = 1;</code>
      */
     public top.fogcdn.axe.protos.job.JobOuterClass.JobObject getJob() {
       return job_ == null ? top.fogcdn.axe.protos.job.JobOuterClass.JobObject.getDefaultInstance() : job_;
     }
     /**
+     * <pre>
+     * 获取的作业任务实例
+     * </pre>
+     *
      * <code>.job.JobObject job = 1;</code>
      */
     public top.fogcdn.axe.protos.job.JobOuterClass.JobObjectOrBuilder getJobOrBuilder() {
@@ -2219,18 +2391,30 @@ public final class JobOuterClass {
     public static final int STATUS_FIELD_NUMBER = 2;
     private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
       return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -2416,7 +2600,7 @@ public final class JobOuterClass {
     }
     /**
      * <pre>
-     * 获取作业请求返回
+     * 获取作业任务请求返回
      * </pre>
      *
      * Protobuf type {@code job.GetResponse}
@@ -2591,12 +2775,20 @@ public final class JobOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.job.JobOuterClass.JobObject, top.fogcdn.axe.protos.job.JobOuterClass.JobObject.Builder, top.fogcdn.axe.protos.job.JobOuterClass.JobObjectOrBuilder> jobBuilder_;
       /**
+       * <pre>
+       * 获取的作业任务实例
+       * </pre>
+       *
        * <code>.job.JobObject job = 1;</code>
        */
       public boolean hasJob() {
         return jobBuilder_ != null || job_ != null;
       }
       /**
+       * <pre>
+       * 获取的作业任务实例
+       * </pre>
+       *
        * <code>.job.JobObject job = 1;</code>
        */
       public top.fogcdn.axe.protos.job.JobOuterClass.JobObject getJob() {
@@ -2607,6 +2799,10 @@ public final class JobOuterClass {
         }
       }
       /**
+       * <pre>
+       * 获取的作业任务实例
+       * </pre>
+       *
        * <code>.job.JobObject job = 1;</code>
        */
       public Builder setJob(top.fogcdn.axe.protos.job.JobOuterClass.JobObject value) {
@@ -2623,6 +2819,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 获取的作业任务实例
+       * </pre>
+       *
        * <code>.job.JobObject job = 1;</code>
        */
       public Builder setJob(
@@ -2637,6 +2837,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 获取的作业任务实例
+       * </pre>
+       *
        * <code>.job.JobObject job = 1;</code>
        */
       public Builder mergeJob(top.fogcdn.axe.protos.job.JobOuterClass.JobObject value) {
@@ -2655,6 +2859,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 获取的作业任务实例
+       * </pre>
+       *
        * <code>.job.JobObject job = 1;</code>
        */
       public Builder clearJob() {
@@ -2669,6 +2877,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 获取的作业任务实例
+       * </pre>
+       *
        * <code>.job.JobObject job = 1;</code>
        */
       public top.fogcdn.axe.protos.job.JobOuterClass.JobObject.Builder getJobBuilder() {
@@ -2677,6 +2889,10 @@ public final class JobOuterClass {
         return getJobFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 获取的作业任务实例
+       * </pre>
+       *
        * <code>.job.JobObject job = 1;</code>
        */
       public top.fogcdn.axe.protos.job.JobOuterClass.JobObjectOrBuilder getJobOrBuilder() {
@@ -2688,6 +2904,10 @@ public final class JobOuterClass {
         }
       }
       /**
+       * <pre>
+       * 获取的作业任务实例
+       * </pre>
+       *
        * <code>.job.JobObject job = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -2708,12 +2928,20 @@ public final class JobOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
@@ -2724,6 +2952,10 @@ public final class JobOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -2740,6 +2972,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder setStatus(
@@ -2754,6 +2990,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -2772,6 +3012,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder clearStatus() {
@@ -2786,6 +3030,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
@@ -2794,6 +3042,10 @@ public final class JobOuterClass {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -2805,6 +3057,10 @@ public final class JobOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -2878,11 +3134,19 @@ public final class JobOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 作业任务ID
+     * </pre>
+     *
      * <code>int32 job_id = 1;</code>
      */
     int getJobId();
   }
   /**
+   * <pre>
+   * 获取作业任务详细执行过程请求
+   * </pre>
+   *
    * Protobuf type {@code job.GetLogRequest}
    */
   public  static final class GetLogRequest extends
@@ -2962,6 +3226,10 @@ public final class JobOuterClass {
     public static final int JOB_ID_FIELD_NUMBER = 1;
     private int jobId_;
     /**
+     * <pre>
+     * 作业任务ID
+     * </pre>
+     *
      * <code>int32 job_id = 1;</code>
      */
     public int getJobId() {
@@ -3125,6 +3393,10 @@ public final class JobOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * 获取作业任务详细执行过程请求
+     * </pre>
+     *
      * Protobuf type {@code job.GetLogRequest}
      */
     public static final class Builder extends
@@ -3273,12 +3545,20 @@ public final class JobOuterClass {
 
       private int jobId_ ;
       /**
+       * <pre>
+       * 作业任务ID
+       * </pre>
+       *
        * <code>int32 job_id = 1;</code>
        */
       public int getJobId() {
         return jobId_;
       }
       /**
+       * <pre>
+       * 作业任务ID
+       * </pre>
+       *
        * <code>int32 job_id = 1;</code>
        */
       public Builder setJobId(int value) {
@@ -3288,6 +3568,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 作业任务ID
+       * </pre>
+       *
        * <code>int32 job_id = 1;</code>
        */
       public Builder clearJobId() {
@@ -3354,21 +3638,33 @@ public final class JobOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     boolean hasStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
   }
   /**
    * <pre>
-   * 获取作业请求返回
+   * 获取作业任务详细执行过程请求返回
    * </pre>
    *
    * Protobuf type {@code job.GetLogResponse}
@@ -3457,18 +3753,30 @@ public final class JobOuterClass {
     public static final int STATUS_FIELD_NUMBER = 2;
     private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
       return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -3638,7 +3946,7 @@ public final class JobOuterClass {
     }
     /**
      * <pre>
-     * 获取作业请求返回
+     * 获取作业任务详细执行过程请求返回
      * </pre>
      *
      * Protobuf type {@code job.GetLogResponse}
@@ -3799,12 +4107,20 @@ public final class JobOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
@@ -3815,6 +4131,10 @@ public final class JobOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -3831,6 +4151,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder setStatus(
@@ -3845,6 +4169,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -3863,6 +4191,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder clearStatus() {
@@ -3877,6 +4209,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
@@ -3885,6 +4221,10 @@ public final class JobOuterClass {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -3896,6 +4236,10 @@ public final class JobOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -3969,21 +4313,33 @@ public final class JobOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     boolean hasPaging();
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     top.fogcdn.axe.protos.common.Api.Paging getPaging();
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder();
   }
   /**
    * <pre>
-   * 筛选作业请求
+   * 筛选获取作业任务请求
    * </pre>
    *
    * Protobuf type {@code job.FilterRequest}
@@ -4072,18 +4428,30 @@ public final class JobOuterClass {
     public static final int PAGING_FIELD_NUMBER = 1;
     private top.fogcdn.axe.protos.common.Api.Paging paging_;
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     public boolean hasPaging() {
       return paging_ != null;
     }
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     public top.fogcdn.axe.protos.common.Api.Paging getPaging() {
       return paging_ == null ? top.fogcdn.axe.protos.common.Api.Paging.getDefaultInstance() : paging_;
     }
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     public top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder() {
@@ -4253,7 +4621,7 @@ public final class JobOuterClass {
     }
     /**
      * <pre>
-     * 筛选作业请求
+     * 筛选获取作业任务请求
      * </pre>
      *
      * Protobuf type {@code job.FilterRequest}
@@ -4414,12 +4782,20 @@ public final class JobOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder> pagingBuilder_;
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public boolean hasPaging() {
         return pagingBuilder_ != null || paging_ != null;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public top.fogcdn.axe.protos.common.Api.Paging getPaging() {
@@ -4430,6 +4806,10 @@ public final class JobOuterClass {
         }
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public Builder setPaging(top.fogcdn.axe.protos.common.Api.Paging value) {
@@ -4446,6 +4826,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public Builder setPaging(
@@ -4460,6 +4844,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public Builder mergePaging(top.fogcdn.axe.protos.common.Api.Paging value) {
@@ -4478,6 +4866,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public Builder clearPaging() {
@@ -4492,6 +4884,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public top.fogcdn.axe.protos.common.Api.Paging.Builder getPagingBuilder() {
@@ -4500,6 +4896,10 @@ public final class JobOuterClass {
         return getPagingFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder() {
@@ -4511,6 +4911,10 @@ public final class JobOuterClass {
         }
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -4584,58 +4988,102 @@ public final class JobOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 筛选到的多个作业任务实例
+     * </pre>
+     *
      * <code>repeated .job.JobObject jobs = 1;</code>
      */
     java.util.List<top.fogcdn.axe.protos.job.JobOuterClass.JobObject> 
         getJobsList();
     /**
+     * <pre>
+     * 筛选到的多个作业任务实例
+     * </pre>
+     *
      * <code>repeated .job.JobObject jobs = 1;</code>
      */
     top.fogcdn.axe.protos.job.JobOuterClass.JobObject getJobs(int index);
     /**
+     * <pre>
+     * 筛选到的多个作业任务实例
+     * </pre>
+     *
      * <code>repeated .job.JobObject jobs = 1;</code>
      */
     int getJobsCount();
     /**
+     * <pre>
+     * 筛选到的多个作业任务实例
+     * </pre>
+     *
      * <code>repeated .job.JobObject jobs = 1;</code>
      */
     java.util.List<? extends top.fogcdn.axe.protos.job.JobOuterClass.JobObjectOrBuilder> 
         getJobsOrBuilderList();
     /**
+     * <pre>
+     * 筛选到的多个作业任务实例
+     * </pre>
+     *
      * <code>repeated .job.JobObject jobs = 1;</code>
      */
     top.fogcdn.axe.protos.job.JobOuterClass.JobObjectOrBuilder getJobsOrBuilder(
         int index);
 
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     boolean hasPaging();
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.Paging getPaging();
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder();
 
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     boolean hasStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
   }
   /**
    * <pre>
-   * 筛选作业请求返回
+   * 筛选作业任务请求返回
    * </pre>
    *
    * Protobuf type {@code job.FilterResponse}
@@ -4751,12 +5199,20 @@ public final class JobOuterClass {
     public static final int JOBS_FIELD_NUMBER = 1;
     private java.util.List<top.fogcdn.axe.protos.job.JobOuterClass.JobObject> jobs_;
     /**
+     * <pre>
+     * 筛选到的多个作业任务实例
+     * </pre>
+     *
      * <code>repeated .job.JobObject jobs = 1;</code>
      */
     public java.util.List<top.fogcdn.axe.protos.job.JobOuterClass.JobObject> getJobsList() {
       return jobs_;
     }
     /**
+     * <pre>
+     * 筛选到的多个作业任务实例
+     * </pre>
+     *
      * <code>repeated .job.JobObject jobs = 1;</code>
      */
     public java.util.List<? extends top.fogcdn.axe.protos.job.JobOuterClass.JobObjectOrBuilder> 
@@ -4764,18 +5220,30 @@ public final class JobOuterClass {
       return jobs_;
     }
     /**
+     * <pre>
+     * 筛选到的多个作业任务实例
+     * </pre>
+     *
      * <code>repeated .job.JobObject jobs = 1;</code>
      */
     public int getJobsCount() {
       return jobs_.size();
     }
     /**
+     * <pre>
+     * 筛选到的多个作业任务实例
+     * </pre>
+     *
      * <code>repeated .job.JobObject jobs = 1;</code>
      */
     public top.fogcdn.axe.protos.job.JobOuterClass.JobObject getJobs(int index) {
       return jobs_.get(index);
     }
     /**
+     * <pre>
+     * 筛选到的多个作业任务实例
+     * </pre>
+     *
      * <code>repeated .job.JobObject jobs = 1;</code>
      */
     public top.fogcdn.axe.protos.job.JobOuterClass.JobObjectOrBuilder getJobsOrBuilder(
@@ -4786,18 +5254,30 @@ public final class JobOuterClass {
     public static final int PAGING_FIELD_NUMBER = 2;
     private top.fogcdn.axe.protos.common.Api.Paging paging_;
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     public boolean hasPaging() {
       return paging_ != null;
     }
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.Paging getPaging() {
       return paging_ == null ? top.fogcdn.axe.protos.common.Api.Paging.getDefaultInstance() : paging_;
     }
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder() {
@@ -4807,18 +5287,30 @@ public final class JobOuterClass {
     public static final int STATUS_FIELD_NUMBER = 3;
     private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
       return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -5017,7 +5509,7 @@ public final class JobOuterClass {
     }
     /**
      * <pre>
-     * 筛选作业请求返回
+     * 筛选作业任务请求返回
      * </pre>
      *
      * Protobuf type {@code job.FilterResponse}
@@ -5247,6 +5739,10 @@ public final class JobOuterClass {
           top.fogcdn.axe.protos.job.JobOuterClass.JobObject, top.fogcdn.axe.protos.job.JobOuterClass.JobObject.Builder, top.fogcdn.axe.protos.job.JobOuterClass.JobObjectOrBuilder> jobsBuilder_;
 
       /**
+       * <pre>
+       * 筛选到的多个作业任务实例
+       * </pre>
+       *
        * <code>repeated .job.JobObject jobs = 1;</code>
        */
       public java.util.List<top.fogcdn.axe.protos.job.JobOuterClass.JobObject> getJobsList() {
@@ -5257,6 +5753,10 @@ public final class JobOuterClass {
         }
       }
       /**
+       * <pre>
+       * 筛选到的多个作业任务实例
+       * </pre>
+       *
        * <code>repeated .job.JobObject jobs = 1;</code>
        */
       public int getJobsCount() {
@@ -5267,6 +5767,10 @@ public final class JobOuterClass {
         }
       }
       /**
+       * <pre>
+       * 筛选到的多个作业任务实例
+       * </pre>
+       *
        * <code>repeated .job.JobObject jobs = 1;</code>
        */
       public top.fogcdn.axe.protos.job.JobOuterClass.JobObject getJobs(int index) {
@@ -5277,6 +5781,10 @@ public final class JobOuterClass {
         }
       }
       /**
+       * <pre>
+       * 筛选到的多个作业任务实例
+       * </pre>
+       *
        * <code>repeated .job.JobObject jobs = 1;</code>
        */
       public Builder setJobs(
@@ -5294,6 +5802,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 筛选到的多个作业任务实例
+       * </pre>
+       *
        * <code>repeated .job.JobObject jobs = 1;</code>
        */
       public Builder setJobs(
@@ -5308,6 +5820,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 筛选到的多个作业任务实例
+       * </pre>
+       *
        * <code>repeated .job.JobObject jobs = 1;</code>
        */
       public Builder addJobs(top.fogcdn.axe.protos.job.JobOuterClass.JobObject value) {
@@ -5324,6 +5840,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 筛选到的多个作业任务实例
+       * </pre>
+       *
        * <code>repeated .job.JobObject jobs = 1;</code>
        */
       public Builder addJobs(
@@ -5341,6 +5861,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 筛选到的多个作业任务实例
+       * </pre>
+       *
        * <code>repeated .job.JobObject jobs = 1;</code>
        */
       public Builder addJobs(
@@ -5355,6 +5879,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 筛选到的多个作业任务实例
+       * </pre>
+       *
        * <code>repeated .job.JobObject jobs = 1;</code>
        */
       public Builder addJobs(
@@ -5369,6 +5897,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 筛选到的多个作业任务实例
+       * </pre>
+       *
        * <code>repeated .job.JobObject jobs = 1;</code>
        */
       public Builder addAllJobs(
@@ -5384,6 +5916,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 筛选到的多个作业任务实例
+       * </pre>
+       *
        * <code>repeated .job.JobObject jobs = 1;</code>
        */
       public Builder clearJobs() {
@@ -5397,6 +5933,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 筛选到的多个作业任务实例
+       * </pre>
+       *
        * <code>repeated .job.JobObject jobs = 1;</code>
        */
       public Builder removeJobs(int index) {
@@ -5410,6 +5950,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 筛选到的多个作业任务实例
+       * </pre>
+       *
        * <code>repeated .job.JobObject jobs = 1;</code>
        */
       public top.fogcdn.axe.protos.job.JobOuterClass.JobObject.Builder getJobsBuilder(
@@ -5417,6 +5961,10 @@ public final class JobOuterClass {
         return getJobsFieldBuilder().getBuilder(index);
       }
       /**
+       * <pre>
+       * 筛选到的多个作业任务实例
+       * </pre>
+       *
        * <code>repeated .job.JobObject jobs = 1;</code>
        */
       public top.fogcdn.axe.protos.job.JobOuterClass.JobObjectOrBuilder getJobsOrBuilder(
@@ -5427,6 +5975,10 @@ public final class JobOuterClass {
         }
       }
       /**
+       * <pre>
+       * 筛选到的多个作业任务实例
+       * </pre>
+       *
        * <code>repeated .job.JobObject jobs = 1;</code>
        */
       public java.util.List<? extends top.fogcdn.axe.protos.job.JobOuterClass.JobObjectOrBuilder> 
@@ -5438,6 +5990,10 @@ public final class JobOuterClass {
         }
       }
       /**
+       * <pre>
+       * 筛选到的多个作业任务实例
+       * </pre>
+       *
        * <code>repeated .job.JobObject jobs = 1;</code>
        */
       public top.fogcdn.axe.protos.job.JobOuterClass.JobObject.Builder addJobsBuilder() {
@@ -5445,6 +6001,10 @@ public final class JobOuterClass {
             top.fogcdn.axe.protos.job.JobOuterClass.JobObject.getDefaultInstance());
       }
       /**
+       * <pre>
+       * 筛选到的多个作业任务实例
+       * </pre>
+       *
        * <code>repeated .job.JobObject jobs = 1;</code>
        */
       public top.fogcdn.axe.protos.job.JobOuterClass.JobObject.Builder addJobsBuilder(
@@ -5453,6 +6013,10 @@ public final class JobOuterClass {
             index, top.fogcdn.axe.protos.job.JobOuterClass.JobObject.getDefaultInstance());
       }
       /**
+       * <pre>
+       * 筛选到的多个作业任务实例
+       * </pre>
+       *
        * <code>repeated .job.JobObject jobs = 1;</code>
        */
       public java.util.List<top.fogcdn.axe.protos.job.JobOuterClass.JobObject.Builder> 
@@ -5478,12 +6042,20 @@ public final class JobOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder> pagingBuilder_;
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public boolean hasPaging() {
         return pagingBuilder_ != null || paging_ != null;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.Paging getPaging() {
@@ -5494,6 +6066,10 @@ public final class JobOuterClass {
         }
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public Builder setPaging(top.fogcdn.axe.protos.common.Api.Paging value) {
@@ -5510,6 +6086,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public Builder setPaging(
@@ -5524,6 +6104,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public Builder mergePaging(top.fogcdn.axe.protos.common.Api.Paging value) {
@@ -5542,6 +6126,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public Builder clearPaging() {
@@ -5556,6 +6144,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.Paging.Builder getPagingBuilder() {
@@ -5564,6 +6156,10 @@ public final class JobOuterClass {
         return getPagingFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder() {
@@ -5575,6 +6171,10 @@ public final class JobOuterClass {
         }
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -5595,12 +6195,20 @@ public final class JobOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
@@ -5611,6 +6219,10 @@ public final class JobOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -5627,6 +6239,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder setStatus(
@@ -5641,6 +6257,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -5659,6 +6279,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder clearStatus() {
@@ -5673,6 +6297,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
@@ -5681,6 +6309,10 @@ public final class JobOuterClass {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -5692,6 +6324,10 @@ public final class JobOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -5765,11 +6401,19 @@ public final class JobOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 作业任务ID
+     * </pre>
+     *
      * <code>int32 job_id = 1;</code>
      */
     int getJobId();
   }
   /**
+   * <pre>
+   * 创建定时作业任务请求
+   * </pre>
+   *
    * Protobuf type {@code job.ScheduleRequest}
    */
   public  static final class ScheduleRequest extends
@@ -5849,6 +6493,10 @@ public final class JobOuterClass {
     public static final int JOB_ID_FIELD_NUMBER = 1;
     private int jobId_;
     /**
+     * <pre>
+     * 作业任务ID
+     * </pre>
+     *
      * <code>int32 job_id = 1;</code>
      */
     public int getJobId() {
@@ -6012,6 +6660,10 @@ public final class JobOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * 创建定时作业任务请求
+     * </pre>
+     *
      * Protobuf type {@code job.ScheduleRequest}
      */
     public static final class Builder extends
@@ -6160,12 +6812,20 @@ public final class JobOuterClass {
 
       private int jobId_ ;
       /**
+       * <pre>
+       * 作业任务ID
+       * </pre>
+       *
        * <code>int32 job_id = 1;</code>
        */
       public int getJobId() {
         return jobId_;
       }
       /**
+       * <pre>
+       * 作业任务ID
+       * </pre>
+       *
        * <code>int32 job_id = 1;</code>
        */
       public Builder setJobId(int value) {
@@ -6175,6 +6835,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 作业任务ID
+       * </pre>
+       *
        * <code>int32 job_id = 1;</code>
        */
       public Builder clearJobId() {
@@ -6241,6 +6905,10 @@ public final class JobOuterClass {
       com.google.protobuf.MessageOrBuilder {
   }
   /**
+   * <pre>
+   * 创建定时作业任务请求返回
+   * </pre>
+   *
    * Protobuf type {@code job.ScheduleResponse}
    */
   public  static final class ScheduleResponse extends
@@ -6456,6 +7124,10 @@ public final class JobOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * 创建定时作业任务请求返回
+     * </pre>
+     *
      * Protobuf type {@code job.ScheduleResponse}
      */
     public static final class Builder extends
@@ -6653,11 +7325,19 @@ public final class JobOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 作业任务ID
+     * </pre>
+     *
      * <code>int32 job_id = 1;</code>
      */
     int getJobId();
   }
   /**
+   * <pre>
+   * 查看定时作业任务请求
+   * </pre>
+   *
    * Protobuf type {@code job.ScheduleListRequest}
    */
   public  static final class ScheduleListRequest extends
@@ -6737,6 +7417,10 @@ public final class JobOuterClass {
     public static final int JOB_ID_FIELD_NUMBER = 1;
     private int jobId_;
     /**
+     * <pre>
+     * 作业任务ID
+     * </pre>
+     *
      * <code>int32 job_id = 1;</code>
      */
     public int getJobId() {
@@ -6900,6 +7584,10 @@ public final class JobOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * 查看定时作业任务请求
+     * </pre>
+     *
      * Protobuf type {@code job.ScheduleListRequest}
      */
     public static final class Builder extends
@@ -7048,12 +7736,20 @@ public final class JobOuterClass {
 
       private int jobId_ ;
       /**
+       * <pre>
+       * 作业任务ID
+       * </pre>
+       *
        * <code>int32 job_id = 1;</code>
        */
       public int getJobId() {
         return jobId_;
       }
       /**
+       * <pre>
+       * 作业任务ID
+       * </pre>
+       *
        * <code>int32 job_id = 1;</code>
        */
       public Builder setJobId(int value) {
@@ -7063,6 +7759,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 作业任务ID
+       * </pre>
+       *
        * <code>int32 job_id = 1;</code>
        */
       public Builder clearJobId() {
@@ -7129,6 +7829,10 @@ public final class JobOuterClass {
       com.google.protobuf.MessageOrBuilder {
   }
   /**
+   * <pre>
+   * 查看定时作业任务请求返回
+   * </pre>
+   *
    * Protobuf type {@code job.ScheduleListResponse}
    */
   public  static final class ScheduleListResponse extends
@@ -7344,6 +8048,10 @@ public final class JobOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * 查看定时作业任务请求返回
+     * </pre>
+     *
      * Protobuf type {@code job.ScheduleListResponse}
      */
     public static final class Builder extends
@@ -7541,11 +8249,19 @@ public final class JobOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 作业任务ID
+     * </pre>
+     *
      * <code>int32 job_id = 1;</code>
      */
     int getJobId();
   }
   /**
+   * <pre>
+   * 删除作业任务请求
+   * </pre>
+   *
    * Protobuf type {@code job.DeleteRequest}
    */
   public  static final class DeleteRequest extends
@@ -7625,6 +8341,10 @@ public final class JobOuterClass {
     public static final int JOB_ID_FIELD_NUMBER = 1;
     private int jobId_;
     /**
+     * <pre>
+     * 作业任务ID
+     * </pre>
+     *
      * <code>int32 job_id = 1;</code>
      */
     public int getJobId() {
@@ -7788,6 +8508,10 @@ public final class JobOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * 删除作业任务请求
+     * </pre>
+     *
      * Protobuf type {@code job.DeleteRequest}
      */
     public static final class Builder extends
@@ -7936,12 +8660,20 @@ public final class JobOuterClass {
 
       private int jobId_ ;
       /**
+       * <pre>
+       * 作业任务ID
+       * </pre>
+       *
        * <code>int32 job_id = 1;</code>
        */
       public int getJobId() {
         return jobId_;
       }
       /**
+       * <pre>
+       * 作业任务ID
+       * </pre>
+       *
        * <code>int32 job_id = 1;</code>
        */
       public Builder setJobId(int value) {
@@ -7951,6 +8683,10 @@ public final class JobOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 作业任务ID
+       * </pre>
+       *
        * <code>int32 job_id = 1;</code>
        */
       public Builder clearJobId() {
@@ -8017,6 +8753,10 @@ public final class JobOuterClass {
       com.google.protobuf.MessageOrBuilder {
   }
   /**
+   * <pre>
+   * 删除作业任务请求返回
+   * </pre>
+   *
    * Protobuf type {@code job.DeleteResponse}
    */
   public  static final class DeleteResponse extends
@@ -8232,6 +8972,10 @@ public final class JobOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * 删除作业任务请求返回
+     * </pre>
+     *
      * Protobuf type {@code job.DeleteResponse}
      */
     public static final class Builder extends

@@ -89,12 +89,14 @@
           },
           {
             "name": "schedule_name",
+            "description": "用于筛选的定时任务名字的关键字.",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "template_id",
+            "description": "模板ID.",
             "in": "query",
             "required": false,
             "type": "integer",
@@ -121,6 +123,7 @@
         "parameters": [
           {
             "name": "schedule_id",
+            "description": "定时任务ID",
             "in": "path",
             "required": true,
             "type": "integer",
@@ -147,6 +150,7 @@
         "parameters": [
           {
             "name": "schedule_id",
+            "description": "定时任务ID",
             "in": "path",
             "required": true,
             "type": "integer",
@@ -173,6 +177,7 @@
         "parameters": [
           {
             "name": "schedule_id",
+            "description": "定时任务ID",
             "in": "path",
             "required": true,
             "type": "integer",
@@ -250,41 +255,52 @@
       "properties": {
         "playbook_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "playbook项目ID"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目名称"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目描述"
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook存储在对象存储的url"
         },
         "url_type": {
-          "$ref": "#/definitions/playbookUrlType"
+          "$ref": "#/definitions/playbookUrlType",
+          "title": "枚举类型 1-文件下载 2-git下载"
         },
         "version": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook文件的版本号"
         },
         "entrypoint": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "title": "playbook入口yml文件，有多个"
         },
         "md5": {
-          "type": "string"
+          "type": "string",
+          "title": "文件md5"
         },
         "size": {
           "type": "string",
-          "format": "int64"
+          "format": "int64",
+          "title": "文件大小"
         },
         "created": {
-          "type": "string"
+          "type": "string",
+          "title": "创建时间"
         },
         "updated": {
-          "type": "string"
+          "type": "string",
+          "title": "更新时间"
         }
       },
       "title": "项目实例"
@@ -296,41 +312,52 @@
         "FILE",
         "GIT"
       ],
-      "default": "UNDEFINED"
+      "default": "UNDEFINED",
+      "description": "- UNDEFINED: 未定义\n - FILE: 文件下载\n - GIT: git下载",
+      "title": "枚举URL类型"
     },
     "scheduleCreateRequest": {
       "type": "object",
       "properties": {
         "template_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "模板ID"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务名"
         },
         "start_time": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务开始时间"
         },
         "end_time": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务结束时间"
         },
         "cron_expression": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务表达式"
         }
-      }
+      },
+      "title": "创建定时任务请求"
     },
     "scheduleCreateResponse": {
       "type": "object",
       "properties": {
         "schedule_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "定时任务ID"
         },
         "created": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务创建时间"
         },
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回请求状态"
         }
       },
       "title": "创建定时任务请求返回"
@@ -342,13 +369,16 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/scheduleScheduleObject"
-          }
+          },
+          "title": "筛选到的多个定时任务实例"
         },
         "paging": {
-          "$ref": "#/definitions/commonPaging"
+          "$ref": "#/definitions/commonPaging",
+          "title": "分页信息"
         },
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
         }
       },
       "title": "筛选定时任务请求返回"
@@ -357,10 +387,12 @@
       "type": "object",
       "properties": {
         "schedule": {
-          "$ref": "#/definitions/scheduleScheduleObject"
+          "$ref": "#/definitions/scheduleScheduleObject",
+          "title": "定时任务实例"
         },
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
         }
       },
       "title": "获取定时任务请求返回"
@@ -370,25 +402,32 @@
       "properties": {
         "schedule_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "定时任务ID"
         },
         "template": {
-          "$ref": "#/definitions/templateTemplateObject"
+          "$ref": "#/definitions/templateTemplateObject",
+          "title": "模板实例"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务名"
         },
         "start_time": {
-          "type": "string"
+          "type": "string",
+          "title": "开始日期"
         },
         "end_time": {
-          "type": "string"
+          "type": "string",
+          "title": "开始时间"
         },
         "cron_expression": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务表达式"
         },
         "status": {
-          "$ref": "#/definitions/scheduleScheduleStatus"
+          "$ref": "#/definitions/scheduleScheduleStatus",
+          "title": "任务状态"
         }
       },
       "title": "定时任务实例"
@@ -399,78 +438,98 @@
         "OFF",
         "ON"
       ],
-      "default": "OFF"
+      "default": "OFF",
+      "title": "任务状态"
     },
     "scheduleSwitchStatusResponse": {
       "type": "object",
       "properties": {
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
         }
-      }
+      },
+      "title": "切换定时任务状态请求返回"
     },
     "scheduleUpdateRequest": {
       "type": "object",
       "properties": {
         "schedule_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "定时任务ID"
         },
         "template_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "模板ID"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务名字"
         },
         "start_time": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务开启时间"
         },
         "end_time": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务结束时间"
         },
         "cron_expression": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务表达式"
         }
-      }
+      },
+      "title": "更新定时任务请求"
     },
     "scheduleUpdateResponse": {
       "type": "object",
       "properties": {
         "updated": {
-          "type": "string"
+          "type": "string",
+          "title": "定时任务更新时间"
         },
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
         }
-      }
+      },
+      "title": "更新请求返回"
     },
     "templateTemplateObject": {
       "type": "object",
       "properties": {
         "template_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "模板ID"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "模板名"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "title": "模板描述"
         },
         "playbook": {
-          "$ref": "#/definitions/playbookProjectObject"
+          "$ref": "#/definitions/playbookProjectObject",
+          "title": "playbook 项目"
         },
         "playbook_file_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "选择的playbook项目对应的playbook_file"
         },
         "playbook_entrypoint_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "选择的playbook入口yml文件"
         },
         "extra_var": {
-          "type": "string"
+          "type": "string",
+          "title": "额外变量"
         }
       },
       "title": "模板实例"

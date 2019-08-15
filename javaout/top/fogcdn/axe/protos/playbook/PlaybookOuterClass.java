@@ -15,17 +15,25 @@ public final class PlaybookOuterClass {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   /**
+   * <pre>
+   * 枚举URL类型
+   * </pre>
+   *
    * Protobuf enum {@code playbook.UrlType}
    */
   public enum UrlType
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
+     * <pre>
+     * 未定义
+     * </pre>
+     *
      * <code>UNDEFINED = 0;</code>
      */
     UNDEFINED(0),
     /**
      * <pre>
-     *文件下载
+     * 文件下载
      * </pre>
      *
      * <code>FILE = 1;</code>
@@ -33,7 +41,7 @@ public final class PlaybookOuterClass {
     FILE(1),
     /**
      * <pre>
-     *git下载
+     * git下载
      * </pre>
      *
      * <code>GIT = 2;</code>
@@ -43,12 +51,16 @@ public final class PlaybookOuterClass {
     ;
 
     /**
+     * <pre>
+     * 未定义
+     * </pre>
+     *
      * <code>UNDEFINED = 0;</code>
      */
     public static final int UNDEFINED_VALUE = 0;
     /**
      * <pre>
-     *文件下载
+     * 文件下载
      * </pre>
      *
      * <code>FILE = 1;</code>
@@ -56,7 +68,7 @@ public final class PlaybookOuterClass {
     public static final int FILE_VALUE = 1;
     /**
      * <pre>
-     *git下载
+     * git下载
      * </pre>
      *
      * <code>GIT = 2;</code>
@@ -143,7 +155,7 @@ public final class PlaybookOuterClass {
 
     /**
      * <pre>
-     *playbook项目ID
+     * playbook项目ID
      * </pre>
      *
      * <code>int32 playbook_id = 1;</code>
@@ -152,7 +164,7 @@ public final class PlaybookOuterClass {
 
     /**
      * <pre>
-     *playbook项目名称
+     * playbook项目名称
      * </pre>
      *
      * <code>string name = 2;</code>
@@ -160,7 +172,7 @@ public final class PlaybookOuterClass {
     java.lang.String getName();
     /**
      * <pre>
-     *playbook项目名称
+     * playbook项目名称
      * </pre>
      *
      * <code>string name = 2;</code>
@@ -170,7 +182,7 @@ public final class PlaybookOuterClass {
 
     /**
      * <pre>
-     *playbook项目描述
+     * playbook项目描述
      * </pre>
      *
      * <code>string description = 3;</code>
@@ -178,7 +190,7 @@ public final class PlaybookOuterClass {
     java.lang.String getDescription();
     /**
      * <pre>
-     *playbook项目描述
+     * playbook项目描述
      * </pre>
      *
      * <code>string description = 3;</code>
@@ -188,7 +200,7 @@ public final class PlaybookOuterClass {
 
     /**
      * <pre>
-     *playbook存储在对象存储的url
+     * playbook存储在对象存储的url
      * </pre>
      *
      * <code>string url = 4;</code>
@@ -196,7 +208,7 @@ public final class PlaybookOuterClass {
     java.lang.String getUrl();
     /**
      * <pre>
-     *playbook存储在对象存储的url
+     * playbook存储在对象存储的url
      * </pre>
      *
      * <code>string url = 4;</code>
@@ -206,7 +218,7 @@ public final class PlaybookOuterClass {
 
     /**
      * <pre>
-     *枚举类型 1-文件下载 2-git下载
+     * 枚举类型 1-文件下载 2-git下载
      * </pre>
      *
      * <code>.playbook.UrlType url_type = 5;</code>
@@ -214,7 +226,7 @@ public final class PlaybookOuterClass {
     int getUrlTypeValue();
     /**
      * <pre>
-     *枚举类型 1-文件下载 2-git下载
+     * 枚举类型 1-文件下载 2-git下载
      * </pre>
      *
      * <code>.playbook.UrlType url_type = 5;</code>
@@ -223,7 +235,7 @@ public final class PlaybookOuterClass {
 
     /**
      * <pre>
-     *playbook文件的版本号
+     * playbook文件的版本号
      * </pre>
      *
      * <code>string version = 6;</code>
@@ -231,7 +243,7 @@ public final class PlaybookOuterClass {
     java.lang.String getVersion();
     /**
      * <pre>
-     *playbook文件的版本号
+     * playbook文件的版本号
      * </pre>
      *
      * <code>string version = 6;</code>
@@ -241,7 +253,7 @@ public final class PlaybookOuterClass {
 
     /**
      * <pre>
-     *playbook入口yml文件，有多个
+     * playbook入口yml文件，有多个
      * </pre>
      *
      * <code>repeated string entrypoint = 7;</code>
@@ -250,7 +262,7 @@ public final class PlaybookOuterClass {
         getEntrypointList();
     /**
      * <pre>
-     *playbook入口yml文件，有多个
+     * playbook入口yml文件，有多个
      * </pre>
      *
      * <code>repeated string entrypoint = 7;</code>
@@ -258,7 +270,7 @@ public final class PlaybookOuterClass {
     int getEntrypointCount();
     /**
      * <pre>
-     *playbook入口yml文件，有多个
+     * playbook入口yml文件，有多个
      * </pre>
      *
      * <code>repeated string entrypoint = 7;</code>
@@ -266,7 +278,7 @@ public final class PlaybookOuterClass {
     java.lang.String getEntrypoint(int index);
     /**
      * <pre>
-     *playbook入口yml文件，有多个
+     * playbook入口yml文件，有多个
      * </pre>
      *
      * <code>repeated string entrypoint = 7;</code>
@@ -276,7 +288,7 @@ public final class PlaybookOuterClass {
 
     /**
      * <pre>
-     *文件md5
+     * 文件md5
      * </pre>
      *
      * <code>string md5 = 8;</code>
@@ -284,7 +296,7 @@ public final class PlaybookOuterClass {
     java.lang.String getMd5();
     /**
      * <pre>
-     *文件md5
+     * 文件md5
      * </pre>
      *
      * <code>string md5 = 8;</code>
@@ -294,7 +306,7 @@ public final class PlaybookOuterClass {
 
     /**
      * <pre>
-     *文件大小
+     * 文件大小
      * </pre>
      *
      * <code>int64 size = 9;</code>
@@ -303,7 +315,7 @@ public final class PlaybookOuterClass {
 
     /**
      * <pre>
-     *创建时间
+     * 创建时间
      * </pre>
      *
      * <code>string created = 10;</code>
@@ -311,7 +323,7 @@ public final class PlaybookOuterClass {
     java.lang.String getCreated();
     /**
      * <pre>
-     *创建时间
+     * 创建时间
      * </pre>
      *
      * <code>string created = 10;</code>
@@ -321,7 +333,7 @@ public final class PlaybookOuterClass {
 
     /**
      * <pre>
-     *更新时间
+     * 更新时间
      * </pre>
      *
      * <code>string updated = 11;</code>
@@ -329,7 +341,7 @@ public final class PlaybookOuterClass {
     java.lang.String getUpdated();
     /**
      * <pre>
-     *更新时间
+     * 更新时间
      * </pre>
      *
      * <code>string updated = 11;</code>
@@ -498,7 +510,7 @@ public final class PlaybookOuterClass {
     private int playbookId_;
     /**
      * <pre>
-     *playbook项目ID
+     * playbook项目ID
      * </pre>
      *
      * <code>int32 playbook_id = 1;</code>
@@ -511,7 +523,7 @@ public final class PlaybookOuterClass {
     private volatile java.lang.Object name_;
     /**
      * <pre>
-     *playbook项目名称
+     * playbook项目名称
      * </pre>
      *
      * <code>string name = 2;</code>
@@ -530,7 +542,7 @@ public final class PlaybookOuterClass {
     }
     /**
      * <pre>
-     *playbook项目名称
+     * playbook项目名称
      * </pre>
      *
      * <code>string name = 2;</code>
@@ -553,7 +565,7 @@ public final class PlaybookOuterClass {
     private volatile java.lang.Object description_;
     /**
      * <pre>
-     *playbook项目描述
+     * playbook项目描述
      * </pre>
      *
      * <code>string description = 3;</code>
@@ -572,7 +584,7 @@ public final class PlaybookOuterClass {
     }
     /**
      * <pre>
-     *playbook项目描述
+     * playbook项目描述
      * </pre>
      *
      * <code>string description = 3;</code>
@@ -595,7 +607,7 @@ public final class PlaybookOuterClass {
     private volatile java.lang.Object url_;
     /**
      * <pre>
-     *playbook存储在对象存储的url
+     * playbook存储在对象存储的url
      * </pre>
      *
      * <code>string url = 4;</code>
@@ -614,7 +626,7 @@ public final class PlaybookOuterClass {
     }
     /**
      * <pre>
-     *playbook存储在对象存储的url
+     * playbook存储在对象存储的url
      * </pre>
      *
      * <code>string url = 4;</code>
@@ -637,7 +649,7 @@ public final class PlaybookOuterClass {
     private int urlType_;
     /**
      * <pre>
-     *枚举类型 1-文件下载 2-git下载
+     * 枚举类型 1-文件下载 2-git下载
      * </pre>
      *
      * <code>.playbook.UrlType url_type = 5;</code>
@@ -647,7 +659,7 @@ public final class PlaybookOuterClass {
     }
     /**
      * <pre>
-     *枚举类型 1-文件下载 2-git下载
+     * 枚举类型 1-文件下载 2-git下载
      * </pre>
      *
      * <code>.playbook.UrlType url_type = 5;</code>
@@ -662,7 +674,7 @@ public final class PlaybookOuterClass {
     private volatile java.lang.Object version_;
     /**
      * <pre>
-     *playbook文件的版本号
+     * playbook文件的版本号
      * </pre>
      *
      * <code>string version = 6;</code>
@@ -681,7 +693,7 @@ public final class PlaybookOuterClass {
     }
     /**
      * <pre>
-     *playbook文件的版本号
+     * playbook文件的版本号
      * </pre>
      *
      * <code>string version = 6;</code>
@@ -704,7 +716,7 @@ public final class PlaybookOuterClass {
     private com.google.protobuf.LazyStringList entrypoint_;
     /**
      * <pre>
-     *playbook入口yml文件，有多个
+     * playbook入口yml文件，有多个
      * </pre>
      *
      * <code>repeated string entrypoint = 7;</code>
@@ -715,7 +727,7 @@ public final class PlaybookOuterClass {
     }
     /**
      * <pre>
-     *playbook入口yml文件，有多个
+     * playbook入口yml文件，有多个
      * </pre>
      *
      * <code>repeated string entrypoint = 7;</code>
@@ -725,7 +737,7 @@ public final class PlaybookOuterClass {
     }
     /**
      * <pre>
-     *playbook入口yml文件，有多个
+     * playbook入口yml文件，有多个
      * </pre>
      *
      * <code>repeated string entrypoint = 7;</code>
@@ -735,7 +747,7 @@ public final class PlaybookOuterClass {
     }
     /**
      * <pre>
-     *playbook入口yml文件，有多个
+     * playbook入口yml文件，有多个
      * </pre>
      *
      * <code>repeated string entrypoint = 7;</code>
@@ -749,7 +761,7 @@ public final class PlaybookOuterClass {
     private volatile java.lang.Object md5_;
     /**
      * <pre>
-     *文件md5
+     * 文件md5
      * </pre>
      *
      * <code>string md5 = 8;</code>
@@ -768,7 +780,7 @@ public final class PlaybookOuterClass {
     }
     /**
      * <pre>
-     *文件md5
+     * 文件md5
      * </pre>
      *
      * <code>string md5 = 8;</code>
@@ -791,7 +803,7 @@ public final class PlaybookOuterClass {
     private long size_;
     /**
      * <pre>
-     *文件大小
+     * 文件大小
      * </pre>
      *
      * <code>int64 size = 9;</code>
@@ -804,7 +816,7 @@ public final class PlaybookOuterClass {
     private volatile java.lang.Object created_;
     /**
      * <pre>
-     *创建时间
+     * 创建时间
      * </pre>
      *
      * <code>string created = 10;</code>
@@ -823,7 +835,7 @@ public final class PlaybookOuterClass {
     }
     /**
      * <pre>
-     *创建时间
+     * 创建时间
      * </pre>
      *
      * <code>string created = 10;</code>
@@ -846,7 +858,7 @@ public final class PlaybookOuterClass {
     private volatile java.lang.Object updated_;
     /**
      * <pre>
-     *更新时间
+     * 更新时间
      * </pre>
      *
      * <code>string updated = 11;</code>
@@ -865,7 +877,7 @@ public final class PlaybookOuterClass {
     }
     /**
      * <pre>
-     *更新时间
+     * 更新时间
      * </pre>
      *
      * <code>string updated = 11;</code>
@@ -1385,7 +1397,7 @@ public final class PlaybookOuterClass {
       private int playbookId_ ;
       /**
        * <pre>
-       *playbook项目ID
+       * playbook项目ID
        * </pre>
        *
        * <code>int32 playbook_id = 1;</code>
@@ -1395,7 +1407,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook项目ID
+       * playbook项目ID
        * </pre>
        *
        * <code>int32 playbook_id = 1;</code>
@@ -1408,7 +1420,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook项目ID
+       * playbook项目ID
        * </pre>
        *
        * <code>int32 playbook_id = 1;</code>
@@ -1423,7 +1435,7 @@ public final class PlaybookOuterClass {
       private java.lang.Object name_ = "";
       /**
        * <pre>
-       *playbook项目名称
+       * playbook项目名称
        * </pre>
        *
        * <code>string name = 2;</code>
@@ -1442,7 +1454,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook项目名称
+       * playbook项目名称
        * </pre>
        *
        * <code>string name = 2;</code>
@@ -1462,7 +1474,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook项目名称
+       * playbook项目名称
        * </pre>
        *
        * <code>string name = 2;</code>
@@ -1479,7 +1491,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook项目名称
+       * playbook项目名称
        * </pre>
        *
        * <code>string name = 2;</code>
@@ -1492,7 +1504,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook项目名称
+       * playbook项目名称
        * </pre>
        *
        * <code>string name = 2;</code>
@@ -1512,7 +1524,7 @@ public final class PlaybookOuterClass {
       private java.lang.Object description_ = "";
       /**
        * <pre>
-       *playbook项目描述
+       * playbook项目描述
        * </pre>
        *
        * <code>string description = 3;</code>
@@ -1531,7 +1543,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook项目描述
+       * playbook项目描述
        * </pre>
        *
        * <code>string description = 3;</code>
@@ -1551,7 +1563,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook项目描述
+       * playbook项目描述
        * </pre>
        *
        * <code>string description = 3;</code>
@@ -1568,7 +1580,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook项目描述
+       * playbook项目描述
        * </pre>
        *
        * <code>string description = 3;</code>
@@ -1581,7 +1593,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook项目描述
+       * playbook项目描述
        * </pre>
        *
        * <code>string description = 3;</code>
@@ -1601,7 +1613,7 @@ public final class PlaybookOuterClass {
       private java.lang.Object url_ = "";
       /**
        * <pre>
-       *playbook存储在对象存储的url
+       * playbook存储在对象存储的url
        * </pre>
        *
        * <code>string url = 4;</code>
@@ -1620,7 +1632,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook存储在对象存储的url
+       * playbook存储在对象存储的url
        * </pre>
        *
        * <code>string url = 4;</code>
@@ -1640,7 +1652,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook存储在对象存储的url
+       * playbook存储在对象存储的url
        * </pre>
        *
        * <code>string url = 4;</code>
@@ -1657,7 +1669,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook存储在对象存储的url
+       * playbook存储在对象存储的url
        * </pre>
        *
        * <code>string url = 4;</code>
@@ -1670,7 +1682,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook存储在对象存储的url
+       * playbook存储在对象存储的url
        * </pre>
        *
        * <code>string url = 4;</code>
@@ -1690,7 +1702,7 @@ public final class PlaybookOuterClass {
       private int urlType_ = 0;
       /**
        * <pre>
-       *枚举类型 1-文件下载 2-git下载
+       * 枚举类型 1-文件下载 2-git下载
        * </pre>
        *
        * <code>.playbook.UrlType url_type = 5;</code>
@@ -1700,7 +1712,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *枚举类型 1-文件下载 2-git下载
+       * 枚举类型 1-文件下载 2-git下载
        * </pre>
        *
        * <code>.playbook.UrlType url_type = 5;</code>
@@ -1712,7 +1724,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *枚举类型 1-文件下载 2-git下载
+       * 枚举类型 1-文件下载 2-git下载
        * </pre>
        *
        * <code>.playbook.UrlType url_type = 5;</code>
@@ -1724,7 +1736,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *枚举类型 1-文件下载 2-git下载
+       * 枚举类型 1-文件下载 2-git下载
        * </pre>
        *
        * <code>.playbook.UrlType url_type = 5;</code>
@@ -1740,7 +1752,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *枚举类型 1-文件下载 2-git下载
+       * 枚举类型 1-文件下载 2-git下载
        * </pre>
        *
        * <code>.playbook.UrlType url_type = 5;</code>
@@ -1755,7 +1767,7 @@ public final class PlaybookOuterClass {
       private java.lang.Object version_ = "";
       /**
        * <pre>
-       *playbook文件的版本号
+       * playbook文件的版本号
        * </pre>
        *
        * <code>string version = 6;</code>
@@ -1774,7 +1786,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook文件的版本号
+       * playbook文件的版本号
        * </pre>
        *
        * <code>string version = 6;</code>
@@ -1794,7 +1806,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook文件的版本号
+       * playbook文件的版本号
        * </pre>
        *
        * <code>string version = 6;</code>
@@ -1811,7 +1823,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook文件的版本号
+       * playbook文件的版本号
        * </pre>
        *
        * <code>string version = 6;</code>
@@ -1824,7 +1836,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook文件的版本号
+       * playbook文件的版本号
        * </pre>
        *
        * <code>string version = 6;</code>
@@ -1850,7 +1862,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook入口yml文件，有多个
+       * playbook入口yml文件，有多个
        * </pre>
        *
        * <code>repeated string entrypoint = 7;</code>
@@ -1861,7 +1873,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook入口yml文件，有多个
+       * playbook入口yml文件，有多个
        * </pre>
        *
        * <code>repeated string entrypoint = 7;</code>
@@ -1871,7 +1883,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook入口yml文件，有多个
+       * playbook入口yml文件，有多个
        * </pre>
        *
        * <code>repeated string entrypoint = 7;</code>
@@ -1881,7 +1893,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook入口yml文件，有多个
+       * playbook入口yml文件，有多个
        * </pre>
        *
        * <code>repeated string entrypoint = 7;</code>
@@ -1892,7 +1904,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook入口yml文件，有多个
+       * playbook入口yml文件，有多个
        * </pre>
        *
        * <code>repeated string entrypoint = 7;</code>
@@ -1909,7 +1921,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook入口yml文件，有多个
+       * playbook入口yml文件，有多个
        * </pre>
        *
        * <code>repeated string entrypoint = 7;</code>
@@ -1926,7 +1938,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook入口yml文件，有多个
+       * playbook入口yml文件，有多个
        * </pre>
        *
        * <code>repeated string entrypoint = 7;</code>
@@ -1941,7 +1953,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook入口yml文件，有多个
+       * playbook入口yml文件，有多个
        * </pre>
        *
        * <code>repeated string entrypoint = 7;</code>
@@ -1954,7 +1966,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *playbook入口yml文件，有多个
+       * playbook入口yml文件，有多个
        * </pre>
        *
        * <code>repeated string entrypoint = 7;</code>
@@ -1974,7 +1986,7 @@ public final class PlaybookOuterClass {
       private java.lang.Object md5_ = "";
       /**
        * <pre>
-       *文件md5
+       * 文件md5
        * </pre>
        *
        * <code>string md5 = 8;</code>
@@ -1993,7 +2005,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *文件md5
+       * 文件md5
        * </pre>
        *
        * <code>string md5 = 8;</code>
@@ -2013,7 +2025,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *文件md5
+       * 文件md5
        * </pre>
        *
        * <code>string md5 = 8;</code>
@@ -2030,7 +2042,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *文件md5
+       * 文件md5
        * </pre>
        *
        * <code>string md5 = 8;</code>
@@ -2043,7 +2055,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *文件md5
+       * 文件md5
        * </pre>
        *
        * <code>string md5 = 8;</code>
@@ -2063,7 +2075,7 @@ public final class PlaybookOuterClass {
       private long size_ ;
       /**
        * <pre>
-       *文件大小
+       * 文件大小
        * </pre>
        *
        * <code>int64 size = 9;</code>
@@ -2073,7 +2085,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *文件大小
+       * 文件大小
        * </pre>
        *
        * <code>int64 size = 9;</code>
@@ -2086,7 +2098,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *文件大小
+       * 文件大小
        * </pre>
        *
        * <code>int64 size = 9;</code>
@@ -2101,7 +2113,7 @@ public final class PlaybookOuterClass {
       private java.lang.Object created_ = "";
       /**
        * <pre>
-       *创建时间
+       * 创建时间
        * </pre>
        *
        * <code>string created = 10;</code>
@@ -2120,7 +2132,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *创建时间
+       * 创建时间
        * </pre>
        *
        * <code>string created = 10;</code>
@@ -2140,7 +2152,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *创建时间
+       * 创建时间
        * </pre>
        *
        * <code>string created = 10;</code>
@@ -2157,7 +2169,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *创建时间
+       * 创建时间
        * </pre>
        *
        * <code>string created = 10;</code>
@@ -2170,7 +2182,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *创建时间
+       * 创建时间
        * </pre>
        *
        * <code>string created = 10;</code>
@@ -2190,7 +2202,7 @@ public final class PlaybookOuterClass {
       private java.lang.Object updated_ = "";
       /**
        * <pre>
-       *更新时间
+       * 更新时间
        * </pre>
        *
        * <code>string updated = 11;</code>
@@ -2209,7 +2221,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *更新时间
+       * 更新时间
        * </pre>
        *
        * <code>string updated = 11;</code>
@@ -2229,7 +2241,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *更新时间
+       * 更新时间
        * </pre>
        *
        * <code>string updated = 11;</code>
@@ -2246,7 +2258,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *更新时间
+       * 更新时间
        * </pre>
        *
        * <code>string updated = 11;</code>
@@ -2259,7 +2271,7 @@ public final class PlaybookOuterClass {
       }
       /**
        * <pre>
-       *更新时间
+       * 更新时间
        * </pre>
        *
        * <code>string updated = 11;</code>
@@ -2333,84 +2345,152 @@ public final class PlaybookOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * playbook项目名称
+     * </pre>
+     *
      * <code>string name = 1;</code>
      */
     java.lang.String getName();
     /**
+     * <pre>
+     * playbook项目名称
+     * </pre>
+     *
      * <code>string name = 1;</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
+     * <pre>
+     * playbook项目描述
+     * </pre>
+     *
      * <code>string description = 2;</code>
      */
     java.lang.String getDescription();
     /**
+     * <pre>
+     * playbook项目描述
+     * </pre>
+     *
      * <code>string description = 2;</code>
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
 
     /**
+     * <pre>
+     * playbook存储在对象存储的url
+     * </pre>
+     *
      * <code>string url = 3;</code>
      */
     java.lang.String getUrl();
     /**
+     * <pre>
+     * playbook存储在对象存储的url
+     * </pre>
+     *
      * <code>string url = 3;</code>
      */
     com.google.protobuf.ByteString
         getUrlBytes();
 
     /**
+     * <pre>
+     * 枚举类型 1-文件下载 2-git下载
+     * </pre>
+     *
      * <code>.playbook.UrlType url_type = 4;</code>
      */
     int getUrlTypeValue();
     /**
+     * <pre>
+     * 枚举类型 1-文件下载 2-git下载
+     * </pre>
+     *
      * <code>.playbook.UrlType url_type = 4;</code>
      */
     top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType getUrlType();
 
     /**
+     * <pre>
+     * playbook文件的版本号
+     * </pre>
+     *
      * <code>string version = 5;</code>
      */
     java.lang.String getVersion();
     /**
+     * <pre>
+     * playbook文件的版本号
+     * </pre>
+     *
      * <code>string version = 5;</code>
      */
     com.google.protobuf.ByteString
         getVersionBytes();
 
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 6;</code>
      */
     java.util.List<java.lang.String>
         getEntrypointList();
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 6;</code>
      */
     int getEntrypointCount();
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 6;</code>
      */
     java.lang.String getEntrypoint(int index);
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 6;</code>
      */
     com.google.protobuf.ByteString
         getEntrypointBytes(int index);
 
     /**
+     * <pre>
+     * 文件md5
+     * </pre>
+     *
      * <code>string md5 = 7;</code>
      */
     java.lang.String getMd5();
     /**
+     * <pre>
+     * 文件md5
+     * </pre>
+     *
      * <code>string md5 = 7;</code>
      */
     com.google.protobuf.ByteString
         getMd5Bytes();
 
     /**
+     * <pre>
+     * 文件大小
+     * </pre>
+     *
      * <code>int64 size = 8;</code>
      */
     long getSize();
@@ -2555,6 +2635,10 @@ public final class PlaybookOuterClass {
     public static final int NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object name_;
     /**
+     * <pre>
+     * playbook项目名称
+     * </pre>
+     *
      * <code>string name = 1;</code>
      */
     public java.lang.String getName() {
@@ -2570,6 +2654,10 @@ public final class PlaybookOuterClass {
       }
     }
     /**
+     * <pre>
+     * playbook项目名称
+     * </pre>
+     *
      * <code>string name = 1;</code>
      */
     public com.google.protobuf.ByteString
@@ -2589,6 +2677,10 @@ public final class PlaybookOuterClass {
     public static final int DESCRIPTION_FIELD_NUMBER = 2;
     private volatile java.lang.Object description_;
     /**
+     * <pre>
+     * playbook项目描述
+     * </pre>
+     *
      * <code>string description = 2;</code>
      */
     public java.lang.String getDescription() {
@@ -2604,6 +2696,10 @@ public final class PlaybookOuterClass {
       }
     }
     /**
+     * <pre>
+     * playbook项目描述
+     * </pre>
+     *
      * <code>string description = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -2623,6 +2719,10 @@ public final class PlaybookOuterClass {
     public static final int URL_FIELD_NUMBER = 3;
     private volatile java.lang.Object url_;
     /**
+     * <pre>
+     * playbook存储在对象存储的url
+     * </pre>
+     *
      * <code>string url = 3;</code>
      */
     public java.lang.String getUrl() {
@@ -2638,6 +2738,10 @@ public final class PlaybookOuterClass {
       }
     }
     /**
+     * <pre>
+     * playbook存储在对象存储的url
+     * </pre>
+     *
      * <code>string url = 3;</code>
      */
     public com.google.protobuf.ByteString
@@ -2657,12 +2761,20 @@ public final class PlaybookOuterClass {
     public static final int URL_TYPE_FIELD_NUMBER = 4;
     private int urlType_;
     /**
+     * <pre>
+     * 枚举类型 1-文件下载 2-git下载
+     * </pre>
+     *
      * <code>.playbook.UrlType url_type = 4;</code>
      */
     public int getUrlTypeValue() {
       return urlType_;
     }
     /**
+     * <pre>
+     * 枚举类型 1-文件下载 2-git下载
+     * </pre>
+     *
      * <code>.playbook.UrlType url_type = 4;</code>
      */
     public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType getUrlType() {
@@ -2674,6 +2786,10 @@ public final class PlaybookOuterClass {
     public static final int VERSION_FIELD_NUMBER = 5;
     private volatile java.lang.Object version_;
     /**
+     * <pre>
+     * playbook文件的版本号
+     * </pre>
+     *
      * <code>string version = 5;</code>
      */
     public java.lang.String getVersion() {
@@ -2689,6 +2805,10 @@ public final class PlaybookOuterClass {
       }
     }
     /**
+     * <pre>
+     * playbook文件的版本号
+     * </pre>
+     *
      * <code>string version = 5;</code>
      */
     public com.google.protobuf.ByteString
@@ -2708,6 +2828,10 @@ public final class PlaybookOuterClass {
     public static final int ENTRYPOINT_FIELD_NUMBER = 6;
     private com.google.protobuf.LazyStringList entrypoint_;
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 6;</code>
      */
     public com.google.protobuf.ProtocolStringList
@@ -2715,18 +2839,30 @@ public final class PlaybookOuterClass {
       return entrypoint_;
     }
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 6;</code>
      */
     public int getEntrypointCount() {
       return entrypoint_.size();
     }
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 6;</code>
      */
     public java.lang.String getEntrypoint(int index) {
       return entrypoint_.get(index);
     }
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 6;</code>
      */
     public com.google.protobuf.ByteString
@@ -2737,6 +2873,10 @@ public final class PlaybookOuterClass {
     public static final int MD5_FIELD_NUMBER = 7;
     private volatile java.lang.Object md5_;
     /**
+     * <pre>
+     * 文件md5
+     * </pre>
+     *
      * <code>string md5 = 7;</code>
      */
     public java.lang.String getMd5() {
@@ -2752,6 +2892,10 @@ public final class PlaybookOuterClass {
       }
     }
     /**
+     * <pre>
+     * 文件md5
+     * </pre>
+     *
      * <code>string md5 = 7;</code>
      */
     public com.google.protobuf.ByteString
@@ -2771,6 +2915,10 @@ public final class PlaybookOuterClass {
     public static final int SIZE_FIELD_NUMBER = 8;
     private long size_;
     /**
+     * <pre>
+     * 文件大小
+     * </pre>
+     *
      * <code>int64 size = 8;</code>
      */
     public long getSize() {
@@ -3226,6 +3374,10 @@ public final class PlaybookOuterClass {
 
       private java.lang.Object name_ = "";
       /**
+       * <pre>
+       * playbook项目名称
+       * </pre>
+       *
        * <code>string name = 1;</code>
        */
       public java.lang.String getName() {
@@ -3241,6 +3393,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook项目名称
+       * </pre>
+       *
        * <code>string name = 1;</code>
        */
       public com.google.protobuf.ByteString
@@ -3257,6 +3413,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook项目名称
+       * </pre>
+       *
        * <code>string name = 1;</code>
        */
       public Builder setName(
@@ -3270,6 +3430,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook项目名称
+       * </pre>
+       *
        * <code>string name = 1;</code>
        */
       public Builder clearName() {
@@ -3279,6 +3443,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook项目名称
+       * </pre>
+       *
        * <code>string name = 1;</code>
        */
       public Builder setNameBytes(
@@ -3295,6 +3463,10 @@ public final class PlaybookOuterClass {
 
       private java.lang.Object description_ = "";
       /**
+       * <pre>
+       * playbook项目描述
+       * </pre>
+       *
        * <code>string description = 2;</code>
        */
       public java.lang.String getDescription() {
@@ -3310,6 +3482,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook项目描述
+       * </pre>
+       *
        * <code>string description = 2;</code>
        */
       public com.google.protobuf.ByteString
@@ -3326,6 +3502,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook项目描述
+       * </pre>
+       *
        * <code>string description = 2;</code>
        */
       public Builder setDescription(
@@ -3339,6 +3519,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook项目描述
+       * </pre>
+       *
        * <code>string description = 2;</code>
        */
       public Builder clearDescription() {
@@ -3348,6 +3532,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook项目描述
+       * </pre>
+       *
        * <code>string description = 2;</code>
        */
       public Builder setDescriptionBytes(
@@ -3364,6 +3552,10 @@ public final class PlaybookOuterClass {
 
       private java.lang.Object url_ = "";
       /**
+       * <pre>
+       * playbook存储在对象存储的url
+       * </pre>
+       *
        * <code>string url = 3;</code>
        */
       public java.lang.String getUrl() {
@@ -3379,6 +3571,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook存储在对象存储的url
+       * </pre>
+       *
        * <code>string url = 3;</code>
        */
       public com.google.protobuf.ByteString
@@ -3395,6 +3591,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook存储在对象存储的url
+       * </pre>
+       *
        * <code>string url = 3;</code>
        */
       public Builder setUrl(
@@ -3408,6 +3608,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook存储在对象存储的url
+       * </pre>
+       *
        * <code>string url = 3;</code>
        */
       public Builder clearUrl() {
@@ -3417,6 +3621,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook存储在对象存储的url
+       * </pre>
+       *
        * <code>string url = 3;</code>
        */
       public Builder setUrlBytes(
@@ -3433,12 +3641,20 @@ public final class PlaybookOuterClass {
 
       private int urlType_ = 0;
       /**
+       * <pre>
+       * 枚举类型 1-文件下载 2-git下载
+       * </pre>
+       *
        * <code>.playbook.UrlType url_type = 4;</code>
        */
       public int getUrlTypeValue() {
         return urlType_;
       }
       /**
+       * <pre>
+       * 枚举类型 1-文件下载 2-git下载
+       * </pre>
+       *
        * <code>.playbook.UrlType url_type = 4;</code>
        */
       public Builder setUrlTypeValue(int value) {
@@ -3447,6 +3663,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 枚举类型 1-文件下载 2-git下载
+       * </pre>
+       *
        * <code>.playbook.UrlType url_type = 4;</code>
        */
       public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType getUrlType() {
@@ -3455,6 +3675,10 @@ public final class PlaybookOuterClass {
         return result == null ? top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType.UNRECOGNIZED : result;
       }
       /**
+       * <pre>
+       * 枚举类型 1-文件下载 2-git下载
+       * </pre>
+       *
        * <code>.playbook.UrlType url_type = 4;</code>
        */
       public Builder setUrlType(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType value) {
@@ -3467,6 +3691,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 枚举类型 1-文件下载 2-git下载
+       * </pre>
+       *
        * <code>.playbook.UrlType url_type = 4;</code>
        */
       public Builder clearUrlType() {
@@ -3478,6 +3706,10 @@ public final class PlaybookOuterClass {
 
       private java.lang.Object version_ = "";
       /**
+       * <pre>
+       * playbook文件的版本号
+       * </pre>
+       *
        * <code>string version = 5;</code>
        */
       public java.lang.String getVersion() {
@@ -3493,6 +3725,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook文件的版本号
+       * </pre>
+       *
        * <code>string version = 5;</code>
        */
       public com.google.protobuf.ByteString
@@ -3509,6 +3745,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook文件的版本号
+       * </pre>
+       *
        * <code>string version = 5;</code>
        */
       public Builder setVersion(
@@ -3522,6 +3762,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook文件的版本号
+       * </pre>
+       *
        * <code>string version = 5;</code>
        */
       public Builder clearVersion() {
@@ -3531,6 +3775,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook文件的版本号
+       * </pre>
+       *
        * <code>string version = 5;</code>
        */
       public Builder setVersionBytes(
@@ -3553,6 +3801,10 @@ public final class PlaybookOuterClass {
          }
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 6;</code>
        */
       public com.google.protobuf.ProtocolStringList
@@ -3560,18 +3812,30 @@ public final class PlaybookOuterClass {
         return entrypoint_.getUnmodifiableView();
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 6;</code>
        */
       public int getEntrypointCount() {
         return entrypoint_.size();
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 6;</code>
        */
       public java.lang.String getEntrypoint(int index) {
         return entrypoint_.get(index);
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 6;</code>
        */
       public com.google.protobuf.ByteString
@@ -3579,6 +3843,10 @@ public final class PlaybookOuterClass {
         return entrypoint_.getByteString(index);
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 6;</code>
        */
       public Builder setEntrypoint(
@@ -3592,6 +3860,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 6;</code>
        */
       public Builder addEntrypoint(
@@ -3605,6 +3877,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 6;</code>
        */
       public Builder addAllEntrypoint(
@@ -3616,6 +3892,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 6;</code>
        */
       public Builder clearEntrypoint() {
@@ -3625,6 +3905,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 6;</code>
        */
       public Builder addEntrypointBytes(
@@ -3641,6 +3925,10 @@ public final class PlaybookOuterClass {
 
       private java.lang.Object md5_ = "";
       /**
+       * <pre>
+       * 文件md5
+       * </pre>
+       *
        * <code>string md5 = 7;</code>
        */
       public java.lang.String getMd5() {
@@ -3656,6 +3944,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 文件md5
+       * </pre>
+       *
        * <code>string md5 = 7;</code>
        */
       public com.google.protobuf.ByteString
@@ -3672,6 +3964,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 文件md5
+       * </pre>
+       *
        * <code>string md5 = 7;</code>
        */
       public Builder setMd5(
@@ -3685,6 +3981,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 文件md5
+       * </pre>
+       *
        * <code>string md5 = 7;</code>
        */
       public Builder clearMd5() {
@@ -3694,6 +3994,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 文件md5
+       * </pre>
+       *
        * <code>string md5 = 7;</code>
        */
       public Builder setMd5Bytes(
@@ -3710,12 +4014,20 @@ public final class PlaybookOuterClass {
 
       private long size_ ;
       /**
+       * <pre>
+       * 文件大小
+       * </pre>
+       *
        * <code>int64 size = 8;</code>
        */
       public long getSize() {
         return size_;
       }
       /**
+       * <pre>
+       * 文件大小
+       * </pre>
+       *
        * <code>int64 size = 8;</code>
        */
       public Builder setSize(long value) {
@@ -3725,6 +4037,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 文件大小
+       * </pre>
+       *
        * <code>int64 size = 8;</code>
        */
       public Builder clearSize() {
@@ -3791,29 +4107,53 @@ public final class PlaybookOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * playbook项目ID
+     * </pre>
+     *
      * <code>int32 playbook_id = 1;</code>
      */
     int getPlaybookId();
 
     /**
+     * <pre>
+     * playbook项目创建时间
+     * </pre>
+     *
      * <code>string created = 2;</code>
      */
     java.lang.String getCreated();
     /**
+     * <pre>
+     * playbook项目创建时间
+     * </pre>
+     *
      * <code>string created = 2;</code>
      */
     com.google.protobuf.ByteString
         getCreatedBytes();
 
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     boolean hasStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
@@ -3922,6 +4262,10 @@ public final class PlaybookOuterClass {
     public static final int PLAYBOOK_ID_FIELD_NUMBER = 1;
     private int playbookId_;
     /**
+     * <pre>
+     * playbook项目ID
+     * </pre>
+     *
      * <code>int32 playbook_id = 1;</code>
      */
     public int getPlaybookId() {
@@ -3931,6 +4275,10 @@ public final class PlaybookOuterClass {
     public static final int CREATED_FIELD_NUMBER = 2;
     private volatile java.lang.Object created_;
     /**
+     * <pre>
+     * playbook项目创建时间
+     * </pre>
+     *
      * <code>string created = 2;</code>
      */
     public java.lang.String getCreated() {
@@ -3946,6 +4294,10 @@ public final class PlaybookOuterClass {
       }
     }
     /**
+     * <pre>
+     * playbook项目创建时间
+     * </pre>
+     *
      * <code>string created = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -3965,18 +4317,30 @@ public final class PlaybookOuterClass {
     public static final int STATUS_FIELD_NUMBER = 3;
     private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
       return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -4339,12 +4703,20 @@ public final class PlaybookOuterClass {
 
       private int playbookId_ ;
       /**
+       * <pre>
+       * playbook项目ID
+       * </pre>
+       *
        * <code>int32 playbook_id = 1;</code>
        */
       public int getPlaybookId() {
         return playbookId_;
       }
       /**
+       * <pre>
+       * playbook项目ID
+       * </pre>
+       *
        * <code>int32 playbook_id = 1;</code>
        */
       public Builder setPlaybookId(int value) {
@@ -4354,6 +4726,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook项目ID
+       * </pre>
+       *
        * <code>int32 playbook_id = 1;</code>
        */
       public Builder clearPlaybookId() {
@@ -4365,6 +4741,10 @@ public final class PlaybookOuterClass {
 
       private java.lang.Object created_ = "";
       /**
+       * <pre>
+       * playbook项目创建时间
+       * </pre>
+       *
        * <code>string created = 2;</code>
        */
       public java.lang.String getCreated() {
@@ -4380,6 +4760,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook项目创建时间
+       * </pre>
+       *
        * <code>string created = 2;</code>
        */
       public com.google.protobuf.ByteString
@@ -4396,6 +4780,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook项目创建时间
+       * </pre>
+       *
        * <code>string created = 2;</code>
        */
       public Builder setCreated(
@@ -4409,6 +4797,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook项目创建时间
+       * </pre>
+       *
        * <code>string created = 2;</code>
        */
       public Builder clearCreated() {
@@ -4418,6 +4810,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook项目创建时间
+       * </pre>
+       *
        * <code>string created = 2;</code>
        */
       public Builder setCreatedBytes(
@@ -4436,12 +4832,20 @@ public final class PlaybookOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
@@ -4452,6 +4856,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -4468,6 +4876,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder setStatus(
@@ -4482,6 +4894,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -4500,6 +4916,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder clearStatus() {
@@ -4514,6 +4934,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
@@ -4522,6 +4946,10 @@ public final class PlaybookOuterClass {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -4533,6 +4961,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -4606,6 +5038,10 @@ public final class PlaybookOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * playbook项目ID
+     * </pre>
+     *
      * <code>int32 playbook_id = 1;</code>
      */
     int getPlaybookId();
@@ -4694,6 +5130,10 @@ public final class PlaybookOuterClass {
     public static final int PLAYBOOK_ID_FIELD_NUMBER = 1;
     private int playbookId_;
     /**
+     * <pre>
+     * playbook项目ID
+     * </pre>
+     *
      * <code>int32 playbook_id = 1;</code>
      */
     public int getPlaybookId() {
@@ -5009,12 +5449,20 @@ public final class PlaybookOuterClass {
 
       private int playbookId_ ;
       /**
+       * <pre>
+       * playbook项目ID
+       * </pre>
+       *
        * <code>int32 playbook_id = 1;</code>
        */
       public int getPlaybookId() {
         return playbookId_;
       }
       /**
+       * <pre>
+       * playbook项目ID
+       * </pre>
+       *
        * <code>int32 playbook_id = 1;</code>
        */
       public Builder setPlaybookId(int value) {
@@ -5024,6 +5472,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook项目ID
+       * </pre>
+       *
        * <code>int32 playbook_id = 1;</code>
        */
       public Builder clearPlaybookId() {
@@ -5090,27 +5542,51 @@ public final class PlaybookOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 返回的项目实例
+     * </pre>
+     *
      * <code>.playbook.ProjectObject project = 1;</code>
      */
     boolean hasProject();
     /**
+     * <pre>
+     * 返回的项目实例
+     * </pre>
+     *
      * <code>.playbook.ProjectObject project = 1;</code>
      */
     top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject getProject();
     /**
+     * <pre>
+     * 返回的项目实例
+     * </pre>
+     *
      * <code>.playbook.ProjectObject project = 1;</code>
      */
     top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObjectOrBuilder getProjectOrBuilder();
 
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     boolean hasStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
@@ -5219,18 +5695,30 @@ public final class PlaybookOuterClass {
     public static final int PROJECT_FIELD_NUMBER = 1;
     private top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject project_;
     /**
+     * <pre>
+     * 返回的项目实例
+     * </pre>
+     *
      * <code>.playbook.ProjectObject project = 1;</code>
      */
     public boolean hasProject() {
       return project_ != null;
     }
     /**
+     * <pre>
+     * 返回的项目实例
+     * </pre>
+     *
      * <code>.playbook.ProjectObject project = 1;</code>
      */
     public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject getProject() {
       return project_ == null ? top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject.getDefaultInstance() : project_;
     }
     /**
+     * <pre>
+     * 返回的项目实例
+     * </pre>
+     *
      * <code>.playbook.ProjectObject project = 1;</code>
      */
     public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObjectOrBuilder getProjectOrBuilder() {
@@ -5240,18 +5728,30 @@ public final class PlaybookOuterClass {
     public static final int STATUS_FIELD_NUMBER = 2;
     private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
       return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -5612,12 +6112,20 @@ public final class PlaybookOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject.Builder, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObjectOrBuilder> projectBuilder_;
       /**
+       * <pre>
+       * 返回的项目实例
+       * </pre>
+       *
        * <code>.playbook.ProjectObject project = 1;</code>
        */
       public boolean hasProject() {
         return projectBuilder_ != null || project_ != null;
       }
       /**
+       * <pre>
+       * 返回的项目实例
+       * </pre>
+       *
        * <code>.playbook.ProjectObject project = 1;</code>
        */
       public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject getProject() {
@@ -5628,6 +6136,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的项目实例
+       * </pre>
+       *
        * <code>.playbook.ProjectObject project = 1;</code>
        */
       public Builder setProject(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject value) {
@@ -5644,6 +6156,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的项目实例
+       * </pre>
+       *
        * <code>.playbook.ProjectObject project = 1;</code>
        */
       public Builder setProject(
@@ -5658,6 +6174,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的项目实例
+       * </pre>
+       *
        * <code>.playbook.ProjectObject project = 1;</code>
        */
       public Builder mergeProject(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject value) {
@@ -5676,6 +6196,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的项目实例
+       * </pre>
+       *
        * <code>.playbook.ProjectObject project = 1;</code>
        */
       public Builder clearProject() {
@@ -5690,6 +6214,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的项目实例
+       * </pre>
+       *
        * <code>.playbook.ProjectObject project = 1;</code>
        */
       public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject.Builder getProjectBuilder() {
@@ -5698,6 +6226,10 @@ public final class PlaybookOuterClass {
         return getProjectFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 返回的项目实例
+       * </pre>
+       *
        * <code>.playbook.ProjectObject project = 1;</code>
        */
       public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObjectOrBuilder getProjectOrBuilder() {
@@ -5709,6 +6241,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的项目实例
+       * </pre>
+       *
        * <code>.playbook.ProjectObject project = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -5729,12 +6265,20 @@ public final class PlaybookOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
@@ -5745,6 +6289,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -5761,6 +6309,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder setStatus(
@@ -5775,6 +6327,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -5793,6 +6349,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder clearStatus() {
@@ -5807,6 +6367,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
@@ -5815,6 +6379,10 @@ public final class PlaybookOuterClass {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -5826,6 +6394,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -5899,23 +6471,43 @@ public final class PlaybookOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     boolean hasPaging();
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     top.fogcdn.axe.protos.common.Api.Paging getPaging();
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder();
 
     /**
+     * <pre>
+     * 用于模糊筛选的playbook项目名称的关键字
+     * </pre>
+     *
      * <code>string keyword = 2;</code>
      */
     java.lang.String getKeyword();
     /**
+     * <pre>
+     * 用于模糊筛选的playbook项目名称的关键字
+     * </pre>
+     *
      * <code>string keyword = 2;</code>
      */
     com.google.protobuf.ByteString
@@ -6019,18 +6611,30 @@ public final class PlaybookOuterClass {
     public static final int PAGING_FIELD_NUMBER = 1;
     private top.fogcdn.axe.protos.common.Api.Paging paging_;
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     public boolean hasPaging() {
       return paging_ != null;
     }
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     public top.fogcdn.axe.protos.common.Api.Paging getPaging() {
       return paging_ == null ? top.fogcdn.axe.protos.common.Api.Paging.getDefaultInstance() : paging_;
     }
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     public top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder() {
@@ -6040,6 +6644,10 @@ public final class PlaybookOuterClass {
     public static final int KEYWORD_FIELD_NUMBER = 2;
     private volatile java.lang.Object keyword_;
     /**
+     * <pre>
+     * 用于模糊筛选的playbook项目名称的关键字
+     * </pre>
+     *
      * <code>string keyword = 2;</code>
      */
     public java.lang.String getKeyword() {
@@ -6055,6 +6663,10 @@ public final class PlaybookOuterClass {
       }
     }
     /**
+     * <pre>
+     * 用于模糊筛选的playbook项目名称的关键字
+     * </pre>
+     *
      * <code>string keyword = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -6412,12 +7024,20 @@ public final class PlaybookOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder> pagingBuilder_;
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public boolean hasPaging() {
         return pagingBuilder_ != null || paging_ != null;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public top.fogcdn.axe.protos.common.Api.Paging getPaging() {
@@ -6428,6 +7048,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public Builder setPaging(top.fogcdn.axe.protos.common.Api.Paging value) {
@@ -6444,6 +7068,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public Builder setPaging(
@@ -6458,6 +7086,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public Builder mergePaging(top.fogcdn.axe.protos.common.Api.Paging value) {
@@ -6476,6 +7108,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public Builder clearPaging() {
@@ -6490,6 +7126,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public top.fogcdn.axe.protos.common.Api.Paging.Builder getPagingBuilder() {
@@ -6498,6 +7138,10 @@ public final class PlaybookOuterClass {
         return getPagingFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder() {
@@ -6509,6 +7153,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -6527,6 +7175,10 @@ public final class PlaybookOuterClass {
 
       private java.lang.Object keyword_ = "";
       /**
+       * <pre>
+       * 用于模糊筛选的playbook项目名称的关键字
+       * </pre>
+       *
        * <code>string keyword = 2;</code>
        */
       public java.lang.String getKeyword() {
@@ -6542,6 +7194,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 用于模糊筛选的playbook项目名称的关键字
+       * </pre>
+       *
        * <code>string keyword = 2;</code>
        */
       public com.google.protobuf.ByteString
@@ -6558,6 +7214,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 用于模糊筛选的playbook项目名称的关键字
+       * </pre>
+       *
        * <code>string keyword = 2;</code>
        */
       public Builder setKeyword(
@@ -6571,6 +7231,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 用于模糊筛选的playbook项目名称的关键字
+       * </pre>
+       *
        * <code>string keyword = 2;</code>
        */
       public Builder clearKeyword() {
@@ -6580,6 +7244,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 用于模糊筛选的playbook项目名称的关键字
+       * </pre>
+       *
        * <code>string keyword = 2;</code>
        */
       public Builder setKeywordBytes(
@@ -6651,51 +7319,95 @@ public final class PlaybookOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 返回的筛选到的多个项目实例
+     * </pre>
+     *
      * <code>repeated .playbook.ProjectObject projects = 1;</code>
      */
     java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject> 
         getProjectsList();
     /**
+     * <pre>
+     * 返回的筛选到的多个项目实例
+     * </pre>
+     *
      * <code>repeated .playbook.ProjectObject projects = 1;</code>
      */
     top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject getProjects(int index);
     /**
+     * <pre>
+     * 返回的筛选到的多个项目实例
+     * </pre>
+     *
      * <code>repeated .playbook.ProjectObject projects = 1;</code>
      */
     int getProjectsCount();
     /**
+     * <pre>
+     * 返回的筛选到的多个项目实例
+     * </pre>
+     *
      * <code>repeated .playbook.ProjectObject projects = 1;</code>
      */
     java.util.List<? extends top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObjectOrBuilder> 
         getProjectsOrBuilderList();
     /**
+     * <pre>
+     * 返回的筛选到的多个项目实例
+     * </pre>
+     *
      * <code>repeated .playbook.ProjectObject projects = 1;</code>
      */
     top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObjectOrBuilder getProjectsOrBuilder(
         int index);
 
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     boolean hasPaging();
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.Paging getPaging();
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder();
 
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     boolean hasStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
@@ -6818,12 +7530,20 @@ public final class PlaybookOuterClass {
     public static final int PROJECTS_FIELD_NUMBER = 1;
     private java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject> projects_;
     /**
+     * <pre>
+     * 返回的筛选到的多个项目实例
+     * </pre>
+     *
      * <code>repeated .playbook.ProjectObject projects = 1;</code>
      */
     public java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject> getProjectsList() {
       return projects_;
     }
     /**
+     * <pre>
+     * 返回的筛选到的多个项目实例
+     * </pre>
+     *
      * <code>repeated .playbook.ProjectObject projects = 1;</code>
      */
     public java.util.List<? extends top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObjectOrBuilder> 
@@ -6831,18 +7551,30 @@ public final class PlaybookOuterClass {
       return projects_;
     }
     /**
+     * <pre>
+     * 返回的筛选到的多个项目实例
+     * </pre>
+     *
      * <code>repeated .playbook.ProjectObject projects = 1;</code>
      */
     public int getProjectsCount() {
       return projects_.size();
     }
     /**
+     * <pre>
+     * 返回的筛选到的多个项目实例
+     * </pre>
+     *
      * <code>repeated .playbook.ProjectObject projects = 1;</code>
      */
     public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject getProjects(int index) {
       return projects_.get(index);
     }
     /**
+     * <pre>
+     * 返回的筛选到的多个项目实例
+     * </pre>
+     *
      * <code>repeated .playbook.ProjectObject projects = 1;</code>
      */
     public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObjectOrBuilder getProjectsOrBuilder(
@@ -6853,18 +7585,30 @@ public final class PlaybookOuterClass {
     public static final int PAGING_FIELD_NUMBER = 2;
     private top.fogcdn.axe.protos.common.Api.Paging paging_;
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     public boolean hasPaging() {
       return paging_ != null;
     }
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.Paging getPaging() {
       return paging_ == null ? top.fogcdn.axe.protos.common.Api.Paging.getDefaultInstance() : paging_;
     }
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder() {
@@ -6874,18 +7618,30 @@ public final class PlaybookOuterClass {
     public static final int STATUS_FIELD_NUMBER = 3;
     private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
       return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -7314,6 +8070,10 @@ public final class PlaybookOuterClass {
           top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject.Builder, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObjectOrBuilder> projectsBuilder_;
 
       /**
+       * <pre>
+       * 返回的筛选到的多个项目实例
+       * </pre>
+       *
        * <code>repeated .playbook.ProjectObject projects = 1;</code>
        */
       public java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject> getProjectsList() {
@@ -7324,6 +8084,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的筛选到的多个项目实例
+       * </pre>
+       *
        * <code>repeated .playbook.ProjectObject projects = 1;</code>
        */
       public int getProjectsCount() {
@@ -7334,6 +8098,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的筛选到的多个项目实例
+       * </pre>
+       *
        * <code>repeated .playbook.ProjectObject projects = 1;</code>
        */
       public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject getProjects(int index) {
@@ -7344,6 +8112,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的筛选到的多个项目实例
+       * </pre>
+       *
        * <code>repeated .playbook.ProjectObject projects = 1;</code>
        */
       public Builder setProjects(
@@ -7361,6 +8133,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的筛选到的多个项目实例
+       * </pre>
+       *
        * <code>repeated .playbook.ProjectObject projects = 1;</code>
        */
       public Builder setProjects(
@@ -7375,6 +8151,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的筛选到的多个项目实例
+       * </pre>
+       *
        * <code>repeated .playbook.ProjectObject projects = 1;</code>
        */
       public Builder addProjects(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject value) {
@@ -7391,6 +8171,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的筛选到的多个项目实例
+       * </pre>
+       *
        * <code>repeated .playbook.ProjectObject projects = 1;</code>
        */
       public Builder addProjects(
@@ -7408,6 +8192,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的筛选到的多个项目实例
+       * </pre>
+       *
        * <code>repeated .playbook.ProjectObject projects = 1;</code>
        */
       public Builder addProjects(
@@ -7422,6 +8210,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的筛选到的多个项目实例
+       * </pre>
+       *
        * <code>repeated .playbook.ProjectObject projects = 1;</code>
        */
       public Builder addProjects(
@@ -7436,6 +8228,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的筛选到的多个项目实例
+       * </pre>
+       *
        * <code>repeated .playbook.ProjectObject projects = 1;</code>
        */
       public Builder addAllProjects(
@@ -7451,6 +8247,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的筛选到的多个项目实例
+       * </pre>
+       *
        * <code>repeated .playbook.ProjectObject projects = 1;</code>
        */
       public Builder clearProjects() {
@@ -7464,6 +8264,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的筛选到的多个项目实例
+       * </pre>
+       *
        * <code>repeated .playbook.ProjectObject projects = 1;</code>
        */
       public Builder removeProjects(int index) {
@@ -7477,6 +8281,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的筛选到的多个项目实例
+       * </pre>
+       *
        * <code>repeated .playbook.ProjectObject projects = 1;</code>
        */
       public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject.Builder getProjectsBuilder(
@@ -7484,6 +8292,10 @@ public final class PlaybookOuterClass {
         return getProjectsFieldBuilder().getBuilder(index);
       }
       /**
+       * <pre>
+       * 返回的筛选到的多个项目实例
+       * </pre>
+       *
        * <code>repeated .playbook.ProjectObject projects = 1;</code>
        */
       public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObjectOrBuilder getProjectsOrBuilder(
@@ -7494,6 +8306,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的筛选到的多个项目实例
+       * </pre>
+       *
        * <code>repeated .playbook.ProjectObject projects = 1;</code>
        */
       public java.util.List<? extends top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObjectOrBuilder> 
@@ -7505,6 +8321,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的筛选到的多个项目实例
+       * </pre>
+       *
        * <code>repeated .playbook.ProjectObject projects = 1;</code>
        */
       public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject.Builder addProjectsBuilder() {
@@ -7512,6 +8332,10 @@ public final class PlaybookOuterClass {
             top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject.getDefaultInstance());
       }
       /**
+       * <pre>
+       * 返回的筛选到的多个项目实例
+       * </pre>
+       *
        * <code>repeated .playbook.ProjectObject projects = 1;</code>
        */
       public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject.Builder addProjectsBuilder(
@@ -7520,6 +8344,10 @@ public final class PlaybookOuterClass {
             index, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject.getDefaultInstance());
       }
       /**
+       * <pre>
+       * 返回的筛选到的多个项目实例
+       * </pre>
+       *
        * <code>repeated .playbook.ProjectObject projects = 1;</code>
        */
       public java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.ProjectObject.Builder> 
@@ -7545,12 +8373,20 @@ public final class PlaybookOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder> pagingBuilder_;
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public boolean hasPaging() {
         return pagingBuilder_ != null || paging_ != null;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.Paging getPaging() {
@@ -7561,6 +8397,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public Builder setPaging(top.fogcdn.axe.protos.common.Api.Paging value) {
@@ -7577,6 +8417,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public Builder setPaging(
@@ -7591,6 +8435,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public Builder mergePaging(top.fogcdn.axe.protos.common.Api.Paging value) {
@@ -7609,6 +8457,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public Builder clearPaging() {
@@ -7623,6 +8475,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.Paging.Builder getPagingBuilder() {
@@ -7631,6 +8487,10 @@ public final class PlaybookOuterClass {
         return getPagingFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder() {
@@ -7642,6 +8502,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -7662,12 +8526,20 @@ public final class PlaybookOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
@@ -7678,6 +8550,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -7694,6 +8570,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder setStatus(
@@ -7708,6 +8588,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -7726,6 +8610,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder clearStatus() {
@@ -7740,6 +8628,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
@@ -7748,6 +8640,10 @@ public final class PlaybookOuterClass {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -7759,6 +8655,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -7832,89 +8732,161 @@ public final class PlaybookOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * playbook项目ID
+     * </pre>
+     *
      * <code>int32 playbook_id = 1;</code>
      */
     int getPlaybookId();
 
     /**
+     * <pre>
+     * playbook项目名称
+     * </pre>
+     *
      * <code>string name = 2;</code>
      */
     java.lang.String getName();
     /**
+     * <pre>
+     * playbook项目名称
+     * </pre>
+     *
      * <code>string name = 2;</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
+     * <pre>
+     * playbook项目描述
+     * </pre>
+     *
      * <code>string description = 3;</code>
      */
     java.lang.String getDescription();
     /**
+     * <pre>
+     * playbook项目描述
+     * </pre>
+     *
      * <code>string description = 3;</code>
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
 
     /**
+     * <pre>
+     * playbook存储在对象存储的url
+     * </pre>
+     *
      * <code>string url = 4;</code>
      */
     java.lang.String getUrl();
     /**
+     * <pre>
+     * playbook存储在对象存储的url
+     * </pre>
+     *
      * <code>string url = 4;</code>
      */
     com.google.protobuf.ByteString
         getUrlBytes();
 
     /**
+     * <pre>
+     * 枚举类型 1-文件下载 2-git下载
+     * </pre>
+     *
      * <code>.playbook.UrlType url_type = 5;</code>
      */
     int getUrlTypeValue();
     /**
+     * <pre>
+     * 枚举类型 1-文件下载 2-git下载
+     * </pre>
+     *
      * <code>.playbook.UrlType url_type = 5;</code>
      */
     top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType getUrlType();
 
     /**
+     * <pre>
+     * playbook文件的版本号
+     * </pre>
+     *
      * <code>string version = 6;</code>
      */
     java.lang.String getVersion();
     /**
+     * <pre>
+     * playbook文件的版本号
+     * </pre>
+     *
      * <code>string version = 6;</code>
      */
     com.google.protobuf.ByteString
         getVersionBytes();
 
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 7;</code>
      */
     java.util.List<java.lang.String>
         getEntrypointList();
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 7;</code>
      */
     int getEntrypointCount();
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 7;</code>
      */
     java.lang.String getEntrypoint(int index);
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 7;</code>
      */
     com.google.protobuf.ByteString
         getEntrypointBytes(int index);
 
     /**
+     * <pre>
+     * 文件md5
+     * </pre>
+     *
      * <code>string md5 = 8;</code>
      */
     java.lang.String getMd5();
     /**
+     * <pre>
+     * 文件md5
+     * </pre>
+     *
      * <code>string md5 = 8;</code>
      */
     com.google.protobuf.ByteString
         getMd5Bytes();
 
     /**
+     * <pre>
+     * 文件大小
+     * </pre>
+     *
      * <code>int64 size = 9;</code>
      */
     long getSize();
@@ -8065,6 +9037,10 @@ public final class PlaybookOuterClass {
     public static final int PLAYBOOK_ID_FIELD_NUMBER = 1;
     private int playbookId_;
     /**
+     * <pre>
+     * playbook项目ID
+     * </pre>
+     *
      * <code>int32 playbook_id = 1;</code>
      */
     public int getPlaybookId() {
@@ -8074,6 +9050,10 @@ public final class PlaybookOuterClass {
     public static final int NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object name_;
     /**
+     * <pre>
+     * playbook项目名称
+     * </pre>
+     *
      * <code>string name = 2;</code>
      */
     public java.lang.String getName() {
@@ -8089,6 +9069,10 @@ public final class PlaybookOuterClass {
       }
     }
     /**
+     * <pre>
+     * playbook项目名称
+     * </pre>
+     *
      * <code>string name = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -8108,6 +9092,10 @@ public final class PlaybookOuterClass {
     public static final int DESCRIPTION_FIELD_NUMBER = 3;
     private volatile java.lang.Object description_;
     /**
+     * <pre>
+     * playbook项目描述
+     * </pre>
+     *
      * <code>string description = 3;</code>
      */
     public java.lang.String getDescription() {
@@ -8123,6 +9111,10 @@ public final class PlaybookOuterClass {
       }
     }
     /**
+     * <pre>
+     * playbook项目描述
+     * </pre>
+     *
      * <code>string description = 3;</code>
      */
     public com.google.protobuf.ByteString
@@ -8142,6 +9134,10 @@ public final class PlaybookOuterClass {
     public static final int URL_FIELD_NUMBER = 4;
     private volatile java.lang.Object url_;
     /**
+     * <pre>
+     * playbook存储在对象存储的url
+     * </pre>
+     *
      * <code>string url = 4;</code>
      */
     public java.lang.String getUrl() {
@@ -8157,6 +9153,10 @@ public final class PlaybookOuterClass {
       }
     }
     /**
+     * <pre>
+     * playbook存储在对象存储的url
+     * </pre>
+     *
      * <code>string url = 4;</code>
      */
     public com.google.protobuf.ByteString
@@ -8176,12 +9176,20 @@ public final class PlaybookOuterClass {
     public static final int URL_TYPE_FIELD_NUMBER = 5;
     private int urlType_;
     /**
+     * <pre>
+     * 枚举类型 1-文件下载 2-git下载
+     * </pre>
+     *
      * <code>.playbook.UrlType url_type = 5;</code>
      */
     public int getUrlTypeValue() {
       return urlType_;
     }
     /**
+     * <pre>
+     * 枚举类型 1-文件下载 2-git下载
+     * </pre>
+     *
      * <code>.playbook.UrlType url_type = 5;</code>
      */
     public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType getUrlType() {
@@ -8193,6 +9201,10 @@ public final class PlaybookOuterClass {
     public static final int VERSION_FIELD_NUMBER = 6;
     private volatile java.lang.Object version_;
     /**
+     * <pre>
+     * playbook文件的版本号
+     * </pre>
+     *
      * <code>string version = 6;</code>
      */
     public java.lang.String getVersion() {
@@ -8208,6 +9220,10 @@ public final class PlaybookOuterClass {
       }
     }
     /**
+     * <pre>
+     * playbook文件的版本号
+     * </pre>
+     *
      * <code>string version = 6;</code>
      */
     public com.google.protobuf.ByteString
@@ -8227,6 +9243,10 @@ public final class PlaybookOuterClass {
     public static final int ENTRYPOINT_FIELD_NUMBER = 7;
     private com.google.protobuf.LazyStringList entrypoint_;
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 7;</code>
      */
     public com.google.protobuf.ProtocolStringList
@@ -8234,18 +9254,30 @@ public final class PlaybookOuterClass {
       return entrypoint_;
     }
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 7;</code>
      */
     public int getEntrypointCount() {
       return entrypoint_.size();
     }
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 7;</code>
      */
     public java.lang.String getEntrypoint(int index) {
       return entrypoint_.get(index);
     }
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 7;</code>
      */
     public com.google.protobuf.ByteString
@@ -8256,6 +9288,10 @@ public final class PlaybookOuterClass {
     public static final int MD5_FIELD_NUMBER = 8;
     private volatile java.lang.Object md5_;
     /**
+     * <pre>
+     * 文件md5
+     * </pre>
+     *
      * <code>string md5 = 8;</code>
      */
     public java.lang.String getMd5() {
@@ -8271,6 +9307,10 @@ public final class PlaybookOuterClass {
       }
     }
     /**
+     * <pre>
+     * 文件md5
+     * </pre>
+     *
      * <code>string md5 = 8;</code>
      */
     public com.google.protobuf.ByteString
@@ -8290,6 +9330,10 @@ public final class PlaybookOuterClass {
     public static final int SIZE_FIELD_NUMBER = 9;
     private long size_;
     /**
+     * <pre>
+     * 文件大小
+     * </pre>
+     *
      * <code>int64 size = 9;</code>
      */
     public long getSize() {
@@ -8762,12 +9806,20 @@ public final class PlaybookOuterClass {
 
       private int playbookId_ ;
       /**
+       * <pre>
+       * playbook项目ID
+       * </pre>
+       *
        * <code>int32 playbook_id = 1;</code>
        */
       public int getPlaybookId() {
         return playbookId_;
       }
       /**
+       * <pre>
+       * playbook项目ID
+       * </pre>
+       *
        * <code>int32 playbook_id = 1;</code>
        */
       public Builder setPlaybookId(int value) {
@@ -8777,6 +9829,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook项目ID
+       * </pre>
+       *
        * <code>int32 playbook_id = 1;</code>
        */
       public Builder clearPlaybookId() {
@@ -8788,6 +9844,10 @@ public final class PlaybookOuterClass {
 
       private java.lang.Object name_ = "";
       /**
+       * <pre>
+       * playbook项目名称
+       * </pre>
+       *
        * <code>string name = 2;</code>
        */
       public java.lang.String getName() {
@@ -8803,6 +9863,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook项目名称
+       * </pre>
+       *
        * <code>string name = 2;</code>
        */
       public com.google.protobuf.ByteString
@@ -8819,6 +9883,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook项目名称
+       * </pre>
+       *
        * <code>string name = 2;</code>
        */
       public Builder setName(
@@ -8832,6 +9900,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook项目名称
+       * </pre>
+       *
        * <code>string name = 2;</code>
        */
       public Builder clearName() {
@@ -8841,6 +9913,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook项目名称
+       * </pre>
+       *
        * <code>string name = 2;</code>
        */
       public Builder setNameBytes(
@@ -8857,6 +9933,10 @@ public final class PlaybookOuterClass {
 
       private java.lang.Object description_ = "";
       /**
+       * <pre>
+       * playbook项目描述
+       * </pre>
+       *
        * <code>string description = 3;</code>
        */
       public java.lang.String getDescription() {
@@ -8872,6 +9952,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook项目描述
+       * </pre>
+       *
        * <code>string description = 3;</code>
        */
       public com.google.protobuf.ByteString
@@ -8888,6 +9972,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook项目描述
+       * </pre>
+       *
        * <code>string description = 3;</code>
        */
       public Builder setDescription(
@@ -8901,6 +9989,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook项目描述
+       * </pre>
+       *
        * <code>string description = 3;</code>
        */
       public Builder clearDescription() {
@@ -8910,6 +10002,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook项目描述
+       * </pre>
+       *
        * <code>string description = 3;</code>
        */
       public Builder setDescriptionBytes(
@@ -8926,6 +10022,10 @@ public final class PlaybookOuterClass {
 
       private java.lang.Object url_ = "";
       /**
+       * <pre>
+       * playbook存储在对象存储的url
+       * </pre>
+       *
        * <code>string url = 4;</code>
        */
       public java.lang.String getUrl() {
@@ -8941,6 +10041,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook存储在对象存储的url
+       * </pre>
+       *
        * <code>string url = 4;</code>
        */
       public com.google.protobuf.ByteString
@@ -8957,6 +10061,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook存储在对象存储的url
+       * </pre>
+       *
        * <code>string url = 4;</code>
        */
       public Builder setUrl(
@@ -8970,6 +10078,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook存储在对象存储的url
+       * </pre>
+       *
        * <code>string url = 4;</code>
        */
       public Builder clearUrl() {
@@ -8979,6 +10091,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook存储在对象存储的url
+       * </pre>
+       *
        * <code>string url = 4;</code>
        */
       public Builder setUrlBytes(
@@ -8995,12 +10111,20 @@ public final class PlaybookOuterClass {
 
       private int urlType_ = 0;
       /**
+       * <pre>
+       * 枚举类型 1-文件下载 2-git下载
+       * </pre>
+       *
        * <code>.playbook.UrlType url_type = 5;</code>
        */
       public int getUrlTypeValue() {
         return urlType_;
       }
       /**
+       * <pre>
+       * 枚举类型 1-文件下载 2-git下载
+       * </pre>
+       *
        * <code>.playbook.UrlType url_type = 5;</code>
        */
       public Builder setUrlTypeValue(int value) {
@@ -9009,6 +10133,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 枚举类型 1-文件下载 2-git下载
+       * </pre>
+       *
        * <code>.playbook.UrlType url_type = 5;</code>
        */
       public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType getUrlType() {
@@ -9017,6 +10145,10 @@ public final class PlaybookOuterClass {
         return result == null ? top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType.UNRECOGNIZED : result;
       }
       /**
+       * <pre>
+       * 枚举类型 1-文件下载 2-git下载
+       * </pre>
+       *
        * <code>.playbook.UrlType url_type = 5;</code>
        */
       public Builder setUrlType(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType value) {
@@ -9029,6 +10161,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 枚举类型 1-文件下载 2-git下载
+       * </pre>
+       *
        * <code>.playbook.UrlType url_type = 5;</code>
        */
       public Builder clearUrlType() {
@@ -9040,6 +10176,10 @@ public final class PlaybookOuterClass {
 
       private java.lang.Object version_ = "";
       /**
+       * <pre>
+       * playbook文件的版本号
+       * </pre>
+       *
        * <code>string version = 6;</code>
        */
       public java.lang.String getVersion() {
@@ -9055,6 +10195,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook文件的版本号
+       * </pre>
+       *
        * <code>string version = 6;</code>
        */
       public com.google.protobuf.ByteString
@@ -9071,6 +10215,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook文件的版本号
+       * </pre>
+       *
        * <code>string version = 6;</code>
        */
       public Builder setVersion(
@@ -9084,6 +10232,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook文件的版本号
+       * </pre>
+       *
        * <code>string version = 6;</code>
        */
       public Builder clearVersion() {
@@ -9093,6 +10245,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook文件的版本号
+       * </pre>
+       *
        * <code>string version = 6;</code>
        */
       public Builder setVersionBytes(
@@ -9115,6 +10271,10 @@ public final class PlaybookOuterClass {
          }
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 7;</code>
        */
       public com.google.protobuf.ProtocolStringList
@@ -9122,18 +10282,30 @@ public final class PlaybookOuterClass {
         return entrypoint_.getUnmodifiableView();
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 7;</code>
        */
       public int getEntrypointCount() {
         return entrypoint_.size();
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 7;</code>
        */
       public java.lang.String getEntrypoint(int index) {
         return entrypoint_.get(index);
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 7;</code>
        */
       public com.google.protobuf.ByteString
@@ -9141,6 +10313,10 @@ public final class PlaybookOuterClass {
         return entrypoint_.getByteString(index);
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 7;</code>
        */
       public Builder setEntrypoint(
@@ -9154,6 +10330,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 7;</code>
        */
       public Builder addEntrypoint(
@@ -9167,6 +10347,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 7;</code>
        */
       public Builder addAllEntrypoint(
@@ -9178,6 +10362,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 7;</code>
        */
       public Builder clearEntrypoint() {
@@ -9187,6 +10375,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 7;</code>
        */
       public Builder addEntrypointBytes(
@@ -9203,6 +10395,10 @@ public final class PlaybookOuterClass {
 
       private java.lang.Object md5_ = "";
       /**
+       * <pre>
+       * 文件md5
+       * </pre>
+       *
        * <code>string md5 = 8;</code>
        */
       public java.lang.String getMd5() {
@@ -9218,6 +10414,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 文件md5
+       * </pre>
+       *
        * <code>string md5 = 8;</code>
        */
       public com.google.protobuf.ByteString
@@ -9234,6 +10434,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 文件md5
+       * </pre>
+       *
        * <code>string md5 = 8;</code>
        */
       public Builder setMd5(
@@ -9247,6 +10451,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 文件md5
+       * </pre>
+       *
        * <code>string md5 = 8;</code>
        */
       public Builder clearMd5() {
@@ -9256,6 +10464,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 文件md5
+       * </pre>
+       *
        * <code>string md5 = 8;</code>
        */
       public Builder setMd5Bytes(
@@ -9272,12 +10484,20 @@ public final class PlaybookOuterClass {
 
       private long size_ ;
       /**
+       * <pre>
+       * 文件大小
+       * </pre>
+       *
        * <code>int64 size = 9;</code>
        */
       public long getSize() {
         return size_;
       }
       /**
+       * <pre>
+       * 文件大小
+       * </pre>
+       *
        * <code>int64 size = 9;</code>
        */
       public Builder setSize(long value) {
@@ -9287,6 +10507,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 文件大小
+       * </pre>
+       *
        * <code>int64 size = 9;</code>
        */
       public Builder clearSize() {
@@ -9353,24 +10577,44 @@ public final class PlaybookOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * playbook项目更新时间
+     * </pre>
+     *
      * <code>string updated = 1;</code>
      */
     java.lang.String getUpdated();
     /**
+     * <pre>
+     * playbook项目更新时间
+     * </pre>
+     *
      * <code>string updated = 1;</code>
      */
     com.google.protobuf.ByteString
         getUpdatedBytes();
 
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     boolean hasStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
@@ -9473,6 +10717,10 @@ public final class PlaybookOuterClass {
     public static final int UPDATED_FIELD_NUMBER = 1;
     private volatile java.lang.Object updated_;
     /**
+     * <pre>
+     * playbook项目更新时间
+     * </pre>
+     *
      * <code>string updated = 1;</code>
      */
     public java.lang.String getUpdated() {
@@ -9488,6 +10736,10 @@ public final class PlaybookOuterClass {
       }
     }
     /**
+     * <pre>
+     * playbook项目更新时间
+     * </pre>
+     *
      * <code>string updated = 1;</code>
      */
     public com.google.protobuf.ByteString
@@ -9507,18 +10759,30 @@ public final class PlaybookOuterClass {
     public static final int STATUS_FIELD_NUMBER = 2;
     private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
       return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -9864,6 +11128,10 @@ public final class PlaybookOuterClass {
 
       private java.lang.Object updated_ = "";
       /**
+       * <pre>
+       * playbook项目更新时间
+       * </pre>
+       *
        * <code>string updated = 1;</code>
        */
       public java.lang.String getUpdated() {
@@ -9879,6 +11147,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook项目更新时间
+       * </pre>
+       *
        * <code>string updated = 1;</code>
        */
       public com.google.protobuf.ByteString
@@ -9895,6 +11167,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook项目更新时间
+       * </pre>
+       *
        * <code>string updated = 1;</code>
        */
       public Builder setUpdated(
@@ -9908,6 +11184,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook项目更新时间
+       * </pre>
+       *
        * <code>string updated = 1;</code>
        */
       public Builder clearUpdated() {
@@ -9917,6 +11197,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook项目更新时间
+       * </pre>
+       *
        * <code>string updated = 1;</code>
        */
       public Builder setUpdatedBytes(
@@ -9935,12 +11219,20 @@ public final class PlaybookOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
@@ -9951,6 +11243,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -9967,6 +11263,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder setStatus(
@@ -9981,6 +11281,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -9999,6 +11303,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder clearStatus() {
@@ -10013,6 +11321,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
@@ -10021,6 +11333,10 @@ public final class PlaybookOuterClass {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -10032,6 +11348,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -10132,6 +11452,10 @@ public final class PlaybookOuterClass {
         getNameBytes();
   }
   /**
+   * <pre>
+   * playbook入口文件实例
+   * </pre>
+   *
    * Protobuf type {@code playbook.PlaybookEntrypointObject}
    */
   public  static final class PlaybookEntrypointObject extends
@@ -10437,6 +11761,10 @@ public final class PlaybookOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * playbook入口文件实例
+     * </pre>
+     *
      * Protobuf type {@code playbook.PlaybookEntrypointObject}
      */
     public static final class Builder extends
@@ -10774,68 +12102,124 @@ public final class PlaybookOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * playbook项目ID
+     * </pre>
+     *
      * <code>int32 playbook_id = 1;</code>
      */
     int getPlaybookId();
 
     /**
+     * <pre>
+     * playbook存储在对象存储的url
+     * </pre>
+     *
      * <code>string url = 2;</code>
      */
     java.lang.String getUrl();
     /**
+     * <pre>
+     * playbook存储在对象存储的url
+     * </pre>
+     *
      * <code>string url = 2;</code>
      */
     com.google.protobuf.ByteString
         getUrlBytes();
 
     /**
+     * <pre>
+     * 枚举类型 1-文件下载 2-git下载
+     * </pre>
+     *
      * <code>.playbook.UrlType url_type = 3;</code>
      */
     int getUrlTypeValue();
     /**
+     * <pre>
+     * 枚举类型 1-文件下载 2-git下载
+     * </pre>
+     *
      * <code>.playbook.UrlType url_type = 3;</code>
      */
     top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType getUrlType();
 
     /**
+     * <pre>
+     * playbook文件的版本号
+     * </pre>
+     *
      * <code>string version = 4;</code>
      */
     java.lang.String getVersion();
     /**
+     * <pre>
+     * playbook文件的版本号
+     * </pre>
+     *
      * <code>string version = 4;</code>
      */
     com.google.protobuf.ByteString
         getVersionBytes();
 
     /**
+     * <pre>
+     * 文件md5
+     * </pre>
+     *
      * <code>string md5 = 5;</code>
      */
     java.lang.String getMd5();
     /**
+     * <pre>
+     * 文件md5
+     * </pre>
+     *
      * <code>string md5 = 5;</code>
      */
     com.google.protobuf.ByteString
         getMd5Bytes();
 
     /**
+     * <pre>
+     * 文件大小
+     * </pre>
+     *
      * <code>int64 size = 6;</code>
      */
     long getSize();
 
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 7;</code>
      */
     java.util.List<java.lang.String>
         getEntrypointList();
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 7;</code>
      */
     int getEntrypointCount();
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 7;</code>
      */
     java.lang.String getEntrypoint(int index);
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 7;</code>
      */
     com.google.protobuf.ByteString
@@ -10973,6 +12357,10 @@ public final class PlaybookOuterClass {
     public static final int PLAYBOOK_ID_FIELD_NUMBER = 1;
     private int playbookId_;
     /**
+     * <pre>
+     * playbook项目ID
+     * </pre>
+     *
      * <code>int32 playbook_id = 1;</code>
      */
     public int getPlaybookId() {
@@ -10982,6 +12370,10 @@ public final class PlaybookOuterClass {
     public static final int URL_FIELD_NUMBER = 2;
     private volatile java.lang.Object url_;
     /**
+     * <pre>
+     * playbook存储在对象存储的url
+     * </pre>
+     *
      * <code>string url = 2;</code>
      */
     public java.lang.String getUrl() {
@@ -10997,6 +12389,10 @@ public final class PlaybookOuterClass {
       }
     }
     /**
+     * <pre>
+     * playbook存储在对象存储的url
+     * </pre>
+     *
      * <code>string url = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -11016,12 +12412,20 @@ public final class PlaybookOuterClass {
     public static final int URL_TYPE_FIELD_NUMBER = 3;
     private int urlType_;
     /**
+     * <pre>
+     * 枚举类型 1-文件下载 2-git下载
+     * </pre>
+     *
      * <code>.playbook.UrlType url_type = 3;</code>
      */
     public int getUrlTypeValue() {
       return urlType_;
     }
     /**
+     * <pre>
+     * 枚举类型 1-文件下载 2-git下载
+     * </pre>
+     *
      * <code>.playbook.UrlType url_type = 3;</code>
      */
     public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType getUrlType() {
@@ -11033,6 +12437,10 @@ public final class PlaybookOuterClass {
     public static final int VERSION_FIELD_NUMBER = 4;
     private volatile java.lang.Object version_;
     /**
+     * <pre>
+     * playbook文件的版本号
+     * </pre>
+     *
      * <code>string version = 4;</code>
      */
     public java.lang.String getVersion() {
@@ -11048,6 +12456,10 @@ public final class PlaybookOuterClass {
       }
     }
     /**
+     * <pre>
+     * playbook文件的版本号
+     * </pre>
+     *
      * <code>string version = 4;</code>
      */
     public com.google.protobuf.ByteString
@@ -11067,6 +12479,10 @@ public final class PlaybookOuterClass {
     public static final int MD5_FIELD_NUMBER = 5;
     private volatile java.lang.Object md5_;
     /**
+     * <pre>
+     * 文件md5
+     * </pre>
+     *
      * <code>string md5 = 5;</code>
      */
     public java.lang.String getMd5() {
@@ -11082,6 +12498,10 @@ public final class PlaybookOuterClass {
       }
     }
     /**
+     * <pre>
+     * 文件md5
+     * </pre>
+     *
      * <code>string md5 = 5;</code>
      */
     public com.google.protobuf.ByteString
@@ -11101,6 +12521,10 @@ public final class PlaybookOuterClass {
     public static final int SIZE_FIELD_NUMBER = 6;
     private long size_;
     /**
+     * <pre>
+     * 文件大小
+     * </pre>
+     *
      * <code>int64 size = 6;</code>
      */
     public long getSize() {
@@ -11110,6 +12534,10 @@ public final class PlaybookOuterClass {
     public static final int ENTRYPOINT_FIELD_NUMBER = 7;
     private com.google.protobuf.LazyStringList entrypoint_;
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 7;</code>
      */
     public com.google.protobuf.ProtocolStringList
@@ -11117,18 +12545,30 @@ public final class PlaybookOuterClass {
       return entrypoint_;
     }
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 7;</code>
      */
     public int getEntrypointCount() {
       return entrypoint_.size();
     }
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 7;</code>
      */
     public java.lang.String getEntrypoint(int index) {
       return entrypoint_.get(index);
     }
     /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
      * <code>repeated string entrypoint = 7;</code>
      */
     public com.google.protobuf.ByteString
@@ -11568,12 +13008,20 @@ public final class PlaybookOuterClass {
 
       private int playbookId_ ;
       /**
+       * <pre>
+       * playbook项目ID
+       * </pre>
+       *
        * <code>int32 playbook_id = 1;</code>
        */
       public int getPlaybookId() {
         return playbookId_;
       }
       /**
+       * <pre>
+       * playbook项目ID
+       * </pre>
+       *
        * <code>int32 playbook_id = 1;</code>
        */
       public Builder setPlaybookId(int value) {
@@ -11583,6 +13031,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook项目ID
+       * </pre>
+       *
        * <code>int32 playbook_id = 1;</code>
        */
       public Builder clearPlaybookId() {
@@ -11594,6 +13046,10 @@ public final class PlaybookOuterClass {
 
       private java.lang.Object url_ = "";
       /**
+       * <pre>
+       * playbook存储在对象存储的url
+       * </pre>
+       *
        * <code>string url = 2;</code>
        */
       public java.lang.String getUrl() {
@@ -11609,6 +13065,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook存储在对象存储的url
+       * </pre>
+       *
        * <code>string url = 2;</code>
        */
       public com.google.protobuf.ByteString
@@ -11625,6 +13085,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook存储在对象存储的url
+       * </pre>
+       *
        * <code>string url = 2;</code>
        */
       public Builder setUrl(
@@ -11638,6 +13102,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook存储在对象存储的url
+       * </pre>
+       *
        * <code>string url = 2;</code>
        */
       public Builder clearUrl() {
@@ -11647,6 +13115,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook存储在对象存储的url
+       * </pre>
+       *
        * <code>string url = 2;</code>
        */
       public Builder setUrlBytes(
@@ -11663,12 +13135,20 @@ public final class PlaybookOuterClass {
 
       private int urlType_ = 0;
       /**
+       * <pre>
+       * 枚举类型 1-文件下载 2-git下载
+       * </pre>
+       *
        * <code>.playbook.UrlType url_type = 3;</code>
        */
       public int getUrlTypeValue() {
         return urlType_;
       }
       /**
+       * <pre>
+       * 枚举类型 1-文件下载 2-git下载
+       * </pre>
+       *
        * <code>.playbook.UrlType url_type = 3;</code>
        */
       public Builder setUrlTypeValue(int value) {
@@ -11677,6 +13157,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 枚举类型 1-文件下载 2-git下载
+       * </pre>
+       *
        * <code>.playbook.UrlType url_type = 3;</code>
        */
       public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType getUrlType() {
@@ -11685,6 +13169,10 @@ public final class PlaybookOuterClass {
         return result == null ? top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType.UNRECOGNIZED : result;
       }
       /**
+       * <pre>
+       * 枚举类型 1-文件下载 2-git下载
+       * </pre>
+       *
        * <code>.playbook.UrlType url_type = 3;</code>
        */
       public Builder setUrlType(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType value) {
@@ -11697,6 +13185,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 枚举类型 1-文件下载 2-git下载
+       * </pre>
+       *
        * <code>.playbook.UrlType url_type = 3;</code>
        */
       public Builder clearUrlType() {
@@ -11708,6 +13200,10 @@ public final class PlaybookOuterClass {
 
       private java.lang.Object version_ = "";
       /**
+       * <pre>
+       * playbook文件的版本号
+       * </pre>
+       *
        * <code>string version = 4;</code>
        */
       public java.lang.String getVersion() {
@@ -11723,6 +13219,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook文件的版本号
+       * </pre>
+       *
        * <code>string version = 4;</code>
        */
       public com.google.protobuf.ByteString
@@ -11739,6 +13239,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook文件的版本号
+       * </pre>
+       *
        * <code>string version = 4;</code>
        */
       public Builder setVersion(
@@ -11752,6 +13256,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook文件的版本号
+       * </pre>
+       *
        * <code>string version = 4;</code>
        */
       public Builder clearVersion() {
@@ -11761,6 +13269,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook文件的版本号
+       * </pre>
+       *
        * <code>string version = 4;</code>
        */
       public Builder setVersionBytes(
@@ -11777,6 +13289,10 @@ public final class PlaybookOuterClass {
 
       private java.lang.Object md5_ = "";
       /**
+       * <pre>
+       * 文件md5
+       * </pre>
+       *
        * <code>string md5 = 5;</code>
        */
       public java.lang.String getMd5() {
@@ -11792,6 +13308,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 文件md5
+       * </pre>
+       *
        * <code>string md5 = 5;</code>
        */
       public com.google.protobuf.ByteString
@@ -11808,6 +13328,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 文件md5
+       * </pre>
+       *
        * <code>string md5 = 5;</code>
        */
       public Builder setMd5(
@@ -11821,6 +13345,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 文件md5
+       * </pre>
+       *
        * <code>string md5 = 5;</code>
        */
       public Builder clearMd5() {
@@ -11830,6 +13358,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 文件md5
+       * </pre>
+       *
        * <code>string md5 = 5;</code>
        */
       public Builder setMd5Bytes(
@@ -11846,12 +13378,20 @@ public final class PlaybookOuterClass {
 
       private long size_ ;
       /**
+       * <pre>
+       * 文件大小
+       * </pre>
+       *
        * <code>int64 size = 6;</code>
        */
       public long getSize() {
         return size_;
       }
       /**
+       * <pre>
+       * 文件大小
+       * </pre>
+       *
        * <code>int64 size = 6;</code>
        */
       public Builder setSize(long value) {
@@ -11861,6 +13401,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 文件大小
+       * </pre>
+       *
        * <code>int64 size = 6;</code>
        */
       public Builder clearSize() {
@@ -11878,6 +13422,10 @@ public final class PlaybookOuterClass {
          }
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 7;</code>
        */
       public com.google.protobuf.ProtocolStringList
@@ -11885,18 +13433,30 @@ public final class PlaybookOuterClass {
         return entrypoint_.getUnmodifiableView();
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 7;</code>
        */
       public int getEntrypointCount() {
         return entrypoint_.size();
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 7;</code>
        */
       public java.lang.String getEntrypoint(int index) {
         return entrypoint_.get(index);
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 7;</code>
        */
       public com.google.protobuf.ByteString
@@ -11904,6 +13464,10 @@ public final class PlaybookOuterClass {
         return entrypoint_.getByteString(index);
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 7;</code>
        */
       public Builder setEntrypoint(
@@ -11917,6 +13481,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 7;</code>
        */
       public Builder addEntrypoint(
@@ -11930,6 +13498,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 7;</code>
        */
       public Builder addAllEntrypoint(
@@ -11941,6 +13513,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 7;</code>
        */
       public Builder clearEntrypoint() {
@@ -11950,6 +13526,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
        * <code>repeated string entrypoint = 7;</code>
        */
       public Builder addEntrypointBytes(
@@ -12021,29 +13601,53 @@ public final class PlaybookOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 版本信息
+     * </pre>
+     *
      * <code>int32 version_id = 1;</code>
      */
     int getVersionId();
 
     /**
+     * <pre>
+     * playbook项目创建时间
+     * </pre>
+     *
      * <code>string created = 2;</code>
      */
     java.lang.String getCreated();
     /**
+     * <pre>
+     * playbook项目创建时间
+     * </pre>
+     *
      * <code>string created = 2;</code>
      */
     com.google.protobuf.ByteString
         getCreatedBytes();
 
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     boolean hasStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
@@ -12152,6 +13756,10 @@ public final class PlaybookOuterClass {
     public static final int VERSION_ID_FIELD_NUMBER = 1;
     private int versionId_;
     /**
+     * <pre>
+     * 版本信息
+     * </pre>
+     *
      * <code>int32 version_id = 1;</code>
      */
     public int getVersionId() {
@@ -12161,6 +13769,10 @@ public final class PlaybookOuterClass {
     public static final int CREATED_FIELD_NUMBER = 2;
     private volatile java.lang.Object created_;
     /**
+     * <pre>
+     * playbook项目创建时间
+     * </pre>
+     *
      * <code>string created = 2;</code>
      */
     public java.lang.String getCreated() {
@@ -12176,6 +13788,10 @@ public final class PlaybookOuterClass {
       }
     }
     /**
+     * <pre>
+     * playbook项目创建时间
+     * </pre>
+     *
      * <code>string created = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -12195,18 +13811,30 @@ public final class PlaybookOuterClass {
     public static final int STATUS_FIELD_NUMBER = 3;
     private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
       return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -12569,12 +14197,20 @@ public final class PlaybookOuterClass {
 
       private int versionId_ ;
       /**
+       * <pre>
+       * 版本信息
+       * </pre>
+       *
        * <code>int32 version_id = 1;</code>
        */
       public int getVersionId() {
         return versionId_;
       }
       /**
+       * <pre>
+       * 版本信息
+       * </pre>
+       *
        * <code>int32 version_id = 1;</code>
        */
       public Builder setVersionId(int value) {
@@ -12584,6 +14220,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 版本信息
+       * </pre>
+       *
        * <code>int32 version_id = 1;</code>
        */
       public Builder clearVersionId() {
@@ -12595,6 +14235,10 @@ public final class PlaybookOuterClass {
 
       private java.lang.Object created_ = "";
       /**
+       * <pre>
+       * playbook项目创建时间
+       * </pre>
+       *
        * <code>string created = 2;</code>
        */
       public java.lang.String getCreated() {
@@ -12610,6 +14254,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook项目创建时间
+       * </pre>
+       *
        * <code>string created = 2;</code>
        */
       public com.google.protobuf.ByteString
@@ -12626,6 +14274,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * playbook项目创建时间
+       * </pre>
+       *
        * <code>string created = 2;</code>
        */
       public Builder setCreated(
@@ -12639,6 +14291,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook项目创建时间
+       * </pre>
+       *
        * <code>string created = 2;</code>
        */
       public Builder clearCreated() {
@@ -12648,6 +14304,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * playbook项目创建时间
+       * </pre>
+       *
        * <code>string created = 2;</code>
        */
       public Builder setCreatedBytes(
@@ -12666,12 +14326,20 @@ public final class PlaybookOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
@@ -12682,6 +14350,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -12698,6 +14370,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder setStatus(
@@ -12712,6 +14388,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -12730,6 +14410,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder clearStatus() {
@@ -12744,6 +14428,10 @@ public final class PlaybookOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
@@ -12752,6 +14440,10 @@ public final class PlaybookOuterClass {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -12763,6 +14455,10 @@ public final class PlaybookOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<

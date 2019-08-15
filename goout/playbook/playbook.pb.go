@@ -27,12 +27,16 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
+// 枚举URL类型
 type UrlType int32
 
 const (
+	// 未定义
 	UrlType_UNDEFINED UrlType = 0
-	UrlType_FILE      UrlType = 1
-	UrlType_GIT       UrlType = 2
+	// 文件下载
+	UrlType_FILE UrlType = 1
+	// git下载
+	UrlType_GIT UrlType = 2
 )
 
 var UrlType_name = map[int32]string{
@@ -57,16 +61,27 @@ func (UrlType) EnumDescriptor() ([]byte, []int) {
 
 // 项目实例
 type ProjectObject struct {
-	PlaybookId           int32    `protobuf:"varint,1,opt,name=playbook_id,json=playbookId,proto3" json:"playbook_id,omitempty"`
-	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	Description          string   `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
-	Url                  string   `protobuf:"bytes,4,opt,name=url,proto3" json:"url,omitempty"`
-	UrlType              UrlType  `protobuf:"varint,5,opt,name=url_type,json=urlType,proto3,enum=playbook.UrlType" json:"url_type,omitempty"`
-	Version              string   `protobuf:"bytes,6,opt,name=version,proto3" json:"version,omitempty"`
-	Entrypoint           []string `protobuf:"bytes,7,rep,name=entrypoint,proto3" json:"entrypoint,omitempty"`
-	Md5                  string   `protobuf:"bytes,8,opt,name=md5,proto3" json:"md5,omitempty"`
-	Size                 int64    `protobuf:"varint,9,opt,name=size,proto3" json:"size,omitempty"`
-	Created              string   `protobuf:"bytes,10,opt,name=created,proto3" json:"created,omitempty"`
+	// playbook项目ID
+	PlaybookId int32 `protobuf:"varint,1,opt,name=playbook_id,json=playbookId,proto3" json:"playbook_id,omitempty"`
+	// playbook项目名称
+	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	// playbook项目描述
+	Description string `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
+	// playbook存储在对象存储的url
+	Url string `protobuf:"bytes,4,opt,name=url,proto3" json:"url,omitempty"`
+	// 枚举类型 1-文件下载 2-git下载
+	UrlType UrlType `protobuf:"varint,5,opt,name=url_type,json=urlType,proto3,enum=playbook.UrlType" json:"url_type,omitempty"`
+	// playbook文件的版本号
+	Version string `protobuf:"bytes,6,opt,name=version,proto3" json:"version,omitempty"`
+	// playbook入口yml文件，有多个
+	Entrypoint []string `protobuf:"bytes,7,rep,name=entrypoint,proto3" json:"entrypoint,omitempty"`
+	// 文件md5
+	Md5 string `protobuf:"bytes,8,opt,name=md5,proto3" json:"md5,omitempty"`
+	// 文件大小
+	Size int64 `protobuf:"varint,9,opt,name=size,proto3" json:"size,omitempty"`
+	// 创建时间
+	Created string `protobuf:"bytes,10,opt,name=created,proto3" json:"created,omitempty"`
+	// 更新时间
 	Updated              string   `protobuf:"bytes,11,opt,name=updated,proto3" json:"updated,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -177,13 +192,21 @@ func (m *ProjectObject) GetUpdated() string {
 
 // 创建项目请求内容体
 type CreateRequest struct {
-	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Description          string   `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
-	Url                  string   `protobuf:"bytes,3,opt,name=url,proto3" json:"url,omitempty"`
-	UrlType              UrlType  `protobuf:"varint,4,opt,name=url_type,json=urlType,proto3,enum=playbook.UrlType" json:"url_type,omitempty"`
-	Version              string   `protobuf:"bytes,5,opt,name=version,proto3" json:"version,omitempty"`
-	Entrypoint           []string `protobuf:"bytes,6,rep,name=entrypoint,proto3" json:"entrypoint,omitempty"`
-	Md5                  string   `protobuf:"bytes,7,opt,name=md5,proto3" json:"md5,omitempty"`
+	// playbook项目名称
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	// playbook项目描述
+	Description string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
+	// playbook存储在对象存储的url
+	Url string `protobuf:"bytes,3,opt,name=url,proto3" json:"url,omitempty"`
+	// 枚举类型 1-文件下载 2-git下载
+	UrlType UrlType `protobuf:"varint,4,opt,name=url_type,json=urlType,proto3,enum=playbook.UrlType" json:"url_type,omitempty"`
+	// playbook文件的版本号
+	Version string `protobuf:"bytes,5,opt,name=version,proto3" json:"version,omitempty"`
+	// playbook入口yml文件，有多个
+	Entrypoint []string `protobuf:"bytes,6,rep,name=entrypoint,proto3" json:"entrypoint,omitempty"`
+	// 文件md5
+	Md5 string `protobuf:"bytes,7,opt,name=md5,proto3" json:"md5,omitempty"`
+	// 文件大小
 	Size                 int64    `protobuf:"varint,8,opt,name=size,proto3" json:"size,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -273,8 +296,11 @@ func (m *CreateRequest) GetSize() int64 {
 
 // 创建项目请求返回
 type CreateResponse struct {
-	PlaybookId           int32                  `protobuf:"varint,1,opt,name=playbook_id,json=playbookId,proto3" json:"playbook_id,omitempty"`
-	Created              string                 `protobuf:"bytes,2,opt,name=created,proto3" json:"created,omitempty"`
+	// playbook项目ID
+	PlaybookId int32 `protobuf:"varint,1,opt,name=playbook_id,json=playbookId,proto3" json:"playbook_id,omitempty"`
+	// playbook项目创建时间
+	Created string `protobuf:"bytes,2,opt,name=created,proto3" json:"created,omitempty"`
+	// 返回的请求状态
 	Status               *common.ResponseStatus `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`
@@ -329,6 +355,7 @@ func (m *CreateResponse) GetStatus() *common.ResponseStatus {
 
 // 根据项目ID获取记录
 type GetRequest struct {
+	// playbook项目ID
 	PlaybookId           int32    `protobuf:"varint,1,opt,name=playbook_id,json=playbookId,proto3" json:"playbook_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -369,7 +396,9 @@ func (m *GetRequest) GetPlaybookId() int32 {
 
 // 获取项目请求返回
 type GetResponse struct {
-	Project              *ProjectObject         `protobuf:"bytes,1,opt,name=project,proto3" json:"project,omitempty"`
+	// 返回的项目实例
+	Project *ProjectObject `protobuf:"bytes,1,opt,name=project,proto3" json:"project,omitempty"`
+	// 返回的请求状态
 	Status               *common.ResponseStatus `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`
@@ -417,11 +446,13 @@ func (m *GetResponse) GetStatus() *common.ResponseStatus {
 
 // 筛选项目请求
 type FilterRequest struct {
-	Paging               *common.Paging `protobuf:"bytes,1,opt,name=paging,proto3" json:"paging,omitempty"`
-	Keyword              string         `protobuf:"bytes,2,opt,name=keyword,proto3" json:"keyword,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
+	// 分页信息
+	Paging *common.Paging `protobuf:"bytes,1,opt,name=paging,proto3" json:"paging,omitempty"`
+	// 用于模糊筛选的playbook项目名称的关键字
+	Keyword              string   `protobuf:"bytes,2,opt,name=keyword,proto3" json:"keyword,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *FilterRequest) Reset()         { *m = FilterRequest{} }
@@ -465,8 +496,11 @@ func (m *FilterRequest) GetKeyword() string {
 
 // 筛选项目请求返回
 type FilterResponse struct {
-	Projects             []*ProjectObject       `protobuf:"bytes,1,rep,name=projects,proto3" json:"projects,omitempty"`
-	Paging               *common.Paging         `protobuf:"bytes,2,opt,name=paging,proto3" json:"paging,omitempty"`
+	// 返回的筛选到的多个项目实例
+	Projects []*ProjectObject `protobuf:"bytes,1,rep,name=projects,proto3" json:"projects,omitempty"`
+	// 分页信息
+	Paging *common.Paging `protobuf:"bytes,2,opt,name=paging,proto3" json:"paging,omitempty"`
+	// 返回的请求状态
 	Status               *common.ResponseStatus `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`
@@ -521,14 +555,23 @@ func (m *FilterResponse) GetStatus() *common.ResponseStatus {
 
 // 更新项目请求内容体
 type UpdateRequest struct {
-	PlaybookId           int32    `protobuf:"varint,1,opt,name=playbook_id,json=playbookId,proto3" json:"playbook_id,omitempty"`
-	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	Description          string   `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
-	Url                  string   `protobuf:"bytes,4,opt,name=url,proto3" json:"url,omitempty"`
-	UrlType              UrlType  `protobuf:"varint,5,opt,name=url_type,json=urlType,proto3,enum=playbook.UrlType" json:"url_type,omitempty"`
-	Version              string   `protobuf:"bytes,6,opt,name=version,proto3" json:"version,omitempty"`
-	Entrypoint           []string `protobuf:"bytes,7,rep,name=entrypoint,proto3" json:"entrypoint,omitempty"`
-	Md5                  string   `protobuf:"bytes,8,opt,name=md5,proto3" json:"md5,omitempty"`
+	// playbook项目ID
+	PlaybookId int32 `protobuf:"varint,1,opt,name=playbook_id,json=playbookId,proto3" json:"playbook_id,omitempty"`
+	// playbook项目名称
+	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	// playbook项目描述
+	Description string `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
+	// playbook存储在对象存储的url
+	Url string `protobuf:"bytes,4,opt,name=url,proto3" json:"url,omitempty"`
+	// 枚举类型 1-文件下载 2-git下载
+	UrlType UrlType `protobuf:"varint,5,opt,name=url_type,json=urlType,proto3,enum=playbook.UrlType" json:"url_type,omitempty"`
+	// playbook文件的版本号
+	Version string `protobuf:"bytes,6,opt,name=version,proto3" json:"version,omitempty"`
+	// playbook入口yml文件，有多个
+	Entrypoint []string `protobuf:"bytes,7,rep,name=entrypoint,proto3" json:"entrypoint,omitempty"`
+	// 文件md5
+	Md5 string `protobuf:"bytes,8,opt,name=md5,proto3" json:"md5,omitempty"`
+	// 文件大小
 	Size                 int64    `protobuf:"varint,9,opt,name=size,proto3" json:"size,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -625,7 +668,9 @@ func (m *UpdateRequest) GetSize() int64 {
 
 // 更新项目请求返回
 type UpdateResponse struct {
-	Updated              string                 `protobuf:"bytes,1,opt,name=updated,proto3" json:"updated,omitempty"`
+	// playbook项目更新时间
+	Updated string `protobuf:"bytes,1,opt,name=updated,proto3" json:"updated,omitempty"`
+	// 返回的请求状态
 	Status               *common.ResponseStatus `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`
@@ -671,8 +716,11 @@ func (m *UpdateResponse) GetStatus() *common.ResponseStatus {
 	return nil
 }
 
+// playbook入口文件实例
 type PlaybookEntrypointObject struct {
-	PlaybookEntrypointId int32    `protobuf:"varint,1,opt,name=playbook_entrypoint_id,json=playbookEntrypointId,proto3" json:"playbook_entrypoint_id,omitempty"`
+	// 入口文件ID
+	PlaybookEntrypointId int32 `protobuf:"varint,1,opt,name=playbook_entrypoint_id,json=playbookEntrypointId,proto3" json:"playbook_entrypoint_id,omitempty"`
+	// 入口文件名称
 	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -720,12 +768,19 @@ func (m *PlaybookEntrypointObject) GetName() string {
 
 // 版本列表请求内容体
 type SaveVersionRequest struct {
-	PlaybookId           int32    `protobuf:"varint,1,opt,name=playbook_id,json=playbookId,proto3" json:"playbook_id,omitempty"`
-	Url                  string   `protobuf:"bytes,2,opt,name=url,proto3" json:"url,omitempty"`
-	UrlType              UrlType  `protobuf:"varint,3,opt,name=url_type,json=urlType,proto3,enum=playbook.UrlType" json:"url_type,omitempty"`
-	Version              string   `protobuf:"bytes,4,opt,name=version,proto3" json:"version,omitempty"`
-	Md5                  string   `protobuf:"bytes,5,opt,name=md5,proto3" json:"md5,omitempty"`
-	Size                 int64    `protobuf:"varint,6,opt,name=size,proto3" json:"size,omitempty"`
+	// playbook项目ID
+	PlaybookId int32 `protobuf:"varint,1,opt,name=playbook_id,json=playbookId,proto3" json:"playbook_id,omitempty"`
+	// playbook存储在对象存储的url
+	Url string `protobuf:"bytes,2,opt,name=url,proto3" json:"url,omitempty"`
+	// 枚举类型 1-文件下载 2-git下载
+	UrlType UrlType `protobuf:"varint,3,opt,name=url_type,json=urlType,proto3,enum=playbook.UrlType" json:"url_type,omitempty"`
+	// playbook文件的版本号
+	Version string `protobuf:"bytes,4,opt,name=version,proto3" json:"version,omitempty"`
+	// 文件md5
+	Md5 string `protobuf:"bytes,5,opt,name=md5,proto3" json:"md5,omitempty"`
+	// 文件大小
+	Size int64 `protobuf:"varint,6,opt,name=size,proto3" json:"size,omitempty"`
+	// playbook入口yml文件，有多个
 	Entrypoint           []string `protobuf:"bytes,7,rep,name=entrypoint,proto3" json:"entrypoint,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -808,8 +863,11 @@ func (m *SaveVersionRequest) GetEntrypoint() []string {
 
 // 版本列表请求响应
 type SaveVersionResponse struct {
-	VersionId            int32                  `protobuf:"varint,1,opt,name=version_id,json=versionId,proto3" json:"version_id,omitempty"`
-	Created              string                 `protobuf:"bytes,2,opt,name=created,proto3" json:"created,omitempty"`
+	// 版本信息
+	VersionId int32 `protobuf:"varint,1,opt,name=version_id,json=versionId,proto3" json:"version_id,omitempty"`
+	// playbook项目创建时间
+	Created string `protobuf:"bytes,2,opt,name=created,proto3" json:"created,omitempty"`
+	// 返回的请求状态
 	Status               *common.ResponseStatus `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`

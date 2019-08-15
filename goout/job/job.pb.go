@@ -27,8 +27,9 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-// 作业实例
+// 作业任务实例
 type JobObject struct {
+	// 作业任务ID
 	JobId                int32    `protobuf:"varint,1,opt,name=job_id,json=jobId,proto3" json:"job_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -67,6 +68,7 @@ func (m *JobObject) GetJobId() int32 {
 	return 0
 }
 
+// 创建作业任务(执行作业模板)请求
 type CreateRequest struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -98,9 +100,11 @@ func (m *CreateRequest) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_CreateRequest proto.InternalMessageInfo
 
-// 创建作业请求返回
+// 创建作业任务请求返回
 type CreateResponse struct {
-	JobId                int32                  `protobuf:"varint,1,opt,name=job_id,json=jobId,proto3" json:"job_id,omitempty"`
+	// 作业任务ID
+	JobId int32 `protobuf:"varint,1,opt,name=job_id,json=jobId,proto3" json:"job_id,omitempty"`
+	// 返回的请求状态
 	Status               *common.ResponseStatus `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`
@@ -146,7 +150,9 @@ func (m *CreateResponse) GetStatus() *common.ResponseStatus {
 	return nil
 }
 
+// 获取作业任务请求
 type GetRequest struct {
+	// 作业任务ID
 	JobId                int32    `protobuf:"varint,1,opt,name=job_id,json=jobId,proto3" json:"job_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -185,9 +191,11 @@ func (m *GetRequest) GetJobId() int32 {
 	return 0
 }
 
-// 获取作业请求返回
+// 获取作业任务请求返回
 type GetResponse struct {
-	Job                  *JobObject             `protobuf:"bytes,1,opt,name=job,proto3" json:"job,omitempty"`
+	// 获取的作业任务实例
+	Job *JobObject `protobuf:"bytes,1,opt,name=job,proto3" json:"job,omitempty"`
+	// 返回的请求状态
 	Status               *common.ResponseStatus `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`
@@ -233,7 +241,9 @@ func (m *GetResponse) GetStatus() *common.ResponseStatus {
 	return nil
 }
 
+// 获取作业任务详细执行过程请求
 type GetLogRequest struct {
+	// 作业任务ID
 	JobId                int32    `protobuf:"varint,1,opt,name=job_id,json=jobId,proto3" json:"job_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -272,8 +282,9 @@ func (m *GetLogRequest) GetJobId() int32 {
 	return 0
 }
 
-// 获取作业请求返回
+// 获取作业任务详细执行过程请求返回
 type GetLogResponse struct {
+	// 返回的请求状态
 	Status               *common.ResponseStatus `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`
@@ -312,8 +323,9 @@ func (m *GetLogResponse) GetStatus() *common.ResponseStatus {
 	return nil
 }
 
-// 筛选作业请求
+// 筛选获取作业任务请求
 type FilterRequest struct {
+	// 分页信息
 	Paging               *common.Paging `protobuf:"bytes,1,opt,name=paging,proto3" json:"paging,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
 	XXX_unrecognized     []byte         `json:"-"`
@@ -352,10 +364,13 @@ func (m *FilterRequest) GetPaging() *common.Paging {
 	return nil
 }
 
-// 筛选作业请求返回
+// 筛选作业任务请求返回
 type FilterResponse struct {
-	Jobs                 []*JobObject           `protobuf:"bytes,1,rep,name=jobs,proto3" json:"jobs,omitempty"`
-	Paging               *common.Paging         `protobuf:"bytes,2,opt,name=paging,proto3" json:"paging,omitempty"`
+	// 筛选到的多个作业任务实例
+	Jobs []*JobObject `protobuf:"bytes,1,rep,name=jobs,proto3" json:"jobs,omitempty"`
+	// 分页信息
+	Paging *common.Paging `protobuf:"bytes,2,opt,name=paging,proto3" json:"paging,omitempty"`
+	// 返回的请求状态
 	Status               *common.ResponseStatus `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`
@@ -408,7 +423,9 @@ func (m *FilterResponse) GetStatus() *common.ResponseStatus {
 	return nil
 }
 
+// 创建定时作业任务请求
 type ScheduleRequest struct {
+	// 作业任务ID
 	JobId                int32    `protobuf:"varint,1,opt,name=job_id,json=jobId,proto3" json:"job_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -447,6 +464,7 @@ func (m *ScheduleRequest) GetJobId() int32 {
 	return 0
 }
 
+// 创建定时作业任务请求返回
 type ScheduleResponse struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -478,7 +496,9 @@ func (m *ScheduleResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_ScheduleResponse proto.InternalMessageInfo
 
+// 查看定时作业任务请求
 type ScheduleListRequest struct {
+	// 作业任务ID
 	JobId                int32    `protobuf:"varint,1,opt,name=job_id,json=jobId,proto3" json:"job_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -517,6 +537,7 @@ func (m *ScheduleListRequest) GetJobId() int32 {
 	return 0
 }
 
+// 查看定时作业任务请求返回
 type ScheduleListResponse struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -548,7 +569,9 @@ func (m *ScheduleListResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_ScheduleListResponse proto.InternalMessageInfo
 
+// 删除作业任务请求
 type DeleteRequest struct {
+	// 作业任务ID
 	JobId                int32    `protobuf:"varint,1,opt,name=job_id,json=jobId,proto3" json:"job_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -587,6 +610,7 @@ func (m *DeleteRequest) GetJobId() int32 {
 	return 0
 }
 
+// 删除作业任务请求返回
 type DeleteResponse struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`

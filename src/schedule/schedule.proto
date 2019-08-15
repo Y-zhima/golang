@@ -54,6 +54,7 @@ service Schedule {
 
 }
 
+// 任务状态
 enum ScheduleStatus {
     OFF = 0;
     ON = 1;
@@ -61,65 +62,101 @@ enum ScheduleStatus {
 
 // 定时任务实例
 message ScheduleObject {
-    int32 schedule_id = 1; // 定时任务ID
-    template.TemplateObject template = 2; // 模板实例
-    string name = 3; // 定时任务名
-    string start_time = 4; // 开始日期
-    string end_time = 5; // 开始时间
-    string cron_expression = 6; // 定时任务表达式
-    ScheduleStatus status = 7; // 任务状态
+    // 定时任务ID
+    int32 schedule_id = 1;
+    // 模板实例
+    template.TemplateObject template = 2;
+    // 定时任务名
+    string name = 3;
+    // 开始日期
+    string start_time = 4;
+    // 开始时间
+    string end_time = 5;
+    // 定时任务表达式
+    string cron_expression = 6;
+    // 任务状态
+    ScheduleStatus status = 7;
 }
 
+// 创建定时任务请求
 message CreateRequest {
+    // 模板ID
     int32 template_id = 1;
+    // 定时任务名
     string name = 2;
+    // 定时任务开始时间
     string start_time = 3;
+    // 定时任务结束时间
     string end_time = 4;
+    // 定时任务表达式
     string cron_expression = 5;
 }
 
 // 创建定时任务请求返回
 message CreateResponse {
+    // 定时任务ID
     int32 schedule_id = 1;
+    // 定时任务创建时间
     string created = 2;
+    // 返回请求状态
     common.ResponseStatus status = 3;
 }
 
+// 获取定时任务请求
 message GetRequest {
+    // 定时任务ID
     int32 schedule_id = 1;
 }
 
 // 获取定时任务请求返回
 message GetResponse {
+    // 定时任务实例
     ScheduleObject schedule = 1;
+    // 返回的请求状态
     common.ResponseStatus status = 2;
 }
 
 // 筛选定时任务请求
 message FilterRequest {
+    // 分页信息
     common.Paging paging = 1;
+    // 用于筛选的定时任务名字的关键字
     string schedule_name = 2;
+    // 模板ID
     int32 template_id = 3;
 }
 
 // 筛选定时任务请求返回
 message FilterResponse {
+    // 筛选到的多个定时任务实例
     repeated ScheduleObject schedules = 1;
+    // 分页信息
     common.Paging paging = 2;
+    // 返回的请求状态
     common.ResponseStatus status = 3;
 }
 
+// 更新定时任务请求
 message UpdateRequest {
+    // 定时任务ID
     int32 schedule_id = 1;
+    // 模板ID
     int32 template_id = 2;
+    // 定时任务名字
     string name = 3;
+    // 定时任务开启时间
     string start_time = 4;
+    // 定时任务结束时间
     string end_time = 5;
+    // 定时任务表达式
     string cron_expression = 6;
 }
 
+// 更新请求返回
 message UpdateResponse {
+    // 定时任务更新时间
     string updated = 1;
+    // 返回的请求状态
     common.ResponseStatus status = 2;
 }
 
@@ -131,10 +168,14 @@ message UpdateResponse {
 //    common.ResponseStatus status = 1;
 //}
 
+// 切换定时任务状态请求
 message SwitchStatusRequest {
+    // 定时任务ID
     int32 schedule_id = 1;
 }
 
+// 切换定时任务状态请求返回
 message SwitchStatusResponse {
+    // 返回的请求状态
     common.ResponseStatus status = 1;
 }

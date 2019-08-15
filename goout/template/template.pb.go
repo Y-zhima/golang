@@ -30,16 +30,23 @@ const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 // 模板实例
 type TemplateObject struct {
-	TemplateId           int32                   `protobuf:"varint,1,opt,name=template_id,json=templateId,proto3" json:"template_id,omitempty"`
-	Name                 string                  `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	Description          string                  `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
-	Playbook             *playbook.ProjectObject `protobuf:"bytes,4,opt,name=playbook,proto3" json:"playbook,omitempty"`
-	PlaybookFileId       int32                   `protobuf:"varint,5,opt,name=playbook_file_id,json=playbookFileId,proto3" json:"playbook_file_id,omitempty"`
-	PlaybookEntrypointId int32                   `protobuf:"varint,6,opt,name=playbook_entrypoint_id,json=playbookEntrypointId,proto3" json:"playbook_entrypoint_id,omitempty"`
-	ExtraVar             string                  `protobuf:"bytes,7,opt,name=extra_var,json=extraVar,proto3" json:"extra_var,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}                `json:"-"`
-	XXX_unrecognized     []byte                  `json:"-"`
-	XXX_sizecache        int32                   `json:"-"`
+	// 模板ID
+	TemplateId int32 `protobuf:"varint,1,opt,name=template_id,json=templateId,proto3" json:"template_id,omitempty"`
+	// 模板名
+	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	// 模板描述
+	Description string `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
+	// playbook 项目
+	Playbook *playbook.ProjectObject `protobuf:"bytes,4,opt,name=playbook,proto3" json:"playbook,omitempty"`
+	// 选择的playbook项目对应的playbook_file
+	PlaybookFileId int32 `protobuf:"varint,5,opt,name=playbook_file_id,json=playbookFileId,proto3" json:"playbook_file_id,omitempty"`
+	// 选择的playbook入口yml文件
+	PlaybookEntrypointId int32 `protobuf:"varint,6,opt,name=playbook_entrypoint_id,json=playbookEntrypointId,proto3" json:"playbook_entrypoint_id,omitempty"`
+	// 额外变量
+	ExtraVar             string   `protobuf:"bytes,7,opt,name=extra_var,json=extraVar,proto3" json:"extra_var,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *TemplateObject) Reset()         { *m = TemplateObject{} }
@@ -116,12 +123,19 @@ func (m *TemplateObject) GetExtraVar() string {
 	return ""
 }
 
+// 创建模板请求
 type CreateRequest struct {
-	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Description          string   `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
-	PlaybookId           int32    `protobuf:"varint,3,opt,name=playbook_id,json=playbookId,proto3" json:"playbook_id,omitempty"`
-	PlaybookFileId       int32    `protobuf:"varint,4,opt,name=playbook_file_id,json=playbookFileId,proto3" json:"playbook_file_id,omitempty"`
-	PlaybookEntrypointId int32    `protobuf:"varint,5,opt,name=playbook_entrypoint_id,json=playbookEntrypointId,proto3" json:"playbook_entrypoint_id,omitempty"`
+	// 模板名
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	// 模板描述
+	Description string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
+	// playbook 项目id
+	PlaybookId int32 `protobuf:"varint,3,opt,name=playbook_id,json=playbookId,proto3" json:"playbook_id,omitempty"`
+	// 选择的playbook项目对应的playbook_file
+	PlaybookFileId int32 `protobuf:"varint,4,opt,name=playbook_file_id,json=playbookFileId,proto3" json:"playbook_file_id,omitempty"`
+	// 选择的playbook入口yml文件
+	PlaybookEntrypointId int32 `protobuf:"varint,5,opt,name=playbook_entrypoint_id,json=playbookEntrypointId,proto3" json:"playbook_entrypoint_id,omitempty"`
+	// 额外变量
 	ExtraVar             string   `protobuf:"bytes,6,opt,name=extra_var,json=extraVar,proto3" json:"extra_var,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -197,8 +211,11 @@ func (m *CreateRequest) GetExtraVar() string {
 
 // 创建模板请求返回
 type CreateResponse struct {
-	TemplateId           int32                  `protobuf:"varint,1,opt,name=template_id,json=templateId,proto3" json:"template_id,omitempty"`
-	Created              string                 `protobuf:"bytes,2,opt,name=created,proto3" json:"created,omitempty"`
+	// 模板ID
+	TemplateId int32 `protobuf:"varint,1,opt,name=template_id,json=templateId,proto3" json:"template_id,omitempty"`
+	// 模板创建的时间
+	Created string `protobuf:"bytes,2,opt,name=created,proto3" json:"created,omitempty"`
+	// 请求返回状态
 	Status               *common.ResponseStatus `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`
@@ -252,6 +269,7 @@ func (m *CreateResponse) GetStatus() *common.ResponseStatus {
 }
 
 type GetRequest struct {
+	// 模板ID
 	TemplateId           int32    `protobuf:"varint,1,opt,name=template_id,json=templateId,proto3" json:"template_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -292,7 +310,9 @@ func (m *GetRequest) GetTemplateId() int32 {
 
 // 获取模板请求返回
 type GetResponse struct {
-	Template             *TemplateObject        `protobuf:"bytes,1,opt,name=template,proto3" json:"template,omitempty"`
+	// 请求返回的模板
+	Template *TemplateObject `protobuf:"bytes,1,opt,name=template,proto3" json:"template,omitempty"`
+	// 请求返回状态
 	Status               *common.ResponseStatus `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`
@@ -340,12 +360,15 @@ func (m *GetResponse) GetStatus() *common.ResponseStatus {
 
 // 筛选模板请求
 type FilterRequest struct {
-	Paging               *common.Paging `protobuf:"bytes,1,opt,name=paging,proto3" json:"paging,omitempty"`
-	Name                 string         `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	TemplateId           string         `protobuf:"bytes,3,opt,name=template_id,json=templateId,proto3" json:"template_id,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
+	// 分页信息
+	Paging *common.Paging `protobuf:"bytes,1,opt,name=paging,proto3" json:"paging,omitempty"`
+	// 模板名的一部分，模糊查询时的关键字
+	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	// 模板ID
+	TemplateId           string   `protobuf:"bytes,3,opt,name=template_id,json=templateId,proto3" json:"template_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *FilterRequest) Reset()         { *m = FilterRequest{} }
@@ -396,8 +419,11 @@ func (m *FilterRequest) GetTemplateId() string {
 
 // 筛选模板请求返回
 type FilterResponse struct {
-	Templates            []*TemplateObject      `protobuf:"bytes,1,rep,name=templates,proto3" json:"templates,omitempty"`
-	Paging               *common.Paging         `protobuf:"bytes,2,opt,name=paging,proto3" json:"paging,omitempty"`
+	// 请求返回的模板
+	Templates []*TemplateObject `protobuf:"bytes,1,rep,name=templates,proto3" json:"templates,omitempty"`
+	// 分页信息
+	Paging *common.Paging `protobuf:"bytes,2,opt,name=paging,proto3" json:"paging,omitempty"`
+	// 请求返回状态
 	Status               *common.ResponseStatus `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`
@@ -450,13 +476,21 @@ func (m *FilterResponse) GetStatus() *common.ResponseStatus {
 	return nil
 }
 
+// 更新模板请求
 type UpdateRequest struct {
-	TemplateId           int32    `protobuf:"varint,1,opt,name=template_id,json=templateId,proto3" json:"template_id,omitempty"`
-	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	Description          string   `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
-	PlaybookId           int32    `protobuf:"varint,4,opt,name=playbook_id,json=playbookId,proto3" json:"playbook_id,omitempty"`
-	PlaybookFileId       int32    `protobuf:"varint,5,opt,name=playbook_file_id,json=playbookFileId,proto3" json:"playbook_file_id,omitempty"`
-	PlaybookEntrypointId int32    `protobuf:"varint,6,opt,name=playbook_entrypoint_id,json=playbookEntrypointId,proto3" json:"playbook_entrypoint_id,omitempty"`
+	// 模板ID
+	TemplateId int32 `protobuf:"varint,1,opt,name=template_id,json=templateId,proto3" json:"template_id,omitempty"`
+	// 模板名
+	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	// 模板描述
+	Description string `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
+	// playbook项目的id
+	PlaybookId int32 `protobuf:"varint,4,opt,name=playbook_id,json=playbookId,proto3" json:"playbook_id,omitempty"`
+	// 所选playbook项目对应的playbookFile的id
+	PlaybookFileId int32 `protobuf:"varint,5,opt,name=playbook_file_id,json=playbookFileId,proto3" json:"playbook_file_id,omitempty"`
+	// 所选playbook项目对应的入口yml文件的id
+	PlaybookEntrypointId int32 `protobuf:"varint,6,opt,name=playbook_entrypoint_id,json=playbookEntrypointId,proto3" json:"playbook_entrypoint_id,omitempty"`
+	// 额外变量
 	ExtraVar             string   `protobuf:"bytes,7,opt,name=extra_var,json=extraVar,proto3" json:"extra_var,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -537,8 +571,11 @@ func (m *UpdateRequest) GetExtraVar() string {
 	return ""
 }
 
+// 更新请求返回
 type UpdateResponse struct {
-	Updated              string                 `protobuf:"bytes,1,opt,name=updated,proto3" json:"updated,omitempty"`
+	// 模板更新的时间
+	Updated string `protobuf:"bytes,1,opt,name=updated,proto3" json:"updated,omitempty"`
+	// 请求返回的状态
 	Status               *common.ResponseStatus `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`
@@ -584,7 +621,9 @@ func (m *UpdateResponse) GetStatus() *common.ResponseStatus {
 	return nil
 }
 
+// 删除模板请求
 type DeleteRequest struct {
+	//模板ID
 	TemplateId           int32    `protobuf:"varint,1,opt,name=template_id,json=templateId,proto3" json:"template_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -623,7 +662,9 @@ func (m *DeleteRequest) GetTemplateId() int32 {
 	return 0
 }
 
+// 删除请求返回
 type DeleteResponse struct {
+	// 请求返回的状态
 	Status               *common.ResponseStatus `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`

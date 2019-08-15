@@ -89,12 +89,14 @@
           },
           {
             "name": "name",
+            "description": "模板名的一部分，模糊查询时的关键字.",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "template_id",
+            "description": "模板ID.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -120,6 +122,7 @@
         "parameters": [
           {
             "name": "template_id",
+            "description": "模板ID",
             "in": "path",
             "required": true,
             "type": "integer",
@@ -146,6 +149,7 @@
         "parameters": [
           {
             "name": "template_id",
+            "description": "模板ID",
             "in": "path",
             "required": true,
             "type": "integer",
@@ -223,41 +227,52 @@
       "properties": {
         "playbook_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "playbook项目ID"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目名称"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目描述"
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook存储在对象存储的url"
         },
         "url_type": {
-          "$ref": "#/definitions/playbookUrlType"
+          "$ref": "#/definitions/playbookUrlType",
+          "title": "枚举类型 1-文件下载 2-git下载"
         },
         "version": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook文件的版本号"
         },
         "entrypoint": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "title": "playbook入口yml文件，有多个"
         },
         "md5": {
-          "type": "string"
+          "type": "string",
+          "title": "文件md5"
         },
         "size": {
           "type": "string",
-          "format": "int64"
+          "format": "int64",
+          "title": "文件大小"
         },
         "created": {
-          "type": "string"
+          "type": "string",
+          "title": "创建时间"
         },
         "updated": {
-          "type": "string"
+          "type": "string",
+          "title": "更新时间"
         }
       },
       "title": "项目实例"
@@ -269,46 +284,58 @@
         "FILE",
         "GIT"
       ],
-      "default": "UNDEFINED"
+      "default": "UNDEFINED",
+      "description": "- UNDEFINED: 未定义\n - FILE: 文件下载\n - GIT: git下载",
+      "title": "枚举URL类型"
     },
     "templateCreateRequest": {
       "type": "object",
       "properties": {
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "模板名"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "title": "模板描述"
         },
         "playbook_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "playbook 项目id"
         },
         "playbook_file_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "选择的playbook项目对应的playbook_file"
         },
         "playbook_entrypoint_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "选择的playbook入口yml文件"
         },
         "extra_var": {
-          "type": "string"
+          "type": "string",
+          "title": "额外变量"
         }
-      }
+      },
+      "title": "创建模板请求"
     },
     "templateCreateResponse": {
       "type": "object",
       "properties": {
         "template_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "模板ID"
         },
         "created": {
-          "type": "string"
+          "type": "string",
+          "title": "模板创建的时间"
         },
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "请求返回状态"
         }
       },
       "title": "创建模板请求返回"
@@ -317,9 +344,11 @@
       "type": "object",
       "properties": {
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "请求返回的状态"
         }
-      }
+      },
+      "title": "删除请求返回"
     },
     "templateFilterResponse": {
       "type": "object",
@@ -328,13 +357,16 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/templateTemplateObject"
-          }
+          },
+          "title": "请求返回的模板"
         },
         "paging": {
-          "$ref": "#/definitions/commonPaging"
+          "$ref": "#/definitions/commonPaging",
+          "title": "分页信息"
         },
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "请求返回状态"
         }
       },
       "title": "筛选模板请求返回"
@@ -343,10 +375,12 @@
       "type": "object",
       "properties": {
         "template": {
-          "$ref": "#/definitions/templateTemplateObject"
+          "$ref": "#/definitions/templateTemplateObject",
+          "title": "请求返回的模板"
         },
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "请求返回状态"
         }
       },
       "title": "获取模板请求返回"
@@ -356,27 +390,34 @@
       "properties": {
         "template_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "模板ID"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "模板名"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "title": "模板描述"
         },
         "playbook": {
-          "$ref": "#/definitions/playbookProjectObject"
+          "$ref": "#/definitions/playbookProjectObject",
+          "title": "playbook 项目"
         },
         "playbook_file_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "选择的playbook项目对应的playbook_file"
         },
         "playbook_entrypoint_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "选择的playbook入口yml文件"
         },
         "extra_var": {
-          "type": "string"
+          "type": "string",
+          "title": "额外变量"
         }
       },
       "title": "模板实例"
@@ -386,41 +427,52 @@
       "properties": {
         "template_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "模板ID"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "模板名"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "title": "模板描述"
         },
         "playbook_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "playbook项目的id"
         },
         "playbook_file_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "所选playbook项目对应的playbookFile的id"
         },
         "playbook_entrypoint_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "所选playbook项目对应的入口yml文件的id"
         },
         "extra_var": {
-          "type": "string"
+          "type": "string",
+          "title": "额外变量"
         }
-      }
+      },
+      "title": "更新模板请求"
     },
     "templateUpdateResponse": {
       "type": "object",
       "properties": {
         "updated": {
-          "type": "string"
+          "type": "string",
+          "title": "模板更新的时间"
         },
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "请求返回的状态"
         }
-      }
+      },
+      "title": "更新请求返回"
     }
   }
 }
