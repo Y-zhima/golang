@@ -15,6 +15,10 @@ public final class ScheduleOuterClass {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   /**
+   * <pre>
+   * 任务状态
+   * </pre>
+   *
    * Protobuf enum {@code schedule.ScheduleStatus}
    */
   public enum ScheduleStatus
@@ -1697,51 +1701,91 @@ public final class ScheduleOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 模板ID
+     * </pre>
+     *
      * <code>int32 template_id = 1;</code>
      */
     int getTemplateId();
 
     /**
+     * <pre>
+     * 定时任务名
+     * </pre>
+     *
      * <code>string name = 2;</code>
      */
     java.lang.String getName();
     /**
+     * <pre>
+     * 定时任务名
+     * </pre>
+     *
      * <code>string name = 2;</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
+     * <pre>
+     * 定时任务开始时间
+     * </pre>
+     *
      * <code>string start_time = 3;</code>
      */
     java.lang.String getStartTime();
     /**
+     * <pre>
+     * 定时任务开始时间
+     * </pre>
+     *
      * <code>string start_time = 3;</code>
      */
     com.google.protobuf.ByteString
         getStartTimeBytes();
 
     /**
+     * <pre>
+     * 定时任务结束时间
+     * </pre>
+     *
      * <code>string end_time = 4;</code>
      */
     java.lang.String getEndTime();
     /**
+     * <pre>
+     * 定时任务结束时间
+     * </pre>
+     *
      * <code>string end_time = 4;</code>
      */
     com.google.protobuf.ByteString
         getEndTimeBytes();
 
     /**
+     * <pre>
+     * 定时任务表达式
+     * </pre>
+     *
      * <code>string cron_expression = 5;</code>
      */
     java.lang.String getCronExpression();
     /**
+     * <pre>
+     * 定时任务表达式
+     * </pre>
+     *
      * <code>string cron_expression = 5;</code>
      */
     com.google.protobuf.ByteString
         getCronExpressionBytes();
   }
   /**
+   * <pre>
+   * 创建定时任务请求
+   * </pre>
+   *
    * Protobuf type {@code schedule.CreateRequest}
    */
   public  static final class CreateRequest extends
@@ -1849,6 +1893,10 @@ public final class ScheduleOuterClass {
     public static final int TEMPLATE_ID_FIELD_NUMBER = 1;
     private int templateId_;
     /**
+     * <pre>
+     * 模板ID
+     * </pre>
+     *
      * <code>int32 template_id = 1;</code>
      */
     public int getTemplateId() {
@@ -1858,6 +1906,10 @@ public final class ScheduleOuterClass {
     public static final int NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object name_;
     /**
+     * <pre>
+     * 定时任务名
+     * </pre>
+     *
      * <code>string name = 2;</code>
      */
     public java.lang.String getName() {
@@ -1873,6 +1925,10 @@ public final class ScheduleOuterClass {
       }
     }
     /**
+     * <pre>
+     * 定时任务名
+     * </pre>
+     *
      * <code>string name = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -1892,6 +1948,10 @@ public final class ScheduleOuterClass {
     public static final int START_TIME_FIELD_NUMBER = 3;
     private volatile java.lang.Object startTime_;
     /**
+     * <pre>
+     * 定时任务开始时间
+     * </pre>
+     *
      * <code>string start_time = 3;</code>
      */
     public java.lang.String getStartTime() {
@@ -1907,6 +1967,10 @@ public final class ScheduleOuterClass {
       }
     }
     /**
+     * <pre>
+     * 定时任务开始时间
+     * </pre>
+     *
      * <code>string start_time = 3;</code>
      */
     public com.google.protobuf.ByteString
@@ -1926,6 +1990,10 @@ public final class ScheduleOuterClass {
     public static final int END_TIME_FIELD_NUMBER = 4;
     private volatile java.lang.Object endTime_;
     /**
+     * <pre>
+     * 定时任务结束时间
+     * </pre>
+     *
      * <code>string end_time = 4;</code>
      */
     public java.lang.String getEndTime() {
@@ -1941,6 +2009,10 @@ public final class ScheduleOuterClass {
       }
     }
     /**
+     * <pre>
+     * 定时任务结束时间
+     * </pre>
+     *
      * <code>string end_time = 4;</code>
      */
     public com.google.protobuf.ByteString
@@ -1960,6 +2032,10 @@ public final class ScheduleOuterClass {
     public static final int CRON_EXPRESSION_FIELD_NUMBER = 5;
     private volatile java.lang.Object cronExpression_;
     /**
+     * <pre>
+     * 定时任务表达式
+     * </pre>
+     *
      * <code>string cron_expression = 5;</code>
      */
     public java.lang.String getCronExpression() {
@@ -1975,6 +2051,10 @@ public final class ScheduleOuterClass {
       }
     }
     /**
+     * <pre>
+     * 定时任务表达式
+     * </pre>
+     *
      * <code>string cron_expression = 5;</code>
      */
     public com.google.protobuf.ByteString
@@ -2188,6 +2268,10 @@ public final class ScheduleOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * 创建定时任务请求
+     * </pre>
+     *
      * Protobuf type {@code schedule.CreateRequest}
      */
     public static final class Builder extends
@@ -2364,12 +2448,20 @@ public final class ScheduleOuterClass {
 
       private int templateId_ ;
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>int32 template_id = 1;</code>
        */
       public int getTemplateId() {
         return templateId_;
       }
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>int32 template_id = 1;</code>
        */
       public Builder setTemplateId(int value) {
@@ -2379,6 +2471,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>int32 template_id = 1;</code>
        */
       public Builder clearTemplateId() {
@@ -2390,6 +2486,10 @@ public final class ScheduleOuterClass {
 
       private java.lang.Object name_ = "";
       /**
+       * <pre>
+       * 定时任务名
+       * </pre>
+       *
        * <code>string name = 2;</code>
        */
       public java.lang.String getName() {
@@ -2405,6 +2505,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务名
+       * </pre>
+       *
        * <code>string name = 2;</code>
        */
       public com.google.protobuf.ByteString
@@ -2421,6 +2525,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务名
+       * </pre>
+       *
        * <code>string name = 2;</code>
        */
       public Builder setName(
@@ -2434,6 +2542,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务名
+       * </pre>
+       *
        * <code>string name = 2;</code>
        */
       public Builder clearName() {
@@ -2443,6 +2555,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务名
+       * </pre>
+       *
        * <code>string name = 2;</code>
        */
       public Builder setNameBytes(
@@ -2459,6 +2575,10 @@ public final class ScheduleOuterClass {
 
       private java.lang.Object startTime_ = "";
       /**
+       * <pre>
+       * 定时任务开始时间
+       * </pre>
+       *
        * <code>string start_time = 3;</code>
        */
       public java.lang.String getStartTime() {
@@ -2474,6 +2594,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务开始时间
+       * </pre>
+       *
        * <code>string start_time = 3;</code>
        */
       public com.google.protobuf.ByteString
@@ -2490,6 +2614,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务开始时间
+       * </pre>
+       *
        * <code>string start_time = 3;</code>
        */
       public Builder setStartTime(
@@ -2503,6 +2631,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务开始时间
+       * </pre>
+       *
        * <code>string start_time = 3;</code>
        */
       public Builder clearStartTime() {
@@ -2512,6 +2644,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务开始时间
+       * </pre>
+       *
        * <code>string start_time = 3;</code>
        */
       public Builder setStartTimeBytes(
@@ -2528,6 +2664,10 @@ public final class ScheduleOuterClass {
 
       private java.lang.Object endTime_ = "";
       /**
+       * <pre>
+       * 定时任务结束时间
+       * </pre>
+       *
        * <code>string end_time = 4;</code>
        */
       public java.lang.String getEndTime() {
@@ -2543,6 +2683,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务结束时间
+       * </pre>
+       *
        * <code>string end_time = 4;</code>
        */
       public com.google.protobuf.ByteString
@@ -2559,6 +2703,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务结束时间
+       * </pre>
+       *
        * <code>string end_time = 4;</code>
        */
       public Builder setEndTime(
@@ -2572,6 +2720,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务结束时间
+       * </pre>
+       *
        * <code>string end_time = 4;</code>
        */
       public Builder clearEndTime() {
@@ -2581,6 +2733,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务结束时间
+       * </pre>
+       *
        * <code>string end_time = 4;</code>
        */
       public Builder setEndTimeBytes(
@@ -2597,6 +2753,10 @@ public final class ScheduleOuterClass {
 
       private java.lang.Object cronExpression_ = "";
       /**
+       * <pre>
+       * 定时任务表达式
+       * </pre>
+       *
        * <code>string cron_expression = 5;</code>
        */
       public java.lang.String getCronExpression() {
@@ -2612,6 +2772,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务表达式
+       * </pre>
+       *
        * <code>string cron_expression = 5;</code>
        */
       public com.google.protobuf.ByteString
@@ -2628,6 +2792,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务表达式
+       * </pre>
+       *
        * <code>string cron_expression = 5;</code>
        */
       public Builder setCronExpression(
@@ -2641,6 +2809,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务表达式
+       * </pre>
+       *
        * <code>string cron_expression = 5;</code>
        */
       public Builder clearCronExpression() {
@@ -2650,6 +2822,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务表达式
+       * </pre>
+       *
        * <code>string cron_expression = 5;</code>
        */
       public Builder setCronExpressionBytes(
@@ -2721,29 +2897,53 @@ public final class ScheduleOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 定时任务ID
+     * </pre>
+     *
      * <code>int32 schedule_id = 1;</code>
      */
     int getScheduleId();
 
     /**
+     * <pre>
+     * 定时任务创建时间
+     * </pre>
+     *
      * <code>string created = 2;</code>
      */
     java.lang.String getCreated();
     /**
+     * <pre>
+     * 定时任务创建时间
+     * </pre>
+     *
      * <code>string created = 2;</code>
      */
     com.google.protobuf.ByteString
         getCreatedBytes();
 
     /**
+     * <pre>
+     * 返回请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     boolean hasStatus();
     /**
+     * <pre>
+     * 返回请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
     /**
+     * <pre>
+     * 返回请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
@@ -2852,6 +3052,10 @@ public final class ScheduleOuterClass {
     public static final int SCHEDULE_ID_FIELD_NUMBER = 1;
     private int scheduleId_;
     /**
+     * <pre>
+     * 定时任务ID
+     * </pre>
+     *
      * <code>int32 schedule_id = 1;</code>
      */
     public int getScheduleId() {
@@ -2861,6 +3065,10 @@ public final class ScheduleOuterClass {
     public static final int CREATED_FIELD_NUMBER = 2;
     private volatile java.lang.Object created_;
     /**
+     * <pre>
+     * 定时任务创建时间
+     * </pre>
+     *
      * <code>string created = 2;</code>
      */
     public java.lang.String getCreated() {
@@ -2876,6 +3084,10 @@ public final class ScheduleOuterClass {
       }
     }
     /**
+     * <pre>
+     * 定时任务创建时间
+     * </pre>
+     *
      * <code>string created = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -2895,18 +3107,30 @@ public final class ScheduleOuterClass {
     public static final int STATUS_FIELD_NUMBER = 3;
     private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
     /**
+     * <pre>
+     * 返回请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
     }
     /**
+     * <pre>
+     * 返回请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
       return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
     }
     /**
+     * <pre>
+     * 返回请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -3269,12 +3493,20 @@ public final class ScheduleOuterClass {
 
       private int scheduleId_ ;
       /**
+       * <pre>
+       * 定时任务ID
+       * </pre>
+       *
        * <code>int32 schedule_id = 1;</code>
        */
       public int getScheduleId() {
         return scheduleId_;
       }
       /**
+       * <pre>
+       * 定时任务ID
+       * </pre>
+       *
        * <code>int32 schedule_id = 1;</code>
        */
       public Builder setScheduleId(int value) {
@@ -3284,6 +3516,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务ID
+       * </pre>
+       *
        * <code>int32 schedule_id = 1;</code>
        */
       public Builder clearScheduleId() {
@@ -3295,6 +3531,10 @@ public final class ScheduleOuterClass {
 
       private java.lang.Object created_ = "";
       /**
+       * <pre>
+       * 定时任务创建时间
+       * </pre>
+       *
        * <code>string created = 2;</code>
        */
       public java.lang.String getCreated() {
@@ -3310,6 +3550,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务创建时间
+       * </pre>
+       *
        * <code>string created = 2;</code>
        */
       public com.google.protobuf.ByteString
@@ -3326,6 +3570,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务创建时间
+       * </pre>
+       *
        * <code>string created = 2;</code>
        */
       public Builder setCreated(
@@ -3339,6 +3587,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务创建时间
+       * </pre>
+       *
        * <code>string created = 2;</code>
        */
       public Builder clearCreated() {
@@ -3348,6 +3600,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务创建时间
+       * </pre>
+       *
        * <code>string created = 2;</code>
        */
       public Builder setCreatedBytes(
@@ -3366,12 +3622,20 @@ public final class ScheduleOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
+       * <pre>
+       * 返回请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
       }
       /**
+       * <pre>
+       * 返回请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
@@ -3382,6 +3646,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -3398,6 +3666,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder setStatus(
@@ -3412,6 +3684,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -3430,6 +3706,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder clearStatus() {
@@ -3444,6 +3724,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
@@ -3452,6 +3736,10 @@ public final class ScheduleOuterClass {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 返回请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -3463,6 +3751,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -3536,11 +3828,19 @@ public final class ScheduleOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 定时任务ID
+     * </pre>
+     *
      * <code>int32 schedule_id = 1;</code>
      */
     int getScheduleId();
   }
   /**
+   * <pre>
+   * 获取定时任务请求
+   * </pre>
+   *
    * Protobuf type {@code schedule.GetRequest}
    */
   public  static final class GetRequest extends
@@ -3620,6 +3920,10 @@ public final class ScheduleOuterClass {
     public static final int SCHEDULE_ID_FIELD_NUMBER = 1;
     private int scheduleId_;
     /**
+     * <pre>
+     * 定时任务ID
+     * </pre>
+     *
      * <code>int32 schedule_id = 1;</code>
      */
     public int getScheduleId() {
@@ -3783,6 +4087,10 @@ public final class ScheduleOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * 获取定时任务请求
+     * </pre>
+     *
      * Protobuf type {@code schedule.GetRequest}
      */
     public static final class Builder extends
@@ -3931,12 +4239,20 @@ public final class ScheduleOuterClass {
 
       private int scheduleId_ ;
       /**
+       * <pre>
+       * 定时任务ID
+       * </pre>
+       *
        * <code>int32 schedule_id = 1;</code>
        */
       public int getScheduleId() {
         return scheduleId_;
       }
       /**
+       * <pre>
+       * 定时任务ID
+       * </pre>
+       *
        * <code>int32 schedule_id = 1;</code>
        */
       public Builder setScheduleId(int value) {
@@ -3946,6 +4262,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务ID
+       * </pre>
+       *
        * <code>int32 schedule_id = 1;</code>
        */
       public Builder clearScheduleId() {
@@ -4012,27 +4332,51 @@ public final class ScheduleOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 定时任务实例
+     * </pre>
+     *
      * <code>.schedule.ScheduleObject schedule = 1;</code>
      */
     boolean hasSchedule();
     /**
+     * <pre>
+     * 定时任务实例
+     * </pre>
+     *
      * <code>.schedule.ScheduleObject schedule = 1;</code>
      */
     top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject getSchedule();
     /**
+     * <pre>
+     * 定时任务实例
+     * </pre>
+     *
      * <code>.schedule.ScheduleObject schedule = 1;</code>
      */
     top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObjectOrBuilder getScheduleOrBuilder();
 
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     boolean hasStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
@@ -4141,18 +4485,30 @@ public final class ScheduleOuterClass {
     public static final int SCHEDULE_FIELD_NUMBER = 1;
     private top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject schedule_;
     /**
+     * <pre>
+     * 定时任务实例
+     * </pre>
+     *
      * <code>.schedule.ScheduleObject schedule = 1;</code>
      */
     public boolean hasSchedule() {
       return schedule_ != null;
     }
     /**
+     * <pre>
+     * 定时任务实例
+     * </pre>
+     *
      * <code>.schedule.ScheduleObject schedule = 1;</code>
      */
     public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject getSchedule() {
       return schedule_ == null ? top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject.getDefaultInstance() : schedule_;
     }
     /**
+     * <pre>
+     * 定时任务实例
+     * </pre>
+     *
      * <code>.schedule.ScheduleObject schedule = 1;</code>
      */
     public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObjectOrBuilder getScheduleOrBuilder() {
@@ -4162,18 +4518,30 @@ public final class ScheduleOuterClass {
     public static final int STATUS_FIELD_NUMBER = 2;
     private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
       return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -4534,12 +4902,20 @@ public final class ScheduleOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject.Builder, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObjectOrBuilder> scheduleBuilder_;
       /**
+       * <pre>
+       * 定时任务实例
+       * </pre>
+       *
        * <code>.schedule.ScheduleObject schedule = 1;</code>
        */
       public boolean hasSchedule() {
         return scheduleBuilder_ != null || schedule_ != null;
       }
       /**
+       * <pre>
+       * 定时任务实例
+       * </pre>
+       *
        * <code>.schedule.ScheduleObject schedule = 1;</code>
        */
       public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject getSchedule() {
@@ -4550,6 +4926,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务实例
+       * </pre>
+       *
        * <code>.schedule.ScheduleObject schedule = 1;</code>
        */
       public Builder setSchedule(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject value) {
@@ -4566,6 +4946,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务实例
+       * </pre>
+       *
        * <code>.schedule.ScheduleObject schedule = 1;</code>
        */
       public Builder setSchedule(
@@ -4580,6 +4964,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务实例
+       * </pre>
+       *
        * <code>.schedule.ScheduleObject schedule = 1;</code>
        */
       public Builder mergeSchedule(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject value) {
@@ -4598,6 +4986,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务实例
+       * </pre>
+       *
        * <code>.schedule.ScheduleObject schedule = 1;</code>
        */
       public Builder clearSchedule() {
@@ -4612,6 +5004,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务实例
+       * </pre>
+       *
        * <code>.schedule.ScheduleObject schedule = 1;</code>
        */
       public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject.Builder getScheduleBuilder() {
@@ -4620,6 +5016,10 @@ public final class ScheduleOuterClass {
         return getScheduleFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 定时任务实例
+       * </pre>
+       *
        * <code>.schedule.ScheduleObject schedule = 1;</code>
        */
       public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObjectOrBuilder getScheduleOrBuilder() {
@@ -4631,6 +5031,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务实例
+       * </pre>
+       *
        * <code>.schedule.ScheduleObject schedule = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -4651,12 +5055,20 @@ public final class ScheduleOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
@@ -4667,6 +5079,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -4683,6 +5099,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder setStatus(
@@ -4697,6 +5117,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -4715,6 +5139,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder clearStatus() {
@@ -4729,6 +5157,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
@@ -4737,6 +5169,10 @@ public final class ScheduleOuterClass {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -4748,6 +5184,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -4821,29 +5261,53 @@ public final class ScheduleOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     boolean hasPaging();
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     top.fogcdn.axe.protos.common.Api.Paging getPaging();
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder();
 
     /**
+     * <pre>
+     * 用于筛选的定时任务名字的关键字
+     * </pre>
+     *
      * <code>string schedule_name = 2;</code>
      */
     java.lang.String getScheduleName();
     /**
+     * <pre>
+     * 用于筛选的定时任务名字的关键字
+     * </pre>
+     *
      * <code>string schedule_name = 2;</code>
      */
     com.google.protobuf.ByteString
         getScheduleNameBytes();
 
     /**
+     * <pre>
+     * 模板ID
+     * </pre>
+     *
      * <code>int32 template_id = 3;</code>
      */
     int getTemplateId();
@@ -4952,18 +5416,30 @@ public final class ScheduleOuterClass {
     public static final int PAGING_FIELD_NUMBER = 1;
     private top.fogcdn.axe.protos.common.Api.Paging paging_;
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     public boolean hasPaging() {
       return paging_ != null;
     }
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     public top.fogcdn.axe.protos.common.Api.Paging getPaging() {
       return paging_ == null ? top.fogcdn.axe.protos.common.Api.Paging.getDefaultInstance() : paging_;
     }
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 1;</code>
      */
     public top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder() {
@@ -4973,6 +5449,10 @@ public final class ScheduleOuterClass {
     public static final int SCHEDULE_NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object scheduleName_;
     /**
+     * <pre>
+     * 用于筛选的定时任务名字的关键字
+     * </pre>
+     *
      * <code>string schedule_name = 2;</code>
      */
     public java.lang.String getScheduleName() {
@@ -4988,6 +5468,10 @@ public final class ScheduleOuterClass {
       }
     }
     /**
+     * <pre>
+     * 用于筛选的定时任务名字的关键字
+     * </pre>
+     *
      * <code>string schedule_name = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -5007,6 +5491,10 @@ public final class ScheduleOuterClass {
     public static final int TEMPLATE_ID_FIELD_NUMBER = 3;
     private int templateId_;
     /**
+     * <pre>
+     * 模板ID
+     * </pre>
+     *
      * <code>int32 template_id = 3;</code>
      */
     public int getTemplateId() {
@@ -5371,12 +5859,20 @@ public final class ScheduleOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder> pagingBuilder_;
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public boolean hasPaging() {
         return pagingBuilder_ != null || paging_ != null;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public top.fogcdn.axe.protos.common.Api.Paging getPaging() {
@@ -5387,6 +5883,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public Builder setPaging(top.fogcdn.axe.protos.common.Api.Paging value) {
@@ -5403,6 +5903,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public Builder setPaging(
@@ -5417,6 +5921,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public Builder mergePaging(top.fogcdn.axe.protos.common.Api.Paging value) {
@@ -5435,6 +5943,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public Builder clearPaging() {
@@ -5449,6 +5961,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public top.fogcdn.axe.protos.common.Api.Paging.Builder getPagingBuilder() {
@@ -5457,6 +5973,10 @@ public final class ScheduleOuterClass {
         return getPagingFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       public top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder() {
@@ -5468,6 +5988,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -5486,6 +6010,10 @@ public final class ScheduleOuterClass {
 
       private java.lang.Object scheduleName_ = "";
       /**
+       * <pre>
+       * 用于筛选的定时任务名字的关键字
+       * </pre>
+       *
        * <code>string schedule_name = 2;</code>
        */
       public java.lang.String getScheduleName() {
@@ -5501,6 +6029,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 用于筛选的定时任务名字的关键字
+       * </pre>
+       *
        * <code>string schedule_name = 2;</code>
        */
       public com.google.protobuf.ByteString
@@ -5517,6 +6049,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 用于筛选的定时任务名字的关键字
+       * </pre>
+       *
        * <code>string schedule_name = 2;</code>
        */
       public Builder setScheduleName(
@@ -5530,6 +6066,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 用于筛选的定时任务名字的关键字
+       * </pre>
+       *
        * <code>string schedule_name = 2;</code>
        */
       public Builder clearScheduleName() {
@@ -5539,6 +6079,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 用于筛选的定时任务名字的关键字
+       * </pre>
+       *
        * <code>string schedule_name = 2;</code>
        */
       public Builder setScheduleNameBytes(
@@ -5555,12 +6099,20 @@ public final class ScheduleOuterClass {
 
       private int templateId_ ;
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>int32 template_id = 3;</code>
        */
       public int getTemplateId() {
         return templateId_;
       }
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>int32 template_id = 3;</code>
        */
       public Builder setTemplateId(int value) {
@@ -5570,6 +6122,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>int32 template_id = 3;</code>
        */
       public Builder clearTemplateId() {
@@ -5636,51 +6192,95 @@ public final class ScheduleOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 筛选到的多个定时任务实例
+     * </pre>
+     *
      * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
      */
     java.util.List<top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject> 
         getSchedulesList();
     /**
+     * <pre>
+     * 筛选到的多个定时任务实例
+     * </pre>
+     *
      * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
      */
     top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject getSchedules(int index);
     /**
+     * <pre>
+     * 筛选到的多个定时任务实例
+     * </pre>
+     *
      * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
      */
     int getSchedulesCount();
     /**
+     * <pre>
+     * 筛选到的多个定时任务实例
+     * </pre>
+     *
      * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
      */
     java.util.List<? extends top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObjectOrBuilder> 
         getSchedulesOrBuilderList();
     /**
+     * <pre>
+     * 筛选到的多个定时任务实例
+     * </pre>
+     *
      * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
      */
     top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObjectOrBuilder getSchedulesOrBuilder(
         int index);
 
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     boolean hasPaging();
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.Paging getPaging();
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder();
 
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     boolean hasStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
@@ -5803,12 +6403,20 @@ public final class ScheduleOuterClass {
     public static final int SCHEDULES_FIELD_NUMBER = 1;
     private java.util.List<top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject> schedules_;
     /**
+     * <pre>
+     * 筛选到的多个定时任务实例
+     * </pre>
+     *
      * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
      */
     public java.util.List<top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject> getSchedulesList() {
       return schedules_;
     }
     /**
+     * <pre>
+     * 筛选到的多个定时任务实例
+     * </pre>
+     *
      * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
      */
     public java.util.List<? extends top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObjectOrBuilder> 
@@ -5816,18 +6424,30 @@ public final class ScheduleOuterClass {
       return schedules_;
     }
     /**
+     * <pre>
+     * 筛选到的多个定时任务实例
+     * </pre>
+     *
      * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
      */
     public int getSchedulesCount() {
       return schedules_.size();
     }
     /**
+     * <pre>
+     * 筛选到的多个定时任务实例
+     * </pre>
+     *
      * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
      */
     public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject getSchedules(int index) {
       return schedules_.get(index);
     }
     /**
+     * <pre>
+     * 筛选到的多个定时任务实例
+     * </pre>
+     *
      * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
      */
     public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObjectOrBuilder getSchedulesOrBuilder(
@@ -5838,18 +6458,30 @@ public final class ScheduleOuterClass {
     public static final int PAGING_FIELD_NUMBER = 2;
     private top.fogcdn.axe.protos.common.Api.Paging paging_;
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     public boolean hasPaging() {
       return paging_ != null;
     }
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.Paging getPaging() {
       return paging_ == null ? top.fogcdn.axe.protos.common.Api.Paging.getDefaultInstance() : paging_;
     }
     /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
      * <code>.common.Paging paging = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder() {
@@ -5859,18 +6491,30 @@ public final class ScheduleOuterClass {
     public static final int STATUS_FIELD_NUMBER = 3;
     private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
       return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 3;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -6299,6 +6943,10 @@ public final class ScheduleOuterClass {
           top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject.Builder, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObjectOrBuilder> schedulesBuilder_;
 
       /**
+       * <pre>
+       * 筛选到的多个定时任务实例
+       * </pre>
+       *
        * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
        */
       public java.util.List<top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject> getSchedulesList() {
@@ -6309,6 +6957,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 筛选到的多个定时任务实例
+       * </pre>
+       *
        * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
        */
       public int getSchedulesCount() {
@@ -6319,6 +6971,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 筛选到的多个定时任务实例
+       * </pre>
+       *
        * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
        */
       public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject getSchedules(int index) {
@@ -6329,6 +6985,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 筛选到的多个定时任务实例
+       * </pre>
+       *
        * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
        */
       public Builder setSchedules(
@@ -6346,6 +7006,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 筛选到的多个定时任务实例
+       * </pre>
+       *
        * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
        */
       public Builder setSchedules(
@@ -6360,6 +7024,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 筛选到的多个定时任务实例
+       * </pre>
+       *
        * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
        */
       public Builder addSchedules(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject value) {
@@ -6376,6 +7044,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 筛选到的多个定时任务实例
+       * </pre>
+       *
        * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
        */
       public Builder addSchedules(
@@ -6393,6 +7065,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 筛选到的多个定时任务实例
+       * </pre>
+       *
        * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
        */
       public Builder addSchedules(
@@ -6407,6 +7083,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 筛选到的多个定时任务实例
+       * </pre>
+       *
        * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
        */
       public Builder addSchedules(
@@ -6421,6 +7101,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 筛选到的多个定时任务实例
+       * </pre>
+       *
        * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
        */
       public Builder addAllSchedules(
@@ -6436,6 +7120,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 筛选到的多个定时任务实例
+       * </pre>
+       *
        * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
        */
       public Builder clearSchedules() {
@@ -6449,6 +7137,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 筛选到的多个定时任务实例
+       * </pre>
+       *
        * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
        */
       public Builder removeSchedules(int index) {
@@ -6462,6 +7154,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 筛选到的多个定时任务实例
+       * </pre>
+       *
        * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
        */
       public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject.Builder getSchedulesBuilder(
@@ -6469,6 +7165,10 @@ public final class ScheduleOuterClass {
         return getSchedulesFieldBuilder().getBuilder(index);
       }
       /**
+       * <pre>
+       * 筛选到的多个定时任务实例
+       * </pre>
+       *
        * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
        */
       public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObjectOrBuilder getSchedulesOrBuilder(
@@ -6479,6 +7179,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 筛选到的多个定时任务实例
+       * </pre>
+       *
        * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
        */
       public java.util.List<? extends top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObjectOrBuilder> 
@@ -6490,6 +7194,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 筛选到的多个定时任务实例
+       * </pre>
+       *
        * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
        */
       public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject.Builder addSchedulesBuilder() {
@@ -6497,6 +7205,10 @@ public final class ScheduleOuterClass {
             top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject.getDefaultInstance());
       }
       /**
+       * <pre>
+       * 筛选到的多个定时任务实例
+       * </pre>
+       *
        * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
        */
       public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject.Builder addSchedulesBuilder(
@@ -6505,6 +7217,10 @@ public final class ScheduleOuterClass {
             index, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject.getDefaultInstance());
       }
       /**
+       * <pre>
+       * 筛选到的多个定时任务实例
+       * </pre>
+       *
        * <code>repeated .schedule.ScheduleObject schedules = 1;</code>
        */
       public java.util.List<top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleObject.Builder> 
@@ -6530,12 +7246,20 @@ public final class ScheduleOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder> pagingBuilder_;
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public boolean hasPaging() {
         return pagingBuilder_ != null || paging_ != null;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.Paging getPaging() {
@@ -6546,6 +7270,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public Builder setPaging(top.fogcdn.axe.protos.common.Api.Paging value) {
@@ -6562,6 +7290,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public Builder setPaging(
@@ -6576,6 +7308,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public Builder mergePaging(top.fogcdn.axe.protos.common.Api.Paging value) {
@@ -6594,6 +7330,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public Builder clearPaging() {
@@ -6608,6 +7348,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.Paging.Builder getPagingBuilder() {
@@ -6616,6 +7360,10 @@ public final class ScheduleOuterClass {
         return getPagingFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder() {
@@ -6627,6 +7375,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
        * <code>.common.Paging paging = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -6647,12 +7399,20 @@ public final class ScheduleOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
@@ -6663,6 +7423,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -6679,6 +7443,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder setStatus(
@@ -6693,6 +7461,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -6711,6 +7483,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder clearStatus() {
@@ -6725,6 +7501,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
@@ -6733,6 +7513,10 @@ public final class ScheduleOuterClass {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -6744,6 +7528,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -6817,56 +7605,100 @@ public final class ScheduleOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 定时任务ID
+     * </pre>
+     *
      * <code>int32 schedule_id = 1;</code>
      */
     int getScheduleId();
 
     /**
+     * <pre>
+     * 模板ID
+     * </pre>
+     *
      * <code>int32 template_id = 2;</code>
      */
     int getTemplateId();
 
     /**
+     * <pre>
+     * 定时任务名字
+     * </pre>
+     *
      * <code>string name = 3;</code>
      */
     java.lang.String getName();
     /**
+     * <pre>
+     * 定时任务名字
+     * </pre>
+     *
      * <code>string name = 3;</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
+     * <pre>
+     * 定时任务开启时间
+     * </pre>
+     *
      * <code>string start_time = 4;</code>
      */
     java.lang.String getStartTime();
     /**
+     * <pre>
+     * 定时任务开启时间
+     * </pre>
+     *
      * <code>string start_time = 4;</code>
      */
     com.google.protobuf.ByteString
         getStartTimeBytes();
 
     /**
+     * <pre>
+     * 定时任务结束时间
+     * </pre>
+     *
      * <code>string end_time = 5;</code>
      */
     java.lang.String getEndTime();
     /**
+     * <pre>
+     * 定时任务结束时间
+     * </pre>
+     *
      * <code>string end_time = 5;</code>
      */
     com.google.protobuf.ByteString
         getEndTimeBytes();
 
     /**
+     * <pre>
+     * 定时任务表达式
+     * </pre>
+     *
      * <code>string cron_expression = 6;</code>
      */
     java.lang.String getCronExpression();
     /**
+     * <pre>
+     * 定时任务表达式
+     * </pre>
+     *
      * <code>string cron_expression = 6;</code>
      */
     com.google.protobuf.ByteString
         getCronExpressionBytes();
   }
   /**
+   * <pre>
+   * 更新定时任务请求
+   * </pre>
+   *
    * Protobuf type {@code schedule.UpdateRequest}
    */
   public  static final class UpdateRequest extends
@@ -6980,6 +7812,10 @@ public final class ScheduleOuterClass {
     public static final int SCHEDULE_ID_FIELD_NUMBER = 1;
     private int scheduleId_;
     /**
+     * <pre>
+     * 定时任务ID
+     * </pre>
+     *
      * <code>int32 schedule_id = 1;</code>
      */
     public int getScheduleId() {
@@ -6989,6 +7825,10 @@ public final class ScheduleOuterClass {
     public static final int TEMPLATE_ID_FIELD_NUMBER = 2;
     private int templateId_;
     /**
+     * <pre>
+     * 模板ID
+     * </pre>
+     *
      * <code>int32 template_id = 2;</code>
      */
     public int getTemplateId() {
@@ -6998,6 +7838,10 @@ public final class ScheduleOuterClass {
     public static final int NAME_FIELD_NUMBER = 3;
     private volatile java.lang.Object name_;
     /**
+     * <pre>
+     * 定时任务名字
+     * </pre>
+     *
      * <code>string name = 3;</code>
      */
     public java.lang.String getName() {
@@ -7013,6 +7857,10 @@ public final class ScheduleOuterClass {
       }
     }
     /**
+     * <pre>
+     * 定时任务名字
+     * </pre>
+     *
      * <code>string name = 3;</code>
      */
     public com.google.protobuf.ByteString
@@ -7032,6 +7880,10 @@ public final class ScheduleOuterClass {
     public static final int START_TIME_FIELD_NUMBER = 4;
     private volatile java.lang.Object startTime_;
     /**
+     * <pre>
+     * 定时任务开启时间
+     * </pre>
+     *
      * <code>string start_time = 4;</code>
      */
     public java.lang.String getStartTime() {
@@ -7047,6 +7899,10 @@ public final class ScheduleOuterClass {
       }
     }
     /**
+     * <pre>
+     * 定时任务开启时间
+     * </pre>
+     *
      * <code>string start_time = 4;</code>
      */
     public com.google.protobuf.ByteString
@@ -7066,6 +7922,10 @@ public final class ScheduleOuterClass {
     public static final int END_TIME_FIELD_NUMBER = 5;
     private volatile java.lang.Object endTime_;
     /**
+     * <pre>
+     * 定时任务结束时间
+     * </pre>
+     *
      * <code>string end_time = 5;</code>
      */
     public java.lang.String getEndTime() {
@@ -7081,6 +7941,10 @@ public final class ScheduleOuterClass {
       }
     }
     /**
+     * <pre>
+     * 定时任务结束时间
+     * </pre>
+     *
      * <code>string end_time = 5;</code>
      */
     public com.google.protobuf.ByteString
@@ -7100,6 +7964,10 @@ public final class ScheduleOuterClass {
     public static final int CRON_EXPRESSION_FIELD_NUMBER = 6;
     private volatile java.lang.Object cronExpression_;
     /**
+     * <pre>
+     * 定时任务表达式
+     * </pre>
+     *
      * <code>string cron_expression = 6;</code>
      */
     public java.lang.String getCronExpression() {
@@ -7115,6 +7983,10 @@ public final class ScheduleOuterClass {
       }
     }
     /**
+     * <pre>
+     * 定时任务表达式
+     * </pre>
+     *
      * <code>string cron_expression = 6;</code>
      */
     public com.google.protobuf.ByteString
@@ -7339,6 +8211,10 @@ public final class ScheduleOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * 更新定时任务请求
+     * </pre>
+     *
      * Protobuf type {@code schedule.UpdateRequest}
      */
     public static final class Builder extends
@@ -7521,12 +8397,20 @@ public final class ScheduleOuterClass {
 
       private int scheduleId_ ;
       /**
+       * <pre>
+       * 定时任务ID
+       * </pre>
+       *
        * <code>int32 schedule_id = 1;</code>
        */
       public int getScheduleId() {
         return scheduleId_;
       }
       /**
+       * <pre>
+       * 定时任务ID
+       * </pre>
+       *
        * <code>int32 schedule_id = 1;</code>
        */
       public Builder setScheduleId(int value) {
@@ -7536,6 +8420,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务ID
+       * </pre>
+       *
        * <code>int32 schedule_id = 1;</code>
        */
       public Builder clearScheduleId() {
@@ -7547,12 +8435,20 @@ public final class ScheduleOuterClass {
 
       private int templateId_ ;
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>int32 template_id = 2;</code>
        */
       public int getTemplateId() {
         return templateId_;
       }
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>int32 template_id = 2;</code>
        */
       public Builder setTemplateId(int value) {
@@ -7562,6 +8458,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
        * <code>int32 template_id = 2;</code>
        */
       public Builder clearTemplateId() {
@@ -7573,6 +8473,10 @@ public final class ScheduleOuterClass {
 
       private java.lang.Object name_ = "";
       /**
+       * <pre>
+       * 定时任务名字
+       * </pre>
+       *
        * <code>string name = 3;</code>
        */
       public java.lang.String getName() {
@@ -7588,6 +8492,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务名字
+       * </pre>
+       *
        * <code>string name = 3;</code>
        */
       public com.google.protobuf.ByteString
@@ -7604,6 +8512,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务名字
+       * </pre>
+       *
        * <code>string name = 3;</code>
        */
       public Builder setName(
@@ -7617,6 +8529,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务名字
+       * </pre>
+       *
        * <code>string name = 3;</code>
        */
       public Builder clearName() {
@@ -7626,6 +8542,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务名字
+       * </pre>
+       *
        * <code>string name = 3;</code>
        */
       public Builder setNameBytes(
@@ -7642,6 +8562,10 @@ public final class ScheduleOuterClass {
 
       private java.lang.Object startTime_ = "";
       /**
+       * <pre>
+       * 定时任务开启时间
+       * </pre>
+       *
        * <code>string start_time = 4;</code>
        */
       public java.lang.String getStartTime() {
@@ -7657,6 +8581,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务开启时间
+       * </pre>
+       *
        * <code>string start_time = 4;</code>
        */
       public com.google.protobuf.ByteString
@@ -7673,6 +8601,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务开启时间
+       * </pre>
+       *
        * <code>string start_time = 4;</code>
        */
       public Builder setStartTime(
@@ -7686,6 +8618,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务开启时间
+       * </pre>
+       *
        * <code>string start_time = 4;</code>
        */
       public Builder clearStartTime() {
@@ -7695,6 +8631,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务开启时间
+       * </pre>
+       *
        * <code>string start_time = 4;</code>
        */
       public Builder setStartTimeBytes(
@@ -7711,6 +8651,10 @@ public final class ScheduleOuterClass {
 
       private java.lang.Object endTime_ = "";
       /**
+       * <pre>
+       * 定时任务结束时间
+       * </pre>
+       *
        * <code>string end_time = 5;</code>
        */
       public java.lang.String getEndTime() {
@@ -7726,6 +8670,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务结束时间
+       * </pre>
+       *
        * <code>string end_time = 5;</code>
        */
       public com.google.protobuf.ByteString
@@ -7742,6 +8690,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务结束时间
+       * </pre>
+       *
        * <code>string end_time = 5;</code>
        */
       public Builder setEndTime(
@@ -7755,6 +8707,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务结束时间
+       * </pre>
+       *
        * <code>string end_time = 5;</code>
        */
       public Builder clearEndTime() {
@@ -7764,6 +8720,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务结束时间
+       * </pre>
+       *
        * <code>string end_time = 5;</code>
        */
       public Builder setEndTimeBytes(
@@ -7780,6 +8740,10 @@ public final class ScheduleOuterClass {
 
       private java.lang.Object cronExpression_ = "";
       /**
+       * <pre>
+       * 定时任务表达式
+       * </pre>
+       *
        * <code>string cron_expression = 6;</code>
        */
       public java.lang.String getCronExpression() {
@@ -7795,6 +8759,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务表达式
+       * </pre>
+       *
        * <code>string cron_expression = 6;</code>
        */
       public com.google.protobuf.ByteString
@@ -7811,6 +8779,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务表达式
+       * </pre>
+       *
        * <code>string cron_expression = 6;</code>
        */
       public Builder setCronExpression(
@@ -7824,6 +8796,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务表达式
+       * </pre>
+       *
        * <code>string cron_expression = 6;</code>
        */
       public Builder clearCronExpression() {
@@ -7833,6 +8809,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务表达式
+       * </pre>
+       *
        * <code>string cron_expression = 6;</code>
        */
       public Builder setCronExpressionBytes(
@@ -7904,29 +8884,53 @@ public final class ScheduleOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 定时任务更新时间
+     * </pre>
+     *
      * <code>string updated = 1;</code>
      */
     java.lang.String getUpdated();
     /**
+     * <pre>
+     * 定时任务更新时间
+     * </pre>
+     *
      * <code>string updated = 1;</code>
      */
     com.google.protobuf.ByteString
         getUpdatedBytes();
 
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     boolean hasStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
   }
   /**
+   * <pre>
+   * 更新请求返回
+   * </pre>
+   *
    * Protobuf type {@code schedule.UpdateResponse}
    */
   public  static final class UpdateResponse extends
@@ -8020,6 +9024,10 @@ public final class ScheduleOuterClass {
     public static final int UPDATED_FIELD_NUMBER = 1;
     private volatile java.lang.Object updated_;
     /**
+     * <pre>
+     * 定时任务更新时间
+     * </pre>
+     *
      * <code>string updated = 1;</code>
      */
     public java.lang.String getUpdated() {
@@ -8035,6 +9043,10 @@ public final class ScheduleOuterClass {
       }
     }
     /**
+     * <pre>
+     * 定时任务更新时间
+     * </pre>
+     *
      * <code>string updated = 1;</code>
      */
     public com.google.protobuf.ByteString
@@ -8054,18 +9066,30 @@ public final class ScheduleOuterClass {
     public static final int STATUS_FIELD_NUMBER = 2;
     private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
       return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 2;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -8244,6 +9268,10 @@ public final class ScheduleOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * 更新请求返回
+     * </pre>
+     *
      * Protobuf type {@code schedule.UpdateResponse}
      */
     public static final class Builder extends
@@ -8407,6 +9435,10 @@ public final class ScheduleOuterClass {
 
       private java.lang.Object updated_ = "";
       /**
+       * <pre>
+       * 定时任务更新时间
+       * </pre>
+       *
        * <code>string updated = 1;</code>
        */
       public java.lang.String getUpdated() {
@@ -8422,6 +9454,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务更新时间
+       * </pre>
+       *
        * <code>string updated = 1;</code>
        */
       public com.google.protobuf.ByteString
@@ -8438,6 +9474,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 定时任务更新时间
+       * </pre>
+       *
        * <code>string updated = 1;</code>
        */
       public Builder setUpdated(
@@ -8451,6 +9491,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务更新时间
+       * </pre>
+       *
        * <code>string updated = 1;</code>
        */
       public Builder clearUpdated() {
@@ -8460,6 +9504,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务更新时间
+       * </pre>
+       *
        * <code>string updated = 1;</code>
        */
       public Builder setUpdatedBytes(
@@ -8478,12 +9526,20 @@ public final class ScheduleOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
@@ -8494,6 +9550,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -8510,6 +9570,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder setStatus(
@@ -8524,6 +9588,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -8542,6 +9610,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder clearStatus() {
@@ -8556,6 +9628,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
@@ -8564,6 +9640,10 @@ public final class ScheduleOuterClass {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -8575,6 +9655,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -8648,11 +9732,19 @@ public final class ScheduleOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 定时任务ID
+     * </pre>
+     *
      * <code>int32 schedule_id = 1;</code>
      */
     int getScheduleId();
   }
   /**
+   * <pre>
+   * 切换定时任务状态请求
+   * </pre>
+   *
    * Protobuf type {@code schedule.SwitchStatusRequest}
    */
   public  static final class SwitchStatusRequest extends
@@ -8732,6 +9824,10 @@ public final class ScheduleOuterClass {
     public static final int SCHEDULE_ID_FIELD_NUMBER = 1;
     private int scheduleId_;
     /**
+     * <pre>
+     * 定时任务ID
+     * </pre>
+     *
      * <code>int32 schedule_id = 1;</code>
      */
     public int getScheduleId() {
@@ -8895,6 +9991,10 @@ public final class ScheduleOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * 切换定时任务状态请求
+     * </pre>
+     *
      * Protobuf type {@code schedule.SwitchStatusRequest}
      */
     public static final class Builder extends
@@ -9043,12 +10143,20 @@ public final class ScheduleOuterClass {
 
       private int scheduleId_ ;
       /**
+       * <pre>
+       * 定时任务ID
+       * </pre>
+       *
        * <code>int32 schedule_id = 1;</code>
        */
       public int getScheduleId() {
         return scheduleId_;
       }
       /**
+       * <pre>
+       * 定时任务ID
+       * </pre>
+       *
        * <code>int32 schedule_id = 1;</code>
        */
       public Builder setScheduleId(int value) {
@@ -9058,6 +10166,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 定时任务ID
+       * </pre>
+       *
        * <code>int32 schedule_id = 1;</code>
        */
       public Builder clearScheduleId() {
@@ -9124,19 +10236,35 @@ public final class ScheduleOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 1;</code>
      */
     boolean hasStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 1;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 1;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
   }
   /**
+   * <pre>
+   * 切换定时任务状态请求返回
+   * </pre>
+   *
    * Protobuf type {@code schedule.SwitchStatusResponse}
    */
   public  static final class SwitchStatusResponse extends
@@ -9223,18 +10351,30 @@ public final class ScheduleOuterClass {
     public static final int STATUS_FIELD_NUMBER = 1;
     private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 1;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 1;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
       return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
     }
     /**
+     * <pre>
+     * 返回的请求状态
+     * </pre>
+     *
      * <code>.common.ResponseStatus status = 1;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -9403,6 +10543,10 @@ public final class ScheduleOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * 切换定时任务状态请求返回
+     * </pre>
+     *
      * Protobuf type {@code schedule.SwitchStatusResponse}
      */
     public static final class Builder extends
@@ -9561,12 +10705,20 @@ public final class ScheduleOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> statusBuilder_;
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 1;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 1;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
@@ -9577,6 +10729,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 1;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -9593,6 +10749,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 1;</code>
        */
       public Builder setStatus(
@@ -9607,6 +10767,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 1;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
@@ -9625,6 +10789,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 1;</code>
        */
       public Builder clearStatus() {
@@ -9639,6 +10807,10 @@ public final class ScheduleOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 1;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
@@ -9647,6 +10819,10 @@ public final class ScheduleOuterClass {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 1;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
@@ -9658,6 +10834,10 @@ public final class ScheduleOuterClass {
         }
       }
       /**
+       * <pre>
+       * 返回的请求状态
+       * </pre>
+       *
        * <code>.common.ResponseStatus status = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<

@@ -89,6 +89,7 @@
           },
           {
             "name": "keyword",
+            "description": "用于模糊筛选的playbook项目名称的关键字.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -114,6 +115,7 @@
         "parameters": [
           {
             "name": "playbook_id",
+            "description": "playbook项目ID",
             "in": "path",
             "required": true,
             "type": "integer",
@@ -140,6 +142,7 @@
         "parameters": [
           {
             "name": "playbook_id",
+            "description": "playbook项目ID",
             "in": "path",
             "required": true,
             "type": "integer",
@@ -216,32 +219,40 @@
       "type": "object",
       "properties": {
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目名称"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目描述"
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook存储在对象存储的url"
         },
         "url_type": {
-          "$ref": "#/definitions/playbookUrlType"
+          "$ref": "#/definitions/playbookUrlType",
+          "title": "枚举类型 1-文件下载 2-git下载"
         },
         "version": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook文件的版本号"
         },
         "entrypoint": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "title": "playbook入口yml文件，有多个"
         },
         "md5": {
-          "type": "string"
+          "type": "string",
+          "title": "文件md5"
         },
         "size": {
           "type": "string",
-          "format": "int64"
+          "format": "int64",
+          "title": "文件大小"
         }
       },
       "title": "创建项目请求内容体"
@@ -251,13 +262,16 @@
       "properties": {
         "playbook_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "playbook项目ID"
         },
         "created": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目创建时间"
         },
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
         }
       },
       "title": "创建项目请求返回"
@@ -269,13 +283,16 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/playbookProjectObject"
-          }
+          },
+          "title": "返回的筛选到的多个项目实例"
         },
         "paging": {
-          "$ref": "#/definitions/commonPaging"
+          "$ref": "#/definitions/commonPaging",
+          "title": "分页信息"
         },
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
         }
       },
       "title": "筛选项目请求返回"
@@ -284,10 +301,12 @@
       "type": "object",
       "properties": {
         "project": {
-          "$ref": "#/definitions/playbookProjectObject"
+          "$ref": "#/definitions/playbookProjectObject",
+          "title": "返回的项目实例"
         },
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
         }
       },
       "title": "获取项目请求返回"
@@ -297,41 +316,52 @@
       "properties": {
         "playbook_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "playbook项目ID"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目名称"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目描述"
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook存储在对象存储的url"
         },
         "url_type": {
-          "$ref": "#/definitions/playbookUrlType"
+          "$ref": "#/definitions/playbookUrlType",
+          "title": "枚举类型 1-文件下载 2-git下载"
         },
         "version": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook文件的版本号"
         },
         "entrypoint": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "title": "playbook入口yml文件，有多个"
         },
         "md5": {
-          "type": "string"
+          "type": "string",
+          "title": "文件md5"
         },
         "size": {
           "type": "string",
-          "format": "int64"
+          "format": "int64",
+          "title": "文件大小"
         },
         "created": {
-          "type": "string"
+          "type": "string",
+          "title": "创建时间"
         },
         "updated": {
-          "type": "string"
+          "type": "string",
+          "title": "更新时间"
         }
       },
       "title": "项目实例"
@@ -341,13 +371,16 @@
       "properties": {
         "version_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "版本信息"
         },
         "created": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目创建时间"
         },
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
         }
       },
       "title": "版本列表请求响应"
@@ -357,35 +390,44 @@
       "properties": {
         "playbook_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "playbook项目ID"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目名称"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目描述"
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook存储在对象存储的url"
         },
         "url_type": {
-          "$ref": "#/definitions/playbookUrlType"
+          "$ref": "#/definitions/playbookUrlType",
+          "title": "枚举类型 1-文件下载 2-git下载"
         },
         "version": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook文件的版本号"
         },
         "entrypoint": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "title": "playbook入口yml文件，有多个"
         },
         "md5": {
-          "type": "string"
+          "type": "string",
+          "title": "文件md5"
         },
         "size": {
           "type": "string",
-          "format": "int64"
+          "format": "int64",
+          "title": "文件大小"
         }
       },
       "title": "更新项目请求内容体"
@@ -394,10 +436,12 @@
       "type": "object",
       "properties": {
         "updated": {
-          "type": "string"
+          "type": "string",
+          "title": "playbook项目更新时间"
         },
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
         }
       },
       "title": "更新项目请求返回"
@@ -409,7 +453,9 @@
         "FILE",
         "GIT"
       ],
-      "default": "UNDEFINED"
+      "default": "UNDEFINED",
+      "description": "- UNDEFINED: 未定义\n - FILE: 文件下载\n - GIT: git下载",
+      "title": "枚举URL类型"
     }
   }
 }

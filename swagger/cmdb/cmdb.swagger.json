@@ -27,15 +27,6 @@
             }
           }
         },
-        "parameters": [
-          {
-            "name": "level",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          }
-        ],
         "tags": [
           "Cmdb"
         ]
@@ -56,24 +47,28 @@
         "parameters": [
           {
             "name": "host.bk_host_innerip",
+            "description": "内网IP.",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "module.bk_module_name",
+            "description": "模块名.",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "set.bk_set_name",
+            "description": "集群名.",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "biz.bk_biz_name",
+            "description": "业务名.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -90,52 +85,63 @@
       "type": "object",
       "properties": {
         "bk_biz_name": {
-          "type": "string"
+          "type": "string",
+          "title": "业务名"
         }
-      }
+      },
+      "title": "业务"
     },
     "cmdbHostInfoObject": {
       "type": "object",
       "properties": {
         "host": {
-          "$ref": "#/definitions/cmdbHostObject"
+          "$ref": "#/definitions/cmdbHostObject",
+          "title": "主机对象"
         },
         "module": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/cmdbModuleObject"
-          }
+          },
+          "title": "模块对象"
         },
         "set": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/cmdbSetObject"
-          }
+          },
+          "title": "集群对象"
         },
         "biz": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/cmdbBizObject"
-          }
+          },
+          "title": "业务对象"
         }
-      }
+      },
+      "title": "主机内容信息"
     },
     "cmdbHostObject": {
       "type": "object",
       "properties": {
         "bk_host_innerip": {
-          "type": "string"
+          "type": "string",
+          "title": "内网IP"
         }
-      }
+      },
+      "title": "主机"
     },
     "cmdbInstanceTopologyResponse": {
       "type": "object",
       "properties": {
         "instance": {
-          "$ref": "#/definitions/cmdbTopologyObject"
+          "$ref": "#/definitions/cmdbTopologyObject",
+          "title": "业务拓扑对象"
         },
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
         }
       },
       "title": "拓扑实例请求返回"
@@ -144,25 +150,30 @@
       "type": "object",
       "properties": {
         "bk_module_name": {
-          "type": "string"
+          "type": "string",
+          "title": "模块名"
         }
-      }
+      },
+      "title": "模块"
     },
     "cmdbSearchHostResponse": {
       "type": "object",
       "properties": {
         "count": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "返回总条数"
         },
         "info": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/cmdbHostInfoObject"
-          }
+          },
+          "title": "主机信息"
         },
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
         }
       },
       "title": "查找主机请求返回"
@@ -171,31 +182,38 @@
       "type": "object",
       "properties": {
         "bk_set_name": {
-          "type": "string"
+          "type": "string",
+          "title": "集群名"
         }
-      }
+      },
+      "title": "集群"
     },
     "cmdbTopologyObject": {
       "type": "object",
       "properties": {
         "bk_inst_id": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "业务ID"
         },
         "bk_inst_name": {
-          "type": "string"
+          "type": "string",
+          "title": "业务名称"
         },
         "bk_obj_id": {
-          "type": "string"
+          "type": "string",
+          "title": "对象ID"
         },
         "bk_obj_name": {
-          "type": "string"
+          "type": "string",
+          "title": "对象名称"
         },
         "child": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/cmdbTopologyObject"
-          }
+          },
+          "title": "子对象"
         }
       },
       "title": "业务拓扑对象"
