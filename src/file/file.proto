@@ -20,14 +20,21 @@ service File {
     }
 }
 
+// 上传playbook压缩包并且解析入口yml文件的请求体
 message UploadPlaybookRequest {
+    // 上传的playbook压缩包
     bytes content = 1;
 }
 
 message UploadPlaybookResponse {
+    // 解析出来的playbook项目存储在对象存储的url
     string url = 1;
+    // 解析出来的playbook项目文件md5
     string md5 = 2;
+    // 解析出来的playbook项目文件大小
     string filesize = 3;
+    // 解析出来的playbook项目入口yml文件，有多个
     repeated string entrypoint = 4;
+    // 返回的请求状态
     common.ResponseStatus status = 5;
 }

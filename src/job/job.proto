@@ -60,72 +60,96 @@ service Job {
 
 
 
-// 作业实例
+// 作业任务实例
 message JobObject {
+    // 作业任务ID
     int32 job_id = 1;
 }
 
+// 创建作业任务(执行作业模板)请求
 message CreateRequest {
 
 }
-// 创建作业请求返回
+// 创建作业任务请求返回
 message CreateResponse {
+    // 作业任务ID
     int32 job_id = 1;
+    // 返回的请求状态
     common.ResponseStatus status = 2;
 }
 
+// 获取作业任务请求
 message GetRequest {
+    // 作业任务ID
     int32 job_id = 1;
 }
 
-// 获取作业请求返回
+// 获取作业任务请求返回
 message GetResponse {
+    // 获取的作业任务实例
     JobObject job = 1;
+    // 返回的请求状态
     common.ResponseStatus status = 2;
 }
 
+// 获取作业任务详细执行过程请求
 message GetLogRequest {
+    // 作业任务ID
     int32 job_id = 1;
 }
 
-// 获取作业请求返回
+// 获取作业任务详细执行过程请求返回
 message GetLogResponse {
+    // 返回的请求状态
     common.ResponseStatus status = 2;
 }
 
 
-// 筛选作业请求
+// 筛选获取作业任务请求
 message FilterRequest {
+    // 分页信息
     common.Paging paging = 1;
 }
 
-// 筛选作业请求返回
+// 筛选作业任务请求返回
 message FilterResponse {
+    // 筛选到的多个作业任务实例
     repeated JobObject jobs = 1;
+    // 分页信息
     common.Paging paging = 2;
+    // 返回的请求状态
     common.ResponseStatus status = 3;
 }
 
+// 创建定时作业任务请求
 message ScheduleRequest {
+    // 作业任务ID
     int32 job_id = 1;
 }
 
+// 创建定时作业任务请求返回
 message ScheduleResponse {
 
 }
 
+// 查看定时作业任务请求
 message ScheduleListRequest {
+    // 作业任务ID
     int32 job_id = 1;
 }
 
+// 查看定时作业任务请求返回
 message ScheduleListResponse {
 
 }
 
+// 删除作业任务请求
 message DeleteRequest {
+    // 作业任务ID
     int32 job_id = 1;
 }
 
+// 删除作业任务请求返回
 message DeleteResponse {
 
 }
