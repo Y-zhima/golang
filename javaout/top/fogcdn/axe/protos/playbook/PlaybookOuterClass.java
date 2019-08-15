@@ -256,16 +256,24 @@ public final class PlaybookOuterClass {
      * playbook入口yml文件，有多个
      * </pre>
      *
-     * <code>repeated string entrypoint = 7;</code>
+     * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
      */
-    java.util.List<java.lang.String>
+    java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject> 
         getEntrypointList();
     /**
      * <pre>
      * playbook入口yml文件，有多个
      * </pre>
      *
-     * <code>repeated string entrypoint = 7;</code>
+     * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
+     */
+    top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject getEntrypoint(int index);
+    /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
+     * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
      */
     int getEntrypointCount();
     /**
@@ -273,18 +281,19 @@ public final class PlaybookOuterClass {
      * playbook入口yml文件，有多个
      * </pre>
      *
-     * <code>repeated string entrypoint = 7;</code>
+     * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
      */
-    java.lang.String getEntrypoint(int index);
+    java.util.List<? extends top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObjectOrBuilder> 
+        getEntrypointOrBuilderList();
     /**
      * <pre>
      * playbook入口yml文件，有多个
      * </pre>
      *
-     * <code>repeated string entrypoint = 7;</code>
+     * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
      */
-    com.google.protobuf.ByteString
-        getEntrypointBytes(int index);
+    top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObjectOrBuilder getEntrypointOrBuilder(
+        int index);
 
     /**
      * <pre>
@@ -348,6 +357,15 @@ public final class PlaybookOuterClass {
      */
     com.google.protobuf.ByteString
         getUpdatedBytes();
+
+    /**
+     * <pre>
+     * playbook项目文件ID
+     * </pre>
+     *
+     * <code>int32 playbook_file_id = 12;</code>
+     */
+    int getPlaybookFileId();
   }
   /**
    * <pre>
@@ -372,11 +390,12 @@ public final class PlaybookOuterClass {
       url_ = "";
       urlType_ = 0;
       version_ = "";
-      entrypoint_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      entrypoint_ = java.util.Collections.emptyList();
       md5_ = "";
       size_ = 0L;
       created_ = "";
       updated_ = "";
+      playbookFileId_ = 0;
     }
 
     @java.lang.Override
@@ -439,12 +458,12 @@ public final class PlaybookOuterClass {
               break;
             }
             case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
-                entrypoint_ = new com.google.protobuf.LazyStringArrayList();
+                entrypoint_ = new java.util.ArrayList<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject>();
                 mutable_bitField0_ |= 0x00000040;
               }
-              entrypoint_.add(s);
+              entrypoint_.add(
+                  input.readMessage(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.parser(), extensionRegistry));
               break;
             }
             case 66: {
@@ -470,6 +489,11 @@ public final class PlaybookOuterClass {
               updated_ = s;
               break;
             }
+            case 96: {
+
+              playbookFileId_ = input.readInt32();
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -486,7 +510,7 @@ public final class PlaybookOuterClass {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
-          entrypoint_ = entrypoint_.getUnmodifiableView();
+          entrypoint_ = java.util.Collections.unmodifiableList(entrypoint_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -713,16 +737,15 @@ public final class PlaybookOuterClass {
     }
 
     public static final int ENTRYPOINT_FIELD_NUMBER = 7;
-    private com.google.protobuf.LazyStringList entrypoint_;
+    private java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject> entrypoint_;
     /**
      * <pre>
      * playbook入口yml文件，有多个
      * </pre>
      *
-     * <code>repeated string entrypoint = 7;</code>
+     * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
      */
-    public com.google.protobuf.ProtocolStringList
-        getEntrypointList() {
+    public java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject> getEntrypointList() {
       return entrypoint_;
     }
     /**
@@ -730,7 +753,18 @@ public final class PlaybookOuterClass {
      * playbook入口yml文件，有多个
      * </pre>
      *
-     * <code>repeated string entrypoint = 7;</code>
+     * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
+     */
+    public java.util.List<? extends top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObjectOrBuilder> 
+        getEntrypointOrBuilderList() {
+      return entrypoint_;
+    }
+    /**
+     * <pre>
+     * playbook入口yml文件，有多个
+     * </pre>
+     *
+     * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
      */
     public int getEntrypointCount() {
       return entrypoint_.size();
@@ -740,9 +774,9 @@ public final class PlaybookOuterClass {
      * playbook入口yml文件，有多个
      * </pre>
      *
-     * <code>repeated string entrypoint = 7;</code>
+     * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
      */
-    public java.lang.String getEntrypoint(int index) {
+    public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject getEntrypoint(int index) {
       return entrypoint_.get(index);
     }
     /**
@@ -750,11 +784,11 @@ public final class PlaybookOuterClass {
      * playbook入口yml文件，有多个
      * </pre>
      *
-     * <code>repeated string entrypoint = 7;</code>
+     * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
      */
-    public com.google.protobuf.ByteString
-        getEntrypointBytes(int index) {
-      return entrypoint_.getByteString(index);
+    public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObjectOrBuilder getEntrypointOrBuilder(
+        int index) {
+      return entrypoint_.get(index);
     }
 
     public static final int MD5_FIELD_NUMBER = 8;
@@ -896,6 +930,19 @@ public final class PlaybookOuterClass {
       }
     }
 
+    public static final int PLAYBOOK_FILE_ID_FIELD_NUMBER = 12;
+    private int playbookFileId_;
+    /**
+     * <pre>
+     * playbook项目文件ID
+     * </pre>
+     *
+     * <code>int32 playbook_file_id = 12;</code>
+     */
+    public int getPlaybookFileId() {
+      return playbookFileId_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -929,7 +976,7 @@ public final class PlaybookOuterClass {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, version_);
       }
       for (int i = 0; i < entrypoint_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, entrypoint_.getRaw(i));
+        output.writeMessage(7, entrypoint_.get(i));
       }
       if (!getMd5Bytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, md5_);
@@ -942,6 +989,9 @@ public final class PlaybookOuterClass {
       }
       if (!getUpdatedBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 11, updated_);
+      }
+      if (playbookFileId_ != 0) {
+        output.writeInt32(12, playbookFileId_);
       }
       unknownFields.writeTo(output);
     }
@@ -972,13 +1022,9 @@ public final class PlaybookOuterClass {
       if (!getVersionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, version_);
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < entrypoint_.size(); i++) {
-          dataSize += computeStringSizeNoTag(entrypoint_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getEntrypointList().size();
+      for (int i = 0; i < entrypoint_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, entrypoint_.get(i));
       }
       if (!getMd5Bytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, md5_);
@@ -992,6 +1038,10 @@ public final class PlaybookOuterClass {
       }
       if (!getUpdatedBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, updated_);
+      }
+      if (playbookFileId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(12, playbookFileId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1030,6 +1080,8 @@ public final class PlaybookOuterClass {
           .equals(other.getCreated());
       result = result && getUpdated()
           .equals(other.getUpdated());
+      result = result && (getPlaybookFileId()
+          == other.getPlaybookFileId());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -1066,6 +1118,8 @@ public final class PlaybookOuterClass {
       hash = (53 * hash) + getCreated().hashCode();
       hash = (37 * hash) + UPDATED_FIELD_NUMBER;
       hash = (53 * hash) + getUpdated().hashCode();
+      hash = (37 * hash) + PLAYBOOK_FILE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getPlaybookFileId();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1198,6 +1252,7 @@ public final class PlaybookOuterClass {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getEntrypointFieldBuilder();
         }
       }
       @java.lang.Override
@@ -1215,8 +1270,12 @@ public final class PlaybookOuterClass {
 
         version_ = "";
 
-        entrypoint_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000040);
+        if (entrypointBuilder_ == null) {
+          entrypoint_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000040);
+        } else {
+          entrypointBuilder_.clear();
+        }
         md5_ = "";
 
         size_ = 0L;
@@ -1224,6 +1283,8 @@ public final class PlaybookOuterClass {
         created_ = "";
 
         updated_ = "";
+
+        playbookFileId_ = 0;
 
         return this;
       }
@@ -1259,15 +1320,20 @@ public final class PlaybookOuterClass {
         result.url_ = url_;
         result.urlType_ = urlType_;
         result.version_ = version_;
-        if (((bitField0_ & 0x00000040) == 0x00000040)) {
-          entrypoint_ = entrypoint_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000040);
+        if (entrypointBuilder_ == null) {
+          if (((bitField0_ & 0x00000040) == 0x00000040)) {
+            entrypoint_ = java.util.Collections.unmodifiableList(entrypoint_);
+            bitField0_ = (bitField0_ & ~0x00000040);
+          }
+          result.entrypoint_ = entrypoint_;
+        } else {
+          result.entrypoint_ = entrypointBuilder_.build();
         }
-        result.entrypoint_ = entrypoint_;
         result.md5_ = md5_;
         result.size_ = size_;
         result.created_ = created_;
         result.updated_ = updated_;
+        result.playbookFileId_ = playbookFileId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1339,15 +1405,31 @@ public final class PlaybookOuterClass {
           version_ = other.version_;
           onChanged();
         }
-        if (!other.entrypoint_.isEmpty()) {
-          if (entrypoint_.isEmpty()) {
-            entrypoint_ = other.entrypoint_;
-            bitField0_ = (bitField0_ & ~0x00000040);
-          } else {
-            ensureEntrypointIsMutable();
-            entrypoint_.addAll(other.entrypoint_);
+        if (entrypointBuilder_ == null) {
+          if (!other.entrypoint_.isEmpty()) {
+            if (entrypoint_.isEmpty()) {
+              entrypoint_ = other.entrypoint_;
+              bitField0_ = (bitField0_ & ~0x00000040);
+            } else {
+              ensureEntrypointIsMutable();
+              entrypoint_.addAll(other.entrypoint_);
+            }
+            onChanged();
           }
-          onChanged();
+        } else {
+          if (!other.entrypoint_.isEmpty()) {
+            if (entrypointBuilder_.isEmpty()) {
+              entrypointBuilder_.dispose();
+              entrypointBuilder_ = null;
+              entrypoint_ = other.entrypoint_;
+              bitField0_ = (bitField0_ & ~0x00000040);
+              entrypointBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getEntrypointFieldBuilder() : null;
+            } else {
+              entrypointBuilder_.addAllMessages(other.entrypoint_);
+            }
+          }
         }
         if (!other.getMd5().isEmpty()) {
           md5_ = other.md5_;
@@ -1363,6 +1445,9 @@ public final class PlaybookOuterClass {
         if (!other.getUpdated().isEmpty()) {
           updated_ = other.updated_;
           onChanged();
+        }
+        if (other.getPlaybookFileId() != 0) {
+          setPlaybookFileId(other.getPlaybookFileId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1853,70 +1938,79 @@ public final class PlaybookOuterClass {
         return this;
       }
 
-      private com.google.protobuf.LazyStringList entrypoint_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject> entrypoint_ =
+        java.util.Collections.emptyList();
       private void ensureEntrypointIsMutable() {
         if (!((bitField0_ & 0x00000040) == 0x00000040)) {
-          entrypoint_ = new com.google.protobuf.LazyStringArrayList(entrypoint_);
+          entrypoint_ = new java.util.ArrayList<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject>(entrypoint_);
           bitField0_ |= 0x00000040;
          }
       }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.Builder, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObjectOrBuilder> entrypointBuilder_;
+
       /**
        * <pre>
        * playbook入口yml文件，有多个
        * </pre>
        *
-       * <code>repeated string entrypoint = 7;</code>
+       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
        */
-      public com.google.protobuf.ProtocolStringList
-          getEntrypointList() {
-        return entrypoint_.getUnmodifiableView();
+      public java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject> getEntrypointList() {
+        if (entrypointBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(entrypoint_);
+        } else {
+          return entrypointBuilder_.getMessageList();
+        }
       }
       /**
        * <pre>
        * playbook入口yml文件，有多个
        * </pre>
        *
-       * <code>repeated string entrypoint = 7;</code>
+       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
        */
       public int getEntrypointCount() {
-        return entrypoint_.size();
+        if (entrypointBuilder_ == null) {
+          return entrypoint_.size();
+        } else {
+          return entrypointBuilder_.getCount();
+        }
       }
       /**
        * <pre>
        * playbook入口yml文件，有多个
        * </pre>
        *
-       * <code>repeated string entrypoint = 7;</code>
+       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
        */
-      public java.lang.String getEntrypoint(int index) {
-        return entrypoint_.get(index);
+      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject getEntrypoint(int index) {
+        if (entrypointBuilder_ == null) {
+          return entrypoint_.get(index);
+        } else {
+          return entrypointBuilder_.getMessage(index);
+        }
       }
       /**
        * <pre>
        * playbook入口yml文件，有多个
        * </pre>
        *
-       * <code>repeated string entrypoint = 7;</code>
-       */
-      public com.google.protobuf.ByteString
-          getEntrypointBytes(int index) {
-        return entrypoint_.getByteString(index);
-      }
-      /**
-       * <pre>
-       * playbook入口yml文件，有多个
-       * </pre>
-       *
-       * <code>repeated string entrypoint = 7;</code>
+       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
        */
       public Builder setEntrypoint(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEntrypointIsMutable();
-        entrypoint_.set(index, value);
-        onChanged();
+          int index, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject value) {
+        if (entrypointBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureEntrypointIsMutable();
+          entrypoint_.set(index, value);
+          onChanged();
+        } else {
+          entrypointBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
@@ -1924,16 +2018,58 @@ public final class PlaybookOuterClass {
        * playbook入口yml文件，有多个
        * </pre>
        *
-       * <code>repeated string entrypoint = 7;</code>
+       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
+       */
+      public Builder setEntrypoint(
+          int index, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.Builder builderForValue) {
+        if (entrypointBuilder_ == null) {
+          ensureEntrypointIsMutable();
+          entrypoint_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          entrypointBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
+       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
+       */
+      public Builder addEntrypoint(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject value) {
+        if (entrypointBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureEntrypointIsMutable();
+          entrypoint_.add(value);
+          onChanged();
+        } else {
+          entrypointBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
+       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
        */
       public Builder addEntrypoint(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEntrypointIsMutable();
-        entrypoint_.add(value);
-        onChanged();
+          int index, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject value) {
+        if (entrypointBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureEntrypointIsMutable();
+          entrypoint_.add(index, value);
+          onChanged();
+        } else {
+          entrypointBuilder_.addMessage(index, value);
+        }
         return this;
       }
       /**
@@ -1941,14 +2077,54 @@ public final class PlaybookOuterClass {
        * playbook入口yml文件，有多个
        * </pre>
        *
-       * <code>repeated string entrypoint = 7;</code>
+       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
+       */
+      public Builder addEntrypoint(
+          top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.Builder builderForValue) {
+        if (entrypointBuilder_ == null) {
+          ensureEntrypointIsMutable();
+          entrypoint_.add(builderForValue.build());
+          onChanged();
+        } else {
+          entrypointBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
+       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
+       */
+      public Builder addEntrypoint(
+          int index, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.Builder builderForValue) {
+        if (entrypointBuilder_ == null) {
+          ensureEntrypointIsMutable();
+          entrypoint_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          entrypointBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
+       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
        */
       public Builder addAllEntrypoint(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureEntrypointIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, entrypoint_);
-        onChanged();
+          java.lang.Iterable<? extends top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject> values) {
+        if (entrypointBuilder_ == null) {
+          ensureEntrypointIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, entrypoint_);
+          onChanged();
+        } else {
+          entrypointBuilder_.addAllMessages(values);
+        }
         return this;
       }
       /**
@@ -1956,12 +2132,16 @@ public final class PlaybookOuterClass {
        * playbook入口yml文件，有多个
        * </pre>
        *
-       * <code>repeated string entrypoint = 7;</code>
+       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
        */
       public Builder clearEntrypoint() {
-        entrypoint_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000040);
-        onChanged();
+        if (entrypointBuilder_ == null) {
+          entrypoint_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000040);
+          onChanged();
+        } else {
+          entrypointBuilder_.clear();
+        }
         return this;
       }
       /**
@@ -1969,18 +2149,105 @@ public final class PlaybookOuterClass {
        * playbook入口yml文件，有多个
        * </pre>
        *
-       * <code>repeated string entrypoint = 7;</code>
+       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
        */
-      public Builder addEntrypointBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureEntrypointIsMutable();
-        entrypoint_.add(value);
-        onChanged();
+      public Builder removeEntrypoint(int index) {
+        if (entrypointBuilder_ == null) {
+          ensureEntrypointIsMutable();
+          entrypoint_.remove(index);
+          onChanged();
+        } else {
+          entrypointBuilder_.remove(index);
+        }
         return this;
+      }
+      /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
+       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
+       */
+      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.Builder getEntrypointBuilder(
+          int index) {
+        return getEntrypointFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
+       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
+       */
+      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObjectOrBuilder getEntrypointOrBuilder(
+          int index) {
+        if (entrypointBuilder_ == null) {
+          return entrypoint_.get(index);  } else {
+          return entrypointBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
+       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
+       */
+      public java.util.List<? extends top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObjectOrBuilder> 
+           getEntrypointOrBuilderList() {
+        if (entrypointBuilder_ != null) {
+          return entrypointBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(entrypoint_);
+        }
+      }
+      /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
+       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
+       */
+      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.Builder addEntrypointBuilder() {
+        return getEntrypointFieldBuilder().addBuilder(
+            top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
+       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
+       */
+      public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.Builder addEntrypointBuilder(
+          int index) {
+        return getEntrypointFieldBuilder().addBuilder(
+            index, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * playbook入口yml文件，有多个
+       * </pre>
+       *
+       * <code>repeated .playbook.PlaybookEntrypointObject entrypoint = 7;</code>
+       */
+      public java.util.List<top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.Builder> 
+           getEntrypointBuilderList() {
+        return getEntrypointFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.Builder, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObjectOrBuilder> 
+          getEntrypointFieldBuilder() {
+        if (entrypointBuilder_ == null) {
+          entrypointBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObject.Builder, top.fogcdn.axe.protos.playbook.PlaybookOuterClass.PlaybookEntrypointObjectOrBuilder>(
+                  entrypoint_,
+                  ((bitField0_ & 0x00000040) == 0x00000040),
+                  getParentForChildren(),
+                  isClean());
+          entrypoint_ = null;
+        }
+        return entrypointBuilder_;
       }
 
       private java.lang.Object md5_ = "";
@@ -2284,6 +2551,44 @@ public final class PlaybookOuterClass {
   checkByteStringIsUtf8(value);
         
         updated_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int playbookFileId_ ;
+      /**
+       * <pre>
+       * playbook项目文件ID
+       * </pre>
+       *
+       * <code>int32 playbook_file_id = 12;</code>
+       */
+      public int getPlaybookFileId() {
+        return playbookFileId_;
+      }
+      /**
+       * <pre>
+       * playbook项目文件ID
+       * </pre>
+       *
+       * <code>int32 playbook_file_id = 12;</code>
+       */
+      public Builder setPlaybookFileId(int value) {
+        
+        playbookFileId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * playbook项目文件ID
+       * </pre>
+       *
+       * <code>int32 playbook_file_id = 12;</code>
+       */
+      public Builder clearPlaybookFileId() {
+        
+        playbookFileId_ = 0;
         onChanged();
         return this;
       }
@@ -14599,57 +14904,59 @@ public final class PlaybookOuterClass {
       "\n\027playbook/playbook.proto\022\010playbook\032\020com" +
       "mon/api.proto\032\034google/api/annotations.pr" +
       "oto\032,protoc-gen-swagger/options/annotati" +
-      "ons.proto\"\333\001\n\rProjectObject\022\023\n\013playbook_" +
+      "ons.proto\"\231\002\n\rProjectObject\022\023\n\013playbook_" +
       "id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 " +
       "\001(\t\022\013\n\003url\030\004 \001(\t\022#\n\010url_type\030\005 \001(\0162\021.pla" +
-      "ybook.UrlType\022\017\n\007version\030\006 \001(\t\022\022\n\nentryp" +
-      "oint\030\007 \003(\t\022\013\n\003md5\030\010 \001(\t\022\014\n\004size\030\t \001(\003\022\017\n" +
-      "\007created\030\n \001(\t\022\017\n\007updated\030\013 \001(\t\"\244\001\n\rCrea" +
-      "teRequest\022\014\n\004name\030\001 \001(\t\022\023\n\013description\030\002" +
-      " \001(\t\022\013\n\003url\030\003 \001(\t\022#\n\010url_type\030\004 \001(\0162\021.pl" +
-      "aybook.UrlType\022\017\n\007version\030\005 \001(\t\022\022\n\nentry" +
-      "point\030\006 \003(\t\022\013\n\003md5\030\007 \001(\t\022\014\n\004size\030\010 \001(\003\"^" +
-      "\n\016CreateResponse\022\023\n\013playbook_id\030\001 \001(\005\022\017\n" +
-      "\007created\030\002 \001(\t\022&\n\006status\030\003 \001(\0132\026.common." +
-      "ResponseStatus\"!\n\nGetRequest\022\023\n\013playbook" +
-      "_id\030\001 \001(\005\"_\n\013GetResponse\022(\n\007project\030\001 \001(" +
-      "\0132\027.playbook.ProjectObject\022&\n\006status\030\002 \001" +
-      "(\0132\026.common.ResponseStatus\"@\n\rFilterRequ" +
-      "est\022\036\n\006paging\030\001 \001(\0132\016.common.Paging\022\017\n\007k" +
-      "eyword\030\002 \001(\t\"\203\001\n\016FilterResponse\022)\n\010proje" +
-      "cts\030\001 \003(\0132\027.playbook.ProjectObject\022\036\n\006pa" +
-      "ging\030\002 \001(\0132\016.common.Paging\022&\n\006status\030\003 \001" +
-      "(\0132\026.common.ResponseStatus\"\271\001\n\rUpdateReq" +
-      "uest\022\023\n\013playbook_id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022" +
-      "\023\n\013description\030\003 \001(\t\022\013\n\003url\030\004 \001(\t\022#\n\010url" +
-      "_type\030\005 \001(\0162\021.playbook.UrlType\022\017\n\007versio" +
-      "n\030\006 \001(\t\022\022\n\nentrypoint\030\007 \003(\t\022\013\n\003md5\030\010 \001(\t" +
-      "\022\014\n\004size\030\t \001(\003\"I\n\016UpdateResponse\022\017\n\007upda" +
-      "ted\030\001 \001(\t\022&\n\006status\030\002 \001(\0132\026.common.Respo" +
-      "nseStatus\"H\n\030PlaybookEntrypointObject\022\036\n" +
-      "\026playbook_entrypoint_id\030\001 \001(\005\022\014\n\004name\030\002 " +
-      "\001(\t\"\233\001\n\022SaveVersionRequest\022\023\n\013playbook_i" +
-      "d\030\001 \001(\005\022\013\n\003url\030\002 \001(\t\022#\n\010url_type\030\003 \001(\0162\021" +
-      ".playbook.UrlType\022\017\n\007version\030\004 \001(\t\022\013\n\003md" +
-      "5\030\005 \001(\t\022\014\n\004size\030\006 \001(\003\022\022\n\nentrypoint\030\007 \003(" +
-      "\t\"b\n\023SaveVersionResponse\022\022\n\nversion_id\030\001" +
-      " \001(\005\022\017\n\007created\030\002 \001(\t\022&\n\006status\030\003 \001(\0132\026." +
-      "common.ResponseStatus*+\n\007UrlType\022\r\n\tUNDE" +
-      "FINED\020\000\022\010\n\004FILE\020\001\022\007\n\003GIT\020\0022\326\003\n\010Playbook\022" +
-      "[\n\006Create\022\027.playbook.CreateRequest\032\030.pla" +
-      "ybook.CreateResponse\"\036\202\323\344\223\002\030\"\023/v1/playbo" +
-      "ok/create:\001*\022X\n\006Filter\022\027.playbook.Filter" +
-      "Request\032\030.playbook.FilterResponse\"\033\202\323\344\223\002" +
-      "\025\022\023/v1/playbook/filter\022Z\n\003Get\022\024.playbook" +
-      ".GetRequest\032\025.playbook.GetResponse\"&\202\323\344\223" +
-      "\002 \022\036/v1/playbook/get/{playbook_id}\022i\n\006Up" +
-      "date\022\027.playbook.UpdateRequest\032\030.playbook" +
-      ".UpdateResponse\",\202\323\344\223\002&\"!/v1/playbook/up" +
-      "date/{playbook_id}:\001*\022L\n\013SaveVersion\022\034.p" +
-      "laybook.SaveVersionRequest\032\035.playbook.Sa" +
-      "veVersionResponse\"\000BJ\n\036top.fogcdn.axe.pr" +
-      "otos.playbookZ(git.fogcdn.top/axe/protos" +
-      "/goout/playbookb\006proto3"
+      "ybook.UrlType\022\017\n\007version\030\006 \001(\t\0226\n\nentryp" +
+      "oint\030\007 \003(\0132\".playbook.PlaybookEntrypoint" +
+      "Object\022\013\n\003md5\030\010 \001(\t\022\014\n\004size\030\t \001(\003\022\017\n\007cre" +
+      "ated\030\n \001(\t\022\017\n\007updated\030\013 \001(\t\022\030\n\020playbook_" +
+      "file_id\030\014 \001(\005\"\244\001\n\rCreateRequest\022\014\n\004name\030" +
+      "\001 \001(\t\022\023\n\013description\030\002 \001(\t\022\013\n\003url\030\003 \001(\t\022" +
+      "#\n\010url_type\030\004 \001(\0162\021.playbook.UrlType\022\017\n\007" +
+      "version\030\005 \001(\t\022\022\n\nentrypoint\030\006 \003(\t\022\013\n\003md5" +
+      "\030\007 \001(\t\022\014\n\004size\030\010 \001(\003\"^\n\016CreateResponse\022\023" +
+      "\n\013playbook_id\030\001 \001(\005\022\017\n\007created\030\002 \001(\t\022&\n\006" +
+      "status\030\003 \001(\0132\026.common.ResponseStatus\"!\n\n" +
+      "GetRequest\022\023\n\013playbook_id\030\001 \001(\005\"_\n\013GetRe" +
+      "sponse\022(\n\007project\030\001 \001(\0132\027.playbook.Proje" +
+      "ctObject\022&\n\006status\030\002 \001(\0132\026.common.Respon" +
+      "seStatus\"@\n\rFilterRequest\022\036\n\006paging\030\001 \001(" +
+      "\0132\016.common.Paging\022\017\n\007keyword\030\002 \001(\t\"\203\001\n\016F" +
+      "ilterResponse\022)\n\010projects\030\001 \003(\0132\027.playbo" +
+      "ok.ProjectObject\022\036\n\006paging\030\002 \001(\0132\016.commo" +
+      "n.Paging\022&\n\006status\030\003 \001(\0132\026.common.Respon" +
+      "seStatus\"\271\001\n\rUpdateRequest\022\023\n\013playbook_i" +
+      "d\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001" +
+      "(\t\022\013\n\003url\030\004 \001(\t\022#\n\010url_type\030\005 \001(\0162\021.play" +
+      "book.UrlType\022\017\n\007version\030\006 \001(\t\022\022\n\nentrypo" +
+      "int\030\007 \003(\t\022\013\n\003md5\030\010 \001(\t\022\014\n\004size\030\t \001(\003\"I\n\016" +
+      "UpdateResponse\022\017\n\007updated\030\001 \001(\t\022&\n\006statu" +
+      "s\030\002 \001(\0132\026.common.ResponseStatus\"H\n\030Playb" +
+      "ookEntrypointObject\022\036\n\026playbook_entrypoi" +
+      "nt_id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\"\233\001\n\022SaveVersio" +
+      "nRequest\022\023\n\013playbook_id\030\001 \001(\005\022\013\n\003url\030\002 \001" +
+      "(\t\022#\n\010url_type\030\003 \001(\0162\021.playbook.UrlType\022" +
+      "\017\n\007version\030\004 \001(\t\022\013\n\003md5\030\005 \001(\t\022\014\n\004size\030\006 " +
+      "\001(\003\022\022\n\nentrypoint\030\007 \003(\t\"b\n\023SaveVersionRe" +
+      "sponse\022\022\n\nversion_id\030\001 \001(\005\022\017\n\007created\030\002 " +
+      "\001(\t\022&\n\006status\030\003 \001(\0132\026.common.ResponseSta" +
+      "tus*+\n\007UrlType\022\r\n\tUNDEFINED\020\000\022\010\n\004FILE\020\001\022" +
+      "\007\n\003GIT\020\0022\326\003\n\010Playbook\022[\n\006Create\022\027.playbo" +
+      "ok.CreateRequest\032\030.playbook.CreateRespon" +
+      "se\"\036\202\323\344\223\002\030\"\023/v1/playbook/create:\001*\022X\n\006Fi" +
+      "lter\022\027.playbook.FilterRequest\032\030.playbook" +
+      ".FilterResponse\"\033\202\323\344\223\002\025\022\023/v1/playbook/fi" +
+      "lter\022Z\n\003Get\022\024.playbook.GetRequest\032\025.play" +
+      "book.GetResponse\"&\202\323\344\223\002 \022\036/v1/playbook/g" +
+      "et/{playbook_id}\022i\n\006Update\022\027.playbook.Up" +
+      "dateRequest\032\030.playbook.UpdateResponse\",\202" +
+      "\323\344\223\002&\"!/v1/playbook/update/{playbook_id}" +
+      ":\001*\022L\n\013SaveVersion\022\034.playbook.SaveVersio" +
+      "nRequest\032\035.playbook.SaveVersionResponse\"" +
+      "\000BJ\n\036top.fogcdn.axe.protos.playbookZ(git" +
+      ".fogcdn.top/axe/protos/goout/playbookb\006p" +
+      "roto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -14671,7 +14978,7 @@ public final class PlaybookOuterClass {
     internal_static_playbook_ProjectObject_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_playbook_ProjectObject_descriptor,
-        new java.lang.String[] { "PlaybookId", "Name", "Description", "Url", "UrlType", "Version", "Entrypoint", "Md5", "Size", "Created", "Updated", });
+        new java.lang.String[] { "PlaybookId", "Name", "Description", "Url", "UrlType", "Version", "Entrypoint", "Md5", "Size", "Created", "Updated", "PlaybookFileId", });
     internal_static_playbook_CreateRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_playbook_CreateRequest_fieldAccessorTable = new

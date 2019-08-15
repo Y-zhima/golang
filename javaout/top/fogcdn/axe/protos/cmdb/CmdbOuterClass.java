@@ -7369,10 +7369,35 @@ public final class CmdbOuterClass {
 
     /**
      * <pre>
+     * 分页信息
+     * </pre>
+     *
+     * <code>.common.Paging paging = 1;</code>
+     */
+    boolean hasPaging();
+    /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
+     * <code>.common.Paging paging = 1;</code>
+     */
+    top.fogcdn.axe.protos.common.Api.Paging getPaging();
+    /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
+     * <code>.common.Paging paging = 1;</code>
+     */
+    top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder();
+
+    /**
+     * <pre>
      * 主机对象
      * </pre>
      *
-     * <code>.cmdb.HostObject host = 1;</code>
+     * <code>.cmdb.HostObject host = 2;</code>
      */
     boolean hasHost();
     /**
@@ -7380,7 +7405,7 @@ public final class CmdbOuterClass {
      * 主机对象
      * </pre>
      *
-     * <code>.cmdb.HostObject host = 1;</code>
+     * <code>.cmdb.HostObject host = 2;</code>
      */
     top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject getHost();
     /**
@@ -7388,7 +7413,7 @@ public final class CmdbOuterClass {
      * 主机对象
      * </pre>
      *
-     * <code>.cmdb.HostObject host = 1;</code>
+     * <code>.cmdb.HostObject host = 2;</code>
      */
     top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObjectOrBuilder getHostOrBuilder();
 
@@ -7397,7 +7422,7 @@ public final class CmdbOuterClass {
      * 模块对象
      * </pre>
      *
-     * <code>.cmdb.ModuleObject module = 2;</code>
+     * <code>.cmdb.ModuleObject module = 3;</code>
      */
     boolean hasModule();
     /**
@@ -7405,7 +7430,7 @@ public final class CmdbOuterClass {
      * 模块对象
      * </pre>
      *
-     * <code>.cmdb.ModuleObject module = 2;</code>
+     * <code>.cmdb.ModuleObject module = 3;</code>
      */
     top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject getModule();
     /**
@@ -7413,7 +7438,7 @@ public final class CmdbOuterClass {
      * 模块对象
      * </pre>
      *
-     * <code>.cmdb.ModuleObject module = 2;</code>
+     * <code>.cmdb.ModuleObject module = 3;</code>
      */
     top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObjectOrBuilder getModuleOrBuilder();
 
@@ -7422,7 +7447,7 @@ public final class CmdbOuterClass {
      * 集群对象
      * </pre>
      *
-     * <code>.cmdb.SetObject set = 3;</code>
+     * <code>.cmdb.SetObject set = 4;</code>
      */
     boolean hasSet();
     /**
@@ -7430,7 +7455,7 @@ public final class CmdbOuterClass {
      * 集群对象
      * </pre>
      *
-     * <code>.cmdb.SetObject set = 3;</code>
+     * <code>.cmdb.SetObject set = 4;</code>
      */
     top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject getSet();
     /**
@@ -7438,7 +7463,7 @@ public final class CmdbOuterClass {
      * 集群对象
      * </pre>
      *
-     * <code>.cmdb.SetObject set = 3;</code>
+     * <code>.cmdb.SetObject set = 4;</code>
      */
     top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObjectOrBuilder getSetOrBuilder();
 
@@ -7447,7 +7472,7 @@ public final class CmdbOuterClass {
      * 业务对象
      * </pre>
      *
-     * <code>.cmdb.BizObject biz = 4;</code>
+     * <code>.cmdb.BizObject biz = 5;</code>
      */
     boolean hasBiz();
     /**
@@ -7455,7 +7480,7 @@ public final class CmdbOuterClass {
      * 业务对象
      * </pre>
      *
-     * <code>.cmdb.BizObject biz = 4;</code>
+     * <code>.cmdb.BizObject biz = 5;</code>
      */
     top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject getBiz();
     /**
@@ -7463,7 +7488,7 @@ public final class CmdbOuterClass {
      * 业务对象
      * </pre>
      *
-     * <code>.cmdb.BizObject biz = 4;</code>
+     * <code>.cmdb.BizObject biz = 5;</code>
      */
     top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObjectOrBuilder getBizOrBuilder();
   }
@@ -7511,6 +7536,19 @@ public final class CmdbOuterClass {
               done = true;
               break;
             case 10: {
+              top.fogcdn.axe.protos.common.Api.Paging.Builder subBuilder = null;
+              if (paging_ != null) {
+                subBuilder = paging_.toBuilder();
+              }
+              paging_ = input.readMessage(top.fogcdn.axe.protos.common.Api.Paging.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(paging_);
+                paging_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
               top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject.Builder subBuilder = null;
               if (host_ != null) {
                 subBuilder = host_.toBuilder();
@@ -7523,7 +7561,7 @@ public final class CmdbOuterClass {
 
               break;
             }
-            case 18: {
+            case 26: {
               top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject.Builder subBuilder = null;
               if (module_ != null) {
                 subBuilder = module_.toBuilder();
@@ -7536,7 +7574,7 @@ public final class CmdbOuterClass {
 
               break;
             }
-            case 26: {
+            case 34: {
               top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject.Builder subBuilder = null;
               if (set_ != null) {
                 subBuilder = set_.toBuilder();
@@ -7549,7 +7587,7 @@ public final class CmdbOuterClass {
 
               break;
             }
-            case 34: {
+            case 42: {
               top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject.Builder subBuilder = null;
               if (biz_ != null) {
                 subBuilder = biz_.toBuilder();
@@ -7594,14 +7632,47 @@ public final class CmdbOuterClass {
               top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.class, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder.class);
     }
 
-    public static final int HOST_FIELD_NUMBER = 1;
+    public static final int PAGING_FIELD_NUMBER = 1;
+    private top.fogcdn.axe.protos.common.Api.Paging paging_;
+    /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
+     * <code>.common.Paging paging = 1;</code>
+     */
+    public boolean hasPaging() {
+      return paging_ != null;
+    }
+    /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
+     * <code>.common.Paging paging = 1;</code>
+     */
+    public top.fogcdn.axe.protos.common.Api.Paging getPaging() {
+      return paging_ == null ? top.fogcdn.axe.protos.common.Api.Paging.getDefaultInstance() : paging_;
+    }
+    /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
+     * <code>.common.Paging paging = 1;</code>
+     */
+    public top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder() {
+      return getPaging();
+    }
+
+    public static final int HOST_FIELD_NUMBER = 2;
     private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject host_;
     /**
      * <pre>
      * 主机对象
      * </pre>
      *
-     * <code>.cmdb.HostObject host = 1;</code>
+     * <code>.cmdb.HostObject host = 2;</code>
      */
     public boolean hasHost() {
       return host_ != null;
@@ -7611,7 +7682,7 @@ public final class CmdbOuterClass {
      * 主机对象
      * </pre>
      *
-     * <code>.cmdb.HostObject host = 1;</code>
+     * <code>.cmdb.HostObject host = 2;</code>
      */
     public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject getHost() {
       return host_ == null ? top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject.getDefaultInstance() : host_;
@@ -7621,20 +7692,20 @@ public final class CmdbOuterClass {
      * 主机对象
      * </pre>
      *
-     * <code>.cmdb.HostObject host = 1;</code>
+     * <code>.cmdb.HostObject host = 2;</code>
      */
     public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObjectOrBuilder getHostOrBuilder() {
       return getHost();
     }
 
-    public static final int MODULE_FIELD_NUMBER = 2;
+    public static final int MODULE_FIELD_NUMBER = 3;
     private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject module_;
     /**
      * <pre>
      * 模块对象
      * </pre>
      *
-     * <code>.cmdb.ModuleObject module = 2;</code>
+     * <code>.cmdb.ModuleObject module = 3;</code>
      */
     public boolean hasModule() {
       return module_ != null;
@@ -7644,7 +7715,7 @@ public final class CmdbOuterClass {
      * 模块对象
      * </pre>
      *
-     * <code>.cmdb.ModuleObject module = 2;</code>
+     * <code>.cmdb.ModuleObject module = 3;</code>
      */
     public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject getModule() {
       return module_ == null ? top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject.getDefaultInstance() : module_;
@@ -7654,20 +7725,20 @@ public final class CmdbOuterClass {
      * 模块对象
      * </pre>
      *
-     * <code>.cmdb.ModuleObject module = 2;</code>
+     * <code>.cmdb.ModuleObject module = 3;</code>
      */
     public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObjectOrBuilder getModuleOrBuilder() {
       return getModule();
     }
 
-    public static final int SET_FIELD_NUMBER = 3;
+    public static final int SET_FIELD_NUMBER = 4;
     private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject set_;
     /**
      * <pre>
      * 集群对象
      * </pre>
      *
-     * <code>.cmdb.SetObject set = 3;</code>
+     * <code>.cmdb.SetObject set = 4;</code>
      */
     public boolean hasSet() {
       return set_ != null;
@@ -7677,7 +7748,7 @@ public final class CmdbOuterClass {
      * 集群对象
      * </pre>
      *
-     * <code>.cmdb.SetObject set = 3;</code>
+     * <code>.cmdb.SetObject set = 4;</code>
      */
     public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject getSet() {
       return set_ == null ? top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject.getDefaultInstance() : set_;
@@ -7687,20 +7758,20 @@ public final class CmdbOuterClass {
      * 集群对象
      * </pre>
      *
-     * <code>.cmdb.SetObject set = 3;</code>
+     * <code>.cmdb.SetObject set = 4;</code>
      */
     public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObjectOrBuilder getSetOrBuilder() {
       return getSet();
     }
 
-    public static final int BIZ_FIELD_NUMBER = 4;
+    public static final int BIZ_FIELD_NUMBER = 5;
     private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject biz_;
     /**
      * <pre>
      * 业务对象
      * </pre>
      *
-     * <code>.cmdb.BizObject biz = 4;</code>
+     * <code>.cmdb.BizObject biz = 5;</code>
      */
     public boolean hasBiz() {
       return biz_ != null;
@@ -7710,7 +7781,7 @@ public final class CmdbOuterClass {
      * 业务对象
      * </pre>
      *
-     * <code>.cmdb.BizObject biz = 4;</code>
+     * <code>.cmdb.BizObject biz = 5;</code>
      */
     public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject getBiz() {
       return biz_ == null ? top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject.getDefaultInstance() : biz_;
@@ -7720,7 +7791,7 @@ public final class CmdbOuterClass {
      * 业务对象
      * </pre>
      *
-     * <code>.cmdb.BizObject biz = 4;</code>
+     * <code>.cmdb.BizObject biz = 5;</code>
      */
     public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObjectOrBuilder getBizOrBuilder() {
       return getBiz();
@@ -7740,17 +7811,20 @@ public final class CmdbOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (paging_ != null) {
+        output.writeMessage(1, getPaging());
+      }
       if (host_ != null) {
-        output.writeMessage(1, getHost());
+        output.writeMessage(2, getHost());
       }
       if (module_ != null) {
-        output.writeMessage(2, getModule());
+        output.writeMessage(3, getModule());
       }
       if (set_ != null) {
-        output.writeMessage(3, getSet());
+        output.writeMessage(4, getSet());
       }
       if (biz_ != null) {
-        output.writeMessage(4, getBiz());
+        output.writeMessage(5, getBiz());
       }
       unknownFields.writeTo(output);
     }
@@ -7761,21 +7835,25 @@ public final class CmdbOuterClass {
       if (size != -1) return size;
 
       size = 0;
+      if (paging_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getPaging());
+      }
       if (host_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getHost());
+          .computeMessageSize(2, getHost());
       }
       if (module_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getModule());
+          .computeMessageSize(3, getModule());
       }
       if (set_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getSet());
+          .computeMessageSize(4, getSet());
       }
       if (biz_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getBiz());
+          .computeMessageSize(5, getBiz());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7793,6 +7871,11 @@ public final class CmdbOuterClass {
       top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest other = (top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest) obj;
 
       boolean result = true;
+      result = result && (hasPaging() == other.hasPaging());
+      if (hasPaging()) {
+        result = result && getPaging()
+            .equals(other.getPaging());
+      }
       result = result && (hasHost() == other.hasHost());
       if (hasHost()) {
         result = result && getHost()
@@ -7824,6 +7907,10 @@ public final class CmdbOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasPaging()) {
+        hash = (37 * hash) + PAGING_FIELD_NUMBER;
+        hash = (53 * hash) + getPaging().hashCode();
+      }
       if (hasHost()) {
         hash = (37 * hash) + HOST_FIELD_NUMBER;
         hash = (53 * hash) + getHost().hashCode();
@@ -7977,6 +8064,12 @@ public final class CmdbOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        if (pagingBuilder_ == null) {
+          paging_ = null;
+        } else {
+          paging_ = null;
+          pagingBuilder_ = null;
+        }
         if (hostBuilder_ == null) {
           host_ = null;
         } else {
@@ -8027,6 +8120,11 @@ public final class CmdbOuterClass {
       @java.lang.Override
       public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest buildPartial() {
         top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest result = new top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest(this);
+        if (pagingBuilder_ == null) {
+          result.paging_ = paging_;
+        } else {
+          result.paging_ = pagingBuilder_.build();
+        }
         if (hostBuilder_ == null) {
           result.host_ = host_;
         } else {
@@ -8095,6 +8193,9 @@ public final class CmdbOuterClass {
 
       public Builder mergeFrom(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest other) {
         if (other == top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.getDefaultInstance()) return this;
+        if (other.hasPaging()) {
+          mergePaging(other.getPaging());
+        }
         if (other.hasHost()) {
           mergeHost(other.getHost());
         }
@@ -8136,6 +8237,159 @@ public final class CmdbOuterClass {
         return this;
       }
 
+      private top.fogcdn.axe.protos.common.Api.Paging paging_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder> pagingBuilder_;
+      /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
+       * <code>.common.Paging paging = 1;</code>
+       */
+      public boolean hasPaging() {
+        return pagingBuilder_ != null || paging_ != null;
+      }
+      /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
+       * <code>.common.Paging paging = 1;</code>
+       */
+      public top.fogcdn.axe.protos.common.Api.Paging getPaging() {
+        if (pagingBuilder_ == null) {
+          return paging_ == null ? top.fogcdn.axe.protos.common.Api.Paging.getDefaultInstance() : paging_;
+        } else {
+          return pagingBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
+       * <code>.common.Paging paging = 1;</code>
+       */
+      public Builder setPaging(top.fogcdn.axe.protos.common.Api.Paging value) {
+        if (pagingBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          paging_ = value;
+          onChanged();
+        } else {
+          pagingBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
+       * <code>.common.Paging paging = 1;</code>
+       */
+      public Builder setPaging(
+          top.fogcdn.axe.protos.common.Api.Paging.Builder builderForValue) {
+        if (pagingBuilder_ == null) {
+          paging_ = builderForValue.build();
+          onChanged();
+        } else {
+          pagingBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
+       * <code>.common.Paging paging = 1;</code>
+       */
+      public Builder mergePaging(top.fogcdn.axe.protos.common.Api.Paging value) {
+        if (pagingBuilder_ == null) {
+          if (paging_ != null) {
+            paging_ =
+              top.fogcdn.axe.protos.common.Api.Paging.newBuilder(paging_).mergeFrom(value).buildPartial();
+          } else {
+            paging_ = value;
+          }
+          onChanged();
+        } else {
+          pagingBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
+       * <code>.common.Paging paging = 1;</code>
+       */
+      public Builder clearPaging() {
+        if (pagingBuilder_ == null) {
+          paging_ = null;
+          onChanged();
+        } else {
+          paging_ = null;
+          pagingBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
+       * <code>.common.Paging paging = 1;</code>
+       */
+      public top.fogcdn.axe.protos.common.Api.Paging.Builder getPagingBuilder() {
+        
+        onChanged();
+        return getPagingFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
+       * <code>.common.Paging paging = 1;</code>
+       */
+      public top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder() {
+        if (pagingBuilder_ != null) {
+          return pagingBuilder_.getMessageOrBuilder();
+        } else {
+          return paging_ == null ?
+              top.fogcdn.axe.protos.common.Api.Paging.getDefaultInstance() : paging_;
+        }
+      }
+      /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
+       * <code>.common.Paging paging = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder> 
+          getPagingFieldBuilder() {
+        if (pagingBuilder_ == null) {
+          pagingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder>(
+                  getPaging(),
+                  getParentForChildren(),
+                  isClean());
+          paging_ = null;
+        }
+        return pagingBuilder_;
+      }
+
       private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject host_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObjectOrBuilder> hostBuilder_;
@@ -8144,7 +8398,7 @@ public final class CmdbOuterClass {
        * 主机对象
        * </pre>
        *
-       * <code>.cmdb.HostObject host = 1;</code>
+       * <code>.cmdb.HostObject host = 2;</code>
        */
       public boolean hasHost() {
         return hostBuilder_ != null || host_ != null;
@@ -8154,7 +8408,7 @@ public final class CmdbOuterClass {
        * 主机对象
        * </pre>
        *
-       * <code>.cmdb.HostObject host = 1;</code>
+       * <code>.cmdb.HostObject host = 2;</code>
        */
       public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject getHost() {
         if (hostBuilder_ == null) {
@@ -8168,7 +8422,7 @@ public final class CmdbOuterClass {
        * 主机对象
        * </pre>
        *
-       * <code>.cmdb.HostObject host = 1;</code>
+       * <code>.cmdb.HostObject host = 2;</code>
        */
       public Builder setHost(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject value) {
         if (hostBuilder_ == null) {
@@ -8188,7 +8442,7 @@ public final class CmdbOuterClass {
        * 主机对象
        * </pre>
        *
-       * <code>.cmdb.HostObject host = 1;</code>
+       * <code>.cmdb.HostObject host = 2;</code>
        */
       public Builder setHost(
           top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject.Builder builderForValue) {
@@ -8206,7 +8460,7 @@ public final class CmdbOuterClass {
        * 主机对象
        * </pre>
        *
-       * <code>.cmdb.HostObject host = 1;</code>
+       * <code>.cmdb.HostObject host = 2;</code>
        */
       public Builder mergeHost(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject value) {
         if (hostBuilder_ == null) {
@@ -8228,7 +8482,7 @@ public final class CmdbOuterClass {
        * 主机对象
        * </pre>
        *
-       * <code>.cmdb.HostObject host = 1;</code>
+       * <code>.cmdb.HostObject host = 2;</code>
        */
       public Builder clearHost() {
         if (hostBuilder_ == null) {
@@ -8246,7 +8500,7 @@ public final class CmdbOuterClass {
        * 主机对象
        * </pre>
        *
-       * <code>.cmdb.HostObject host = 1;</code>
+       * <code>.cmdb.HostObject host = 2;</code>
        */
       public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject.Builder getHostBuilder() {
         
@@ -8258,7 +8512,7 @@ public final class CmdbOuterClass {
        * 主机对象
        * </pre>
        *
-       * <code>.cmdb.HostObject host = 1;</code>
+       * <code>.cmdb.HostObject host = 2;</code>
        */
       public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObjectOrBuilder getHostOrBuilder() {
         if (hostBuilder_ != null) {
@@ -8273,7 +8527,7 @@ public final class CmdbOuterClass {
        * 主机对象
        * </pre>
        *
-       * <code>.cmdb.HostObject host = 1;</code>
+       * <code>.cmdb.HostObject host = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostObjectOrBuilder> 
@@ -8297,7 +8551,7 @@ public final class CmdbOuterClass {
        * 模块对象
        * </pre>
        *
-       * <code>.cmdb.ModuleObject module = 2;</code>
+       * <code>.cmdb.ModuleObject module = 3;</code>
        */
       public boolean hasModule() {
         return moduleBuilder_ != null || module_ != null;
@@ -8307,7 +8561,7 @@ public final class CmdbOuterClass {
        * 模块对象
        * </pre>
        *
-       * <code>.cmdb.ModuleObject module = 2;</code>
+       * <code>.cmdb.ModuleObject module = 3;</code>
        */
       public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject getModule() {
         if (moduleBuilder_ == null) {
@@ -8321,7 +8575,7 @@ public final class CmdbOuterClass {
        * 模块对象
        * </pre>
        *
-       * <code>.cmdb.ModuleObject module = 2;</code>
+       * <code>.cmdb.ModuleObject module = 3;</code>
        */
       public Builder setModule(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject value) {
         if (moduleBuilder_ == null) {
@@ -8341,7 +8595,7 @@ public final class CmdbOuterClass {
        * 模块对象
        * </pre>
        *
-       * <code>.cmdb.ModuleObject module = 2;</code>
+       * <code>.cmdb.ModuleObject module = 3;</code>
        */
       public Builder setModule(
           top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject.Builder builderForValue) {
@@ -8359,7 +8613,7 @@ public final class CmdbOuterClass {
        * 模块对象
        * </pre>
        *
-       * <code>.cmdb.ModuleObject module = 2;</code>
+       * <code>.cmdb.ModuleObject module = 3;</code>
        */
       public Builder mergeModule(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject value) {
         if (moduleBuilder_ == null) {
@@ -8381,7 +8635,7 @@ public final class CmdbOuterClass {
        * 模块对象
        * </pre>
        *
-       * <code>.cmdb.ModuleObject module = 2;</code>
+       * <code>.cmdb.ModuleObject module = 3;</code>
        */
       public Builder clearModule() {
         if (moduleBuilder_ == null) {
@@ -8399,7 +8653,7 @@ public final class CmdbOuterClass {
        * 模块对象
        * </pre>
        *
-       * <code>.cmdb.ModuleObject module = 2;</code>
+       * <code>.cmdb.ModuleObject module = 3;</code>
        */
       public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject.Builder getModuleBuilder() {
         
@@ -8411,7 +8665,7 @@ public final class CmdbOuterClass {
        * 模块对象
        * </pre>
        *
-       * <code>.cmdb.ModuleObject module = 2;</code>
+       * <code>.cmdb.ModuleObject module = 3;</code>
        */
       public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObjectOrBuilder getModuleOrBuilder() {
         if (moduleBuilder_ != null) {
@@ -8426,7 +8680,7 @@ public final class CmdbOuterClass {
        * 模块对象
        * </pre>
        *
-       * <code>.cmdb.ModuleObject module = 2;</code>
+       * <code>.cmdb.ModuleObject module = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.ModuleObjectOrBuilder> 
@@ -8450,7 +8704,7 @@ public final class CmdbOuterClass {
        * 集群对象
        * </pre>
        *
-       * <code>.cmdb.SetObject set = 3;</code>
+       * <code>.cmdb.SetObject set = 4;</code>
        */
       public boolean hasSet() {
         return setBuilder_ != null || set_ != null;
@@ -8460,7 +8714,7 @@ public final class CmdbOuterClass {
        * 集群对象
        * </pre>
        *
-       * <code>.cmdb.SetObject set = 3;</code>
+       * <code>.cmdb.SetObject set = 4;</code>
        */
       public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject getSet() {
         if (setBuilder_ == null) {
@@ -8474,7 +8728,7 @@ public final class CmdbOuterClass {
        * 集群对象
        * </pre>
        *
-       * <code>.cmdb.SetObject set = 3;</code>
+       * <code>.cmdb.SetObject set = 4;</code>
        */
       public Builder setSet(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject value) {
         if (setBuilder_ == null) {
@@ -8494,7 +8748,7 @@ public final class CmdbOuterClass {
        * 集群对象
        * </pre>
        *
-       * <code>.cmdb.SetObject set = 3;</code>
+       * <code>.cmdb.SetObject set = 4;</code>
        */
       public Builder setSet(
           top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject.Builder builderForValue) {
@@ -8512,7 +8766,7 @@ public final class CmdbOuterClass {
        * 集群对象
        * </pre>
        *
-       * <code>.cmdb.SetObject set = 3;</code>
+       * <code>.cmdb.SetObject set = 4;</code>
        */
       public Builder mergeSet(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject value) {
         if (setBuilder_ == null) {
@@ -8534,7 +8788,7 @@ public final class CmdbOuterClass {
        * 集群对象
        * </pre>
        *
-       * <code>.cmdb.SetObject set = 3;</code>
+       * <code>.cmdb.SetObject set = 4;</code>
        */
       public Builder clearSet() {
         if (setBuilder_ == null) {
@@ -8552,7 +8806,7 @@ public final class CmdbOuterClass {
        * 集群对象
        * </pre>
        *
-       * <code>.cmdb.SetObject set = 3;</code>
+       * <code>.cmdb.SetObject set = 4;</code>
        */
       public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject.Builder getSetBuilder() {
         
@@ -8564,7 +8818,7 @@ public final class CmdbOuterClass {
        * 集群对象
        * </pre>
        *
-       * <code>.cmdb.SetObject set = 3;</code>
+       * <code>.cmdb.SetObject set = 4;</code>
        */
       public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObjectOrBuilder getSetOrBuilder() {
         if (setBuilder_ != null) {
@@ -8579,7 +8833,7 @@ public final class CmdbOuterClass {
        * 集群对象
        * </pre>
        *
-       * <code>.cmdb.SetObject set = 3;</code>
+       * <code>.cmdb.SetObject set = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SetObjectOrBuilder> 
@@ -8603,7 +8857,7 @@ public final class CmdbOuterClass {
        * 业务对象
        * </pre>
        *
-       * <code>.cmdb.BizObject biz = 4;</code>
+       * <code>.cmdb.BizObject biz = 5;</code>
        */
       public boolean hasBiz() {
         return bizBuilder_ != null || biz_ != null;
@@ -8613,7 +8867,7 @@ public final class CmdbOuterClass {
        * 业务对象
        * </pre>
        *
-       * <code>.cmdb.BizObject biz = 4;</code>
+       * <code>.cmdb.BizObject biz = 5;</code>
        */
       public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject getBiz() {
         if (bizBuilder_ == null) {
@@ -8627,7 +8881,7 @@ public final class CmdbOuterClass {
        * 业务对象
        * </pre>
        *
-       * <code>.cmdb.BizObject biz = 4;</code>
+       * <code>.cmdb.BizObject biz = 5;</code>
        */
       public Builder setBiz(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject value) {
         if (bizBuilder_ == null) {
@@ -8647,7 +8901,7 @@ public final class CmdbOuterClass {
        * 业务对象
        * </pre>
        *
-       * <code>.cmdb.BizObject biz = 4;</code>
+       * <code>.cmdb.BizObject biz = 5;</code>
        */
       public Builder setBiz(
           top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject.Builder builderForValue) {
@@ -8665,7 +8919,7 @@ public final class CmdbOuterClass {
        * 业务对象
        * </pre>
        *
-       * <code>.cmdb.BizObject biz = 4;</code>
+       * <code>.cmdb.BizObject biz = 5;</code>
        */
       public Builder mergeBiz(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject value) {
         if (bizBuilder_ == null) {
@@ -8687,7 +8941,7 @@ public final class CmdbOuterClass {
        * 业务对象
        * </pre>
        *
-       * <code>.cmdb.BizObject biz = 4;</code>
+       * <code>.cmdb.BizObject biz = 5;</code>
        */
       public Builder clearBiz() {
         if (bizBuilder_ == null) {
@@ -8705,7 +8959,7 @@ public final class CmdbOuterClass {
        * 业务对象
        * </pre>
        *
-       * <code>.cmdb.BizObject biz = 4;</code>
+       * <code>.cmdb.BizObject biz = 5;</code>
        */
       public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject.Builder getBizBuilder() {
         
@@ -8717,7 +8971,7 @@ public final class CmdbOuterClass {
        * 业务对象
        * </pre>
        *
-       * <code>.cmdb.BizObject biz = 4;</code>
+       * <code>.cmdb.BizObject biz = 5;</code>
        */
       public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObjectOrBuilder getBizOrBuilder() {
         if (bizBuilder_ != null) {
@@ -8732,7 +8986,7 @@ public final class CmdbOuterClass {
        * 业务对象
        * </pre>
        *
-       * <code>.cmdb.BizObject biz = 4;</code>
+       * <code>.cmdb.BizObject biz = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.BizObjectOrBuilder> 
@@ -8806,19 +9060,60 @@ public final class CmdbOuterClass {
 
     /**
      * <pre>
-     * 返回总条数
+     * 分页信息
      * </pre>
      *
-     * <code>int32 count = 1;</code>
+     * <code>.common.Paging paging = 1;</code>
      */
-    int getCount();
+    boolean hasPaging();
+    /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
+     * <code>.common.Paging paging = 1;</code>
+     */
+    top.fogcdn.axe.protos.common.Api.Paging getPaging();
+    /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
+     * <code>.common.Paging paging = 1;</code>
+     */
+    top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder();
+
+    /**
+     * <pre>
+     * 状态码
+     * </pre>
+     *
+     * <code>.common.ResponseStatus status = 2;</code>
+     */
+    boolean hasStatus();
+    /**
+     * <pre>
+     * 状态码
+     * </pre>
+     *
+     * <code>.common.ResponseStatus status = 2;</code>
+     */
+    top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
+    /**
+     * <pre>
+     * 状态码
+     * </pre>
+     *
+     * <code>.common.ResponseStatus status = 2;</code>
+     */
+    top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
 
     /**
      * <pre>
      * 主机信息
      * </pre>
      *
-     * <code>repeated .cmdb.HostInfoObject info = 2;</code>
+     * <code>repeated .cmdb.HostInfoObject info = 3;</code>
      */
     java.util.List<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject> 
         getInfoList();
@@ -8827,7 +9122,7 @@ public final class CmdbOuterClass {
      * 主机信息
      * </pre>
      *
-     * <code>repeated .cmdb.HostInfoObject info = 2;</code>
+     * <code>repeated .cmdb.HostInfoObject info = 3;</code>
      */
     top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject getInfo(int index);
     /**
@@ -8835,7 +9130,7 @@ public final class CmdbOuterClass {
      * 主机信息
      * </pre>
      *
-     * <code>repeated .cmdb.HostInfoObject info = 2;</code>
+     * <code>repeated .cmdb.HostInfoObject info = 3;</code>
      */
     int getInfoCount();
     /**
@@ -8843,7 +9138,7 @@ public final class CmdbOuterClass {
      * 主机信息
      * </pre>
      *
-     * <code>repeated .cmdb.HostInfoObject info = 2;</code>
+     * <code>repeated .cmdb.HostInfoObject info = 3;</code>
      */
     java.util.List<? extends top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObjectOrBuilder> 
         getInfoOrBuilderList();
@@ -8852,35 +9147,10 @@ public final class CmdbOuterClass {
      * 主机信息
      * </pre>
      *
-     * <code>repeated .cmdb.HostInfoObject info = 2;</code>
+     * <code>repeated .cmdb.HostInfoObject info = 3;</code>
      */
     top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObjectOrBuilder getInfoOrBuilder(
         int index);
-
-    /**
-     * <pre>
-     * 状态码
-     * </pre>
-     *
-     * <code>.common.ResponseStatus status = 3;</code>
-     */
-    boolean hasStatus();
-    /**
-     * <pre>
-     * 状态码
-     * </pre>
-     *
-     * <code>.common.ResponseStatus status = 3;</code>
-     */
-    top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
-    /**
-     * <pre>
-     * 状态码
-     * </pre>
-     *
-     * <code>.common.ResponseStatus status = 3;</code>
-     */
-    top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
   }
   /**
    * <pre>
@@ -8899,7 +9169,6 @@ public final class CmdbOuterClass {
       super(builder);
     }
     private SearchHostResponse() {
-      count_ = 0;
       info_ = java.util.Collections.emptyList();
     }
 
@@ -8927,21 +9196,20 @@ public final class CmdbOuterClass {
             case 0:
               done = true;
               break;
-            case 8: {
+            case 10: {
+              top.fogcdn.axe.protos.common.Api.Paging.Builder subBuilder = null;
+              if (paging_ != null) {
+                subBuilder = paging_.toBuilder();
+              }
+              paging_ = input.readMessage(top.fogcdn.axe.protos.common.Api.Paging.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(paging_);
+                paging_ = subBuilder.buildPartial();
+              }
 
-              count_ = input.readInt32();
               break;
             }
             case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                info_ = new java.util.ArrayList<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              info_.add(
-                  input.readMessage(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.parser(), extensionRegistry));
-              break;
-            }
-            case 26: {
               top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder subBuilder = null;
               if (status_ != null) {
                 subBuilder = status_.toBuilder();
@@ -8952,6 +9220,15 @@ public final class CmdbOuterClass {
                 status_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                info_ = new java.util.ArrayList<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              info_.add(
+                  input.readMessage(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -8969,7 +9246,7 @@ public final class CmdbOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           info_ = java.util.Collections.unmodifiableList(info_);
         }
         this.unknownFields = unknownFields.build();
@@ -8990,27 +9267,80 @@ public final class CmdbOuterClass {
     }
 
     private int bitField0_;
-    public static final int COUNT_FIELD_NUMBER = 1;
-    private int count_;
+    public static final int PAGING_FIELD_NUMBER = 1;
+    private top.fogcdn.axe.protos.common.Api.Paging paging_;
     /**
      * <pre>
-     * 返回总条数
+     * 分页信息
      * </pre>
      *
-     * <code>int32 count = 1;</code>
+     * <code>.common.Paging paging = 1;</code>
      */
-    public int getCount() {
-      return count_;
+    public boolean hasPaging() {
+      return paging_ != null;
+    }
+    /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
+     * <code>.common.Paging paging = 1;</code>
+     */
+    public top.fogcdn.axe.protos.common.Api.Paging getPaging() {
+      return paging_ == null ? top.fogcdn.axe.protos.common.Api.Paging.getDefaultInstance() : paging_;
+    }
+    /**
+     * <pre>
+     * 分页信息
+     * </pre>
+     *
+     * <code>.common.Paging paging = 1;</code>
+     */
+    public top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder() {
+      return getPaging();
     }
 
-    public static final int INFO_FIELD_NUMBER = 2;
+    public static final int STATUS_FIELD_NUMBER = 2;
+    private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
+    /**
+     * <pre>
+     * 状态码
+     * </pre>
+     *
+     * <code>.common.ResponseStatus status = 2;</code>
+     */
+    public boolean hasStatus() {
+      return status_ != null;
+    }
+    /**
+     * <pre>
+     * 状态码
+     * </pre>
+     *
+     * <code>.common.ResponseStatus status = 2;</code>
+     */
+    public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
+      return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
+    }
+    /**
+     * <pre>
+     * 状态码
+     * </pre>
+     *
+     * <code>.common.ResponseStatus status = 2;</code>
+     */
+    public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
+      return getStatus();
+    }
+
+    public static final int INFO_FIELD_NUMBER = 3;
     private java.util.List<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject> info_;
     /**
      * <pre>
      * 主机信息
      * </pre>
      *
-     * <code>repeated .cmdb.HostInfoObject info = 2;</code>
+     * <code>repeated .cmdb.HostInfoObject info = 3;</code>
      */
     public java.util.List<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject> getInfoList() {
       return info_;
@@ -9020,7 +9350,7 @@ public final class CmdbOuterClass {
      * 主机信息
      * </pre>
      *
-     * <code>repeated .cmdb.HostInfoObject info = 2;</code>
+     * <code>repeated .cmdb.HostInfoObject info = 3;</code>
      */
     public java.util.List<? extends top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObjectOrBuilder> 
         getInfoOrBuilderList() {
@@ -9031,7 +9361,7 @@ public final class CmdbOuterClass {
      * 主机信息
      * </pre>
      *
-     * <code>repeated .cmdb.HostInfoObject info = 2;</code>
+     * <code>repeated .cmdb.HostInfoObject info = 3;</code>
      */
     public int getInfoCount() {
       return info_.size();
@@ -9041,7 +9371,7 @@ public final class CmdbOuterClass {
      * 主机信息
      * </pre>
      *
-     * <code>repeated .cmdb.HostInfoObject info = 2;</code>
+     * <code>repeated .cmdb.HostInfoObject info = 3;</code>
      */
     public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject getInfo(int index) {
       return info_.get(index);
@@ -9051,44 +9381,11 @@ public final class CmdbOuterClass {
      * 主机信息
      * </pre>
      *
-     * <code>repeated .cmdb.HostInfoObject info = 2;</code>
+     * <code>repeated .cmdb.HostInfoObject info = 3;</code>
      */
     public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObjectOrBuilder getInfoOrBuilder(
         int index) {
       return info_.get(index);
-    }
-
-    public static final int STATUS_FIELD_NUMBER = 3;
-    private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
-    /**
-     * <pre>
-     * 状态码
-     * </pre>
-     *
-     * <code>.common.ResponseStatus status = 3;</code>
-     */
-    public boolean hasStatus() {
-      return status_ != null;
-    }
-    /**
-     * <pre>
-     * 状态码
-     * </pre>
-     *
-     * <code>.common.ResponseStatus status = 3;</code>
-     */
-    public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
-      return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
-    }
-    /**
-     * <pre>
-     * 状态码
-     * </pre>
-     *
-     * <code>.common.ResponseStatus status = 3;</code>
-     */
-    public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
-      return getStatus();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -9105,14 +9402,14 @@ public final class CmdbOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (count_ != 0) {
-        output.writeInt32(1, count_);
-      }
-      for (int i = 0; i < info_.size(); i++) {
-        output.writeMessage(2, info_.get(i));
+      if (paging_ != null) {
+        output.writeMessage(1, getPaging());
       }
       if (status_ != null) {
-        output.writeMessage(3, getStatus());
+        output.writeMessage(2, getStatus());
+      }
+      for (int i = 0; i < info_.size(); i++) {
+        output.writeMessage(3, info_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -9123,17 +9420,17 @@ public final class CmdbOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (count_ != 0) {
+      if (paging_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, count_);
-      }
-      for (int i = 0; i < info_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, info_.get(i));
+          .computeMessageSize(1, getPaging());
       }
       if (status_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getStatus());
+          .computeMessageSize(2, getStatus());
+      }
+      for (int i = 0; i < info_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, info_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -9151,15 +9448,18 @@ public final class CmdbOuterClass {
       top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostResponse other = (top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostResponse) obj;
 
       boolean result = true;
-      result = result && (getCount()
-          == other.getCount());
-      result = result && getInfoList()
-          .equals(other.getInfoList());
+      result = result && (hasPaging() == other.hasPaging());
+      if (hasPaging()) {
+        result = result && getPaging()
+            .equals(other.getPaging());
+      }
       result = result && (hasStatus() == other.hasStatus());
       if (hasStatus()) {
         result = result && getStatus()
             .equals(other.getStatus());
       }
+      result = result && getInfoList()
+          .equals(other.getInfoList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -9171,15 +9471,17 @@ public final class CmdbOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + COUNT_FIELD_NUMBER;
-      hash = (53 * hash) + getCount();
-      if (getInfoCount() > 0) {
-        hash = (37 * hash) + INFO_FIELD_NUMBER;
-        hash = (53 * hash) + getInfoList().hashCode();
+      if (hasPaging()) {
+        hash = (37 * hash) + PAGING_FIELD_NUMBER;
+        hash = (53 * hash) + getPaging().hashCode();
       }
       if (hasStatus()) {
         hash = (37 * hash) + STATUS_FIELD_NUMBER;
         hash = (53 * hash) + getStatus().hashCode();
+      }
+      if (getInfoCount() > 0) {
+        hash = (37 * hash) + INFO_FIELD_NUMBER;
+        hash = (53 * hash) + getInfoList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -9319,19 +9621,23 @@ public final class CmdbOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        count_ = 0;
-
-        if (infoBuilder_ == null) {
-          info_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+        if (pagingBuilder_ == null) {
+          paging_ = null;
         } else {
-          infoBuilder_.clear();
+          paging_ = null;
+          pagingBuilder_ = null;
         }
         if (statusBuilder_ == null) {
           status_ = null;
         } else {
           status_ = null;
           statusBuilder_ = null;
+        }
+        if (infoBuilder_ == null) {
+          info_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          infoBuilder_.clear();
         }
         return this;
       }
@@ -9361,20 +9667,24 @@ public final class CmdbOuterClass {
         top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostResponse result = new top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostResponse(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        result.count_ = count_;
-        if (infoBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
-            info_ = java.util.Collections.unmodifiableList(info_);
-            bitField0_ = (bitField0_ & ~0x00000002);
-          }
-          result.info_ = info_;
+        if (pagingBuilder_ == null) {
+          result.paging_ = paging_;
         } else {
-          result.info_ = infoBuilder_.build();
+          result.paging_ = pagingBuilder_.build();
         }
         if (statusBuilder_ == null) {
           result.status_ = status_;
         } else {
           result.status_ = statusBuilder_.build();
+        }
+        if (infoBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            info_ = java.util.Collections.unmodifiableList(info_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.info_ = info_;
+        } else {
+          result.info_ = infoBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -9425,14 +9735,17 @@ public final class CmdbOuterClass {
 
       public Builder mergeFrom(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostResponse other) {
         if (other == top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostResponse.getDefaultInstance()) return this;
-        if (other.getCount() != 0) {
-          setCount(other.getCount());
+        if (other.hasPaging()) {
+          mergePaging(other.getPaging());
+        }
+        if (other.hasStatus()) {
+          mergeStatus(other.getStatus());
         }
         if (infoBuilder_ == null) {
           if (!other.info_.isEmpty()) {
             if (info_.isEmpty()) {
               info_ = other.info_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureInfoIsMutable();
               info_.addAll(other.info_);
@@ -9445,7 +9758,7 @@ public final class CmdbOuterClass {
               infoBuilder_.dispose();
               infoBuilder_ = null;
               info_ = other.info_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000004);
               infoBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getInfoFieldBuilder() : null;
@@ -9453,9 +9766,6 @@ public final class CmdbOuterClass {
               infoBuilder_.addAllMessages(other.info_);
             }
           }
-        }
-        if (other.hasStatus()) {
-          mergeStatus(other.getStatus());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -9487,354 +9797,157 @@ public final class CmdbOuterClass {
       }
       private int bitField0_;
 
-      private int count_ ;
+      private top.fogcdn.axe.protos.common.Api.Paging paging_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder> pagingBuilder_;
       /**
        * <pre>
-       * 返回总条数
+       * 分页信息
        * </pre>
        *
-       * <code>int32 count = 1;</code>
+       * <code>.common.Paging paging = 1;</code>
        */
-      public int getCount() {
-        return count_;
+      public boolean hasPaging() {
+        return pagingBuilder_ != null || paging_ != null;
       }
       /**
        * <pre>
-       * 返回总条数
+       * 分页信息
        * </pre>
        *
-       * <code>int32 count = 1;</code>
+       * <code>.common.Paging paging = 1;</code>
        */
-      public Builder setCount(int value) {
+      public top.fogcdn.axe.protos.common.Api.Paging getPaging() {
+        if (pagingBuilder_ == null) {
+          return paging_ == null ? top.fogcdn.axe.protos.common.Api.Paging.getDefaultInstance() : paging_;
+        } else {
+          return pagingBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
+       * <code>.common.Paging paging = 1;</code>
+       */
+      public Builder setPaging(top.fogcdn.axe.protos.common.Api.Paging value) {
+        if (pagingBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          paging_ = value;
+          onChanged();
+        } else {
+          pagingBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
+       * <code>.common.Paging paging = 1;</code>
+       */
+      public Builder setPaging(
+          top.fogcdn.axe.protos.common.Api.Paging.Builder builderForValue) {
+        if (pagingBuilder_ == null) {
+          paging_ = builderForValue.build();
+          onChanged();
+        } else {
+          pagingBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
+       * <code>.common.Paging paging = 1;</code>
+       */
+      public Builder mergePaging(top.fogcdn.axe.protos.common.Api.Paging value) {
+        if (pagingBuilder_ == null) {
+          if (paging_ != null) {
+            paging_ =
+              top.fogcdn.axe.protos.common.Api.Paging.newBuilder(paging_).mergeFrom(value).buildPartial();
+          } else {
+            paging_ = value;
+          }
+          onChanged();
+        } else {
+          pagingBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
+       * <code>.common.Paging paging = 1;</code>
+       */
+      public Builder clearPaging() {
+        if (pagingBuilder_ == null) {
+          paging_ = null;
+          onChanged();
+        } else {
+          paging_ = null;
+          pagingBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 分页信息
+       * </pre>
+       *
+       * <code>.common.Paging paging = 1;</code>
+       */
+      public top.fogcdn.axe.protos.common.Api.Paging.Builder getPagingBuilder() {
         
-        count_ = value;
         onChanged();
-        return this;
+        return getPagingFieldBuilder().getBuilder();
       }
       /**
        * <pre>
-       * 返回总条数
+       * 分页信息
        * </pre>
        *
-       * <code>int32 count = 1;</code>
+       * <code>.common.Paging paging = 1;</code>
        */
-      public Builder clearCount() {
-        
-        count_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.util.List<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject> info_ =
-        java.util.Collections.emptyList();
-      private void ensureInfoIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          info_ = new java.util.ArrayList<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject>(info_);
-          bitField0_ |= 0x00000002;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObjectOrBuilder> infoBuilder_;
-
-      /**
-       * <pre>
-       * 主机信息
-       * </pre>
-       *
-       * <code>repeated .cmdb.HostInfoObject info = 2;</code>
-       */
-      public java.util.List<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject> getInfoList() {
-        if (infoBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(info_);
+      public top.fogcdn.axe.protos.common.Api.PagingOrBuilder getPagingOrBuilder() {
+        if (pagingBuilder_ != null) {
+          return pagingBuilder_.getMessageOrBuilder();
         } else {
-          return infoBuilder_.getMessageList();
+          return paging_ == null ?
+              top.fogcdn.axe.protos.common.Api.Paging.getDefaultInstance() : paging_;
         }
       }
       /**
        * <pre>
-       * 主机信息
+       * 分页信息
        * </pre>
        *
-       * <code>repeated .cmdb.HostInfoObject info = 2;</code>
+       * <code>.common.Paging paging = 1;</code>
        */
-      public int getInfoCount() {
-        if (infoBuilder_ == null) {
-          return info_.size();
-        } else {
-          return infoBuilder_.getCount();
-        }
-      }
-      /**
-       * <pre>
-       * 主机信息
-       * </pre>
-       *
-       * <code>repeated .cmdb.HostInfoObject info = 2;</code>
-       */
-      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject getInfo(int index) {
-        if (infoBuilder_ == null) {
-          return info_.get(index);
-        } else {
-          return infoBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <pre>
-       * 主机信息
-       * </pre>
-       *
-       * <code>repeated .cmdb.HostInfoObject info = 2;</code>
-       */
-      public Builder setInfo(
-          int index, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject value) {
-        if (infoBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureInfoIsMutable();
-          info_.set(index, value);
-          onChanged();
-        } else {
-          infoBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * 主机信息
-       * </pre>
-       *
-       * <code>repeated .cmdb.HostInfoObject info = 2;</code>
-       */
-      public Builder setInfo(
-          int index, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.Builder builderForValue) {
-        if (infoBuilder_ == null) {
-          ensureInfoIsMutable();
-          info_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          infoBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * 主机信息
-       * </pre>
-       *
-       * <code>repeated .cmdb.HostInfoObject info = 2;</code>
-       */
-      public Builder addInfo(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject value) {
-        if (infoBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureInfoIsMutable();
-          info_.add(value);
-          onChanged();
-        } else {
-          infoBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * 主机信息
-       * </pre>
-       *
-       * <code>repeated .cmdb.HostInfoObject info = 2;</code>
-       */
-      public Builder addInfo(
-          int index, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject value) {
-        if (infoBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureInfoIsMutable();
-          info_.add(index, value);
-          onChanged();
-        } else {
-          infoBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * 主机信息
-       * </pre>
-       *
-       * <code>repeated .cmdb.HostInfoObject info = 2;</code>
-       */
-      public Builder addInfo(
-          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.Builder builderForValue) {
-        if (infoBuilder_ == null) {
-          ensureInfoIsMutable();
-          info_.add(builderForValue.build());
-          onChanged();
-        } else {
-          infoBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * 主机信息
-       * </pre>
-       *
-       * <code>repeated .cmdb.HostInfoObject info = 2;</code>
-       */
-      public Builder addInfo(
-          int index, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.Builder builderForValue) {
-        if (infoBuilder_ == null) {
-          ensureInfoIsMutable();
-          info_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          infoBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * 主机信息
-       * </pre>
-       *
-       * <code>repeated .cmdb.HostInfoObject info = 2;</code>
-       */
-      public Builder addAllInfo(
-          java.lang.Iterable<? extends top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject> values) {
-        if (infoBuilder_ == null) {
-          ensureInfoIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, info_);
-          onChanged();
-        } else {
-          infoBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * 主机信息
-       * </pre>
-       *
-       * <code>repeated .cmdb.HostInfoObject info = 2;</code>
-       */
-      public Builder clearInfo() {
-        if (infoBuilder_ == null) {
-          info_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
-          onChanged();
-        } else {
-          infoBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * 主机信息
-       * </pre>
-       *
-       * <code>repeated .cmdb.HostInfoObject info = 2;</code>
-       */
-      public Builder removeInfo(int index) {
-        if (infoBuilder_ == null) {
-          ensureInfoIsMutable();
-          info_.remove(index);
-          onChanged();
-        } else {
-          infoBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * 主机信息
-       * </pre>
-       *
-       * <code>repeated .cmdb.HostInfoObject info = 2;</code>
-       */
-      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.Builder getInfoBuilder(
-          int index) {
-        return getInfoFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <pre>
-       * 主机信息
-       * </pre>
-       *
-       * <code>repeated .cmdb.HostInfoObject info = 2;</code>
-       */
-      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObjectOrBuilder getInfoOrBuilder(
-          int index) {
-        if (infoBuilder_ == null) {
-          return info_.get(index);  } else {
-          return infoBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <pre>
-       * 主机信息
-       * </pre>
-       *
-       * <code>repeated .cmdb.HostInfoObject info = 2;</code>
-       */
-      public java.util.List<? extends top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObjectOrBuilder> 
-           getInfoOrBuilderList() {
-        if (infoBuilder_ != null) {
-          return infoBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(info_);
-        }
-      }
-      /**
-       * <pre>
-       * 主机信息
-       * </pre>
-       *
-       * <code>repeated .cmdb.HostInfoObject info = 2;</code>
-       */
-      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.Builder addInfoBuilder() {
-        return getInfoFieldBuilder().addBuilder(
-            top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       * 主机信息
-       * </pre>
-       *
-       * <code>repeated .cmdb.HostInfoObject info = 2;</code>
-       */
-      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.Builder addInfoBuilder(
-          int index) {
-        return getInfoFieldBuilder().addBuilder(
-            index, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       * 主机信息
-       * </pre>
-       *
-       * <code>repeated .cmdb.HostInfoObject info = 2;</code>
-       */
-      public java.util.List<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.Builder> 
-           getInfoBuilderList() {
-        return getInfoFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObjectOrBuilder> 
-          getInfoFieldBuilder() {
-        if (infoBuilder_ == null) {
-          infoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObjectOrBuilder>(
-                  info_,
-                  ((bitField0_ & 0x00000002) == 0x00000002),
+      private com.google.protobuf.SingleFieldBuilderV3<
+          top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder> 
+          getPagingFieldBuilder() {
+        if (pagingBuilder_ == null) {
+          pagingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              top.fogcdn.axe.protos.common.Api.Paging, top.fogcdn.axe.protos.common.Api.Paging.Builder, top.fogcdn.axe.protos.common.Api.PagingOrBuilder>(
+                  getPaging(),
                   getParentForChildren(),
                   isClean());
-          info_ = null;
+          paging_ = null;
         }
-        return infoBuilder_;
+        return pagingBuilder_;
       }
 
       private top.fogcdn.axe.protos.common.Api.ResponseStatus status_ = null;
@@ -9845,7 +9958,7 @@ public final class CmdbOuterClass {
        * 状态码
        * </pre>
        *
-       * <code>.common.ResponseStatus status = 3;</code>
+       * <code>.common.ResponseStatus status = 2;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
@@ -9855,7 +9968,7 @@ public final class CmdbOuterClass {
        * 状态码
        * </pre>
        *
-       * <code>.common.ResponseStatus status = 3;</code>
+       * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
         if (statusBuilder_ == null) {
@@ -9869,7 +9982,7 @@ public final class CmdbOuterClass {
        * 状态码
        * </pre>
        *
-       * <code>.common.ResponseStatus status = 3;</code>
+       * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
         if (statusBuilder_ == null) {
@@ -9889,7 +10002,7 @@ public final class CmdbOuterClass {
        * 状态码
        * </pre>
        *
-       * <code>.common.ResponseStatus status = 3;</code>
+       * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder setStatus(
           top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder builderForValue) {
@@ -9907,7 +10020,7 @@ public final class CmdbOuterClass {
        * 状态码
        * </pre>
        *
-       * <code>.common.ResponseStatus status = 3;</code>
+       * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
         if (statusBuilder_ == null) {
@@ -9929,7 +10042,7 @@ public final class CmdbOuterClass {
        * 状态码
        * </pre>
        *
-       * <code>.common.ResponseStatus status = 3;</code>
+       * <code>.common.ResponseStatus status = 2;</code>
        */
       public Builder clearStatus() {
         if (statusBuilder_ == null) {
@@ -9947,7 +10060,7 @@ public final class CmdbOuterClass {
        * 状态码
        * </pre>
        *
-       * <code>.common.ResponseStatus status = 3;</code>
+       * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
         
@@ -9959,7 +10072,7 @@ public final class CmdbOuterClass {
        * 状态码
        * </pre>
        *
-       * <code>.common.ResponseStatus status = 3;</code>
+       * <code>.common.ResponseStatus status = 2;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
         if (statusBuilder_ != null) {
@@ -9974,7 +10087,7 @@ public final class CmdbOuterClass {
        * 状态码
        * </pre>
        *
-       * <code>.common.ResponseStatus status = 3;</code>
+       * <code>.common.ResponseStatus status = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> 
@@ -9988,6 +10101,318 @@ public final class CmdbOuterClass {
           status_ = null;
         }
         return statusBuilder_;
+      }
+
+      private java.util.List<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject> info_ =
+        java.util.Collections.emptyList();
+      private void ensureInfoIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          info_ = new java.util.ArrayList<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject>(info_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObjectOrBuilder> infoBuilder_;
+
+      /**
+       * <pre>
+       * 主机信息
+       * </pre>
+       *
+       * <code>repeated .cmdb.HostInfoObject info = 3;</code>
+       */
+      public java.util.List<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject> getInfoList() {
+        if (infoBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(info_);
+        } else {
+          return infoBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * 主机信息
+       * </pre>
+       *
+       * <code>repeated .cmdb.HostInfoObject info = 3;</code>
+       */
+      public int getInfoCount() {
+        if (infoBuilder_ == null) {
+          return info_.size();
+        } else {
+          return infoBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * 主机信息
+       * </pre>
+       *
+       * <code>repeated .cmdb.HostInfoObject info = 3;</code>
+       */
+      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject getInfo(int index) {
+        if (infoBuilder_ == null) {
+          return info_.get(index);
+        } else {
+          return infoBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * 主机信息
+       * </pre>
+       *
+       * <code>repeated .cmdb.HostInfoObject info = 3;</code>
+       */
+      public Builder setInfo(
+          int index, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject value) {
+        if (infoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureInfoIsMutable();
+          info_.set(index, value);
+          onChanged();
+        } else {
+          infoBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 主机信息
+       * </pre>
+       *
+       * <code>repeated .cmdb.HostInfoObject info = 3;</code>
+       */
+      public Builder setInfo(
+          int index, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.Builder builderForValue) {
+        if (infoBuilder_ == null) {
+          ensureInfoIsMutable();
+          info_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          infoBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 主机信息
+       * </pre>
+       *
+       * <code>repeated .cmdb.HostInfoObject info = 3;</code>
+       */
+      public Builder addInfo(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject value) {
+        if (infoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureInfoIsMutable();
+          info_.add(value);
+          onChanged();
+        } else {
+          infoBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 主机信息
+       * </pre>
+       *
+       * <code>repeated .cmdb.HostInfoObject info = 3;</code>
+       */
+      public Builder addInfo(
+          int index, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject value) {
+        if (infoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureInfoIsMutable();
+          info_.add(index, value);
+          onChanged();
+        } else {
+          infoBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 主机信息
+       * </pre>
+       *
+       * <code>repeated .cmdb.HostInfoObject info = 3;</code>
+       */
+      public Builder addInfo(
+          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.Builder builderForValue) {
+        if (infoBuilder_ == null) {
+          ensureInfoIsMutable();
+          info_.add(builderForValue.build());
+          onChanged();
+        } else {
+          infoBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 主机信息
+       * </pre>
+       *
+       * <code>repeated .cmdb.HostInfoObject info = 3;</code>
+       */
+      public Builder addInfo(
+          int index, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.Builder builderForValue) {
+        if (infoBuilder_ == null) {
+          ensureInfoIsMutable();
+          info_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          infoBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 主机信息
+       * </pre>
+       *
+       * <code>repeated .cmdb.HostInfoObject info = 3;</code>
+       */
+      public Builder addAllInfo(
+          java.lang.Iterable<? extends top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject> values) {
+        if (infoBuilder_ == null) {
+          ensureInfoIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, info_);
+          onChanged();
+        } else {
+          infoBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 主机信息
+       * </pre>
+       *
+       * <code>repeated .cmdb.HostInfoObject info = 3;</code>
+       */
+      public Builder clearInfo() {
+        if (infoBuilder_ == null) {
+          info_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          infoBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 主机信息
+       * </pre>
+       *
+       * <code>repeated .cmdb.HostInfoObject info = 3;</code>
+       */
+      public Builder removeInfo(int index) {
+        if (infoBuilder_ == null) {
+          ensureInfoIsMutable();
+          info_.remove(index);
+          onChanged();
+        } else {
+          infoBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 主机信息
+       * </pre>
+       *
+       * <code>repeated .cmdb.HostInfoObject info = 3;</code>
+       */
+      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.Builder getInfoBuilder(
+          int index) {
+        return getInfoFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * 主机信息
+       * </pre>
+       *
+       * <code>repeated .cmdb.HostInfoObject info = 3;</code>
+       */
+      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObjectOrBuilder getInfoOrBuilder(
+          int index) {
+        if (infoBuilder_ == null) {
+          return info_.get(index);  } else {
+          return infoBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * 主机信息
+       * </pre>
+       *
+       * <code>repeated .cmdb.HostInfoObject info = 3;</code>
+       */
+      public java.util.List<? extends top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObjectOrBuilder> 
+           getInfoOrBuilderList() {
+        if (infoBuilder_ != null) {
+          return infoBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(info_);
+        }
+      }
+      /**
+       * <pre>
+       * 主机信息
+       * </pre>
+       *
+       * <code>repeated .cmdb.HostInfoObject info = 3;</code>
+       */
+      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.Builder addInfoBuilder() {
+        return getInfoFieldBuilder().addBuilder(
+            top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 主机信息
+       * </pre>
+       *
+       * <code>repeated .cmdb.HostInfoObject info = 3;</code>
+       */
+      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.Builder addInfoBuilder(
+          int index) {
+        return getInfoFieldBuilder().addBuilder(
+            index, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 主机信息
+       * </pre>
+       *
+       * <code>repeated .cmdb.HostInfoObject info = 3;</code>
+       */
+      public java.util.List<top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.Builder> 
+           getInfoBuilderList() {
+        return getInfoFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObjectOrBuilder> 
+          getInfoFieldBuilder() {
+        if (infoBuilder_ == null) {
+          infoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObject.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.HostInfoObjectOrBuilder>(
+                  info_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          info_ = null;
+        }
+        return infoBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -10118,21 +10543,22 @@ public final class CmdbOuterClass {
       "host\030\001 \001(\0132\020.cmdb.HostObject\022\"\n\006module\030\002" +
       " \003(\0132\022.cmdb.ModuleObject\022\034\n\003set\030\003 \003(\0132\017." +
       "cmdb.SetObject\022\034\n\003biz\030\004 \003(\0132\017.cmdb.BizOb" +
-      "ject\"\223\001\n\021SearchHostRequest\022\036\n\004host\030\001 \001(\013" +
-      "2\020.cmdb.HostObject\022\"\n\006module\030\002 \001(\0132\022.cmd" +
-      "b.ModuleObject\022\034\n\003set\030\003 \001(\0132\017.cmdb.SetOb" +
-      "ject\022\034\n\003biz\030\004 \001(\0132\017.cmdb.BizObject\"o\n\022Se" +
-      "archHostResponse\022\r\n\005count\030\001 \001(\005\022\"\n\004info\030" +
-      "\002 \003(\0132\024.cmdb.HostInfoObject\022&\n\006status\030\003 " +
-      "\001(\0132\026.common.ResponseStatus2\332\001\n\004Cmdb\022t\n\020" +
-      "InstanceTopology\022\035.cmdb.InstanceTopology" +
-      "Request\032\036.cmdb.InstanceTopologyResponse\"" +
-      "!\202\323\344\223\002\033\022\031/v1/cmdb/instanceTopology\022\\\n\nSe" +
-      "archHost\022\027.cmdb.SearchHostRequest\032\030.cmdb" +
-      ".SearchHostResponse\"\033\202\323\344\223\002\025\022\023/v1/cmdb/se" +
-      "archHostBB\n\032top.fogcdn.axe.protos.cmdbZ$" +
-      "git.fogcdn.top/axe/protos/goout/cmdbb\006pr" +
-      "oto3"
+      "ject\"\263\001\n\021SearchHostRequest\022\036\n\006paging\030\001 \001" +
+      "(\0132\016.common.Paging\022\036\n\004host\030\002 \001(\0132\020.cmdb." +
+      "HostObject\022\"\n\006module\030\003 \001(\0132\022.cmdb.Module" +
+      "Object\022\034\n\003set\030\004 \001(\0132\017.cmdb.SetObject\022\034\n\003" +
+      "biz\030\005 \001(\0132\017.cmdb.BizObject\"\200\001\n\022SearchHos" +
+      "tResponse\022\036\n\006paging\030\001 \001(\0132\016.common.Pagin" +
+      "g\022&\n\006status\030\002 \001(\0132\026.common.ResponseStatu" +
+      "s\022\"\n\004info\030\003 \003(\0132\024.cmdb.HostInfoObject2\332\001" +
+      "\n\004Cmdb\022t\n\020InstanceTopology\022\035.cmdb.Instan" +
+      "ceTopologyRequest\032\036.cmdb.InstanceTopolog" +
+      "yResponse\"!\202\323\344\223\002\033\022\031/v1/cmdb/instanceTopo" +
+      "logy\022\\\n\nSearchHost\022\027.cmdb.SearchHostRequ" +
+      "est\032\030.cmdb.SearchHostResponse\"\033\202\323\344\223\002\025\022\023/" +
+      "v1/cmdb/searchHostBB\n\032top.fogcdn.axe.pro" +
+      "tos.cmdbZ$git.fogcdn.top/axe/protos/goou" +
+      "t/cmdbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -10202,13 +10628,13 @@ public final class CmdbOuterClass {
     internal_static_cmdb_SearchHostRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cmdb_SearchHostRequest_descriptor,
-        new java.lang.String[] { "Host", "Module", "Set", "Biz", });
+        new java.lang.String[] { "Paging", "Host", "Module", "Set", "Biz", });
     internal_static_cmdb_SearchHostResponse_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_cmdb_SearchHostResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cmdb_SearchHostResponse_descriptor,
-        new java.lang.String[] { "Count", "Info", "Status", });
+        new java.lang.String[] { "Paging", "Status", "Info", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);
