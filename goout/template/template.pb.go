@@ -135,7 +135,7 @@ type CreateRequest struct {
 	PlaybookFileId int32 `protobuf:"varint,4,opt,name=playbook_file_id,json=playbookFileId,proto3" json:"playbook_file_id,omitempty"`
 	// 选择的playbook入口yml文件
 	PlaybookEntrypointId int32 `protobuf:"varint,5,opt,name=playbook_entrypoint_id,json=playbookEntrypointId,proto3" json:"playbook_entrypoint_id,omitempty"`
-	// 额外变量
+	// 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
 	ExtraVar             string   `protobuf:"bytes,6,opt,name=extra_var,json=extraVar,proto3" json:"extra_var,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -490,7 +490,7 @@ type UpdateRequest struct {
 	PlaybookFileId int32 `protobuf:"varint,5,opt,name=playbook_file_id,json=playbookFileId,proto3" json:"playbook_file_id,omitempty"`
 	// 所选playbook项目对应的入口yml文件的id
 	PlaybookEntrypointId int32 `protobuf:"varint,6,opt,name=playbook_entrypoint_id,json=playbookEntrypointId,proto3" json:"playbook_entrypoint_id,omitempty"`
-	// 额外变量
+	// 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
 	ExtraVar             string   `protobuf:"bytes,7,opt,name=extra_var,json=extraVar,proto3" json:"extra_var,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`

@@ -316,7 +316,7 @@
         },
         "extra_var": {
           "type": "string",
-          "title": "额外变量"
+          "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
         }
       },
       "title": "创建模板请求"
@@ -455,7 +455,7 @@
         },
         "extra_var": {
           "type": "string",
-          "title": "额外变量"
+          "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
         }
       },
       "title": "更新模板请求"

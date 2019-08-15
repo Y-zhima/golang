@@ -76,7 +76,7 @@ message CreateRequest {
     int32 playbook_file_id = 4;
     // 选择的playbook入口yml文件
     int32 playbook_entrypoint_id = 5;
-    // 额外变量
+    // 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
     string extra_var = 6;
 }
 
@@ -137,7 +137,7 @@ message UpdateRequest {
     int32 playbook_file_id = 5;
     // 所选playbook项目对应的入口yml文件的id
     int32 playbook_entrypoint_id = 6;
-    // 额外变量
+    // 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
     string extra_var = 7;
 }
 

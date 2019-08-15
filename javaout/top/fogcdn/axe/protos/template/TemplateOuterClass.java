@@ -1526,7 +1526,7 @@ public final class TemplateOuterClass {
 
     /**
      * <pre>
-     * 额外变量
+     * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
      * </pre>
      *
      * <code>string extra_var = 6;</code>
@@ -1534,7 +1534,7 @@ public final class TemplateOuterClass {
     java.lang.String getExtraVar();
     /**
      * <pre>
-     * 额外变量
+     * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
      * </pre>
      *
      * <code>string extra_var = 6;</code>
@@ -1783,7 +1783,7 @@ public final class TemplateOuterClass {
     private volatile java.lang.Object extraVar_;
     /**
      * <pre>
-     * 额外变量
+     * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
      * </pre>
      *
      * <code>string extra_var = 6;</code>
@@ -1802,7 +1802,7 @@ public final class TemplateOuterClass {
     }
     /**
      * <pre>
-     * 额外变量
+     * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
      * </pre>
      *
      * <code>string extra_var = 6;</code>
@@ -2508,7 +2508,7 @@ public final class TemplateOuterClass {
       private java.lang.Object extraVar_ = "";
       /**
        * <pre>
-       * 额外变量
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
        * </pre>
        *
        * <code>string extra_var = 6;</code>
@@ -2527,7 +2527,7 @@ public final class TemplateOuterClass {
       }
       /**
        * <pre>
-       * 额外变量
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
        * </pre>
        *
        * <code>string extra_var = 6;</code>
@@ -2547,7 +2547,7 @@ public final class TemplateOuterClass {
       }
       /**
        * <pre>
-       * 额外变量
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
        * </pre>
        *
        * <code>string extra_var = 6;</code>
@@ -2564,7 +2564,7 @@ public final class TemplateOuterClass {
       }
       /**
        * <pre>
-       * 额外变量
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
        * </pre>
        *
        * <code>string extra_var = 6;</code>
@@ -2577,7 +2577,7 @@ public final class TemplateOuterClass {
       }
       /**
        * <pre>
-       * 额外变量
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
        * </pre>
        *
        * <code>string extra_var = 6;</code>
@@ -7514,7 +7514,7 @@ public final class TemplateOuterClass {
 
     /**
      * <pre>
-     * 额外变量
+     * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
      * </pre>
      *
      * <code>string extra_var = 7;</code>
@@ -7522,7 +7522,7 @@ public final class TemplateOuterClass {
     java.lang.String getExtraVar();
     /**
      * <pre>
-     * 额外变量
+     * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
      * </pre>
      *
      * <code>string extra_var = 7;</code>
@@ -7790,7 +7790,7 @@ public final class TemplateOuterClass {
     private volatile java.lang.Object extraVar_;
     /**
      * <pre>
-     * 额外变量
+     * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
      * </pre>
      *
      * <code>string extra_var = 7;</code>
@@ -7809,7 +7809,7 @@ public final class TemplateOuterClass {
     }
     /**
      * <pre>
-     * 额外变量
+     * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
      * </pre>
      *
      * <code>string extra_var = 7;</code>
@@ -8570,7 +8570,7 @@ public final class TemplateOuterClass {
       private java.lang.Object extraVar_ = "";
       /**
        * <pre>
-       * 额外变量
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
        * </pre>
        *
        * <code>string extra_var = 7;</code>
@@ -8589,7 +8589,7 @@ public final class TemplateOuterClass {
       }
       /**
        * <pre>
-       * 额外变量
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
        * </pre>
        *
        * <code>string extra_var = 7;</code>
@@ -8609,7 +8609,7 @@ public final class TemplateOuterClass {
       }
       /**
        * <pre>
-       * 额外变量
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
        * </pre>
        *
        * <code>string extra_var = 7;</code>
@@ -8626,7 +8626,7 @@ public final class TemplateOuterClass {
       }
       /**
        * <pre>
-       * 额外变量
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
        * </pre>
        *
        * <code>string extra_var = 7;</code>
@@ -8639,7 +8639,7 @@ public final class TemplateOuterClass {
       }
       /**
        * <pre>
-       * 额外变量
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
        * </pre>
        *
        * <code>string extra_var = 7;</code>
