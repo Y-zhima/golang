@@ -6,6 +6,7 @@ option go_package = "git.fogcdn.top/axe/protos/goout/template";
 option java_package = "top.fogcdn.axe.protos.template";
 
 import "common/api.proto";
+import "common/user.proto";
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
 import "playbook/playbook.proto";
@@ -62,10 +63,21 @@ message TemplateObject {
     int32 playbook_entrypoint_id = 6;
     // 额外变量
     string extra_var = 7;
+    // 创建人
+    common.User creator = 8;
+    // 创建时间
+    string created = 9;
+    // 更新时间
+    string updated = 10;
 }
 
 // 创建模板请求
 message CreateRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+          required: ["name", "playbook_id", "playbook_file_id", "playbook_entrypoint_id"]
+        }
+    };
     // 模板名
     string name = 1;
     // 模板描述
@@ -91,6 +103,11 @@ message CreateResponse {
 }
 
 message GetRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+          required: ["template_id"]
+        }
+    };
     // 模板ID
     int32 template_id = 1;
 }
@@ -125,6 +142,11 @@ message FilterResponse {
 
 // 更新模板请求
 message UpdateRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+          required: ["template_id", "name", "playbook_id", "playbook_file_id", "playbook_entrypoint_id"]
+        }
+    };
     // 模板ID
     int32 template_id = 1;
     // 模板名

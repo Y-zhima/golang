@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package common;
+
+option go_package = "git.fogcdn.top/axe/protos/goout/common";
+option java_package = "top.fogcdn.axe.protos.common";
+
+message User {
+    int32 user_id = 1;
+    string user_name = 2;
+}

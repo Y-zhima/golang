@@ -10978,46 +10978,50 @@ public final class ScheduleOuterClass {
       "mplate\030\002 \001(\0132\030.template.TemplateObject\022\014" +
       "\n\004name\030\003 \001(\t\022\022\n\nstart_time\030\004 \001(\t\022\020\n\010end_" +
       "time\030\005 \001(\t\022\027\n\017cron_expression\030\006 \001(\t\022(\n\006s" +
-      "tatus\030\007 \001(\0162\030.schedule.ScheduleStatus\"q\n" +
-      "\rCreateRequest\022\023\n\013template_id\030\001 \001(\005\022\014\n\004n" +
-      "ame\030\002 \001(\t\022\022\n\nstart_time\030\003 \001(\t\022\020\n\010end_tim" +
-      "e\030\004 \001(\t\022\027\n\017cron_expression\030\005 \001(\t\"^\n\016Crea" +
-      "teResponse\022\023\n\013schedule_id\030\001 \001(\005\022\017\n\007creat" +
-      "ed\030\002 \001(\t\022&\n\006status\030\003 \001(\0132\026.common.Respon" +
-      "seStatus\"!\n\nGetRequest\022\023\n\013schedule_id\030\001 " +
-      "\001(\005\"a\n\013GetResponse\022*\n\010schedule\030\001 \001(\0132\030.s" +
-      "chedule.ScheduleObject\022&\n\006status\030\002 \001(\0132\026" +
-      ".common.ResponseStatus\"[\n\rFilterRequest\022" +
-      "\036\n\006paging\030\001 \001(\0132\016.common.Paging\022\025\n\rsched" +
-      "ule_name\030\002 \001(\t\022\023\n\013template_id\030\003 \001(\005\"\205\001\n\016" +
-      "FilterResponse\022+\n\tschedules\030\001 \003(\0132\030.sche" +
-      "dule.ScheduleObject\022\036\n\006paging\030\002 \001(\0132\016.co" +
-      "mmon.Paging\022&\n\006status\030\003 \001(\0132\026.common.Res" +
-      "ponseStatus\"\206\001\n\rUpdateRequest\022\023\n\013schedul" +
-      "e_id\030\001 \001(\005\022\023\n\013template_id\030\002 \001(\005\022\014\n\004name\030" +
-      "\003 \001(\t\022\022\n\nstart_time\030\004 \001(\t\022\020\n\010end_time\030\005 " +
-      "\001(\t\022\027\n\017cron_expression\030\006 \001(\t\"I\n\016UpdateRe" +
-      "sponse\022\017\n\007updated\030\001 \001(\t\022&\n\006status\030\002 \001(\0132" +
-      "\026.common.ResponseStatus\"*\n\023SwitchStatusR" +
-      "equest\022\023\n\013schedule_id\030\001 \001(\005\">\n\024SwitchSta" +
-      "tusResponse\022&\n\006status\030\001 \001(\0132\026.common.Res" +
-      "ponseStatus*!\n\016ScheduleStatus\022\007\n\003OFF\020\000\022\006" +
-      "\n\002ON\020\0012\210\004\n\010Schedule\022[\n\006Create\022\027.schedule" +
-      ".CreateRequest\032\030.schedule.CreateResponse" +
-      "\"\036\202\323\344\223\002\030\"\023/v1/schedule/create:\001*\022X\n\006Filt" +
-      "er\022\027.schedule.FilterRequest\032\030.schedule.F" +
-      "ilterResponse\"\033\202\323\344\223\002\025\022\023/v1/schedule/filt" +
-      "er\022Z\n\003Get\022\024.schedule.GetRequest\032\025.schedu" +
-      "le.GetResponse\"&\202\323\344\223\002 \022\036/v1/schedule/get" +
-      "/{schedule_id}\022i\n\006Update\022\027.schedule.Upda" +
-      "teRequest\032\030.schedule.UpdateResponse\",\202\323\344" +
-      "\223\002&\"!/v1/schedule/update/{schedule_id}:\001" +
-      "*\022~\n\014SwitchStatus\022\035.schedule.SwitchStatu" +
-      "sRequest\032\036.schedule.SwitchStatusResponse" +
-      "\"/\202\323\344\223\002)\"\'/v1/schedule/switchStatus/{sch" +
-      "edule_id}BJ\n\036top.fogcdn.axe.protos.sched" +
-      "uleZ(git.fogcdn.top/axe/protos/goout/sch" +
-      "eduleb\006proto3"
+      "tatus\030\007 \001(\0162\030.schedule.ScheduleStatus\"\267\001" +
+      "\n\rCreateRequest\022\023\n\013template_id\030\001 \001(\005\022\014\n\004" +
+      "name\030\002 \001(\t\022\022\n\nstart_time\030\003 \001(\t\022\020\n\010end_ti" +
+      "me\030\004 \001(\t\022\027\n\017cron_expression\030\005 \001(\t:D\222AA\n?" +
+      "\322\001\013template_id\322\001\004name\322\001\nstart_time\322\001\010end" +
+      "_time\322\001\017cron_expression\"^\n\016CreateRespons" +
+      "e\022\023\n\013schedule_id\030\001 \001(\005\022\017\n\007created\030\002 \001(\t\022" +
+      "&\n\006status\030\003 \001(\0132\026.common.ResponseStatus\"" +
+      "6\n\nGetRequest\022\023\n\013schedule_id\030\001 \001(\005:\023\222A\020\n" +
+      "\016\322\001\013schedule_id\"a\n\013GetResponse\022*\n\010schedu" +
+      "le\030\001 \001(\0132\030.schedule.ScheduleObject\022&\n\006st" +
+      "atus\030\002 \001(\0132\026.common.ResponseStatus\"[\n\rFi" +
+      "lterRequest\022\036\n\006paging\030\001 \001(\0132\016.common.Pag" +
+      "ing\022\025\n\rschedule_name\030\002 \001(\t\022\023\n\013template_i" +
+      "d\030\003 \001(\005\"\205\001\n\016FilterResponse\022+\n\tschedules\030" +
+      "\001 \003(\0132\030.schedule.ScheduleObject\022\036\n\006pagin" +
+      "g\030\002 \001(\0132\016.common.Paging\022&\n\006status\030\003 \001(\0132" +
+      "\026.common.ResponseStatus\"\332\001\n\rUpdateReques" +
+      "t\022\023\n\013schedule_id\030\001 \001(\005\022\023\n\013template_id\030\002 " +
+      "\001(\005\022\014\n\004name\030\003 \001(\t\022\022\n\nstart_time\030\004 \001(\t\022\020\n" +
+      "\010end_time\030\005 \001(\t\022\027\n\017cron_expression\030\006 \001(\t" +
+      ":R\222AO\nM\322\001\013schedule_id\322\001\013template_id\322\001\004na" +
+      "me\322\001\nstart_time\322\001\010end_time\322\001\017cron_expres" +
+      "sion\"I\n\016UpdateResponse\022\017\n\007updated\030\001 \001(\t\022" +
+      "&\n\006status\030\002 \001(\0132\026.common.ResponseStatus\"" +
+      "*\n\023SwitchStatusRequest\022\023\n\013schedule_id\030\001 " +
+      "\001(\005\">\n\024SwitchStatusResponse\022&\n\006status\030\001 " +
+      "\001(\0132\026.common.ResponseStatus*!\n\016ScheduleS" +
+      "tatus\022\007\n\003OFF\020\000\022\006\n\002ON\020\0012\210\004\n\010Schedule\022[\n\006C" +
+      "reate\022\027.schedule.CreateRequest\032\030.schedul" +
+      "e.CreateResponse\"\036\202\323\344\223\002\030\"\023/v1/schedule/c" +
+      "reate:\001*\022X\n\006Filter\022\027.schedule.FilterRequ" +
+      "est\032\030.schedule.FilterResponse\"\033\202\323\344\223\002\025\022\023/" +
+      "v1/schedule/filter\022Z\n\003Get\022\024.schedule.Get" +
+      "Request\032\025.schedule.GetResponse\"&\202\323\344\223\002 \022\036" +
+      "/v1/schedule/get/{schedule_id}\022i\n\006Update" +
+      "\022\027.schedule.UpdateRequest\032\030.schedule.Upd" +
+      "ateResponse\",\202\323\344\223\002&\"!/v1/schedule/update" +
+      "/{schedule_id}:\001*\022~\n\014SwitchStatus\022\035.sche" +
+      "dule.SwitchStatusRequest\032\036.schedule.Swit" +
+      "chStatusResponse\"/\202\323\344\223\002)\"\'/v1/schedule/s" +
+      "witchStatus/{schedule_id}BJ\n\036top.fogcdn." +
+      "axe.protos.scheduleZ(git.fogcdn.top/axe/" +
+      "protos/goout/scheduleb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -11104,6 +11108,7 @@ public final class ScheduleOuterClass {
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);
+    registry.add(grpc.gateway.protoc_gen_swagger.options.Annotations.openapiv2Schema);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     top.fogcdn.axe.protos.common.Api.getDescriptor();
