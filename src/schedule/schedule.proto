@@ -80,6 +80,11 @@ message ScheduleObject {
 
 // 创建定时任务请求
 message CreateRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+          required: ["template_id", "name", "start_time", "end_time", "cron_expression"]
+        }
+    };
     // 模板ID
     int32 template_id = 1;
     // 定时任务名
@@ -104,6 +109,11 @@ message CreateResponse {
 
 // 获取定时任务请求
 message GetRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+          required: ["schedule_id"]
+        }
+    };
     // 定时任务ID
     int32 schedule_id = 1;
 }
@@ -138,6 +148,11 @@ message FilterResponse {
 
 // 更新定时任务请求
 message UpdateRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+          required: ["schedule_id", "template_id", "name", "start_time", "end_time", "cron_expression"]
+        }
+    };
     // 定时任务ID
     int32 schedule_id = 1;
     // 模板ID

@@ -66,6 +66,11 @@ message TemplateObject {
 
 // 创建模板请求
 message CreateRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+          required: ["name", "playbook_id", "playbook_file_id", "playbook_entrypoint_id"]
+        }
+    };
     // 模板名
     string name = 1;
     // 模板描述
@@ -91,6 +96,11 @@ message CreateResponse {
 }
 
 message GetRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+          required: ["template_id"]
+        }
+    };
     // 模板ID
     int32 template_id = 1;
 }
@@ -125,6 +135,11 @@ message FilterResponse {
 
 // 更新模板请求
 message UpdateRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+          required: ["template_id", "name", "playbook_id", "playbook_file_id", "playbook_entrypoint_id"]
+        }
+    };
     // 模板ID
     int32 template_id = 1;
     // 模板名

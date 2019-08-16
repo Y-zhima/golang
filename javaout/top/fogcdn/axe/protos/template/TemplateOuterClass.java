@@ -10807,44 +10807,49 @@ public final class TemplateOuterClass {
       "me\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022)\n\010playboo" +
       "k\030\004 \001(\0132\027.playbook.ProjectObject\022\030\n\020play" +
       "book_file_id\030\005 \001(\005\022\036\n\026playbook_entrypoin" +
-      "t_id\030\006 \001(\005\022\021\n\textra_var\030\007 \001(\t\"\224\001\n\rCreate" +
+      "t_id\030\006 \001(\005\022\021\n\textra_var\030\007 \001(\t\"\334\001\n\rCreate" +
       "Request\022\014\n\004name\030\001 \001(\t\022\023\n\013description\030\002 \001" +
       "(\t\022\023\n\013playbook_id\030\003 \001(\005\022\030\n\020playbook_file" +
       "_id\030\004 \001(\005\022\036\n\026playbook_entrypoint_id\030\005 \001(" +
-      "\005\022\021\n\textra_var\030\006 \001(\t\"^\n\016CreateResponse\022\023" +
-      "\n\013template_id\030\001 \001(\005\022\017\n\007created\030\002 \001(\t\022&\n\006" +
-      "status\030\003 \001(\0132\026.common.ResponseStatus\"!\n\n" +
-      "GetRequest\022\023\n\013template_id\030\001 \001(\005\"a\n\013GetRe" +
-      "sponse\022*\n\010template\030\001 \001(\0132\030.template.Temp" +
-      "lateObject\022&\n\006status\030\002 \001(\0132\026.common.Resp" +
-      "onseStatus\"R\n\rFilterRequest\022\036\n\006paging\030\001 " +
-      "\001(\0132\016.common.Paging\022\014\n\004name\030\002 \001(\t\022\023\n\013tem" +
-      "plate_id\030\003 \001(\t\"\205\001\n\016FilterResponse\022+\n\ttem" +
-      "plates\030\001 \003(\0132\030.template.TemplateObject\022\036" +
-      "\n\006paging\030\002 \001(\0132\016.common.Paging\022&\n\006status" +
-      "\030\003 \001(\0132\026.common.ResponseStatus\"\251\001\n\rUpdat" +
-      "eRequest\022\023\n\013template_id\030\001 \001(\005\022\014\n\004name\030\002 " +
-      "\001(\t\022\023\n\013description\030\003 \001(\t\022\023\n\013playbook_id\030" +
-      "\004 \001(\005\022\030\n\020playbook_file_id\030\005 \001(\005\022\036\n\026playb" +
-      "ook_entrypoint_id\030\006 \001(\005\022\021\n\textra_var\030\007 \001" +
-      "(\t\"I\n\016UpdateResponse\022\017\n\007updated\030\001 \001(\t\022&\n" +
-      "\006status\030\002 \001(\0132\026.common.ResponseStatus\"$\n" +
-      "\rDeleteRequest\022\023\n\013template_id\030\001 \001(\005\"8\n\016D" +
-      "eleteResponse\022&\n\006status\030\001 \001(\0132\026.common.R" +
-      "esponseStatus2\307\003\n\010Template\022[\n\006Create\022\027.t" +
-      "emplate.CreateRequest\032\030.template.CreateR" +
-      "esponse\"\036\202\323\344\223\002\030\"\023/v1/template/create:\001*\022" +
-      "X\n\006Filter\022\027.template.FilterRequest\032\030.tem" +
-      "plate.FilterResponse\"\033\202\323\344\223\002\025\022\023/v1/templa" +
-      "te/filter\022Z\n\003Get\022\024.template.GetRequest\032\025" +
-      ".template.GetResponse\"&\202\323\344\223\002 \022\036/v1/templ" +
-      "ate/get/{template_id}\022i\n\006Update\022\027.templa" +
-      "te.UpdateRequest\032\030.template.UpdateRespon" +
-      "se\",\202\323\344\223\002&\"!/v1/template/update/{templat" +
-      "e_id}:\001*\022=\n\006Delete\022\027.template.DeleteRequ" +
-      "est\032\030.template.DeleteResponse\"\000BJ\n\036top.f" +
-      "ogcdn.axe.protos.templateZ(git.fogcdn.to" +
-      "p/axe/protos/goout/templateb\006proto3"
+      "\005\022\021\n\textra_var\030\006 \001(\t:F\222AC\nA\322\001\004name\322\001\013pla" +
+      "ybook_id\322\001\020playbook_file_id\322\001\026playbook_e" +
+      "ntrypoint_id\"^\n\016CreateResponse\022\023\n\013templa" +
+      "te_id\030\001 \001(\005\022\017\n\007created\030\002 \001(\t\022&\n\006status\030\003" +
+      " \001(\0132\026.common.ResponseStatus\"6\n\nGetReque" +
+      "st\022\023\n\013template_id\030\001 \001(\005:\023\222A\020\n\016\322\001\013templat" +
+      "e_id\"a\n\013GetResponse\022*\n\010template\030\001 \001(\0132\030." +
+      "template.TemplateObject\022&\n\006status\030\002 \001(\0132" +
+      "\026.common.ResponseStatus\"R\n\rFilterRequest" +
+      "\022\036\n\006paging\030\001 \001(\0132\016.common.Paging\022\014\n\004name" +
+      "\030\002 \001(\t\022\023\n\013template_id\030\003 \001(\t\"\205\001\n\016FilterRe" +
+      "sponse\022+\n\ttemplates\030\001 \003(\0132\030.template.Tem" +
+      "plateObject\022\036\n\006paging\030\002 \001(\0132\016.common.Pag" +
+      "ing\022&\n\006status\030\003 \001(\0132\026.common.ResponseSta" +
+      "tus\"\377\001\n\rUpdateRequest\022\023\n\013template_id\030\001 \001" +
+      "(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\023\n" +
+      "\013playbook_id\030\004 \001(\005\022\030\n\020playbook_file_id\030\005" +
+      " \001(\005\022\036\n\026playbook_entrypoint_id\030\006 \001(\005\022\021\n\t" +
+      "extra_var\030\007 \001(\t:T\222AQ\nO\322\001\013template_id\322\001\004n" +
+      "ame\322\001\013playbook_id\322\001\020playbook_file_id\322\001\026p" +
+      "laybook_entrypoint_id\"I\n\016UpdateResponse\022" +
+      "\017\n\007updated\030\001 \001(\t\022&\n\006status\030\002 \001(\0132\026.commo" +
+      "n.ResponseStatus\"$\n\rDeleteRequest\022\023\n\013tem" +
+      "plate_id\030\001 \001(\005\"8\n\016DeleteResponse\022&\n\006stat" +
+      "us\030\001 \001(\0132\026.common.ResponseStatus2\307\003\n\010Tem" +
+      "plate\022[\n\006Create\022\027.template.CreateRequest" +
+      "\032\030.template.CreateResponse\"\036\202\323\344\223\002\030\"\023/v1/" +
+      "template/create:\001*\022X\n\006Filter\022\027.template." +
+      "FilterRequest\032\030.template.FilterResponse\"" +
+      "\033\202\323\344\223\002\025\022\023/v1/template/filter\022Z\n\003Get\022\024.te" +
+      "mplate.GetRequest\032\025.template.GetResponse" +
+      "\"&\202\323\344\223\002 \022\036/v1/template/get/{template_id}" +
+      "\022i\n\006Update\022\027.template.UpdateRequest\032\030.te" +
+      "mplate.UpdateResponse\",\202\323\344\223\002&\"!/v1/templ" +
+      "ate/update/{template_id}:\001*\022=\n\006Delete\022\027." +
+      "template.DeleteRequest\032\030.template.Delete" +
+      "Response\"\000BJ\n\036top.fogcdn.axe.protos.temp" +
+      "lateZ(git.fogcdn.top/axe/protos/goout/te" +
+      "mplateb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -10931,6 +10936,7 @@ public final class TemplateOuterClass {
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);
+    registry.add(grpc.gateway.protoc_gen_swagger.options.Annotations.openapiv2Schema);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     top.fogcdn.axe.protos.common.Api.getDescriptor();

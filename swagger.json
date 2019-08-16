@@ -912,6 +912,13 @@
     "playbookCreateRequest": {
       "type": "object",
       "title": "创建项目请求内容体",
+      "required": [
+        "name",
+        "url",
+        "url_type",
+        "version",
+        "entrypoint"
+      ],
       "properties": {
         "description": {
           "type": "string",
@@ -1102,6 +1109,10 @@
     "playbookUpdateRequest": {
       "type": "object",
       "title": "更新项目请求内容体",
+      "required": [
+        "playbook_id",
+        "name"
+      ],
       "properties": {
         "description": {
           "type": "string",
@@ -1174,6 +1185,13 @@
     "scheduleCreateRequest": {
       "type": "object",
       "title": "创建定时任务请求",
+      "required": [
+        "template_id",
+        "name",
+        "start_time",
+        "end_time",
+        "cron_expression"
+      ],
       "properties": {
         "cron_expression": {
           "type": "string",
@@ -1309,6 +1327,14 @@
     "scheduleUpdateRequest": {
       "type": "object",
       "title": "更新定时任务请求",
+      "required": [
+        "schedule_id",
+        "template_id",
+        "name",
+        "start_time",
+        "end_time",
+        "cron_expression"
+      ],
       "properties": {
         "cron_expression": {
           "type": "string",
@@ -1355,6 +1381,12 @@
     "templateCreateRequest": {
       "type": "object",
       "title": "创建模板请求",
+      "required": [
+        "name",
+        "playbook_id",
+        "playbook_file_id",
+        "playbook_entrypoint_id"
+      ],
       "properties": {
         "description": {
           "type": "string",
@@ -1489,6 +1521,13 @@
     "templateUpdateRequest": {
       "type": "object",
       "title": "更新模板请求",
+      "required": [
+        "template_id",
+        "name",
+        "playbook_id",
+        "playbook_file_id",
+        "playbook_entrypoint_id"
+      ],
       "properties": {
         "description": {
           "type": "string",

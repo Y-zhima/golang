@@ -14911,52 +14911,54 @@ public final class PlaybookOuterClass {
       "oint\030\007 \003(\0132\".playbook.PlaybookEntrypoint" +
       "Object\022\013\n\003md5\030\010 \001(\t\022\014\n\004size\030\t \001(\003\022\017\n\007cre" +
       "ated\030\n \001(\t\022\017\n\007updated\030\013 \001(\t\022\030\n\020playbook_" +
-      "file_id\030\014 \001(\005\"\244\001\n\rCreateRequest\022\014\n\004name\030" +
+      "file_id\030\014 \001(\005\"\332\001\n\rCreateRequest\022\014\n\004name\030" +
       "\001 \001(\t\022\023\n\013description\030\002 \001(\t\022\013\n\003url\030\003 \001(\t\022" +
       "#\n\010url_type\030\004 \001(\0162\021.playbook.UrlType\022\017\n\007" +
       "version\030\005 \001(\t\022\022\n\nentrypoint\030\006 \003(\t\022\013\n\003md5" +
-      "\030\007 \001(\t\022\014\n\004size\030\010 \001(\003\"^\n\016CreateResponse\022\023" +
-      "\n\013playbook_id\030\001 \001(\005\022\017\n\007created\030\002 \001(\t\022&\n\006" +
-      "status\030\003 \001(\0132\026.common.ResponseStatus\"!\n\n" +
-      "GetRequest\022\023\n\013playbook_id\030\001 \001(\005\"_\n\013GetRe" +
-      "sponse\022(\n\007project\030\001 \001(\0132\027.playbook.Proje" +
-      "ctObject\022&\n\006status\030\002 \001(\0132\026.common.Respon" +
-      "seStatus\"@\n\rFilterRequest\022\036\n\006paging\030\001 \001(" +
-      "\0132\016.common.Paging\022\017\n\007keyword\030\002 \001(\t\"\203\001\n\016F" +
-      "ilterResponse\022)\n\010projects\030\001 \003(\0132\027.playbo" +
-      "ok.ProjectObject\022\036\n\006paging\030\002 \001(\0132\016.commo" +
-      "n.Paging\022&\n\006status\030\003 \001(\0132\026.common.Respon" +
-      "seStatus\"\271\001\n\rUpdateRequest\022\023\n\013playbook_i" +
-      "d\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001" +
-      "(\t\022\013\n\003url\030\004 \001(\t\022#\n\010url_type\030\005 \001(\0162\021.play" +
-      "book.UrlType\022\017\n\007version\030\006 \001(\t\022\022\n\nentrypo" +
-      "int\030\007 \003(\t\022\013\n\003md5\030\010 \001(\t\022\014\n\004size\030\t \001(\003\"I\n\016" +
-      "UpdateResponse\022\017\n\007updated\030\001 \001(\t\022&\n\006statu" +
-      "s\030\002 \001(\0132\026.common.ResponseStatus\"H\n\030Playb" +
-      "ookEntrypointObject\022\036\n\026playbook_entrypoi" +
-      "nt_id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\"\233\001\n\022SaveVersio" +
-      "nRequest\022\023\n\013playbook_id\030\001 \001(\005\022\013\n\003url\030\002 \001" +
-      "(\t\022#\n\010url_type\030\003 \001(\0162\021.playbook.UrlType\022" +
-      "\017\n\007version\030\004 \001(\t\022\013\n\003md5\030\005 \001(\t\022\014\n\004size\030\006 " +
-      "\001(\003\022\022\n\nentrypoint\030\007 \003(\t\"b\n\023SaveVersionRe" +
-      "sponse\022\022\n\nversion_id\030\001 \001(\005\022\017\n\007created\030\002 " +
-      "\001(\t\022&\n\006status\030\003 \001(\0132\026.common.ResponseSta" +
-      "tus*+\n\007UrlType\022\r\n\tUNDEFINED\020\000\022\010\n\004FILE\020\001\022" +
-      "\007\n\003GIT\020\0022\326\003\n\010Playbook\022[\n\006Create\022\027.playbo" +
-      "ok.CreateRequest\032\030.playbook.CreateRespon" +
-      "se\"\036\202\323\344\223\002\030\"\023/v1/playbook/create:\001*\022X\n\006Fi" +
-      "lter\022\027.playbook.FilterRequest\032\030.playbook" +
-      ".FilterResponse\"\033\202\323\344\223\002\025\022\023/v1/playbook/fi" +
-      "lter\022Z\n\003Get\022\024.playbook.GetRequest\032\025.play" +
-      "book.GetResponse\"&\202\323\344\223\002 \022\036/v1/playbook/g" +
-      "et/{playbook_id}\022i\n\006Update\022\027.playbook.Up" +
-      "dateRequest\032\030.playbook.UpdateResponse\",\202" +
-      "\323\344\223\002&\"!/v1/playbook/update/{playbook_id}" +
-      ":\001*\022L\n\013SaveVersion\022\034.playbook.SaveVersio" +
-      "nRequest\032\035.playbook.SaveVersionResponse\"" +
-      "\000BJ\n\036top.fogcdn.axe.protos.playbookZ(git" +
-      ".fogcdn.top/axe/protos/goout/playbookb\006p" +
-      "roto3"
+      "\030\007 \001(\t\022\014\n\004size\030\010 \001(\003:4\222A1\n/\322\001\004name\322\001\003url" +
+      "\322\001\010url_type\322\001\007version\322\001\nentrypoint\"^\n\016Cr" +
+      "eateResponse\022\023\n\013playbook_id\030\001 \001(\005\022\017\n\007cre" +
+      "ated\030\002 \001(\t\022&\n\006status\030\003 \001(\0132\026.common.Resp" +
+      "onseStatus\"6\n\nGetRequest\022\023\n\013playbook_id\030" +
+      "\001 \001(\005:\023\222A\020\n\016\322\001\013playbook_id\"_\n\013GetRespons" +
+      "e\022(\n\007project\030\001 \001(\0132\027.playbook.ProjectObj" +
+      "ect\022&\n\006status\030\002 \001(\0132\026.common.ResponseSta" +
+      "tus\"@\n\rFilterRequest\022\036\n\006paging\030\001 \001(\0132\016.c" +
+      "ommon.Paging\022\017\n\007keyword\030\002 \001(\t\"\203\001\n\016Filter" +
+      "Response\022)\n\010projects\030\001 \003(\0132\027.playbook.Pr" +
+      "ojectObject\022\036\n\006paging\030\002 \001(\0132\016.common.Pag" +
+      "ing\022&\n\006status\030\003 \001(\0132\026.common.ResponseSta" +
+      "tus\"\325\001\n\rUpdateRequest\022\023\n\013playbook_id\030\001 \001" +
+      "(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\013\n" +
+      "\003url\030\004 \001(\t\022#\n\010url_type\030\005 \001(\0162\021.playbook." +
+      "UrlType\022\017\n\007version\030\006 \001(\t\022\022\n\nentrypoint\030\007" +
+      " \003(\t\022\013\n\003md5\030\010 \001(\t\022\014\n\004size\030\t \001(\003:\032\222A\027\n\025\322\001" +
+      "\013playbook_id\322\001\004name\"I\n\016UpdateResponse\022\017\n" +
+      "\007updated\030\001 \001(\t\022&\n\006status\030\002 \001(\0132\026.common." +
+      "ResponseStatus\"H\n\030PlaybookEntrypointObje" +
+      "ct\022\036\n\026playbook_entrypoint_id\030\001 \001(\005\022\014\n\004na" +
+      "me\030\002 \001(\t\"\233\001\n\022SaveVersionRequest\022\023\n\013playb" +
+      "ook_id\030\001 \001(\005\022\013\n\003url\030\002 \001(\t\022#\n\010url_type\030\003 " +
+      "\001(\0162\021.playbook.UrlType\022\017\n\007version\030\004 \001(\t\022" +
+      "\013\n\003md5\030\005 \001(\t\022\014\n\004size\030\006 \001(\003\022\022\n\nentrypoint" +
+      "\030\007 \003(\t\"b\n\023SaveVersionResponse\022\022\n\nversion" +
+      "_id\030\001 \001(\005\022\017\n\007created\030\002 \001(\t\022&\n\006status\030\003 \001" +
+      "(\0132\026.common.ResponseStatus*+\n\007UrlType\022\r\n" +
+      "\tUNDEFINED\020\000\022\010\n\004FILE\020\001\022\007\n\003GIT\020\0022\326\003\n\010Play" +
+      "book\022[\n\006Create\022\027.playbook.CreateRequest\032" +
+      "\030.playbook.CreateResponse\"\036\202\323\344\223\002\030\"\023/v1/p" +
+      "laybook/create:\001*\022X\n\006Filter\022\027.playbook.F" +
+      "ilterRequest\032\030.playbook.FilterResponse\"\033" +
+      "\202\323\344\223\002\025\022\023/v1/playbook/filter\022Z\n\003Get\022\024.pla" +
+      "ybook.GetRequest\032\025.playbook.GetResponse\"" +
+      "&\202\323\344\223\002 \022\036/v1/playbook/get/{playbook_id}\022" +
+      "i\n\006Update\022\027.playbook.UpdateRequest\032\030.pla" +
+      "ybook.UpdateResponse\",\202\323\344\223\002&\"!/v1/playbo" +
+      "ok/update/{playbook_id}:\001*\022L\n\013SaveVersio" +
+      "n\022\034.playbook.SaveVersionRequest\032\035.playbo" +
+      "ok.SaveVersionResponse\"\000BJ\n\036top.fogcdn.a" +
+      "xe.protos.playbookZ(git.fogcdn.top/axe/p" +
+      "rotos/goout/playbookb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -15048,6 +15050,7 @@ public final class PlaybookOuterClass {
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);
+    registry.add(grpc.gateway.protoc_gen_swagger.options.Annotations.openapiv2Schema);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     top.fogcdn.axe.protos.common.Api.getDescriptor();

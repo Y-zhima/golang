@@ -96,6 +96,11 @@ message ProjectObject {
 
 // 创建项目请求内容体
 message CreateRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+          required: ["name", "url", "url_type", "version", "entrypoint"]
+        }
+    };
     // playbook项目名称
     string name = 1;
     // playbook项目描述
@@ -126,6 +131,11 @@ message CreateResponse {
 
 // 根据项目ID获取记录
 message GetRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+          required: ["playbook_id"]
+        }
+    };
     // playbook项目ID
     int32 playbook_id = 1;
 }
@@ -158,6 +168,11 @@ message FilterResponse {
 
 // 更新项目请求内容体
 message UpdateRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+          required: ["playbook_id", "name"]
+        }
+    };
     // playbook项目ID
     int32 playbook_id = 1;
     // playbook项目名称

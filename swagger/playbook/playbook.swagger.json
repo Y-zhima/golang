@@ -255,7 +255,14 @@
           "title": "文件大小"
         }
       },
-      "title": "创建项目请求内容体"
+      "title": "创建项目请求内容体",
+      "required": [
+        "name",
+        "url",
+        "url_type",
+        "version",
+        "entrypoint"
+      ]
     },
     "playbookCreateResponse": {
       "type": "object",
@@ -450,7 +457,11 @@
           "title": "文件大小"
         }
       },
-      "title": "更新项目请求内容体"
+      "title": "更新项目请求内容体",
+      "required": [
+        "playbook_id",
+        "name"
+      ]
     },
     "playbookUpdateResponse": {
       "type": "object",

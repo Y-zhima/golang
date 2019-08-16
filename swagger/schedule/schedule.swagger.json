@@ -361,7 +361,14 @@
           "title": "定时任务表达式"
         }
       },
-      "title": "创建定时任务请求"
+      "title": "创建定时任务请求",
+      "required": [
+        "template_id",
+        "name",
+        "start_time",
+        "end_time",
+        "cron_expression"
+      ]
     },
     "scheduleCreateResponse": {
       "type": "object",
@@ -501,7 +508,15 @@
           "title": "定时任务表达式"
         }
       },
-      "title": "更新定时任务请求"
+      "title": "更新定时任务请求",
+      "required": [
+        "schedule_id",
+        "template_id",
+        "name",
+        "start_time",
+        "end_time",
+        "cron_expression"
+      ]
     },
     "scheduleUpdateResponse": {
       "type": "object",
