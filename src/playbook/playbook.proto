@@ -6,6 +6,7 @@ option go_package = "git.fogcdn.top/axe/protos/goout/playbook";
 option java_package = "top.fogcdn.axe.protos.playbook";
 
 import "common/api.proto";
+import "common/user.proto";
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
 
@@ -92,6 +93,9 @@ message ProjectObject {
 
     // playbook项目文件ID
     int32 playbook_file_id = 12;
+
+    // 创建人
+    common.User creator = 13;
 }
 
 // 创建项目请求内容体

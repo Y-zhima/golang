@@ -280,7 +280,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin5",
+        "operationId": "CreateMixin6",
         "parameters": [
           {
             "name": "body",
@@ -307,7 +307,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin5",
+        "operationId": "FilterMixin6",
         "parameters": [
           {
             "type": "integer",
@@ -367,7 +367,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin5",
+        "operationId": "GetMixin6",
         "parameters": [
           {
             "type": "integer",
@@ -421,7 +421,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "UpdateMixin5",
+        "operationId": "UpdateMixin6",
         "parameters": [
           {
             "type": "integer",
@@ -456,7 +456,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin6",
+        "operationId": "CreateMixin7",
         "parameters": [
           {
             "name": "body",
@@ -483,7 +483,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin6",
+        "operationId": "FilterMixin7",
         "parameters": [
           {
             "type": "integer",
@@ -542,7 +542,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin6",
+        "operationId": "GetMixin7",
         "parameters": [
           {
             "type": "integer",
@@ -569,7 +569,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin6",
+        "operationId": "UpdateMixin7",
         "parameters": [
           {
             "type": "integer",
@@ -786,6 +786,18 @@
         "INVALID_ARGUMENT",
         "ACCESS_DENIED"
       ]
+    },
+    "commonUser": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "user_name": {
+          "type": "string"
+        }
+      }
     },
     "fileUploadPlaybookRequest": {
       "type": "object",
@@ -1034,6 +1046,10 @@
         "created": {
           "type": "string",
           "title": "创建时间"
+        },
+        "creator": {
+          "title": "创建人",
+          "$ref": "#/definitions/commonUser"
         },
         "description": {
           "type": "string",
@@ -1485,6 +1501,14 @@
       "type": "object",
       "title": "模板实例",
       "properties": {
+        "created": {
+          "type": "string",
+          "title": "创建时间"
+        },
+        "creator": {
+          "title": "创建人",
+          "$ref": "#/definitions/commonUser"
+        },
         "description": {
           "type": "string",
           "title": "模板描述"
@@ -1515,6 +1539,10 @@
           "type": "integer",
           "format": "int32",
           "title": "模板ID"
+        },
+        "updated": {
+          "type": "string",
+          "title": "更新时间"
         }
       }
     },
