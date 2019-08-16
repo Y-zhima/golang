@@ -80,7 +80,7 @@ message ProjectObject {
     // playbook文件的版本号
     string version = 6;
     // playbook入口yml文件，有多个
-    repeated string entrypoint = 7;
+    repeated PlaybookEntrypointObject entrypoint = 7;
     // 文件md5
     string md5 = 8;
     // 文件大小
@@ -89,6 +89,9 @@ message ProjectObject {
     string created = 10;
     // 更新时间
     string updated = 11;
+
+    // playbook项目文件ID
+    int32 playbook_file_id = 12;
 }
 
 // 创建项目请求内容体

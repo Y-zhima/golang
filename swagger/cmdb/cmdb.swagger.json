@@ -46,6 +46,38 @@
         },
         "parameters": [
           {
+            "name": "paging.total_page",
+            "description": "总页数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paging.page",
+            "description": "当前页数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paging.per_page",
+            "description": "每页显示的记录条数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paging.total_record",
+            "description": "总记录数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
             "name": "host.bk_host_innerip",
             "description": "内网IP.",
             "in": "query",
@@ -159,10 +191,13 @@
     "cmdbSearchHostResponse": {
       "type": "object",
       "properties": {
-        "count": {
-          "type": "integer",
-          "format": "int32",
-          "title": "返回总条数"
+        "paging": {
+          "$ref": "#/definitions/commonPaging",
+          "title": "分页信息"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
         },
         "info": {
           "type": "array",
@@ -170,10 +205,6 @@
             "$ref": "#/definitions/cmdbHostInfoObject"
           },
           "title": "主机信息"
-        },
-        "status": {
-          "$ref": "#/definitions/commonResponseStatus",
-          "title": "状态码"
         }
       },
       "title": "查找主机请求返回"
@@ -217,6 +248,32 @@
         }
       },
       "title": "业务拓扑对象"
+    },
+    "commonPaging": {
+      "type": "object",
+      "properties": {
+        "total_page": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总页数"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "title": "当前页数"
+        },
+        "per_page": {
+          "type": "integer",
+          "format": "int32",
+          "title": "每页显示的记录条数"
+        },
+        "total_record": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总记录数"
+        }
+      },
+      "title": "分页"
     },
     "commonResponseStatus": {
       "type": "object",
