@@ -1,7 +1,7 @@
 .PHONY: gen-go package
 
 IMAGE_NAME=192.168.0.103:8080/axe/protos
-VERSION=v0.0.1
+VERSION=v0.0.2
 GIT_COMMIT=$(shell git rev-parse HEAD)
 
 SWAGGER_FILES=$(wildcard swagger/*.json) $(wildcard swagger/*/*.json)
