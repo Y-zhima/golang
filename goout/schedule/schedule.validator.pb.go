@@ -7,11 +7,12 @@ import (
 	fmt "fmt"
 	math "math"
 	proto "github.com/golang/protobuf/proto"
+	_ "git.fogcdn.top/axe/protos/goout/common"
+	_ "git.fogcdn.top/axe/protos/goout/cmdb"
+	_ "git.fogcdn.top/axe/protos/goout/template"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "github.com/mwitkow/go-proto-validators"
-	_ "git.fogcdn.top/axe/protos/goout/common"
-	_ "git.fogcdn.top/axe/protos/goout/template"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
@@ -28,7 +29,7 @@ func (this *ScheduleObject) Validate() error {
 	}
 	return nil
 }
-func (this *CreateRequest) Validate() error {
+func (this *CreateScheduleObject) Validate() error {
 	if !(this.TemplateId > 0) {
 		return github_com_mwitkow_go_proto_validators.FieldError("TemplateId", fmt.Errorf(`模板ID不能为空`))
 	}
@@ -43,6 +44,24 @@ func (this *CreateRequest) Validate() error {
 	}
 	if this.CronExpression == "" {
 		return github_com_mwitkow_go_proto_validators.FieldError("CronExpression", fmt.Errorf(`定时任务表达式不能为空`))
+	}
+	return nil
+}
+func (this *CreateRequest) Validate() error {
+	if len(this.Schedules) < 1 {
+		return github_com_mwitkow_go_proto_validators.FieldError("Schedules", fmt.Errorf(`任务内容不能为空`))
+	}
+	for _, item := range this.Schedules {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Schedules", err)
+			}
+		}
+	}
+	if this.CmdbSearchRequest != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbSearchRequest); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+		}
 	}
 	return nil
 }
@@ -101,9 +120,6 @@ func (this *FilterResponse) Validate() error {
 func (this *UpdateRequest) Validate() error {
 	if !(this.ScheduleId > 0) {
 		return github_com_mwitkow_go_proto_validators.FieldError("ScheduleId", fmt.Errorf(`定时任务ID不能为空`))
-	}
-	if !(this.TemplateId > 0) {
-		return github_com_mwitkow_go_proto_validators.FieldError("TemplateId", fmt.Errorf(`模板ID不能为空`))
 	}
 	if this.Name == "" {
 		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`定时任务名不能为空`))

@@ -10,6 +10,7 @@ import "protoc-gen-swagger/options/annotations.proto";
 import "github.com/mwitkow/go-proto-validators/validator.proto";
 
 import "common/api.proto";
+import "cmdb/cmdb.proto";
 import "template/template.proto";
 
 // 定时任务
@@ -62,6 +63,18 @@ enum ScheduleStatus {
     ON = 1;
 }
 
+// 任务类型 0-undefined 1-作业模板；2-容器部署 3-裸金属管理
+enum TaskType {
+    // 0-undefined
+    UNDEFINED = 0;
+    // 1-作业模板
+    PLAYBOOK = 1;
+    // 2-容器部署
+    CONTAINER = 2;
+    // 3-裸金属管理
+    BARE_METAL = 3;
+}
+
 // 定时任务实例
 message ScheduleObject {
     // 定时任务ID
@@ -78,15 +91,14 @@ message ScheduleObject {
     string cron_expression = 6;
     // 任务状态
     ScheduleStatus status = 7;
+    // 任务类型
+    TaskType task_type = 8;
+    // 执行总数
+    int32 execute_count = 9;
 }
 
-// 创建定时任务请求
-message CreateRequest {
-    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
-        json_schema: {
-          required: ["template_id", "name", "start_time", "end_time", "cron_expression"]
-        }
-    };
+// 创建定时任务的请求内容体
+message CreateScheduleObject {
     // 模板ID
     int32 template_id = 1 [(validator.field) = {int_gt: 0, human_error: "模板ID不能为空"}];
     // 定时任务名
@@ -97,6 +109,23 @@ message CreateRequest {
     string end_time = 4 [(validator.field) = {string_not_empty: true, human_error: "结束时间不能为空"}];
     // 定时任务表达式
     string cron_expression = 5 [(validator.field) = {string_not_empty: true, human_error: "定时任务表达式不能为空"}];
+    // 任务类型
+    TaskType task_type = 6;
+}
+
+// 创建定时任务请求
+message CreateRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+          required: ["schedules", "cmdb_search_request"]
+        }
+    };
+    // 创建定时任务的请求内容体
+    repeated CreateScheduleObject schedules = 1 [(validator.field) = {repeated_count_min : 1, human_error: "任务内容不能为空"}];
+    // cmdb的搜索条件
+    cmdb.SearchHostRequest cmdb_search_request = 2 [(validator.field) = {string_not_empty: true, human_error: "cmdb的搜索条件不能为空"}];
+    // 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+    string extra_var = 3;
 }
 
 // 创建定时任务请求返回
@@ -134,8 +163,8 @@ message FilterRequest {
     common.Paging paging = 1;
     // 用于筛选的定时任务名字的关键字
     string schedule_name = 2;
-    // 模板ID
-    int32 template_id = 3;
+    // 用于筛选的定时任务的任务类型
+    TaskType task_type = 3;
 }
 
 // 筛选定时任务请求返回
@@ -152,13 +181,11 @@ message FilterResponse {
 message UpdateRequest {
     option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
         json_schema: {
-          required: ["schedule_id", "template_id", "name", "start_time", "end_time", "cron_expression"]
+          required: ["schedule_id", "name", "start_time", "end_time", "cron_expression"]
         }
     };
     // 定时任务ID
     int32 schedule_id = 1 [(validator.field) = {int_gt: 0, human_error: "定时任务ID不能为空"}];
-    // 模板ID
-    int32 template_id = 2 [(validator.field) = {int_gt: 0, human_error: "模板ID不能为空"}];
     // 定时任务名字
     string name = 3 [(validator.field) = {string_not_empty: true, human_error: "定时任务名不能为空"}];
     // 定时任务开启时间

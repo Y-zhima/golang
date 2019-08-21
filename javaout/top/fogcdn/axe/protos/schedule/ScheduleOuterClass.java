@@ -116,6 +116,158 @@ public final class ScheduleOuterClass {
     // @@protoc_insertion_point(enum_scope:schedule.ScheduleStatus)
   }
 
+  /**
+   * <pre>
+   * 任务类型 0-undefined 1-作业模板；2-容器部署 3-裸金属管理
+   * </pre>
+   *
+   * Protobuf enum {@code schedule.TaskType}
+   */
+  public enum TaskType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * 0-undefined
+     * </pre>
+     *
+     * <code>UNDEFINED = 0;</code>
+     */
+    UNDEFINED(0),
+    /**
+     * <pre>
+     * 1-作业模板
+     * </pre>
+     *
+     * <code>PLAYBOOK = 1;</code>
+     */
+    PLAYBOOK(1),
+    /**
+     * <pre>
+     * 2-容器部署
+     * </pre>
+     *
+     * <code>CONTAINER = 2;</code>
+     */
+    CONTAINER(2),
+    /**
+     * <pre>
+     * 3-裸金属管理
+     * </pre>
+     *
+     * <code>BARE_METAL = 3;</code>
+     */
+    BARE_METAL(3),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * 0-undefined
+     * </pre>
+     *
+     * <code>UNDEFINED = 0;</code>
+     */
+    public static final int UNDEFINED_VALUE = 0;
+    /**
+     * <pre>
+     * 1-作业模板
+     * </pre>
+     *
+     * <code>PLAYBOOK = 1;</code>
+     */
+    public static final int PLAYBOOK_VALUE = 1;
+    /**
+     * <pre>
+     * 2-容器部署
+     * </pre>
+     *
+     * <code>CONTAINER = 2;</code>
+     */
+    public static final int CONTAINER_VALUE = 2;
+    /**
+     * <pre>
+     * 3-裸金属管理
+     * </pre>
+     *
+     * <code>BARE_METAL = 3;</code>
+     */
+    public static final int BARE_METAL_VALUE = 3;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static TaskType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static TaskType forNumber(int value) {
+      switch (value) {
+        case 0: return UNDEFINED;
+        case 1: return PLAYBOOK;
+        case 2: return CONTAINER;
+        case 3: return BARE_METAL;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<TaskType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        TaskType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<TaskType>() {
+            public TaskType findValueByNumber(int number) {
+              return TaskType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final TaskType[] VALUES = values();
+
+    public static TaskType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private TaskType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:schedule.TaskType)
+  }
+
   public interface ScheduleObjectOrBuilder extends
       // @@protoc_insertion_point(interface_extends:schedule.ScheduleObject)
       com.google.protobuf.MessageOrBuilder {
@@ -242,6 +394,32 @@ public final class ScheduleOuterClass {
      * <code>.schedule.ScheduleStatus status = 7;</code>
      */
     top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleStatus getStatus();
+
+    /**
+     * <pre>
+     * 任务类型
+     * </pre>
+     *
+     * <code>.schedule.TaskType task_type = 8;</code>
+     */
+    int getTaskTypeValue();
+    /**
+     * <pre>
+     * 任务类型
+     * </pre>
+     *
+     * <code>.schedule.TaskType task_type = 8;</code>
+     */
+    top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType getTaskType();
+
+    /**
+     * <pre>
+     * 执行总数
+     * </pre>
+     *
+     * <code>int32 execute_count = 9;</code>
+     */
+    int getExecuteCount();
   }
   /**
    * <pre>
@@ -266,6 +444,8 @@ public final class ScheduleOuterClass {
       endTime_ = "";
       cronExpression_ = "";
       status_ = 0;
+      taskType_ = 0;
+      executeCount_ = 0;
     }
 
     @java.lang.Override
@@ -338,6 +518,17 @@ public final class ScheduleOuterClass {
               int rawValue = input.readEnum();
 
               status_ = rawValue;
+              break;
+            }
+            case 64: {
+              int rawValue = input.readEnum();
+
+              taskType_ = rawValue;
+              break;
+            }
+            case 72: {
+
+              executeCount_ = input.readInt32();
               break;
             }
             default: {
@@ -611,6 +802,44 @@ public final class ScheduleOuterClass {
       return result == null ? top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleStatus.UNRECOGNIZED : result;
     }
 
+    public static final int TASK_TYPE_FIELD_NUMBER = 8;
+    private int taskType_;
+    /**
+     * <pre>
+     * 任务类型
+     * </pre>
+     *
+     * <code>.schedule.TaskType task_type = 8;</code>
+     */
+    public int getTaskTypeValue() {
+      return taskType_;
+    }
+    /**
+     * <pre>
+     * 任务类型
+     * </pre>
+     *
+     * <code>.schedule.TaskType task_type = 8;</code>
+     */
+    public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType getTaskType() {
+      @SuppressWarnings("deprecation")
+      top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType result = top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.valueOf(taskType_);
+      return result == null ? top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.UNRECOGNIZED : result;
+    }
+
+    public static final int EXECUTE_COUNT_FIELD_NUMBER = 9;
+    private int executeCount_;
+    /**
+     * <pre>
+     * 执行总数
+     * </pre>
+     *
+     * <code>int32 execute_count = 9;</code>
+     */
+    public int getExecuteCount() {
+      return executeCount_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -646,6 +875,12 @@ public final class ScheduleOuterClass {
       if (status_ != top.fogcdn.axe.protos.schedule.ScheduleOuterClass.ScheduleStatus.OFF.getNumber()) {
         output.writeEnum(7, status_);
       }
+      if (taskType_ != top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.UNDEFINED.getNumber()) {
+        output.writeEnum(8, taskType_);
+      }
+      if (executeCount_ != 0) {
+        output.writeInt32(9, executeCount_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -679,6 +914,14 @@ public final class ScheduleOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(7, status_);
       }
+      if (taskType_ != top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.UNDEFINED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(8, taskType_);
+      }
+      if (executeCount_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(9, executeCount_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -711,6 +954,9 @@ public final class ScheduleOuterClass {
       result = result && getCronExpression()
           .equals(other.getCronExpression());
       result = result && status_ == other.status_;
+      result = result && taskType_ == other.taskType_;
+      result = result && (getExecuteCount()
+          == other.getExecuteCount());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -738,6 +984,10 @@ public final class ScheduleOuterClass {
       hash = (53 * hash) + getCronExpression().hashCode();
       hash = (37 * hash) + STATUS_FIELD_NUMBER;
       hash = (53 * hash) + status_;
+      hash = (37 * hash) + TASK_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + taskType_;
+      hash = (37 * hash) + EXECUTE_COUNT_FIELD_NUMBER;
+      hash = (53 * hash) + getExecuteCount();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -893,6 +1143,10 @@ public final class ScheduleOuterClass {
 
         status_ = 0;
 
+        taskType_ = 0;
+
+        executeCount_ = 0;
+
         return this;
       }
 
@@ -930,6 +1184,8 @@ public final class ScheduleOuterClass {
         result.endTime_ = endTime_;
         result.cronExpression_ = cronExpression_;
         result.status_ = status_;
+        result.taskType_ = taskType_;
+        result.executeCount_ = executeCount_;
         onBuilt();
         return result;
       }
@@ -1002,6 +1258,12 @@ public final class ScheduleOuterClass {
         }
         if (other.status_ != 0) {
           setStatusValue(other.getStatusValue());
+        }
+        if (other.taskType_ != 0) {
+          setTaskTypeValue(other.getTaskTypeValue());
+        }
+        if (other.getExecuteCount() != 0) {
+          setExecuteCount(other.getExecuteCount());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1643,6 +1905,109 @@ public final class ScheduleOuterClass {
         onChanged();
         return this;
       }
+
+      private int taskType_ = 0;
+      /**
+       * <pre>
+       * 任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 8;</code>
+       */
+      public int getTaskTypeValue() {
+        return taskType_;
+      }
+      /**
+       * <pre>
+       * 任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 8;</code>
+       */
+      public Builder setTaskTypeValue(int value) {
+        taskType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 8;</code>
+       */
+      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType getTaskType() {
+        @SuppressWarnings("deprecation")
+        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType result = top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.valueOf(taskType_);
+        return result == null ? top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * 任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 8;</code>
+       */
+      public Builder setTaskType(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        taskType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 8;</code>
+       */
+      public Builder clearTaskType() {
+        
+        taskType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int executeCount_ ;
+      /**
+       * <pre>
+       * 执行总数
+       * </pre>
+       *
+       * <code>int32 execute_count = 9;</code>
+       */
+      public int getExecuteCount() {
+        return executeCount_;
+      }
+      /**
+       * <pre>
+       * 执行总数
+       * </pre>
+       *
+       * <code>int32 execute_count = 9;</code>
+       */
+      public Builder setExecuteCount(int value) {
+        
+        executeCount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 执行总数
+       * </pre>
+       *
+       * <code>int32 execute_count = 9;</code>
+       */
+      public Builder clearExecuteCount() {
+        
+        executeCount_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1696,8 +2061,8 @@ public final class ScheduleOuterClass {
 
   }
 
-  public interface CreateRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:schedule.CreateRequest)
+  public interface CreateScheduleObjectOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:schedule.CreateScheduleObject)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -1780,29 +2145,47 @@ public final class ScheduleOuterClass {
      */
     com.google.protobuf.ByteString
         getCronExpressionBytes();
+
+    /**
+     * <pre>
+     * 任务类型
+     * </pre>
+     *
+     * <code>.schedule.TaskType task_type = 6;</code>
+     */
+    int getTaskTypeValue();
+    /**
+     * <pre>
+     * 任务类型
+     * </pre>
+     *
+     * <code>.schedule.TaskType task_type = 6;</code>
+     */
+    top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType getTaskType();
   }
   /**
    * <pre>
-   * 创建定时任务请求
+   * 创建定时任务的请求内容体
    * </pre>
    *
-   * Protobuf type {@code schedule.CreateRequest}
+   * Protobuf type {@code schedule.CreateScheduleObject}
    */
-  public  static final class CreateRequest extends
+  public  static final class CreateScheduleObject extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:schedule.CreateRequest)
-      CreateRequestOrBuilder {
+      // @@protoc_insertion_point(message_implements:schedule.CreateScheduleObject)
+      CreateScheduleObjectOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use CreateRequest.newBuilder() to construct.
-    private CreateRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use CreateScheduleObject.newBuilder() to construct.
+    private CreateScheduleObject(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private CreateRequest() {
+    private CreateScheduleObject() {
       templateId_ = 0;
       name_ = "";
       startTime_ = "";
       endTime_ = "";
       cronExpression_ = "";
+      taskType_ = 0;
     }
 
     @java.lang.Override
@@ -1810,7 +2193,7 @@ public final class ScheduleOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CreateRequest(
+    private CreateScheduleObject(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1858,6 +2241,12 @@ public final class ScheduleOuterClass {
               cronExpression_ = s;
               break;
             }
+            case 48: {
+              int rawValue = input.readEnum();
+
+              taskType_ = rawValue;
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -1879,15 +2268,15 @@ public final class ScheduleOuterClass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_CreateRequest_descriptor;
+      return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_CreateScheduleObject_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_CreateRequest_fieldAccessorTable
+      return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_CreateScheduleObject_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest.class, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest.Builder.class);
+              top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject.class, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject.Builder.class);
     }
 
     public static final int TEMPLATE_ID_FIELD_NUMBER = 1;
@@ -2071,6 +2460,31 @@ public final class ScheduleOuterClass {
       }
     }
 
+    public static final int TASK_TYPE_FIELD_NUMBER = 6;
+    private int taskType_;
+    /**
+     * <pre>
+     * 任务类型
+     * </pre>
+     *
+     * <code>.schedule.TaskType task_type = 6;</code>
+     */
+    public int getTaskTypeValue() {
+      return taskType_;
+    }
+    /**
+     * <pre>
+     * 任务类型
+     * </pre>
+     *
+     * <code>.schedule.TaskType task_type = 6;</code>
+     */
+    public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType getTaskType() {
+      @SuppressWarnings("deprecation")
+      top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType result = top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.valueOf(taskType_);
+      return result == null ? top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2100,6 +2514,9 @@ public final class ScheduleOuterClass {
       if (!getCronExpressionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, cronExpression_);
       }
+      if (taskType_ != top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.UNDEFINED.getNumber()) {
+        output.writeEnum(6, taskType_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2125,6 +2542,10 @@ public final class ScheduleOuterClass {
       if (!getCronExpressionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, cronExpression_);
       }
+      if (taskType_ != top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.UNDEFINED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(6, taskType_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2135,10 +2556,10 @@ public final class ScheduleOuterClass {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest)) {
+      if (!(obj instanceof top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject)) {
         return super.equals(obj);
       }
-      top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest other = (top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest) obj;
+      top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject other = (top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject) obj;
 
       boolean result = true;
       result = result && (getTemplateId()
@@ -2151,6 +2572,7 @@ public final class ScheduleOuterClass {
           .equals(other.getEndTime());
       result = result && getCronExpression()
           .equals(other.getCronExpression());
+      result = result && taskType_ == other.taskType_;
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2172,74 +2594,76 @@ public final class ScheduleOuterClass {
       hash = (53 * hash) + getEndTime().hashCode();
       hash = (37 * hash) + CRON_EXPRESSION_FIELD_NUMBER;
       hash = (53 * hash) + getCronExpression().hashCode();
+      hash = (37 * hash) + TASK_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + taskType_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseFrom(
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseFrom(
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseFrom(
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseFrom(
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseFrom(byte[] data)
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseFrom(
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseFrom(java.io.InputStream input)
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseFrom(
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseDelimitedFrom(java.io.InputStream input)
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseDelimitedFrom(
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseFrom(
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseFrom(
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2252,7 +2676,7 @@ public final class ScheduleOuterClass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest prototype) {
+    public static Builder newBuilder(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -2269,29 +2693,29 @@ public final class ScheduleOuterClass {
     }
     /**
      * <pre>
-     * 创建定时任务请求
+     * 创建定时任务的请求内容体
      * </pre>
      *
-     * Protobuf type {@code schedule.CreateRequest}
+     * Protobuf type {@code schedule.CreateScheduleObject}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:schedule.CreateRequest)
-        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:schedule.CreateScheduleObject)
+        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObjectOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_CreateRequest_descriptor;
+        return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_CreateScheduleObject_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_CreateRequest_fieldAccessorTable
+        return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_CreateScheduleObject_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest.class, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest.Builder.class);
+                top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject.class, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject.Builder.class);
       }
 
-      // Construct using top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest.newBuilder()
+      // Construct using top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2319,23 +2743,25 @@ public final class ScheduleOuterClass {
 
         cronExpression_ = "";
 
+        taskType_ = 0;
+
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_CreateRequest_descriptor;
+        return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_CreateScheduleObject_descriptor;
       }
 
       @java.lang.Override
-      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest getDefaultInstanceForType() {
-        return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest.getDefaultInstance();
+      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject getDefaultInstanceForType() {
+        return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject.getDefaultInstance();
       }
 
       @java.lang.Override
-      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest build() {
-        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest result = buildPartial();
+      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject build() {
+        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -2343,13 +2769,14 @@ public final class ScheduleOuterClass {
       }
 
       @java.lang.Override
-      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest buildPartial() {
-        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest result = new top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest(this);
+      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject buildPartial() {
+        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject result = new top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject(this);
         result.templateId_ = templateId_;
         result.name_ = name_;
         result.startTime_ = startTime_;
         result.endTime_ = endTime_;
         result.cronExpression_ = cronExpression_;
+        result.taskType_ = taskType_;
         onBuilt();
         return result;
       }
@@ -2388,16 +2815,16 @@ public final class ScheduleOuterClass {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest) {
-          return mergeFrom((top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest)other);
+        if (other instanceof top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject) {
+          return mergeFrom((top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest other) {
-        if (other == top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject other) {
+        if (other == top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject.getDefaultInstance()) return this;
         if (other.getTemplateId() != 0) {
           setTemplateId(other.getTemplateId());
         }
@@ -2417,6 +2844,9 @@ public final class ScheduleOuterClass {
           cronExpression_ = other.cronExpression_;
           onChanged();
         }
+        if (other.taskType_ != 0) {
+          setTaskTypeValue(other.getTaskTypeValue());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -2432,11 +2862,11 @@ public final class ScheduleOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parsedMessage = null;
+        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest) e.getUnfinishedMessage();
+          parsedMessage = (top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -2836,6 +3266,1403 @@ public final class ScheduleOuterClass {
   checkByteStringIsUtf8(value);
         
         cronExpression_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int taskType_ = 0;
+      /**
+       * <pre>
+       * 任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 6;</code>
+       */
+      public int getTaskTypeValue() {
+        return taskType_;
+      }
+      /**
+       * <pre>
+       * 任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 6;</code>
+       */
+      public Builder setTaskTypeValue(int value) {
+        taskType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 6;</code>
+       */
+      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType getTaskType() {
+        @SuppressWarnings("deprecation")
+        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType result = top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.valueOf(taskType_);
+        return result == null ? top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * 任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 6;</code>
+       */
+      public Builder setTaskType(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        taskType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 6;</code>
+       */
+      public Builder clearTaskType() {
+        
+        taskType_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:schedule.CreateScheduleObject)
+    }
+
+    // @@protoc_insertion_point(class_scope:schedule.CreateScheduleObject)
+    private static final top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject();
+    }
+
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CreateScheduleObject>
+        PARSER = new com.google.protobuf.AbstractParser<CreateScheduleObject>() {
+      @java.lang.Override
+      public CreateScheduleObject parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CreateScheduleObject(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CreateScheduleObject> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CreateScheduleObject> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface CreateRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:schedule.CreateRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 创建定时任务的请求内容体
+     * </pre>
+     *
+     * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+     */
+    java.util.List<top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject> 
+        getSchedulesList();
+    /**
+     * <pre>
+     * 创建定时任务的请求内容体
+     * </pre>
+     *
+     * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+     */
+    top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject getSchedules(int index);
+    /**
+     * <pre>
+     * 创建定时任务的请求内容体
+     * </pre>
+     *
+     * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+     */
+    int getSchedulesCount();
+    /**
+     * <pre>
+     * 创建定时任务的请求内容体
+     * </pre>
+     *
+     * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+     */
+    java.util.List<? extends top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObjectOrBuilder> 
+        getSchedulesOrBuilderList();
+    /**
+     * <pre>
+     * 创建定时任务的请求内容体
+     * </pre>
+     *
+     * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+     */
+    top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObjectOrBuilder getSchedulesOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * cmdb的搜索条件
+     * </pre>
+     *
+     * <code>.cmdb.SearchHostRequest cmdb_search_request = 2 [(.validator.field) = { ... }</code>
+     */
+    boolean hasCmdbSearchRequest();
+    /**
+     * <pre>
+     * cmdb的搜索条件
+     * </pre>
+     *
+     * <code>.cmdb.SearchHostRequest cmdb_search_request = 2 [(.validator.field) = { ... }</code>
+     */
+    top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest getCmdbSearchRequest();
+    /**
+     * <pre>
+     * cmdb的搜索条件
+     * </pre>
+     *
+     * <code>.cmdb.SearchHostRequest cmdb_search_request = 2 [(.validator.field) = { ... }</code>
+     */
+    top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder getCmdbSearchRequestOrBuilder();
+
+    /**
+     * <pre>
+     * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+     * </pre>
+     *
+     * <code>string extra_var = 3;</code>
+     */
+    java.lang.String getExtraVar();
+    /**
+     * <pre>
+     * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+     * </pre>
+     *
+     * <code>string extra_var = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getExtraVarBytes();
+  }
+  /**
+   * <pre>
+   * 创建定时任务请求
+   * </pre>
+   *
+   * Protobuf type {@code schedule.CreateRequest}
+   */
+  public  static final class CreateRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:schedule.CreateRequest)
+      CreateRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CreateRequest.newBuilder() to construct.
+    private CreateRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CreateRequest() {
+      schedules_ = java.util.Collections.emptyList();
+      extraVar_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CreateRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                schedules_ = new java.util.ArrayList<top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              schedules_.add(
+                  input.readMessage(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject.parser(), extensionRegistry));
+              break;
+            }
+            case 18: {
+              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder subBuilder = null;
+              if (cmdbSearchRequest_ != null) {
+                subBuilder = cmdbSearchRequest_.toBuilder();
+              }
+              cmdbSearchRequest_ = input.readMessage(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(cmdbSearchRequest_);
+                cmdbSearchRequest_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              extraVar_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          schedules_ = java.util.Collections.unmodifiableList(schedules_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_CreateRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_CreateRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest.class, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int SCHEDULES_FIELD_NUMBER = 1;
+    private java.util.List<top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject> schedules_;
+    /**
+     * <pre>
+     * 创建定时任务的请求内容体
+     * </pre>
+     *
+     * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+     */
+    public java.util.List<top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject> getSchedulesList() {
+      return schedules_;
+    }
+    /**
+     * <pre>
+     * 创建定时任务的请求内容体
+     * </pre>
+     *
+     * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+     */
+    public java.util.List<? extends top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObjectOrBuilder> 
+        getSchedulesOrBuilderList() {
+      return schedules_;
+    }
+    /**
+     * <pre>
+     * 创建定时任务的请求内容体
+     * </pre>
+     *
+     * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+     */
+    public int getSchedulesCount() {
+      return schedules_.size();
+    }
+    /**
+     * <pre>
+     * 创建定时任务的请求内容体
+     * </pre>
+     *
+     * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+     */
+    public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject getSchedules(int index) {
+      return schedules_.get(index);
+    }
+    /**
+     * <pre>
+     * 创建定时任务的请求内容体
+     * </pre>
+     *
+     * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+     */
+    public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObjectOrBuilder getSchedulesOrBuilder(
+        int index) {
+      return schedules_.get(index);
+    }
+
+    public static final int CMDB_SEARCH_REQUEST_FIELD_NUMBER = 2;
+    private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest cmdbSearchRequest_;
+    /**
+     * <pre>
+     * cmdb的搜索条件
+     * </pre>
+     *
+     * <code>.cmdb.SearchHostRequest cmdb_search_request = 2 [(.validator.field) = { ... }</code>
+     */
+    public boolean hasCmdbSearchRequest() {
+      return cmdbSearchRequest_ != null;
+    }
+    /**
+     * <pre>
+     * cmdb的搜索条件
+     * </pre>
+     *
+     * <code>.cmdb.SearchHostRequest cmdb_search_request = 2 [(.validator.field) = { ... }</code>
+     */
+    public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest getCmdbSearchRequest() {
+      return cmdbSearchRequest_ == null ? top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.getDefaultInstance() : cmdbSearchRequest_;
+    }
+    /**
+     * <pre>
+     * cmdb的搜索条件
+     * </pre>
+     *
+     * <code>.cmdb.SearchHostRequest cmdb_search_request = 2 [(.validator.field) = { ... }</code>
+     */
+    public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder getCmdbSearchRequestOrBuilder() {
+      return getCmdbSearchRequest();
+    }
+
+    public static final int EXTRA_VAR_FIELD_NUMBER = 3;
+    private volatile java.lang.Object extraVar_;
+    /**
+     * <pre>
+     * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+     * </pre>
+     *
+     * <code>string extra_var = 3;</code>
+     */
+    public java.lang.String getExtraVar() {
+      java.lang.Object ref = extraVar_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        extraVar_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+     * </pre>
+     *
+     * <code>string extra_var = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getExtraVarBytes() {
+      java.lang.Object ref = extraVar_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        extraVar_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < schedules_.size(); i++) {
+        output.writeMessage(1, schedules_.get(i));
+      }
+      if (cmdbSearchRequest_ != null) {
+        output.writeMessage(2, getCmdbSearchRequest());
+      }
+      if (!getExtraVarBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, extraVar_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < schedules_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, schedules_.get(i));
+      }
+      if (cmdbSearchRequest_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getCmdbSearchRequest());
+      }
+      if (!getExtraVarBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, extraVar_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest)) {
+        return super.equals(obj);
+      }
+      top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest other = (top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest) obj;
+
+      boolean result = true;
+      result = result && getSchedulesList()
+          .equals(other.getSchedulesList());
+      result = result && (hasCmdbSearchRequest() == other.hasCmdbSearchRequest());
+      if (hasCmdbSearchRequest()) {
+        result = result && getCmdbSearchRequest()
+            .equals(other.getCmdbSearchRequest());
+      }
+      result = result && getExtraVar()
+          .equals(other.getExtraVar());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getSchedulesCount() > 0) {
+        hash = (37 * hash) + SCHEDULES_FIELD_NUMBER;
+        hash = (53 * hash) + getSchedulesList().hashCode();
+      }
+      if (hasCmdbSearchRequest()) {
+        hash = (37 * hash) + CMDB_SEARCH_REQUEST_FIELD_NUMBER;
+        hash = (53 * hash) + getCmdbSearchRequest().hashCode();
+      }
+      hash = (37 * hash) + EXTRA_VAR_FIELD_NUMBER;
+      hash = (53 * hash) + getExtraVar().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 创建定时任务请求
+     * </pre>
+     *
+     * Protobuf type {@code schedule.CreateRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:schedule.CreateRequest)
+        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_CreateRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_CreateRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest.class, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest.Builder.class);
+      }
+
+      // Construct using top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getSchedulesFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (schedulesBuilder_ == null) {
+          schedules_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          schedulesBuilder_.clear();
+        }
+        if (cmdbSearchRequestBuilder_ == null) {
+          cmdbSearchRequest_ = null;
+        } else {
+          cmdbSearchRequest_ = null;
+          cmdbSearchRequestBuilder_ = null;
+        }
+        extraVar_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.internal_static_schedule_CreateRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest getDefaultInstanceForType() {
+        return top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest build() {
+        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest buildPartial() {
+        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest result = new top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (schedulesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            schedules_ = java.util.Collections.unmodifiableList(schedules_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.schedules_ = schedules_;
+        } else {
+          result.schedules_ = schedulesBuilder_.build();
+        }
+        if (cmdbSearchRequestBuilder_ == null) {
+          result.cmdbSearchRequest_ = cmdbSearchRequest_;
+        } else {
+          result.cmdbSearchRequest_ = cmdbSearchRequestBuilder_.build();
+        }
+        result.extraVar_ = extraVar_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest) {
+          return mergeFrom((top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest other) {
+        if (other == top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest.getDefaultInstance()) return this;
+        if (schedulesBuilder_ == null) {
+          if (!other.schedules_.isEmpty()) {
+            if (schedules_.isEmpty()) {
+              schedules_ = other.schedules_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureSchedulesIsMutable();
+              schedules_.addAll(other.schedules_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.schedules_.isEmpty()) {
+            if (schedulesBuilder_.isEmpty()) {
+              schedulesBuilder_.dispose();
+              schedulesBuilder_ = null;
+              schedules_ = other.schedules_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              schedulesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getSchedulesFieldBuilder() : null;
+            } else {
+              schedulesBuilder_.addAllMessages(other.schedules_);
+            }
+          }
+        }
+        if (other.hasCmdbSearchRequest()) {
+          mergeCmdbSearchRequest(other.getCmdbSearchRequest());
+        }
+        if (!other.getExtraVar().isEmpty()) {
+          extraVar_ = other.extraVar_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject> schedules_ =
+        java.util.Collections.emptyList();
+      private void ensureSchedulesIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          schedules_ = new java.util.ArrayList<top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject>(schedules_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject.Builder, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObjectOrBuilder> schedulesBuilder_;
+
+      /**
+       * <pre>
+       * 创建定时任务的请求内容体
+       * </pre>
+       *
+       * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+       */
+      public java.util.List<top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject> getSchedulesList() {
+        if (schedulesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(schedules_);
+        } else {
+          return schedulesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * 创建定时任务的请求内容体
+       * </pre>
+       *
+       * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+       */
+      public int getSchedulesCount() {
+        if (schedulesBuilder_ == null) {
+          return schedules_.size();
+        } else {
+          return schedulesBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * 创建定时任务的请求内容体
+       * </pre>
+       *
+       * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+       */
+      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject getSchedules(int index) {
+        if (schedulesBuilder_ == null) {
+          return schedules_.get(index);
+        } else {
+          return schedulesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * 创建定时任务的请求内容体
+       * </pre>
+       *
+       * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setSchedules(
+          int index, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject value) {
+        if (schedulesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSchedulesIsMutable();
+          schedules_.set(index, value);
+          onChanged();
+        } else {
+          schedulesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 创建定时任务的请求内容体
+       * </pre>
+       *
+       * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setSchedules(
+          int index, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject.Builder builderForValue) {
+        if (schedulesBuilder_ == null) {
+          ensureSchedulesIsMutable();
+          schedules_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          schedulesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 创建定时任务的请求内容体
+       * </pre>
+       *
+       * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder addSchedules(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject value) {
+        if (schedulesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSchedulesIsMutable();
+          schedules_.add(value);
+          onChanged();
+        } else {
+          schedulesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 创建定时任务的请求内容体
+       * </pre>
+       *
+       * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder addSchedules(
+          int index, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject value) {
+        if (schedulesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSchedulesIsMutable();
+          schedules_.add(index, value);
+          onChanged();
+        } else {
+          schedulesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 创建定时任务的请求内容体
+       * </pre>
+       *
+       * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder addSchedules(
+          top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject.Builder builderForValue) {
+        if (schedulesBuilder_ == null) {
+          ensureSchedulesIsMutable();
+          schedules_.add(builderForValue.build());
+          onChanged();
+        } else {
+          schedulesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 创建定时任务的请求内容体
+       * </pre>
+       *
+       * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder addSchedules(
+          int index, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject.Builder builderForValue) {
+        if (schedulesBuilder_ == null) {
+          ensureSchedulesIsMutable();
+          schedules_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          schedulesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 创建定时任务的请求内容体
+       * </pre>
+       *
+       * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder addAllSchedules(
+          java.lang.Iterable<? extends top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject> values) {
+        if (schedulesBuilder_ == null) {
+          ensureSchedulesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, schedules_);
+          onChanged();
+        } else {
+          schedulesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 创建定时任务的请求内容体
+       * </pre>
+       *
+       * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearSchedules() {
+        if (schedulesBuilder_ == null) {
+          schedules_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          schedulesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 创建定时任务的请求内容体
+       * </pre>
+       *
+       * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder removeSchedules(int index) {
+        if (schedulesBuilder_ == null) {
+          ensureSchedulesIsMutable();
+          schedules_.remove(index);
+          onChanged();
+        } else {
+          schedulesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 创建定时任务的请求内容体
+       * </pre>
+       *
+       * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+       */
+      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject.Builder getSchedulesBuilder(
+          int index) {
+        return getSchedulesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * 创建定时任务的请求内容体
+       * </pre>
+       *
+       * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+       */
+      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObjectOrBuilder getSchedulesOrBuilder(
+          int index) {
+        if (schedulesBuilder_ == null) {
+          return schedules_.get(index);  } else {
+          return schedulesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * 创建定时任务的请求内容体
+       * </pre>
+       *
+       * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+       */
+      public java.util.List<? extends top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObjectOrBuilder> 
+           getSchedulesOrBuilderList() {
+        if (schedulesBuilder_ != null) {
+          return schedulesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(schedules_);
+        }
+      }
+      /**
+       * <pre>
+       * 创建定时任务的请求内容体
+       * </pre>
+       *
+       * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+       */
+      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject.Builder addSchedulesBuilder() {
+        return getSchedulesFieldBuilder().addBuilder(
+            top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 创建定时任务的请求内容体
+       * </pre>
+       *
+       * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+       */
+      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject.Builder addSchedulesBuilder(
+          int index) {
+        return getSchedulesFieldBuilder().addBuilder(
+            index, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 创建定时任务的请求内容体
+       * </pre>
+       *
+       * <code>repeated .schedule.CreateScheduleObject schedules = 1 [(.validator.field) = { ... }</code>
+       */
+      public java.util.List<top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject.Builder> 
+           getSchedulesBuilderList() {
+        return getSchedulesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject.Builder, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObjectOrBuilder> 
+          getSchedulesFieldBuilder() {
+        if (schedulesBuilder_ == null) {
+          schedulesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObject.Builder, top.fogcdn.axe.protos.schedule.ScheduleOuterClass.CreateScheduleObjectOrBuilder>(
+                  schedules_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          schedules_ = null;
+        }
+        return schedulesBuilder_;
+      }
+
+      private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest cmdbSearchRequest_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder> cmdbSearchRequestBuilder_;
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 2 [(.validator.field) = { ... }</code>
+       */
+      public boolean hasCmdbSearchRequest() {
+        return cmdbSearchRequestBuilder_ != null || cmdbSearchRequest_ != null;
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 2 [(.validator.field) = { ... }</code>
+       */
+      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest getCmdbSearchRequest() {
+        if (cmdbSearchRequestBuilder_ == null) {
+          return cmdbSearchRequest_ == null ? top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.getDefaultInstance() : cmdbSearchRequest_;
+        } else {
+          return cmdbSearchRequestBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder setCmdbSearchRequest(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest value) {
+        if (cmdbSearchRequestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          cmdbSearchRequest_ = value;
+          onChanged();
+        } else {
+          cmdbSearchRequestBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder setCmdbSearchRequest(
+          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder builderForValue) {
+        if (cmdbSearchRequestBuilder_ == null) {
+          cmdbSearchRequest_ = builderForValue.build();
+          onChanged();
+        } else {
+          cmdbSearchRequestBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder mergeCmdbSearchRequest(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest value) {
+        if (cmdbSearchRequestBuilder_ == null) {
+          if (cmdbSearchRequest_ != null) {
+            cmdbSearchRequest_ =
+              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.newBuilder(cmdbSearchRequest_).mergeFrom(value).buildPartial();
+          } else {
+            cmdbSearchRequest_ = value;
+          }
+          onChanged();
+        } else {
+          cmdbSearchRequestBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearCmdbSearchRequest() {
+        if (cmdbSearchRequestBuilder_ == null) {
+          cmdbSearchRequest_ = null;
+          onChanged();
+        } else {
+          cmdbSearchRequest_ = null;
+          cmdbSearchRequestBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 2 [(.validator.field) = { ... }</code>
+       */
+      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder getCmdbSearchRequestBuilder() {
+        
+        onChanged();
+        return getCmdbSearchRequestFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 2 [(.validator.field) = { ... }</code>
+       */
+      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder getCmdbSearchRequestOrBuilder() {
+        if (cmdbSearchRequestBuilder_ != null) {
+          return cmdbSearchRequestBuilder_.getMessageOrBuilder();
+        } else {
+          return cmdbSearchRequest_ == null ?
+              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.getDefaultInstance() : cmdbSearchRequest_;
+        }
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 2 [(.validator.field) = { ... }</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder> 
+          getCmdbSearchRequestFieldBuilder() {
+        if (cmdbSearchRequestBuilder_ == null) {
+          cmdbSearchRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder>(
+                  getCmdbSearchRequest(),
+                  getParentForChildren(),
+                  isClean());
+          cmdbSearchRequest_ = null;
+        }
+        return cmdbSearchRequestBuilder_;
+      }
+
+      private java.lang.Object extraVar_ = "";
+      /**
+       * <pre>
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+       * </pre>
+       *
+       * <code>string extra_var = 3;</code>
+       */
+      public java.lang.String getExtraVar() {
+        java.lang.Object ref = extraVar_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          extraVar_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+       * </pre>
+       *
+       * <code>string extra_var = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getExtraVarBytes() {
+        java.lang.Object ref = extraVar_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          extraVar_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+       * </pre>
+       *
+       * <code>string extra_var = 3;</code>
+       */
+      public Builder setExtraVar(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        extraVar_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+       * </pre>
+       *
+       * <code>string extra_var = 3;</code>
+       */
+      public Builder clearExtraVar() {
+        
+        extraVar_ = getDefaultInstance().getExtraVar();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+       * </pre>
+       *
+       * <code>string extra_var = 3;</code>
+       */
+      public Builder setExtraVarBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        extraVar_ = value;
         onChanged();
         return this;
       }
@@ -5305,12 +7132,20 @@ public final class ScheduleOuterClass {
 
     /**
      * <pre>
-     * 模板ID
+     * 用于筛选的定时任务的任务类型
      * </pre>
      *
-     * <code>int32 template_id = 3;</code>
+     * <code>.schedule.TaskType task_type = 3;</code>
      */
-    int getTemplateId();
+    int getTaskTypeValue();
+    /**
+     * <pre>
+     * 用于筛选的定时任务的任务类型
+     * </pre>
+     *
+     * <code>.schedule.TaskType task_type = 3;</code>
+     */
+    top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType getTaskType();
   }
   /**
    * <pre>
@@ -5330,7 +7165,7 @@ public final class ScheduleOuterClass {
     }
     private FilterRequest() {
       scheduleName_ = "";
-      templateId_ = 0;
+      taskType_ = 0;
     }
 
     @java.lang.Override
@@ -5377,8 +7212,9 @@ public final class ScheduleOuterClass {
               break;
             }
             case 24: {
+              int rawValue = input.readEnum();
 
-              templateId_ = input.readInt32();
+              taskType_ = rawValue;
               break;
             }
             default: {
@@ -5488,17 +7324,29 @@ public final class ScheduleOuterClass {
       }
     }
 
-    public static final int TEMPLATE_ID_FIELD_NUMBER = 3;
-    private int templateId_;
+    public static final int TASK_TYPE_FIELD_NUMBER = 3;
+    private int taskType_;
     /**
      * <pre>
-     * 模板ID
+     * 用于筛选的定时任务的任务类型
      * </pre>
      *
-     * <code>int32 template_id = 3;</code>
+     * <code>.schedule.TaskType task_type = 3;</code>
      */
-    public int getTemplateId() {
-      return templateId_;
+    public int getTaskTypeValue() {
+      return taskType_;
+    }
+    /**
+     * <pre>
+     * 用于筛选的定时任务的任务类型
+     * </pre>
+     *
+     * <code>.schedule.TaskType task_type = 3;</code>
+     */
+    public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType getTaskType() {
+      @SuppressWarnings("deprecation")
+      top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType result = top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.valueOf(taskType_);
+      return result == null ? top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5521,8 +7369,8 @@ public final class ScheduleOuterClass {
       if (!getScheduleNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, scheduleName_);
       }
-      if (templateId_ != 0) {
-        output.writeInt32(3, templateId_);
+      if (taskType_ != top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.UNDEFINED.getNumber()) {
+        output.writeEnum(3, taskType_);
       }
       unknownFields.writeTo(output);
     }
@@ -5540,9 +7388,9 @@ public final class ScheduleOuterClass {
       if (!getScheduleNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, scheduleName_);
       }
-      if (templateId_ != 0) {
+      if (taskType_ != top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.UNDEFINED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, templateId_);
+          .computeEnumSize(3, taskType_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5567,8 +7415,7 @@ public final class ScheduleOuterClass {
       }
       result = result && getScheduleName()
           .equals(other.getScheduleName());
-      result = result && (getTemplateId()
-          == other.getTemplateId());
+      result = result && taskType_ == other.taskType_;
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -5586,8 +7433,8 @@ public final class ScheduleOuterClass {
       }
       hash = (37 * hash) + SCHEDULE_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getScheduleName().hashCode();
-      hash = (37 * hash) + TEMPLATE_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getTemplateId();
+      hash = (37 * hash) + TASK_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + taskType_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5733,7 +7580,7 @@ public final class ScheduleOuterClass {
         }
         scheduleName_ = "";
 
-        templateId_ = 0;
+        taskType_ = 0;
 
         return this;
       }
@@ -5767,7 +7614,7 @@ public final class ScheduleOuterClass {
           result.paging_ = pagingBuilder_.build();
         }
         result.scheduleName_ = scheduleName_;
-        result.templateId_ = templateId_;
+        result.taskType_ = taskType_;
         onBuilt();
         return result;
       }
@@ -5823,8 +7670,8 @@ public final class ScheduleOuterClass {
           scheduleName_ = other.scheduleName_;
           onChanged();
         }
-        if (other.getTemplateId() != 0) {
-          setTemplateId(other.getTemplateId());
+        if (other.taskType_ != 0) {
+          setTaskTypeValue(other.getTaskTypeValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6097,40 +7944,67 @@ public final class ScheduleOuterClass {
         return this;
       }
 
-      private int templateId_ ;
+      private int taskType_ = 0;
       /**
        * <pre>
-       * 模板ID
+       * 用于筛选的定时任务的任务类型
        * </pre>
        *
-       * <code>int32 template_id = 3;</code>
+       * <code>.schedule.TaskType task_type = 3;</code>
        */
-      public int getTemplateId() {
-        return templateId_;
+      public int getTaskTypeValue() {
+        return taskType_;
       }
       /**
        * <pre>
-       * 模板ID
+       * 用于筛选的定时任务的任务类型
        * </pre>
        *
-       * <code>int32 template_id = 3;</code>
+       * <code>.schedule.TaskType task_type = 3;</code>
        */
-      public Builder setTemplateId(int value) {
-        
-        templateId_ = value;
+      public Builder setTaskTypeValue(int value) {
+        taskType_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * 模板ID
+       * 用于筛选的定时任务的任务类型
        * </pre>
        *
-       * <code>int32 template_id = 3;</code>
+       * <code>.schedule.TaskType task_type = 3;</code>
        */
-      public Builder clearTemplateId() {
+      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType getTaskType() {
+        @SuppressWarnings("deprecation")
+        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType result = top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.valueOf(taskType_);
+        return result == null ? top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * 用于筛选的定时任务的任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 3;</code>
+       */
+      public Builder setTaskType(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
         
-        templateId_ = 0;
+        taskType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 用于筛选的定时任务的任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 3;</code>
+       */
+      public Builder clearTaskType() {
+        
+        taskType_ = 0;
         onChanged();
         return this;
       }
@@ -7615,15 +9489,6 @@ public final class ScheduleOuterClass {
 
     /**
      * <pre>
-     * 模板ID
-     * </pre>
-     *
-     * <code>int32 template_id = 2 [(.validator.field) = { ... }</code>
-     */
-    int getTemplateId();
-
-    /**
-     * <pre>
      * 定时任务名字
      * </pre>
      *
@@ -7712,7 +9577,6 @@ public final class ScheduleOuterClass {
     }
     private UpdateRequest() {
       scheduleId_ = 0;
-      templateId_ = 0;
       name_ = "";
       startTime_ = "";
       endTime_ = "";
@@ -7746,11 +9610,6 @@ public final class ScheduleOuterClass {
             case 8: {
 
               scheduleId_ = input.readInt32();
-              break;
-            }
-            case 16: {
-
-              templateId_ = input.readInt32();
               break;
             }
             case 26: {
@@ -7820,19 +9679,6 @@ public final class ScheduleOuterClass {
      */
     public int getScheduleId() {
       return scheduleId_;
-    }
-
-    public static final int TEMPLATE_ID_FIELD_NUMBER = 2;
-    private int templateId_;
-    /**
-     * <pre>
-     * 模板ID
-     * </pre>
-     *
-     * <code>int32 template_id = 2 [(.validator.field) = { ... }</code>
-     */
-    public int getTemplateId() {
-      return templateId_;
     }
 
     public static final int NAME_FIELD_NUMBER = 3;
@@ -8020,9 +9866,6 @@ public final class ScheduleOuterClass {
       if (scheduleId_ != 0) {
         output.writeInt32(1, scheduleId_);
       }
-      if (templateId_ != 0) {
-        output.writeInt32(2, templateId_);
-      }
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, name_);
       }
@@ -8047,10 +9890,6 @@ public final class ScheduleOuterClass {
       if (scheduleId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, scheduleId_);
-      }
-      if (templateId_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, templateId_);
       }
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, name_);
@@ -8082,8 +9921,6 @@ public final class ScheduleOuterClass {
       boolean result = true;
       result = result && (getScheduleId()
           == other.getScheduleId());
-      result = result && (getTemplateId()
-          == other.getTemplateId());
       result = result && getName()
           .equals(other.getName());
       result = result && getStartTime()
@@ -8105,8 +9942,6 @@ public final class ScheduleOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + SCHEDULE_ID_FIELD_NUMBER;
       hash = (53 * hash) + getScheduleId();
-      hash = (37 * hash) + TEMPLATE_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getTemplateId();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + START_TIME_FIELD_NUMBER;
@@ -8254,8 +10089,6 @@ public final class ScheduleOuterClass {
         super.clear();
         scheduleId_ = 0;
 
-        templateId_ = 0;
-
         name_ = "";
 
         startTime_ = "";
@@ -8291,7 +10124,6 @@ public final class ScheduleOuterClass {
       public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.UpdateRequest buildPartial() {
         top.fogcdn.axe.protos.schedule.ScheduleOuterClass.UpdateRequest result = new top.fogcdn.axe.protos.schedule.ScheduleOuterClass.UpdateRequest(this);
         result.scheduleId_ = scheduleId_;
-        result.templateId_ = templateId_;
         result.name_ = name_;
         result.startTime_ = startTime_;
         result.endTime_ = endTime_;
@@ -8346,9 +10178,6 @@ public final class ScheduleOuterClass {
         if (other == top.fogcdn.axe.protos.schedule.ScheduleOuterClass.UpdateRequest.getDefaultInstance()) return this;
         if (other.getScheduleId() != 0) {
           setScheduleId(other.getScheduleId());
-        }
-        if (other.getTemplateId() != 0) {
-          setTemplateId(other.getTemplateId());
         }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
@@ -8429,44 +10258,6 @@ public final class ScheduleOuterClass {
       public Builder clearScheduleId() {
         
         scheduleId_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int templateId_ ;
-      /**
-       * <pre>
-       * 模板ID
-       * </pre>
-       *
-       * <code>int32 template_id = 2 [(.validator.field) = { ... }</code>
-       */
-      public int getTemplateId() {
-        return templateId_;
-      }
-      /**
-       * <pre>
-       * 模板ID
-       * </pre>
-       *
-       * <code>int32 template_id = 2 [(.validator.field) = { ... }</code>
-       */
-      public Builder setTemplateId(int value) {
-        
-        templateId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 模板ID
-       * </pre>
-       *
-       * <code>int32 template_id = 2 [(.validator.field) = { ... }</code>
-       */
-      public Builder clearTemplateId() {
-        
-        templateId_ = 0;
         onChanged();
         return this;
       }
@@ -10912,6 +12703,11 @@ public final class ScheduleOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_schedule_ScheduleObject_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_schedule_CreateScheduleObject_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_schedule_CreateScheduleObject_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_schedule_CreateRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -10974,65 +12770,74 @@ public final class ScheduleOuterClass {
       "gle/api/annotations.proto\032,protoc-gen-sw" +
       "agger/options/annotations.proto\0326github." +
       "com/mwitkow/go-proto-validators/validato" +
-      "r.proto\032\020common/api.proto\032\027template/temp" +
-      "late.proto\"\310\001\n\016ScheduleObject\022\023\n\013schedul" +
-      "e_id\030\001 \001(\005\022*\n\010template\030\002 \001(\0132\030.template." +
-      "TemplateObject\022\014\n\004name\030\003 \001(\t\022\022\n\nstart_ti" +
-      "me\030\004 \001(\t\022\020\n\010end_time\030\005 \001(\t\022\027\n\017cron_expre" +
-      "ssion\030\006 \001(\t\022(\n\006status\030\007 \001(\0162\030.schedule.S" +
-      "cheduleStatus\"\351\002\n\rCreateRequest\0221\n\013templ" +
-      "ate_id\030\001 \001(\005B\034\342\337\037\030\020\000*\024\346\250\241\346\235\277ID\344\270\215\350\203\275\344\270\272\347" +
-      "\251\272\0221\n\004name\030\002 \001(\tB#\342\337\037\037*\033\345\256\232\346\227\266\344\273\273\345\212\241\345\220\215\344" +
-      "\270\215\350\203\275\344\270\272\347\251\272X\001\0224\n\nstart_time\030\003 \001(\tB \342\337\037\034*" +
-      "\030\345\274\200\345\247\213\346\227\266\351\227\264\344\270\215\350\203\275\344\270\272\347\251\272X\001\0222\n\010end_time\030" +
-      "\004 \001(\tB \342\337\037\034*\030\347\273\223\346\235\237\346\227\266\351\227\264\344\270\215\350\203\275\344\270\272\347\251\272X\001\022" +
-      "B\n\017cron_expression\030\005 \001(\tB)\342\337\037%*!\345\256\232\346\227\266\344\273" +
-      "\273\345\212\241\350\241\250\350\276\276\345\274\217\344\270\215\350\203\275\344\270\272\347\251\272X\001:D\222AA\n?\322\001\013tem" +
-      "plate_id\322\001\004name\322\001\nstart_time\322\001\010end_time\322" +
-      "\001\017cron_expression\"^\n\016CreateResponse\022\023\n\013s" +
-      "chedule_id\030\001 \001(\005\022\017\n\007created\030\002 \001(\t\022&\n\006sta" +
-      "tus\030\003 \001(\0132\026.common.ResponseStatus\"6\n\nGet" +
-      "Request\022\023\n\013schedule_id\030\001 \001(\005:\023\222A\020\n\016\322\001\013sc" +
-      "hedule_id\"a\n\013GetResponse\022*\n\010schedule\030\001 \001" +
-      "(\0132\030.schedule.ScheduleObject\022&\n\006status\030\002" +
-      " \001(\0132\026.common.ResponseStatus\"[\n\rFilterRe" +
-      "quest\022\036\n\006paging\030\001 \001(\0132\016.common.Paging\022\025\n" +
-      "\rschedule_name\030\002 \001(\t\022\023\n\013template_id\030\003 \001(" +
-      "\005\"\205\001\n\016FilterResponse\022+\n\tschedules\030\001 \003(\0132" +
-      "\030.schedule.ScheduleObject\022\036\n\006paging\030\002 \001(" +
-      "\0132\016.common.Paging\022&\n\006status\030\003 \001(\0132\026.comm" +
-      "on.ResponseStatus\"\260\003\n\rUpdateRequest\0227\n\013s" +
-      "chedule_id\030\001 \001(\005B\"\342\337\037\036\020\000*\032\345\256\232\346\227\266\344\273\273\345\212\241ID" +
-      "\344\270\215\350\203\275\344\270\272\347\251\272\0221\n\013template_id\030\002 \001(\005B\034\342\337\037\030\020" +
-      "\000*\024\346\250\241\346\235\277ID\344\270\215\350\203\275\344\270\272\347\251\272\0221\n\004name\030\003 \001(\tB#\342" +
+      "r.proto\032\020common/api.proto\032\017cmdb/cmdb.pro" +
+      "to\032\027template/template.proto\"\206\002\n\016Schedule" +
+      "Object\022\023\n\013schedule_id\030\001 \001(\005\022*\n\010template\030" +
+      "\002 \001(\0132\030.template.TemplateObject\022\014\n\004name\030" +
+      "\003 \001(\t\022\022\n\nstart_time\030\004 \001(\t\022\020\n\010end_time\030\005 " +
+      "\001(\t\022\027\n\017cron_expression\030\006 \001(\t\022(\n\006status\030\007" +
+      " \001(\0162\030.schedule.ScheduleStatus\022%\n\ttask_t" +
+      "ype\030\010 \001(\0162\022.schedule.TaskType\022\025\n\rexecute" +
+      "_count\030\t \001(\005\"\321\002\n\024CreateScheduleObject\0221\n" +
+      "\013template_id\030\001 \001(\005B\034\342\337\037\030\020\000*\024\346\250\241\346\235\277ID\344\270\215\350" +
+      "\203\275\344\270\272\347\251\272\0221\n\004name\030\002 \001(\tB#\342\337\037\037*\033\345\256\232\346\227\266\344\273\273\345" +
+      "\212\241\345\220\215\344\270\215\350\203\275\344\270\272\347\251\272X\001\0224\n\nstart_time\030\003 \001(\tB" +
+      " \342\337\037\034*\030\345\274\200\345\247\213\346\227\266\351\227\264\344\270\215\350\203\275\344\270\272\347\251\272X\001\0222\n\010end" +
+      "_time\030\004 \001(\tB \342\337\037\034*\030\347\273\223\346\235\237\346\227\266\351\227\264\344\270\215\350\203\275\344\270\272" +
+      "\347\251\272X\001\022B\n\017cron_expression\030\005 \001(\tB)\342\337\037%*!\345\256" +
+      "\232\346\227\266\344\273\273\345\212\241\350\241\250\350\276\276\345\274\217\344\270\215\350\203\275\344\270\272\347\251\272X\001\022%\n\ttas" +
+      "k_type\030\006 \001(\0162\022.schedule.TaskType\"\377\001\n\rCre" +
+      "ateRequest\022S\n\tschedules\030\001 \003(\0132\036.schedule" +
+      ".CreateScheduleObjectB \342\337\037\034*\030\344\273\273\345\212\241\345\206\205\345\256" +
+      "\271\344\270\215\350\203\275\344\270\272\347\251\272`\001\022]\n\023cmdb_search_request\030\002" +
+      " \001(\0132\027.cmdb.SearchHostRequestB\'\342\337\037#*\037cmd" +
+      "b\347\232\204\346\220\234\347\264\242\346\235\241\344\273\266\344\270\215\350\203\275\344\270\272\347\251\272X\001\022\021\n\textra_" +
+      "var\030\003 \001(\t:\'\222A$\n\"\322\001\tschedules\322\001\023cmdb_sear" +
+      "ch_request\"^\n\016CreateResponse\022\023\n\013schedule" +
+      "_id\030\001 \001(\005\022\017\n\007created\030\002 \001(\t\022&\n\006status\030\003 \001" +
+      "(\0132\026.common.ResponseStatus\"6\n\nGetRequest" +
+      "\022\023\n\013schedule_id\030\001 \001(\005:\023\222A\020\n\016\322\001\013schedule_" +
+      "id\"a\n\013GetResponse\022*\n\010schedule\030\001 \001(\0132\030.sc" +
+      "hedule.ScheduleObject\022&\n\006status\030\002 \001(\0132\026." +
+      "common.ResponseStatus\"m\n\rFilterRequest\022\036" +
+      "\n\006paging\030\001 \001(\0132\016.common.Paging\022\025\n\rschedu" +
+      "le_name\030\002 \001(\t\022%\n\ttask_type\030\003 \001(\0162\022.sched" +
+      "ule.TaskType\"\205\001\n\016FilterResponse\022+\n\tsched" +
+      "ules\030\001 \003(\0132\030.schedule.ScheduleObject\022\036\n\006" +
+      "paging\030\002 \001(\0132\016.common.Paging\022&\n\006status\030\003" +
+      " \001(\0132\026.common.ResponseStatus\"\357\002\n\rUpdateR" +
+      "equest\0227\n\013schedule_id\030\001 \001(\005B\"\342\337\037\036\020\000*\032\345\256\232" +
+      "\346\227\266\344\273\273\345\212\241ID\344\270\215\350\203\275\344\270\272\347\251\272\0221\n\004name\030\003 \001(\tB#\342" +
       "\337\037\037*\033\345\256\232\346\227\266\344\273\273\345\212\241\345\220\215\344\270\215\350\203\275\344\270\272\347\251\272X\001\0224\n\nst" +
       "art_time\030\004 \001(\tB \342\337\037\034*\030\345\274\200\345\247\213\346\227\266\351\227\264\344\270\215\350\203\275" +
       "\344\270\272\347\251\272X\001\0222\n\010end_time\030\005 \001(\tB \342\337\037\034*\030\347\273\223\346\235\237" +
       "\346\227\266\351\227\264\344\270\215\350\203\275\344\270\272\347\251\272X\001\022B\n\017cron_expression\030" +
       "\006 \001(\tB)\342\337\037%*!\345\256\232\346\227\266\344\273\273\345\212\241\350\241\250\350\276\276\345\274\217\344\270\215\350\203\275" +
-      "\344\270\272\347\251\272X\001:R\222AO\nM\322\001\013schedule_id\322\001\013template" +
-      "_id\322\001\004name\322\001\nstart_time\322\001\010end_time\322\001\017cro" +
-      "n_expression\"I\n\016UpdateResponse\022\017\n\007update" +
-      "d\030\001 \001(\t\022&\n\006status\030\002 \001(\0132\026.common.Respons" +
-      "eStatus\"*\n\023SwitchStatusRequest\022\023\n\013schedu" +
-      "le_id\030\001 \001(\005\">\n\024SwitchStatusResponse\022&\n\006s" +
-      "tatus\030\001 \001(\0132\026.common.ResponseStatus*!\n\016S" +
-      "cheduleStatus\022\007\n\003OFF\020\000\022\006\n\002ON\020\0012\210\004\n\010Sched" +
-      "ule\022[\n\006Create\022\027.schedule.CreateRequest\032\030" +
-      ".schedule.CreateResponse\"\036\202\323\344\223\002\030\"\023/v1/sc" +
-      "hedule/create:\001*\022X\n\006Filter\022\027.schedule.Fi" +
-      "lterRequest\032\030.schedule.FilterResponse\"\033\202" +
-      "\323\344\223\002\025\022\023/v1/schedule/filter\022Z\n\003Get\022\024.sche" +
-      "dule.GetRequest\032\025.schedule.GetResponse\"&" +
-      "\202\323\344\223\002 \022\036/v1/schedule/get/{schedule_id}\022i" +
-      "\n\006Update\022\027.schedule.UpdateRequest\032\030.sche" +
-      "dule.UpdateResponse\",\202\323\344\223\002&\"!/v1/schedul" +
-      "e/update/{schedule_id}:\001*\022~\n\014SwitchStatu" +
-      "s\022\035.schedule.SwitchStatusRequest\032\036.sched" +
-      "ule.SwitchStatusResponse\"/\202\323\344\223\002)\"\'/v1/sc" +
-      "hedule/switchStatus/{schedule_id}BJ\n\036top" +
-      ".fogcdn.axe.protos.scheduleZ(git.fogcdn." +
-      "top/axe/protos/goout/scheduleb\006proto3"
+      "\344\270\272\347\251\272X\001:D\222AA\n?\322\001\013schedule_id\322\001\004name\322\001\ns" +
+      "tart_time\322\001\010end_time\322\001\017cron_expression\"I" +
+      "\n\016UpdateResponse\022\017\n\007updated\030\001 \001(\t\022&\n\006sta" +
+      "tus\030\002 \001(\0132\026.common.ResponseStatus\"*\n\023Swi" +
+      "tchStatusRequest\022\023\n\013schedule_id\030\001 \001(\005\">\n" +
+      "\024SwitchStatusResponse\022&\n\006status\030\001 \001(\0132\026." +
+      "common.ResponseStatus*!\n\016ScheduleStatus\022" +
+      "\007\n\003OFF\020\000\022\006\n\002ON\020\001*F\n\010TaskType\022\r\n\tUNDEFINE" +
+      "D\020\000\022\014\n\010PLAYBOOK\020\001\022\r\n\tCONTAINER\020\002\022\016\n\nBARE" +
+      "_METAL\020\0032\210\004\n\010Schedule\022[\n\006Create\022\027.schedu" +
+      "le.CreateRequest\032\030.schedule.CreateRespon" +
+      "se\"\036\202\323\344\223\002\030\"\023/v1/schedule/create:\001*\022X\n\006Fi" +
+      "lter\022\027.schedule.FilterRequest\032\030.schedule" +
+      ".FilterResponse\"\033\202\323\344\223\002\025\022\023/v1/schedule/fi" +
+      "lter\022Z\n\003Get\022\024.schedule.GetRequest\032\025.sche" +
+      "dule.GetResponse\"&\202\323\344\223\002 \022\036/v1/schedule/g" +
+      "et/{schedule_id}\022i\n\006Update\022\027.schedule.Up" +
+      "dateRequest\032\030.schedule.UpdateResponse\",\202" +
+      "\323\344\223\002&\"!/v1/schedule/update/{schedule_id}" +
+      ":\001*\022~\n\014SwitchStatus\022\035.schedule.SwitchSta" +
+      "tusRequest\032\036.schedule.SwitchStatusRespon" +
+      "se\"/\202\323\344\223\002)\"\'/v1/schedule/switchStatus/{s" +
+      "chedule_id}BJ\n\036top.fogcdn.axe.protos.sch" +
+      "eduleZ(git.fogcdn.top/axe/protos/goout/s" +
+      "cheduleb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -11049,6 +12854,7 @@ public final class ScheduleOuterClass {
           grpc.gateway.protoc_gen_swagger.options.Annotations.getDescriptor(),
           validator.Validator.getDescriptor(),
           top.fogcdn.axe.protos.common.Api.getDescriptor(),
+          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.getDescriptor(),
           top.fogcdn.axe.protos.template.TemplateOuterClass.getDescriptor(),
         }, assigner);
     internal_static_schedule_ScheduleObject_descriptor =
@@ -11056,63 +12862,69 @@ public final class ScheduleOuterClass {
     internal_static_schedule_ScheduleObject_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_schedule_ScheduleObject_descriptor,
-        new java.lang.String[] { "ScheduleId", "Template", "Name", "StartTime", "EndTime", "CronExpression", "Status", });
-    internal_static_schedule_CreateRequest_descriptor =
+        new java.lang.String[] { "ScheduleId", "Template", "Name", "StartTime", "EndTime", "CronExpression", "Status", "TaskType", "ExecuteCount", });
+    internal_static_schedule_CreateScheduleObject_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_schedule_CreateScheduleObject_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_schedule_CreateScheduleObject_descriptor,
+        new java.lang.String[] { "TemplateId", "Name", "StartTime", "EndTime", "CronExpression", "TaskType", });
+    internal_static_schedule_CreateRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_schedule_CreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_schedule_CreateRequest_descriptor,
-        new java.lang.String[] { "TemplateId", "Name", "StartTime", "EndTime", "CronExpression", });
+        new java.lang.String[] { "Schedules", "CmdbSearchRequest", "ExtraVar", });
     internal_static_schedule_CreateResponse_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_schedule_CreateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_schedule_CreateResponse_descriptor,
         new java.lang.String[] { "ScheduleId", "Created", "Status", });
     internal_static_schedule_GetRequest_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_schedule_GetRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_schedule_GetRequest_descriptor,
         new java.lang.String[] { "ScheduleId", });
     internal_static_schedule_GetResponse_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_schedule_GetResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_schedule_GetResponse_descriptor,
         new java.lang.String[] { "Schedule", "Status", });
     internal_static_schedule_FilterRequest_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_schedule_FilterRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_schedule_FilterRequest_descriptor,
-        new java.lang.String[] { "Paging", "ScheduleName", "TemplateId", });
+        new java.lang.String[] { "Paging", "ScheduleName", "TaskType", });
     internal_static_schedule_FilterResponse_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_schedule_FilterResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_schedule_FilterResponse_descriptor,
         new java.lang.String[] { "Schedules", "Paging", "Status", });
     internal_static_schedule_UpdateRequest_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_schedule_UpdateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_schedule_UpdateRequest_descriptor,
-        new java.lang.String[] { "ScheduleId", "TemplateId", "Name", "StartTime", "EndTime", "CronExpression", });
+        new java.lang.String[] { "ScheduleId", "Name", "StartTime", "EndTime", "CronExpression", });
     internal_static_schedule_UpdateResponse_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_schedule_UpdateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_schedule_UpdateResponse_descriptor,
         new java.lang.String[] { "Updated", "Status", });
     internal_static_schedule_SwitchStatusRequest_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_schedule_SwitchStatusRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_schedule_SwitchStatusRequest_descriptor,
         new java.lang.String[] { "ScheduleId", });
     internal_static_schedule_SwitchStatusResponse_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_schedule_SwitchStatusResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_schedule_SwitchStatusResponse_descriptor,
@@ -11128,6 +12940,7 @@ public final class ScheduleOuterClass {
     grpc.gateway.protoc_gen_swagger.options.Annotations.getDescriptor();
     validator.Validator.getDescriptor();
     top.fogcdn.axe.protos.common.Api.getDescriptor();
+    top.fogcdn.axe.protos.cmdb.CmdbOuterClass.getDescriptor();
     top.fogcdn.axe.protos.template.TemplateOuterClass.getDescriptor();
   }
 

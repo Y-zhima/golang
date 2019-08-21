@@ -6,9 +6,12 @@ package job
 import (
 	context "context"
 	fmt "fmt"
+	cmdb "git.fogcdn.top/axe/protos/goout/cmdb"
 	common "git.fogcdn.top/axe/protos/goout/common"
+	schedule "git.fogcdn.top/axe/protos/goout/schedule"
 	proto "github.com/golang/protobuf/proto"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
+	_ "github.com/mwitkow/go-proto-validators"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
@@ -27,10 +30,66 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
+// 定时任务类型 0-undefined 1-单次任务 2-定时任务
+type ScheduleType int32
+
+const (
+	// 0-undefined
+	ScheduleType_UNDEFINED ScheduleType = 0
+	// 1-单次任务
+	ScheduleType_SINGLE ScheduleType = 1
+	// 2-定时任务
+	ScheduleType_CRONTAB ScheduleType = 2
+)
+
+var ScheduleType_name = map[int32]string{
+	0: "UNDEFINED",
+	1: "SINGLE",
+	2: "CRONTAB",
+}
+
+var ScheduleType_value = map[string]int32{
+	"UNDEFINED": 0,
+	"SINGLE":    1,
+	"CRONTAB":   2,
+}
+
+func (x ScheduleType) String() string {
+	return proto.EnumName(ScheduleType_name, int32(x))
+}
+
+func (ScheduleType) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_c3f97a06ee6e4937, []int{0}
+}
+
 // 作业任务实例
 type JobObject struct {
 	// 作业任务ID
-	JobId                int32    `protobuf:"varint,1,opt,name=job_id,json=jobId,proto3" json:"job_id,omitempty"`
+	JobId int32 `protobuf:"varint,1,opt,name=job_id,json=jobId,proto3" json:"job_id,omitempty"`
+	// 模板ID
+	TemplateId int32 `protobuf:"varint,2,opt,name=template_id,json=templateId,proto3" json:"template_id,omitempty"`
+	// 定时任务ID
+	ScheduleId int32 `protobuf:"varint,3,opt,name=schedule_id,json=scheduleId,proto3" json:"schedule_id,omitempty"`
+	// 定时任务类型
+	ScheduleType ScheduleType `protobuf:"varint,4,opt,name=schedule_type,json=scheduleType,proto3,enum=job.ScheduleType" json:"schedule_type,omitempty"`
+	// 任务类型
+	TaskType schedule.TaskType `protobuf:"varint,5,opt,name=task_type,json=taskType,proto3,enum=schedule.TaskType" json:"task_type,omitempty"`
+	// cmdb的搜索条件
+	CmdbSearchRequest *cmdb.SearchHostRequest `protobuf:"bytes,6,opt,name=cmdb_search_request,json=cmdbSearchRequest,proto3" json:"cmdb_search_request,omitempty"`
+	// 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+	ExtraVar string `protobuf:"bytes,7,opt,name=extra_var,json=extraVar,proto3" json:"extra_var,omitempty"`
+	// 执行人ID
+	Executor int32 `protobuf:"varint,8,opt,name=executor,proto3" json:"executor,omitempty"`
+	// 总共执行多少主机
+	ExecuteCount int32 `protobuf:"varint,9,opt,name=execute_count,json=executeCount,proto3" json:"execute_count,omitempty"`
+	// 执行失败多少台主机
+	FailCount int32 `protobuf:"varint,10,opt,name=fail_count,json=failCount,proto3" json:"fail_count,omitempty"`
+	// 执行成功多少台主机
+	SuccessCount int32 `protobuf:"varint,11,opt,name=success_count,json=successCount,proto3" json:"success_count,omitempty"`
+	// 执行开始时间
+	StartTime int32 `protobuf:"varint,12,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	// 执行结束时间
+	EndTime              int32    `protobuf:"varint,13,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -68,8 +127,102 @@ func (m *JobObject) GetJobId() int32 {
 	return 0
 }
 
-// 创建作业任务(执行作业模板)请求
+func (m *JobObject) GetTemplateId() int32 {
+	if m != nil {
+		return m.TemplateId
+	}
+	return 0
+}
+
+func (m *JobObject) GetScheduleId() int32 {
+	if m != nil {
+		return m.ScheduleId
+	}
+	return 0
+}
+
+func (m *JobObject) GetScheduleType() ScheduleType {
+	if m != nil {
+		return m.ScheduleType
+	}
+	return ScheduleType_UNDEFINED
+}
+
+func (m *JobObject) GetTaskType() schedule.TaskType {
+	if m != nil {
+		return m.TaskType
+	}
+	return schedule.TaskType_UNDEFINED
+}
+
+func (m *JobObject) GetCmdbSearchRequest() *cmdb.SearchHostRequest {
+	if m != nil {
+		return m.CmdbSearchRequest
+	}
+	return nil
+}
+
+func (m *JobObject) GetExtraVar() string {
+	if m != nil {
+		return m.ExtraVar
+	}
+	return ""
+}
+
+func (m *JobObject) GetExecutor() int32 {
+	if m != nil {
+		return m.Executor
+	}
+	return 0
+}
+
+func (m *JobObject) GetExecuteCount() int32 {
+	if m != nil {
+		return m.ExecuteCount
+	}
+	return 0
+}
+
+func (m *JobObject) GetFailCount() int32 {
+	if m != nil {
+		return m.FailCount
+	}
+	return 0
+}
+
+func (m *JobObject) GetSuccessCount() int32 {
+	if m != nil {
+		return m.SuccessCount
+	}
+	return 0
+}
+
+func (m *JobObject) GetStartTime() int32 {
+	if m != nil {
+		return m.StartTime
+	}
+	return 0
+}
+
+func (m *JobObject) GetEndTime() int32 {
+	if m != nil {
+		return m.EndTime
+	}
+	return 0
+}
+
+// 创建任务实例请求
 type CreateRequest struct {
+	// 模板ID
+	TemplateId int32 `protobuf:"varint,1,opt,name=template_id,json=templateId,proto3" json:"template_id,omitempty"`
+	// 定时任务名
+	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	// 任务类型
+	TaskType schedule.TaskType `protobuf:"varint,3,opt,name=task_type,json=taskType,proto3,enum=schedule.TaskType" json:"task_type,omitempty"`
+	// cmdb的搜索条件
+	CmdbSearchRequest *cmdb.SearchHostRequest `protobuf:"bytes,4,opt,name=cmdb_search_request,json=cmdbSearchRequest,proto3" json:"cmdb_search_request,omitempty"`
+	// 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+	ExtraVar             string   `protobuf:"bytes,5,opt,name=extra_var,json=extraVar,proto3" json:"extra_var,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -100,12 +253,47 @@ func (m *CreateRequest) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_CreateRequest proto.InternalMessageInfo
 
-// 创建作业任务请求返回
+func (m *CreateRequest) GetTemplateId() int32 {
+	if m != nil {
+		return m.TemplateId
+	}
+	return 0
+}
+
+func (m *CreateRequest) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *CreateRequest) GetTaskType() schedule.TaskType {
+	if m != nil {
+		return m.TaskType
+	}
+	return schedule.TaskType_UNDEFINED
+}
+
+func (m *CreateRequest) GetCmdbSearchRequest() *cmdb.SearchHostRequest {
+	if m != nil {
+		return m.CmdbSearchRequest
+	}
+	return nil
+}
+
+func (m *CreateRequest) GetExtraVar() string {
+	if m != nil {
+		return m.ExtraVar
+	}
+	return ""
+}
+
+// 创建任务实例请求返回
 type CreateResponse struct {
-	// 作业任务ID
+	// 任务实例ID
 	JobId int32 `protobuf:"varint,1,opt,name=job_id,json=jobId,proto3" json:"job_id,omitempty"`
 	// 返回的请求状态
-	Status               *common.ResponseStatus `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
+	Status               *common.ResponseStatus `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`
 	XXX_sizecache        int32                  `json:"-"`
@@ -423,226 +611,8 @@ func (m *FilterResponse) GetStatus() *common.ResponseStatus {
 	return nil
 }
 
-// 创建定时作业任务请求
-type ScheduleRequest struct {
-	// 作业任务ID
-	JobId                int32    `protobuf:"varint,1,opt,name=job_id,json=jobId,proto3" json:"job_id,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *ScheduleRequest) Reset()         { *m = ScheduleRequest{} }
-func (m *ScheduleRequest) String() string { return proto.CompactTextString(m) }
-func (*ScheduleRequest) ProtoMessage()    {}
-func (*ScheduleRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_c3f97a06ee6e4937, []int{9}
-}
-
-func (m *ScheduleRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ScheduleRequest.Unmarshal(m, b)
-}
-func (m *ScheduleRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ScheduleRequest.Marshal(b, m, deterministic)
-}
-func (m *ScheduleRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ScheduleRequest.Merge(m, src)
-}
-func (m *ScheduleRequest) XXX_Size() int {
-	return xxx_messageInfo_ScheduleRequest.Size(m)
-}
-func (m *ScheduleRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_ScheduleRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ScheduleRequest proto.InternalMessageInfo
-
-func (m *ScheduleRequest) GetJobId() int32 {
-	if m != nil {
-		return m.JobId
-	}
-	return 0
-}
-
-// 创建定时作业任务请求返回
-type ScheduleResponse struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *ScheduleResponse) Reset()         { *m = ScheduleResponse{} }
-func (m *ScheduleResponse) String() string { return proto.CompactTextString(m) }
-func (*ScheduleResponse) ProtoMessage()    {}
-func (*ScheduleResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_c3f97a06ee6e4937, []int{10}
-}
-
-func (m *ScheduleResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ScheduleResponse.Unmarshal(m, b)
-}
-func (m *ScheduleResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ScheduleResponse.Marshal(b, m, deterministic)
-}
-func (m *ScheduleResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ScheduleResponse.Merge(m, src)
-}
-func (m *ScheduleResponse) XXX_Size() int {
-	return xxx_messageInfo_ScheduleResponse.Size(m)
-}
-func (m *ScheduleResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_ScheduleResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ScheduleResponse proto.InternalMessageInfo
-
-// 查看定时作业任务请求
-type ScheduleListRequest struct {
-	// 作业任务ID
-	JobId                int32    `protobuf:"varint,1,opt,name=job_id,json=jobId,proto3" json:"job_id,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *ScheduleListRequest) Reset()         { *m = ScheduleListRequest{} }
-func (m *ScheduleListRequest) String() string { return proto.CompactTextString(m) }
-func (*ScheduleListRequest) ProtoMessage()    {}
-func (*ScheduleListRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_c3f97a06ee6e4937, []int{11}
-}
-
-func (m *ScheduleListRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ScheduleListRequest.Unmarshal(m, b)
-}
-func (m *ScheduleListRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ScheduleListRequest.Marshal(b, m, deterministic)
-}
-func (m *ScheduleListRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ScheduleListRequest.Merge(m, src)
-}
-func (m *ScheduleListRequest) XXX_Size() int {
-	return xxx_messageInfo_ScheduleListRequest.Size(m)
-}
-func (m *ScheduleListRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_ScheduleListRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ScheduleListRequest proto.InternalMessageInfo
-
-func (m *ScheduleListRequest) GetJobId() int32 {
-	if m != nil {
-		return m.JobId
-	}
-	return 0
-}
-
-// 查看定时作业任务请求返回
-type ScheduleListResponse struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *ScheduleListResponse) Reset()         { *m = ScheduleListResponse{} }
-func (m *ScheduleListResponse) String() string { return proto.CompactTextString(m) }
-func (*ScheduleListResponse) ProtoMessage()    {}
-func (*ScheduleListResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_c3f97a06ee6e4937, []int{12}
-}
-
-func (m *ScheduleListResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ScheduleListResponse.Unmarshal(m, b)
-}
-func (m *ScheduleListResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ScheduleListResponse.Marshal(b, m, deterministic)
-}
-func (m *ScheduleListResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ScheduleListResponse.Merge(m, src)
-}
-func (m *ScheduleListResponse) XXX_Size() int {
-	return xxx_messageInfo_ScheduleListResponse.Size(m)
-}
-func (m *ScheduleListResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_ScheduleListResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ScheduleListResponse proto.InternalMessageInfo
-
-// 删除作业任务请求
-type DeleteRequest struct {
-	// 作业任务ID
-	JobId                int32    `protobuf:"varint,1,opt,name=job_id,json=jobId,proto3" json:"job_id,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *DeleteRequest) Reset()         { *m = DeleteRequest{} }
-func (m *DeleteRequest) String() string { return proto.CompactTextString(m) }
-func (*DeleteRequest) ProtoMessage()    {}
-func (*DeleteRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_c3f97a06ee6e4937, []int{13}
-}
-
-func (m *DeleteRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_DeleteRequest.Unmarshal(m, b)
-}
-func (m *DeleteRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_DeleteRequest.Marshal(b, m, deterministic)
-}
-func (m *DeleteRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DeleteRequest.Merge(m, src)
-}
-func (m *DeleteRequest) XXX_Size() int {
-	return xxx_messageInfo_DeleteRequest.Size(m)
-}
-func (m *DeleteRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_DeleteRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_DeleteRequest proto.InternalMessageInfo
-
-func (m *DeleteRequest) GetJobId() int32 {
-	if m != nil {
-		return m.JobId
-	}
-	return 0
-}
-
-// 删除作业任务请求返回
-type DeleteResponse struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *DeleteResponse) Reset()         { *m = DeleteResponse{} }
-func (m *DeleteResponse) String() string { return proto.CompactTextString(m) }
-func (*DeleteResponse) ProtoMessage()    {}
-func (*DeleteResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_c3f97a06ee6e4937, []int{14}
-}
-
-func (m *DeleteResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_DeleteResponse.Unmarshal(m, b)
-}
-func (m *DeleteResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_DeleteResponse.Marshal(b, m, deterministic)
-}
-func (m *DeleteResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DeleteResponse.Merge(m, src)
-}
-func (m *DeleteResponse) XXX_Size() int {
-	return xxx_messageInfo_DeleteResponse.Size(m)
-}
-func (m *DeleteResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_DeleteResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_DeleteResponse proto.InternalMessageInfo
-
 func init() {
+	proto.RegisterEnum("job.ScheduleType", ScheduleType_name, ScheduleType_value)
 	proto.RegisterType((*JobObject)(nil), "job.JobObject")
 	proto.RegisterType((*CreateRequest)(nil), "job.CreateRequest")
 	proto.RegisterType((*CreateResponse)(nil), "job.CreateResponse")
@@ -652,51 +622,73 @@ func init() {
 	proto.RegisterType((*GetLogResponse)(nil), "job.GetLogResponse")
 	proto.RegisterType((*FilterRequest)(nil), "job.FilterRequest")
 	proto.RegisterType((*FilterResponse)(nil), "job.FilterResponse")
-	proto.RegisterType((*ScheduleRequest)(nil), "job.ScheduleRequest")
-	proto.RegisterType((*ScheduleResponse)(nil), "job.ScheduleResponse")
-	proto.RegisterType((*ScheduleListRequest)(nil), "job.ScheduleListRequest")
-	proto.RegisterType((*ScheduleListResponse)(nil), "job.ScheduleListResponse")
-	proto.RegisterType((*DeleteRequest)(nil), "job.DeleteRequest")
-	proto.RegisterType((*DeleteResponse)(nil), "job.DeleteResponse")
 }
 
 func init() { proto.RegisterFile("job/job.proto", fileDescriptor_c3f97a06ee6e4937) }
 
 var fileDescriptor_c3f97a06ee6e4937 = []byte{
-	// 525 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x54, 0x4d, 0x6b, 0xdb, 0x40,
-	0x10, 0x8d, 0xa3, 0x46, 0xb4, 0xe3, 0xfa, 0x83, 0xcd, 0x07, 0x8e, 0xe8, 0xc1, 0x6c, 0xc0, 0x98,
-	0x92, 0x48, 0x60, 0x1f, 0x4a, 0x6f, 0xa1, 0x5f, 0xa6, 0x21, 0xd0, 0xa2, 0x1c, 0x0a, 0xbd, 0x04,
-	0xad, 0xbc, 0xdd, 0x4a, 0x38, 0x1a, 0xd5, 0xbb, 0xa6, 0xf9, 0x07, 0xbd, 0xf4, 0x47, 0x17, 0xed,
-	0xae, 0x6c, 0x6d, 0x9a, 0xd4, 0xcd, 0x49, 0xf0, 0xde, 0x9b, 0x79, 0x33, 0xb3, 0x33, 0x82, 0x4e,
-	0x8e, 0x2c, 0xca, 0x91, 0x85, 0xe5, 0x12, 0x15, 0x12, 0x2f, 0x47, 0x16, 0xf4, 0x53, 0xbc, 0xb9,
-	0xc1, 0x22, 0x4a, 0xca, 0xcc, 0xc0, 0xc1, 0x0b, 0x81, 0x28, 0x16, 0xbc, 0x42, 0xa2, 0xa4, 0x28,
-	0x50, 0x25, 0x2a, 0xc3, 0x42, 0x5a, 0xf6, 0x54, 0x7f, 0xd2, 0x33, 0xc1, 0x8b, 0x33, 0xf9, 0x33,
-	0x11, 0x82, 0x2f, 0x23, 0x2c, 0xb5, 0xe2, 0x6f, 0x35, 0xa5, 0xf0, 0xec, 0x02, 0xd9, 0x27, 0x96,
-	0xf3, 0x54, 0x91, 0x43, 0xf0, 0x73, 0x64, 0xd7, 0xd9, 0x7c, 0xd0, 0x1a, 0xb6, 0xc6, 0x7b, 0xf1,
-	0x5e, 0x8e, 0xec, 0xe3, 0x9c, 0xf6, 0xa0, 0xf3, 0x76, 0xc9, 0x13, 0xc5, 0x63, 0xfe, 0x63, 0xc5,
-	0xa5, 0xa2, 0x5f, 0xa0, 0x5b, 0x03, 0xb2, 0xc4, 0x42, 0xf2, 0x07, 0x22, 0x49, 0x08, 0xbe, 0x54,
-	0x89, 0x5a, 0xc9, 0xc1, 0xee, 0xb0, 0x35, 0x6e, 0x4f, 0x8e, 0x42, 0xd3, 0x4c, 0x58, 0x07, 0x5e,
-	0x69, 0x36, 0xb6, 0x2a, 0x7a, 0x02, 0x30, 0xe3, 0xca, 0xda, 0x3c, 0x54, 0xce, 0x35, 0xb4, 0xb5,
-	0xc8, 0x5a, 0x0f, 0xa1, 0x1a, 0x93, 0x96, 0xb4, 0x27, 0xdd, 0xb0, 0x9a, 0xde, 0xba, 0xa3, 0xb8,
-	0xa2, 0x1e, 0x5d, 0xc5, 0x08, 0x3a, 0x33, 0xae, 0x2e, 0x51, 0x6c, 0x29, 0xe4, 0x1c, 0xba, 0xb5,
-	0xce, 0xd6, 0xf2, 0x58, 0xa7, 0x57, 0xd0, 0xf9, 0x90, 0x2d, 0x14, 0x5f, 0xd6, 0x4e, 0x23, 0xf0,
-	0xcb, 0x44, 0x64, 0x85, 0x58, 0xf7, 0x63, 0x13, 0x7c, 0xd6, 0x68, 0x6c, 0x59, 0xfa, 0xbb, 0x05,
-	0xdd, 0x3a, 0xd2, 0x7a, 0x53, 0x78, 0x92, 0x23, 0x93, 0x83, 0xd6, 0xd0, 0xbb, 0x67, 0x10, 0x9a,
-	0x6b, 0xa4, 0xdf, 0xfd, 0x57, 0xfa, 0x46, 0x1f, 0xde, 0x7f, 0xf5, 0x31, 0x86, 0xde, 0x55, 0xfa,
-	0x9d, 0xcf, 0x57, 0x0b, 0xbe, 0x65, 0x66, 0x04, 0xfa, 0x1b, 0xa5, 0xc9, 0x45, 0x4f, 0x61, 0xbf,
-	0xc6, 0x2e, 0x33, 0xb9, 0xed, 0xf9, 0x8f, 0xe0, 0xc0, 0x55, 0xdb, 0x2c, 0x23, 0xe8, 0xbc, 0xe3,
-	0x0b, 0xae, 0xb6, 0x55, 0xd0, 0x87, 0x6e, 0xad, 0x33, 0x91, 0x93, 0x5f, 0x1e, 0x78, 0x17, 0xc8,
-	0xc8, 0x14, 0x7c, 0xb3, 0xd6, 0x84, 0xe8, 0xe9, 0x39, 0x4b, 0x1f, 0xec, 0x3b, 0x98, 0x35, 0xdd,
-	0x21, 0xaf, 0xe1, 0x69, 0x5d, 0x0e, 0x39, 0xd0, 0x92, 0x3b, 0x93, 0x08, 0x0e, 0xef, 0xa0, 0xeb,
-	0xd0, 0xf7, 0xf0, 0xbc, 0xd9, 0x09, 0x19, 0x38, 0xc2, 0xc6, 0x28, 0x82, 0xe3, 0x7b, 0x98, 0x75,
-	0x9a, 0x29, 0xf8, 0x66, 0x15, 0x6c, 0xd9, 0xce, 0x46, 0xd9, 0xb2, 0xdd, 0x5d, 0xa1, 0x3b, 0xe4,
-	0x25, 0x78, 0x33, 0xae, 0x48, 0x4f, 0xb3, 0x9b, 0x9b, 0x0b, 0xfa, 0x1b, 0xa0, 0x69, 0x60, 0xf6,
-	0xdc, 0x1a, 0x38, 0xc7, 0x61, 0x0d, 0xdc, 0x43, 0x30, 0x41, 0x66, 0xcc, 0x36, 0xc8, 0x79, 0x1b,
-	0x1b, 0xe4, 0xbe, 0x03, 0xdd, 0x79, 0x73, 0x0e, 0xc7, 0x0a, 0xcb, 0xf0, 0x1b, 0x8a, 0x74, 0x5e,
-	0x84, 0xc9, 0x2d, 0x37, 0x7f, 0x29, 0x59, 0xa9, 0xbf, 0x9e, 0x88, 0x4c, 0xd5, 0x94, 0xc2, 0x32,
-	0x4a, 0x6e, 0x79, 0x64, 0xe8, 0x48, 0x20, 0xae, 0x54, 0xf5, 0xe3, 0x64, 0xbe, 0x46, 0xa6, 0x7f,
-	0x02, 0x00, 0x00, 0xff, 0xff, 0x83, 0x38, 0x68, 0x12, 0x4a, 0x05, 0x00, 0x00,
+	// 969 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x55, 0x4d, 0x6b, 0x1b, 0x47,
+	0x18, 0xf6, 0x4a, 0xb6, 0x6c, 0xbd, 0xb2, 0x14, 0x65, 0xdc, 0x26, 0xb2, 0x92, 0x22, 0xb1, 0x2a,
+	0x89, 0x11, 0xf5, 0x2e, 0x55, 0xc0, 0x81, 0x40, 0x21, 0x91, 0xed, 0xa8, 0x0a, 0xc6, 0x29, 0x6b,
+	0xf7, 0x83, 0x5e, 0xc4, 0xec, 0x6a, 0xbc, 0x5e, 0x59, 0xda, 0xd9, 0xee, 0x8c, 0x6c, 0xe7, 0xda,
+	0xf6, 0x54, 0x1a, 0x08, 0xed, 0xa1, 0x10, 0x9a, 0x83, 0x7b, 0x6a, 0x2f, 0x3d, 0x95, 0x10, 0x62,
+	0x4a, 0xff, 0x43, 0xfa, 0x03, 0x0c, 0x46, 0x96, 0x7b, 0x2c, 0xfd, 0x03, 0x2d, 0x3b, 0x3b, 0xab,
+	0x68, 0x8b, 0xf3, 0x75, 0x91, 0x66, 0x9f, 0xe7, 0x79, 0xbf, 0xdf, 0xd9, 0x85, 0x6c, 0x87, 0x9a,
+	0x7a, 0x87, 0x9a, 0x9a, 0xe7, 0x53, 0x4e, 0x51, 0xb2, 0x43, 0xcd, 0xe2, 0x65, 0x9b, 0x52, 0xbb,
+	0x4b, 0x74, 0xec, 0x39, 0x3a, 0x76, 0x5d, 0xca, 0x31, 0x77, 0xa8, 0xcb, 0x42, 0x49, 0xf1, 0x3d,
+	0xf1, 0x67, 0x2d, 0xda, 0xc4, 0x5d, 0x64, 0x7b, 0xd8, 0xb6, 0x89, 0xaf, 0x53, 0x4f, 0x28, 0xce,
+	0x50, 0x2f, 0xd9, 0x0e, 0xdf, 0xee, 0x9b, 0x9a, 0x45, 0x7b, 0x7a, 0x6f, 0xcf, 0xe1, 0x3b, 0x74,
+	0x4f, 0xb7, 0xe9, 0xa2, 0x20, 0x17, 0x77, 0x71, 0xd7, 0x69, 0x63, 0x4e, 0x7d, 0xa6, 0x8f, 0x8e,
+	0xd2, 0x2e, 0x6f, 0xd1, 0x5e, 0x8f, 0xba, 0x41, 0x0e, 0x12, 0xb9, 0xc8, 0xac, 0x6d, 0xd2, 0xee,
+	0x77, 0x89, 0x1e, 0x1d, 0x24, 0x71, 0xce, 0xea, 0xb5, 0x4d, 0x3d, 0xf8, 0x09, 0x01, 0xf5, 0x9f,
+	0x24, 0xa4, 0xef, 0x50, 0xf3, 0xae, 0xd9, 0x21, 0x16, 0x47, 0x6f, 0x43, 0xaa, 0x43, 0xcd, 0x96,
+	0xd3, 0x2e, 0x28, 0x65, 0x65, 0x61, 0xca, 0x98, 0xea, 0x50, 0xb3, 0xd9, 0x46, 0x25, 0xc8, 0x70,
+	0xd2, 0xf3, 0xba, 0x98, 0x93, 0x80, 0x4b, 0x08, 0x0e, 0x22, 0x28, 0x14, 0x44, 0x81, 0x02, 0x41,
+	0x32, 0x14, 0x44, 0x50, 0xb3, 0x8d, 0x96, 0x20, 0x3b, 0x12, 0xf0, 0x7b, 0x1e, 0x29, 0x4c, 0x96,
+	0x95, 0x85, 0x5c, 0xed, 0xbc, 0x16, 0xb4, 0x73, 0x43, 0x32, 0x9b, 0xf7, 0x3c, 0x62, 0xcc, 0xb2,
+	0xb1, 0x27, 0xa4, 0x43, 0x9a, 0x63, 0xb6, 0x13, 0xda, 0x4c, 0x09, 0x1b, 0xa4, 0x8d, 0x6a, 0xda,
+	0xc4, 0x6c, 0x47, 0x18, 0xcd, 0x70, 0x79, 0x42, 0x0d, 0x98, 0x0b, 0xaa, 0x6b, 0x31, 0x82, 0x7d,
+	0x6b, 0xbb, 0xe5, 0x93, 0x2f, 0xfa, 0x84, 0xf1, 0x42, 0xaa, 0xac, 0x2c, 0x64, 0x6a, 0x17, 0x35,
+	0x51, 0xf9, 0x86, 0xe0, 0x3e, 0xa4, 0x8c, 0x1b, 0x21, 0x6d, 0x9c, 0x0f, 0xf0, 0x10, 0x96, 0x10,
+	0xba, 0x04, 0x69, 0xb2, 0xcf, 0x7d, 0xdc, 0xda, 0xc5, 0x7e, 0x61, 0xba, 0xac, 0x2c, 0xa4, 0x8d,
+	0x19, 0x01, 0x7c, 0x82, 0x7d, 0x54, 0x84, 0x19, 0xb2, 0x4f, 0xac, 0x3e, 0xa7, 0x7e, 0x61, 0x46,
+	0x14, 0x3b, 0x7a, 0x46, 0x15, 0xc8, 0x86, 0x67, 0xd2, 0xb2, 0x68, 0xdf, 0xe5, 0x85, 0xb4, 0x10,
+	0xcc, 0x4a, 0x70, 0x39, 0xc0, 0xd0, 0x3b, 0x00, 0x5b, 0xd8, 0xe9, 0x4a, 0x05, 0x08, 0x45, 0x3a,
+	0x40, 0x42, 0xba, 0x02, 0x59, 0xd6, 0xb7, 0x2c, 0xc2, 0x98, 0x54, 0x64, 0x42, 0x1f, 0x12, 0x1c,
+	0xf9, 0x60, 0x1c, 0xfb, 0xbc, 0xc5, 0x9d, 0x1e, 0x29, 0xcc, 0x86, 0x3e, 0x04, 0xb2, 0xe9, 0xf4,
+	0x08, 0x9a, 0x87, 0x19, 0xe2, 0xb6, 0x43, 0x32, 0x2b, 0xc8, 0x69, 0xe2, 0xb6, 0x03, 0x4a, 0xfd,
+	0x3b, 0x01, 0xd9, 0x65, 0x9f, 0x60, 0x4e, 0xa2, 0x6a, 0x3f, 0x88, 0x4f, 0x58, 0x4c, 0xbf, 0x7e,
+	0xf9, 0xf8, 0xa8, 0x54, 0xc8, 0x4f, 0x54, 0xdf, 0x1a, 0xfe, 0x7c, 0x30, 0x7c, 0xf4, 0x47, 0x73,
+	0x65, 0xf0, 0xe4, 0xfe, 0x5f, 0x5f, 0xfd, 0x3e, 0x78, 0xf2, 0xf4, 0xf4, 0x97, 0xa7, 0xb1, 0xf9,
+	0x5f, 0x87, 0x49, 0x17, 0xf7, 0x88, 0xd8, 0x8c, 0x74, 0xbd, 0x72, 0x7c, 0x54, 0x2a, 0x55, 0x2f,
+	0x9d, 0xfc, 0xfa, 0x70, 0xf8, 0xc3, 0xe3, 0xc1, 0xe1, 0xe1, 0xc9, 0x37, 0x07, 0x27, 0x0f, 0xee,
+	0x8f, 0x1b, 0x7f, 0xa6, 0x18, 0xc2, 0x20, 0x3e, 0xdf, 0xe4, 0x6b, 0xcc, 0xd7, 0x3b, 0x7b, 0xbe,
+	0x93, 0x2f, 0x9d, 0x6f, 0xfd, 0xea, 0xf1, 0x51, 0xa9, 0x52, 0x2d, 0x05, 0xec, 0xe9, 0xc3, 0xaf,
+	0x87, 0x0f, 0x7e, 0x3c, 0xfd, 0xed, 0xa7, 0xe1, 0xa3, 0x83, 0xc1, 0xe1, 0xe3, 0xff, 0x65, 0xf5,
+	0xaa, 0x45, 0x98, 0x8a, 0x2f, 0xc2, 0x8d, 0xab, 0xdf, 0xdd, 0x7a, 0x17, 0xd4, 0x67, 0x4a, 0x3a,
+	0xca, 0x99, 0x3d, 0x53, 0xce, 0x4a, 0x50, 0xfd, 0x14, 0x72, 0x51, 0xc7, 0x99, 0x47, 0x5d, 0x46,
+	0x5e, 0x74, 0xd7, 0x34, 0x48, 0x31, 0x8e, 0x79, 0x9f, 0x89, 0x76, 0x64, 0x6a, 0x17, 0xb4, 0xf0,
+	0x76, 0x6b, 0x91, 0xe1, 0x86, 0x60, 0x0d, 0xa9, 0x52, 0x2b, 0x00, 0x0d, 0x12, 0x15, 0xfa, 0x02,
+	0xa7, 0x6a, 0x0b, 0x32, 0x42, 0x24, 0x43, 0x97, 0x21, 0x78, 0x77, 0x09, 0x49, 0xa6, 0x96, 0x13,
+	0x77, 0x70, 0xf4, 0x0e, 0x30, 0x02, 0x6a, 0x2c, 0x8b, 0xc4, 0x6b, 0x65, 0x71, 0x05, 0xb2, 0x0d,
+	0xc2, 0xd7, 0xa8, 0xfd, 0x8a, 0x44, 0x6e, 0x42, 0x2e, 0xd2, 0xc9, 0x5c, 0xde, 0x34, 0xd2, 0x75,
+	0xc8, 0xde, 0x76, 0xba, 0x9c, 0xf8, 0x51, 0xa4, 0x2b, 0x90, 0xf2, 0xb0, 0xed, 0xb8, 0xf6, 0xa8,
+	0x1e, 0xe9, 0xe0, 0x23, 0x81, 0x1a, 0x92, 0x55, 0xbf, 0x55, 0x20, 0x17, 0x59, 0xca, 0xd8, 0x2a,
+	0x4c, 0x76, 0xa8, 0xc9, 0x0a, 0x4a, 0x39, 0x79, 0x46, 0x23, 0x04, 0x37, 0xe6, 0x3e, 0xf1, 0x32,
+	0xf7, 0x6f, 0x3a, 0xb7, 0xea, 0x12, 0xcc, 0x8e, 0xbf, 0xf7, 0x50, 0x16, 0xd2, 0x1f, 0xaf, 0xaf,
+	0xac, 0xde, 0x6e, 0xae, 0xaf, 0xae, 0xe4, 0x27, 0x10, 0x40, 0x6a, 0xa3, 0xb9, 0xde, 0x58, 0x5b,
+	0xcd, 0x2b, 0x28, 0x03, 0xd3, 0xcb, 0xc6, 0xdd, 0xf5, 0xcd, 0x5b, 0xf5, 0x7c, 0xa2, 0xf6, 0xaf,
+	0x02, 0xc9, 0x3b, 0xd4, 0x44, 0x6b, 0x90, 0x0a, 0x17, 0x0a, 0x21, 0x91, 0x77, 0xec, 0x3e, 0x17,
+	0xe7, 0x62, 0x58, 0x98, 0x80, 0x3a, 0xff, 0xe5, 0x9f, 0x83, 0xef, 0x13, 0x73, 0x6a, 0x4e, 0xdf,
+	0x7d, 0x3f, 0xf8, 0x8e, 0xe9, 0x96, 0xe0, 0x6f, 0x28, 0x55, 0xd4, 0x84, 0x54, 0xd8, 0x1b, 0xe9,
+	0x2d, 0xd6, 0x62, 0xe9, 0x2d, 0xde, 0x3c, 0xf5, 0x82, 0xf0, 0x96, 0x47, 0x23, 0x6f, 0x5b, 0xa1,
+	0x83, 0x2a, 0x24, 0x1b, 0x84, 0xa3, 0x73, 0xc2, 0xe6, 0xf9, 0x6a, 0x16, 0xf3, 0xcf, 0x01, 0xe9,
+	0x61, 0x02, 0x5d, 0x83, 0x54, 0xb8, 0x0e, 0x32, 0x6c, 0x6c, 0x87, 0x64, 0xd8, 0xf8, 0xbe, 0xa8,
+	0x13, 0xf5, 0x9b, 0x30, 0xcf, 0xa9, 0xa7, 0x6d, 0x51, 0xdb, 0x6a, 0xbb, 0x1a, 0xde, 0x97, 0xdf,
+	0x36, 0x16, 0xa8, 0x3f, 0xaf, 0xd8, 0x0e, 0x8f, 0x28, 0x4e, 0x3d, 0x1d, 0xef, 0x13, 0x3d, 0xa4,
+	0x75, 0x9b, 0xd2, 0x3e, 0x0f, 0x32, 0x35, 0x53, 0x02, 0xb9, 0xf6, 0x5f, 0x00, 0x00, 0x00, 0xff,
+	0xff, 0xe5, 0x60, 0x26, 0x8d, 0xd1, 0x07, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -713,18 +705,12 @@ const _ = grpc.SupportPackageIsVersion4
 type JobClient interface {
 	// 创建作业任务(执行作业模板)
 	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
-	// 创建定时作业任务
-	Schedule(ctx context.Context, in *ScheduleRequest, opts ...grpc.CallOption) (*ScheduleResponse, error)
-	// 查看定时作业任务
-	ScheduleList(ctx context.Context, in *ScheduleListRequest, opts ...grpc.CallOption) (*ScheduleListResponse, error)
 	// 筛选作业任务
 	Filter(ctx context.Context, in *FilterRequest, opts ...grpc.CallOption) (*FilterResponse, error)
 	// 获取作业任务
 	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
 	// 获取作业任务详细执行过程
 	GetLog(ctx context.Context, in *GetLogRequest, opts ...grpc.CallOption) (*GetLogResponse, error)
-	// 删除作业任务
-	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
 }
 
 type jobClient struct {
@@ -738,24 +724,6 @@ func NewJobClient(cc *grpc.ClientConn) JobClient {
 func (c *jobClient) Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error) {
 	out := new(CreateResponse)
 	err := c.cc.Invoke(ctx, "/job.Job/Create", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *jobClient) Schedule(ctx context.Context, in *ScheduleRequest, opts ...grpc.CallOption) (*ScheduleResponse, error) {
-	out := new(ScheduleResponse)
-	err := c.cc.Invoke(ctx, "/job.Job/Schedule", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *jobClient) ScheduleList(ctx context.Context, in *ScheduleListRequest, opts ...grpc.CallOption) (*ScheduleListResponse, error) {
-	out := new(ScheduleListResponse)
-	err := c.cc.Invoke(ctx, "/job.Job/ScheduleList", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -789,31 +757,16 @@ func (c *jobClient) GetLog(ctx context.Context, in *GetLogRequest, opts ...grpc.
 	return out, nil
 }
 
-func (c *jobClient) Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error) {
-	out := new(DeleteResponse)
-	err := c.cc.Invoke(ctx, "/job.Job/Delete", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // JobServer is the server API for Job service.
 type JobServer interface {
 	// 创建作业任务(执行作业模板)
 	Create(context.Context, *CreateRequest) (*CreateResponse, error)
-	// 创建定时作业任务
-	Schedule(context.Context, *ScheduleRequest) (*ScheduleResponse, error)
-	// 查看定时作业任务
-	ScheduleList(context.Context, *ScheduleListRequest) (*ScheduleListResponse, error)
 	// 筛选作业任务
 	Filter(context.Context, *FilterRequest) (*FilterResponse, error)
 	// 获取作业任务
 	Get(context.Context, *GetRequest) (*GetResponse, error)
 	// 获取作业任务详细执行过程
 	GetLog(context.Context, *GetLogRequest) (*GetLogResponse, error)
-	// 删除作业任务
-	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
 }
 
 // UnimplementedJobServer can be embedded to have forward compatible implementations.
@@ -823,12 +776,6 @@ type UnimplementedJobServer struct {
 func (*UnimplementedJobServer) Create(ctx context.Context, req *CreateRequest) (*CreateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (*UnimplementedJobServer) Schedule(ctx context.Context, req *ScheduleRequest) (*ScheduleResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Schedule not implemented")
-}
-func (*UnimplementedJobServer) ScheduleList(ctx context.Context, req *ScheduleListRequest) (*ScheduleListResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ScheduleList not implemented")
-}
 func (*UnimplementedJobServer) Filter(ctx context.Context, req *FilterRequest) (*FilterResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Filter not implemented")
 }
@@ -837,9 +784,6 @@ func (*UnimplementedJobServer) Get(ctx context.Context, req *GetRequest) (*GetRe
 }
 func (*UnimplementedJobServer) GetLog(ctx context.Context, req *GetLogRequest) (*GetLogResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetLog not implemented")
-}
-func (*UnimplementedJobServer) Delete(ctx context.Context, req *DeleteRequest) (*DeleteResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
 
 func RegisterJobServer(s *grpc.Server, srv JobServer) {
@@ -860,42 +804,6 @@ func _Job_Create_Handler(srv interface{}, ctx context.Context, dec func(interfac
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(JobServer).Create(ctx, req.(*CreateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Job_Schedule_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ScheduleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(JobServer).Schedule(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/job.Job/Schedule",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JobServer).Schedule(ctx, req.(*ScheduleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Job_ScheduleList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ScheduleListRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(JobServer).ScheduleList(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/job.Job/ScheduleList",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JobServer).ScheduleList(ctx, req.(*ScheduleListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -954,24 +862,6 @@ func _Job_GetLog_Handler(srv interface{}, ctx context.Context, dec func(interfac
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Job_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(JobServer).Delete(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/job.Job/Delete",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JobServer).Delete(ctx, req.(*DeleteRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 var _Job_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "job.Job",
 	HandlerType: (*JobServer)(nil),
@@ -979,14 +869,6 @@ var _Job_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Create",
 			Handler:    _Job_Create_Handler,
-		},
-		{
-			MethodName: "Schedule",
-			Handler:    _Job_Schedule_Handler,
-		},
-		{
-			MethodName: "ScheduleList",
-			Handler:    _Job_ScheduleList_Handler,
 		},
 		{
 			MethodName: "Filter",
@@ -999,10 +881,6 @@ var _Job_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetLog",
 			Handler:    _Job_GetLog_Handler,
-		},
-		{
-			MethodName: "Delete",
-			Handler:    _Job_Delete_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

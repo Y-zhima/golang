@@ -1,0 +1,155 @@
+syntax = "proto3";
+
+package task;
+
+option go_package = "git.fogcdn.top/axe/protos/goout/task";
+option java_package = "top.fogcdn.axe.protos.task";
+
+import "google/api/annotations.proto";
+import "protoc-gen-swagger/options/annotations.proto";
+import "github.com/mwitkow/go-proto-validators/validator.proto";
+
+import "common/api.proto";
+import "schedule/schedule.proto";
+import "cmdb/cmdb.proto";
+
+// 任务实例
+service Task {
+    // 创建作业任务(执行作业模板)
+    rpc Create (CreateRequest) returns (CreateResponse) {
+        option (google.api.http) = {
+            post: "/v1/task/create"
+            body: "*"
+        };
+    }
+
+    // 筛选作业任务
+    rpc Filter (FilterRequest) returns (FilterResponse) {
+        option (google.api.http) = {
+            get: "/v1/task/filter"
+        };
+    }
+
+    // 获取作业任务
+    rpc Get (GetRequest) returns (GetResponse) {
+        //        option (google.api.http) = {
+        //            get: "/v1/task/{task_id}"
+        //        };
+    }
+    // 获取作业任务详细执行过程
+    rpc GetLog (GetLogRequest) returns (GetLogResponse) {
+        //        option (google.api.http) = {
+        //            get: "/v1/task/{task_id}/logs"
+        //        };
+    }
+}
+
+// 定时任务类型 0-undefined 1-单次任务 2-定时任务
+enum ScheduleType {
+    // 0-undefined
+    UNDEFINED = 0;
+    // 1-单次任务
+    SINGLE = 1;
+    // 2-定时任务
+    CRONTAB = 2;
+}
+
+// 作业任务实例
+message taskObject {
+    // 作业任务ID
+    int32 task_id = 1;
+    // 模板ID
+    int32 template_id = 2;
+    // 定时任务ID
+    int32 schedule_id = 3;
+    // 定时任务类型
+    ScheduleType schedule_type = 4;
+    // 任务类型
+    schedule.TaskType task_type = 5;
+    // cmdb的搜索条件
+    cmdb.SearchHostRequest cmdb_search_request = 6;
+    // 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+    string extra_var = 7;
+    // 执行人ID
+    int32 executor = 8;
+    // 总共执行多少主机
+    int32 execute_count = 9;
+    // 执行失败多少台主机
+    int32 fail_count = 10;
+    // 执行成功多少台主机
+    int32 success_count = 11;
+    // 执行开始时间
+    int32 start_time = 12;
+    // 执行结束时间
+    int32 end_time = 13;
+}
+
+// 创建任务实例请求
+message CreateRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+          required: ["schedules", "cmdb_search_request"]
+        }
+    };
+    // 模板ID
+    int32 template_id = 1 [(validator.field) = {int_gt: 0, human_error: "模板ID不能为空"}];
+    // 定时任务名
+    string name = 2 [(validator.field) = {string_not_empty: true, human_error: "定时任务名不能为空"}];
+    // 任务类型
+    schedule.TaskType task_type = 3;
+    // cmdb的搜索条件
+    cmdb.SearchHostRequest cmdb_search_request = 4 [(validator.field) = {string_not_empty: true, human_error: "cmdb的搜索条件不能为空"}];
+    // 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+    string extra_var = 5;
+}
+
+// 创建任务实例请求返回
+message CreateResponse {
+    // 任务实例ID
+    int32 task_id = 1;
+    // 返回的请求状态
+    common.ResponseStatus status = 3;
+}
+
+// 获取作业任务请求
+message GetRequest {
+    // 作业任务ID
+    int32 task_id = 1;
+}
+
+// 获取作业任务请求返回
+message GetResponse {
+    // 获取的作业任务实例
+    taskObject task = 1;
+    // 返回的请求状态
+    common.ResponseStatus status = 2;
+}
+
+// 获取作业任务详细执行过程请求
+message GetLogRequest {
+    // 作业任务ID
+    int32 task_id = 1;
+}
+
+// 获取作业任务详细执行过程请求返回
+message GetLogResponse {
+    // 返回的请求状态
+    common.ResponseStatus status = 2;
+}
+
+
+// 筛选获取作业任务请求
+message FilterRequest {
+    // 分页信息
+    common.Paging paging = 1;
+}
+
+// 筛选作业任务请求返回
+message FilterResponse {
+    // 筛选到的多个作业任务实例
+    repeated taskObject tasks = 1;
+    // 分页信息
+    common.Paging paging = 2;
+    // 返回的请求状态
+    common.ResponseStatus status = 3;
+}

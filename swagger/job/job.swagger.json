@@ -14,8 +14,153 @@
   "produces": [
     "application/json"
   ],
-  "paths": {},
+  "paths": {
+    "/v1/job/create": {
+      "post": {
+        "summary": "创建作业任务(执行作业模板)",
+        "operationId": "Create",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/jobCreateResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/jobCreateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Job"
+        ]
+      }
+    },
+    "/v1/job/filter": {
+      "get": {
+        "summary": "筛选作业任务",
+        "operationId": "Filter",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/jobFilterResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paging.total_page",
+            "description": "总页数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paging.page",
+            "description": "当前页数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paging.per_page",
+            "description": "每页显示的记录条数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paging.total_record",
+            "description": "总记录数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Job"
+        ]
+      }
+    }
+  },
   "definitions": {
+    "cmdbBizObject": {
+      "type": "object",
+      "properties": {
+        "bk_biz_name": {
+          "type": "string",
+          "title": "业务名"
+        }
+      },
+      "title": "业务"
+    },
+    "cmdbHostObject": {
+      "type": "object",
+      "properties": {
+        "bk_host_innerip": {
+          "type": "string",
+          "title": "内网IP"
+        }
+      },
+      "title": "主机"
+    },
+    "cmdbModuleObject": {
+      "type": "object",
+      "properties": {
+        "bk_module_name": {
+          "type": "string",
+          "title": "模块名"
+        }
+      },
+      "title": "模块"
+    },
+    "cmdbSearchHostRequest": {
+      "type": "object",
+      "properties": {
+        "paging": {
+          "$ref": "#/definitions/commonPaging",
+          "title": "分页信息"
+        },
+        "host": {
+          "$ref": "#/definitions/cmdbHostObject",
+          "title": "主机对象"
+        },
+        "module": {
+          "$ref": "#/definitions/cmdbModuleObject",
+          "title": "模块对象"
+        },
+        "set": {
+          "$ref": "#/definitions/cmdbSetObject",
+          "title": "集群对象"
+        },
+        "biz": {
+          "$ref": "#/definitions/cmdbBizObject",
+          "title": "业务对象"
+        }
+      },
+      "title": "查找主机请求"
+    },
+    "cmdbSetObject": {
+      "type": "object",
+      "properties": {
+        "bk_set_name": {
+          "type": "string",
+          "title": "集群名"
+        }
+      },
+      "title": "集群"
+    },
     "commonPaging": {
       "type": "object",
       "properties": {
@@ -67,24 +212,51 @@
       "description": "- SUCCESS: 成功\n - INVALID_ARGUMENT: 参数错误\n - ACCESS_DENIED: 访问拒绝",
       "title": "请求返回状态码"
     },
+    "jobCreateRequest": {
+      "type": "object",
+      "properties": {
+        "template_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "模板ID"
+        },
+        "name": {
+          "type": "string",
+          "title": "定时任务名"
+        },
+        "task_type": {
+          "$ref": "#/definitions/scheduleTaskType",
+          "title": "任务类型"
+        },
+        "cmdb_search_request": {
+          "$ref": "#/definitions/cmdbSearchHostRequest",
+          "title": "cmdb的搜索条件"
+        },
+        "extra_var": {
+          "type": "string",
+          "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
+        }
+      },
+      "title": "创建任务实例请求",
+      "required": [
+        "schedules",
+        "cmdb_search_request"
+      ]
+    },
     "jobCreateResponse": {
       "type": "object",
       "properties": {
         "job_id": {
           "type": "integer",
           "format": "int32",
-          "title": "作业任务ID"
+          "title": "任务实例ID"
         },
         "status": {
           "$ref": "#/definitions/commonResponseStatus",
           "title": "返回的请求状态"
         }
       },
-      "title": "创建作业任务请求返回"
-    },
-    "jobDeleteResponse": {
-      "type": "object",
-      "title": "删除作业任务请求返回"
+      "title": "创建任务实例请求返回"
     },
     "jobFilterResponse": {
       "type": "object",
@@ -138,17 +310,88 @@
           "type": "integer",
           "format": "int32",
           "title": "作业任务ID"
+        },
+        "template_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "模板ID"
+        },
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "定时任务ID"
+        },
+        "schedule_type": {
+          "$ref": "#/definitions/jobScheduleType",
+          "title": "定时任务类型"
+        },
+        "task_type": {
+          "$ref": "#/definitions/scheduleTaskType",
+          "title": "任务类型"
+        },
+        "cmdb_search_request": {
+          "$ref": "#/definitions/cmdbSearchHostRequest",
+          "title": "cmdb的搜索条件"
+        },
+        "extra_var": {
+          "type": "string",
+          "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
+        },
+        "executor": {
+          "type": "integer",
+          "format": "int32",
+          "title": "执行人ID"
+        },
+        "execute_count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总共执行多少主机"
+        },
+        "fail_count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "执行失败多少台主机"
+        },
+        "success_count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "执行成功多少台主机"
+        },
+        "start_time": {
+          "type": "integer",
+          "format": "int32",
+          "title": "执行开始时间"
+        },
+        "end_time": {
+          "type": "integer",
+          "format": "int32",
+          "title": "执行结束时间"
         }
       },
       "title": "作业任务实例"
     },
-    "jobScheduleListResponse": {
-      "type": "object",
-      "title": "查看定时作业任务请求返回"
+    "jobScheduleType": {
+      "type": "string",
+      "enum": [
+        "UNDEFINED",
+        "SINGLE",
+        "CRONTAB"
+      ],
+      "default": "UNDEFINED",
+      "description": "- UNDEFINED: 0-undefined\n - SINGLE: 1-单次任务\n - CRONTAB: 2-定时任务",
+      "title": "定时任务类型 0-undefined 1-单次任务 2-定时任务"
     },
-    "jobScheduleResponse": {
-      "type": "object",
-      "title": "创建定时作业任务请求返回"
+    "scheduleTaskType": {
+      "type": "string",
+      "enum": [
+        "UNDEFINED",
+        "PLAYBOOK",
+        "CONTAINER",
+        "BARE_METAL"
+      ],
+      "default": "UNDEFINED",
+      "description": "- UNDEFINED: 0-undefined\n - PLAYBOOK: 1-作业模板\n - CONTAINER: 2-容器部署\n - BARE_METAL: 3-裸金属管理",
+      "title": "任务类型 0-undefined 1-作业模板；2-容器部署 3-裸金属管理"
     }
   }
 }

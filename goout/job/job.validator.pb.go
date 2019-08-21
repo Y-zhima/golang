@@ -7,9 +7,12 @@ import (
 	fmt "fmt"
 	math "math"
 	proto "github.com/golang/protobuf/proto"
-	_ "git.fogcdn.top/axe/protos/goout/common"
-	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
+	_ "github.com/mwitkow/go-proto-validators"
+	_ "git.fogcdn.top/axe/protos/goout/common"
+	_ "git.fogcdn.top/axe/protos/goout/schedule"
+	_ "git.fogcdn.top/axe/protos/goout/cmdb"
+	_ "google.golang.org/genproto/googleapis/api/annotations"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
@@ -19,9 +22,25 @@ var _ = fmt.Errorf
 var _ = math.Inf
 
 func (this *JobObject) Validate() error {
+	if this.CmdbSearchRequest != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbSearchRequest); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+		}
+	}
 	return nil
 }
 func (this *CreateRequest) Validate() error {
+	if !(this.TemplateId > 0) {
+		return github_com_mwitkow_go_proto_validators.FieldError("TemplateId", fmt.Errorf(`模板ID不能为空`))
+	}
+	if this.Name == "" {
+		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`定时任务名不能为空`))
+	}
+	if this.CmdbSearchRequest != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbSearchRequest); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+		}
+	}
 	return nil
 }
 func (this *CreateResponse) Validate() error {
@@ -85,23 +104,5 @@ func (this *FilterResponse) Validate() error {
 			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
 		}
 	}
-	return nil
-}
-func (this *ScheduleRequest) Validate() error {
-	return nil
-}
-func (this *ScheduleResponse) Validate() error {
-	return nil
-}
-func (this *ScheduleListRequest) Validate() error {
-	return nil
-}
-func (this *ScheduleListResponse) Validate() error {
-	return nil
-}
-func (this *DeleteRequest) Validate() error {
-	return nil
-}
-func (this *DeleteResponse) Validate() error {
 	return nil
 }

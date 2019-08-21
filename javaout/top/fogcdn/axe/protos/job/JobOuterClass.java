@@ -14,6 +14,141 @@ public final class JobOuterClass {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  /**
+   * <pre>
+   * 定时任务类型 0-undefined 1-单次任务 2-定时任务
+   * </pre>
+   *
+   * Protobuf enum {@code job.ScheduleType}
+   */
+  public enum ScheduleType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * 0-undefined
+     * </pre>
+     *
+     * <code>UNDEFINED = 0;</code>
+     */
+    UNDEFINED(0),
+    /**
+     * <pre>
+     * 1-单次任务
+     * </pre>
+     *
+     * <code>SINGLE = 1;</code>
+     */
+    SINGLE(1),
+    /**
+     * <pre>
+     * 2-定时任务
+     * </pre>
+     *
+     * <code>CRONTAB = 2;</code>
+     */
+    CRONTAB(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * 0-undefined
+     * </pre>
+     *
+     * <code>UNDEFINED = 0;</code>
+     */
+    public static final int UNDEFINED_VALUE = 0;
+    /**
+     * <pre>
+     * 1-单次任务
+     * </pre>
+     *
+     * <code>SINGLE = 1;</code>
+     */
+    public static final int SINGLE_VALUE = 1;
+    /**
+     * <pre>
+     * 2-定时任务
+     * </pre>
+     *
+     * <code>CRONTAB = 2;</code>
+     */
+    public static final int CRONTAB_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static ScheduleType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static ScheduleType forNumber(int value) {
+      switch (value) {
+        case 0: return UNDEFINED;
+        case 1: return SINGLE;
+        case 2: return CRONTAB;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<ScheduleType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        ScheduleType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<ScheduleType>() {
+            public ScheduleType findValueByNumber(int number) {
+              return ScheduleType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return top.fogcdn.axe.protos.job.JobOuterClass.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final ScheduleType[] VALUES = values();
+
+    public static ScheduleType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private ScheduleType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:job.ScheduleType)
+  }
+
   public interface JobObjectOrBuilder extends
       // @@protoc_insertion_point(interface_extends:job.JobObject)
       com.google.protobuf.MessageOrBuilder {
@@ -26,6 +161,155 @@ public final class JobOuterClass {
      * <code>int32 job_id = 1;</code>
      */
     int getJobId();
+
+    /**
+     * <pre>
+     * 模板ID
+     * </pre>
+     *
+     * <code>int32 template_id = 2;</code>
+     */
+    int getTemplateId();
+
+    /**
+     * <pre>
+     * 定时任务ID
+     * </pre>
+     *
+     * <code>int32 schedule_id = 3;</code>
+     */
+    int getScheduleId();
+
+    /**
+     * <pre>
+     * 定时任务类型
+     * </pre>
+     *
+     * <code>.job.ScheduleType schedule_type = 4;</code>
+     */
+    int getScheduleTypeValue();
+    /**
+     * <pre>
+     * 定时任务类型
+     * </pre>
+     *
+     * <code>.job.ScheduleType schedule_type = 4;</code>
+     */
+    top.fogcdn.axe.protos.job.JobOuterClass.ScheduleType getScheduleType();
+
+    /**
+     * <pre>
+     * 任务类型
+     * </pre>
+     *
+     * <code>.schedule.TaskType task_type = 5;</code>
+     */
+    int getTaskTypeValue();
+    /**
+     * <pre>
+     * 任务类型
+     * </pre>
+     *
+     * <code>.schedule.TaskType task_type = 5;</code>
+     */
+    top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType getTaskType();
+
+    /**
+     * <pre>
+     * cmdb的搜索条件
+     * </pre>
+     *
+     * <code>.cmdb.SearchHostRequest cmdb_search_request = 6;</code>
+     */
+    boolean hasCmdbSearchRequest();
+    /**
+     * <pre>
+     * cmdb的搜索条件
+     * </pre>
+     *
+     * <code>.cmdb.SearchHostRequest cmdb_search_request = 6;</code>
+     */
+    top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest getCmdbSearchRequest();
+    /**
+     * <pre>
+     * cmdb的搜索条件
+     * </pre>
+     *
+     * <code>.cmdb.SearchHostRequest cmdb_search_request = 6;</code>
+     */
+    top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder getCmdbSearchRequestOrBuilder();
+
+    /**
+     * <pre>
+     * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+     * </pre>
+     *
+     * <code>string extra_var = 7;</code>
+     */
+    java.lang.String getExtraVar();
+    /**
+     * <pre>
+     * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+     * </pre>
+     *
+     * <code>string extra_var = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getExtraVarBytes();
+
+    /**
+     * <pre>
+     * 执行人ID
+     * </pre>
+     *
+     * <code>int32 executor = 8;</code>
+     */
+    int getExecutor();
+
+    /**
+     * <pre>
+     * 总共执行多少主机
+     * </pre>
+     *
+     * <code>int32 execute_count = 9;</code>
+     */
+    int getExecuteCount();
+
+    /**
+     * <pre>
+     * 执行失败多少台主机
+     * </pre>
+     *
+     * <code>int32 fail_count = 10;</code>
+     */
+    int getFailCount();
+
+    /**
+     * <pre>
+     * 执行成功多少台主机
+     * </pre>
+     *
+     * <code>int32 success_count = 11;</code>
+     */
+    int getSuccessCount();
+
+    /**
+     * <pre>
+     * 执行开始时间
+     * </pre>
+     *
+     * <code>int32 start_time = 12;</code>
+     */
+    int getStartTime();
+
+    /**
+     * <pre>
+     * 执行结束时间
+     * </pre>
+     *
+     * <code>int32 end_time = 13;</code>
+     */
+    int getEndTime();
   }
   /**
    * <pre>
@@ -45,6 +329,17 @@ public final class JobOuterClass {
     }
     private JobObject() {
       jobId_ = 0;
+      templateId_ = 0;
+      scheduleId_ = 0;
+      scheduleType_ = 0;
+      taskType_ = 0;
+      extraVar_ = "";
+      executor_ = 0;
+      executeCount_ = 0;
+      failCount_ = 0;
+      successCount_ = 0;
+      startTime_ = 0;
+      endTime_ = 0;
     }
 
     @java.lang.Override
@@ -74,6 +369,77 @@ public final class JobOuterClass {
             case 8: {
 
               jobId_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              templateId_ = input.readInt32();
+              break;
+            }
+            case 24: {
+
+              scheduleId_ = input.readInt32();
+              break;
+            }
+            case 32: {
+              int rawValue = input.readEnum();
+
+              scheduleType_ = rawValue;
+              break;
+            }
+            case 40: {
+              int rawValue = input.readEnum();
+
+              taskType_ = rawValue;
+              break;
+            }
+            case 50: {
+              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder subBuilder = null;
+              if (cmdbSearchRequest_ != null) {
+                subBuilder = cmdbSearchRequest_.toBuilder();
+              }
+              cmdbSearchRequest_ = input.readMessage(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(cmdbSearchRequest_);
+                cmdbSearchRequest_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              extraVar_ = s;
+              break;
+            }
+            case 64: {
+
+              executor_ = input.readInt32();
+              break;
+            }
+            case 72: {
+
+              executeCount_ = input.readInt32();
+              break;
+            }
+            case 80: {
+
+              failCount_ = input.readInt32();
+              break;
+            }
+            case 88: {
+
+              successCount_ = input.readInt32();
+              break;
+            }
+            case 96: {
+
+              startTime_ = input.readInt32();
+              break;
+            }
+            case 104: {
+
+              endTime_ = input.readInt32();
               break;
             }
             default: {
@@ -121,6 +487,235 @@ public final class JobOuterClass {
       return jobId_;
     }
 
+    public static final int TEMPLATE_ID_FIELD_NUMBER = 2;
+    private int templateId_;
+    /**
+     * <pre>
+     * 模板ID
+     * </pre>
+     *
+     * <code>int32 template_id = 2;</code>
+     */
+    public int getTemplateId() {
+      return templateId_;
+    }
+
+    public static final int SCHEDULE_ID_FIELD_NUMBER = 3;
+    private int scheduleId_;
+    /**
+     * <pre>
+     * 定时任务ID
+     * </pre>
+     *
+     * <code>int32 schedule_id = 3;</code>
+     */
+    public int getScheduleId() {
+      return scheduleId_;
+    }
+
+    public static final int SCHEDULE_TYPE_FIELD_NUMBER = 4;
+    private int scheduleType_;
+    /**
+     * <pre>
+     * 定时任务类型
+     * </pre>
+     *
+     * <code>.job.ScheduleType schedule_type = 4;</code>
+     */
+    public int getScheduleTypeValue() {
+      return scheduleType_;
+    }
+    /**
+     * <pre>
+     * 定时任务类型
+     * </pre>
+     *
+     * <code>.job.ScheduleType schedule_type = 4;</code>
+     */
+    public top.fogcdn.axe.protos.job.JobOuterClass.ScheduleType getScheduleType() {
+      @SuppressWarnings("deprecation")
+      top.fogcdn.axe.protos.job.JobOuterClass.ScheduleType result = top.fogcdn.axe.protos.job.JobOuterClass.ScheduleType.valueOf(scheduleType_);
+      return result == null ? top.fogcdn.axe.protos.job.JobOuterClass.ScheduleType.UNRECOGNIZED : result;
+    }
+
+    public static final int TASK_TYPE_FIELD_NUMBER = 5;
+    private int taskType_;
+    /**
+     * <pre>
+     * 任务类型
+     * </pre>
+     *
+     * <code>.schedule.TaskType task_type = 5;</code>
+     */
+    public int getTaskTypeValue() {
+      return taskType_;
+    }
+    /**
+     * <pre>
+     * 任务类型
+     * </pre>
+     *
+     * <code>.schedule.TaskType task_type = 5;</code>
+     */
+    public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType getTaskType() {
+      @SuppressWarnings("deprecation")
+      top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType result = top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.valueOf(taskType_);
+      return result == null ? top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.UNRECOGNIZED : result;
+    }
+
+    public static final int CMDB_SEARCH_REQUEST_FIELD_NUMBER = 6;
+    private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest cmdbSearchRequest_;
+    /**
+     * <pre>
+     * cmdb的搜索条件
+     * </pre>
+     *
+     * <code>.cmdb.SearchHostRequest cmdb_search_request = 6;</code>
+     */
+    public boolean hasCmdbSearchRequest() {
+      return cmdbSearchRequest_ != null;
+    }
+    /**
+     * <pre>
+     * cmdb的搜索条件
+     * </pre>
+     *
+     * <code>.cmdb.SearchHostRequest cmdb_search_request = 6;</code>
+     */
+    public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest getCmdbSearchRequest() {
+      return cmdbSearchRequest_ == null ? top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.getDefaultInstance() : cmdbSearchRequest_;
+    }
+    /**
+     * <pre>
+     * cmdb的搜索条件
+     * </pre>
+     *
+     * <code>.cmdb.SearchHostRequest cmdb_search_request = 6;</code>
+     */
+    public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder getCmdbSearchRequestOrBuilder() {
+      return getCmdbSearchRequest();
+    }
+
+    public static final int EXTRA_VAR_FIELD_NUMBER = 7;
+    private volatile java.lang.Object extraVar_;
+    /**
+     * <pre>
+     * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+     * </pre>
+     *
+     * <code>string extra_var = 7;</code>
+     */
+    public java.lang.String getExtraVar() {
+      java.lang.Object ref = extraVar_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        extraVar_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+     * </pre>
+     *
+     * <code>string extra_var = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getExtraVarBytes() {
+      java.lang.Object ref = extraVar_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        extraVar_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int EXECUTOR_FIELD_NUMBER = 8;
+    private int executor_;
+    /**
+     * <pre>
+     * 执行人ID
+     * </pre>
+     *
+     * <code>int32 executor = 8;</code>
+     */
+    public int getExecutor() {
+      return executor_;
+    }
+
+    public static final int EXECUTE_COUNT_FIELD_NUMBER = 9;
+    private int executeCount_;
+    /**
+     * <pre>
+     * 总共执行多少主机
+     * </pre>
+     *
+     * <code>int32 execute_count = 9;</code>
+     */
+    public int getExecuteCount() {
+      return executeCount_;
+    }
+
+    public static final int FAIL_COUNT_FIELD_NUMBER = 10;
+    private int failCount_;
+    /**
+     * <pre>
+     * 执行失败多少台主机
+     * </pre>
+     *
+     * <code>int32 fail_count = 10;</code>
+     */
+    public int getFailCount() {
+      return failCount_;
+    }
+
+    public static final int SUCCESS_COUNT_FIELD_NUMBER = 11;
+    private int successCount_;
+    /**
+     * <pre>
+     * 执行成功多少台主机
+     * </pre>
+     *
+     * <code>int32 success_count = 11;</code>
+     */
+    public int getSuccessCount() {
+      return successCount_;
+    }
+
+    public static final int START_TIME_FIELD_NUMBER = 12;
+    private int startTime_;
+    /**
+     * <pre>
+     * 执行开始时间
+     * </pre>
+     *
+     * <code>int32 start_time = 12;</code>
+     */
+    public int getStartTime() {
+      return startTime_;
+    }
+
+    public static final int END_TIME_FIELD_NUMBER = 13;
+    private int endTime_;
+    /**
+     * <pre>
+     * 执行结束时间
+     * </pre>
+     *
+     * <code>int32 end_time = 13;</code>
+     */
+    public int getEndTime() {
+      return endTime_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -138,6 +733,42 @@ public final class JobOuterClass {
       if (jobId_ != 0) {
         output.writeInt32(1, jobId_);
       }
+      if (templateId_ != 0) {
+        output.writeInt32(2, templateId_);
+      }
+      if (scheduleId_ != 0) {
+        output.writeInt32(3, scheduleId_);
+      }
+      if (scheduleType_ != top.fogcdn.axe.protos.job.JobOuterClass.ScheduleType.UNDEFINED.getNumber()) {
+        output.writeEnum(4, scheduleType_);
+      }
+      if (taskType_ != top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.UNDEFINED.getNumber()) {
+        output.writeEnum(5, taskType_);
+      }
+      if (cmdbSearchRequest_ != null) {
+        output.writeMessage(6, getCmdbSearchRequest());
+      }
+      if (!getExtraVarBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, extraVar_);
+      }
+      if (executor_ != 0) {
+        output.writeInt32(8, executor_);
+      }
+      if (executeCount_ != 0) {
+        output.writeInt32(9, executeCount_);
+      }
+      if (failCount_ != 0) {
+        output.writeInt32(10, failCount_);
+      }
+      if (successCount_ != 0) {
+        output.writeInt32(11, successCount_);
+      }
+      if (startTime_ != 0) {
+        output.writeInt32(12, startTime_);
+      }
+      if (endTime_ != 0) {
+        output.writeInt32(13, endTime_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -150,6 +781,53 @@ public final class JobOuterClass {
       if (jobId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, jobId_);
+      }
+      if (templateId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, templateId_);
+      }
+      if (scheduleId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, scheduleId_);
+      }
+      if (scheduleType_ != top.fogcdn.axe.protos.job.JobOuterClass.ScheduleType.UNDEFINED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, scheduleType_);
+      }
+      if (taskType_ != top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.UNDEFINED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(5, taskType_);
+      }
+      if (cmdbSearchRequest_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, getCmdbSearchRequest());
+      }
+      if (!getExtraVarBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, extraVar_);
+      }
+      if (executor_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(8, executor_);
+      }
+      if (executeCount_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(9, executeCount_);
+      }
+      if (failCount_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(10, failCount_);
+      }
+      if (successCount_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(11, successCount_);
+      }
+      if (startTime_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(12, startTime_);
+      }
+      if (endTime_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(13, endTime_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -169,6 +847,31 @@ public final class JobOuterClass {
       boolean result = true;
       result = result && (getJobId()
           == other.getJobId());
+      result = result && (getTemplateId()
+          == other.getTemplateId());
+      result = result && (getScheduleId()
+          == other.getScheduleId());
+      result = result && scheduleType_ == other.scheduleType_;
+      result = result && taskType_ == other.taskType_;
+      result = result && (hasCmdbSearchRequest() == other.hasCmdbSearchRequest());
+      if (hasCmdbSearchRequest()) {
+        result = result && getCmdbSearchRequest()
+            .equals(other.getCmdbSearchRequest());
+      }
+      result = result && getExtraVar()
+          .equals(other.getExtraVar());
+      result = result && (getExecutor()
+          == other.getExecutor());
+      result = result && (getExecuteCount()
+          == other.getExecuteCount());
+      result = result && (getFailCount()
+          == other.getFailCount());
+      result = result && (getSuccessCount()
+          == other.getSuccessCount());
+      result = result && (getStartTime()
+          == other.getStartTime());
+      result = result && (getEndTime()
+          == other.getEndTime());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -182,6 +885,32 @@ public final class JobOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + JOB_ID_FIELD_NUMBER;
       hash = (53 * hash) + getJobId();
+      hash = (37 * hash) + TEMPLATE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getTemplateId();
+      hash = (37 * hash) + SCHEDULE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getScheduleId();
+      hash = (37 * hash) + SCHEDULE_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + scheduleType_;
+      hash = (37 * hash) + TASK_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + taskType_;
+      if (hasCmdbSearchRequest()) {
+        hash = (37 * hash) + CMDB_SEARCH_REQUEST_FIELD_NUMBER;
+        hash = (53 * hash) + getCmdbSearchRequest().hashCode();
+      }
+      hash = (37 * hash) + EXTRA_VAR_FIELD_NUMBER;
+      hash = (53 * hash) + getExtraVar().hashCode();
+      hash = (37 * hash) + EXECUTOR_FIELD_NUMBER;
+      hash = (53 * hash) + getExecutor();
+      hash = (37 * hash) + EXECUTE_COUNT_FIELD_NUMBER;
+      hash = (53 * hash) + getExecuteCount();
+      hash = (37 * hash) + FAIL_COUNT_FIELD_NUMBER;
+      hash = (53 * hash) + getFailCount();
+      hash = (37 * hash) + SUCCESS_COUNT_FIELD_NUMBER;
+      hash = (53 * hash) + getSuccessCount();
+      hash = (37 * hash) + START_TIME_FIELD_NUMBER;
+      hash = (53 * hash) + getStartTime();
+      hash = (37 * hash) + END_TIME_FIELD_NUMBER;
+      hash = (53 * hash) + getEndTime();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -321,6 +1050,34 @@ public final class JobOuterClass {
         super.clear();
         jobId_ = 0;
 
+        templateId_ = 0;
+
+        scheduleId_ = 0;
+
+        scheduleType_ = 0;
+
+        taskType_ = 0;
+
+        if (cmdbSearchRequestBuilder_ == null) {
+          cmdbSearchRequest_ = null;
+        } else {
+          cmdbSearchRequest_ = null;
+          cmdbSearchRequestBuilder_ = null;
+        }
+        extraVar_ = "";
+
+        executor_ = 0;
+
+        executeCount_ = 0;
+
+        failCount_ = 0;
+
+        successCount_ = 0;
+
+        startTime_ = 0;
+
+        endTime_ = 0;
+
         return this;
       }
 
@@ -348,6 +1105,22 @@ public final class JobOuterClass {
       public top.fogcdn.axe.protos.job.JobOuterClass.JobObject buildPartial() {
         top.fogcdn.axe.protos.job.JobOuterClass.JobObject result = new top.fogcdn.axe.protos.job.JobOuterClass.JobObject(this);
         result.jobId_ = jobId_;
+        result.templateId_ = templateId_;
+        result.scheduleId_ = scheduleId_;
+        result.scheduleType_ = scheduleType_;
+        result.taskType_ = taskType_;
+        if (cmdbSearchRequestBuilder_ == null) {
+          result.cmdbSearchRequest_ = cmdbSearchRequest_;
+        } else {
+          result.cmdbSearchRequest_ = cmdbSearchRequestBuilder_.build();
+        }
+        result.extraVar_ = extraVar_;
+        result.executor_ = executor_;
+        result.executeCount_ = executeCount_;
+        result.failCount_ = failCount_;
+        result.successCount_ = successCount_;
+        result.startTime_ = startTime_;
+        result.endTime_ = endTime_;
         onBuilt();
         return result;
       }
@@ -398,6 +1171,43 @@ public final class JobOuterClass {
         if (other == top.fogcdn.axe.protos.job.JobOuterClass.JobObject.getDefaultInstance()) return this;
         if (other.getJobId() != 0) {
           setJobId(other.getJobId());
+        }
+        if (other.getTemplateId() != 0) {
+          setTemplateId(other.getTemplateId());
+        }
+        if (other.getScheduleId() != 0) {
+          setScheduleId(other.getScheduleId());
+        }
+        if (other.scheduleType_ != 0) {
+          setScheduleTypeValue(other.getScheduleTypeValue());
+        }
+        if (other.taskType_ != 0) {
+          setTaskTypeValue(other.getTaskTypeValue());
+        }
+        if (other.hasCmdbSearchRequest()) {
+          mergeCmdbSearchRequest(other.getCmdbSearchRequest());
+        }
+        if (!other.getExtraVar().isEmpty()) {
+          extraVar_ = other.extraVar_;
+          onChanged();
+        }
+        if (other.getExecutor() != 0) {
+          setExecutor(other.getExecutor());
+        }
+        if (other.getExecuteCount() != 0) {
+          setExecuteCount(other.getExecuteCount());
+        }
+        if (other.getFailCount() != 0) {
+          setFailCount(other.getFailCount());
+        }
+        if (other.getSuccessCount() != 0) {
+          setSuccessCount(other.getSuccessCount());
+        }
+        if (other.getStartTime() != 0) {
+          setStartTime(other.getStartTime());
+        }
+        if (other.getEndTime() != 0) {
+          setEndTime(other.getEndTime());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -465,6 +1275,682 @@ public final class JobOuterClass {
         onChanged();
         return this;
       }
+
+      private int templateId_ ;
+      /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
+       * <code>int32 template_id = 2;</code>
+       */
+      public int getTemplateId() {
+        return templateId_;
+      }
+      /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
+       * <code>int32 template_id = 2;</code>
+       */
+      public Builder setTemplateId(int value) {
+        
+        templateId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
+       * <code>int32 template_id = 2;</code>
+       */
+      public Builder clearTemplateId() {
+        
+        templateId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int scheduleId_ ;
+      /**
+       * <pre>
+       * 定时任务ID
+       * </pre>
+       *
+       * <code>int32 schedule_id = 3;</code>
+       */
+      public int getScheduleId() {
+        return scheduleId_;
+      }
+      /**
+       * <pre>
+       * 定时任务ID
+       * </pre>
+       *
+       * <code>int32 schedule_id = 3;</code>
+       */
+      public Builder setScheduleId(int value) {
+        
+        scheduleId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 定时任务ID
+       * </pre>
+       *
+       * <code>int32 schedule_id = 3;</code>
+       */
+      public Builder clearScheduleId() {
+        
+        scheduleId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int scheduleType_ = 0;
+      /**
+       * <pre>
+       * 定时任务类型
+       * </pre>
+       *
+       * <code>.job.ScheduleType schedule_type = 4;</code>
+       */
+      public int getScheduleTypeValue() {
+        return scheduleType_;
+      }
+      /**
+       * <pre>
+       * 定时任务类型
+       * </pre>
+       *
+       * <code>.job.ScheduleType schedule_type = 4;</code>
+       */
+      public Builder setScheduleTypeValue(int value) {
+        scheduleType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 定时任务类型
+       * </pre>
+       *
+       * <code>.job.ScheduleType schedule_type = 4;</code>
+       */
+      public top.fogcdn.axe.protos.job.JobOuterClass.ScheduleType getScheduleType() {
+        @SuppressWarnings("deprecation")
+        top.fogcdn.axe.protos.job.JobOuterClass.ScheduleType result = top.fogcdn.axe.protos.job.JobOuterClass.ScheduleType.valueOf(scheduleType_);
+        return result == null ? top.fogcdn.axe.protos.job.JobOuterClass.ScheduleType.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * 定时任务类型
+       * </pre>
+       *
+       * <code>.job.ScheduleType schedule_type = 4;</code>
+       */
+      public Builder setScheduleType(top.fogcdn.axe.protos.job.JobOuterClass.ScheduleType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        scheduleType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 定时任务类型
+       * </pre>
+       *
+       * <code>.job.ScheduleType schedule_type = 4;</code>
+       */
+      public Builder clearScheduleType() {
+        
+        scheduleType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int taskType_ = 0;
+      /**
+       * <pre>
+       * 任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 5;</code>
+       */
+      public int getTaskTypeValue() {
+        return taskType_;
+      }
+      /**
+       * <pre>
+       * 任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 5;</code>
+       */
+      public Builder setTaskTypeValue(int value) {
+        taskType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 5;</code>
+       */
+      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType getTaskType() {
+        @SuppressWarnings("deprecation")
+        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType result = top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.valueOf(taskType_);
+        return result == null ? top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * 任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 5;</code>
+       */
+      public Builder setTaskType(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        taskType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 5;</code>
+       */
+      public Builder clearTaskType() {
+        
+        taskType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest cmdbSearchRequest_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder> cmdbSearchRequestBuilder_;
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 6;</code>
+       */
+      public boolean hasCmdbSearchRequest() {
+        return cmdbSearchRequestBuilder_ != null || cmdbSearchRequest_ != null;
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 6;</code>
+       */
+      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest getCmdbSearchRequest() {
+        if (cmdbSearchRequestBuilder_ == null) {
+          return cmdbSearchRequest_ == null ? top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.getDefaultInstance() : cmdbSearchRequest_;
+        } else {
+          return cmdbSearchRequestBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 6;</code>
+       */
+      public Builder setCmdbSearchRequest(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest value) {
+        if (cmdbSearchRequestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          cmdbSearchRequest_ = value;
+          onChanged();
+        } else {
+          cmdbSearchRequestBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 6;</code>
+       */
+      public Builder setCmdbSearchRequest(
+          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder builderForValue) {
+        if (cmdbSearchRequestBuilder_ == null) {
+          cmdbSearchRequest_ = builderForValue.build();
+          onChanged();
+        } else {
+          cmdbSearchRequestBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 6;</code>
+       */
+      public Builder mergeCmdbSearchRequest(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest value) {
+        if (cmdbSearchRequestBuilder_ == null) {
+          if (cmdbSearchRequest_ != null) {
+            cmdbSearchRequest_ =
+              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.newBuilder(cmdbSearchRequest_).mergeFrom(value).buildPartial();
+          } else {
+            cmdbSearchRequest_ = value;
+          }
+          onChanged();
+        } else {
+          cmdbSearchRequestBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 6;</code>
+       */
+      public Builder clearCmdbSearchRequest() {
+        if (cmdbSearchRequestBuilder_ == null) {
+          cmdbSearchRequest_ = null;
+          onChanged();
+        } else {
+          cmdbSearchRequest_ = null;
+          cmdbSearchRequestBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 6;</code>
+       */
+      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder getCmdbSearchRequestBuilder() {
+        
+        onChanged();
+        return getCmdbSearchRequestFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 6;</code>
+       */
+      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder getCmdbSearchRequestOrBuilder() {
+        if (cmdbSearchRequestBuilder_ != null) {
+          return cmdbSearchRequestBuilder_.getMessageOrBuilder();
+        } else {
+          return cmdbSearchRequest_ == null ?
+              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.getDefaultInstance() : cmdbSearchRequest_;
+        }
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder> 
+          getCmdbSearchRequestFieldBuilder() {
+        if (cmdbSearchRequestBuilder_ == null) {
+          cmdbSearchRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder>(
+                  getCmdbSearchRequest(),
+                  getParentForChildren(),
+                  isClean());
+          cmdbSearchRequest_ = null;
+        }
+        return cmdbSearchRequestBuilder_;
+      }
+
+      private java.lang.Object extraVar_ = "";
+      /**
+       * <pre>
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+       * </pre>
+       *
+       * <code>string extra_var = 7;</code>
+       */
+      public java.lang.String getExtraVar() {
+        java.lang.Object ref = extraVar_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          extraVar_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+       * </pre>
+       *
+       * <code>string extra_var = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getExtraVarBytes() {
+        java.lang.Object ref = extraVar_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          extraVar_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+       * </pre>
+       *
+       * <code>string extra_var = 7;</code>
+       */
+      public Builder setExtraVar(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        extraVar_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+       * </pre>
+       *
+       * <code>string extra_var = 7;</code>
+       */
+      public Builder clearExtraVar() {
+        
+        extraVar_ = getDefaultInstance().getExtraVar();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+       * </pre>
+       *
+       * <code>string extra_var = 7;</code>
+       */
+      public Builder setExtraVarBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        extraVar_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int executor_ ;
+      /**
+       * <pre>
+       * 执行人ID
+       * </pre>
+       *
+       * <code>int32 executor = 8;</code>
+       */
+      public int getExecutor() {
+        return executor_;
+      }
+      /**
+       * <pre>
+       * 执行人ID
+       * </pre>
+       *
+       * <code>int32 executor = 8;</code>
+       */
+      public Builder setExecutor(int value) {
+        
+        executor_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 执行人ID
+       * </pre>
+       *
+       * <code>int32 executor = 8;</code>
+       */
+      public Builder clearExecutor() {
+        
+        executor_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int executeCount_ ;
+      /**
+       * <pre>
+       * 总共执行多少主机
+       * </pre>
+       *
+       * <code>int32 execute_count = 9;</code>
+       */
+      public int getExecuteCount() {
+        return executeCount_;
+      }
+      /**
+       * <pre>
+       * 总共执行多少主机
+       * </pre>
+       *
+       * <code>int32 execute_count = 9;</code>
+       */
+      public Builder setExecuteCount(int value) {
+        
+        executeCount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 总共执行多少主机
+       * </pre>
+       *
+       * <code>int32 execute_count = 9;</code>
+       */
+      public Builder clearExecuteCount() {
+        
+        executeCount_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int failCount_ ;
+      /**
+       * <pre>
+       * 执行失败多少台主机
+       * </pre>
+       *
+       * <code>int32 fail_count = 10;</code>
+       */
+      public int getFailCount() {
+        return failCount_;
+      }
+      /**
+       * <pre>
+       * 执行失败多少台主机
+       * </pre>
+       *
+       * <code>int32 fail_count = 10;</code>
+       */
+      public Builder setFailCount(int value) {
+        
+        failCount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 执行失败多少台主机
+       * </pre>
+       *
+       * <code>int32 fail_count = 10;</code>
+       */
+      public Builder clearFailCount() {
+        
+        failCount_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int successCount_ ;
+      /**
+       * <pre>
+       * 执行成功多少台主机
+       * </pre>
+       *
+       * <code>int32 success_count = 11;</code>
+       */
+      public int getSuccessCount() {
+        return successCount_;
+      }
+      /**
+       * <pre>
+       * 执行成功多少台主机
+       * </pre>
+       *
+       * <code>int32 success_count = 11;</code>
+       */
+      public Builder setSuccessCount(int value) {
+        
+        successCount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 执行成功多少台主机
+       * </pre>
+       *
+       * <code>int32 success_count = 11;</code>
+       */
+      public Builder clearSuccessCount() {
+        
+        successCount_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int startTime_ ;
+      /**
+       * <pre>
+       * 执行开始时间
+       * </pre>
+       *
+       * <code>int32 start_time = 12;</code>
+       */
+      public int getStartTime() {
+        return startTime_;
+      }
+      /**
+       * <pre>
+       * 执行开始时间
+       * </pre>
+       *
+       * <code>int32 start_time = 12;</code>
+       */
+      public Builder setStartTime(int value) {
+        
+        startTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 执行开始时间
+       * </pre>
+       *
+       * <code>int32 start_time = 12;</code>
+       */
+      public Builder clearStartTime() {
+        
+        startTime_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int endTime_ ;
+      /**
+       * <pre>
+       * 执行结束时间
+       * </pre>
+       *
+       * <code>int32 end_time = 13;</code>
+       */
+      public int getEndTime() {
+        return endTime_;
+      }
+      /**
+       * <pre>
+       * 执行结束时间
+       * </pre>
+       *
+       * <code>int32 end_time = 13;</code>
+       */
+      public Builder setEndTime(int value) {
+        
+        endTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 执行结束时间
+       * </pre>
+       *
+       * <code>int32 end_time = 13;</code>
+       */
+      public Builder clearEndTime() {
+        
+        endTime_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -521,10 +2007,97 @@ public final class JobOuterClass {
   public interface CreateRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:job.CreateRequest)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 模板ID
+     * </pre>
+     *
+     * <code>int32 template_id = 1 [(.validator.field) = { ... }</code>
+     */
+    int getTemplateId();
+
+    /**
+     * <pre>
+     * 定时任务名
+     * </pre>
+     *
+     * <code>string name = 2 [(.validator.field) = { ... }</code>
+     */
+    java.lang.String getName();
+    /**
+     * <pre>
+     * 定时任务名
+     * </pre>
+     *
+     * <code>string name = 2 [(.validator.field) = { ... }</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <pre>
+     * 任务类型
+     * </pre>
+     *
+     * <code>.schedule.TaskType task_type = 3;</code>
+     */
+    int getTaskTypeValue();
+    /**
+     * <pre>
+     * 任务类型
+     * </pre>
+     *
+     * <code>.schedule.TaskType task_type = 3;</code>
+     */
+    top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType getTaskType();
+
+    /**
+     * <pre>
+     * cmdb的搜索条件
+     * </pre>
+     *
+     * <code>.cmdb.SearchHostRequest cmdb_search_request = 4 [(.validator.field) = { ... }</code>
+     */
+    boolean hasCmdbSearchRequest();
+    /**
+     * <pre>
+     * cmdb的搜索条件
+     * </pre>
+     *
+     * <code>.cmdb.SearchHostRequest cmdb_search_request = 4 [(.validator.field) = { ... }</code>
+     */
+    top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest getCmdbSearchRequest();
+    /**
+     * <pre>
+     * cmdb的搜索条件
+     * </pre>
+     *
+     * <code>.cmdb.SearchHostRequest cmdb_search_request = 4 [(.validator.field) = { ... }</code>
+     */
+    top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder getCmdbSearchRequestOrBuilder();
+
+    /**
+     * <pre>
+     * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+     * </pre>
+     *
+     * <code>string extra_var = 5;</code>
+     */
+    java.lang.String getExtraVar();
+    /**
+     * <pre>
+     * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+     * </pre>
+     *
+     * <code>string extra_var = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getExtraVarBytes();
   }
   /**
    * <pre>
-   * 创建作业任务(执行作业模板)请求
+   * 创建任务实例请求
    * </pre>
    *
    * Protobuf type {@code job.CreateRequest}
@@ -539,6 +2112,10 @@ public final class JobOuterClass {
       super(builder);
     }
     private CreateRequest() {
+      templateId_ = 0;
+      name_ = "";
+      taskType_ = 0;
+      extraVar_ = "";
     }
 
     @java.lang.Override
@@ -554,6 +2131,7 @@ public final class JobOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -564,6 +2142,42 @@ public final class JobOuterClass {
             case 0:
               done = true;
               break;
+            case 8: {
+
+              templateId_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            case 24: {
+              int rawValue = input.readEnum();
+
+              taskType_ = rawValue;
+              break;
+            }
+            case 34: {
+              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder subBuilder = null;
+              if (cmdbSearchRequest_ != null) {
+                subBuilder = cmdbSearchRequest_.toBuilder();
+              }
+              cmdbSearchRequest_ = input.readMessage(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(cmdbSearchRequest_);
+                cmdbSearchRequest_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              extraVar_ = s;
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -596,6 +2210,161 @@ public final class JobOuterClass {
               top.fogcdn.axe.protos.job.JobOuterClass.CreateRequest.class, top.fogcdn.axe.protos.job.JobOuterClass.CreateRequest.Builder.class);
     }
 
+    public static final int TEMPLATE_ID_FIELD_NUMBER = 1;
+    private int templateId_;
+    /**
+     * <pre>
+     * 模板ID
+     * </pre>
+     *
+     * <code>int32 template_id = 1 [(.validator.field) = { ... }</code>
+     */
+    public int getTemplateId() {
+      return templateId_;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object name_;
+    /**
+     * <pre>
+     * 定时任务名
+     * </pre>
+     *
+     * <code>string name = 2 [(.validator.field) = { ... }</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 定时任务名
+     * </pre>
+     *
+     * <code>string name = 2 [(.validator.field) = { ... }</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TASK_TYPE_FIELD_NUMBER = 3;
+    private int taskType_;
+    /**
+     * <pre>
+     * 任务类型
+     * </pre>
+     *
+     * <code>.schedule.TaskType task_type = 3;</code>
+     */
+    public int getTaskTypeValue() {
+      return taskType_;
+    }
+    /**
+     * <pre>
+     * 任务类型
+     * </pre>
+     *
+     * <code>.schedule.TaskType task_type = 3;</code>
+     */
+    public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType getTaskType() {
+      @SuppressWarnings("deprecation")
+      top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType result = top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.valueOf(taskType_);
+      return result == null ? top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.UNRECOGNIZED : result;
+    }
+
+    public static final int CMDB_SEARCH_REQUEST_FIELD_NUMBER = 4;
+    private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest cmdbSearchRequest_;
+    /**
+     * <pre>
+     * cmdb的搜索条件
+     * </pre>
+     *
+     * <code>.cmdb.SearchHostRequest cmdb_search_request = 4 [(.validator.field) = { ... }</code>
+     */
+    public boolean hasCmdbSearchRequest() {
+      return cmdbSearchRequest_ != null;
+    }
+    /**
+     * <pre>
+     * cmdb的搜索条件
+     * </pre>
+     *
+     * <code>.cmdb.SearchHostRequest cmdb_search_request = 4 [(.validator.field) = { ... }</code>
+     */
+    public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest getCmdbSearchRequest() {
+      return cmdbSearchRequest_ == null ? top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.getDefaultInstance() : cmdbSearchRequest_;
+    }
+    /**
+     * <pre>
+     * cmdb的搜索条件
+     * </pre>
+     *
+     * <code>.cmdb.SearchHostRequest cmdb_search_request = 4 [(.validator.field) = { ... }</code>
+     */
+    public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder getCmdbSearchRequestOrBuilder() {
+      return getCmdbSearchRequest();
+    }
+
+    public static final int EXTRA_VAR_FIELD_NUMBER = 5;
+    private volatile java.lang.Object extraVar_;
+    /**
+     * <pre>
+     * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+     * </pre>
+     *
+     * <code>string extra_var = 5;</code>
+     */
+    public java.lang.String getExtraVar() {
+      java.lang.Object ref = extraVar_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        extraVar_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+     * </pre>
+     *
+     * <code>string extra_var = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getExtraVarBytes() {
+      java.lang.Object ref = extraVar_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        extraVar_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -610,6 +2379,21 @@ public final class JobOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (templateId_ != 0) {
+        output.writeInt32(1, templateId_);
+      }
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      }
+      if (taskType_ != top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.UNDEFINED.getNumber()) {
+        output.writeEnum(3, taskType_);
+      }
+      if (cmdbSearchRequest_ != null) {
+        output.writeMessage(4, getCmdbSearchRequest());
+      }
+      if (!getExtraVarBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, extraVar_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -619,6 +2403,24 @@ public final class JobOuterClass {
       if (size != -1) return size;
 
       size = 0;
+      if (templateId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, templateId_);
+      }
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      }
+      if (taskType_ != top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.UNDEFINED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, taskType_);
+      }
+      if (cmdbSearchRequest_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getCmdbSearchRequest());
+      }
+      if (!getExtraVarBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, extraVar_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -635,6 +2437,18 @@ public final class JobOuterClass {
       top.fogcdn.axe.protos.job.JobOuterClass.CreateRequest other = (top.fogcdn.axe.protos.job.JobOuterClass.CreateRequest) obj;
 
       boolean result = true;
+      result = result && (getTemplateId()
+          == other.getTemplateId());
+      result = result && getName()
+          .equals(other.getName());
+      result = result && taskType_ == other.taskType_;
+      result = result && (hasCmdbSearchRequest() == other.hasCmdbSearchRequest());
+      if (hasCmdbSearchRequest()) {
+        result = result && getCmdbSearchRequest()
+            .equals(other.getCmdbSearchRequest());
+      }
+      result = result && getExtraVar()
+          .equals(other.getExtraVar());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -646,6 +2460,18 @@ public final class JobOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TEMPLATE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getTemplateId();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + TASK_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + taskType_;
+      if (hasCmdbSearchRequest()) {
+        hash = (37 * hash) + CMDB_SEARCH_REQUEST_FIELD_NUMBER;
+        hash = (53 * hash) + getCmdbSearchRequest().hashCode();
+      }
+      hash = (37 * hash) + EXTRA_VAR_FIELD_NUMBER;
+      hash = (53 * hash) + getExtraVar().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -743,7 +2569,7 @@ public final class JobOuterClass {
     }
     /**
      * <pre>
-     * 创建作业任务(执行作业模板)请求
+     * 创建任务实例请求
      * </pre>
      *
      * Protobuf type {@code job.CreateRequest}
@@ -783,6 +2609,20 @@ public final class JobOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        templateId_ = 0;
+
+        name_ = "";
+
+        taskType_ = 0;
+
+        if (cmdbSearchRequestBuilder_ == null) {
+          cmdbSearchRequest_ = null;
+        } else {
+          cmdbSearchRequest_ = null;
+          cmdbSearchRequestBuilder_ = null;
+        }
+        extraVar_ = "";
+
         return this;
       }
 
@@ -809,6 +2649,15 @@ public final class JobOuterClass {
       @java.lang.Override
       public top.fogcdn.axe.protos.job.JobOuterClass.CreateRequest buildPartial() {
         top.fogcdn.axe.protos.job.JobOuterClass.CreateRequest result = new top.fogcdn.axe.protos.job.JobOuterClass.CreateRequest(this);
+        result.templateId_ = templateId_;
+        result.name_ = name_;
+        result.taskType_ = taskType_;
+        if (cmdbSearchRequestBuilder_ == null) {
+          result.cmdbSearchRequest_ = cmdbSearchRequest_;
+        } else {
+          result.cmdbSearchRequest_ = cmdbSearchRequestBuilder_.build();
+        }
+        result.extraVar_ = extraVar_;
         onBuilt();
         return result;
       }
@@ -857,6 +2706,23 @@ public final class JobOuterClass {
 
       public Builder mergeFrom(top.fogcdn.axe.protos.job.JobOuterClass.CreateRequest other) {
         if (other == top.fogcdn.axe.protos.job.JobOuterClass.CreateRequest.getDefaultInstance()) return this;
+        if (other.getTemplateId() != 0) {
+          setTemplateId(other.getTemplateId());
+        }
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.taskType_ != 0) {
+          setTaskTypeValue(other.getTaskTypeValue());
+        }
+        if (other.hasCmdbSearchRequest()) {
+          mergeCmdbSearchRequest(other.getCmdbSearchRequest());
+        }
+        if (!other.getExtraVar().isEmpty()) {
+          extraVar_ = other.extraVar_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -883,6 +2749,440 @@ public final class JobOuterClass {
             mergeFrom(parsedMessage);
           }
         }
+        return this;
+      }
+
+      private int templateId_ ;
+      /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
+       * <code>int32 template_id = 1 [(.validator.field) = { ... }</code>
+       */
+      public int getTemplateId() {
+        return templateId_;
+      }
+      /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
+       * <code>int32 template_id = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setTemplateId(int value) {
+        
+        templateId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 模板ID
+       * </pre>
+       *
+       * <code>int32 template_id = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearTemplateId() {
+        
+        templateId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <pre>
+       * 定时任务名
+       * </pre>
+       *
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 定时任务名
+       * </pre>
+       *
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 定时任务名
+       * </pre>
+       *
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 定时任务名
+       * </pre>
+       *
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 定时任务名
+       * </pre>
+       *
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int taskType_ = 0;
+      /**
+       * <pre>
+       * 任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 3;</code>
+       */
+      public int getTaskTypeValue() {
+        return taskType_;
+      }
+      /**
+       * <pre>
+       * 任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 3;</code>
+       */
+      public Builder setTaskTypeValue(int value) {
+        taskType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 3;</code>
+       */
+      public top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType getTaskType() {
+        @SuppressWarnings("deprecation")
+        top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType result = top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.valueOf(taskType_);
+        return result == null ? top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * 任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 3;</code>
+       */
+      public Builder setTaskType(top.fogcdn.axe.protos.schedule.ScheduleOuterClass.TaskType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        taskType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 任务类型
+       * </pre>
+       *
+       * <code>.schedule.TaskType task_type = 3;</code>
+       */
+      public Builder clearTaskType() {
+        
+        taskType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest cmdbSearchRequest_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder> cmdbSearchRequestBuilder_;
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4 [(.validator.field) = { ... }</code>
+       */
+      public boolean hasCmdbSearchRequest() {
+        return cmdbSearchRequestBuilder_ != null || cmdbSearchRequest_ != null;
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4 [(.validator.field) = { ... }</code>
+       */
+      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest getCmdbSearchRequest() {
+        if (cmdbSearchRequestBuilder_ == null) {
+          return cmdbSearchRequest_ == null ? top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.getDefaultInstance() : cmdbSearchRequest_;
+        } else {
+          return cmdbSearchRequestBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4 [(.validator.field) = { ... }</code>
+       */
+      public Builder setCmdbSearchRequest(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest value) {
+        if (cmdbSearchRequestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          cmdbSearchRequest_ = value;
+          onChanged();
+        } else {
+          cmdbSearchRequestBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4 [(.validator.field) = { ... }</code>
+       */
+      public Builder setCmdbSearchRequest(
+          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder builderForValue) {
+        if (cmdbSearchRequestBuilder_ == null) {
+          cmdbSearchRequest_ = builderForValue.build();
+          onChanged();
+        } else {
+          cmdbSearchRequestBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4 [(.validator.field) = { ... }</code>
+       */
+      public Builder mergeCmdbSearchRequest(top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest value) {
+        if (cmdbSearchRequestBuilder_ == null) {
+          if (cmdbSearchRequest_ != null) {
+            cmdbSearchRequest_ =
+              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.newBuilder(cmdbSearchRequest_).mergeFrom(value).buildPartial();
+          } else {
+            cmdbSearchRequest_ = value;
+          }
+          onChanged();
+        } else {
+          cmdbSearchRequestBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearCmdbSearchRequest() {
+        if (cmdbSearchRequestBuilder_ == null) {
+          cmdbSearchRequest_ = null;
+          onChanged();
+        } else {
+          cmdbSearchRequest_ = null;
+          cmdbSearchRequestBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4 [(.validator.field) = { ... }</code>
+       */
+      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder getCmdbSearchRequestBuilder() {
+        
+        onChanged();
+        return getCmdbSearchRequestFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4 [(.validator.field) = { ... }</code>
+       */
+      public top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder getCmdbSearchRequestOrBuilder() {
+        if (cmdbSearchRequestBuilder_ != null) {
+          return cmdbSearchRequestBuilder_.getMessageOrBuilder();
+        } else {
+          return cmdbSearchRequest_ == null ?
+              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.getDefaultInstance() : cmdbSearchRequest_;
+        }
+      }
+      /**
+       * <pre>
+       * cmdb的搜索条件
+       * </pre>
+       *
+       * <code>.cmdb.SearchHostRequest cmdb_search_request = 4 [(.validator.field) = { ... }</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder> 
+          getCmdbSearchRequestFieldBuilder() {
+        if (cmdbSearchRequestBuilder_ == null) {
+          cmdbSearchRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequest.Builder, top.fogcdn.axe.protos.cmdb.CmdbOuterClass.SearchHostRequestOrBuilder>(
+                  getCmdbSearchRequest(),
+                  getParentForChildren(),
+                  isClean());
+          cmdbSearchRequest_ = null;
+        }
+        return cmdbSearchRequestBuilder_;
+      }
+
+      private java.lang.Object extraVar_ = "";
+      /**
+       * <pre>
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+       * </pre>
+       *
+       * <code>string extra_var = 5;</code>
+       */
+      public java.lang.String getExtraVar() {
+        java.lang.Object ref = extraVar_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          extraVar_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+       * </pre>
+       *
+       * <code>string extra_var = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getExtraVarBytes() {
+        java.lang.Object ref = extraVar_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          extraVar_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+       * </pre>
+       *
+       * <code>string extra_var = 5;</code>
+       */
+      public Builder setExtraVar(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        extraVar_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+       * </pre>
+       *
+       * <code>string extra_var = 5;</code>
+       */
+      public Builder clearExtraVar() {
+        
+        extraVar_ = getDefaultInstance().getExtraVar();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
+       * </pre>
+       *
+       * <code>string extra_var = 5;</code>
+       */
+      public Builder setExtraVarBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        extraVar_ = value;
+        onChanged();
         return this;
       }
       @java.lang.Override
@@ -944,7 +3244,7 @@ public final class JobOuterClass {
 
     /**
      * <pre>
-     * 作业任务ID
+     * 任务实例ID
      * </pre>
      *
      * <code>int32 job_id = 1;</code>
@@ -956,7 +3256,7 @@ public final class JobOuterClass {
      * 返回的请求状态
      * </pre>
      *
-     * <code>.common.ResponseStatus status = 2;</code>
+     * <code>.common.ResponseStatus status = 3;</code>
      */
     boolean hasStatus();
     /**
@@ -964,7 +3264,7 @@ public final class JobOuterClass {
      * 返回的请求状态
      * </pre>
      *
-     * <code>.common.ResponseStatus status = 2;</code>
+     * <code>.common.ResponseStatus status = 3;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus();
     /**
@@ -972,13 +3272,13 @@ public final class JobOuterClass {
      * 返回的请求状态
      * </pre>
      *
-     * <code>.common.ResponseStatus status = 2;</code>
+     * <code>.common.ResponseStatus status = 3;</code>
      */
     top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder();
   }
   /**
    * <pre>
-   * 创建作业任务请求返回
+   * 创建任务实例请求返回
    * </pre>
    *
    * Protobuf type {@code job.CreateResponse}
@@ -1025,7 +3325,7 @@ public final class JobOuterClass {
               jobId_ = input.readInt32();
               break;
             }
-            case 18: {
+            case 26: {
               top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder subBuilder = null;
               if (status_ != null) {
                 subBuilder = status_.toBuilder();
@@ -1074,7 +3374,7 @@ public final class JobOuterClass {
     private int jobId_;
     /**
      * <pre>
-     * 作业任务ID
+     * 任务实例ID
      * </pre>
      *
      * <code>int32 job_id = 1;</code>
@@ -1083,14 +3383,14 @@ public final class JobOuterClass {
       return jobId_;
     }
 
-    public static final int STATUS_FIELD_NUMBER = 2;
+    public static final int STATUS_FIELD_NUMBER = 3;
     private top.fogcdn.axe.protos.common.Api.ResponseStatus status_;
     /**
      * <pre>
      * 返回的请求状态
      * </pre>
      *
-     * <code>.common.ResponseStatus status = 2;</code>
+     * <code>.common.ResponseStatus status = 3;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
@@ -1100,7 +3400,7 @@ public final class JobOuterClass {
      * 返回的请求状态
      * </pre>
      *
-     * <code>.common.ResponseStatus status = 2;</code>
+     * <code>.common.ResponseStatus status = 3;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
       return status_ == null ? top.fogcdn.axe.protos.common.Api.ResponseStatus.getDefaultInstance() : status_;
@@ -1110,7 +3410,7 @@ public final class JobOuterClass {
      * 返回的请求状态
      * </pre>
      *
-     * <code>.common.ResponseStatus status = 2;</code>
+     * <code>.common.ResponseStatus status = 3;</code>
      */
     public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
       return getStatus();
@@ -1134,7 +3434,7 @@ public final class JobOuterClass {
         output.writeInt32(1, jobId_);
       }
       if (status_ != null) {
-        output.writeMessage(2, getStatus());
+        output.writeMessage(3, getStatus());
       }
       unknownFields.writeTo(output);
     }
@@ -1151,7 +3451,7 @@ public final class JobOuterClass {
       }
       if (status_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getStatus());
+          .computeMessageSize(3, getStatus());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1290,7 +3590,7 @@ public final class JobOuterClass {
     }
     /**
      * <pre>
-     * 创建作业任务请求返回
+     * 创建任务实例请求返回
      * </pre>
      *
      * Protobuf type {@code job.CreateResponse}
@@ -1456,7 +3756,7 @@ public final class JobOuterClass {
       private int jobId_ ;
       /**
        * <pre>
-       * 作业任务ID
+       * 任务实例ID
        * </pre>
        *
        * <code>int32 job_id = 1;</code>
@@ -1466,7 +3766,7 @@ public final class JobOuterClass {
       }
       /**
        * <pre>
-       * 作业任务ID
+       * 任务实例ID
        * </pre>
        *
        * <code>int32 job_id = 1;</code>
@@ -1479,7 +3779,7 @@ public final class JobOuterClass {
       }
       /**
        * <pre>
-       * 作业任务ID
+       * 任务实例ID
        * </pre>
        *
        * <code>int32 job_id = 1;</code>
@@ -1499,7 +3799,7 @@ public final class JobOuterClass {
        * 返回的请求状态
        * </pre>
        *
-       * <code>.common.ResponseStatus status = 2;</code>
+       * <code>.common.ResponseStatus status = 3;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
@@ -1509,7 +3809,7 @@ public final class JobOuterClass {
        * 返回的请求状态
        * </pre>
        *
-       * <code>.common.ResponseStatus status = 2;</code>
+       * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus getStatus() {
         if (statusBuilder_ == null) {
@@ -1523,7 +3823,7 @@ public final class JobOuterClass {
        * 返回的请求状态
        * </pre>
        *
-       * <code>.common.ResponseStatus status = 2;</code>
+       * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder setStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
         if (statusBuilder_ == null) {
@@ -1543,7 +3843,7 @@ public final class JobOuterClass {
        * 返回的请求状态
        * </pre>
        *
-       * <code>.common.ResponseStatus status = 2;</code>
+       * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder setStatus(
           top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder builderForValue) {
@@ -1561,7 +3861,7 @@ public final class JobOuterClass {
        * 返回的请求状态
        * </pre>
        *
-       * <code>.common.ResponseStatus status = 2;</code>
+       * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder mergeStatus(top.fogcdn.axe.protos.common.Api.ResponseStatus value) {
         if (statusBuilder_ == null) {
@@ -1583,7 +3883,7 @@ public final class JobOuterClass {
        * 返回的请求状态
        * </pre>
        *
-       * <code>.common.ResponseStatus status = 2;</code>
+       * <code>.common.ResponseStatus status = 3;</code>
        */
       public Builder clearStatus() {
         if (statusBuilder_ == null) {
@@ -1601,7 +3901,7 @@ public final class JobOuterClass {
        * 返回的请求状态
        * </pre>
        *
-       * <code>.common.ResponseStatus status = 2;</code>
+       * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder getStatusBuilder() {
         
@@ -1613,7 +3913,7 @@ public final class JobOuterClass {
        * 返回的请求状态
        * </pre>
        *
-       * <code>.common.ResponseStatus status = 2;</code>
+       * <code>.common.ResponseStatus status = 3;</code>
        */
       public top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder getStatusOrBuilder() {
         if (statusBuilder_ != null) {
@@ -1628,7 +3928,7 @@ public final class JobOuterClass {
        * 返回的请求状态
        * </pre>
        *
-       * <code>.common.ResponseStatus status = 2;</code>
+       * <code>.common.ResponseStatus status = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           top.fogcdn.axe.protos.common.Api.ResponseStatus, top.fogcdn.axe.protos.common.Api.ResponseStatus.Builder, top.fogcdn.axe.protos.common.Api.ResponseStatusOrBuilder> 
@@ -6396,2778 +8696,6 @@ public final class JobOuterClass {
 
   }
 
-  public interface ScheduleRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:job.ScheduleRequest)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * 作业任务ID
-     * </pre>
-     *
-     * <code>int32 job_id = 1;</code>
-     */
-    int getJobId();
-  }
-  /**
-   * <pre>
-   * 创建定时作业任务请求
-   * </pre>
-   *
-   * Protobuf type {@code job.ScheduleRequest}
-   */
-  public  static final class ScheduleRequest extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:job.ScheduleRequest)
-      ScheduleRequestOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use ScheduleRequest.newBuilder() to construct.
-    private ScheduleRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private ScheduleRequest() {
-      jobId_ = 0;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private ScheduleRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              jobId_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_ScheduleRequest_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_ScheduleRequest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest.class, top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest.Builder.class);
-    }
-
-    public static final int JOB_ID_FIELD_NUMBER = 1;
-    private int jobId_;
-    /**
-     * <pre>
-     * 作业任务ID
-     * </pre>
-     *
-     * <code>int32 job_id = 1;</code>
-     */
-    public int getJobId() {
-      return jobId_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (jobId_ != 0) {
-        output.writeInt32(1, jobId_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (jobId_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, jobId_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest)) {
-        return super.equals(obj);
-      }
-      top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest other = (top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest) obj;
-
-      boolean result = true;
-      result = result && (getJobId()
-          == other.getJobId());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + JOB_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getJobId();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * 创建定时作业任务请求
-     * </pre>
-     *
-     * Protobuf type {@code job.ScheduleRequest}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:job.ScheduleRequest)
-        top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_ScheduleRequest_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_ScheduleRequest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest.class, top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest.Builder.class);
-      }
-
-      // Construct using top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        jobId_ = 0;
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_ScheduleRequest_descriptor;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest getDefaultInstanceForType() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest build() {
-        top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest buildPartial() {
-        top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest result = new top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest(this);
-        result.jobId_ = jobId_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest) {
-          return mergeFrom((top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest other) {
-        if (other == top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest.getDefaultInstance()) return this;
-        if (other.getJobId() != 0) {
-          setJobId(other.getJobId());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private int jobId_ ;
-      /**
-       * <pre>
-       * 作业任务ID
-       * </pre>
-       *
-       * <code>int32 job_id = 1;</code>
-       */
-      public int getJobId() {
-        return jobId_;
-      }
-      /**
-       * <pre>
-       * 作业任务ID
-       * </pre>
-       *
-       * <code>int32 job_id = 1;</code>
-       */
-      public Builder setJobId(int value) {
-        
-        jobId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 作业任务ID
-       * </pre>
-       *
-       * <code>int32 job_id = 1;</code>
-       */
-      public Builder clearJobId() {
-        
-        jobId_ = 0;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:job.ScheduleRequest)
-    }
-
-    // @@protoc_insertion_point(class_scope:job.ScheduleRequest)
-    private static final top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest();
-    }
-
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<ScheduleRequest>
-        PARSER = new com.google.protobuf.AbstractParser<ScheduleRequest>() {
-      @java.lang.Override
-      public ScheduleRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ScheduleRequest(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<ScheduleRequest> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ScheduleRequest> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public top.fogcdn.axe.protos.job.JobOuterClass.ScheduleRequest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface ScheduleResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:job.ScheduleResponse)
-      com.google.protobuf.MessageOrBuilder {
-  }
-  /**
-   * <pre>
-   * 创建定时作业任务请求返回
-   * </pre>
-   *
-   * Protobuf type {@code job.ScheduleResponse}
-   */
-  public  static final class ScheduleResponse extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:job.ScheduleResponse)
-      ScheduleResponseOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use ScheduleResponse.newBuilder() to construct.
-    private ScheduleResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private ScheduleResponse() {
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private ScheduleResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_ScheduleResponse_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_ScheduleResponse_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse.class, top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse.Builder.class);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse)) {
-        return super.equals(obj);
-      }
-      top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse other = (top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse) obj;
-
-      boolean result = true;
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * 创建定时作业任务请求返回
-     * </pre>
-     *
-     * Protobuf type {@code job.ScheduleResponse}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:job.ScheduleResponse)
-        top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_ScheduleResponse_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_ScheduleResponse_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse.class, top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse.Builder.class);
-      }
-
-      // Construct using top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_ScheduleResponse_descriptor;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse getDefaultInstanceForType() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse build() {
-        top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse buildPartial() {
-        top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse result = new top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse(this);
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse) {
-          return mergeFrom((top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse other) {
-        if (other == top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:job.ScheduleResponse)
-    }
-
-    // @@protoc_insertion_point(class_scope:job.ScheduleResponse)
-    private static final top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse();
-    }
-
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<ScheduleResponse>
-        PARSER = new com.google.protobuf.AbstractParser<ScheduleResponse>() {
-      @java.lang.Override
-      public ScheduleResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ScheduleResponse(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<ScheduleResponse> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ScheduleResponse> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public top.fogcdn.axe.protos.job.JobOuterClass.ScheduleResponse getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface ScheduleListRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:job.ScheduleListRequest)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * 作业任务ID
-     * </pre>
-     *
-     * <code>int32 job_id = 1;</code>
-     */
-    int getJobId();
-  }
-  /**
-   * <pre>
-   * 查看定时作业任务请求
-   * </pre>
-   *
-   * Protobuf type {@code job.ScheduleListRequest}
-   */
-  public  static final class ScheduleListRequest extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:job.ScheduleListRequest)
-      ScheduleListRequestOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use ScheduleListRequest.newBuilder() to construct.
-    private ScheduleListRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private ScheduleListRequest() {
-      jobId_ = 0;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private ScheduleListRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              jobId_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_ScheduleListRequest_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_ScheduleListRequest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest.class, top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest.Builder.class);
-    }
-
-    public static final int JOB_ID_FIELD_NUMBER = 1;
-    private int jobId_;
-    /**
-     * <pre>
-     * 作业任务ID
-     * </pre>
-     *
-     * <code>int32 job_id = 1;</code>
-     */
-    public int getJobId() {
-      return jobId_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (jobId_ != 0) {
-        output.writeInt32(1, jobId_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (jobId_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, jobId_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest)) {
-        return super.equals(obj);
-      }
-      top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest other = (top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest) obj;
-
-      boolean result = true;
-      result = result && (getJobId()
-          == other.getJobId());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + JOB_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getJobId();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * 查看定时作业任务请求
-     * </pre>
-     *
-     * Protobuf type {@code job.ScheduleListRequest}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:job.ScheduleListRequest)
-        top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_ScheduleListRequest_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_ScheduleListRequest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest.class, top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest.Builder.class);
-      }
-
-      // Construct using top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        jobId_ = 0;
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_ScheduleListRequest_descriptor;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest getDefaultInstanceForType() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest build() {
-        top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest buildPartial() {
-        top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest result = new top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest(this);
-        result.jobId_ = jobId_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest) {
-          return mergeFrom((top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest other) {
-        if (other == top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest.getDefaultInstance()) return this;
-        if (other.getJobId() != 0) {
-          setJobId(other.getJobId());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private int jobId_ ;
-      /**
-       * <pre>
-       * 作业任务ID
-       * </pre>
-       *
-       * <code>int32 job_id = 1;</code>
-       */
-      public int getJobId() {
-        return jobId_;
-      }
-      /**
-       * <pre>
-       * 作业任务ID
-       * </pre>
-       *
-       * <code>int32 job_id = 1;</code>
-       */
-      public Builder setJobId(int value) {
-        
-        jobId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 作业任务ID
-       * </pre>
-       *
-       * <code>int32 job_id = 1;</code>
-       */
-      public Builder clearJobId() {
-        
-        jobId_ = 0;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:job.ScheduleListRequest)
-    }
-
-    // @@protoc_insertion_point(class_scope:job.ScheduleListRequest)
-    private static final top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest();
-    }
-
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<ScheduleListRequest>
-        PARSER = new com.google.protobuf.AbstractParser<ScheduleListRequest>() {
-      @java.lang.Override
-      public ScheduleListRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ScheduleListRequest(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<ScheduleListRequest> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ScheduleListRequest> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListRequest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface ScheduleListResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:job.ScheduleListResponse)
-      com.google.protobuf.MessageOrBuilder {
-  }
-  /**
-   * <pre>
-   * 查看定时作业任务请求返回
-   * </pre>
-   *
-   * Protobuf type {@code job.ScheduleListResponse}
-   */
-  public  static final class ScheduleListResponse extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:job.ScheduleListResponse)
-      ScheduleListResponseOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use ScheduleListResponse.newBuilder() to construct.
-    private ScheduleListResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private ScheduleListResponse() {
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private ScheduleListResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_ScheduleListResponse_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_ScheduleListResponse_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse.class, top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse.Builder.class);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse)) {
-        return super.equals(obj);
-      }
-      top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse other = (top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse) obj;
-
-      boolean result = true;
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * 查看定时作业任务请求返回
-     * </pre>
-     *
-     * Protobuf type {@code job.ScheduleListResponse}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:job.ScheduleListResponse)
-        top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_ScheduleListResponse_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_ScheduleListResponse_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse.class, top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse.Builder.class);
-      }
-
-      // Construct using top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_ScheduleListResponse_descriptor;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse getDefaultInstanceForType() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse build() {
-        top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse buildPartial() {
-        top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse result = new top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse(this);
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse) {
-          return mergeFrom((top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse other) {
-        if (other == top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:job.ScheduleListResponse)
-    }
-
-    // @@protoc_insertion_point(class_scope:job.ScheduleListResponse)
-    private static final top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse();
-    }
-
-    public static top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<ScheduleListResponse>
-        PARSER = new com.google.protobuf.AbstractParser<ScheduleListResponse>() {
-      @java.lang.Override
-      public ScheduleListResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ScheduleListResponse(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<ScheduleListResponse> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ScheduleListResponse> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public top.fogcdn.axe.protos.job.JobOuterClass.ScheduleListResponse getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface DeleteRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:job.DeleteRequest)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * 作业任务ID
-     * </pre>
-     *
-     * <code>int32 job_id = 1;</code>
-     */
-    int getJobId();
-  }
-  /**
-   * <pre>
-   * 删除作业任务请求
-   * </pre>
-   *
-   * Protobuf type {@code job.DeleteRequest}
-   */
-  public  static final class DeleteRequest extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:job.DeleteRequest)
-      DeleteRequestOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use DeleteRequest.newBuilder() to construct.
-    private DeleteRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private DeleteRequest() {
-      jobId_ = 0;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private DeleteRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              jobId_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_DeleteRequest_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_DeleteRequest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest.class, top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest.Builder.class);
-    }
-
-    public static final int JOB_ID_FIELD_NUMBER = 1;
-    private int jobId_;
-    /**
-     * <pre>
-     * 作业任务ID
-     * </pre>
-     *
-     * <code>int32 job_id = 1;</code>
-     */
-    public int getJobId() {
-      return jobId_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (jobId_ != 0) {
-        output.writeInt32(1, jobId_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (jobId_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, jobId_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest)) {
-        return super.equals(obj);
-      }
-      top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest other = (top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest) obj;
-
-      boolean result = true;
-      result = result && (getJobId()
-          == other.getJobId());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + JOB_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getJobId();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * 删除作业任务请求
-     * </pre>
-     *
-     * Protobuf type {@code job.DeleteRequest}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:job.DeleteRequest)
-        top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_DeleteRequest_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_DeleteRequest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest.class, top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest.Builder.class);
-      }
-
-      // Construct using top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        jobId_ = 0;
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_DeleteRequest_descriptor;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest getDefaultInstanceForType() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest build() {
-        top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest buildPartial() {
-        top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest result = new top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest(this);
-        result.jobId_ = jobId_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest) {
-          return mergeFrom((top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest other) {
-        if (other == top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest.getDefaultInstance()) return this;
-        if (other.getJobId() != 0) {
-          setJobId(other.getJobId());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private int jobId_ ;
-      /**
-       * <pre>
-       * 作业任务ID
-       * </pre>
-       *
-       * <code>int32 job_id = 1;</code>
-       */
-      public int getJobId() {
-        return jobId_;
-      }
-      /**
-       * <pre>
-       * 作业任务ID
-       * </pre>
-       *
-       * <code>int32 job_id = 1;</code>
-       */
-      public Builder setJobId(int value) {
-        
-        jobId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 作业任务ID
-       * </pre>
-       *
-       * <code>int32 job_id = 1;</code>
-       */
-      public Builder clearJobId() {
-        
-        jobId_ = 0;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:job.DeleteRequest)
-    }
-
-    // @@protoc_insertion_point(class_scope:job.DeleteRequest)
-    private static final top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest();
-    }
-
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<DeleteRequest>
-        PARSER = new com.google.protobuf.AbstractParser<DeleteRequest>() {
-      @java.lang.Override
-      public DeleteRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DeleteRequest(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<DeleteRequest> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<DeleteRequest> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public top.fogcdn.axe.protos.job.JobOuterClass.DeleteRequest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface DeleteResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:job.DeleteResponse)
-      com.google.protobuf.MessageOrBuilder {
-  }
-  /**
-   * <pre>
-   * 删除作业任务请求返回
-   * </pre>
-   *
-   * Protobuf type {@code job.DeleteResponse}
-   */
-  public  static final class DeleteResponse extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:job.DeleteResponse)
-      DeleteResponseOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use DeleteResponse.newBuilder() to construct.
-    private DeleteResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private DeleteResponse() {
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private DeleteResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_DeleteResponse_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_DeleteResponse_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse.class, top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse.Builder.class);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse)) {
-        return super.equals(obj);
-      }
-      top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse other = (top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse) obj;
-
-      boolean result = true;
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * 删除作业任务请求返回
-     * </pre>
-     *
-     * Protobuf type {@code job.DeleteResponse}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:job.DeleteResponse)
-        top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_DeleteResponse_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_DeleteResponse_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse.class, top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse.Builder.class);
-      }
-
-      // Construct using top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.internal_static_job_DeleteResponse_descriptor;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse getDefaultInstanceForType() {
-        return top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse build() {
-        top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse buildPartial() {
-        top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse result = new top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse(this);
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse) {
-          return mergeFrom((top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse other) {
-        if (other == top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:job.DeleteResponse)
-    }
-
-    // @@protoc_insertion_point(class_scope:job.DeleteResponse)
-    private static final top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse();
-    }
-
-    public static top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<DeleteResponse>
-        PARSER = new com.google.protobuf.AbstractParser<DeleteResponse>() {
-      @java.lang.Override
-      public DeleteResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DeleteResponse(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<DeleteResponse> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<DeleteResponse> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public top.fogcdn.axe.protos.job.JobOuterClass.DeleteResponse getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_job_JobObject_descriptor;
   private static final 
@@ -9213,36 +8741,6 @@ public final class JobOuterClass {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_job_FilterResponse_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_job_ScheduleRequest_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_job_ScheduleRequest_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_job_ScheduleResponse_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_job_ScheduleResponse_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_job_ScheduleListRequest_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_job_ScheduleListRequest_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_job_ScheduleListResponse_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_job_ScheduleListResponse_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_job_DeleteRequest_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_job_DeleteRequest_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_job_DeleteResponse_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_job_DeleteResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -9252,38 +8750,49 @@ public final class JobOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\rjob/job.proto\022\003job\032\020common/api.proto\032\034" +
-      "google/api/annotations.proto\032,protoc-gen" +
-      "-swagger/options/annotations.proto\"\033\n\tJo" +
-      "bObject\022\016\n\006job_id\030\001 \001(\005\"\017\n\rCreateRequest" +
-      "\"H\n\016CreateResponse\022\016\n\006job_id\030\001 \001(\005\022&\n\006st" +
-      "atus\030\002 \001(\0132\026.common.ResponseStatus\"\034\n\nGe" +
-      "tRequest\022\016\n\006job_id\030\001 \001(\005\"R\n\013GetResponse\022" +
-      "\033\n\003job\030\001 \001(\0132\016.job.JobObject\022&\n\006status\030\002" +
-      " \001(\0132\026.common.ResponseStatus\"\037\n\rGetLogRe" +
-      "quest\022\016\n\006job_id\030\001 \001(\005\"8\n\016GetLogResponse\022" +
-      "&\n\006status\030\002 \001(\0132\026.common.ResponseStatus\"" +
-      "/\n\rFilterRequest\022\036\n\006paging\030\001 \001(\0132\016.commo" +
-      "n.Paging\"v\n\016FilterResponse\022\034\n\004jobs\030\001 \003(\013" +
-      "2\016.job.JobObject\022\036\n\006paging\030\002 \001(\0132\016.commo" +
-      "n.Paging\022&\n\006status\030\003 \001(\0132\026.common.Respon" +
-      "seStatus\"!\n\017ScheduleRequest\022\016\n\006job_id\030\001 " +
-      "\001(\005\"\022\n\020ScheduleResponse\"%\n\023ScheduleListR" +
-      "equest\022\016\n\006job_id\030\001 \001(\005\"\026\n\024ScheduleListRe" +
-      "sponse\"\037\n\rDeleteRequest\022\016\n\006job_id\030\001 \001(\005\"" +
-      "\020\n\016DeleteResponse2\207\003\n\003Job\0223\n\006Create\022\022.jo" +
-      "b.CreateRequest\032\023.job.CreateResponse\"\000\0229" +
-      "\n\010Schedule\022\024.job.ScheduleRequest\032\025.job.S" +
-      "cheduleResponse\"\000\022E\n\014ScheduleList\022\030.job." +
-      "ScheduleListRequest\032\031.job.ScheduleListRe" +
-      "sponse\"\000\0223\n\006Filter\022\022.job.FilterRequest\032\023" +
-      ".job.FilterResponse\"\000\022*\n\003Get\022\017.job.GetRe" +
-      "quest\032\020.job.GetResponse\"\000\0223\n\006GetLog\022\022.jo" +
-      "b.GetLogRequest\032\023.job.GetLogResponse\"\000\0223" +
-      "\n\006Delete\022\022.job.DeleteRequest\032\023.job.Delet" +
-      "eResponse\"\000B@\n\031top.fogcdn.axe.protos.job" +
-      "Z#git.fogcdn.top/axe/protos/goout/jobb\006p" +
-      "roto3"
+      "\n\rjob/job.proto\022\003job\032\034google/api/annotat" +
+      "ions.proto\032,protoc-gen-swagger/options/a" +
+      "nnotations.proto\0326github.com/mwitkow/go-" +
+      "proto-validators/validator.proto\032\020common" +
+      "/api.proto\032\027schedule/schedule.proto\032\017cmd" +
+      "b/cmdb.proto\"\331\002\n\tJobObject\022\016\n\006job_id\030\001 \001" +
+      "(\005\022\023\n\013template_id\030\002 \001(\005\022\023\n\013schedule_id\030\003" +
+      " \001(\005\022(\n\rschedule_type\030\004 \001(\0162\021.job.Schedu" +
+      "leType\022%\n\ttask_type\030\005 \001(\0162\022.schedule.Tas" +
+      "kType\0224\n\023cmdb_search_request\030\006 \001(\0132\027.cmd" +
+      "b.SearchHostRequest\022\021\n\textra_var\030\007 \001(\t\022\020" +
+      "\n\010executor\030\010 \001(\005\022\025\n\rexecute_count\030\t \001(\005\022" +
+      "\022\n\nfail_count\030\n \001(\005\022\025\n\rsuccess_count\030\013 \001" +
+      "(\005\022\022\n\nstart_time\030\014 \001(\005\022\020\n\010end_time\030\r \001(\005" +
+      "\"\267\002\n\rCreateRequest\0221\n\013template_id\030\001 \001(\005B" +
+      "\034\342\337\037\030\020\000*\024\346\250\241\346\235\277ID\344\270\215\350\203\275\344\270\272\347\251\272\0221\n\004name\030\002 " +
+      "\001(\tB#\342\337\037\037*\033\345\256\232\346\227\266\344\273\273\345\212\241\345\220\215\344\270\215\350\203\275\344\270\272\347\251\272X\001" +
+      "\022%\n\ttask_type\030\003 \001(\0162\022.schedule.TaskType\022" +
+      "]\n\023cmdb_search_request\030\004 \001(\0132\027.cmdb.Sear" +
+      "chHostRequestB\'\342\337\037#*\037cmdb\347\232\204\346\220\234\347\264\242\346\235\241\344\273\266" +
+      "\344\270\215\350\203\275\344\270\272\347\251\272X\001\022\021\n\textra_var\030\005 \001(\t:\'\222A$\n\"" +
+      "\322\001\tschedules\322\001\023cmdb_search_request\"H\n\016Cr" +
+      "eateResponse\022\016\n\006job_id\030\001 \001(\005\022&\n\006status\030\003" +
+      " \001(\0132\026.common.ResponseStatus\"\034\n\nGetReque" +
+      "st\022\016\n\006job_id\030\001 \001(\005\"R\n\013GetResponse\022\033\n\003job" +
+      "\030\001 \001(\0132\016.job.JobObject\022&\n\006status\030\002 \001(\0132\026" +
+      ".common.ResponseStatus\"\037\n\rGetLogRequest\022" +
+      "\016\n\006job_id\030\001 \001(\005\"8\n\016GetLogResponse\022&\n\006sta" +
+      "tus\030\002 \001(\0132\026.common.ResponseStatus\"/\n\rFil" +
+      "terRequest\022\036\n\006paging\030\001 \001(\0132\016.common.Pagi" +
+      "ng\"v\n\016FilterResponse\022\034\n\004jobs\030\001 \003(\0132\016.job" +
+      ".JobObject\022\036\n\006paging\030\002 \001(\0132\016.common.Pagi" +
+      "ng\022&\n\006status\030\003 \001(\0132\026.common.ResponseStat" +
+      "us*6\n\014ScheduleType\022\r\n\tUNDEFINED\020\000\022\n\n\006SIN" +
+      "GLE\020\001\022\013\n\007CRONTAB\020\0022\377\001\n\003Job\022L\n\006Create\022\022.j" +
+      "ob.CreateRequest\032\023.job.CreateResponse\"\031\202" +
+      "\323\344\223\002\023\"\016/v1/job/create:\001*\022I\n\006Filter\022\022.job" +
+      ".FilterRequest\032\023.job.FilterResponse\"\026\202\323\344" +
+      "\223\002\020\022\016/v1/job/filter\022*\n\003Get\022\017.job.GetRequ" +
+      "est\032\020.job.GetResponse\"\000\0223\n\006GetLog\022\022.job." +
+      "GetLogRequest\032\023.job.GetLogResponse\"\000B@\n\031" +
+      "top.fogcdn.axe.protos.jobZ#git.fogcdn.to" +
+      "p/axe/protos/goout/jobb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -9296,22 +8805,25 @@ public final class JobOuterClass {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          top.fogcdn.axe.protos.common.Api.getDescriptor(),
           com.google.api.AnnotationsProto.getDescriptor(),
           grpc.gateway.protoc_gen_swagger.options.Annotations.getDescriptor(),
+          validator.Validator.getDescriptor(),
+          top.fogcdn.axe.protos.common.Api.getDescriptor(),
+          top.fogcdn.axe.protos.schedule.ScheduleOuterClass.getDescriptor(),
+          top.fogcdn.axe.protos.cmdb.CmdbOuterClass.getDescriptor(),
         }, assigner);
     internal_static_job_JobObject_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_job_JobObject_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_JobObject_descriptor,
-        new java.lang.String[] { "JobId", });
+        new java.lang.String[] { "JobId", "TemplateId", "ScheduleId", "ScheduleType", "TaskType", "CmdbSearchRequest", "ExtraVar", "Executor", "ExecuteCount", "FailCount", "SuccessCount", "StartTime", "EndTime", });
     internal_static_job_CreateRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_job_CreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_CreateRequest_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "TemplateId", "Name", "TaskType", "CmdbSearchRequest", "ExtraVar", });
     internal_static_job_CreateResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_job_CreateResponse_fieldAccessorTable = new
@@ -9354,45 +8866,19 @@ public final class JobOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_job_FilterResponse_descriptor,
         new java.lang.String[] { "Jobs", "Paging", "Status", });
-    internal_static_job_ScheduleRequest_descriptor =
-      getDescriptor().getMessageTypes().get(9);
-    internal_static_job_ScheduleRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_job_ScheduleRequest_descriptor,
-        new java.lang.String[] { "JobId", });
-    internal_static_job_ScheduleResponse_descriptor =
-      getDescriptor().getMessageTypes().get(10);
-    internal_static_job_ScheduleResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_job_ScheduleResponse_descriptor,
-        new java.lang.String[] { });
-    internal_static_job_ScheduleListRequest_descriptor =
-      getDescriptor().getMessageTypes().get(11);
-    internal_static_job_ScheduleListRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_job_ScheduleListRequest_descriptor,
-        new java.lang.String[] { "JobId", });
-    internal_static_job_ScheduleListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(12);
-    internal_static_job_ScheduleListResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_job_ScheduleListResponse_descriptor,
-        new java.lang.String[] { });
-    internal_static_job_DeleteRequest_descriptor =
-      getDescriptor().getMessageTypes().get(13);
-    internal_static_job_DeleteRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_job_DeleteRequest_descriptor,
-        new java.lang.String[] { "JobId", });
-    internal_static_job_DeleteResponse_descriptor =
-      getDescriptor().getMessageTypes().get(14);
-    internal_static_job_DeleteResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_job_DeleteResponse_descriptor,
-        new java.lang.String[] { });
-    top.fogcdn.axe.protos.common.Api.getDescriptor();
+    com.google.protobuf.ExtensionRegistry registry =
+        com.google.protobuf.ExtensionRegistry.newInstance();
+    registry.add(com.google.api.AnnotationsProto.http);
+    registry.add(grpc.gateway.protoc_gen_swagger.options.Annotations.openapiv2Schema);
+    registry.add(validator.Validator.field);
+    com.google.protobuf.Descriptors.FileDescriptor
+        .internalUpdateFileDescriptor(descriptor, registry);
     com.google.api.AnnotationsProto.getDescriptor();
     grpc.gateway.protoc_gen_swagger.options.Annotations.getDescriptor();
+    validator.Validator.getDescriptor();
+    top.fogcdn.axe.protos.common.Api.getDescriptor();
+    top.fogcdn.axe.protos.schedule.ScheduleOuterClass.getDescriptor();
+    top.fogcdn.axe.protos.cmdb.CmdbOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
