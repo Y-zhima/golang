@@ -133,87 +133,13 @@
         }
       }
     },
-    "/v1/job/create": {
-      "post": {
-        "tags": [
-          "Job"
-        ],
-        "summary": "创建作业任务(执行作业模板)",
-        "operationId": "Create",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/jobCreateRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/jobCreateResponse"
-            }
-          }
-        }
-      }
-    },
-    "/v1/job/filter": {
-      "get": {
-        "tags": [
-          "Job"
-        ],
-        "summary": "筛选作业任务",
-        "operationId": "Filter",
-        "parameters": [
-          {
-            "type": "integer",
-            "format": "int32",
-            "description": "总页数.",
-            "name": "paging.total_page",
-            "in": "query"
-          },
-          {
-            "type": "integer",
-            "format": "int32",
-            "description": "当前页数.",
-            "name": "paging.page",
-            "in": "query"
-          },
-          {
-            "type": "integer",
-            "format": "int32",
-            "description": "每页显示的记录条数.",
-            "name": "paging.per_page",
-            "in": "query"
-          },
-          {
-            "type": "integer",
-            "format": "int32",
-            "description": "总记录数.",
-            "name": "paging.total_record",
-            "in": "query"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/jobFilterResponse"
-            }
-          }
-        }
-      }
-    },
     "/v1/playbook/create": {
       "post": {
         "tags": [
           "Playbook"
         ],
         "summary": "创建playbook项目",
-        "operationId": "CreateMixin5",
+        "operationId": "Create",
         "parameters": [
           {
             "name": "body",
@@ -240,7 +166,7 @@
           "Playbook"
         ],
         "summary": "筛选playbook项目",
-        "operationId": "FilterMixin5",
+        "operationId": "Filter",
         "parameters": [
           {
             "type": "integer",
@@ -355,7 +281,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin6",
+        "operationId": "CreateMixin5",
         "parameters": [
           {
             "name": "body",
@@ -382,7 +308,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin6",
+        "operationId": "FilterMixin5",
         "parameters": [
           {
             "type": "integer",
@@ -448,7 +374,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin6",
+        "operationId": "GetMixin5",
         "parameters": [
           {
             "type": "integer",
@@ -502,7 +428,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "UpdateMixin6",
+        "operationId": "UpdateMixin5",
         "parameters": [
           {
             "type": "integer",
@@ -537,7 +463,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "CreateMixin7",
+        "operationId": "CreateMixin6",
         "parameters": [
           {
             "name": "body",
@@ -564,7 +490,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "FilterMixin7",
+        "operationId": "FilterMixin6",
         "parameters": [
           {
             "type": "integer",
@@ -611,7 +537,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin8",
+        "operationId": "CreateMixin7",
         "parameters": [
           {
             "name": "body",
@@ -638,7 +564,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin8",
+        "operationId": "FilterMixin7",
         "parameters": [
           {
             "type": "integer",
@@ -697,7 +623,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin8",
+        "operationId": "GetMixin7",
         "parameters": [
           {
             "type": "integer",
@@ -724,7 +650,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin8",
+        "operationId": "UpdateMixin7",
         "parameters": [
           {
             "type": "integer",
@@ -1053,175 +979,6 @@
           "title": "解析出来的playbook项目存储在对象存储的url"
         }
       }
-    },
-    "jobCreateRequest": {
-      "type": "object",
-      "title": "创建任务实例请求",
-      "required": [
-        "schedules",
-        "cmdb_search_request"
-      ],
-      "properties": {
-        "cmdb_search_request": {
-          "title": "cmdb的搜索条件",
-          "$ref": "#/definitions/cmdbSearchHostRequest"
-        },
-        "extra_var": {
-          "type": "string",
-          "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
-        },
-        "name": {
-          "type": "string",
-          "title": "定时任务名"
-        },
-        "task_type": {
-          "title": "任务类型",
-          "$ref": "#/definitions/scheduleTaskType"
-        },
-        "template_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "模板ID"
-        }
-      }
-    },
-    "jobCreateResponse": {
-      "type": "object",
-      "title": "创建任务实例请求返回",
-      "properties": {
-        "job_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "任务实例ID"
-        },
-        "status": {
-          "title": "返回的请求状态",
-          "$ref": "#/definitions/commonResponseStatus"
-        }
-      }
-    },
-    "jobFilterResponse": {
-      "type": "object",
-      "title": "筛选作业任务请求返回",
-      "properties": {
-        "jobs": {
-          "type": "array",
-          "title": "筛选到的多个作业任务实例",
-          "items": {
-            "$ref": "#/definitions/jobJobObject"
-          }
-        },
-        "paging": {
-          "title": "分页信息",
-          "$ref": "#/definitions/commonPaging"
-        },
-        "status": {
-          "title": "返回的请求状态",
-          "$ref": "#/definitions/commonResponseStatus"
-        }
-      }
-    },
-    "jobGetLogResponse": {
-      "type": "object",
-      "title": "获取作业任务详细执行过程请求返回",
-      "properties": {
-        "status": {
-          "title": "返回的请求状态",
-          "$ref": "#/definitions/commonResponseStatus"
-        }
-      }
-    },
-    "jobGetResponse": {
-      "type": "object",
-      "title": "获取作业任务请求返回",
-      "properties": {
-        "job": {
-          "title": "获取的作业任务实例",
-          "$ref": "#/definitions/jobJobObject"
-        },
-        "status": {
-          "title": "返回的请求状态",
-          "$ref": "#/definitions/commonResponseStatus"
-        }
-      }
-    },
-    "jobJobObject": {
-      "type": "object",
-      "title": "作业任务实例",
-      "properties": {
-        "cmdb_search_request": {
-          "title": "cmdb的搜索条件",
-          "$ref": "#/definitions/cmdbSearchHostRequest"
-        },
-        "end_time": {
-          "type": "integer",
-          "format": "int32",
-          "title": "执行结束时间"
-        },
-        "execute_count": {
-          "type": "integer",
-          "format": "int32",
-          "title": "总共执行多少主机"
-        },
-        "executor": {
-          "type": "integer",
-          "format": "int32",
-          "title": "执行人ID"
-        },
-        "extra_var": {
-          "type": "string",
-          "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
-        },
-        "fail_count": {
-          "type": "integer",
-          "format": "int32",
-          "title": "执行失败多少台主机"
-        },
-        "job_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "作业任务ID"
-        },
-        "schedule_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "定时任务ID"
-        },
-        "schedule_type": {
-          "title": "定时任务类型",
-          "$ref": "#/definitions/jobScheduleType"
-        },
-        "start_time": {
-          "type": "integer",
-          "format": "int32",
-          "title": "执行开始时间"
-        },
-        "success_count": {
-          "type": "integer",
-          "format": "int32",
-          "title": "执行成功多少台主机"
-        },
-        "task_type": {
-          "title": "任务类型",
-          "$ref": "#/definitions/scheduleTaskType"
-        },
-        "template_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "模板ID"
-        }
-      }
-    },
-    "jobScheduleType": {
-      "description": "- UNDEFINED: 0-undefined\n - SINGLE: 1-单次任务\n - CRONTAB: 2-定时任务",
-      "type": "string",
-      "title": "定时任务类型 0-undefined 1-单次任务 2-定时任务",
-      "default": "UNDEFINED",
-      "enum": [
-        "UNDEFINED",
-        "SINGLE",
-        "CRONTAB"
-      ]
     },
     "playbookCreateRequest": {
       "type": "object",
