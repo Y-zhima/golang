@@ -79,7 +79,7 @@ message TemplateObject {
     // 更新时间
     string updated = 10;
     // 模板状态开关标识
-    tinyint state = 11;
+    TemplateState state = 11;
 }
 
 // 创建模板请求
@@ -187,7 +187,7 @@ message UpdateStateRequest {
     // 模板ID
     int32 template_id = 1 [(validator.field) = {int_gt: 0, human_error: "模板ID不能为空"}];
     // 模板状态开关标识
-    tinyint state = 2 [(validator.field) = {is_in_enum : true, human_error: "State类型不正确"}];
+    TemplateState state = 2 [(validator.field) = {is_in_enum : true, human_error: "State类型不正确"}];
 }
 
 // 更新模板状态请求返回
@@ -210,7 +210,7 @@ message DeleteResponse {
 }
 
 // 模板状态
-enum StatusType {
+enum TemplateState {
     // 运行
     RUNNING = 0;
     // 没运行
