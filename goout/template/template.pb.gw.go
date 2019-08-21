@@ -128,7 +128,7 @@ func request_Template_Update_0(ctx context.Context, marshaler runtime.Marshaler,
 }
 
 func request_Template_UpdateState_0(ctx context.Context, marshaler runtime.Marshaler, client TemplateClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateRequest
+	var protoReq UpdateStateRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
