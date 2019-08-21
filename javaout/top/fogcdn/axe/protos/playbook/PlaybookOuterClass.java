@@ -2908,7 +2908,7 @@ public final class PlaybookOuterClass {
      * playbook项目名称
      * </pre>
      *
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     java.lang.String getName();
     /**
@@ -2916,35 +2916,17 @@ public final class PlaybookOuterClass {
      * playbook项目名称
      * </pre>
      *
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
      * <pre>
-     * playbook项目描述
-     * </pre>
-     *
-     * <code>string description = 2;</code>
-     */
-    java.lang.String getDescription();
-    /**
-     * <pre>
-     * playbook项目描述
-     * </pre>
-     *
-     * <code>string description = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getDescriptionBytes();
-
-    /**
-     * <pre>
      * playbook存储在对象存储的url
      * </pre>
      *
-     * <code>string url = 3;</code>
+     * <code>string url = 2 [(.validator.field) = { ... }</code>
      */
     java.lang.String getUrl();
     /**
@@ -2952,7 +2934,7 @@ public final class PlaybookOuterClass {
      * playbook存储在对象存储的url
      * </pre>
      *
-     * <code>string url = 3;</code>
+     * <code>string url = 2 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getUrlBytes();
@@ -2962,7 +2944,7 @@ public final class PlaybookOuterClass {
      * 枚举类型 1-文件下载 2-git下载
      * </pre>
      *
-     * <code>.playbook.UrlType url_type = 4;</code>
+     * <code>.playbook.UrlType url_type = 3 [(.validator.field) = { ... }</code>
      */
     int getUrlTypeValue();
     /**
@@ -2970,34 +2952,16 @@ public final class PlaybookOuterClass {
      * 枚举类型 1-文件下载 2-git下载
      * </pre>
      *
-     * <code>.playbook.UrlType url_type = 4;</code>
+     * <code>.playbook.UrlType url_type = 3 [(.validator.field) = { ... }</code>
      */
     top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType getUrlType();
-
-    /**
-     * <pre>
-     * playbook文件的版本号
-     * </pre>
-     *
-     * <code>string version = 5;</code>
-     */
-    java.lang.String getVersion();
-    /**
-     * <pre>
-     * playbook文件的版本号
-     * </pre>
-     *
-     * <code>string version = 5;</code>
-     */
-    com.google.protobuf.ByteString
-        getVersionBytes();
 
     /**
      * <pre>
      * playbook入口yml文件，有多个
      * </pre>
      *
-     * <code>repeated string entrypoint = 6;</code>
+     * <code>repeated string entrypoint = 4 [(.validator.field) = { ... }</code>
      */
     java.util.List<java.lang.String>
         getEntrypointList();
@@ -3006,7 +2970,7 @@ public final class PlaybookOuterClass {
      * playbook入口yml文件，有多个
      * </pre>
      *
-     * <code>repeated string entrypoint = 6;</code>
+     * <code>repeated string entrypoint = 4 [(.validator.field) = { ... }</code>
      */
     int getEntrypointCount();
     /**
@@ -3014,7 +2978,7 @@ public final class PlaybookOuterClass {
      * playbook入口yml文件，有多个
      * </pre>
      *
-     * <code>repeated string entrypoint = 6;</code>
+     * <code>repeated string entrypoint = 4 [(.validator.field) = { ... }</code>
      */
     java.lang.String getEntrypoint(int index);
     /**
@@ -3022,17 +2986,35 @@ public final class PlaybookOuterClass {
      * playbook入口yml文件，有多个
      * </pre>
      *
-     * <code>repeated string entrypoint = 6;</code>
+     * <code>repeated string entrypoint = 4 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getEntrypointBytes(int index);
 
     /**
      * <pre>
+     * playbook项目描述
+     * </pre>
+     *
+     * <code>string description = 5;</code>
+     */
+    java.lang.String getDescription();
+    /**
+     * <pre>
+     * playbook项目描述
+     * </pre>
+     *
+     * <code>string description = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getDescriptionBytes();
+
+    /**
+     * <pre>
      * 文件md5
      * </pre>
      *
-     * <code>string md5 = 7;</code>
+     * <code>string md5 = 6;</code>
      */
     java.lang.String getMd5();
     /**
@@ -3040,7 +3022,7 @@ public final class PlaybookOuterClass {
      * 文件md5
      * </pre>
      *
-     * <code>string md5 = 7;</code>
+     * <code>string md5 = 6;</code>
      */
     com.google.protobuf.ByteString
         getMd5Bytes();
@@ -3050,7 +3032,7 @@ public final class PlaybookOuterClass {
      * 文件大小
      * </pre>
      *
-     * <code>int64 size = 8;</code>
+     * <code>int64 size = 7;</code>
      */
     long getSize();
   }
@@ -3072,11 +3054,10 @@ public final class PlaybookOuterClass {
     }
     private CreateRequest() {
       name_ = "";
-      description_ = "";
       url_ = "";
       urlType_ = 0;
-      version_ = "";
       entrypoint_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      description_ = "";
       md5_ = "";
       size_ = 0L;
     }
@@ -3114,43 +3095,37 @@ public final class PlaybookOuterClass {
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              description_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
               url_ = s;
               break;
             }
-            case 32: {
+            case 24: {
               int rawValue = input.readEnum();
 
               urlType_ = rawValue;
               break;
             }
-            case 42: {
+            case 34: {
               java.lang.String s = input.readStringRequireUtf8();
-
-              version_ = s;
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
                 entrypoint_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000020;
+                mutable_bitField0_ |= 0x00000008;
               }
               entrypoint_.add(s);
               break;
             }
-            case 58: {
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              description_ = s;
+              break;
+            }
+            case 50: {
               java.lang.String s = input.readStringRequireUtf8();
 
               md5_ = s;
               break;
             }
-            case 64: {
+            case 56: {
 
               size_ = input.readInt64();
               break;
@@ -3170,7 +3145,7 @@ public final class PlaybookOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
           entrypoint_ = entrypoint_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
@@ -3198,7 +3173,7 @@ public final class PlaybookOuterClass {
      * playbook项目名称
      * </pre>
      *
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -3217,7 +3192,7 @@ public final class PlaybookOuterClass {
      * playbook项目名称
      * </pre>
      *
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -3233,56 +3208,14 @@ public final class PlaybookOuterClass {
       }
     }
 
-    public static final int DESCRIPTION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object description_;
-    /**
-     * <pre>
-     * playbook项目描述
-     * </pre>
-     *
-     * <code>string description = 2;</code>
-     */
-    public java.lang.String getDescription() {
-      java.lang.Object ref = description_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        description_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * playbook项目描述
-     * </pre>
-     *
-     * <code>string description = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getDescriptionBytes() {
-      java.lang.Object ref = description_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        description_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int URL_FIELD_NUMBER = 3;
+    public static final int URL_FIELD_NUMBER = 2;
     private volatile java.lang.Object url_;
     /**
      * <pre>
      * playbook存储在对象存储的url
      * </pre>
      *
-     * <code>string url = 3;</code>
+     * <code>string url = 2 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getUrl() {
       java.lang.Object ref = url_;
@@ -3301,7 +3234,7 @@ public final class PlaybookOuterClass {
      * playbook存储在对象存储的url
      * </pre>
      *
-     * <code>string url = 3;</code>
+     * <code>string url = 2 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getUrlBytes() {
@@ -3317,14 +3250,14 @@ public final class PlaybookOuterClass {
       }
     }
 
-    public static final int URL_TYPE_FIELD_NUMBER = 4;
+    public static final int URL_TYPE_FIELD_NUMBER = 3;
     private int urlType_;
     /**
      * <pre>
      * 枚举类型 1-文件下载 2-git下载
      * </pre>
      *
-     * <code>.playbook.UrlType url_type = 4;</code>
+     * <code>.playbook.UrlType url_type = 3 [(.validator.field) = { ... }</code>
      */
     public int getUrlTypeValue() {
       return urlType_;
@@ -3334,7 +3267,7 @@ public final class PlaybookOuterClass {
      * 枚举类型 1-文件下载 2-git下载
      * </pre>
      *
-     * <code>.playbook.UrlType url_type = 4;</code>
+     * <code>.playbook.UrlType url_type = 3 [(.validator.field) = { ... }</code>
      */
     public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType getUrlType() {
       @SuppressWarnings("deprecation")
@@ -3342,56 +3275,14 @@ public final class PlaybookOuterClass {
       return result == null ? top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType.UNRECOGNIZED : result;
     }
 
-    public static final int VERSION_FIELD_NUMBER = 5;
-    private volatile java.lang.Object version_;
-    /**
-     * <pre>
-     * playbook文件的版本号
-     * </pre>
-     *
-     * <code>string version = 5;</code>
-     */
-    public java.lang.String getVersion() {
-      java.lang.Object ref = version_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        version_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * playbook文件的版本号
-     * </pre>
-     *
-     * <code>string version = 5;</code>
-     */
-    public com.google.protobuf.ByteString
-        getVersionBytes() {
-      java.lang.Object ref = version_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        version_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int ENTRYPOINT_FIELD_NUMBER = 6;
+    public static final int ENTRYPOINT_FIELD_NUMBER = 4;
     private com.google.protobuf.LazyStringList entrypoint_;
     /**
      * <pre>
      * playbook入口yml文件，有多个
      * </pre>
      *
-     * <code>repeated string entrypoint = 6;</code>
+     * <code>repeated string entrypoint = 4 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ProtocolStringList
         getEntrypointList() {
@@ -3402,7 +3293,7 @@ public final class PlaybookOuterClass {
      * playbook入口yml文件，有多个
      * </pre>
      *
-     * <code>repeated string entrypoint = 6;</code>
+     * <code>repeated string entrypoint = 4 [(.validator.field) = { ... }</code>
      */
     public int getEntrypointCount() {
       return entrypoint_.size();
@@ -3412,7 +3303,7 @@ public final class PlaybookOuterClass {
      * playbook入口yml文件，有多个
      * </pre>
      *
-     * <code>repeated string entrypoint = 6;</code>
+     * <code>repeated string entrypoint = 4 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getEntrypoint(int index) {
       return entrypoint_.get(index);
@@ -3422,21 +3313,63 @@ public final class PlaybookOuterClass {
      * playbook入口yml文件，有多个
      * </pre>
      *
-     * <code>repeated string entrypoint = 6;</code>
+     * <code>repeated string entrypoint = 4 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getEntrypointBytes(int index) {
       return entrypoint_.getByteString(index);
     }
 
-    public static final int MD5_FIELD_NUMBER = 7;
+    public static final int DESCRIPTION_FIELD_NUMBER = 5;
+    private volatile java.lang.Object description_;
+    /**
+     * <pre>
+     * playbook项目描述
+     * </pre>
+     *
+     * <code>string description = 5;</code>
+     */
+    public java.lang.String getDescription() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        description_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * playbook项目描述
+     * </pre>
+     *
+     * <code>string description = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDescriptionBytes() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        description_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int MD5_FIELD_NUMBER = 6;
     private volatile java.lang.Object md5_;
     /**
      * <pre>
      * 文件md5
      * </pre>
      *
-     * <code>string md5 = 7;</code>
+     * <code>string md5 = 6;</code>
      */
     public java.lang.String getMd5() {
       java.lang.Object ref = md5_;
@@ -3455,7 +3388,7 @@ public final class PlaybookOuterClass {
      * 文件md5
      * </pre>
      *
-     * <code>string md5 = 7;</code>
+     * <code>string md5 = 6;</code>
      */
     public com.google.protobuf.ByteString
         getMd5Bytes() {
@@ -3471,14 +3404,14 @@ public final class PlaybookOuterClass {
       }
     }
 
-    public static final int SIZE_FIELD_NUMBER = 8;
+    public static final int SIZE_FIELD_NUMBER = 7;
     private long size_;
     /**
      * <pre>
      * 文件大小
      * </pre>
      *
-     * <code>int64 size = 8;</code>
+     * <code>int64 size = 7;</code>
      */
     public long getSize() {
       return size_;
@@ -3501,26 +3434,23 @@ public final class PlaybookOuterClass {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      if (!getDescriptionBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
-      }
       if (!getUrlBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, url_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, url_);
       }
       if (urlType_ != top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType.UNDEFINED.getNumber()) {
-        output.writeEnum(4, urlType_);
-      }
-      if (!getVersionBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, version_);
+        output.writeEnum(3, urlType_);
       }
       for (int i = 0; i < entrypoint_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, entrypoint_.getRaw(i));
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, entrypoint_.getRaw(i));
+      }
+      if (!getDescriptionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, description_);
       }
       if (!getMd5Bytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, md5_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, md5_);
       }
       if (size_ != 0L) {
-        output.writeInt64(8, size_);
+        output.writeInt64(7, size_);
       }
       unknownFields.writeTo(output);
     }
@@ -3534,18 +3464,12 @@ public final class PlaybookOuterClass {
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      if (!getDescriptionBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
-      }
       if (!getUrlBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, url_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, url_);
       }
       if (urlType_ != top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType.UNDEFINED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(4, urlType_);
-      }
-      if (!getVersionBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, version_);
+          .computeEnumSize(3, urlType_);
       }
       {
         int dataSize = 0;
@@ -3555,12 +3479,15 @@ public final class PlaybookOuterClass {
         size += dataSize;
         size += 1 * getEntrypointList().size();
       }
+      if (!getDescriptionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, description_);
+      }
       if (!getMd5Bytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, md5_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, md5_);
       }
       if (size_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(8, size_);
+          .computeInt64Size(7, size_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3580,15 +3507,13 @@ public final class PlaybookOuterClass {
       boolean result = true;
       result = result && getName()
           .equals(other.getName());
-      result = result && getDescription()
-          .equals(other.getDescription());
       result = result && getUrl()
           .equals(other.getUrl());
       result = result && urlType_ == other.urlType_;
-      result = result && getVersion()
-          .equals(other.getVersion());
       result = result && getEntrypointList()
           .equals(other.getEntrypointList());
+      result = result && getDescription()
+          .equals(other.getDescription());
       result = result && getMd5()
           .equals(other.getMd5());
       result = result && (getSize()
@@ -3606,18 +3531,16 @@ public final class PlaybookOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
-      hash = (53 * hash) + getDescription().hashCode();
       hash = (37 * hash) + URL_FIELD_NUMBER;
       hash = (53 * hash) + getUrl().hashCode();
       hash = (37 * hash) + URL_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + urlType_;
-      hash = (37 * hash) + VERSION_FIELD_NUMBER;
-      hash = (53 * hash) + getVersion().hashCode();
       if (getEntrypointCount() > 0) {
         hash = (37 * hash) + ENTRYPOINT_FIELD_NUMBER;
         hash = (53 * hash) + getEntrypointList().hashCode();
       }
+      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getDescription().hashCode();
       hash = (37 * hash) + MD5_FIELD_NUMBER;
       hash = (53 * hash) + getMd5().hashCode();
       hash = (37 * hash) + SIZE_FIELD_NUMBER;
@@ -3762,16 +3685,14 @@ public final class PlaybookOuterClass {
         super.clear();
         name_ = "";
 
-        description_ = "";
-
         url_ = "";
 
         urlType_ = 0;
 
-        version_ = "";
-
         entrypoint_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000008);
+        description_ = "";
+
         md5_ = "";
 
         size_ = 0L;
@@ -3805,15 +3726,14 @@ public final class PlaybookOuterClass {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.name_ = name_;
-        result.description_ = description_;
         result.url_ = url_;
         result.urlType_ = urlType_;
-        result.version_ = version_;
-        if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
           entrypoint_ = entrypoint_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.entrypoint_ = entrypoint_;
+        result.description_ = description_;
         result.md5_ = md5_;
         result.size_ = size_;
         result.bitField0_ = to_bitField0_;
@@ -3869,10 +3789,6 @@ public final class PlaybookOuterClass {
           name_ = other.name_;
           onChanged();
         }
-        if (!other.getDescription().isEmpty()) {
-          description_ = other.description_;
-          onChanged();
-        }
         if (!other.getUrl().isEmpty()) {
           url_ = other.url_;
           onChanged();
@@ -3880,18 +3796,18 @@ public final class PlaybookOuterClass {
         if (other.urlType_ != 0) {
           setUrlTypeValue(other.getUrlTypeValue());
         }
-        if (!other.getVersion().isEmpty()) {
-          version_ = other.version_;
-          onChanged();
-        }
         if (!other.entrypoint_.isEmpty()) {
           if (entrypoint_.isEmpty()) {
             entrypoint_ = other.entrypoint_;
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureEntrypointIsMutable();
             entrypoint_.addAll(other.entrypoint_);
           }
+          onChanged();
+        }
+        if (!other.getDescription().isEmpty()) {
+          description_ = other.description_;
           onChanged();
         }
         if (!other.getMd5().isEmpty()) {
@@ -3937,7 +3853,7 @@ public final class PlaybookOuterClass {
        * playbook项目名称
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -3956,7 +3872,7 @@ public final class PlaybookOuterClass {
        * playbook项目名称
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -3976,7 +3892,7 @@ public final class PlaybookOuterClass {
        * playbook项目名称
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -3993,7 +3909,7 @@ public final class PlaybookOuterClass {
        * playbook项目名称
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder clearName() {
         
@@ -4006,7 +3922,7 @@ public final class PlaybookOuterClass {
        * playbook项目名称
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -4020,102 +3936,13 @@ public final class PlaybookOuterClass {
         return this;
       }
 
-      private java.lang.Object description_ = "";
-      /**
-       * <pre>
-       * playbook项目描述
-       * </pre>
-       *
-       * <code>string description = 2;</code>
-       */
-      public java.lang.String getDescription() {
-        java.lang.Object ref = description_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          description_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * playbook项目描述
-       * </pre>
-       *
-       * <code>string description = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getDescriptionBytes() {
-        java.lang.Object ref = description_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          description_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * playbook项目描述
-       * </pre>
-       *
-       * <code>string description = 2;</code>
-       */
-      public Builder setDescription(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        description_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * playbook项目描述
-       * </pre>
-       *
-       * <code>string description = 2;</code>
-       */
-      public Builder clearDescription() {
-        
-        description_ = getDefaultInstance().getDescription();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * playbook项目描述
-       * </pre>
-       *
-       * <code>string description = 2;</code>
-       */
-      public Builder setDescriptionBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        description_ = value;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object url_ = "";
       /**
        * <pre>
        * playbook存储在对象存储的url
        * </pre>
        *
-       * <code>string url = 3;</code>
+       * <code>string url = 2 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getUrl() {
         java.lang.Object ref = url_;
@@ -4134,7 +3961,7 @@ public final class PlaybookOuterClass {
        * playbook存储在对象存储的url
        * </pre>
        *
-       * <code>string url = 3;</code>
+       * <code>string url = 2 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getUrlBytes() {
@@ -4154,7 +3981,7 @@ public final class PlaybookOuterClass {
        * playbook存储在对象存储的url
        * </pre>
        *
-       * <code>string url = 3;</code>
+       * <code>string url = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setUrl(
           java.lang.String value) {
@@ -4171,7 +3998,7 @@ public final class PlaybookOuterClass {
        * playbook存储在对象存储的url
        * </pre>
        *
-       * <code>string url = 3;</code>
+       * <code>string url = 2 [(.validator.field) = { ... }</code>
        */
       public Builder clearUrl() {
         
@@ -4184,7 +4011,7 @@ public final class PlaybookOuterClass {
        * playbook存储在对象存储的url
        * </pre>
        *
-       * <code>string url = 3;</code>
+       * <code>string url = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setUrlBytes(
           com.google.protobuf.ByteString value) {
@@ -4204,7 +4031,7 @@ public final class PlaybookOuterClass {
        * 枚举类型 1-文件下载 2-git下载
        * </pre>
        *
-       * <code>.playbook.UrlType url_type = 4;</code>
+       * <code>.playbook.UrlType url_type = 3 [(.validator.field) = { ... }</code>
        */
       public int getUrlTypeValue() {
         return urlType_;
@@ -4214,7 +4041,7 @@ public final class PlaybookOuterClass {
        * 枚举类型 1-文件下载 2-git下载
        * </pre>
        *
-       * <code>.playbook.UrlType url_type = 4;</code>
+       * <code>.playbook.UrlType url_type = 3 [(.validator.field) = { ... }</code>
        */
       public Builder setUrlTypeValue(int value) {
         urlType_ = value;
@@ -4226,7 +4053,7 @@ public final class PlaybookOuterClass {
        * 枚举类型 1-文件下载 2-git下载
        * </pre>
        *
-       * <code>.playbook.UrlType url_type = 4;</code>
+       * <code>.playbook.UrlType url_type = 3 [(.validator.field) = { ... }</code>
        */
       public top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType getUrlType() {
         @SuppressWarnings("deprecation")
@@ -4238,7 +4065,7 @@ public final class PlaybookOuterClass {
        * 枚举类型 1-文件下载 2-git下载
        * </pre>
        *
-       * <code>.playbook.UrlType url_type = 4;</code>
+       * <code>.playbook.UrlType url_type = 3 [(.validator.field) = { ... }</code>
        */
       public Builder setUrlType(top.fogcdn.axe.protos.playbook.PlaybookOuterClass.UrlType value) {
         if (value == null) {
@@ -4254,7 +4081,7 @@ public final class PlaybookOuterClass {
        * 枚举类型 1-文件下载 2-git下载
        * </pre>
        *
-       * <code>.playbook.UrlType url_type = 4;</code>
+       * <code>.playbook.UrlType url_type = 3 [(.validator.field) = { ... }</code>
        */
       public Builder clearUrlType() {
         
@@ -4263,100 +4090,11 @@ public final class PlaybookOuterClass {
         return this;
       }
 
-      private java.lang.Object version_ = "";
-      /**
-       * <pre>
-       * playbook文件的版本号
-       * </pre>
-       *
-       * <code>string version = 5;</code>
-       */
-      public java.lang.String getVersion() {
-        java.lang.Object ref = version_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          version_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * playbook文件的版本号
-       * </pre>
-       *
-       * <code>string version = 5;</code>
-       */
-      public com.google.protobuf.ByteString
-          getVersionBytes() {
-        java.lang.Object ref = version_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          version_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * playbook文件的版本号
-       * </pre>
-       *
-       * <code>string version = 5;</code>
-       */
-      public Builder setVersion(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        version_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * playbook文件的版本号
-       * </pre>
-       *
-       * <code>string version = 5;</code>
-       */
-      public Builder clearVersion() {
-        
-        version_ = getDefaultInstance().getVersion();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * playbook文件的版本号
-       * </pre>
-       *
-       * <code>string version = 5;</code>
-       */
-      public Builder setVersionBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        version_ = value;
-        onChanged();
-        return this;
-      }
-
       private com.google.protobuf.LazyStringList entrypoint_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureEntrypointIsMutable() {
-        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
           entrypoint_ = new com.google.protobuf.LazyStringArrayList(entrypoint_);
-          bitField0_ |= 0x00000020;
+          bitField0_ |= 0x00000008;
          }
       }
       /**
@@ -4364,7 +4102,7 @@ public final class PlaybookOuterClass {
        * playbook入口yml文件，有多个
        * </pre>
        *
-       * <code>repeated string entrypoint = 6;</code>
+       * <code>repeated string entrypoint = 4 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ProtocolStringList
           getEntrypointList() {
@@ -4375,7 +4113,7 @@ public final class PlaybookOuterClass {
        * playbook入口yml文件，有多个
        * </pre>
        *
-       * <code>repeated string entrypoint = 6;</code>
+       * <code>repeated string entrypoint = 4 [(.validator.field) = { ... }</code>
        */
       public int getEntrypointCount() {
         return entrypoint_.size();
@@ -4385,7 +4123,7 @@ public final class PlaybookOuterClass {
        * playbook入口yml文件，有多个
        * </pre>
        *
-       * <code>repeated string entrypoint = 6;</code>
+       * <code>repeated string entrypoint = 4 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getEntrypoint(int index) {
         return entrypoint_.get(index);
@@ -4395,7 +4133,7 @@ public final class PlaybookOuterClass {
        * playbook入口yml文件，有多个
        * </pre>
        *
-       * <code>repeated string entrypoint = 6;</code>
+       * <code>repeated string entrypoint = 4 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getEntrypointBytes(int index) {
@@ -4406,7 +4144,7 @@ public final class PlaybookOuterClass {
        * playbook入口yml文件，有多个
        * </pre>
        *
-       * <code>repeated string entrypoint = 6;</code>
+       * <code>repeated string entrypoint = 4 [(.validator.field) = { ... }</code>
        */
       public Builder setEntrypoint(
           int index, java.lang.String value) {
@@ -4423,7 +4161,7 @@ public final class PlaybookOuterClass {
        * playbook入口yml文件，有多个
        * </pre>
        *
-       * <code>repeated string entrypoint = 6;</code>
+       * <code>repeated string entrypoint = 4 [(.validator.field) = { ... }</code>
        */
       public Builder addEntrypoint(
           java.lang.String value) {
@@ -4440,7 +4178,7 @@ public final class PlaybookOuterClass {
        * playbook入口yml文件，有多个
        * </pre>
        *
-       * <code>repeated string entrypoint = 6;</code>
+       * <code>repeated string entrypoint = 4 [(.validator.field) = { ... }</code>
        */
       public Builder addAllEntrypoint(
           java.lang.Iterable<java.lang.String> values) {
@@ -4455,11 +4193,11 @@ public final class PlaybookOuterClass {
        * playbook入口yml文件，有多个
        * </pre>
        *
-       * <code>repeated string entrypoint = 6;</code>
+       * <code>repeated string entrypoint = 4 [(.validator.field) = { ... }</code>
        */
       public Builder clearEntrypoint() {
         entrypoint_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -4468,7 +4206,7 @@ public final class PlaybookOuterClass {
        * playbook入口yml文件，有多个
        * </pre>
        *
-       * <code>repeated string entrypoint = 6;</code>
+       * <code>repeated string entrypoint = 4 [(.validator.field) = { ... }</code>
        */
       public Builder addEntrypointBytes(
           com.google.protobuf.ByteString value) {
@@ -4482,13 +4220,102 @@ public final class PlaybookOuterClass {
         return this;
       }
 
+      private java.lang.Object description_ = "";
+      /**
+       * <pre>
+       * playbook项目描述
+       * </pre>
+       *
+       * <code>string description = 5;</code>
+       */
+      public java.lang.String getDescription() {
+        java.lang.Object ref = description_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          description_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * playbook项目描述
+       * </pre>
+       *
+       * <code>string description = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDescriptionBytes() {
+        java.lang.Object ref = description_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          description_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * playbook项目描述
+       * </pre>
+       *
+       * <code>string description = 5;</code>
+       */
+      public Builder setDescription(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        description_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * playbook项目描述
+       * </pre>
+       *
+       * <code>string description = 5;</code>
+       */
+      public Builder clearDescription() {
+        
+        description_ = getDefaultInstance().getDescription();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * playbook项目描述
+       * </pre>
+       *
+       * <code>string description = 5;</code>
+       */
+      public Builder setDescriptionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        description_ = value;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object md5_ = "";
       /**
        * <pre>
        * 文件md5
        * </pre>
        *
-       * <code>string md5 = 7;</code>
+       * <code>string md5 = 6;</code>
        */
       public java.lang.String getMd5() {
         java.lang.Object ref = md5_;
@@ -4507,7 +4334,7 @@ public final class PlaybookOuterClass {
        * 文件md5
        * </pre>
        *
-       * <code>string md5 = 7;</code>
+       * <code>string md5 = 6;</code>
        */
       public com.google.protobuf.ByteString
           getMd5Bytes() {
@@ -4527,7 +4354,7 @@ public final class PlaybookOuterClass {
        * 文件md5
        * </pre>
        *
-       * <code>string md5 = 7;</code>
+       * <code>string md5 = 6;</code>
        */
       public Builder setMd5(
           java.lang.String value) {
@@ -4544,7 +4371,7 @@ public final class PlaybookOuterClass {
        * 文件md5
        * </pre>
        *
-       * <code>string md5 = 7;</code>
+       * <code>string md5 = 6;</code>
        */
       public Builder clearMd5() {
         
@@ -4557,7 +4384,7 @@ public final class PlaybookOuterClass {
        * 文件md5
        * </pre>
        *
-       * <code>string md5 = 7;</code>
+       * <code>string md5 = 6;</code>
        */
       public Builder setMd5Bytes(
           com.google.protobuf.ByteString value) {
@@ -4577,7 +4404,7 @@ public final class PlaybookOuterClass {
        * 文件大小
        * </pre>
        *
-       * <code>int64 size = 8;</code>
+       * <code>int64 size = 7;</code>
        */
       public long getSize() {
         return size_;
@@ -4587,7 +4414,7 @@ public final class PlaybookOuterClass {
        * 文件大小
        * </pre>
        *
-       * <code>int64 size = 8;</code>
+       * <code>int64 size = 7;</code>
        */
       public Builder setSize(long value) {
         
@@ -4600,7 +4427,7 @@ public final class PlaybookOuterClass {
        * 文件大小
        * </pre>
        *
-       * <code>int64 size = 8;</code>
+       * <code>int64 size = 7;</code>
        */
       public Builder clearSize() {
         
@@ -9295,7 +9122,7 @@ public final class PlaybookOuterClass {
      * playbook项目ID
      * </pre>
      *
-     * <code>int32 playbook_id = 1;</code>
+     * <code>int32 playbook_id = 1 [(.validator.field) = { ... }</code>
      */
     int getPlaybookId();
 
@@ -9304,7 +9131,7 @@ public final class PlaybookOuterClass {
      * playbook项目名称
      * </pre>
      *
-     * <code>string name = 2;</code>
+     * <code>string name = 2 [(.validator.field) = { ... }</code>
      */
     java.lang.String getName();
     /**
@@ -9312,7 +9139,7 @@ public final class PlaybookOuterClass {
      * playbook项目名称
      * </pre>
      *
-     * <code>string name = 2;</code>
+     * <code>string name = 2 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
@@ -9600,7 +9427,7 @@ public final class PlaybookOuterClass {
      * playbook项目ID
      * </pre>
      *
-     * <code>int32 playbook_id = 1;</code>
+     * <code>int32 playbook_id = 1 [(.validator.field) = { ... }</code>
      */
     public int getPlaybookId() {
       return playbookId_;
@@ -9613,7 +9440,7 @@ public final class PlaybookOuterClass {
      * playbook项目名称
      * </pre>
      *
-     * <code>string name = 2;</code>
+     * <code>string name = 2 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -9632,7 +9459,7 @@ public final class PlaybookOuterClass {
      * playbook项目名称
      * </pre>
      *
-     * <code>string name = 2;</code>
+     * <code>string name = 2 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -10369,7 +10196,7 @@ public final class PlaybookOuterClass {
        * playbook项目ID
        * </pre>
        *
-       * <code>int32 playbook_id = 1;</code>
+       * <code>int32 playbook_id = 1 [(.validator.field) = { ... }</code>
        */
       public int getPlaybookId() {
         return playbookId_;
@@ -10379,7 +10206,7 @@ public final class PlaybookOuterClass {
        * playbook项目ID
        * </pre>
        *
-       * <code>int32 playbook_id = 1;</code>
+       * <code>int32 playbook_id = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setPlaybookId(int value) {
         
@@ -10392,7 +10219,7 @@ public final class PlaybookOuterClass {
        * playbook项目ID
        * </pre>
        *
-       * <code>int32 playbook_id = 1;</code>
+       * <code>int32 playbook_id = 1 [(.validator.field) = { ... }</code>
        */
       public Builder clearPlaybookId() {
         
@@ -10407,7 +10234,7 @@ public final class PlaybookOuterClass {
        * playbook项目名称
        * </pre>
        *
-       * <code>string name = 2;</code>
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -10426,7 +10253,7 @@ public final class PlaybookOuterClass {
        * playbook项目名称
        * </pre>
        *
-       * <code>string name = 2;</code>
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -10446,7 +10273,7 @@ public final class PlaybookOuterClass {
        * playbook项目名称
        * </pre>
        *
-       * <code>string name = 2;</code>
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -10463,7 +10290,7 @@ public final class PlaybookOuterClass {
        * playbook项目名称
        * </pre>
        *
-       * <code>string name = 2;</code>
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
        */
       public Builder clearName() {
         
@@ -10476,7 +10303,7 @@ public final class PlaybookOuterClass {
        * playbook项目名称
        * </pre>
        *
-       * <code>string name = 2;</code>
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -15155,65 +14982,71 @@ public final class PlaybookOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\027playbook/playbook.proto\022\010playbook\032\020com" +
-      "mon/api.proto\032\021common/user.proto\032\034google" +
-      "/api/annotations.proto\032,protoc-gen-swagg" +
-      "er/options/annotations.proto\"\270\002\n\rProject" +
-      "Object\022\023\n\013playbook_id\030\001 \001(\005\022\014\n\004name\030\002 \001(" +
-      "\t\022\023\n\013description\030\003 \001(\t\022\013\n\003url\030\004 \001(\t\022#\n\010u" +
+      "\n\027playbook/playbook.proto\022\010playbook\032\034goo" +
+      "gle/api/annotations.proto\032,protoc-gen-sw" +
+      "agger/options/annotations.proto\0326github." +
+      "com/mwitkow/go-proto-validators/validato" +
+      "r.proto\032\020common/api.proto\032\021common/user.p" +
+      "roto\"\270\002\n\rProjectObject\022\023\n\013playbook_id\030\001 " +
+      "\001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\013" +
+      "\n\003url\030\004 \001(\t\022#\n\010url_type\030\005 \001(\0162\021.playbook" +
+      ".UrlType\022\017\n\007version\030\006 \001(\t\0226\n\nentrypoint\030" +
+      "\007 \003(\0132\".playbook.PlaybookEntrypointObjec" +
+      "t\022\013\n\003md5\030\010 \001(\t\022\014\n\004size\030\t \001(\003\022\017\n\007created\030" +
+      "\n \001(\t\022\017\n\007updated\030\013 \001(\t\022\030\n\020playbook_file_" +
+      "id\030\014 \001(\005\022\035\n\007creator\030\r \001(\0132\014.common.User\"" +
+      "\271\002\n\rCreateRequest\022.\n\004name\030\001 \001(\tB \342\337\037\034*\030\351" +
+      "\241\271\347\233\256\345\220\215\347\247\260\344\270\215\350\203\275\344\270\272\347\251\272X\001\022$\n\003url\030\002 \001(\tB\027" +
+      "\342\337\037\023*\017URL\344\270\215\350\203\275\344\270\272\347\251\272X\001\022@\n\010url_type\030\003 \001(" +
+      "\0162\021.playbook.UrlTypeB\033\342\337\037\027*\022URL\347\261\273\345\236\213\344\270\215" +
+      "\346\255\243\347\241\256\210\001\001\0224\n\nentrypoint\030\004 \003(\tB \342\337\037\034*\030\345\205\245" +
+      "\345\217\243\346\226\207\344\273\266\344\270\215\350\203\275\344\270\272\347\251\272`\001\022\023\n\013description\030\005" +
+      " \001(\t\022\013\n\003md5\030\006 \001(\t\022\014\n\004size\030\007 \001(\003:*\222A\'\n%\322\001" +
+      "\004name\322\001\003url\322\001\010url_type\322\001\nentrypoint\"^\n\016C" +
+      "reateResponse\022\023\n\013playbook_id\030\001 \001(\005\022\017\n\007cr" +
+      "eated\030\002 \001(\t\022&\n\006status\030\003 \001(\0132\026.common.Res" +
+      "ponseStatus\"6\n\nGetRequest\022\023\n\013playbook_id" +
+      "\030\001 \001(\005:\023\222A\020\n\016\322\001\013playbook_id\"_\n\013GetRespon" +
+      "se\022(\n\007project\030\001 \001(\0132\027.playbook.ProjectOb" +
+      "ject\022&\n\006status\030\002 \001(\0132\026.common.ResponseSt" +
+      "atus\"@\n\rFilterRequest\022\036\n\006paging\030\001 \001(\0132\016." +
+      "common.Paging\022\017\n\007keyword\030\002 \001(\t\"\203\001\n\016Filte" +
+      "rResponse\022)\n\010projects\030\001 \003(\0132\027.playbook.P" +
+      "rojectObject\022\036\n\006paging\030\002 \001(\0132\016.common.Pa" +
+      "ging\022&\n\006status\030\003 \001(\0132\026.common.ResponseSt" +
+      "atus\"\225\002\n\rUpdateRequest\0221\n\013playbook_id\030\001 " +
+      "\001(\005B\034\342\337\037\030\020\000*\024\351\241\271\347\233\256ID\344\270\215\350\203\275\344\270\272\347\251\272\022.\n\004nam" +
+      "e\030\002 \001(\tB \342\337\037\034*\030\351\241\271\347\233\256\345\220\215\347\247\260\344\270\215\350\203\275\344\270\272\347\251\272X" +
+      "\001\022\023\n\013description\030\003 \001(\t\022\013\n\003url\030\004 \001(\t\022#\n\010u" +
       "rl_type\030\005 \001(\0162\021.playbook.UrlType\022\017\n\007vers" +
-      "ion\030\006 \001(\t\0226\n\nentrypoint\030\007 \003(\0132\".playbook" +
-      ".PlaybookEntrypointObject\022\013\n\003md5\030\010 \001(\t\022\014" +
-      "\n\004size\030\t \001(\003\022\017\n\007created\030\n \001(\t\022\017\n\007updated" +
-      "\030\013 \001(\t\022\030\n\020playbook_file_id\030\014 \001(\005\022\035\n\007crea" +
-      "tor\030\r \001(\0132\014.common.User\"\332\001\n\rCreateReques" +
-      "t\022\014\n\004name\030\001 \001(\t\022\023\n\013description\030\002 \001(\t\022\013\n\003" +
-      "url\030\003 \001(\t\022#\n\010url_type\030\004 \001(\0162\021.playbook.U" +
-      "rlType\022\017\n\007version\030\005 \001(\t\022\022\n\nentrypoint\030\006 " +
-      "\003(\t\022\013\n\003md5\030\007 \001(\t\022\014\n\004size\030\010 \001(\003:4\222A1\n/\322\001\004" +
-      "name\322\001\003url\322\001\010url_type\322\001\007version\322\001\nentryp" +
-      "oint\"^\n\016CreateResponse\022\023\n\013playbook_id\030\001 " +
-      "\001(\005\022\017\n\007created\030\002 \001(\t\022&\n\006status\030\003 \001(\0132\026.c" +
-      "ommon.ResponseStatus\"6\n\nGetRequest\022\023\n\013pl" +
-      "aybook_id\030\001 \001(\005:\023\222A\020\n\016\322\001\013playbook_id\"_\n\013" +
-      "GetResponse\022(\n\007project\030\001 \001(\0132\027.playbook." +
-      "ProjectObject\022&\n\006status\030\002 \001(\0132\026.common.R" +
-      "esponseStatus\"@\n\rFilterRequest\022\036\n\006paging" +
-      "\030\001 \001(\0132\016.common.Paging\022\017\n\007keyword\030\002 \001(\t\"" +
-      "\203\001\n\016FilterResponse\022)\n\010projects\030\001 \003(\0132\027.p" +
-      "laybook.ProjectObject\022\036\n\006paging\030\002 \001(\0132\016." +
-      "common.Paging\022&\n\006status\030\003 \001(\0132\026.common.R" +
-      "esponseStatus\"\325\001\n\rUpdateRequest\022\023\n\013playb" +
-      "ook_id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013descriptio" +
-      "n\030\003 \001(\t\022\013\n\003url\030\004 \001(\t\022#\n\010url_type\030\005 \001(\0162\021" +
-      ".playbook.UrlType\022\017\n\007version\030\006 \001(\t\022\022\n\nen" +
-      "trypoint\030\007 \003(\t\022\013\n\003md5\030\010 \001(\t\022\014\n\004size\030\t \001(" +
-      "\003:\032\222A\027\n\025\322\001\013playbook_id\322\001\004name\"I\n\016UpdateR" +
-      "esponse\022\017\n\007updated\030\001 \001(\t\022&\n\006status\030\002 \001(\013" +
-      "2\026.common.ResponseStatus\"H\n\030PlaybookEntr" +
-      "ypointObject\022\036\n\026playbook_entrypoint_id\030\001" +
-      " \001(\005\022\014\n\004name\030\002 \001(\t\"\233\001\n\022SaveVersionReques" +
-      "t\022\023\n\013playbook_id\030\001 \001(\005\022\013\n\003url\030\002 \001(\t\022#\n\010u" +
-      "rl_type\030\003 \001(\0162\021.playbook.UrlType\022\017\n\007vers" +
-      "ion\030\004 \001(\t\022\013\n\003md5\030\005 \001(\t\022\014\n\004size\030\006 \001(\003\022\022\n\n" +
-      "entrypoint\030\007 \003(\t\"b\n\023SaveVersionResponse\022" +
-      "\022\n\nversion_id\030\001 \001(\005\022\017\n\007created\030\002 \001(\t\022&\n\006" +
-      "status\030\003 \001(\0132\026.common.ResponseStatus*+\n\007" +
-      "UrlType\022\r\n\tUNDEFINED\020\000\022\010\n\004FILE\020\001\022\007\n\003GIT\020" +
-      "\0022\326\003\n\010Playbook\022[\n\006Create\022\027.playbook.Crea" +
-      "teRequest\032\030.playbook.CreateResponse\"\036\202\323\344" +
-      "\223\002\030\"\023/v1/playbook/create:\001*\022X\n\006Filter\022\027." +
-      "playbook.FilterRequest\032\030.playbook.Filter" +
-      "Response\"\033\202\323\344\223\002\025\022\023/v1/playbook/filter\022Z\n" +
-      "\003Get\022\024.playbook.GetRequest\032\025.playbook.Ge" +
-      "tResponse\"&\202\323\344\223\002 \022\036/v1/playbook/get/{pla" +
-      "ybook_id}\022i\n\006Update\022\027.playbook.UpdateReq" +
-      "uest\032\030.playbook.UpdateResponse\",\202\323\344\223\002&\"!" +
-      "/v1/playbook/update/{playbook_id}:\001*\022L\n\013" +
-      "SaveVersion\022\034.playbook.SaveVersionReques" +
-      "t\032\035.playbook.SaveVersionResponse\"\000BJ\n\036to" +
-      "p.fogcdn.axe.protos.playbookZ(git.fogcdn" +
-      ".top/axe/protos/goout/playbookb\006proto3"
+      "ion\030\006 \001(\t\022\022\n\nentrypoint\030\007 \003(\t\022\013\n\003md5\030\010 \001" +
+      "(\t\022\014\n\004size\030\t \001(\003:\032\222A\027\n\025\322\001\013playbook_id\322\001\004" +
+      "name\"I\n\016UpdateResponse\022\017\n\007updated\030\001 \001(\t\022" +
+      "&\n\006status\030\002 \001(\0132\026.common.ResponseStatus\"" +
+      "H\n\030PlaybookEntrypointObject\022\036\n\026playbook_" +
+      "entrypoint_id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\"\233\001\n\022Sa" +
+      "veVersionRequest\022\023\n\013playbook_id\030\001 \001(\005\022\013\n" +
+      "\003url\030\002 \001(\t\022#\n\010url_type\030\003 \001(\0162\021.playbook." +
+      "UrlType\022\017\n\007version\030\004 \001(\t\022\013\n\003md5\030\005 \001(\t\022\014\n" +
+      "\004size\030\006 \001(\003\022\022\n\nentrypoint\030\007 \003(\t\"b\n\023SaveV" +
+      "ersionResponse\022\022\n\nversion_id\030\001 \001(\005\022\017\n\007cr" +
+      "eated\030\002 \001(\t\022&\n\006status\030\003 \001(\0132\026.common.Res" +
+      "ponseStatus*+\n\007UrlType\022\r\n\tUNDEFINED\020\000\022\010\n" +
+      "\004FILE\020\001\022\007\n\003GIT\020\0022\326\003\n\010Playbook\022[\n\006Create\022" +
+      "\027.playbook.CreateRequest\032\030.playbook.Crea" +
+      "teResponse\"\036\202\323\344\223\002\030\"\023/v1/playbook/create:" +
+      "\001*\022X\n\006Filter\022\027.playbook.FilterRequest\032\030." +
+      "playbook.FilterResponse\"\033\202\323\344\223\002\025\022\023/v1/pla" +
+      "ybook/filter\022Z\n\003Get\022\024.playbook.GetReques" +
+      "t\032\025.playbook.GetResponse\"&\202\323\344\223\002 \022\036/v1/pl" +
+      "aybook/get/{playbook_id}\022i\n\006Update\022\027.pla" +
+      "ybook.UpdateRequest\032\030.playbook.UpdateRes" +
+      "ponse\",\202\323\344\223\002&\"!/v1/playbook/update/{play" +
+      "book_id}:\001*\022L\n\013SaveVersion\022\034.playbook.Sa" +
+      "veVersionRequest\032\035.playbook.SaveVersionR" +
+      "esponse\"\000BJ\n\036top.fogcdn.axe.protos.playb" +
+      "ookZ(git.fogcdn.top/axe/protos/goout/pla" +
+      "ybookb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -15226,10 +15059,11 @@ public final class PlaybookOuterClass {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          top.fogcdn.axe.protos.common.Api.getDescriptor(),
-          top.fogcdn.axe.protos.common.UserOuterClass.getDescriptor(),
           com.google.api.AnnotationsProto.getDescriptor(),
           grpc.gateway.protoc_gen_swagger.options.Annotations.getDescriptor(),
+          validator.Validator.getDescriptor(),
+          top.fogcdn.axe.protos.common.Api.getDescriptor(),
+          top.fogcdn.axe.protos.common.UserOuterClass.getDescriptor(),
         }, assigner);
     internal_static_playbook_ProjectObject_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -15242,7 +15076,7 @@ public final class PlaybookOuterClass {
     internal_static_playbook_CreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_playbook_CreateRequest_descriptor,
-        new java.lang.String[] { "Name", "Description", "Url", "UrlType", "Version", "Entrypoint", "Md5", "Size", });
+        new java.lang.String[] { "Name", "Url", "UrlType", "Entrypoint", "Description", "Md5", "Size", });
     internal_static_playbook_CreateResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_playbook_CreateResponse_fieldAccessorTable = new
@@ -15307,12 +15141,14 @@ public final class PlaybookOuterClass {
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);
     registry.add(grpc.gateway.protoc_gen_swagger.options.Annotations.openapiv2Schema);
+    registry.add(validator.Validator.field);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
-    top.fogcdn.axe.protos.common.Api.getDescriptor();
-    top.fogcdn.axe.protos.common.UserOuterClass.getDescriptor();
     com.google.api.AnnotationsProto.getDescriptor();
     grpc.gateway.protoc_gen_swagger.options.Annotations.getDescriptor();
+    validator.Validator.getDescriptor();
+    top.fogcdn.axe.protos.common.Api.getDescriptor();
+    top.fogcdn.axe.protos.common.UserOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

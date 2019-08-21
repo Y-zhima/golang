@@ -928,7 +928,6 @@
         "name",
         "url",
         "url_type",
-        "version",
         "entrypoint"
       ],
       "properties": {
@@ -963,10 +962,6 @@
         "url_type": {
           "title": "枚举类型 1-文件下载 2-git下载",
           "$ref": "#/definitions/playbookUrlType"
-        },
-        "version": {
-          "type": "string",
-          "title": "playbook文件的版本号"
         }
       }
     },
@@ -1551,10 +1546,7 @@
       "title": "更新模板请求",
       "required": [
         "template_id",
-        "name",
-        "playbook_id",
-        "playbook_file_id",
-        "playbook_entrypoint_id"
+        "name"
       ],
       "properties": {
         "description": {
@@ -1568,21 +1560,6 @@
         "name": {
           "type": "string",
           "title": "模板名"
-        },
-        "playbook_entrypoint_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "所选playbook项目对应的入口yml文件的id"
-        },
-        "playbook_file_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "所选playbook项目对应的playbookFile的id"
-        },
-        "playbook_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "playbook项目的id"
         },
         "template_id": {
           "type": "integer",

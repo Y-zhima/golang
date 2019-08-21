@@ -5,10 +5,12 @@ package template;
 option go_package = "git.fogcdn.top/axe/protos/goout/template";
 option java_package = "top.fogcdn.axe.protos.template";
 
-import "common/api.proto";
-import "common/user.proto";
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
+import "github.com/mwitkow/go-proto-validators/validator.proto";
+
+import "common/api.proto";
+import "common/user.proto";
 import "playbook/playbook.proto";
 
 // 作业模板
@@ -79,15 +81,15 @@ message CreateRequest {
         }
     };
     // 模板名
-    string name = 1;
-    // 模板描述
-    string description = 2;
+    string name = 1 [(validator.field) = {string_not_empty: true, human_error: "模板名称不能为空"}];
     // playbook 项目id
-    int32 playbook_id = 3;
+    int32 playbook_id = 2 [(validator.field) = {int_gt: 0, human_error: "项目ID不能为空"}];
     // 选择的playbook项目对应的playbook_file
-    int32 playbook_file_id = 4;
+    int32 playbook_file_id = 3 [(validator.field) = {int_gt: 0, human_error: "项目文件ID不能为空"}];
     // 选择的playbook入口yml文件
-    int32 playbook_entrypoint_id = 5;
+    int32 playbook_entrypoint_id = 4 [(validator.field) = {int_gt: 0, human_error: "项目入口文件ID不能为空"}];
+    // 模板描述
+    string description = 5;
     // 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
     string extra_var = 6;
 }
@@ -144,23 +146,17 @@ message FilterResponse {
 message UpdateRequest {
     option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
         json_schema: {
-          required: ["template_id", "name", "playbook_id", "playbook_file_id", "playbook_entrypoint_id"]
+          required: ["template_id", "name"]
         }
     };
     // 模板ID
-    int32 template_id = 1;
+    int32 template_id = 1 [(validator.field) = {int_gt: 0, human_error: "模板ID不能为空"}];
     // 模板名
-    string name = 2;
+    string name = 2 [(validator.field) = {string_not_empty: true, human_error: "模板名称不能为空"}];
     // 模板描述
     string description = 3;
-    // playbook项目的id
-    int32 playbook_id = 4;
-    // 所选playbook项目对应的playbookFile的id
-    int32 playbook_file_id = 5;
-    // 所选playbook项目对应的入口yml文件的id
-    int32 playbook_entrypoint_id = 6;
     // 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
-    string extra_var = 7;
+    string extra_var = 4;
 }
 
 // 更新请求返回

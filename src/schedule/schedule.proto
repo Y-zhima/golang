@@ -5,9 +5,11 @@ package schedule;
 option go_package = "git.fogcdn.top/axe/protos/goout/schedule";
 option java_package = "top.fogcdn.axe.protos.schedule";
 
-import "common/api.proto";
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
+import "github.com/mwitkow/go-proto-validators/validator.proto";
+
+import "common/api.proto";
 import "template/template.proto";
 
 // 定时任务
@@ -86,15 +88,15 @@ message CreateRequest {
         }
     };
     // 模板ID
-    int32 template_id = 1;
+    int32 template_id = 1 [(validator.field) = {int_gt: 0, human_error: "模板ID不能为空"}];
     // 定时任务名
-    string name = 2;
+    string name = 2 [(validator.field) = {string_not_empty: true, human_error: "定时任务名不能为空"}];
     // 定时任务开始时间
-    string start_time = 3;
+    string start_time = 3 [(validator.field) = {string_not_empty: true, human_error: "开始时间不能为空"}];
     // 定时任务结束时间
-    string end_time = 4;
+    string end_time = 4 [(validator.field) = {string_not_empty: true, human_error: "结束时间不能为空"}];
     // 定时任务表达式
-    string cron_expression = 5;
+    string cron_expression = 5 [(validator.field) = {string_not_empty: true, human_error: "定时任务表达式不能为空"}];
 }
 
 // 创建定时任务请求返回
@@ -154,17 +156,17 @@ message UpdateRequest {
         }
     };
     // 定时任务ID
-    int32 schedule_id = 1;
+    int32 schedule_id = 1 [(validator.field) = {int_gt: 0, human_error: "定时任务ID不能为空"}];
     // 模板ID
-    int32 template_id = 2;
+    int32 template_id = 2 [(validator.field) = {int_gt: 0, human_error: "模板ID不能为空"}];
     // 定时任务名字
-    string name = 3;
+    string name = 3 [(validator.field) = {string_not_empty: true, human_error: "定时任务名不能为空"}];
     // 定时任务开启时间
-    string start_time = 4;
+    string start_time = 4 [(validator.field) = {string_not_empty: true, human_error: "开始时间不能为空"}];
     // 定时任务结束时间
-    string end_time = 5;
+    string end_time = 5 [(validator.field) = {string_not_empty: true, human_error: "结束时间不能为空"}];
     // 定时任务表达式
-    string cron_expression = 6;
+    string cron_expression = 6 [(validator.field) = {string_not_empty: true, human_error: "定时任务表达式不能为空"}];
 }
 
 // 更新请求返回

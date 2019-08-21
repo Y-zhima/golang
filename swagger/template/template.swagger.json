@@ -331,10 +331,6 @@
           "type": "string",
           "title": "模板名"
         },
-        "description": {
-          "type": "string",
-          "title": "模板描述"
-        },
         "playbook_id": {
           "type": "integer",
           "format": "int32",
@@ -349,6 +345,10 @@
           "type": "integer",
           "format": "int32",
           "title": "选择的playbook入口yml文件"
+        },
+        "description": {
+          "type": "string",
+          "title": "模板描述"
         },
         "extra_var": {
           "type": "string",
@@ -492,21 +492,6 @@
           "type": "string",
           "title": "模板描述"
         },
-        "playbook_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "playbook项目的id"
-        },
-        "playbook_file_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "所选playbook项目对应的playbookFile的id"
-        },
-        "playbook_entrypoint_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "所选playbook项目对应的入口yml文件的id"
-        },
         "extra_var": {
           "type": "string",
           "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
@@ -515,10 +500,7 @@
       "title": "更新模板请求",
       "required": [
         "template_id",
-        "name",
-        "playbook_id",
-        "playbook_file_id",
-        "playbook_entrypoint_id"
+        "name"
       ]
     },
     "templateUpdateResponse": {

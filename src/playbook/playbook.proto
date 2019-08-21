@@ -5,10 +5,12 @@ package playbook;
 option go_package = "git.fogcdn.top/axe/protos/goout/playbook";
 option java_package = "top.fogcdn.axe.protos.playbook";
 
-import "common/api.proto";
-import "common/user.proto";
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
+import "github.com/mwitkow/go-proto-validators/validator.proto";
+
+import "common/api.proto";
+import "common/user.proto";
 
 
 service Playbook {
@@ -102,25 +104,23 @@ message ProjectObject {
 message CreateRequest {
     option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
         json_schema: {
-          required: ["name", "url", "url_type", "version", "entrypoint"]
+          required: ["name", "url", "url_type", "entrypoint"]
         }
     };
     // playbook项目名称
-    string name = 1;
-    // playbook项目描述
-    string description = 2;
+    string name = 1 [(validator.field) = {string_not_empty: true, human_error: "项目名称不能为空"}];
     // playbook存储在对象存储的url
-    string url = 3;
+    string url = 2 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
     // 枚举类型 1-文件下载 2-git下载
-    UrlType url_type = 4;
-    // playbook文件的版本号
-    string version = 5;
+    UrlType url_type = 3 [(validator.field) = {is_in_enum : true, human_error: "URL类型不正确"}];
     // playbook入口yml文件，有多个
-    repeated string entrypoint = 6;
+    repeated string entrypoint = 4 [(validator.field) = {repeated_count_min : 1, human_error: "入口文件不能为空"}];
+    // playbook项目描述
+    string description = 5;
     // 文件md5
-    string md5 = 7;
+    string md5 = 6;
     // 文件大小
-    int64 size = 8;
+    int64 size = 7;
 }
 
 // 创建项目请求返回
@@ -178,9 +178,9 @@ message UpdateRequest {
         }
     };
     // playbook项目ID
-    int32 playbook_id = 1;
+    int32 playbook_id = 1 [(validator.field) = {int_gt: 0, human_error: "项目ID不能为空"}];
     // playbook项目名称
-    string name = 2;
+    string name = 2 [(validator.field) = {string_not_empty: true, human_error: "项目名称不能为空"}];
     // playbook项目描述
     string description = 3;
     // playbook存储在对象存储的url
