@@ -1547,7 +1547,7 @@
           "type": "array",
           "title": "筛选到的多个作业任务实例",
           "items": {
-            "$ref": "#/definitions/tasktaskObject"
+            "$ref": "#/definitions/taskTaskObject"
           }
         }
       }
@@ -1572,7 +1572,7 @@
         },
         "task": {
           "title": "获取的作业任务实例",
-          "$ref": "#/definitions/tasktaskObject"
+          "$ref": "#/definitions/taskTaskObject"
         }
       }
     },
@@ -1587,7 +1587,7 @@
         "CRONTAB"
       ]
     },
-    "tasktaskObject": {
+    "taskTaskObject": {
       "type": "object",
       "title": "作业任务实例",
       "properties": {

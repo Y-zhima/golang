@@ -55,7 +55,7 @@ enum ScheduleType {
 }
 
 // 作业任务实例
-message taskObject {
+message TaskObject {
     // 作业任务ID
     int32 task_id = 1;
     // 模板ID
@@ -120,7 +120,7 @@ message GetRequest {
 // 获取作业任务请求返回
 message GetResponse {
     // 获取的作业任务实例
-    taskObject task = 1;
+    TaskObject task = 1;
     // 返回的请求状态
     common.ResponseStatus status = 2;
 }
@@ -147,7 +147,7 @@ message FilterRequest {
 // 筛选作业任务请求返回
 message FilterResponse {
     // 筛选到的多个作业任务实例
-    repeated taskObject tasks = 1;
+    repeated TaskObject tasks = 1;
     // 分页信息
     common.Paging paging = 2;
     // 返回的请求状态

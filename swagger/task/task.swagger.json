@@ -276,7 +276,7 @@
         "tasks": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/tasktaskObject"
+            "$ref": "#/definitions/taskTaskObject"
           },
           "title": "筛选到的多个作业任务实例"
         },
@@ -305,7 +305,7 @@
       "type": "object",
       "properties": {
         "task": {
-          "$ref": "#/definitions/tasktaskObject",
+          "$ref": "#/definitions/taskTaskObject",
           "title": "获取的作业任务实例"
         },
         "status": {
@@ -326,7 +326,7 @@
       "description": "- UNDEFINED: 0-undefined\n - SINGLE: 1-单次任务\n - CRONTAB: 2-定时任务",
       "title": "定时任务类型 0-undefined 1-单次任务 2-定时任务"
     },
-    "tasktaskObject": {
+    "taskTaskObject": {
       "type": "object",
       "properties": {
         "task_id": {
