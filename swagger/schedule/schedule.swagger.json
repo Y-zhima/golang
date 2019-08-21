@@ -95,12 +95,18 @@
             "type": "string"
           },
           {
-            "name": "template_id",
-            "description": "模板ID.",
+            "name": "task_type",
+            "description": "用于筛选的定时任务的任务类型.\n\n - UNDEFINED: 0-undefined\n - PLAYBOOK: 1-作业模板\n - CONTAINER: 2-容器部署\n - BARE_METAL: 3-裸金属管理",
             "in": "query",
             "required": false,
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "enum": [
+              "UNDEFINED",
+              "PLAYBOOK",
+              "CONTAINER",
+              "BARE_METAL"
+            ],
+            "default": "UNDEFINED"
           }
         ],
         "tags": [
@@ -199,6 +205,72 @@
     }
   },
   "definitions": {
+    "cmdbBizObject": {
+      "type": "object",
+      "properties": {
+        "bk_biz_name": {
+          "type": "string",
+          "title": "业务名"
+        }
+      },
+      "title": "业务"
+    },
+    "cmdbHostObject": {
+      "type": "object",
+      "properties": {
+        "bk_host_innerip": {
+          "type": "string",
+          "title": "内网IP"
+        }
+      },
+      "title": "主机"
+    },
+    "cmdbModuleObject": {
+      "type": "object",
+      "properties": {
+        "bk_module_name": {
+          "type": "string",
+          "title": "模块名"
+        }
+      },
+      "title": "模块"
+    },
+    "cmdbSearchHostRequest": {
+      "type": "object",
+      "properties": {
+        "paging": {
+          "$ref": "#/definitions/commonPaging",
+          "title": "分页信息"
+        },
+        "host": {
+          "$ref": "#/definitions/cmdbHostObject",
+          "title": "主机对象"
+        },
+        "module": {
+          "$ref": "#/definitions/cmdbModuleObject",
+          "title": "模块对象"
+        },
+        "set": {
+          "$ref": "#/definitions/cmdbSetObject",
+          "title": "集群对象"
+        },
+        "biz": {
+          "$ref": "#/definitions/cmdbBizObject",
+          "title": "业务对象"
+        }
+      },
+      "title": "查找主机请求"
+    },
+    "cmdbSetObject": {
+      "type": "object",
+      "properties": {
+        "bk_set_name": {
+          "type": "string",
+          "title": "集群名"
+        }
+      },
+      "title": "集群"
+    },
     "commonPaging": {
       "type": "object",
       "properties": {
@@ -355,35 +427,26 @@
     "scheduleCreateRequest": {
       "type": "object",
       "properties": {
-        "template_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "模板ID"
+        "schedules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/scheduleCreateScheduleObject"
+          },
+          "title": "创建定时任务的请求内容体"
         },
-        "name": {
-          "type": "string",
-          "title": "定时任务名"
+        "cmdb_search_request": {
+          "$ref": "#/definitions/cmdbSearchHostRequest",
+          "title": "cmdb的搜索条件"
         },
-        "start_time": {
+        "extra_var": {
           "type": "string",
-          "title": "定时任务开始时间"
-        },
-        "end_time": {
-          "type": "string",
-          "title": "定时任务结束时间"
-        },
-        "cron_expression": {
-          "type": "string",
-          "title": "定时任务表达式"
+          "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
         }
       },
       "title": "创建定时任务请求",
       "required": [
-        "template_id",
-        "name",
-        "start_time",
-        "end_time",
-        "cron_expression"
+        "schedules",
+        "cmdb_search_request"
       ]
     },
     "scheduleCreateResponse": {
@@ -404,6 +467,37 @@
         }
       },
       "title": "创建定时任务请求返回"
+    },
+    "scheduleCreateScheduleObject": {
+      "type": "object",
+      "properties": {
+        "template_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "模板ID"
+        },
+        "name": {
+          "type": "string",
+          "title": "定时任务名"
+        },
+        "start_time": {
+          "type": "string",
+          "title": "定时任务开始时间"
+        },
+        "end_time": {
+          "type": "string",
+          "title": "定时任务结束时间"
+        },
+        "cron_expression": {
+          "type": "string",
+          "title": "定时任务表达式"
+        },
+        "task_type": {
+          "$ref": "#/definitions/scheduleTaskType",
+          "title": "任务类型"
+        }
+      },
+      "title": "创建定时任务的请求内容体"
     },
     "scheduleFilterResponse": {
       "type": "object",
@@ -471,6 +565,15 @@
         "status": {
           "$ref": "#/definitions/scheduleScheduleStatus",
           "title": "任务状态"
+        },
+        "task_type": {
+          "$ref": "#/definitions/scheduleTaskType",
+          "title": "任务类型"
+        },
+        "execute_count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "执行总数"
         }
       },
       "title": "定时任务实例"
@@ -494,6 +597,18 @@
       },
       "title": "切换定时任务状态请求返回"
     },
+    "scheduleTaskType": {
+      "type": "string",
+      "enum": [
+        "UNDEFINED",
+        "PLAYBOOK",
+        "CONTAINER",
+        "BARE_METAL"
+      ],
+      "default": "UNDEFINED",
+      "description": "- UNDEFINED: 0-undefined\n - PLAYBOOK: 1-作业模板\n - CONTAINER: 2-容器部署\n - BARE_METAL: 3-裸金属管理",
+      "title": "任务类型 0-undefined 1-作业模板；2-容器部署 3-裸金属管理"
+    },
     "scheduleUpdateRequest": {
       "type": "object",
       "properties": {
@@ -501,11 +616,6 @@
           "type": "integer",
           "format": "int32",
           "title": "定时任务ID"
-        },
-        "template_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "模板ID"
         },
         "name": {
           "type": "string",
@@ -527,7 +637,6 @@
       "title": "更新定时任务请求",
       "required": [
         "schedule_id",
-        "template_id",
         "name",
         "start_time",
         "end_time",
