@@ -41,6 +41,13 @@ service Template {
             body: "*"
         };
     }
+    // 更新作业模板状态开关
+    rpc UpdateState (UpdateRequest) returns (UpdateResponse) {
+        option (google.api.http) = {
+            post: "/v1/template/updateState/{template_id}"
+            body: "*"
+        };
+    }
     // 删除作业模板
     rpc Delete (DeleteRequest) returns (DeleteResponse) {
         //        option (google.api.http) = {
@@ -71,6 +78,8 @@ message TemplateObject {
     string created = 9;
     // 更新时间
     string updated = 10;
+    // 模板状态开关标识
+    TemplateState state = 11;
 }
 
 // 创建模板请求
@@ -167,6 +176,27 @@ message UpdateResponse {
     common.ResponseStatus status = 2;
 }
 
+
+// 更新模板状态开关请求
+message UpdateStateRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+          required: ["template_id"]
+        }
+    };
+    // 模板ID
+    int32 template_id = 1 [(validator.field) = {int_gt: 0, human_error: "模板ID不能为空"}];
+    // 模板状态开关标识
+    TemplateState state = 2 [(validator.field) = {is_in_enum : true, human_error: "State类型不正确"}];
+}
+
+// 更新模板状态请求返回
+message UpdateStateResponse {
+    // 请求返回的状态
+    common.ResponseStatus status = 2;
+}
+
+
 // 删除模板请求
 message DeleteRequest {
     //模板ID
@@ -177,4 +207,12 @@ message DeleteRequest {
 message DeleteResponse {
     // 请求返回的状态
     common.ResponseStatus status = 1;
+}
+
+// 模板状态
+enum TemplateState {
+    // 运行
+    RUNNING = 0;
+    // 没运行
+    NOT_RUNNING= 1;
 }
