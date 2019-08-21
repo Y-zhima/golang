@@ -280,7 +280,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin5",
+        "operationId": "CreateMixin6",
         "parameters": [
           {
             "name": "body",
@@ -307,7 +307,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin5",
+        "operationId": "FilterMixin6",
         "parameters": [
           {
             "type": "integer",
@@ -367,7 +367,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin5",
+        "operationId": "GetMixin6",
         "parameters": [
           {
             "type": "integer",
@@ -421,7 +421,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "UpdateMixin5",
+        "operationId": "UpdateMixin6",
         "parameters": [
           {
             "type": "integer",
@@ -456,7 +456,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin6",
+        "operationId": "CreateMixin7",
         "parameters": [
           {
             "name": "body",
@@ -483,7 +483,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin6",
+        "operationId": "FilterMixin7",
         "parameters": [
           {
             "type": "integer",
@@ -542,7 +542,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin6",
+        "operationId": "GetMixin7",
         "parameters": [
           {
             "type": "integer",
@@ -569,7 +569,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin6",
+        "operationId": "UpdateMixin7",
         "parameters": [
           {
             "type": "integer",
@@ -787,6 +787,18 @@
         "ACCESS_DENIED"
       ]
     },
+    "commonUser": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "user_name": {
+          "type": "string"
+        }
+      }
+    },
     "fileUploadPlaybookRequest": {
       "type": "object",
       "title": "上传playbook压缩包并且解析入口yml文件的请求体",
@@ -912,6 +924,12 @@
     "playbookCreateRequest": {
       "type": "object",
       "title": "创建项目请求内容体",
+      "required": [
+        "name",
+        "url",
+        "url_type",
+        "entrypoint"
+      ],
       "properties": {
         "description": {
           "type": "string",
@@ -944,10 +962,6 @@
         "url_type": {
           "title": "枚举类型 1-文件下载 2-git下载",
           "$ref": "#/definitions/playbookUrlType"
-        },
-        "version": {
-          "type": "string",
-          "title": "playbook文件的版本号"
         }
       }
     },
@@ -1028,6 +1042,10 @@
           "type": "string",
           "title": "创建时间"
         },
+        "creator": {
+          "title": "创建人",
+          "$ref": "#/definitions/commonUser"
+        },
         "description": {
           "type": "string",
           "title": "playbook项目描述"
@@ -1102,6 +1120,10 @@
     "playbookUpdateRequest": {
       "type": "object",
       "title": "更新项目请求内容体",
+      "required": [
+        "playbook_id",
+        "name"
+      ],
       "properties": {
         "description": {
           "type": "string",
@@ -1174,6 +1196,13 @@
     "scheduleCreateRequest": {
       "type": "object",
       "title": "创建定时任务请求",
+      "required": [
+        "template_id",
+        "name",
+        "start_time",
+        "end_time",
+        "cron_expression"
+      ],
       "properties": {
         "cron_expression": {
           "type": "string",
@@ -1309,6 +1338,14 @@
     "scheduleUpdateRequest": {
       "type": "object",
       "title": "更新定时任务请求",
+      "required": [
+        "schedule_id",
+        "template_id",
+        "name",
+        "start_time",
+        "end_time",
+        "cron_expression"
+      ],
       "properties": {
         "cron_expression": {
           "type": "string",
@@ -1355,6 +1392,12 @@
     "templateCreateRequest": {
       "type": "object",
       "title": "创建模板请求",
+      "required": [
+        "name",
+        "playbook_id",
+        "playbook_file_id",
+        "playbook_entrypoint_id"
+      ],
       "properties": {
         "description": {
           "type": "string",
@@ -1453,6 +1496,14 @@
       "type": "object",
       "title": "模板实例",
       "properties": {
+        "created": {
+          "type": "string",
+          "title": "创建时间"
+        },
+        "creator": {
+          "title": "创建人",
+          "$ref": "#/definitions/commonUser"
+        },
         "description": {
           "type": "string",
           "title": "模板描述"
@@ -1483,12 +1534,20 @@
           "type": "integer",
           "format": "int32",
           "title": "模板ID"
+        },
+        "updated": {
+          "type": "string",
+          "title": "更新时间"
         }
       }
     },
     "templateUpdateRequest": {
       "type": "object",
       "title": "更新模板请求",
+      "required": [
+        "template_id",
+        "name"
+      ],
       "properties": {
         "description": {
           "type": "string",
@@ -1501,21 +1560,6 @@
         "name": {
           "type": "string",
           "title": "模板名"
-        },
-        "playbook_entrypoint_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "所选playbook项目对应的入口yml文件的id"
-        },
-        "playbook_file_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "所选playbook项目对应的playbookFile的id"
-        },
-        "playbook_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "playbook项目的id"
         },
         "template_id": {
           "type": "integer",

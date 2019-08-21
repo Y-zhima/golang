@@ -123,6 +123,67 @@ public final class TemplateOuterClass {
      */
     com.google.protobuf.ByteString
         getExtraVarBytes();
+
+    /**
+     * <pre>
+     * 创建人
+     * </pre>
+     *
+     * <code>.common.User creator = 8;</code>
+     */
+    boolean hasCreator();
+    /**
+     * <pre>
+     * 创建人
+     * </pre>
+     *
+     * <code>.common.User creator = 8;</code>
+     */
+    top.fogcdn.axe.protos.common.UserOuterClass.User getCreator();
+    /**
+     * <pre>
+     * 创建人
+     * </pre>
+     *
+     * <code>.common.User creator = 8;</code>
+     */
+    top.fogcdn.axe.protos.common.UserOuterClass.UserOrBuilder getCreatorOrBuilder();
+
+    /**
+     * <pre>
+     * 创建时间
+     * </pre>
+     *
+     * <code>string created = 9;</code>
+     */
+    java.lang.String getCreated();
+    /**
+     * <pre>
+     * 创建时间
+     * </pre>
+     *
+     * <code>string created = 9;</code>
+     */
+    com.google.protobuf.ByteString
+        getCreatedBytes();
+
+    /**
+     * <pre>
+     * 更新时间
+     * </pre>
+     *
+     * <code>string updated = 10;</code>
+     */
+    java.lang.String getUpdated();
+    /**
+     * <pre>
+     * 更新时间
+     * </pre>
+     *
+     * <code>string updated = 10;</code>
+     */
+    com.google.protobuf.ByteString
+        getUpdatedBytes();
   }
   /**
    * <pre>
@@ -147,6 +208,8 @@ public final class TemplateOuterClass {
       playbookFileId_ = 0;
       playbookEntrypointId_ = 0;
       extraVar_ = "";
+      created_ = "";
+      updated_ = "";
     }
 
     @java.lang.Override
@@ -217,6 +280,31 @@ public final class TemplateOuterClass {
               java.lang.String s = input.readStringRequireUtf8();
 
               extraVar_ = s;
+              break;
+            }
+            case 66: {
+              top.fogcdn.axe.protos.common.UserOuterClass.User.Builder subBuilder = null;
+              if (creator_ != null) {
+                subBuilder = creator_.toBuilder();
+              }
+              creator_ = input.readMessage(top.fogcdn.axe.protos.common.UserOuterClass.User.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(creator_);
+                creator_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              created_ = s;
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              updated_ = s;
               break;
             }
             default: {
@@ -449,6 +537,123 @@ public final class TemplateOuterClass {
       }
     }
 
+    public static final int CREATOR_FIELD_NUMBER = 8;
+    private top.fogcdn.axe.protos.common.UserOuterClass.User creator_;
+    /**
+     * <pre>
+     * 创建人
+     * </pre>
+     *
+     * <code>.common.User creator = 8;</code>
+     */
+    public boolean hasCreator() {
+      return creator_ != null;
+    }
+    /**
+     * <pre>
+     * 创建人
+     * </pre>
+     *
+     * <code>.common.User creator = 8;</code>
+     */
+    public top.fogcdn.axe.protos.common.UserOuterClass.User getCreator() {
+      return creator_ == null ? top.fogcdn.axe.protos.common.UserOuterClass.User.getDefaultInstance() : creator_;
+    }
+    /**
+     * <pre>
+     * 创建人
+     * </pre>
+     *
+     * <code>.common.User creator = 8;</code>
+     */
+    public top.fogcdn.axe.protos.common.UserOuterClass.UserOrBuilder getCreatorOrBuilder() {
+      return getCreator();
+    }
+
+    public static final int CREATED_FIELD_NUMBER = 9;
+    private volatile java.lang.Object created_;
+    /**
+     * <pre>
+     * 创建时间
+     * </pre>
+     *
+     * <code>string created = 9;</code>
+     */
+    public java.lang.String getCreated() {
+      java.lang.Object ref = created_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        created_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 创建时间
+     * </pre>
+     *
+     * <code>string created = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCreatedBytes() {
+      java.lang.Object ref = created_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        created_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int UPDATED_FIELD_NUMBER = 10;
+    private volatile java.lang.Object updated_;
+    /**
+     * <pre>
+     * 更新时间
+     * </pre>
+     *
+     * <code>string updated = 10;</code>
+     */
+    public java.lang.String getUpdated() {
+      java.lang.Object ref = updated_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        updated_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 更新时间
+     * </pre>
+     *
+     * <code>string updated = 10;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUpdatedBytes() {
+      java.lang.Object ref = updated_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        updated_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -484,6 +689,15 @@ public final class TemplateOuterClass {
       if (!getExtraVarBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, extraVar_);
       }
+      if (creator_ != null) {
+        output.writeMessage(8, getCreator());
+      }
+      if (!getCreatedBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, created_);
+      }
+      if (!getUpdatedBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, updated_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -518,6 +732,16 @@ public final class TemplateOuterClass {
       if (!getExtraVarBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, extraVar_);
       }
+      if (creator_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getCreator());
+      }
+      if (!getCreatedBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, created_);
+      }
+      if (!getUpdatedBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, updated_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -551,6 +775,15 @@ public final class TemplateOuterClass {
           == other.getPlaybookEntrypointId());
       result = result && getExtraVar()
           .equals(other.getExtraVar());
+      result = result && (hasCreator() == other.hasCreator());
+      if (hasCreator()) {
+        result = result && getCreator()
+            .equals(other.getCreator());
+      }
+      result = result && getCreated()
+          .equals(other.getCreated());
+      result = result && getUpdated()
+          .equals(other.getUpdated());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -578,6 +811,14 @@ public final class TemplateOuterClass {
       hash = (53 * hash) + getPlaybookEntrypointId();
       hash = (37 * hash) + EXTRA_VAR_FIELD_NUMBER;
       hash = (53 * hash) + getExtraVar().hashCode();
+      if (hasCreator()) {
+        hash = (37 * hash) + CREATOR_FIELD_NUMBER;
+        hash = (53 * hash) + getCreator().hashCode();
+      }
+      hash = (37 * hash) + CREATED_FIELD_NUMBER;
+      hash = (53 * hash) + getCreated().hashCode();
+      hash = (37 * hash) + UPDATED_FIELD_NUMBER;
+      hash = (53 * hash) + getUpdated().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -733,6 +974,16 @@ public final class TemplateOuterClass {
 
         extraVar_ = "";
 
+        if (creatorBuilder_ == null) {
+          creator_ = null;
+        } else {
+          creator_ = null;
+          creatorBuilder_ = null;
+        }
+        created_ = "";
+
+        updated_ = "";
+
         return this;
       }
 
@@ -770,6 +1021,13 @@ public final class TemplateOuterClass {
         result.playbookFileId_ = playbookFileId_;
         result.playbookEntrypointId_ = playbookEntrypointId_;
         result.extraVar_ = extraVar_;
+        if (creatorBuilder_ == null) {
+          result.creator_ = creator_;
+        } else {
+          result.creator_ = creatorBuilder_.build();
+        }
+        result.created_ = created_;
+        result.updated_ = updated_;
         onBuilt();
         return result;
       }
@@ -840,6 +1098,17 @@ public final class TemplateOuterClass {
         }
         if (!other.getExtraVar().isEmpty()) {
           extraVar_ = other.extraVar_;
+          onChanged();
+        }
+        if (other.hasCreator()) {
+          mergeCreator(other.getCreator());
+        }
+        if (!other.getCreated().isEmpty()) {
+          created_ = other.created_;
+          onChanged();
+        }
+        if (!other.getUpdated().isEmpty()) {
+          updated_ = other.updated_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -1404,6 +1673,337 @@ public final class TemplateOuterClass {
         onChanged();
         return this;
       }
+
+      private top.fogcdn.axe.protos.common.UserOuterClass.User creator_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          top.fogcdn.axe.protos.common.UserOuterClass.User, top.fogcdn.axe.protos.common.UserOuterClass.User.Builder, top.fogcdn.axe.protos.common.UserOuterClass.UserOrBuilder> creatorBuilder_;
+      /**
+       * <pre>
+       * 创建人
+       * </pre>
+       *
+       * <code>.common.User creator = 8;</code>
+       */
+      public boolean hasCreator() {
+        return creatorBuilder_ != null || creator_ != null;
+      }
+      /**
+       * <pre>
+       * 创建人
+       * </pre>
+       *
+       * <code>.common.User creator = 8;</code>
+       */
+      public top.fogcdn.axe.protos.common.UserOuterClass.User getCreator() {
+        if (creatorBuilder_ == null) {
+          return creator_ == null ? top.fogcdn.axe.protos.common.UserOuterClass.User.getDefaultInstance() : creator_;
+        } else {
+          return creatorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * 创建人
+       * </pre>
+       *
+       * <code>.common.User creator = 8;</code>
+       */
+      public Builder setCreator(top.fogcdn.axe.protos.common.UserOuterClass.User value) {
+        if (creatorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          creator_ = value;
+          onChanged();
+        } else {
+          creatorBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 创建人
+       * </pre>
+       *
+       * <code>.common.User creator = 8;</code>
+       */
+      public Builder setCreator(
+          top.fogcdn.axe.protos.common.UserOuterClass.User.Builder builderForValue) {
+        if (creatorBuilder_ == null) {
+          creator_ = builderForValue.build();
+          onChanged();
+        } else {
+          creatorBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 创建人
+       * </pre>
+       *
+       * <code>.common.User creator = 8;</code>
+       */
+      public Builder mergeCreator(top.fogcdn.axe.protos.common.UserOuterClass.User value) {
+        if (creatorBuilder_ == null) {
+          if (creator_ != null) {
+            creator_ =
+              top.fogcdn.axe.protos.common.UserOuterClass.User.newBuilder(creator_).mergeFrom(value).buildPartial();
+          } else {
+            creator_ = value;
+          }
+          onChanged();
+        } else {
+          creatorBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 创建人
+       * </pre>
+       *
+       * <code>.common.User creator = 8;</code>
+       */
+      public Builder clearCreator() {
+        if (creatorBuilder_ == null) {
+          creator_ = null;
+          onChanged();
+        } else {
+          creator_ = null;
+          creatorBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 创建人
+       * </pre>
+       *
+       * <code>.common.User creator = 8;</code>
+       */
+      public top.fogcdn.axe.protos.common.UserOuterClass.User.Builder getCreatorBuilder() {
+        
+        onChanged();
+        return getCreatorFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * 创建人
+       * </pre>
+       *
+       * <code>.common.User creator = 8;</code>
+       */
+      public top.fogcdn.axe.protos.common.UserOuterClass.UserOrBuilder getCreatorOrBuilder() {
+        if (creatorBuilder_ != null) {
+          return creatorBuilder_.getMessageOrBuilder();
+        } else {
+          return creator_ == null ?
+              top.fogcdn.axe.protos.common.UserOuterClass.User.getDefaultInstance() : creator_;
+        }
+      }
+      /**
+       * <pre>
+       * 创建人
+       * </pre>
+       *
+       * <code>.common.User creator = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          top.fogcdn.axe.protos.common.UserOuterClass.User, top.fogcdn.axe.protos.common.UserOuterClass.User.Builder, top.fogcdn.axe.protos.common.UserOuterClass.UserOrBuilder> 
+          getCreatorFieldBuilder() {
+        if (creatorBuilder_ == null) {
+          creatorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              top.fogcdn.axe.protos.common.UserOuterClass.User, top.fogcdn.axe.protos.common.UserOuterClass.User.Builder, top.fogcdn.axe.protos.common.UserOuterClass.UserOrBuilder>(
+                  getCreator(),
+                  getParentForChildren(),
+                  isClean());
+          creator_ = null;
+        }
+        return creatorBuilder_;
+      }
+
+      private java.lang.Object created_ = "";
+      /**
+       * <pre>
+       * 创建时间
+       * </pre>
+       *
+       * <code>string created = 9;</code>
+       */
+      public java.lang.String getCreated() {
+        java.lang.Object ref = created_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          created_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 创建时间
+       * </pre>
+       *
+       * <code>string created = 9;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCreatedBytes() {
+        java.lang.Object ref = created_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          created_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 创建时间
+       * </pre>
+       *
+       * <code>string created = 9;</code>
+       */
+      public Builder setCreated(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        created_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 创建时间
+       * </pre>
+       *
+       * <code>string created = 9;</code>
+       */
+      public Builder clearCreated() {
+        
+        created_ = getDefaultInstance().getCreated();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 创建时间
+       * </pre>
+       *
+       * <code>string created = 9;</code>
+       */
+      public Builder setCreatedBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        created_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object updated_ = "";
+      /**
+       * <pre>
+       * 更新时间
+       * </pre>
+       *
+       * <code>string updated = 10;</code>
+       */
+      public java.lang.String getUpdated() {
+        java.lang.Object ref = updated_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          updated_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 更新时间
+       * </pre>
+       *
+       * <code>string updated = 10;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUpdatedBytes() {
+        java.lang.Object ref = updated_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          updated_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 更新时间
+       * </pre>
+       *
+       * <code>string updated = 10;</code>
+       */
+      public Builder setUpdated(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        updated_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 更新时间
+       * </pre>
+       *
+       * <code>string updated = 10;</code>
+       */
+      public Builder clearUpdated() {
+        
+        updated_ = getDefaultInstance().getUpdated();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 更新时间
+       * </pre>
+       *
+       * <code>string updated = 10;</code>
+       */
+      public Builder setUpdatedBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        updated_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1466,7 +2066,7 @@ public final class TemplateOuterClass {
      * 模板名
      * </pre>
      *
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     java.lang.String getName();
     /**
@@ -1474,35 +2074,17 @@ public final class TemplateOuterClass {
      * 模板名
      * </pre>
      *
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
      * <pre>
-     * 模板描述
-     * </pre>
-     *
-     * <code>string description = 2;</code>
-     */
-    java.lang.String getDescription();
-    /**
-     * <pre>
-     * 模板描述
-     * </pre>
-     *
-     * <code>string description = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getDescriptionBytes();
-
-    /**
-     * <pre>
      * playbook 项目id
      * </pre>
      *
-     * <code>int32 playbook_id = 3;</code>
+     * <code>int32 playbook_id = 2 [(.validator.field) = { ... }</code>
      */
     int getPlaybookId();
 
@@ -1511,7 +2093,7 @@ public final class TemplateOuterClass {
      * 选择的playbook项目对应的playbook_file
      * </pre>
      *
-     * <code>int32 playbook_file_id = 4;</code>
+     * <code>int32 playbook_file_id = 3 [(.validator.field) = { ... }</code>
      */
     int getPlaybookFileId();
 
@@ -1520,9 +2102,27 @@ public final class TemplateOuterClass {
      * 选择的playbook入口yml文件
      * </pre>
      *
-     * <code>int32 playbook_entrypoint_id = 5;</code>
+     * <code>int32 playbook_entrypoint_id = 4 [(.validator.field) = { ... }</code>
      */
     int getPlaybookEntrypointId();
+
+    /**
+     * <pre>
+     * 模板描述
+     * </pre>
+     *
+     * <code>string description = 5;</code>
+     */
+    java.lang.String getDescription();
+    /**
+     * <pre>
+     * 模板描述
+     * </pre>
+     *
+     * <code>string description = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getDescriptionBytes();
 
     /**
      * <pre>
@@ -1560,10 +2160,10 @@ public final class TemplateOuterClass {
     }
     private CreateRequest() {
       name_ = "";
-      description_ = "";
       playbookId_ = 0;
       playbookFileId_ = 0;
       playbookEntrypointId_ = 0;
+      description_ = "";
       extraVar_ = "";
     }
 
@@ -1597,25 +2197,25 @@ public final class TemplateOuterClass {
               name_ = s;
               break;
             }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              description_ = s;
-              break;
-            }
-            case 24: {
+            case 16: {
 
               playbookId_ = input.readInt32();
               break;
             }
-            case 32: {
+            case 24: {
 
               playbookFileId_ = input.readInt32();
               break;
             }
-            case 40: {
+            case 32: {
 
               playbookEntrypointId_ = input.readInt32();
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              description_ = s;
               break;
             }
             case 50: {
@@ -1663,7 +2263,7 @@ public final class TemplateOuterClass {
      * 模板名
      * </pre>
      *
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -1682,7 +2282,7 @@ public final class TemplateOuterClass {
      * 模板名
      * </pre>
      *
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -1698,14 +2298,53 @@ public final class TemplateOuterClass {
       }
     }
 
-    public static final int DESCRIPTION_FIELD_NUMBER = 2;
+    public static final int PLAYBOOK_ID_FIELD_NUMBER = 2;
+    private int playbookId_;
+    /**
+     * <pre>
+     * playbook 项目id
+     * </pre>
+     *
+     * <code>int32 playbook_id = 2 [(.validator.field) = { ... }</code>
+     */
+    public int getPlaybookId() {
+      return playbookId_;
+    }
+
+    public static final int PLAYBOOK_FILE_ID_FIELD_NUMBER = 3;
+    private int playbookFileId_;
+    /**
+     * <pre>
+     * 选择的playbook项目对应的playbook_file
+     * </pre>
+     *
+     * <code>int32 playbook_file_id = 3 [(.validator.field) = { ... }</code>
+     */
+    public int getPlaybookFileId() {
+      return playbookFileId_;
+    }
+
+    public static final int PLAYBOOK_ENTRYPOINT_ID_FIELD_NUMBER = 4;
+    private int playbookEntrypointId_;
+    /**
+     * <pre>
+     * 选择的playbook入口yml文件
+     * </pre>
+     *
+     * <code>int32 playbook_entrypoint_id = 4 [(.validator.field) = { ... }</code>
+     */
+    public int getPlaybookEntrypointId() {
+      return playbookEntrypointId_;
+    }
+
+    public static final int DESCRIPTION_FIELD_NUMBER = 5;
     private volatile java.lang.Object description_;
     /**
      * <pre>
      * 模板描述
      * </pre>
      *
-     * <code>string description = 2;</code>
+     * <code>string description = 5;</code>
      */
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
@@ -1724,7 +2363,7 @@ public final class TemplateOuterClass {
      * 模板描述
      * </pre>
      *
-     * <code>string description = 2;</code>
+     * <code>string description = 5;</code>
      */
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
@@ -1738,45 +2377,6 @@ public final class TemplateOuterClass {
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
-    }
-
-    public static final int PLAYBOOK_ID_FIELD_NUMBER = 3;
-    private int playbookId_;
-    /**
-     * <pre>
-     * playbook 项目id
-     * </pre>
-     *
-     * <code>int32 playbook_id = 3;</code>
-     */
-    public int getPlaybookId() {
-      return playbookId_;
-    }
-
-    public static final int PLAYBOOK_FILE_ID_FIELD_NUMBER = 4;
-    private int playbookFileId_;
-    /**
-     * <pre>
-     * 选择的playbook项目对应的playbook_file
-     * </pre>
-     *
-     * <code>int32 playbook_file_id = 4;</code>
-     */
-    public int getPlaybookFileId() {
-      return playbookFileId_;
-    }
-
-    public static final int PLAYBOOK_ENTRYPOINT_ID_FIELD_NUMBER = 5;
-    private int playbookEntrypointId_;
-    /**
-     * <pre>
-     * 选择的playbook入口yml文件
-     * </pre>
-     *
-     * <code>int32 playbook_entrypoint_id = 5;</code>
-     */
-    public int getPlaybookEntrypointId() {
-      return playbookEntrypointId_;
     }
 
     public static final int EXTRA_VAR_FIELD_NUMBER = 6;
@@ -1838,17 +2438,17 @@ public final class TemplateOuterClass {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      if (!getDescriptionBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
-      }
       if (playbookId_ != 0) {
-        output.writeInt32(3, playbookId_);
+        output.writeInt32(2, playbookId_);
       }
       if (playbookFileId_ != 0) {
-        output.writeInt32(4, playbookFileId_);
+        output.writeInt32(3, playbookFileId_);
       }
       if (playbookEntrypointId_ != 0) {
-        output.writeInt32(5, playbookEntrypointId_);
+        output.writeInt32(4, playbookEntrypointId_);
+      }
+      if (!getDescriptionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, description_);
       }
       if (!getExtraVarBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, extraVar_);
@@ -1865,20 +2465,20 @@ public final class TemplateOuterClass {
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      if (!getDescriptionBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
-      }
       if (playbookId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, playbookId_);
+          .computeInt32Size(2, playbookId_);
       }
       if (playbookFileId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, playbookFileId_);
+          .computeInt32Size(3, playbookFileId_);
       }
       if (playbookEntrypointId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, playbookEntrypointId_);
+          .computeInt32Size(4, playbookEntrypointId_);
+      }
+      if (!getDescriptionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, description_);
       }
       if (!getExtraVarBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, extraVar_);
@@ -1901,14 +2501,14 @@ public final class TemplateOuterClass {
       boolean result = true;
       result = result && getName()
           .equals(other.getName());
-      result = result && getDescription()
-          .equals(other.getDescription());
       result = result && (getPlaybookId()
           == other.getPlaybookId());
       result = result && (getPlaybookFileId()
           == other.getPlaybookFileId());
       result = result && (getPlaybookEntrypointId()
           == other.getPlaybookEntrypointId());
+      result = result && getDescription()
+          .equals(other.getDescription());
       result = result && getExtraVar()
           .equals(other.getExtraVar());
       result = result && unknownFields.equals(other.unknownFields);
@@ -1924,14 +2524,14 @@ public final class TemplateOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
-      hash = (53 * hash) + getDescription().hashCode();
       hash = (37 * hash) + PLAYBOOK_ID_FIELD_NUMBER;
       hash = (53 * hash) + getPlaybookId();
       hash = (37 * hash) + PLAYBOOK_FILE_ID_FIELD_NUMBER;
       hash = (53 * hash) + getPlaybookFileId();
       hash = (37 * hash) + PLAYBOOK_ENTRYPOINT_ID_FIELD_NUMBER;
       hash = (53 * hash) + getPlaybookEntrypointId();
+      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getDescription().hashCode();
       hash = (37 * hash) + EXTRA_VAR_FIELD_NUMBER;
       hash = (53 * hash) + getExtraVar().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -2073,13 +2673,13 @@ public final class TemplateOuterClass {
         super.clear();
         name_ = "";
 
-        description_ = "";
-
         playbookId_ = 0;
 
         playbookFileId_ = 0;
 
         playbookEntrypointId_ = 0;
+
+        description_ = "";
 
         extraVar_ = "";
 
@@ -2110,10 +2710,10 @@ public final class TemplateOuterClass {
       public top.fogcdn.axe.protos.template.TemplateOuterClass.CreateRequest buildPartial() {
         top.fogcdn.axe.protos.template.TemplateOuterClass.CreateRequest result = new top.fogcdn.axe.protos.template.TemplateOuterClass.CreateRequest(this);
         result.name_ = name_;
-        result.description_ = description_;
         result.playbookId_ = playbookId_;
         result.playbookFileId_ = playbookFileId_;
         result.playbookEntrypointId_ = playbookEntrypointId_;
+        result.description_ = description_;
         result.extraVar_ = extraVar_;
         onBuilt();
         return result;
@@ -2167,10 +2767,6 @@ public final class TemplateOuterClass {
           name_ = other.name_;
           onChanged();
         }
-        if (!other.getDescription().isEmpty()) {
-          description_ = other.description_;
-          onChanged();
-        }
         if (other.getPlaybookId() != 0) {
           setPlaybookId(other.getPlaybookId());
         }
@@ -2179,6 +2775,10 @@ public final class TemplateOuterClass {
         }
         if (other.getPlaybookEntrypointId() != 0) {
           setPlaybookEntrypointId(other.getPlaybookEntrypointId());
+        }
+        if (!other.getDescription().isEmpty()) {
+          description_ = other.description_;
+          onChanged();
         }
         if (!other.getExtraVar().isEmpty()) {
           extraVar_ = other.extraVar_;
@@ -2219,7 +2819,7 @@ public final class TemplateOuterClass {
        * 模板名
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -2238,7 +2838,7 @@ public final class TemplateOuterClass {
        * 模板名
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -2258,7 +2858,7 @@ public final class TemplateOuterClass {
        * 模板名
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -2275,7 +2875,7 @@ public final class TemplateOuterClass {
        * 模板名
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder clearName() {
         
@@ -2288,7 +2888,7 @@ public final class TemplateOuterClass {
        * 模板名
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -2302,13 +2902,127 @@ public final class TemplateOuterClass {
         return this;
       }
 
+      private int playbookId_ ;
+      /**
+       * <pre>
+       * playbook 项目id
+       * </pre>
+       *
+       * <code>int32 playbook_id = 2 [(.validator.field) = { ... }</code>
+       */
+      public int getPlaybookId() {
+        return playbookId_;
+      }
+      /**
+       * <pre>
+       * playbook 项目id
+       * </pre>
+       *
+       * <code>int32 playbook_id = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder setPlaybookId(int value) {
+        
+        playbookId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * playbook 项目id
+       * </pre>
+       *
+       * <code>int32 playbook_id = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearPlaybookId() {
+        
+        playbookId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int playbookFileId_ ;
+      /**
+       * <pre>
+       * 选择的playbook项目对应的playbook_file
+       * </pre>
+       *
+       * <code>int32 playbook_file_id = 3 [(.validator.field) = { ... }</code>
+       */
+      public int getPlaybookFileId() {
+        return playbookFileId_;
+      }
+      /**
+       * <pre>
+       * 选择的playbook项目对应的playbook_file
+       * </pre>
+       *
+       * <code>int32 playbook_file_id = 3 [(.validator.field) = { ... }</code>
+       */
+      public Builder setPlaybookFileId(int value) {
+        
+        playbookFileId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 选择的playbook项目对应的playbook_file
+       * </pre>
+       *
+       * <code>int32 playbook_file_id = 3 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearPlaybookFileId() {
+        
+        playbookFileId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int playbookEntrypointId_ ;
+      /**
+       * <pre>
+       * 选择的playbook入口yml文件
+       * </pre>
+       *
+       * <code>int32 playbook_entrypoint_id = 4 [(.validator.field) = { ... }</code>
+       */
+      public int getPlaybookEntrypointId() {
+        return playbookEntrypointId_;
+      }
+      /**
+       * <pre>
+       * 选择的playbook入口yml文件
+       * </pre>
+       *
+       * <code>int32 playbook_entrypoint_id = 4 [(.validator.field) = { ... }</code>
+       */
+      public Builder setPlaybookEntrypointId(int value) {
+        
+        playbookEntrypointId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 选择的playbook入口yml文件
+       * </pre>
+       *
+       * <code>int32 playbook_entrypoint_id = 4 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearPlaybookEntrypointId() {
+        
+        playbookEntrypointId_ = 0;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object description_ = "";
       /**
        * <pre>
        * 模板描述
        * </pre>
        *
-       * <code>string description = 2;</code>
+       * <code>string description = 5;</code>
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -2327,7 +3041,7 @@ public final class TemplateOuterClass {
        * 模板描述
        * </pre>
        *
-       * <code>string description = 2;</code>
+       * <code>string description = 5;</code>
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -2347,7 +3061,7 @@ public final class TemplateOuterClass {
        * 模板描述
        * </pre>
        *
-       * <code>string description = 2;</code>
+       * <code>string description = 5;</code>
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -2364,7 +3078,7 @@ public final class TemplateOuterClass {
        * 模板描述
        * </pre>
        *
-       * <code>string description = 2;</code>
+       * <code>string description = 5;</code>
        */
       public Builder clearDescription() {
         
@@ -2377,7 +3091,7 @@ public final class TemplateOuterClass {
        * 模板描述
        * </pre>
        *
-       * <code>string description = 2;</code>
+       * <code>string description = 5;</code>
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -2387,120 +3101,6 @@ public final class TemplateOuterClass {
   checkByteStringIsUtf8(value);
         
         description_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int playbookId_ ;
-      /**
-       * <pre>
-       * playbook 项目id
-       * </pre>
-       *
-       * <code>int32 playbook_id = 3;</code>
-       */
-      public int getPlaybookId() {
-        return playbookId_;
-      }
-      /**
-       * <pre>
-       * playbook 项目id
-       * </pre>
-       *
-       * <code>int32 playbook_id = 3;</code>
-       */
-      public Builder setPlaybookId(int value) {
-        
-        playbookId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * playbook 项目id
-       * </pre>
-       *
-       * <code>int32 playbook_id = 3;</code>
-       */
-      public Builder clearPlaybookId() {
-        
-        playbookId_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int playbookFileId_ ;
-      /**
-       * <pre>
-       * 选择的playbook项目对应的playbook_file
-       * </pre>
-       *
-       * <code>int32 playbook_file_id = 4;</code>
-       */
-      public int getPlaybookFileId() {
-        return playbookFileId_;
-      }
-      /**
-       * <pre>
-       * 选择的playbook项目对应的playbook_file
-       * </pre>
-       *
-       * <code>int32 playbook_file_id = 4;</code>
-       */
-      public Builder setPlaybookFileId(int value) {
-        
-        playbookFileId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 选择的playbook项目对应的playbook_file
-       * </pre>
-       *
-       * <code>int32 playbook_file_id = 4;</code>
-       */
-      public Builder clearPlaybookFileId() {
-        
-        playbookFileId_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int playbookEntrypointId_ ;
-      /**
-       * <pre>
-       * 选择的playbook入口yml文件
-       * </pre>
-       *
-       * <code>int32 playbook_entrypoint_id = 5;</code>
-       */
-      public int getPlaybookEntrypointId() {
-        return playbookEntrypointId_;
-      }
-      /**
-       * <pre>
-       * 选择的playbook入口yml文件
-       * </pre>
-       *
-       * <code>int32 playbook_entrypoint_id = 5;</code>
-       */
-      public Builder setPlaybookEntrypointId(int value) {
-        
-        playbookEntrypointId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 选择的playbook入口yml文件
-       * </pre>
-       *
-       * <code>int32 playbook_entrypoint_id = 5;</code>
-       */
-      public Builder clearPlaybookEntrypointId() {
-        
-        playbookEntrypointId_ = 0;
         onChanged();
         return this;
       }
@@ -7445,7 +8045,7 @@ public final class TemplateOuterClass {
      * 模板ID
      * </pre>
      *
-     * <code>int32 template_id = 1;</code>
+     * <code>int32 template_id = 1 [(.validator.field) = { ... }</code>
      */
     int getTemplateId();
 
@@ -7454,7 +8054,7 @@ public final class TemplateOuterClass {
      * 模板名
      * </pre>
      *
-     * <code>string name = 2;</code>
+     * <code>string name = 2 [(.validator.field) = { ... }</code>
      */
     java.lang.String getName();
     /**
@@ -7462,7 +8062,7 @@ public final class TemplateOuterClass {
      * 模板名
      * </pre>
      *
-     * <code>string name = 2;</code>
+     * <code>string name = 2 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
@@ -7487,37 +8087,10 @@ public final class TemplateOuterClass {
 
     /**
      * <pre>
-     * playbook项目的id
-     * </pre>
-     *
-     * <code>int32 playbook_id = 4;</code>
-     */
-    int getPlaybookId();
-
-    /**
-     * <pre>
-     * 所选playbook项目对应的playbookFile的id
-     * </pre>
-     *
-     * <code>int32 playbook_file_id = 5;</code>
-     */
-    int getPlaybookFileId();
-
-    /**
-     * <pre>
-     * 所选playbook项目对应的入口yml文件的id
-     * </pre>
-     *
-     * <code>int32 playbook_entrypoint_id = 6;</code>
-     */
-    int getPlaybookEntrypointId();
-
-    /**
-     * <pre>
      * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
      * </pre>
      *
-     * <code>string extra_var = 7;</code>
+     * <code>string extra_var = 4;</code>
      */
     java.lang.String getExtraVar();
     /**
@@ -7525,7 +8098,7 @@ public final class TemplateOuterClass {
      * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
      * </pre>
      *
-     * <code>string extra_var = 7;</code>
+     * <code>string extra_var = 4;</code>
      */
     com.google.protobuf.ByteString
         getExtraVarBytes();
@@ -7550,9 +8123,6 @@ public final class TemplateOuterClass {
       templateId_ = 0;
       name_ = "";
       description_ = "";
-      playbookId_ = 0;
-      playbookFileId_ = 0;
-      playbookEntrypointId_ = 0;
       extraVar_ = "";
     }
 
@@ -7597,22 +8167,7 @@ public final class TemplateOuterClass {
               description_ = s;
               break;
             }
-            case 32: {
-
-              playbookId_ = input.readInt32();
-              break;
-            }
-            case 40: {
-
-              playbookFileId_ = input.readInt32();
-              break;
-            }
-            case 48: {
-
-              playbookEntrypointId_ = input.readInt32();
-              break;
-            }
-            case 58: {
+            case 34: {
               java.lang.String s = input.readStringRequireUtf8();
 
               extraVar_ = s;
@@ -7657,7 +8212,7 @@ public final class TemplateOuterClass {
      * 模板ID
      * </pre>
      *
-     * <code>int32 template_id = 1;</code>
+     * <code>int32 template_id = 1 [(.validator.field) = { ... }</code>
      */
     public int getTemplateId() {
       return templateId_;
@@ -7670,7 +8225,7 @@ public final class TemplateOuterClass {
      * 模板名
      * </pre>
      *
-     * <code>string name = 2;</code>
+     * <code>string name = 2 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -7689,7 +8244,7 @@ public final class TemplateOuterClass {
      * 模板名
      * </pre>
      *
-     * <code>string name = 2;</code>
+     * <code>string name = 2 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -7747,53 +8302,14 @@ public final class TemplateOuterClass {
       }
     }
 
-    public static final int PLAYBOOK_ID_FIELD_NUMBER = 4;
-    private int playbookId_;
-    /**
-     * <pre>
-     * playbook项目的id
-     * </pre>
-     *
-     * <code>int32 playbook_id = 4;</code>
-     */
-    public int getPlaybookId() {
-      return playbookId_;
-    }
-
-    public static final int PLAYBOOK_FILE_ID_FIELD_NUMBER = 5;
-    private int playbookFileId_;
-    /**
-     * <pre>
-     * 所选playbook项目对应的playbookFile的id
-     * </pre>
-     *
-     * <code>int32 playbook_file_id = 5;</code>
-     */
-    public int getPlaybookFileId() {
-      return playbookFileId_;
-    }
-
-    public static final int PLAYBOOK_ENTRYPOINT_ID_FIELD_NUMBER = 6;
-    private int playbookEntrypointId_;
-    /**
-     * <pre>
-     * 所选playbook项目对应的入口yml文件的id
-     * </pre>
-     *
-     * <code>int32 playbook_entrypoint_id = 6;</code>
-     */
-    public int getPlaybookEntrypointId() {
-      return playbookEntrypointId_;
-    }
-
-    public static final int EXTRA_VAR_FIELD_NUMBER = 7;
+    public static final int EXTRA_VAR_FIELD_NUMBER = 4;
     private volatile java.lang.Object extraVar_;
     /**
      * <pre>
      * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
      * </pre>
      *
-     * <code>string extra_var = 7;</code>
+     * <code>string extra_var = 4;</code>
      */
     public java.lang.String getExtraVar() {
       java.lang.Object ref = extraVar_;
@@ -7812,7 +8328,7 @@ public final class TemplateOuterClass {
      * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
      * </pre>
      *
-     * <code>string extra_var = 7;</code>
+     * <code>string extra_var = 4;</code>
      */
     public com.google.protobuf.ByteString
         getExtraVarBytes() {
@@ -7851,17 +8367,8 @@ public final class TemplateOuterClass {
       if (!getDescriptionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, description_);
       }
-      if (playbookId_ != 0) {
-        output.writeInt32(4, playbookId_);
-      }
-      if (playbookFileId_ != 0) {
-        output.writeInt32(5, playbookFileId_);
-      }
-      if (playbookEntrypointId_ != 0) {
-        output.writeInt32(6, playbookEntrypointId_);
-      }
       if (!getExtraVarBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, extraVar_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, extraVar_);
       }
       unknownFields.writeTo(output);
     }
@@ -7882,20 +8389,8 @@ public final class TemplateOuterClass {
       if (!getDescriptionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, description_);
       }
-      if (playbookId_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, playbookId_);
-      }
-      if (playbookFileId_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, playbookFileId_);
-      }
-      if (playbookEntrypointId_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, playbookEntrypointId_);
-      }
       if (!getExtraVarBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, extraVar_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, extraVar_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7919,12 +8414,6 @@ public final class TemplateOuterClass {
           .equals(other.getName());
       result = result && getDescription()
           .equals(other.getDescription());
-      result = result && (getPlaybookId()
-          == other.getPlaybookId());
-      result = result && (getPlaybookFileId()
-          == other.getPlaybookFileId());
-      result = result && (getPlaybookEntrypointId()
-          == other.getPlaybookEntrypointId());
       result = result && getExtraVar()
           .equals(other.getExtraVar());
       result = result && unknownFields.equals(other.unknownFields);
@@ -7944,12 +8433,6 @@ public final class TemplateOuterClass {
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getDescription().hashCode();
-      hash = (37 * hash) + PLAYBOOK_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getPlaybookId();
-      hash = (37 * hash) + PLAYBOOK_FILE_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getPlaybookFileId();
-      hash = (37 * hash) + PLAYBOOK_ENTRYPOINT_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getPlaybookEntrypointId();
       hash = (37 * hash) + EXTRA_VAR_FIELD_NUMBER;
       hash = (53 * hash) + getExtraVar().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -8095,12 +8578,6 @@ public final class TemplateOuterClass {
 
         description_ = "";
 
-        playbookId_ = 0;
-
-        playbookFileId_ = 0;
-
-        playbookEntrypointId_ = 0;
-
         extraVar_ = "";
 
         return this;
@@ -8132,9 +8609,6 @@ public final class TemplateOuterClass {
         result.templateId_ = templateId_;
         result.name_ = name_;
         result.description_ = description_;
-        result.playbookId_ = playbookId_;
-        result.playbookFileId_ = playbookFileId_;
-        result.playbookEntrypointId_ = playbookEntrypointId_;
         result.extraVar_ = extraVar_;
         onBuilt();
         return result;
@@ -8195,15 +8669,6 @@ public final class TemplateOuterClass {
           description_ = other.description_;
           onChanged();
         }
-        if (other.getPlaybookId() != 0) {
-          setPlaybookId(other.getPlaybookId());
-        }
-        if (other.getPlaybookFileId() != 0) {
-          setPlaybookFileId(other.getPlaybookFileId());
-        }
-        if (other.getPlaybookEntrypointId() != 0) {
-          setPlaybookEntrypointId(other.getPlaybookEntrypointId());
-        }
         if (!other.getExtraVar().isEmpty()) {
           extraVar_ = other.extraVar_;
           onChanged();
@@ -8243,7 +8708,7 @@ public final class TemplateOuterClass {
        * 模板ID
        * </pre>
        *
-       * <code>int32 template_id = 1;</code>
+       * <code>int32 template_id = 1 [(.validator.field) = { ... }</code>
        */
       public int getTemplateId() {
         return templateId_;
@@ -8253,7 +8718,7 @@ public final class TemplateOuterClass {
        * 模板ID
        * </pre>
        *
-       * <code>int32 template_id = 1;</code>
+       * <code>int32 template_id = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setTemplateId(int value) {
         
@@ -8266,7 +8731,7 @@ public final class TemplateOuterClass {
        * 模板ID
        * </pre>
        *
-       * <code>int32 template_id = 1;</code>
+       * <code>int32 template_id = 1 [(.validator.field) = { ... }</code>
        */
       public Builder clearTemplateId() {
         
@@ -8281,7 +8746,7 @@ public final class TemplateOuterClass {
        * 模板名
        * </pre>
        *
-       * <code>string name = 2;</code>
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -8300,7 +8765,7 @@ public final class TemplateOuterClass {
        * 模板名
        * </pre>
        *
-       * <code>string name = 2;</code>
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -8320,7 +8785,7 @@ public final class TemplateOuterClass {
        * 模板名
        * </pre>
        *
-       * <code>string name = 2;</code>
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -8337,7 +8802,7 @@ public final class TemplateOuterClass {
        * 模板名
        * </pre>
        *
-       * <code>string name = 2;</code>
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
        */
       public Builder clearName() {
         
@@ -8350,7 +8815,7 @@ public final class TemplateOuterClass {
        * 模板名
        * </pre>
        *
-       * <code>string name = 2;</code>
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -8453,127 +8918,13 @@ public final class TemplateOuterClass {
         return this;
       }
 
-      private int playbookId_ ;
-      /**
-       * <pre>
-       * playbook项目的id
-       * </pre>
-       *
-       * <code>int32 playbook_id = 4;</code>
-       */
-      public int getPlaybookId() {
-        return playbookId_;
-      }
-      /**
-       * <pre>
-       * playbook项目的id
-       * </pre>
-       *
-       * <code>int32 playbook_id = 4;</code>
-       */
-      public Builder setPlaybookId(int value) {
-        
-        playbookId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * playbook项目的id
-       * </pre>
-       *
-       * <code>int32 playbook_id = 4;</code>
-       */
-      public Builder clearPlaybookId() {
-        
-        playbookId_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int playbookFileId_ ;
-      /**
-       * <pre>
-       * 所选playbook项目对应的playbookFile的id
-       * </pre>
-       *
-       * <code>int32 playbook_file_id = 5;</code>
-       */
-      public int getPlaybookFileId() {
-        return playbookFileId_;
-      }
-      /**
-       * <pre>
-       * 所选playbook项目对应的playbookFile的id
-       * </pre>
-       *
-       * <code>int32 playbook_file_id = 5;</code>
-       */
-      public Builder setPlaybookFileId(int value) {
-        
-        playbookFileId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 所选playbook项目对应的playbookFile的id
-       * </pre>
-       *
-       * <code>int32 playbook_file_id = 5;</code>
-       */
-      public Builder clearPlaybookFileId() {
-        
-        playbookFileId_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int playbookEntrypointId_ ;
-      /**
-       * <pre>
-       * 所选playbook项目对应的入口yml文件的id
-       * </pre>
-       *
-       * <code>int32 playbook_entrypoint_id = 6;</code>
-       */
-      public int getPlaybookEntrypointId() {
-        return playbookEntrypointId_;
-      }
-      /**
-       * <pre>
-       * 所选playbook项目对应的入口yml文件的id
-       * </pre>
-       *
-       * <code>int32 playbook_entrypoint_id = 6;</code>
-       */
-      public Builder setPlaybookEntrypointId(int value) {
-        
-        playbookEntrypointId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 所选playbook项目对应的入口yml文件的id
-       * </pre>
-       *
-       * <code>int32 playbook_entrypoint_id = 6;</code>
-       */
-      public Builder clearPlaybookEntrypointId() {
-        
-        playbookEntrypointId_ = 0;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object extraVar_ = "";
       /**
        * <pre>
        * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
        * </pre>
        *
-       * <code>string extra_var = 7;</code>
+       * <code>string extra_var = 4;</code>
        */
       public java.lang.String getExtraVar() {
         java.lang.Object ref = extraVar_;
@@ -8592,7 +8943,7 @@ public final class TemplateOuterClass {
        * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
        * </pre>
        *
-       * <code>string extra_var = 7;</code>
+       * <code>string extra_var = 4;</code>
        */
       public com.google.protobuf.ByteString
           getExtraVarBytes() {
@@ -8612,7 +8963,7 @@ public final class TemplateOuterClass {
        * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
        * </pre>
        *
-       * <code>string extra_var = 7;</code>
+       * <code>string extra_var = 4;</code>
        */
       public Builder setExtraVar(
           java.lang.String value) {
@@ -8629,7 +8980,7 @@ public final class TemplateOuterClass {
        * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
        * </pre>
        *
-       * <code>string extra_var = 7;</code>
+       * <code>string extra_var = 4;</code>
        */
       public Builder clearExtraVar() {
         
@@ -8642,7 +8993,7 @@ public final class TemplateOuterClass {
        * 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
        * </pre>
        *
-       * <code>string extra_var = 7;</code>
+       * <code>string extra_var = 4;</code>
        */
       public Builder setExtraVarBytes(
           com.google.protobuf.ByteString value) {
@@ -10799,52 +11150,62 @@ public final class TemplateOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\027template/template.proto\022\010template\032\020com" +
-      "mon/api.proto\032\034google/api/annotations.pr" +
-      "oto\032,protoc-gen-swagger/options/annotati" +
-      "ons.proto\032\027playbook/playbook.proto\"\300\001\n\016T" +
-      "emplateObject\022\023\n\013template_id\030\001 \001(\005\022\014\n\004na" +
-      "me\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022)\n\010playboo" +
-      "k\030\004 \001(\0132\027.playbook.ProjectObject\022\030\n\020play" +
-      "book_file_id\030\005 \001(\005\022\036\n\026playbook_entrypoin" +
-      "t_id\030\006 \001(\005\022\021\n\textra_var\030\007 \001(\t\"\224\001\n\rCreate" +
-      "Request\022\014\n\004name\030\001 \001(\t\022\023\n\013description\030\002 \001" +
-      "(\t\022\023\n\013playbook_id\030\003 \001(\005\022\030\n\020playbook_file" +
-      "_id\030\004 \001(\005\022\036\n\026playbook_entrypoint_id\030\005 \001(" +
-      "\005\022\021\n\textra_var\030\006 \001(\t\"^\n\016CreateResponse\022\023" +
-      "\n\013template_id\030\001 \001(\005\022\017\n\007created\030\002 \001(\t\022&\n\006" +
-      "status\030\003 \001(\0132\026.common.ResponseStatus\"!\n\n" +
-      "GetRequest\022\023\n\013template_id\030\001 \001(\005\"a\n\013GetRe" +
-      "sponse\022*\n\010template\030\001 \001(\0132\030.template.Temp" +
-      "lateObject\022&\n\006status\030\002 \001(\0132\026.common.Resp" +
-      "onseStatus\"R\n\rFilterRequest\022\036\n\006paging\030\001 " +
-      "\001(\0132\016.common.Paging\022\014\n\004name\030\002 \001(\t\022\023\n\013tem" +
-      "plate_id\030\003 \001(\t\"\205\001\n\016FilterResponse\022+\n\ttem" +
-      "plates\030\001 \003(\0132\030.template.TemplateObject\022\036" +
-      "\n\006paging\030\002 \001(\0132\016.common.Paging\022&\n\006status" +
-      "\030\003 \001(\0132\026.common.ResponseStatus\"\251\001\n\rUpdat" +
-      "eRequest\022\023\n\013template_id\030\001 \001(\005\022\014\n\004name\030\002 " +
-      "\001(\t\022\023\n\013description\030\003 \001(\t\022\023\n\013playbook_id\030" +
-      "\004 \001(\005\022\030\n\020playbook_file_id\030\005 \001(\005\022\036\n\026playb" +
-      "ook_entrypoint_id\030\006 \001(\005\022\021\n\textra_var\030\007 \001" +
-      "(\t\"I\n\016UpdateResponse\022\017\n\007updated\030\001 \001(\t\022&\n" +
-      "\006status\030\002 \001(\0132\026.common.ResponseStatus\"$\n" +
-      "\rDeleteRequest\022\023\n\013template_id\030\001 \001(\005\"8\n\016D" +
-      "eleteResponse\022&\n\006status\030\001 \001(\0132\026.common.R" +
-      "esponseStatus2\307\003\n\010Template\022[\n\006Create\022\027.t" +
-      "emplate.CreateRequest\032\030.template.CreateR" +
-      "esponse\"\036\202\323\344\223\002\030\"\023/v1/template/create:\001*\022" +
-      "X\n\006Filter\022\027.template.FilterRequest\032\030.tem" +
-      "plate.FilterResponse\"\033\202\323\344\223\002\025\022\023/v1/templa" +
-      "te/filter\022Z\n\003Get\022\024.template.GetRequest\032\025" +
-      ".template.GetResponse\"&\202\323\344\223\002 \022\036/v1/templ" +
-      "ate/get/{template_id}\022i\n\006Update\022\027.templa" +
-      "te.UpdateRequest\032\030.template.UpdateRespon" +
-      "se\",\202\323\344\223\002&\"!/v1/template/update/{templat" +
-      "e_id}:\001*\022=\n\006Delete\022\027.template.DeleteRequ" +
-      "est\032\030.template.DeleteResponse\"\000BJ\n\036top.f" +
-      "ogcdn.axe.protos.templateZ(git.fogcdn.to" +
-      "p/axe/protos/goout/templateb\006proto3"
+      "\n\027template/template.proto\022\010template\032\034goo" +
+      "gle/api/annotations.proto\032,protoc-gen-sw" +
+      "agger/options/annotations.proto\0326github." +
+      "com/mwitkow/go-proto-validators/validato" +
+      "r.proto\032\020common/api.proto\032\021common/user.p" +
+      "roto\032\027playbook/playbook.proto\"\201\002\n\016Templa" +
+      "teObject\022\023\n\013template_id\030\001 \001(\005\022\014\n\004name\030\002 " +
+      "\001(\t\022\023\n\013description\030\003 \001(\t\022)\n\010playbook\030\004 \001" +
+      "(\0132\027.playbook.ProjectObject\022\030\n\020playbook_" +
+      "file_id\030\005 \001(\005\022\036\n\026playbook_entrypoint_id\030" +
+      "\006 \001(\005\022\021\n\textra_var\030\007 \001(\t\022\035\n\007creator\030\010 \001(" +
+      "\0132\014.common.User\022\017\n\007created\030\t \001(\t\022\017\n\007upda" +
+      "ted\030\n \001(\t\"\352\002\n\rCreateRequest\022.\n\004name\030\001 \001(" +
+      "\tB \342\337\037\034*\030\346\250\241\346\235\277\345\220\215\347\247\260\344\270\215\350\203\275\344\270\272\347\251\272X\001\0221\n\013p" +
+      "laybook_id\030\002 \001(\005B\034\342\337\037\030\020\000*\024\351\241\271\347\233\256ID\344\270\215\350\203\275" +
+      "\344\270\272\347\251\272\022<\n\020playbook_file_id\030\003 \001(\005B\"\342\337\037\036\020\000" +
+      "*\032\351\241\271\347\233\256\346\226\207\344\273\266ID\344\270\215\350\203\275\344\270\272\347\251\272\022H\n\026playbook" +
+      "_entrypoint_id\030\004 \001(\005B(\342\337\037$\020\000* \351\241\271\347\233\256\345\205\245\345" +
+      "\217\243\346\226\207\344\273\266ID\344\270\215\350\203\275\344\270\272\347\251\272\022\023\n\013description\030\005 " +
+      "\001(\t\022\021\n\textra_var\030\006 \001(\t:F\222AC\nA\322\001\004name\322\001\013p" +
+      "laybook_id\322\001\020playbook_file_id\322\001\026playbook" +
+      "_entrypoint_id\"^\n\016CreateResponse\022\023\n\013temp" +
+      "late_id\030\001 \001(\005\022\017\n\007created\030\002 \001(\t\022&\n\006status" +
+      "\030\003 \001(\0132\026.common.ResponseStatus\"6\n\nGetReq" +
+      "uest\022\023\n\013template_id\030\001 \001(\005:\023\222A\020\n\016\322\001\013templ" +
+      "ate_id\"a\n\013GetResponse\022*\n\010template\030\001 \001(\0132" +
+      "\030.template.TemplateObject\022&\n\006status\030\002 \001(" +
+      "\0132\026.common.ResponseStatus\"R\n\rFilterReque" +
+      "st\022\036\n\006paging\030\001 \001(\0132\016.common.Paging\022\014\n\004na" +
+      "me\030\002 \001(\t\022\023\n\013template_id\030\003 \001(\t\"\205\001\n\016Filter" +
+      "Response\022+\n\ttemplates\030\001 \003(\0132\030.template.T" +
+      "emplateObject\022\036\n\006paging\030\002 \001(\0132\016.common.P" +
+      "aging\022&\n\006status\030\003 \001(\0132\026.common.ResponseS" +
+      "tatus\"\266\001\n\rUpdateRequest\0221\n\013template_id\030\001" +
+      " \001(\005B\034\342\337\037\030\020\000*\024\346\250\241\346\235\277ID\344\270\215\350\203\275\344\270\272\347\251\272\022.\n\004na" +
+      "me\030\002 \001(\tB \342\337\037\034*\030\346\250\241\346\235\277\345\220\215\347\247\260\344\270\215\350\203\275\344\270\272\347\251\272" +
+      "X\001\022\023\n\013description\030\003 \001(\t\022\021\n\textra_var\030\004 \001" +
+      "(\t:\032\222A\027\n\025\322\001\013template_id\322\001\004name\"I\n\016Update" +
+      "Response\022\017\n\007updated\030\001 \001(\t\022&\n\006status\030\002 \001(" +
+      "\0132\026.common.ResponseStatus\"$\n\rDeleteReque" +
+      "st\022\023\n\013template_id\030\001 \001(\005\"8\n\016DeleteRespons" +
+      "e\022&\n\006status\030\001 \001(\0132\026.common.ResponseStatu" +
+      "s2\307\003\n\010Template\022[\n\006Create\022\027.template.Crea" +
+      "teRequest\032\030.template.CreateResponse\"\036\202\323\344" +
+      "\223\002\030\"\023/v1/template/create:\001*\022X\n\006Filter\022\027." +
+      "template.FilterRequest\032\030.template.Filter" +
+      "Response\"\033\202\323\344\223\002\025\022\023/v1/template/filter\022Z\n" +
+      "\003Get\022\024.template.GetRequest\032\025.template.Ge" +
+      "tResponse\"&\202\323\344\223\002 \022\036/v1/template/get/{tem" +
+      "plate_id}\022i\n\006Update\022\027.template.UpdateReq" +
+      "uest\032\030.template.UpdateResponse\",\202\323\344\223\002&\"!" +
+      "/v1/template/update/{template_id}:\001*\022=\n\006" +
+      "Delete\022\027.template.DeleteRequest\032\030.templa" +
+      "te.DeleteResponse\"\000BJ\n\036top.fogcdn.axe.pr" +
+      "otos.templateZ(git.fogcdn.top/axe/protos" +
+      "/goout/templateb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -10857,9 +11218,11 @@ public final class TemplateOuterClass {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          top.fogcdn.axe.protos.common.Api.getDescriptor(),
           com.google.api.AnnotationsProto.getDescriptor(),
           grpc.gateway.protoc_gen_swagger.options.Annotations.getDescriptor(),
+          validator.Validator.getDescriptor(),
+          top.fogcdn.axe.protos.common.Api.getDescriptor(),
+          top.fogcdn.axe.protos.common.UserOuterClass.getDescriptor(),
           top.fogcdn.axe.protos.playbook.PlaybookOuterClass.getDescriptor(),
         }, assigner);
     internal_static_template_TemplateObject_descriptor =
@@ -10867,13 +11230,13 @@ public final class TemplateOuterClass {
     internal_static_template_TemplateObject_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_template_TemplateObject_descriptor,
-        new java.lang.String[] { "TemplateId", "Name", "Description", "Playbook", "PlaybookFileId", "PlaybookEntrypointId", "ExtraVar", });
+        new java.lang.String[] { "TemplateId", "Name", "Description", "Playbook", "PlaybookFileId", "PlaybookEntrypointId", "ExtraVar", "Creator", "Created", "Updated", });
     internal_static_template_CreateRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_template_CreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_template_CreateRequest_descriptor,
-        new java.lang.String[] { "Name", "Description", "PlaybookId", "PlaybookFileId", "PlaybookEntrypointId", "ExtraVar", });
+        new java.lang.String[] { "Name", "PlaybookId", "PlaybookFileId", "PlaybookEntrypointId", "Description", "ExtraVar", });
     internal_static_template_CreateResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_template_CreateResponse_fieldAccessorTable = new
@@ -10909,7 +11272,7 @@ public final class TemplateOuterClass {
     internal_static_template_UpdateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_template_UpdateRequest_descriptor,
-        new java.lang.String[] { "TemplateId", "Name", "Description", "PlaybookId", "PlaybookFileId", "PlaybookEntrypointId", "ExtraVar", });
+        new java.lang.String[] { "TemplateId", "Name", "Description", "ExtraVar", });
     internal_static_template_UpdateResponse_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_template_UpdateResponse_fieldAccessorTable = new
@@ -10931,11 +11294,15 @@ public final class TemplateOuterClass {
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);
+    registry.add(grpc.gateway.protoc_gen_swagger.options.Annotations.openapiv2Schema);
+    registry.add(validator.Validator.field);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
-    top.fogcdn.axe.protos.common.Api.getDescriptor();
     com.google.api.AnnotationsProto.getDescriptor();
     grpc.gateway.protoc_gen_swagger.options.Annotations.getDescriptor();
+    validator.Validator.getDescriptor();
+    top.fogcdn.axe.protos.common.Api.getDescriptor();
+    top.fogcdn.axe.protos.common.UserOuterClass.getDescriptor();
     top.fogcdn.axe.protos.playbook.PlaybookOuterClass.getDescriptor();
   }
 

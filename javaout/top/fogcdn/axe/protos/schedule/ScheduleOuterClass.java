@@ -1705,7 +1705,7 @@ public final class ScheduleOuterClass {
      * 模板ID
      * </pre>
      *
-     * <code>int32 template_id = 1;</code>
+     * <code>int32 template_id = 1 [(.validator.field) = { ... }</code>
      */
     int getTemplateId();
 
@@ -1714,7 +1714,7 @@ public final class ScheduleOuterClass {
      * 定时任务名
      * </pre>
      *
-     * <code>string name = 2;</code>
+     * <code>string name = 2 [(.validator.field) = { ... }</code>
      */
     java.lang.String getName();
     /**
@@ -1722,7 +1722,7 @@ public final class ScheduleOuterClass {
      * 定时任务名
      * </pre>
      *
-     * <code>string name = 2;</code>
+     * <code>string name = 2 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
@@ -1732,7 +1732,7 @@ public final class ScheduleOuterClass {
      * 定时任务开始时间
      * </pre>
      *
-     * <code>string start_time = 3;</code>
+     * <code>string start_time = 3 [(.validator.field) = { ... }</code>
      */
     java.lang.String getStartTime();
     /**
@@ -1740,7 +1740,7 @@ public final class ScheduleOuterClass {
      * 定时任务开始时间
      * </pre>
      *
-     * <code>string start_time = 3;</code>
+     * <code>string start_time = 3 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getStartTimeBytes();
@@ -1750,7 +1750,7 @@ public final class ScheduleOuterClass {
      * 定时任务结束时间
      * </pre>
      *
-     * <code>string end_time = 4;</code>
+     * <code>string end_time = 4 [(.validator.field) = { ... }</code>
      */
     java.lang.String getEndTime();
     /**
@@ -1758,7 +1758,7 @@ public final class ScheduleOuterClass {
      * 定时任务结束时间
      * </pre>
      *
-     * <code>string end_time = 4;</code>
+     * <code>string end_time = 4 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getEndTimeBytes();
@@ -1768,7 +1768,7 @@ public final class ScheduleOuterClass {
      * 定时任务表达式
      * </pre>
      *
-     * <code>string cron_expression = 5;</code>
+     * <code>string cron_expression = 5 [(.validator.field) = { ... }</code>
      */
     java.lang.String getCronExpression();
     /**
@@ -1776,7 +1776,7 @@ public final class ScheduleOuterClass {
      * 定时任务表达式
      * </pre>
      *
-     * <code>string cron_expression = 5;</code>
+     * <code>string cron_expression = 5 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getCronExpressionBytes();
@@ -1897,7 +1897,7 @@ public final class ScheduleOuterClass {
      * 模板ID
      * </pre>
      *
-     * <code>int32 template_id = 1;</code>
+     * <code>int32 template_id = 1 [(.validator.field) = { ... }</code>
      */
     public int getTemplateId() {
       return templateId_;
@@ -1910,7 +1910,7 @@ public final class ScheduleOuterClass {
      * 定时任务名
      * </pre>
      *
-     * <code>string name = 2;</code>
+     * <code>string name = 2 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -1929,7 +1929,7 @@ public final class ScheduleOuterClass {
      * 定时任务名
      * </pre>
      *
-     * <code>string name = 2;</code>
+     * <code>string name = 2 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -1952,7 +1952,7 @@ public final class ScheduleOuterClass {
      * 定时任务开始时间
      * </pre>
      *
-     * <code>string start_time = 3;</code>
+     * <code>string start_time = 3 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getStartTime() {
       java.lang.Object ref = startTime_;
@@ -1971,7 +1971,7 @@ public final class ScheduleOuterClass {
      * 定时任务开始时间
      * </pre>
      *
-     * <code>string start_time = 3;</code>
+     * <code>string start_time = 3 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getStartTimeBytes() {
@@ -1994,7 +1994,7 @@ public final class ScheduleOuterClass {
      * 定时任务结束时间
      * </pre>
      *
-     * <code>string end_time = 4;</code>
+     * <code>string end_time = 4 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getEndTime() {
       java.lang.Object ref = endTime_;
@@ -2013,7 +2013,7 @@ public final class ScheduleOuterClass {
      * 定时任务结束时间
      * </pre>
      *
-     * <code>string end_time = 4;</code>
+     * <code>string end_time = 4 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getEndTimeBytes() {
@@ -2036,7 +2036,7 @@ public final class ScheduleOuterClass {
      * 定时任务表达式
      * </pre>
      *
-     * <code>string cron_expression = 5;</code>
+     * <code>string cron_expression = 5 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getCronExpression() {
       java.lang.Object ref = cronExpression_;
@@ -2055,7 +2055,7 @@ public final class ScheduleOuterClass {
      * 定时任务表达式
      * </pre>
      *
-     * <code>string cron_expression = 5;</code>
+     * <code>string cron_expression = 5 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getCronExpressionBytes() {
@@ -2452,7 +2452,7 @@ public final class ScheduleOuterClass {
        * 模板ID
        * </pre>
        *
-       * <code>int32 template_id = 1;</code>
+       * <code>int32 template_id = 1 [(.validator.field) = { ... }</code>
        */
       public int getTemplateId() {
         return templateId_;
@@ -2462,7 +2462,7 @@ public final class ScheduleOuterClass {
        * 模板ID
        * </pre>
        *
-       * <code>int32 template_id = 1;</code>
+       * <code>int32 template_id = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setTemplateId(int value) {
         
@@ -2475,7 +2475,7 @@ public final class ScheduleOuterClass {
        * 模板ID
        * </pre>
        *
-       * <code>int32 template_id = 1;</code>
+       * <code>int32 template_id = 1 [(.validator.field) = { ... }</code>
        */
       public Builder clearTemplateId() {
         
@@ -2490,7 +2490,7 @@ public final class ScheduleOuterClass {
        * 定时任务名
        * </pre>
        *
-       * <code>string name = 2;</code>
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -2509,7 +2509,7 @@ public final class ScheduleOuterClass {
        * 定时任务名
        * </pre>
        *
-       * <code>string name = 2;</code>
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -2529,7 +2529,7 @@ public final class ScheduleOuterClass {
        * 定时任务名
        * </pre>
        *
-       * <code>string name = 2;</code>
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -2546,7 +2546,7 @@ public final class ScheduleOuterClass {
        * 定时任务名
        * </pre>
        *
-       * <code>string name = 2;</code>
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
        */
       public Builder clearName() {
         
@@ -2559,7 +2559,7 @@ public final class ScheduleOuterClass {
        * 定时任务名
        * </pre>
        *
-       * <code>string name = 2;</code>
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -2579,7 +2579,7 @@ public final class ScheduleOuterClass {
        * 定时任务开始时间
        * </pre>
        *
-       * <code>string start_time = 3;</code>
+       * <code>string start_time = 3 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getStartTime() {
         java.lang.Object ref = startTime_;
@@ -2598,7 +2598,7 @@ public final class ScheduleOuterClass {
        * 定时任务开始时间
        * </pre>
        *
-       * <code>string start_time = 3;</code>
+       * <code>string start_time = 3 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getStartTimeBytes() {
@@ -2618,7 +2618,7 @@ public final class ScheduleOuterClass {
        * 定时任务开始时间
        * </pre>
        *
-       * <code>string start_time = 3;</code>
+       * <code>string start_time = 3 [(.validator.field) = { ... }</code>
        */
       public Builder setStartTime(
           java.lang.String value) {
@@ -2635,7 +2635,7 @@ public final class ScheduleOuterClass {
        * 定时任务开始时间
        * </pre>
        *
-       * <code>string start_time = 3;</code>
+       * <code>string start_time = 3 [(.validator.field) = { ... }</code>
        */
       public Builder clearStartTime() {
         
@@ -2648,7 +2648,7 @@ public final class ScheduleOuterClass {
        * 定时任务开始时间
        * </pre>
        *
-       * <code>string start_time = 3;</code>
+       * <code>string start_time = 3 [(.validator.field) = { ... }</code>
        */
       public Builder setStartTimeBytes(
           com.google.protobuf.ByteString value) {
@@ -2668,7 +2668,7 @@ public final class ScheduleOuterClass {
        * 定时任务结束时间
        * </pre>
        *
-       * <code>string end_time = 4;</code>
+       * <code>string end_time = 4 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getEndTime() {
         java.lang.Object ref = endTime_;
@@ -2687,7 +2687,7 @@ public final class ScheduleOuterClass {
        * 定时任务结束时间
        * </pre>
        *
-       * <code>string end_time = 4;</code>
+       * <code>string end_time = 4 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getEndTimeBytes() {
@@ -2707,7 +2707,7 @@ public final class ScheduleOuterClass {
        * 定时任务结束时间
        * </pre>
        *
-       * <code>string end_time = 4;</code>
+       * <code>string end_time = 4 [(.validator.field) = { ... }</code>
        */
       public Builder setEndTime(
           java.lang.String value) {
@@ -2724,7 +2724,7 @@ public final class ScheduleOuterClass {
        * 定时任务结束时间
        * </pre>
        *
-       * <code>string end_time = 4;</code>
+       * <code>string end_time = 4 [(.validator.field) = { ... }</code>
        */
       public Builder clearEndTime() {
         
@@ -2737,7 +2737,7 @@ public final class ScheduleOuterClass {
        * 定时任务结束时间
        * </pre>
        *
-       * <code>string end_time = 4;</code>
+       * <code>string end_time = 4 [(.validator.field) = { ... }</code>
        */
       public Builder setEndTimeBytes(
           com.google.protobuf.ByteString value) {
@@ -2757,7 +2757,7 @@ public final class ScheduleOuterClass {
        * 定时任务表达式
        * </pre>
        *
-       * <code>string cron_expression = 5;</code>
+       * <code>string cron_expression = 5 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getCronExpression() {
         java.lang.Object ref = cronExpression_;
@@ -2776,7 +2776,7 @@ public final class ScheduleOuterClass {
        * 定时任务表达式
        * </pre>
        *
-       * <code>string cron_expression = 5;</code>
+       * <code>string cron_expression = 5 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getCronExpressionBytes() {
@@ -2796,7 +2796,7 @@ public final class ScheduleOuterClass {
        * 定时任务表达式
        * </pre>
        *
-       * <code>string cron_expression = 5;</code>
+       * <code>string cron_expression = 5 [(.validator.field) = { ... }</code>
        */
       public Builder setCronExpression(
           java.lang.String value) {
@@ -2813,7 +2813,7 @@ public final class ScheduleOuterClass {
        * 定时任务表达式
        * </pre>
        *
-       * <code>string cron_expression = 5;</code>
+       * <code>string cron_expression = 5 [(.validator.field) = { ... }</code>
        */
       public Builder clearCronExpression() {
         
@@ -2826,7 +2826,7 @@ public final class ScheduleOuterClass {
        * 定时任务表达式
        * </pre>
        *
-       * <code>string cron_expression = 5;</code>
+       * <code>string cron_expression = 5 [(.validator.field) = { ... }</code>
        */
       public Builder setCronExpressionBytes(
           com.google.protobuf.ByteString value) {
@@ -7609,7 +7609,7 @@ public final class ScheduleOuterClass {
      * 定时任务ID
      * </pre>
      *
-     * <code>int32 schedule_id = 1;</code>
+     * <code>int32 schedule_id = 1 [(.validator.field) = { ... }</code>
      */
     int getScheduleId();
 
@@ -7618,7 +7618,7 @@ public final class ScheduleOuterClass {
      * 模板ID
      * </pre>
      *
-     * <code>int32 template_id = 2;</code>
+     * <code>int32 template_id = 2 [(.validator.field) = { ... }</code>
      */
     int getTemplateId();
 
@@ -7627,7 +7627,7 @@ public final class ScheduleOuterClass {
      * 定时任务名字
      * </pre>
      *
-     * <code>string name = 3;</code>
+     * <code>string name = 3 [(.validator.field) = { ... }</code>
      */
     java.lang.String getName();
     /**
@@ -7635,7 +7635,7 @@ public final class ScheduleOuterClass {
      * 定时任务名字
      * </pre>
      *
-     * <code>string name = 3;</code>
+     * <code>string name = 3 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
@@ -7645,7 +7645,7 @@ public final class ScheduleOuterClass {
      * 定时任务开启时间
      * </pre>
      *
-     * <code>string start_time = 4;</code>
+     * <code>string start_time = 4 [(.validator.field) = { ... }</code>
      */
     java.lang.String getStartTime();
     /**
@@ -7653,7 +7653,7 @@ public final class ScheduleOuterClass {
      * 定时任务开启时间
      * </pre>
      *
-     * <code>string start_time = 4;</code>
+     * <code>string start_time = 4 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getStartTimeBytes();
@@ -7663,7 +7663,7 @@ public final class ScheduleOuterClass {
      * 定时任务结束时间
      * </pre>
      *
-     * <code>string end_time = 5;</code>
+     * <code>string end_time = 5 [(.validator.field) = { ... }</code>
      */
     java.lang.String getEndTime();
     /**
@@ -7671,7 +7671,7 @@ public final class ScheduleOuterClass {
      * 定时任务结束时间
      * </pre>
      *
-     * <code>string end_time = 5;</code>
+     * <code>string end_time = 5 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getEndTimeBytes();
@@ -7681,7 +7681,7 @@ public final class ScheduleOuterClass {
      * 定时任务表达式
      * </pre>
      *
-     * <code>string cron_expression = 6;</code>
+     * <code>string cron_expression = 6 [(.validator.field) = { ... }</code>
      */
     java.lang.String getCronExpression();
     /**
@@ -7689,7 +7689,7 @@ public final class ScheduleOuterClass {
      * 定时任务表达式
      * </pre>
      *
-     * <code>string cron_expression = 6;</code>
+     * <code>string cron_expression = 6 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getCronExpressionBytes();
@@ -7816,7 +7816,7 @@ public final class ScheduleOuterClass {
      * 定时任务ID
      * </pre>
      *
-     * <code>int32 schedule_id = 1;</code>
+     * <code>int32 schedule_id = 1 [(.validator.field) = { ... }</code>
      */
     public int getScheduleId() {
       return scheduleId_;
@@ -7829,7 +7829,7 @@ public final class ScheduleOuterClass {
      * 模板ID
      * </pre>
      *
-     * <code>int32 template_id = 2;</code>
+     * <code>int32 template_id = 2 [(.validator.field) = { ... }</code>
      */
     public int getTemplateId() {
       return templateId_;
@@ -7842,7 +7842,7 @@ public final class ScheduleOuterClass {
      * 定时任务名字
      * </pre>
      *
-     * <code>string name = 3;</code>
+     * <code>string name = 3 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -7861,7 +7861,7 @@ public final class ScheduleOuterClass {
      * 定时任务名字
      * </pre>
      *
-     * <code>string name = 3;</code>
+     * <code>string name = 3 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -7884,7 +7884,7 @@ public final class ScheduleOuterClass {
      * 定时任务开启时间
      * </pre>
      *
-     * <code>string start_time = 4;</code>
+     * <code>string start_time = 4 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getStartTime() {
       java.lang.Object ref = startTime_;
@@ -7903,7 +7903,7 @@ public final class ScheduleOuterClass {
      * 定时任务开启时间
      * </pre>
      *
-     * <code>string start_time = 4;</code>
+     * <code>string start_time = 4 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getStartTimeBytes() {
@@ -7926,7 +7926,7 @@ public final class ScheduleOuterClass {
      * 定时任务结束时间
      * </pre>
      *
-     * <code>string end_time = 5;</code>
+     * <code>string end_time = 5 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getEndTime() {
       java.lang.Object ref = endTime_;
@@ -7945,7 +7945,7 @@ public final class ScheduleOuterClass {
      * 定时任务结束时间
      * </pre>
      *
-     * <code>string end_time = 5;</code>
+     * <code>string end_time = 5 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getEndTimeBytes() {
@@ -7968,7 +7968,7 @@ public final class ScheduleOuterClass {
      * 定时任务表达式
      * </pre>
      *
-     * <code>string cron_expression = 6;</code>
+     * <code>string cron_expression = 6 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getCronExpression() {
       java.lang.Object ref = cronExpression_;
@@ -7987,7 +7987,7 @@ public final class ScheduleOuterClass {
      * 定时任务表达式
      * </pre>
      *
-     * <code>string cron_expression = 6;</code>
+     * <code>string cron_expression = 6 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getCronExpressionBytes() {
@@ -8401,7 +8401,7 @@ public final class ScheduleOuterClass {
        * 定时任务ID
        * </pre>
        *
-       * <code>int32 schedule_id = 1;</code>
+       * <code>int32 schedule_id = 1 [(.validator.field) = { ... }</code>
        */
       public int getScheduleId() {
         return scheduleId_;
@@ -8411,7 +8411,7 @@ public final class ScheduleOuterClass {
        * 定时任务ID
        * </pre>
        *
-       * <code>int32 schedule_id = 1;</code>
+       * <code>int32 schedule_id = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setScheduleId(int value) {
         
@@ -8424,7 +8424,7 @@ public final class ScheduleOuterClass {
        * 定时任务ID
        * </pre>
        *
-       * <code>int32 schedule_id = 1;</code>
+       * <code>int32 schedule_id = 1 [(.validator.field) = { ... }</code>
        */
       public Builder clearScheduleId() {
         
@@ -8439,7 +8439,7 @@ public final class ScheduleOuterClass {
        * 模板ID
        * </pre>
        *
-       * <code>int32 template_id = 2;</code>
+       * <code>int32 template_id = 2 [(.validator.field) = { ... }</code>
        */
       public int getTemplateId() {
         return templateId_;
@@ -8449,7 +8449,7 @@ public final class ScheduleOuterClass {
        * 模板ID
        * </pre>
        *
-       * <code>int32 template_id = 2;</code>
+       * <code>int32 template_id = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setTemplateId(int value) {
         
@@ -8462,7 +8462,7 @@ public final class ScheduleOuterClass {
        * 模板ID
        * </pre>
        *
-       * <code>int32 template_id = 2;</code>
+       * <code>int32 template_id = 2 [(.validator.field) = { ... }</code>
        */
       public Builder clearTemplateId() {
         
@@ -8477,7 +8477,7 @@ public final class ScheduleOuterClass {
        * 定时任务名字
        * </pre>
        *
-       * <code>string name = 3;</code>
+       * <code>string name = 3 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -8496,7 +8496,7 @@ public final class ScheduleOuterClass {
        * 定时任务名字
        * </pre>
        *
-       * <code>string name = 3;</code>
+       * <code>string name = 3 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -8516,7 +8516,7 @@ public final class ScheduleOuterClass {
        * 定时任务名字
        * </pre>
        *
-       * <code>string name = 3;</code>
+       * <code>string name = 3 [(.validator.field) = { ... }</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -8533,7 +8533,7 @@ public final class ScheduleOuterClass {
        * 定时任务名字
        * </pre>
        *
-       * <code>string name = 3;</code>
+       * <code>string name = 3 [(.validator.field) = { ... }</code>
        */
       public Builder clearName() {
         
@@ -8546,7 +8546,7 @@ public final class ScheduleOuterClass {
        * 定时任务名字
        * </pre>
        *
-       * <code>string name = 3;</code>
+       * <code>string name = 3 [(.validator.field) = { ... }</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -8566,7 +8566,7 @@ public final class ScheduleOuterClass {
        * 定时任务开启时间
        * </pre>
        *
-       * <code>string start_time = 4;</code>
+       * <code>string start_time = 4 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getStartTime() {
         java.lang.Object ref = startTime_;
@@ -8585,7 +8585,7 @@ public final class ScheduleOuterClass {
        * 定时任务开启时间
        * </pre>
        *
-       * <code>string start_time = 4;</code>
+       * <code>string start_time = 4 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getStartTimeBytes() {
@@ -8605,7 +8605,7 @@ public final class ScheduleOuterClass {
        * 定时任务开启时间
        * </pre>
        *
-       * <code>string start_time = 4;</code>
+       * <code>string start_time = 4 [(.validator.field) = { ... }</code>
        */
       public Builder setStartTime(
           java.lang.String value) {
@@ -8622,7 +8622,7 @@ public final class ScheduleOuterClass {
        * 定时任务开启时间
        * </pre>
        *
-       * <code>string start_time = 4;</code>
+       * <code>string start_time = 4 [(.validator.field) = { ... }</code>
        */
       public Builder clearStartTime() {
         
@@ -8635,7 +8635,7 @@ public final class ScheduleOuterClass {
        * 定时任务开启时间
        * </pre>
        *
-       * <code>string start_time = 4;</code>
+       * <code>string start_time = 4 [(.validator.field) = { ... }</code>
        */
       public Builder setStartTimeBytes(
           com.google.protobuf.ByteString value) {
@@ -8655,7 +8655,7 @@ public final class ScheduleOuterClass {
        * 定时任务结束时间
        * </pre>
        *
-       * <code>string end_time = 5;</code>
+       * <code>string end_time = 5 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getEndTime() {
         java.lang.Object ref = endTime_;
@@ -8674,7 +8674,7 @@ public final class ScheduleOuterClass {
        * 定时任务结束时间
        * </pre>
        *
-       * <code>string end_time = 5;</code>
+       * <code>string end_time = 5 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getEndTimeBytes() {
@@ -8694,7 +8694,7 @@ public final class ScheduleOuterClass {
        * 定时任务结束时间
        * </pre>
        *
-       * <code>string end_time = 5;</code>
+       * <code>string end_time = 5 [(.validator.field) = { ... }</code>
        */
       public Builder setEndTime(
           java.lang.String value) {
@@ -8711,7 +8711,7 @@ public final class ScheduleOuterClass {
        * 定时任务结束时间
        * </pre>
        *
-       * <code>string end_time = 5;</code>
+       * <code>string end_time = 5 [(.validator.field) = { ... }</code>
        */
       public Builder clearEndTime() {
         
@@ -8724,7 +8724,7 @@ public final class ScheduleOuterClass {
        * 定时任务结束时间
        * </pre>
        *
-       * <code>string end_time = 5;</code>
+       * <code>string end_time = 5 [(.validator.field) = { ... }</code>
        */
       public Builder setEndTimeBytes(
           com.google.protobuf.ByteString value) {
@@ -8744,7 +8744,7 @@ public final class ScheduleOuterClass {
        * 定时任务表达式
        * </pre>
        *
-       * <code>string cron_expression = 6;</code>
+       * <code>string cron_expression = 6 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getCronExpression() {
         java.lang.Object ref = cronExpression_;
@@ -8763,7 +8763,7 @@ public final class ScheduleOuterClass {
        * 定时任务表达式
        * </pre>
        *
-       * <code>string cron_expression = 6;</code>
+       * <code>string cron_expression = 6 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getCronExpressionBytes() {
@@ -8783,7 +8783,7 @@ public final class ScheduleOuterClass {
        * 定时任务表达式
        * </pre>
        *
-       * <code>string cron_expression = 6;</code>
+       * <code>string cron_expression = 6 [(.validator.field) = { ... }</code>
        */
       public Builder setCronExpression(
           java.lang.String value) {
@@ -8800,7 +8800,7 @@ public final class ScheduleOuterClass {
        * 定时任务表达式
        * </pre>
        *
-       * <code>string cron_expression = 6;</code>
+       * <code>string cron_expression = 6 [(.validator.field) = { ... }</code>
        */
       public Builder clearCronExpression() {
         
@@ -8813,7 +8813,7 @@ public final class ScheduleOuterClass {
        * 定时任务表达式
        * </pre>
        *
-       * <code>string cron_expression = 6;</code>
+       * <code>string cron_expression = 6 [(.validator.field) = { ... }</code>
        */
       public Builder setCronExpressionBytes(
           com.google.protobuf.ByteString value) {
@@ -10970,54 +10970,69 @@ public final class ScheduleOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\027schedule/schedule.proto\022\010schedule\032\020com" +
-      "mon/api.proto\032\034google/api/annotations.pr" +
-      "oto\032,protoc-gen-swagger/options/annotati" +
-      "ons.proto\032\027template/template.proto\"\310\001\n\016S" +
-      "cheduleObject\022\023\n\013schedule_id\030\001 \001(\005\022*\n\010te" +
-      "mplate\030\002 \001(\0132\030.template.TemplateObject\022\014" +
-      "\n\004name\030\003 \001(\t\022\022\n\nstart_time\030\004 \001(\t\022\020\n\010end_" +
-      "time\030\005 \001(\t\022\027\n\017cron_expression\030\006 \001(\t\022(\n\006s" +
-      "tatus\030\007 \001(\0162\030.schedule.ScheduleStatus\"q\n" +
-      "\rCreateRequest\022\023\n\013template_id\030\001 \001(\005\022\014\n\004n" +
-      "ame\030\002 \001(\t\022\022\n\nstart_time\030\003 \001(\t\022\020\n\010end_tim" +
-      "e\030\004 \001(\t\022\027\n\017cron_expression\030\005 \001(\t\"^\n\016Crea" +
-      "teResponse\022\023\n\013schedule_id\030\001 \001(\005\022\017\n\007creat" +
-      "ed\030\002 \001(\t\022&\n\006status\030\003 \001(\0132\026.common.Respon" +
-      "seStatus\"!\n\nGetRequest\022\023\n\013schedule_id\030\001 " +
-      "\001(\005\"a\n\013GetResponse\022*\n\010schedule\030\001 \001(\0132\030.s" +
-      "chedule.ScheduleObject\022&\n\006status\030\002 \001(\0132\026" +
-      ".common.ResponseStatus\"[\n\rFilterRequest\022" +
-      "\036\n\006paging\030\001 \001(\0132\016.common.Paging\022\025\n\rsched" +
-      "ule_name\030\002 \001(\t\022\023\n\013template_id\030\003 \001(\005\"\205\001\n\016" +
-      "FilterResponse\022+\n\tschedules\030\001 \003(\0132\030.sche" +
-      "dule.ScheduleObject\022\036\n\006paging\030\002 \001(\0132\016.co" +
-      "mmon.Paging\022&\n\006status\030\003 \001(\0132\026.common.Res" +
-      "ponseStatus\"\206\001\n\rUpdateRequest\022\023\n\013schedul" +
-      "e_id\030\001 \001(\005\022\023\n\013template_id\030\002 \001(\005\022\014\n\004name\030" +
-      "\003 \001(\t\022\022\n\nstart_time\030\004 \001(\t\022\020\n\010end_time\030\005 " +
-      "\001(\t\022\027\n\017cron_expression\030\006 \001(\t\"I\n\016UpdateRe" +
-      "sponse\022\017\n\007updated\030\001 \001(\t\022&\n\006status\030\002 \001(\0132" +
-      "\026.common.ResponseStatus\"*\n\023SwitchStatusR" +
-      "equest\022\023\n\013schedule_id\030\001 \001(\005\">\n\024SwitchSta" +
-      "tusResponse\022&\n\006status\030\001 \001(\0132\026.common.Res" +
-      "ponseStatus*!\n\016ScheduleStatus\022\007\n\003OFF\020\000\022\006" +
-      "\n\002ON\020\0012\210\004\n\010Schedule\022[\n\006Create\022\027.schedule" +
-      ".CreateRequest\032\030.schedule.CreateResponse" +
-      "\"\036\202\323\344\223\002\030\"\023/v1/schedule/create:\001*\022X\n\006Filt" +
-      "er\022\027.schedule.FilterRequest\032\030.schedule.F" +
-      "ilterResponse\"\033\202\323\344\223\002\025\022\023/v1/schedule/filt" +
-      "er\022Z\n\003Get\022\024.schedule.GetRequest\032\025.schedu" +
-      "le.GetResponse\"&\202\323\344\223\002 \022\036/v1/schedule/get" +
-      "/{schedule_id}\022i\n\006Update\022\027.schedule.Upda" +
-      "teRequest\032\030.schedule.UpdateResponse\",\202\323\344" +
-      "\223\002&\"!/v1/schedule/update/{schedule_id}:\001" +
-      "*\022~\n\014SwitchStatus\022\035.schedule.SwitchStatu" +
-      "sRequest\032\036.schedule.SwitchStatusResponse" +
-      "\"/\202\323\344\223\002)\"\'/v1/schedule/switchStatus/{sch" +
-      "edule_id}BJ\n\036top.fogcdn.axe.protos.sched" +
-      "uleZ(git.fogcdn.top/axe/protos/goout/sch" +
-      "eduleb\006proto3"
+      "\n\027schedule/schedule.proto\022\010schedule\032\034goo" +
+      "gle/api/annotations.proto\032,protoc-gen-sw" +
+      "agger/options/annotations.proto\0326github." +
+      "com/mwitkow/go-proto-validators/validato" +
+      "r.proto\032\020common/api.proto\032\027template/temp" +
+      "late.proto\"\310\001\n\016ScheduleObject\022\023\n\013schedul" +
+      "e_id\030\001 \001(\005\022*\n\010template\030\002 \001(\0132\030.template." +
+      "TemplateObject\022\014\n\004name\030\003 \001(\t\022\022\n\nstart_ti" +
+      "me\030\004 \001(\t\022\020\n\010end_time\030\005 \001(\t\022\027\n\017cron_expre" +
+      "ssion\030\006 \001(\t\022(\n\006status\030\007 \001(\0162\030.schedule.S" +
+      "cheduleStatus\"\351\002\n\rCreateRequest\0221\n\013templ" +
+      "ate_id\030\001 \001(\005B\034\342\337\037\030\020\000*\024\346\250\241\346\235\277ID\344\270\215\350\203\275\344\270\272\347" +
+      "\251\272\0221\n\004name\030\002 \001(\tB#\342\337\037\037*\033\345\256\232\346\227\266\344\273\273\345\212\241\345\220\215\344" +
+      "\270\215\350\203\275\344\270\272\347\251\272X\001\0224\n\nstart_time\030\003 \001(\tB \342\337\037\034*" +
+      "\030\345\274\200\345\247\213\346\227\266\351\227\264\344\270\215\350\203\275\344\270\272\347\251\272X\001\0222\n\010end_time\030" +
+      "\004 \001(\tB \342\337\037\034*\030\347\273\223\346\235\237\346\227\266\351\227\264\344\270\215\350\203\275\344\270\272\347\251\272X\001\022" +
+      "B\n\017cron_expression\030\005 \001(\tB)\342\337\037%*!\345\256\232\346\227\266\344\273" +
+      "\273\345\212\241\350\241\250\350\276\276\345\274\217\344\270\215\350\203\275\344\270\272\347\251\272X\001:D\222AA\n?\322\001\013tem" +
+      "plate_id\322\001\004name\322\001\nstart_time\322\001\010end_time\322" +
+      "\001\017cron_expression\"^\n\016CreateResponse\022\023\n\013s" +
+      "chedule_id\030\001 \001(\005\022\017\n\007created\030\002 \001(\t\022&\n\006sta" +
+      "tus\030\003 \001(\0132\026.common.ResponseStatus\"6\n\nGet" +
+      "Request\022\023\n\013schedule_id\030\001 \001(\005:\023\222A\020\n\016\322\001\013sc" +
+      "hedule_id\"a\n\013GetResponse\022*\n\010schedule\030\001 \001" +
+      "(\0132\030.schedule.ScheduleObject\022&\n\006status\030\002" +
+      " \001(\0132\026.common.ResponseStatus\"[\n\rFilterRe" +
+      "quest\022\036\n\006paging\030\001 \001(\0132\016.common.Paging\022\025\n" +
+      "\rschedule_name\030\002 \001(\t\022\023\n\013template_id\030\003 \001(" +
+      "\005\"\205\001\n\016FilterResponse\022+\n\tschedules\030\001 \003(\0132" +
+      "\030.schedule.ScheduleObject\022\036\n\006paging\030\002 \001(" +
+      "\0132\016.common.Paging\022&\n\006status\030\003 \001(\0132\026.comm" +
+      "on.ResponseStatus\"\260\003\n\rUpdateRequest\0227\n\013s" +
+      "chedule_id\030\001 \001(\005B\"\342\337\037\036\020\000*\032\345\256\232\346\227\266\344\273\273\345\212\241ID" +
+      "\344\270\215\350\203\275\344\270\272\347\251\272\0221\n\013template_id\030\002 \001(\005B\034\342\337\037\030\020" +
+      "\000*\024\346\250\241\346\235\277ID\344\270\215\350\203\275\344\270\272\347\251\272\0221\n\004name\030\003 \001(\tB#\342" +
+      "\337\037\037*\033\345\256\232\346\227\266\344\273\273\345\212\241\345\220\215\344\270\215\350\203\275\344\270\272\347\251\272X\001\0224\n\nst" +
+      "art_time\030\004 \001(\tB \342\337\037\034*\030\345\274\200\345\247\213\346\227\266\351\227\264\344\270\215\350\203\275" +
+      "\344\270\272\347\251\272X\001\0222\n\010end_time\030\005 \001(\tB \342\337\037\034*\030\347\273\223\346\235\237" +
+      "\346\227\266\351\227\264\344\270\215\350\203\275\344\270\272\347\251\272X\001\022B\n\017cron_expression\030" +
+      "\006 \001(\tB)\342\337\037%*!\345\256\232\346\227\266\344\273\273\345\212\241\350\241\250\350\276\276\345\274\217\344\270\215\350\203\275" +
+      "\344\270\272\347\251\272X\001:R\222AO\nM\322\001\013schedule_id\322\001\013template" +
+      "_id\322\001\004name\322\001\nstart_time\322\001\010end_time\322\001\017cro" +
+      "n_expression\"I\n\016UpdateResponse\022\017\n\007update" +
+      "d\030\001 \001(\t\022&\n\006status\030\002 \001(\0132\026.common.Respons" +
+      "eStatus\"*\n\023SwitchStatusRequest\022\023\n\013schedu" +
+      "le_id\030\001 \001(\005\">\n\024SwitchStatusResponse\022&\n\006s" +
+      "tatus\030\001 \001(\0132\026.common.ResponseStatus*!\n\016S" +
+      "cheduleStatus\022\007\n\003OFF\020\000\022\006\n\002ON\020\0012\210\004\n\010Sched" +
+      "ule\022[\n\006Create\022\027.schedule.CreateRequest\032\030" +
+      ".schedule.CreateResponse\"\036\202\323\344\223\002\030\"\023/v1/sc" +
+      "hedule/create:\001*\022X\n\006Filter\022\027.schedule.Fi" +
+      "lterRequest\032\030.schedule.FilterResponse\"\033\202" +
+      "\323\344\223\002\025\022\023/v1/schedule/filter\022Z\n\003Get\022\024.sche" +
+      "dule.GetRequest\032\025.schedule.GetResponse\"&" +
+      "\202\323\344\223\002 \022\036/v1/schedule/get/{schedule_id}\022i" +
+      "\n\006Update\022\027.schedule.UpdateRequest\032\030.sche" +
+      "dule.UpdateResponse\",\202\323\344\223\002&\"!/v1/schedul" +
+      "e/update/{schedule_id}:\001*\022~\n\014SwitchStatu" +
+      "s\022\035.schedule.SwitchStatusRequest\032\036.sched" +
+      "ule.SwitchStatusResponse\"/\202\323\344\223\002)\"\'/v1/sc" +
+      "hedule/switchStatus/{schedule_id}BJ\n\036top" +
+      ".fogcdn.axe.protos.scheduleZ(git.fogcdn." +
+      "top/axe/protos/goout/scheduleb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -11030,9 +11045,10 @@ public final class ScheduleOuterClass {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          top.fogcdn.axe.protos.common.Api.getDescriptor(),
           com.google.api.AnnotationsProto.getDescriptor(),
           grpc.gateway.protoc_gen_swagger.options.Annotations.getDescriptor(),
+          validator.Validator.getDescriptor(),
+          top.fogcdn.axe.protos.common.Api.getDescriptor(),
           top.fogcdn.axe.protos.template.TemplateOuterClass.getDescriptor(),
         }, assigner);
     internal_static_schedule_ScheduleObject_descriptor =
@@ -11104,11 +11120,14 @@ public final class ScheduleOuterClass {
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);
+    registry.add(grpc.gateway.protoc_gen_swagger.options.Annotations.openapiv2Schema);
+    registry.add(validator.Validator.field);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
-    top.fogcdn.axe.protos.common.Api.getDescriptor();
     com.google.api.AnnotationsProto.getDescriptor();
     grpc.gateway.protoc_gen_swagger.options.Annotations.getDescriptor();
+    validator.Validator.getDescriptor();
+    top.fogcdn.axe.protos.common.Api.getDescriptor();
     top.fogcdn.axe.protos.template.TemplateOuterClass.getDescriptor();
   }
 
