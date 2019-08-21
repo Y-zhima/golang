@@ -117,6 +117,23 @@ func (this *UpdateResponse) Validate() error {
 	}
 	return nil
 }
+func (this *UpdateStateRequest) Validate() error {
+	if !(this.TemplateId > 0) {
+		return github_com_mwitkow_go_proto_validators.FieldError("TemplateId", fmt.Errorf(`模板ID不能为空`))
+	}
+	if _, ok := TemplateState_name[int32(this.State)]; !ok {
+		return github_com_mwitkow_go_proto_validators.FieldError("State", fmt.Errorf(`State类型不正确`))
+	}
+	return nil
+}
+func (this *UpdateStateResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}
 func (this *DeleteRequest) Validate() error {
 	return nil
 }

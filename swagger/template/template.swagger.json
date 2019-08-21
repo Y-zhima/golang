@@ -168,6 +168,41 @@
           "Template"
         ]
       }
+    },
+    "/v1/template/updateState/{template_id}": {
+      "post": {
+        "summary": "更新作业模板状态开关",
+        "operationId": "UpdateState",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateUpdateResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "template_id",
+            "description": "模板ID",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/templateUpdateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Template"
+        ]
+      }
     }
   },
   "definitions": {
@@ -472,9 +507,23 @@
         "updated": {
           "type": "string",
           "title": "更新时间"
+        },
+        "state": {
+          "$ref": "#/definitions/templateTemplateState",
+          "title": "模板状态开关标识"
         }
       },
       "title": "模板实例"
+    },
+    "templateTemplateState": {
+      "type": "string",
+      "enum": [
+        "RUNNING",
+        "NOT_RUNNING"
+      ],
+      "default": "RUNNING",
+      "description": "- RUNNING: 运行\n - NOT_RUNNING: 没运行",
+      "title": "模板状态"
     },
     "templateUpdateRequest": {
       "type": "object",
