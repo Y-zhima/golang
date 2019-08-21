@@ -234,10 +234,6 @@
           "type": "string",
           "title": "playbook项目名称"
         },
-        "description": {
-          "type": "string",
-          "title": "playbook项目描述"
-        },
         "url": {
           "type": "string",
           "title": "playbook存储在对象存储的url"
@@ -246,16 +242,16 @@
           "$ref": "#/definitions/playbookUrlType",
           "title": "枚举类型 1-文件下载 2-git下载"
         },
-        "version": {
-          "type": "string",
-          "title": "playbook文件的版本号"
-        },
         "entrypoint": {
           "type": "array",
           "items": {
             "type": "string"
           },
           "title": "playbook入口yml文件，有多个"
+        },
+        "description": {
+          "type": "string",
+          "title": "playbook项目描述"
         },
         "md5": {
           "type": "string",
@@ -272,7 +268,6 @@
         "name",
         "url",
         "url_type",
-        "version",
         "entrypoint"
       ]
     },
