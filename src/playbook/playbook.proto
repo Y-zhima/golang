@@ -114,7 +114,7 @@ message CreateRequest {
     // 枚举类型 1-文件下载 2-git下载
     UrlType url_type = 3 [(validator.field) = {is_in_enum : true, human_error: "URL类型不正确"}];
     // playbook入口yml文件，有多个
-    repeated string entrypoint = 4 [(validator.field) = {repeated_count_min : 1, human_error: "入口文件不能为空"}];
+    repeated string entrypoint = 4 [(validator.field) = {repeated_count_min : 1}];
     // playbook项目描述
     string description = 5;
     // 文件md5

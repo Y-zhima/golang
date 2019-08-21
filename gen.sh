@@ -11,6 +11,7 @@ echo '{
     "http",
     "https"
   ],
+  "host": "192.168.0.129:8969",
   "swagger": "2.0",
   "info": {
     "description": "AXE运维平台RESTful API",
@@ -19,6 +20,7 @@ echo '{
   }
 }' > swagger/swagger.json 
 
+rm -rf /tmp/protos
 mkdir -p /tmp/protos/javaout
 
 for f in src/*/*.proto ; do
