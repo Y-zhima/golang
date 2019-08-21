@@ -19,6 +19,7 @@ echo '{
   }
 }' > swagger/swagger.json 
 
+rm -rf /tmp/protos
 mkdir -p /tmp/protos/javaout
 
 for f in src/*/*.proto ; do
