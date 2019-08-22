@@ -1884,13 +1884,13 @@
       }
     },
     "templateTemplateState": {
-      "description": "- RUNNING: 运行\n - NOT_RUNNING: 没运行",
+      "description": "- OFF: 没运行\n - ON: 运行",
       "type": "string",
       "title": "模板状态",
-      "default": "RUNNING",
+      "default": "OFF",
       "enum": [
-        "RUNNING",
-        "NOT_RUNNING"
+        "OFF",
+        "ON"
       ]
     },
     "templateUpdateRequest": {

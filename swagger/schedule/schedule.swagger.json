@@ -726,11 +726,11 @@
     "templateTemplateState": {
       "type": "string",
       "enum": [
-        "RUNNING",
-        "NOT_RUNNING"
+        "OFF",
+        "ON"
       ],
-      "default": "RUNNING",
-      "description": "- RUNNING: 运行\n - NOT_RUNNING: 没运行",
+      "default": "OFF",
+      "description": "- OFF: 没运行\n - ON: 运行",
       "title": "模板状态"
     }
   }
