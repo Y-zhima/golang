@@ -18,6 +18,14 @@ service File {
             body: "*"
         };
     }
+
+    // 上传csv等通用文件
+    rpc Upload (stream UploadRequest) returns (UploadResponse) {
+        option (google.api.http) = {
+            post: "/v1/file/upload"
+            body: "*"
+        };
+    }
 }
 
 // 上传playbook压缩包并且解析入口yml文件的请求体
@@ -37,4 +45,22 @@ message UploadPlaybookResponse {
     repeated string entrypoint = 4;
     // 返回的请求状态
     common.ResponseStatus status = 5;
+}
+
+
+// 上传csv等通用文件
+message UploadRequest {
+    // 文件字段
+    bytes content = 1;
+}
+
+message UploadResponse {
+    // 通用文件对象存储的url
+    string url = 1;
+    // 解析出来的通用文件md5
+    string md5 = 2;
+    // 解析出来的通用文件大小
+    string filesize = 3;
+    // 返回的请求状态
+    common.ResponseStatus status = 4;
 }
