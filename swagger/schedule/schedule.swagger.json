@@ -452,14 +452,12 @@
     "scheduleCreateResponse": {
       "type": "object",
       "properties": {
-        "schedule_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "定时任务ID"
-        },
-        "created": {
-          "type": "string",
-          "title": "定时任务创建时间"
+        "schedules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/scheduleCreateScheduleResponseObject"
+          },
+          "title": "创建定时任务的请求返回内容体"
         },
         "status": {
           "$ref": "#/definitions/commonResponseStatus",
@@ -498,6 +496,21 @@
         }
       },
       "title": "创建定时任务的请求内容体"
+    },
+    "scheduleCreateScheduleResponseObject": {
+      "type": "object",
+      "properties": {
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "定时任务ID"
+        },
+        "created": {
+          "type": "string",
+          "title": "定时任务创建时间"
+        }
+      },
+      "title": "创建定时任务的请求返回内容体"
     },
     "scheduleFilterResponse": {
       "type": "object",
