@@ -219,6 +219,11 @@
         "bk_biz_name": {
           "type": "string",
           "title": "业务名"
+        },
+        "bk_biz_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "业务ID"
         }
       },
       "title": "业务"
@@ -239,6 +244,11 @@
         "bk_module_name": {
           "type": "string",
           "title": "模块名"
+        },
+        "bk_module_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "模块ID"
         }
       },
       "title": "模块"
@@ -265,6 +275,10 @@
         "biz": {
           "$ref": "#/definitions/cmdbBizObject",
           "title": "业务对象"
+        },
+        "zone": {
+          "$ref": "#/definitions/cmdbZoneObject",
+          "title": "区域对象"
         }
       },
       "title": "查找主机请求"
@@ -275,9 +289,25 @@
         "bk_set_name": {
           "type": "string",
           "title": "集群名"
+        },
+        "bk_set_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "集群ID"
         }
       },
       "title": "集群"
+    },
+    "cmdbZoneObject": {
+      "type": "object",
+      "properties": {
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "区域ID"
+        }
+      },
+      "title": "区域"
     },
     "commonPaging": {
       "type": "object",

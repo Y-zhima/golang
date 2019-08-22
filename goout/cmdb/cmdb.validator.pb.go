@@ -53,6 +53,9 @@ func (this *ModuleObject) Validate() error {
 func (this *SetObject) Validate() error {
 	return nil
 }
+func (this *ZoneObject) Validate() error {
+	return nil
+}
 func (this *BizObject) Validate() error {
 	return nil
 }
@@ -109,6 +112,11 @@ func (this *SearchHostRequest) Validate() error {
 	if this.Biz != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Biz); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Biz", err)
+		}
+	}
+	if this.Zone != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Zone); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Zone", err)
 		}
 	}
 	return nil
