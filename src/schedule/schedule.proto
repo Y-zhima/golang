@@ -52,6 +52,7 @@ service Schedule {
     rpc SwitchStatus (SwitchStatusRequest) returns (SwitchStatusResponse) {
         option (google.api.http) = {
             post: "/v1/schedule/switchStatus/{schedule_id}"
+            body: "*"
         };
     }
 

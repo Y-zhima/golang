@@ -438,6 +438,14 @@
             "name": "schedule_id",
             "in": "path",
             "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/scheduleSwitchStatusRequest"
+            }
           }
         ],
         "responses": {
@@ -1487,6 +1495,21 @@
         "OFF",
         "ON"
       ]
+    },
+    "scheduleSwitchStatusRequest": {
+      "type": "object",
+      "title": "切换定时任务状态请求",
+      "properties": {
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "定时任务ID"
+        },
+        "schedule_status": {
+          "title": "定时任务状态",
+          "$ref": "#/definitions/scheduleScheduleStatus"
+        }
+      }
     },
     "scheduleSwitchStatusResponse": {
       "type": "object",
