@@ -211,8 +211,8 @@ message DeleteResponse {
 
 // 模板状态
 enum TemplateState {
-    // 运行
-    RUNNING = 0;
     // 没运行
-    NOT_RUNNING= 1;
+    OFF = 0;
+    // 运行
+    ON = 1;
 }
