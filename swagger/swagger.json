@@ -105,6 +105,34 @@
         }
       }
     },
+    "/v1/file/upload": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "上传csv等通用文件",
+        "operationId": "Upload",
+        "parameters": [
+          {
+            "description": " (streaming inputs)",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/fileUploadRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/fileUploadResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/file/uploadPlaybook": {
       "post": {
         "tags": [
@@ -980,6 +1008,38 @@
         }
       }
     },
+    "fileUploadRequest": {
+      "type": "object",
+      "title": "上传csv等通用文件",
+      "properties": {
+        "content": {
+          "type": "string",
+          "format": "byte",
+          "title": "文件字段"
+        }
+      }
+    },
+    "fileUploadResponse": {
+      "type": "object",
+      "properties": {
+        "filesize": {
+          "type": "string",
+          "title": "解析出来的通用文件大小"
+        },
+        "md5": {
+          "type": "string",
+          "title": "解析出来的通用文件md5"
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "url": {
+          "type": "string",
+          "title": "通用文件对象存储的url"
+        }
+      }
+    },
     "playbookCreateRequest": {
       "type": "object",
       "title": "创建项目请求内容体",
@@ -1281,14 +1341,12 @@
       "type": "object",
       "title": "创建定时任务请求返回",
       "properties": {
-        "created": {
-          "type": "string",
-          "title": "定时任务创建时间"
-        },
-        "schedule_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "定时任务ID"
+        "schedules": {
+          "type": "array",
+          "title": "创建定时任务的请求返回内容体",
+          "items": {
+            "$ref": "#/definitions/scheduleCreateScheduleResponseObject"
+          }
         },
         "status": {
           "title": "返回请求状态",
@@ -1324,6 +1382,21 @@
           "type": "integer",
           "format": "int32",
           "title": "模板ID"
+        }
+      }
+    },
+    "scheduleCreateScheduleResponseObject": {
+      "type": "object",
+      "title": "创建定时任务的请求返回内容体",
+      "properties": {
+        "created": {
+          "type": "string",
+          "title": "定时任务创建时间"
+        },
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "定时任务ID"
         }
       }
     },

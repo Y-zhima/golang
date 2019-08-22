@@ -15,6 +15,34 @@
     "application/json"
   ],
   "paths": {
+    "/v1/file/upload": {
+      "post": {
+        "summary": "上传csv等通用文件",
+        "operationId": "Upload",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/fileUploadResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": " (streaming inputs)",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/fileUploadRequest"
+            }
+          }
+        ],
+        "tags": [
+          "File"
+        ]
+      }
+    },
     "/v1/file/uploadPlaybook": {
       "post": {
         "summary": "上传playbook压缩包并且解析入口yml文件",
@@ -102,6 +130,38 @@
             "type": "string"
           },
           "title": "解析出来的playbook项目入口yml文件，有多个"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        }
+      }
+    },
+    "fileUploadRequest": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "format": "byte",
+          "title": "文件字段"
+        }
+      },
+      "title": "上传csv等通用文件"
+    },
+    "fileUploadResponse": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "title": "通用文件对象存储的url"
+        },
+        "md5": {
+          "type": "string",
+          "title": "解析出来的通用文件md5"
+        },
+        "filesize": {
+          "type": "string",
+          "title": "解析出来的通用文件大小"
         },
         "status": {
           "$ref": "#/definitions/commonResponseStatus",

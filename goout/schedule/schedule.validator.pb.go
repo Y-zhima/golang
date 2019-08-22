@@ -7,12 +7,12 @@ import (
 	fmt "fmt"
 	math "math"
 	proto "github.com/golang/protobuf/proto"
-	_ "github.com/mwitkow/go-proto-validators"
 	_ "git.fogcdn.top/axe/protos/goout/common"
 	_ "git.fogcdn.top/axe/protos/goout/cmdb"
 	_ "git.fogcdn.top/axe/protos/goout/template"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
+	_ "github.com/mwitkow/go-proto-validators"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
@@ -47,6 +47,9 @@ func (this *CreateScheduleObject) Validate() error {
 	}
 	return nil
 }
+func (this *CreateScheduleResponseObject) Validate() error {
+	return nil
+}
 func (this *CreateRequest) Validate() error {
 	if len(this.Schedules) < 1 {
 		return github_com_mwitkow_go_proto_validators.FieldError("Schedules", fmt.Errorf(`任务内容不能为空`))
@@ -66,6 +69,13 @@ func (this *CreateRequest) Validate() error {
 	return nil
 }
 func (this *CreateResponse) Validate() error {
+	for _, item := range this.Schedules {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Schedules", err)
+			}
+		}
+	}
 	if this.Status != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
