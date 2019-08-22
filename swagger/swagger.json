@@ -83,15 +83,43 @@
             "in": "query"
           },
           {
+            "type": "integer",
+            "format": "int32",
+            "description": "模块ID.",
+            "name": "module.bk_module_id",
+            "in": "query"
+          },
+          {
             "type": "string",
             "description": "集群名.",
             "name": "set.bk_set_name",
             "in": "query"
           },
           {
+            "type": "integer",
+            "format": "int32",
+            "description": "集群ID.",
+            "name": "set.bk_set_id",
+            "in": "query"
+          },
+          {
             "type": "string",
             "description": "业务名.",
             "name": "biz.bk_biz_name",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "业务ID.",
+            "name": "biz.bk_biz_id",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "区域ID.",
+            "name": "zone.bk_inst_id",
             "in": "query"
           }
         ],
@@ -756,6 +784,11 @@
       "type": "object",
       "title": "业务",
       "properties": {
+        "bk_biz_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "业务ID"
+        },
         "bk_biz_name": {
           "type": "string",
           "title": "业务名"
@@ -821,6 +854,11 @@
       "type": "object",
       "title": "模块",
       "properties": {
+        "bk_module_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "模块ID"
+        },
         "bk_module_name": {
           "type": "string",
           "title": "模块名"
@@ -850,6 +888,10 @@
         "set": {
           "title": "集群对象",
           "$ref": "#/definitions/cmdbSetObject"
+        },
+        "zone": {
+          "title": "区域对象",
+          "$ref": "#/definitions/cmdbZoneObject"
         }
       }
     },
@@ -878,6 +920,11 @@
       "type": "object",
       "title": "集群",
       "properties": {
+        "bk_set_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "集群ID"
+        },
         "bk_set_name": {
           "type": "string",
           "title": "集群名"
@@ -911,6 +958,17 @@
           "items": {
             "$ref": "#/definitions/cmdbTopologyObject"
           }
+        }
+      }
+    },
+    "cmdbZoneObject": {
+      "type": "object",
+      "title": "区域",
+      "properties": {
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "区域ID"
         }
       }
     },
