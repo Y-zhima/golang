@@ -63,18 +63,30 @@ message HostObject {
 message ModuleObject {
     // 模块名
     string bk_module_name = 1;
+    // 模块ID
+    int32 bk_module_id = 2;
 }
 
 // 集群
 message SetObject {
     // 集群名
     string bk_set_name = 1;
+    // 集群ID
+    int32 bk_set_id = 2;
+}
+
+// 区域
+message ZoneObject {
+    // 区域ID
+    int32 bk_inst_id = 1;
 }
 
 // 业务
 message BizObject {
     // 业务名
     string bk_biz_name = 1;
+    // 业务ID
+    int32 bk_biz_id = 2;
 }
 
 // 主机内容信息
@@ -101,6 +113,8 @@ message SearchHostRequest {
     SetObject set = 4;
     // 业务对象
     BizObject biz = 5;
+    // 区域对象
+    ZoneObject zone = 6;
 }
 
 // 查找主机请求返回

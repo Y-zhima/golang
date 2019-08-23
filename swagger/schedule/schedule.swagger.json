@@ -161,6 +161,14 @@
             "required": true,
             "type": "integer",
             "format": "int32"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/scheduleSwitchStatusRequest"
+            }
           }
         ],
         "tags": [
@@ -211,6 +219,11 @@
         "bk_biz_name": {
           "type": "string",
           "title": "业务名"
+        },
+        "bk_biz_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "业务ID"
         }
       },
       "title": "业务"
@@ -231,6 +244,11 @@
         "bk_module_name": {
           "type": "string",
           "title": "模块名"
+        },
+        "bk_module_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "模块ID"
         }
       },
       "title": "模块"
@@ -257,6 +275,10 @@
         "biz": {
           "$ref": "#/definitions/cmdbBizObject",
           "title": "业务对象"
+        },
+        "zone": {
+          "$ref": "#/definitions/cmdbZoneObject",
+          "title": "区域对象"
         }
       },
       "title": "查找主机请求"
@@ -267,9 +289,25 @@
         "bk_set_name": {
           "type": "string",
           "title": "集群名"
+        },
+        "bk_set_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "集群ID"
         }
       },
       "title": "集群"
+    },
+    "cmdbZoneObject": {
+      "type": "object",
+      "properties": {
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "区域ID"
+        }
+      },
+      "title": "区域"
     },
     "commonPaging": {
       "type": "object",
@@ -452,14 +490,12 @@
     "scheduleCreateResponse": {
       "type": "object",
       "properties": {
-        "schedule_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "定时任务ID"
-        },
-        "created": {
-          "type": "string",
-          "title": "定时任务创建时间"
+        "schedules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/scheduleCreateScheduleResponseObject"
+          },
+          "title": "创建定时任务的请求返回内容体"
         },
         "status": {
           "$ref": "#/definitions/commonResponseStatus",
@@ -498,6 +534,21 @@
         }
       },
       "title": "创建定时任务的请求内容体"
+    },
+    "scheduleCreateScheduleResponseObject": {
+      "type": "object",
+      "properties": {
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "定时任务ID"
+        },
+        "created": {
+          "type": "string",
+          "title": "定时任务创建时间"
+        }
+      },
+      "title": "创建定时任务的请求返回内容体"
     },
     "scheduleFilterResponse": {
       "type": "object",
@@ -586,6 +637,21 @@
       ],
       "default": "OFF",
       "title": "任务状态"
+    },
+    "scheduleSwitchStatusRequest": {
+      "type": "object",
+      "properties": {
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "定时任务ID"
+        },
+        "schedule_status": {
+          "$ref": "#/definitions/scheduleScheduleStatus",
+          "title": "定时任务状态"
+        }
+      },
+      "title": "切换定时任务状态请求"
     },
     "scheduleSwitchStatusResponse": {
       "type": "object",
@@ -713,11 +779,11 @@
     "templateTemplateState": {
       "type": "string",
       "enum": [
-        "RUNNING",
-        "NOT_RUNNING"
+        "OFF",
+        "ON"
       ],
-      "default": "RUNNING",
-      "description": "- RUNNING: 运行\n - NOT_RUNNING: 没运行",
+      "default": "OFF",
+      "description": "- OFF: 没运行\n - ON: 运行",
       "title": "模板状态"
     }
   }

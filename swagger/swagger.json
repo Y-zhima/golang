@@ -83,15 +83,43 @@
             "in": "query"
           },
           {
+            "type": "integer",
+            "format": "int32",
+            "description": "模块ID.",
+            "name": "module.bk_module_id",
+            "in": "query"
+          },
+          {
             "type": "string",
             "description": "集群名.",
             "name": "set.bk_set_name",
             "in": "query"
           },
           {
+            "type": "integer",
+            "format": "int32",
+            "description": "集群ID.",
+            "name": "set.bk_set_id",
+            "in": "query"
+          },
+          {
             "type": "string",
             "description": "业务名.",
             "name": "biz.bk_biz_name",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "业务ID.",
+            "name": "biz.bk_biz_id",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "区域ID.",
+            "name": "zone.bk_inst_id",
             "in": "query"
           }
         ],
@@ -100,6 +128,34 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/cmdbSearchHostResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/file/upload": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "上传csv等通用文件",
+        "operationId": "Upload",
+        "parameters": [
+          {
+            "description": " (streaming inputs)",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/fileUploadRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/fileUploadResponse"
             }
           }
         }
@@ -410,6 +466,14 @@
             "name": "schedule_id",
             "in": "path",
             "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/scheduleSwitchStatusRequest"
+            }
           }
         ],
         "responses": {
@@ -700,7 +764,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/templateUpdateRequest"
+              "$ref": "#/definitions/templateUpdateStateRequest"
             }
           }
         ],
@@ -708,7 +772,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/templateUpdateResponse"
+              "$ref": "#/definitions/templateUpdateStateResponse"
             }
           }
         }
@@ -720,6 +784,11 @@
       "type": "object",
       "title": "业务",
       "properties": {
+        "bk_biz_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "业务ID"
+        },
         "bk_biz_name": {
           "type": "string",
           "title": "业务名"
@@ -785,6 +854,11 @@
       "type": "object",
       "title": "模块",
       "properties": {
+        "bk_module_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "模块ID"
+        },
         "bk_module_name": {
           "type": "string",
           "title": "模块名"
@@ -814,6 +888,10 @@
         "set": {
           "title": "集群对象",
           "$ref": "#/definitions/cmdbSetObject"
+        },
+        "zone": {
+          "title": "区域对象",
+          "$ref": "#/definitions/cmdbZoneObject"
         }
       }
     },
@@ -842,6 +920,11 @@
       "type": "object",
       "title": "集群",
       "properties": {
+        "bk_set_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "集群ID"
+        },
         "bk_set_name": {
           "type": "string",
           "title": "集群名"
@@ -875,6 +958,17 @@
           "items": {
             "$ref": "#/definitions/cmdbTopologyObject"
           }
+        }
+      }
+    },
+    "cmdbZoneObject": {
+      "type": "object",
+      "title": "区域",
+      "properties": {
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "区域ID"
         }
       }
     },
@@ -977,6 +1071,38 @@
         "url": {
           "type": "string",
           "title": "解析出来的playbook项目存储在对象存储的url"
+        }
+      }
+    },
+    "fileUploadRequest": {
+      "type": "object",
+      "title": "上传csv等通用文件",
+      "properties": {
+        "content": {
+          "type": "string",
+          "format": "byte",
+          "title": "文件字段"
+        }
+      }
+    },
+    "fileUploadResponse": {
+      "type": "object",
+      "properties": {
+        "filesize": {
+          "type": "string",
+          "title": "解析出来的通用文件大小"
+        },
+        "md5": {
+          "type": "string",
+          "title": "解析出来的通用文件md5"
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "url": {
+          "type": "string",
+          "title": "通用文件对象存储的url"
         }
       }
     },
@@ -1281,14 +1407,12 @@
       "type": "object",
       "title": "创建定时任务请求返回",
       "properties": {
-        "created": {
-          "type": "string",
-          "title": "定时任务创建时间"
-        },
-        "schedule_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "定时任务ID"
+        "schedules": {
+          "type": "array",
+          "title": "创建定时任务的请求返回内容体",
+          "items": {
+            "$ref": "#/definitions/scheduleCreateScheduleResponseObject"
+          }
         },
         "status": {
           "title": "返回请求状态",
@@ -1324,6 +1448,21 @@
           "type": "integer",
           "format": "int32",
           "title": "模板ID"
+        }
+      }
+    },
+    "scheduleCreateScheduleResponseObject": {
+      "type": "object",
+      "title": "创建定时任务的请求返回内容体",
+      "properties": {
+        "created": {
+          "type": "string",
+          "title": "定时任务创建时间"
+        },
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "定时任务ID"
         }
       }
     },
@@ -1414,6 +1553,21 @@
         "OFF",
         "ON"
       ]
+    },
+    "scheduleSwitchStatusRequest": {
+      "type": "object",
+      "title": "切换定时任务状态请求",
+      "properties": {
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "定时任务ID"
+        },
+        "schedule_status": {
+          "title": "定时任务状态",
+          "$ref": "#/definitions/scheduleScheduleStatus"
+        }
+      }
     },
     "scheduleSwitchStatusResponse": {
       "type": "object",
@@ -1811,13 +1965,13 @@
       }
     },
     "templateTemplateState": {
-      "description": "- RUNNING: 运行\n - NOT_RUNNING: 没运行",
+      "description": "- OFF: 没运行\n - ON: 运行",
       "type": "string",
       "title": "模板状态",
-      "default": "RUNNING",
+      "default": "OFF",
       "enum": [
-        "RUNNING",
-        "NOT_RUNNING"
+        "OFF",
+        "ON"
       ]
     },
     "templateUpdateRequest": {
@@ -1858,6 +2012,34 @@
         "updated": {
           "type": "string",
           "title": "模板更新的时间"
+        }
+      }
+    },
+    "templateUpdateStateRequest": {
+      "type": "object",
+      "title": "更新模板状态开关请求",
+      "required": [
+        "template_id"
+      ],
+      "properties": {
+        "state": {
+          "title": "模板状态开关标识",
+          "$ref": "#/definitions/templateTemplateState"
+        },
+        "template_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "模板ID"
+        }
+      }
+    },
+    "templateUpdateStateResponse": {
+      "type": "object",
+      "title": "更新模板状态请求返回",
+      "properties": {
+        "status": {
+          "title": "请求返回的状态",
+          "$ref": "#/definitions/commonResponseStatus"
         }
       }
     }

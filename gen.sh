@@ -21,7 +21,7 @@ echo '{
 }' > swagger/swagger.json 
 
 rm -rf /tmp/protos
-mkdir -p /tmp/protos/javaout
+mkdir -p /tmp/protos
 
 for f in src/*/*.proto ; do
     echo "gen proto File -> $f";
@@ -31,11 +31,9 @@ for f in src/*/*.proto ; do
     -I$GOPATH/src \
     --go_out=plugins=grpc:/tmp/protos \
     --govalidators_out=/tmp/protos \
-    --java_out=/tmp/protos/javaout \
     --grpc-gateway_out=logtostderr=true:/tmp/protos \
     --swagger_out=logtostderr=true:swagger \
     $f
 done ;
 
-cp -rf /tmp/protos/javaout .
 cp -rf /tmp/protos/git.fogcdn.top/axe/protos/goout .

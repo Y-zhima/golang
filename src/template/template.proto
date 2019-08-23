@@ -42,7 +42,7 @@ service Template {
         };
     }
     // 更新作业模板状态开关
-    rpc UpdateState (UpdateRequest) returns (UpdateResponse) {
+    rpc UpdateState (UpdateStateRequest) returns (UpdateStateResponse) {
         option (google.api.http) = {
             post: "/v1/template/updateState/{template_id}"
             body: "*"
@@ -193,7 +193,7 @@ message UpdateStateRequest {
 // 更新模板状态请求返回
 message UpdateStateResponse {
     // 请求返回的状态
-    common.ResponseStatus status = 2;
+    common.ResponseStatus status = 1;
 }
 
 
@@ -211,8 +211,8 @@ message DeleteResponse {
 
 // 模板状态
 enum TemplateState {
-    // 运行
-    RUNNING = 0;
     // 没运行
-    NOT_RUNNING= 1;
+    OFF = 0;
+    // 运行
+    ON = 1;
 }

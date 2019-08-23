@@ -29,3 +29,14 @@ func (this *UploadPlaybookResponse) Validate() error {
 	}
 	return nil
 }
+func (this *UploadRequest) Validate() error {
+	return nil
+}
+func (this *UploadResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}

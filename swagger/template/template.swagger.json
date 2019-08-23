@@ -177,7 +177,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/templateUpdateResponse"
+              "$ref": "#/definitions/templateUpdateStateResponse"
             }
           }
         },
@@ -195,7 +195,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/templateUpdateRequest"
+              "$ref": "#/definitions/templateUpdateStateRequest"
             }
           }
         ],
@@ -518,11 +518,11 @@
     "templateTemplateState": {
       "type": "string",
       "enum": [
-        "RUNNING",
-        "NOT_RUNNING"
+        "OFF",
+        "ON"
       ],
-      "default": "RUNNING",
-      "description": "- RUNNING: 运行\n - NOT_RUNNING: 没运行",
+      "default": "OFF",
+      "description": "- OFF: 没运行\n - ON: 运行",
       "title": "模板状态"
     },
     "templateUpdateRequest": {
@@ -565,6 +565,34 @@
         }
       },
       "title": "更新请求返回"
+    },
+    "templateUpdateStateRequest": {
+      "type": "object",
+      "properties": {
+        "template_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "模板ID"
+        },
+        "state": {
+          "$ref": "#/definitions/templateTemplateState",
+          "title": "模板状态开关标识"
+        }
+      },
+      "title": "更新模板状态开关请求",
+      "required": [
+        "template_id"
+      ]
+    },
+    "templateUpdateStateResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "请求返回的状态"
+        }
+      },
+      "title": "更新模板状态请求返回"
     }
   }
 }

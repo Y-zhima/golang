@@ -92,6 +92,14 @@
             "type": "string"
           },
           {
+            "name": "module.bk_module_id",
+            "description": "模块ID.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
             "name": "set.bk_set_name",
             "description": "集群名.",
             "in": "query",
@@ -99,11 +107,35 @@
             "type": "string"
           },
           {
+            "name": "set.bk_set_id",
+            "description": "集群ID.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
             "name": "biz.bk_biz_name",
             "description": "业务名.",
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "biz.bk_biz_id",
+            "description": "业务ID.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "zone.bk_inst_id",
+            "description": "区域ID.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
           }
         ],
         "tags": [
@@ -119,6 +151,11 @@
         "bk_biz_name": {
           "type": "string",
           "title": "业务名"
+        },
+        "bk_biz_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "业务ID"
         }
       },
       "title": "业务"
@@ -184,6 +221,11 @@
         "bk_module_name": {
           "type": "string",
           "title": "模块名"
+        },
+        "bk_module_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "模块ID"
         }
       },
       "title": "模块"
@@ -215,6 +257,11 @@
         "bk_set_name": {
           "type": "string",
           "title": "集群名"
+        },
+        "bk_set_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "集群ID"
         }
       },
       "title": "集群"
@@ -248,6 +295,17 @@
         }
       },
       "title": "业务拓扑对象"
+    },
+    "cmdbZoneObject": {
+      "type": "object",
+      "properties": {
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "区域ID"
+        }
+      },
+      "title": "区域"
     },
     "commonPaging": {
       "type": "object",

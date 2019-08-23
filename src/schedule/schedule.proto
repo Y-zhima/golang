@@ -52,6 +52,7 @@ service Schedule {
     rpc SwitchStatus (SwitchStatusRequest) returns (SwitchStatusResponse) {
         option (google.api.http) = {
             post: "/v1/schedule/switchStatus/{schedule_id}"
+            body: "*"
         };
     }
 
@@ -113,6 +114,14 @@ message CreateScheduleObject {
     TaskType task_type = 6;
 }
 
+// 创建定时任务的请求返回内容体
+message CreateScheduleResponseObject {
+    // 定时任务ID
+    int32 schedule_id = 1;
+    // 定时任务创建时间
+    string created = 2;
+}
+
 // 创建定时任务请求
 message CreateRequest {
     option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
@@ -130,10 +139,8 @@ message CreateRequest {
 
 // 创建定时任务请求返回
 message CreateResponse {
-    // 定时任务ID
-    int32 schedule_id = 1;
-    // 定时任务创建时间
-    string created = 2;
+    // 创建定时任务的请求返回内容体
+    repeated CreateScheduleResponseObject schedules = 1;
     // 返回请求状态
     common.ResponseStatus status = 3;
 }
@@ -216,6 +223,8 @@ message UpdateResponse {
 message SwitchStatusRequest {
     // 定时任务ID
     int32 schedule_id = 1;
+    // 定时任务状态
+    ScheduleStatus schedule_status = 2;
 }
 
 // 切换定时任务状态请求返回
