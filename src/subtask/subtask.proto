@@ -2,8 +2,8 @@ syntax = "proto3";
 
 package subtask;
 
-option go_package = "git.fogcdn.top/axe/protos/goout/task";
-option java_package = "top.fogcdn.axe.protos.task";
+option go_package = "git.fogcdn.top/axe/protos/goout/subtask";
+option java_package = "top.fogcdn.axe.protos.subtask";
 
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
