@@ -289,8 +289,8 @@
       "type": "object",
       "properties": {
         "task_id": {
-          "type": "integer",
-          "format": "int32",
+          "type": "string",
+          "format": "int64",
           "title": "任务实例ID"
         },
         "status": {
@@ -360,8 +360,8 @@
       "type": "object",
       "properties": {
         "task_id": {
-          "type": "integer",
-          "format": "int32",
+          "type": "string",
+          "format": "int64",
           "title": "作业任务ID"
         },
         "template_id": {
@@ -411,13 +411,11 @@
           "title": "执行成功多少台主机"
         },
         "start_time": {
-          "type": "integer",
-          "format": "int32",
+          "type": "string",
           "title": "执行开始时间"
         },
         "end_time": {
-          "type": "integer",
-          "format": "int32",
+          "type": "string",
           "title": "执行结束时间"
         }
       },

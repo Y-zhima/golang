@@ -1,0 +1,202 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "subtask/subtask.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {},
+  "definitions": {
+    "cmdbBizObject": {
+      "type": "object",
+      "properties": {
+        "bk_biz_name": {
+          "type": "string",
+          "title": "业务名"
+        },
+        "bk_biz_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "业务ID"
+        }
+      },
+      "title": "业务"
+    },
+    "cmdbHostObject": {
+      "type": "object",
+      "properties": {
+        "bk_host_innerip": {
+          "type": "string",
+          "title": "内网IP"
+        }
+      },
+      "title": "主机"
+    },
+    "cmdbModuleObject": {
+      "type": "object",
+      "properties": {
+        "bk_module_name": {
+          "type": "string",
+          "title": "模块名"
+        },
+        "bk_module_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "模块ID"
+        }
+      },
+      "title": "模块"
+    },
+    "cmdbSearchHostRequest": {
+      "type": "object",
+      "properties": {
+        "paging": {
+          "$ref": "#/definitions/commonPaging",
+          "title": "分页信息"
+        },
+        "host": {
+          "$ref": "#/definitions/cmdbHostObject",
+          "title": "主机对象"
+        },
+        "module": {
+          "$ref": "#/definitions/cmdbModuleObject",
+          "title": "模块对象"
+        },
+        "set": {
+          "$ref": "#/definitions/cmdbSetObject",
+          "title": "集群对象"
+        },
+        "biz": {
+          "$ref": "#/definitions/cmdbBizObject",
+          "title": "业务对象"
+        },
+        "zone": {
+          "$ref": "#/definitions/cmdbZoneObject",
+          "title": "区域对象"
+        }
+      },
+      "title": "查找主机请求"
+    },
+    "cmdbSetObject": {
+      "type": "object",
+      "properties": {
+        "bk_set_name": {
+          "type": "string",
+          "title": "集群名"
+        },
+        "bk_set_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "集群ID"
+        }
+      },
+      "title": "集群"
+    },
+    "cmdbZoneObject": {
+      "type": "object",
+      "properties": {
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "区域ID"
+        }
+      },
+      "title": "区域"
+    },
+    "commonPaging": {
+      "type": "object",
+      "properties": {
+        "total_page": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总页数"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "title": "当前页数"
+        },
+        "per_page": {
+          "type": "integer",
+          "format": "int32",
+          "title": "每页显示的记录条数"
+        },
+        "total_record": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总记录数"
+        }
+      },
+      "title": "分页"
+    },
+    "commonResponseStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/commonStatusCode",
+          "title": "状态码"
+        },
+        "message": {
+          "type": "string",
+          "title": "信息"
+        }
+      },
+      "title": "请求返回状态"
+    },
+    "commonStatusCode": {
+      "type": "string",
+      "enum": [
+        "SUCCESS",
+        "INVALID_ARGUMENT",
+        "ACCESS_DENIED"
+      ],
+      "default": "SUCCESS",
+      "description": "- SUCCESS: 成功\n - INVALID_ARGUMENT: 参数错误\n - ACCESS_DENIED: 访问拒绝",
+      "title": "请求返回状态码"
+    },
+    "subtaskCompleteResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        }
+      },
+      "title": "完成子任务实例请求返回"
+    },
+    "subtaskCreateResponse": {
+      "type": "object",
+      "properties": {
+        "sub_task_id": {
+          "type": "string",
+          "format": "int64",
+          "title": "子任务实例ID"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        }
+      },
+      "title": "创建子任务实例请求返回"
+    },
+    "subtaskSubTaskResult": {
+      "type": "string",
+      "enum": [
+        "FAILURE",
+        "SUCCESS"
+      ],
+      "default": "FAILURE",
+      "description": "- FAILURE: 失败\n - SUCCESS: 成功",
+      "title": "子任务执行结果"
+    }
+  }
+}
