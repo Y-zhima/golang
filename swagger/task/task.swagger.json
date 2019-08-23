@@ -262,17 +262,13 @@
           "format": "int32",
           "title": "模板ID"
         },
-        "name": {
-          "type": "string",
-          "title": "定时任务名"
+        "cmdb_search_request": {
+          "$ref": "#/definitions/cmdbSearchHostRequest",
+          "title": "cmdb的搜索条件"
         },
         "task_type": {
           "$ref": "#/definitions/scheduleTaskType",
           "title": "任务类型"
-        },
-        "cmdb_search_request": {
-          "$ref": "#/definitions/cmdbSearchHostRequest",
-          "title": "cmdb的搜索条件"
         },
         "extra_var": {
           "type": "string",
