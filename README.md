@@ -27,11 +27,17 @@ service File {
 make
 ```
 
+### 生成go mock文件
+```
+make gen-mock
+```
+
 ### 自动生成目录
 
 - `goout`: 根据`proto`生成的go代码
 - `javaout`: 根据`proto`生成的java代码
 - `swagger`: 根据`proto`生成的swagger json文件
+- `gooutmock`: 根据`goout`生成的mock文件
 
 #### swagger ui
 ```

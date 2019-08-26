@@ -12,7 +12,7 @@ import "protoc-gen-swagger/options/annotations.proto";
 // 文件服务
 service File {
     // 上传playbook压缩包并且解析入口yml文件
-    rpc UploadPlaybook (stream UploadPlaybookRequest) returns (UploadPlaybookResponse) {
+    rpc UploadPlaybook (UploadPlaybookRequest) returns (UploadPlaybookResponse) {
         option (google.api.http) = {
             post: "/v1/file/uploadPlaybook"
             body: "*"
@@ -20,7 +20,7 @@ service File {
     }
 
     // 上传csv等通用文件
-    rpc Upload (stream UploadRequest) returns (UploadResponse) {
+    rpc Upload (UploadRequest) returns (UploadResponse) {
         option (google.api.http) = {
             post: "/v1/file/upload"
             body: "*"

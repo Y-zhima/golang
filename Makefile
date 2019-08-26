@@ -1,7 +1,7 @@
 .PHONY: gen-go package
 
 IMAGE_NAME=192.168.0.103:8080/axe/protos
-VERSION=v0.0.2
+VERSION=v0.0.3
 GIT_COMMIT=$(shell git rev-parse HEAD)
 
 SWAGGER_FILES=$(wildcard swagger/*.json) $(wildcard swagger/*/*.json)
@@ -15,7 +15,11 @@ push: package
 	docker push ${IMAGE_NAME}:${VERSION}
 
 gen-proto: clean
-	docker run -it -v $(PWD):/opt/protos ${IMAGE_NAME}:${VERSION} sh gen.sh
+	docker run -it -v $(PWD):/opt/protos ${IMAGE_NAME}:${VERSION} sh gen.sh proto
+
+gen-mock:
+	@rm -rf gooutmock
+	docker run -it -v $(PWD):/opt/protos ${IMAGE_NAME}:${VERSION} sh gen.sh mock
 
 swagger-mixin:
 	@docker run --rm -it -v $(PWD):/tmp/protos -w /tmp/protos quay.io/goswagger/swagger -q mixin ${SWAGGER_FILES} -o swagger/swagger.json || true

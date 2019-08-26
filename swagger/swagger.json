@@ -167,7 +167,6 @@
         "operationId": "Upload",
         "parameters": [
           {
-            "description": " (streaming inputs)",
             "name": "body",
             "in": "body",
             "required": true,
@@ -195,7 +194,6 @@
         "operationId": "UploadPlaybook",
         "parameters": [
           {
-            "description": " (streaming inputs)",
             "name": "body",
             "in": "body",
             "required": true,
