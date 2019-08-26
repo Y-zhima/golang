@@ -17,6 +17,31 @@
   },
   "host": "192.168.0.129:8969",
   "paths": {
+    "/v1/cmdb/importHost": {
+      "get": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "导入主机",
+        "operationId": "ImportHost",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "csv文件下载路径.",
+            "name": "url",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportHostResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/cmdb/instanceTopology": {
       "get": {
         "tags": [
@@ -833,6 +858,16 @@
         "bk_host_innerip": {
           "type": "string",
           "title": "内网IP"
+        }
+      }
+    },
+    "cmdbImportHostResponse": {
+      "type": "object",
+      "title": "导入主机请求返回",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
         }
       }
     },

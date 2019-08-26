@@ -8,6 +8,7 @@ option java_package = "top.fogcdn.axe.protos.cmdb";
 import "common/api.proto";
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
+import "github.com/mwitkow/go-proto-validators/validator.proto";
 
 // 主机
 service Cmdb {
@@ -22,6 +23,13 @@ service Cmdb {
     rpc SearchHost (SearchHostRequest) returns (SearchHostResponse) {
         option (google.api.http) = {
             get: "/v1/cmdb/searchHost"
+        };
+    }
+
+    // 导入主机
+    rpc ImportHost (ImportHostRequest) returns (ImportHostResponse) {
+        option (google.api.http) = {
+            get: "/v1/cmdb/importHost"
         };
     }
 }
@@ -125,4 +133,16 @@ message SearchHostResponse {
     common.ResponseStatus status = 2;
     // 主机信息
     repeated HostInfoObject info = 3;
+}
+
+// 导入主机请求
+message ImportHostRequest {
+    // csv文件下载路径
+    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
+}
+
+// 导入主机请求返回
+message ImportHostResponse {
+    // 状态码
+    common.ResponseStatus status = 1;
 }
