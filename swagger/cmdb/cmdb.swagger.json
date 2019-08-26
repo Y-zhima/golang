@@ -15,6 +15,32 @@
     "application/json"
   ],
   "paths": {
+    "/v1/cmdb/importHost": {
+      "get": {
+        "summary": "导入主机",
+        "operationId": "ImportHost",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportHostResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "url",
+            "description": "csv文件下载路径.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cmdb"
+        ]
+      }
+    },
     "/v1/cmdb/instanceTopology": {
       "get": {
         "summary": "实例拓扑",
@@ -200,6 +226,16 @@
         }
       },
       "title": "主机"
+    },
+    "cmdbImportHostResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
+        }
+      },
+      "title": "导入主机请求返回"
     },
     "cmdbInstanceTopologyResponse": {
       "type": "object",
