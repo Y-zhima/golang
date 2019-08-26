@@ -57,7 +57,7 @@ enum ScheduleType {
 // 作业任务实例
 message TaskObject {
     // 作业任务ID
-    int32 task_id = 1;
+    int64 task_id = 1;
     // 模板ID
     int32 template_id = 2;
     // 定时任务ID
@@ -79,9 +79,9 @@ message TaskObject {
     // 执行成功多少台主机
     int32 success_count = 11;
     // 执行开始时间
-    int32 start_time = 12;
+    string start_time = 12;
     // 执行结束时间
-    int32 end_time = 13;
+    string end_time = 13;
 }
 
 // 创建任务实例请求
@@ -93,20 +93,18 @@ message CreateRequest {
     };
     // 模板ID
     int32 template_id = 1 [(validator.field) = {int_gt: 0, human_error: "模板ID不能为空"}];
-    // 定时任务名
-    string name = 2 [(validator.field) = {string_not_empty: true, human_error: "定时任务名不能为空"}];
+    // cmdb的搜索条件
+    cmdb.SearchHostRequest cmdb_search_request = 2 [(validator.field) = {string_not_empty: true, human_error: "cmdb的搜索条件不能为空"}];
     // 任务类型
     schedule.TaskType task_type = 3;
-    // cmdb的搜索条件
-    cmdb.SearchHostRequest cmdb_search_request = 4 [(validator.field) = {string_not_empty: true, human_error: "cmdb的搜索条件不能为空"}];
     // 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
-    string extra_var = 5;
+    string extra_var = 4;
 }
 
 // 创建任务实例请求返回
 message CreateResponse {
     // 任务实例ID
-    int32 task_id = 1;
+    int64 task_id = 1;
     // 返回的请求状态
     common.ResponseStatus status = 3;
 }
@@ -114,7 +112,7 @@ message CreateResponse {
 // 获取作业任务请求
 message GetRequest {
     // 作业任务ID
-    int32 task_id = 1;
+    int64 task_id = 1;
 }
 
 // 获取作业任务请求返回
@@ -128,7 +126,7 @@ message GetResponse {
 // 获取作业任务详细执行过程请求
 message GetLogRequest {
     // 作业任务ID
-    int32 task_id = 1;
+    int64 task_id = 1;
 }
 
 // 获取作业任务详细执行过程请求返回

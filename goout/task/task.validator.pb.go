@@ -7,12 +7,12 @@ import (
 	fmt "fmt"
 	math "math"
 	proto "github.com/golang/protobuf/proto"
-	_ "git.fogcdn.top/axe/protos/goout/schedule"
-	_ "git.fogcdn.top/axe/protos/goout/cmdb"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "github.com/mwitkow/go-proto-validators"
 	_ "git.fogcdn.top/axe/protos/goout/common"
+	_ "git.fogcdn.top/axe/protos/goout/schedule"
+	_ "git.fogcdn.top/axe/protos/goout/cmdb"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
@@ -32,9 +32,6 @@ func (this *TaskObject) Validate() error {
 func (this *CreateRequest) Validate() error {
 	if !(this.TemplateId > 0) {
 		return github_com_mwitkow_go_proto_validators.FieldError("TemplateId", fmt.Errorf(`模板ID不能为空`))
-	}
-	if this.Name == "" {
-		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`定时任务名不能为空`))
 	}
 	if this.CmdbSearchRequest != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbSearchRequest); err != nil {

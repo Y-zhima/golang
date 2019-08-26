@@ -527,7 +527,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "CreateMixin6",
+        "operationId": "CreateMixin7",
         "parameters": [
           {
             "name": "body",
@@ -554,7 +554,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "FilterMixin6",
+        "operationId": "FilterMixin7",
         "parameters": [
           {
             "type": "integer",
@@ -601,7 +601,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin7",
+        "operationId": "CreateMixin8",
         "parameters": [
           {
             "name": "body",
@@ -628,7 +628,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin7",
+        "operationId": "FilterMixin8",
         "parameters": [
           {
             "type": "integer",
@@ -687,7 +687,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin7",
+        "operationId": "GetMixin8",
         "parameters": [
           {
             "type": "integer",
@@ -714,7 +714,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin7",
+        "operationId": "UpdateMixin8",
         "parameters": [
           {
             "type": "integer",
@@ -1639,6 +1639,41 @@
         }
       }
     },
+    "subtaskCompleteResponse": {
+      "type": "object",
+      "title": "完成子任务实例请求返回",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "subtaskCreateResponse": {
+      "type": "object",
+      "title": "创建子任务实例请求返回",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "sub_task_id": {
+          "type": "string",
+          "format": "int64",
+          "title": "子任务实例ID"
+        }
+      }
+    },
+    "subtaskSubTaskResult": {
+      "description": "- FAILURE: 失败\n - SUCCESS: 成功",
+      "type": "string",
+      "title": "子任务执行结果",
+      "default": "FAILURE",
+      "enum": [
+        "FAILURE",
+        "SUCCESS"
+      ]
+    },
     "taskCreateRequest": {
       "type": "object",
       "title": "创建任务实例请求",
@@ -1654,10 +1689,6 @@
         "extra_var": {
           "type": "string",
           "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
-        },
-        "name": {
-          "type": "string",
-          "title": "定时任务名"
         },
         "task_type": {
           "title": "任务类型",
@@ -1679,8 +1710,8 @@
           "$ref": "#/definitions/commonResponseStatus"
         },
         "task_id": {
-          "type": "integer",
-          "format": "int32",
+          "type": "string",
+          "format": "int64",
           "title": "任务实例ID"
         }
       }
@@ -1750,8 +1781,7 @@
           "$ref": "#/definitions/cmdbSearchHostRequest"
         },
         "end_time": {
-          "type": "integer",
-          "format": "int32",
+          "type": "string",
           "title": "执行结束时间"
         },
         "execute_count": {
@@ -1783,8 +1813,7 @@
           "$ref": "#/definitions/taskScheduleType"
         },
         "start_time": {
-          "type": "integer",
-          "format": "int32",
+          "type": "string",
           "title": "执行开始时间"
         },
         "success_count": {
@@ -1793,8 +1822,8 @@
           "title": "执行成功多少台主机"
         },
         "task_id": {
-          "type": "integer",
-          "format": "int32",
+          "type": "string",
+          "format": "int64",
           "title": "作业任务ID"
         },
         "task_type": {
