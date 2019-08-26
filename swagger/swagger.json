@@ -337,7 +337,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin5",
+        "operationId": "CreateMixin6",
         "parameters": [
           {
             "name": "body",
@@ -364,7 +364,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin5",
+        "operationId": "FilterMixin6",
         "parameters": [
           {
             "type": "integer",
@@ -430,7 +430,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin5",
+        "operationId": "GetMixin6",
         "parameters": [
           {
             "type": "integer",
@@ -492,7 +492,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "UpdateMixin5",
+        "operationId": "UpdateMixin6",
         "parameters": [
           {
             "type": "integer",
@@ -527,7 +527,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "CreateMixin7",
+        "operationId": "CreateMixin8",
         "parameters": [
           {
             "name": "body",
@@ -554,7 +554,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "FilterMixin7",
+        "operationId": "FilterMixin8",
         "parameters": [
           {
             "type": "integer",
@@ -601,7 +601,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin8",
+        "operationId": "CreateMixin9",
         "parameters": [
           {
             "name": "body",
@@ -628,7 +628,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin8",
+        "operationId": "FilterMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -687,7 +687,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin8",
+        "operationId": "GetMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -714,7 +714,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin8",
+        "operationId": "UpdateMixin9",
         "parameters": [
           {
             "type": "integer",
