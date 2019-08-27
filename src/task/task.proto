@@ -99,6 +99,12 @@ message CreateRequest {
     schedule.TaskType task_type = 3;
     // 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
     string extra_var = 4;
+    // 定时任务ID
+    int32 schedule_id = 5;
+    // 定时任务类型
+    ScheduleType schedule_type = 6;
+    // 任务类型
+    schedule.TaskType task_type = 7;
 }
 
 // 创建任务实例请求返回
