@@ -1420,8 +1420,11 @@
       ],
       "properties": {
         "cmdb_search_request": {
+          "type": "array",
           "title": "cmdb的搜索条件",
-          "$ref": "#/definitions/cmdbSearchHostRequest"
+          "items": {
+            "$ref": "#/definitions/cmdbSearchHostRequest"
+          }
         },
         "extra_var": {
           "type": "string",
@@ -1716,8 +1719,11 @@
       ],
       "properties": {
         "cmdb_search_request": {
+          "type": "array",
           "title": "cmdb的搜索条件",
-          "$ref": "#/definitions/cmdbSearchHostRequest"
+          "items": {
+            "$ref": "#/definitions/cmdbSearchHostRequest"
+          }
         },
         "extra_var": {
           "type": "string",
@@ -1819,8 +1825,11 @@
       "title": "作业任务实例",
       "properties": {
         "cmdb_search_request": {
+          "type": "array",
           "title": "cmdb的搜索条件",
-          "$ref": "#/definitions/cmdbSearchHostRequest"
+          "items": {
+            "$ref": "#/definitions/cmdbSearchHostRequest"
+          }
         },
         "end_time": {
           "type": "string",
