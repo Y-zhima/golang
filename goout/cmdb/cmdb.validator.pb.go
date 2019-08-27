@@ -156,3 +156,6 @@ func (this *ImportHostResponse) Validate() error {
 	}
 	return nil
 }
+func (this *ChooseHostRequest) Validate() error {
+	return nil
+}
