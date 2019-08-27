@@ -146,3 +146,11 @@ message ImportHostResponse {
     // 状态码
     common.ResponseStatus status = 1;
 }
+
+// 选择主机请求
+message ChooseHostRequest {
+    // 集群ID
+    int32 bk_set_id = 1;
+    // 模块ID
+    repeated int32 bk_module_id = 2;
+}
