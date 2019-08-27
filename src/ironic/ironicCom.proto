@@ -1,0 +1,89 @@
+syntax = "proto3";
+
+option go_package = "git.fogcdn.top/axe/protos/goout/ironic";
+
+option java_multiple_files = true;
+option java_package = "com.ffcs.xmrdc.ironic.biz.ironicCom";
+option java_outer_classname = "ironicComProto";
+
+package ironicCom;
+
+//import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+// 分页信息(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)
+message PageInfo {
+
+    // 当前页
+    int32 pageIndex = 1;
+    // 每页数量
+    int32 pageSize = 2;
+    // 总页数
+    int32 pageCount = 3;
+    // 总记录数
+    int32 rowCount = 4;
+}
+
+// 查询范围信息(继承PageInfo。详情查询类服务中，用于指定具体子表的查询范围及分页信息。)
+message ScopeInfo {
+
+    // 范围编码
+    string scope = 1;
+    // 当前页
+    int32 pageIndex = 2;
+    // 每页数量
+    int32 pageSize = 3;
+    // 总页数
+    int32 pageCount = 4;
+    // 总记录数
+    int32 rowCount = 5;
+}
+
+// 时间范围信息(用于指定时间范围。如按受理开始时间、受理结束时间查询订单列表。按某个具体时间查询，不使用此对象。)
+message TimeScope {
+
+    // 起始时间
+    google.protobuf.Timestamp beginDate = 1;
+    // 结束时间
+    google.protobuf.Timestamp endDate = 2;
+}
+
+//调用方编码
+enum appKey{
+    UNDEFINED = 0;
+    //裸金属应用
+    IRONICAPP = 1000010000;
+    //CMDB平台
+    CMDB =2000020000;
+}
+
+// 控制对象(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)
+message TcpContReq {
+    // 服务编码
+    string svcCode = 1;
+    // 能力编码
+    string apiCode = 2;
+    // 调用方编码
+    string appKey = 3;
+    // 提供方编码
+    string dstSysID = 4;
+    // 交易流水号
+    string transactionID = 5;
+    // 请求时间
+    google.protobuf.Timestamp reqTime = 6;
+    // 签名字符串
+    string sign = 7;
+    // 服务版本
+    string version = 8;
+}
+
+// 控制对象(每个服务通用的控制信息，当服务端反馈应答时，信息填写如下)
+message TcpContRes {
+
+    // 交易流水号
+    string transactionID = 1;
+    // 应答时间
+    google.protobuf.Timestamp reqTime = 2;
+    // 签名字符串
+    string sign = 3;
+}
