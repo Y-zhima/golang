@@ -1099,6 +1099,25 @@
         }
       }
     },
+    "cmdbChooseHostRequest": {
+      "type": "object",
+      "title": "选择主机请求",
+      "properties": {
+        "bk_module_id": {
+          "type": "array",
+          "title": "模块ID",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "bk_set_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "集群ID"
+        }
+      }
+    },
     "cmdbHostInfoObject": {
       "type": "object",
       "title": "主机内容信息",
@@ -1176,36 +1195,6 @@
         "bk_module_name": {
           "type": "string",
           "title": "模块名"
-        }
-      }
-    },
-    "cmdbSearchHostRequest": {
-      "type": "object",
-      "title": "查找主机请求",
-      "properties": {
-        "biz": {
-          "title": "业务对象",
-          "$ref": "#/definitions/cmdbBizObject"
-        },
-        "host": {
-          "title": "主机对象",
-          "$ref": "#/definitions/cmdbHostObject"
-        },
-        "module": {
-          "title": "模块对象",
-          "$ref": "#/definitions/cmdbModuleObject"
-        },
-        "paging": {
-          "title": "分页信息",
-          "$ref": "#/definitions/commonPaging"
-        },
-        "set": {
-          "title": "集群对象",
-          "$ref": "#/definitions/cmdbSetObject"
-        },
-        "zone": {
-          "title": "区域对象",
-          "$ref": "#/definitions/cmdbZoneObject"
         }
       }
     },
@@ -2019,8 +2008,11 @@
       ],
       "properties": {
         "cmdb_search_request": {
+          "type": "array",
           "title": "cmdb的搜索条件",
-          "$ref": "#/definitions/cmdbSearchHostRequest"
+          "items": {
+            "$ref": "#/definitions/cmdbChooseHostRequest"
+          }
         },
         "extra_var": {
           "type": "string",
@@ -2315,8 +2307,11 @@
       ],
       "properties": {
         "cmdb_search_request": {
+          "type": "array",
           "title": "cmdb的搜索条件",
-          "$ref": "#/definitions/cmdbSearchHostRequest"
+          "items": {
+            "$ref": "#/definitions/cmdbChooseHostRequest"
+          }
         },
         "extra_var": {
           "type": "string",
@@ -2418,8 +2413,11 @@
       "title": "作业任务实例",
       "properties": {
         "cmdb_search_request": {
+          "type": "array",
           "title": "cmdb的搜索条件",
-          "$ref": "#/definitions/cmdbSearchHostRequest"
+          "items": {
+            "$ref": "#/definitions/cmdbChooseHostRequest"
+          }
         },
         "end_time": {
           "type": "string",

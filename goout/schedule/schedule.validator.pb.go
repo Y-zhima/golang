@@ -7,12 +7,12 @@ import (
 	fmt "fmt"
 	math "math"
 	proto "github.com/golang/protobuf/proto"
+	_ "git.fogcdn.top/axe/protos/goout/template"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "github.com/mwitkow/go-proto-validators"
 	_ "git.fogcdn.top/axe/protos/goout/common"
 	_ "git.fogcdn.top/axe/protos/goout/cmdb"
-	_ "git.fogcdn.top/axe/protos/goout/template"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
@@ -61,9 +61,11 @@ func (this *CreateRequest) Validate() error {
 			}
 		}
 	}
-	if this.CmdbSearchRequest != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbSearchRequest); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+	for _, item := range this.CmdbSearchRequest {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+			}
 		}
 	}
 	return nil
