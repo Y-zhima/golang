@@ -97,6 +97,26 @@ message BizObject {
     int32 bk_biz_id = 2;
 }
 
+// 通用对象，包括机房 交换机 物理机
+message Object {
+    // 实例ID
+    int32 bk_inst_id = 1;
+    // 实例名称
+    string bk_inst_name = 2;
+    // 实例属对象
+    string bk_obj_id = 3;
+}
+
+// 通用对象，包括机房 交换机 物理机
+message Association {
+    // 实例关联唯一标识
+    string bk_obj_inst_id = 1;
+    // 源实例ID
+    int32 bk_inst_id = 2;
+    // 目标实例ID
+    string bk_asst_inst_id = 3;
+}
+
 // 主机内容信息
 message HostInfoObject {
     // 主机对象
