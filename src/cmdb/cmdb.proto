@@ -98,7 +98,7 @@ message BizObject {
 }
 
 // 通用对象，包括机房 交换机 物理机
-message Object {
+message CommonObject {
     // 实例ID
     int32 bk_inst_id = 1;
     // 实例名称
@@ -107,8 +107,8 @@ message Object {
     string bk_obj_id = 3;
 }
 
-// 通用对象，包括机房 交换机 物理机
-message Association {
+// 关联关系请求
+message CreateAssociationRequest {
     // 实例关联唯一标识
     string bk_obj_inst_id = 1;
     // 源实例ID
