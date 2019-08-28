@@ -114,7 +114,7 @@ message CreateAssociationRequest {
     // 源实例ID
     int32 bk_inst_id = 2;
     // 目标实例ID
-    string bk_asst_inst_id = 3;
+    int32 bk_asst_inst_id = 3;
 }
 
 // 主机内容信息
