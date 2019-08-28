@@ -107,6 +107,14 @@
               "BARE_METAL"
             ],
             "default": "UNDEFINED"
+          },
+          {
+            "name": "task_id",
+            "description": "task_type对应的id.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
           }
         ],
         "tags": [
@@ -213,101 +221,24 @@
     }
   },
   "definitions": {
-    "cmdbBizObject": {
+    "cmdbChooseHostRequest": {
       "type": "object",
       "properties": {
-        "bk_biz_name": {
-          "type": "string",
-          "title": "业务名"
-        },
-        "bk_biz_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "业务ID"
-        }
-      },
-      "title": "业务"
-    },
-    "cmdbHostObject": {
-      "type": "object",
-      "properties": {
-        "bk_host_innerip": {
-          "type": "string",
-          "title": "内网IP"
-        }
-      },
-      "title": "主机"
-    },
-    "cmdbModuleObject": {
-      "type": "object",
-      "properties": {
-        "bk_module_name": {
-          "type": "string",
-          "title": "模块名"
-        },
-        "bk_module_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "模块ID"
-        }
-      },
-      "title": "模块"
-    },
-    "cmdbSearchHostRequest": {
-      "type": "object",
-      "properties": {
-        "paging": {
-          "$ref": "#/definitions/commonPaging",
-          "title": "分页信息"
-        },
-        "host": {
-          "$ref": "#/definitions/cmdbHostObject",
-          "title": "主机对象"
-        },
-        "module": {
-          "$ref": "#/definitions/cmdbModuleObject",
-          "title": "模块对象"
-        },
-        "set": {
-          "$ref": "#/definitions/cmdbSetObject",
-          "title": "集群对象"
-        },
-        "biz": {
-          "$ref": "#/definitions/cmdbBizObject",
-          "title": "业务对象"
-        },
-        "zone": {
-          "$ref": "#/definitions/cmdbZoneObject",
-          "title": "区域对象"
-        }
-      },
-      "title": "查找主机请求"
-    },
-    "cmdbSetObject": {
-      "type": "object",
-      "properties": {
-        "bk_set_name": {
-          "type": "string",
-          "title": "集群名"
-        },
         "bk_set_id": {
           "type": "integer",
           "format": "int32",
           "title": "集群ID"
+        },
+        "bk_module_id": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": "模块ID"
         }
       },
-      "title": "集群"
-    },
-    "cmdbZoneObject": {
-      "type": "object",
-      "properties": {
-        "bk_inst_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "区域ID"
-        }
-      },
-      "title": "区域"
+      "title": "选择主机请求"
     },
     "commonPaging": {
       "type": "object",
@@ -473,7 +404,10 @@
           "title": "创建定时任务的请求内容体"
         },
         "cmdb_search_request": {
-          "$ref": "#/definitions/cmdbSearchHostRequest",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbChooseHostRequest"
+          },
           "title": "cmdb的搜索条件"
         },
         "extra_var": {

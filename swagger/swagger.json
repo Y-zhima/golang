@@ -212,6 +212,30 @@
         }
       }
     },
+    "/v1/greeter/sayHello": {
+      "get": {
+        "tags": [
+          "Greeter"
+        ],
+        "summary": "Sends a greeting",
+        "operationId": "SayHello",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "name",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/greeterHelloReply"
+            }
+          }
+        }
+      }
+    },
     "/v1/playbook/create": {
       "post": {
         "tags": [
@@ -360,7 +384,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin6",
+        "operationId": "CreateMixin9",
         "parameters": [
           {
             "name": "body",
@@ -387,7 +411,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin6",
+        "operationId": "FilterMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -435,6 +459,13 @@
             "description": "用于筛选的定时任务的任务类型.\n\n - UNDEFINED: 0-undefined\n - PLAYBOOK: 1-作业模板\n - CONTAINER: 2-容器部署\n - BARE_METAL: 3-裸金属管理",
             "name": "task_type",
             "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "task_type对应的id.",
+            "name": "task_id",
+            "in": "query"
           }
         ],
         "responses": {
@@ -453,7 +484,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin6",
+        "operationId": "GetMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -515,7 +546,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "UpdateMixin6",
+        "operationId": "UpdateMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -550,7 +581,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "CreateMixin8",
+        "operationId": "CreateMixin11",
         "parameters": [
           {
             "name": "body",
@@ -577,7 +608,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "FilterMixin8",
+        "operationId": "FilterMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -624,7 +655,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin9",
+        "operationId": "CreateMixin12",
         "parameters": [
           {
             "name": "body",
@@ -651,7 +682,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin9",
+        "operationId": "FilterMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -710,7 +741,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin9",
+        "operationId": "GetMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -737,7 +768,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin9",
+        "operationId": "UpdateMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -803,6 +834,263 @@
     }
   },
   "definitions": {
+    "CreateNodesRootReqCreateNodeInfoReq": {
+      "type": "object",
+      "title": "创建节点请求对象",
+      "properties": {
+        "nodeInfoReqs": {
+          "type": "array",
+          "title": "节点",
+          "items": {
+            "$ref": "#/definitions/CreateNodesRootReqNodeInfoReq"
+          }
+        },
+        "pageInfo": {
+          "title": "分页信息",
+          "$ref": "#/definitions/ironicComPageInfo"
+        }
+      }
+    },
+    "CreateNodesRootReqNodeInfoReq": {
+      "type": "object",
+      "title": "节点信息",
+      "properties": {
+        "initId": {
+          "type": "string",
+          "format": "int64",
+          "title": "初始化id"
+        },
+        "ip": {
+          "type": "string",
+          "title": "ipmi的IP地址"
+        },
+        "macAddr": {
+          "type": "string",
+          "title": "裸金属主机mac地址"
+        },
+        "password": {
+          "type": "string",
+          "title": "Ipmi密码"
+        },
+        "regionName": {
+          "type": "string",
+          "title": "区域名称"
+        },
+        "serverAddr": {
+          "type": "string",
+          "title": "裸金属区域组件服务地址"
+        },
+        "userName": {
+          "type": "string",
+          "title": "ipmi用户名"
+        }
+      }
+    },
+    "CreateNodesRootResCreateNodeInfoRsp": {
+      "type": "object",
+      "title": "创建节点请求对象",
+      "properties": {
+        "nodeInfoRsps": {
+          "type": "array",
+          "title": "节点",
+          "items": {
+            "$ref": "#/definitions/CreateNodesRootResNodeInfoRsp"
+          }
+        },
+        "pageInfo": {
+          "title": "分页信息",
+          "$ref": "#/definitions/ironicComPageInfo"
+        }
+      }
+    },
+    "CreateNodesRootResNodeInfoRsp": {
+      "type": "object",
+      "title": "节点信息",
+      "properties": {
+        "createResultCode": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "创建节点响应码"
+        },
+        "createResultMsg": {
+          "type": "string",
+          "title": "创建节点响应消息"
+        },
+        "initId": {
+          "type": "string",
+          "format": "int64",
+          "title": "初始化id"
+        },
+        "nodeId": {
+          "type": "string",
+          "title": "裸金属节点id"
+        }
+      }
+    },
+    "InstallNodeSysRootReqInstallNodeSysReq": {
+      "type": "object",
+      "title": "安装裸金属系统请求对象",
+      "properties": {
+        "nodeInstallInfos": {
+          "type": "array",
+          "title": "安装裸金属系统信息",
+          "items": {
+            "$ref": "#/definitions/InstallNodeSysRootReqNodeInstallInfo"
+          }
+        }
+      }
+    },
+    "InstallNodeSysRootReqNodeInstallInfo": {
+      "type": "object",
+      "title": "安装裸金属系统信息",
+      "properties": {
+        "imageAddr": {
+          "type": "string",
+          "title": "安装镜像地址(一般为http url)"
+        },
+        "imageCheckSum": {
+          "type": "string",
+          "title": "镜像MD5校验码"
+        },
+        "nodeId": {
+          "type": "string",
+          "title": "裸金属节点id"
+        }
+      }
+    },
+    "OperNodePowerRootReqNodePowerOper": {
+      "type": "object",
+      "properties": {
+        "nodeId": {
+          "type": "string",
+          "title": "裸金属节点id"
+        },
+        "timeOut": {
+          "type": "string",
+          "format": "int64",
+          "title": "超时时间(可选，电源状态转换的超时（以秒为单位）。)"
+        }
+      }
+    },
+    "OperNodePowerRootReqOperNodePowerReq": {
+      "type": "object",
+      "properties": {
+        "nodePowerOpers": {
+          "type": "array",
+          "title": "安装裸金属系统信息",
+          "items": {
+            "$ref": "#/definitions/OperNodePowerRootReqNodePowerOper"
+          }
+        }
+      }
+    },
+    "OperNodePowerRootResNodePowerRsp": {
+      "type": "object",
+      "properties": {
+        "nodeId": {
+          "type": "string",
+          "title": "裸金属节点id"
+        },
+        "powerResultCode": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "创建节点响应码"
+        },
+        "powerResultMsg": {
+          "type": "string",
+          "title": "创建节点响应消息"
+        }
+      }
+    },
+    "OperNodePowerRootResOperNodePowerRsp": {
+      "type": "object",
+      "properties": {
+        "nodePowerRsps": {
+          "type": "array",
+          "title": "电源操作应答",
+          "items": {
+            "$ref": "#/definitions/OperNodePowerRootResNodePowerRsp"
+          }
+        }
+      }
+    },
+    "QryNodeInfoRootReqQryNodeInfoReq": {
+      "type": "object",
+      "title": "查询节点信息请求对象",
+      "properties": {
+        "nodeIds": {
+          "type": "array",
+          "title": "裸金属节点id",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "QryNodeInfoRootResNodeInfo": {
+      "type": "object",
+      "title": "节点信息",
+      "properties": {
+        "imagerAddr": {
+          "type": "string",
+          "title": "镜像地址"
+        },
+        "ip": {
+          "type": "string",
+          "title": "ipmi的IP地址"
+        },
+        "macAddr": {
+          "type": "string",
+          "title": "裸金属主机mac地址"
+        },
+        "nodeId": {
+          "type": "string",
+          "title": "裸金属节点id"
+        },
+        "password": {
+          "type": "string",
+          "title": "Ipmi密码"
+        },
+        "powerStatus": {
+          "type": "string",
+          "title": "电源状态"
+        },
+        "qryResultCode": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "查询节点响应码"
+        },
+        "qryResultMsg": {
+          "type": "string",
+          "title": "查询节点响应消息"
+        },
+        "serverAddr": {
+          "type": "string",
+          "title": "所属区域裸金属组件服务地址"
+        },
+        "status": {
+          "type": "string",
+          "title": "当前状态"
+        },
+        "userName": {
+          "type": "string",
+          "title": "ipmi用户名"
+        }
+      }
+    },
+    "QryNodeInfoRootResQryNodeInfoRsp": {
+      "type": "object",
+      "title": "查询节点应答对象",
+      "properties": {
+        "nodeInfos": {
+          "type": "array",
+          "title": "节点",
+          "items": {
+            "$ref": "#/definitions/QryNodeInfoRootResNodeInfo"
+          }
+        }
+      }
+    },
     "cmdbBizObject": {
       "type": "object",
       "title": "业务",
@@ -815,6 +1103,25 @@
         "bk_biz_name": {
           "type": "string",
           "title": "业务名"
+        }
+      }
+    },
+    "cmdbChooseHostRequest": {
+      "type": "object",
+      "title": "选择主机请求",
+      "properties": {
+        "bk_module_id": {
+          "type": "array",
+          "title": "模块ID",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "bk_set_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "集群ID"
         }
       }
     },
@@ -895,36 +1202,6 @@
         "bk_module_name": {
           "type": "string",
           "title": "模块名"
-        }
-      }
-    },
-    "cmdbSearchHostRequest": {
-      "type": "object",
-      "title": "查找主机请求",
-      "properties": {
-        "biz": {
-          "title": "业务对象",
-          "$ref": "#/definitions/cmdbBizObject"
-        },
-        "host": {
-          "title": "主机对象",
-          "$ref": "#/definitions/cmdbHostObject"
-        },
-        "module": {
-          "title": "模块对象",
-          "$ref": "#/definitions/cmdbModuleObject"
-        },
-        "paging": {
-          "title": "分页信息",
-          "$ref": "#/definitions/commonPaging"
-        },
-        "set": {
-          "title": "集群对象",
-          "$ref": "#/definitions/cmdbSetObject"
-        },
-        "zone": {
-          "title": "区域对象",
-          "$ref": "#/definitions/cmdbZoneObject"
         }
       }
     },
@@ -1136,6 +1413,324 @@
         "url": {
           "type": "string",
           "title": "通用文件对象存储的url"
+        }
+      }
+    },
+    "greeterHelloReply": {
+      "type": "object",
+      "title": "The response message containing the greetings",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "ironicComPageInfo": {
+      "type": "object",
+      "title": "分页信息(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)",
+      "properties": {
+        "pageCount": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总页数"
+        },
+        "pageIndex": {
+          "type": "integer",
+          "format": "int32",
+          "title": "当前页"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "title": "每页数量"
+        },
+        "rowCount": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总记录数"
+        }
+      }
+    },
+    "ironicComTcpContReq": {
+      "type": "object",
+      "title": "控制对象(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)",
+      "properties": {
+        "apiCode": {
+          "type": "string",
+          "title": "能力编码"
+        },
+        "appKey": {
+          "type": "string",
+          "title": "调用方编码"
+        },
+        "dstSysID": {
+          "type": "string",
+          "title": "提供方编码"
+        },
+        "reqTime": {
+          "type": "string",
+          "format": "date-time",
+          "title": "请求时间"
+        },
+        "sign": {
+          "type": "string",
+          "title": "签名字符串"
+        },
+        "svcCode": {
+          "type": "string",
+          "title": "服务编码"
+        },
+        "transactionID": {
+          "type": "string",
+          "title": "交易流水号"
+        },
+        "version": {
+          "type": "string",
+          "title": "服务版本"
+        }
+      }
+    },
+    "ironicComTcpContRes": {
+      "type": "object",
+      "title": "控制对象(每个服务通用的控制信息，当服务端反馈应答时，信息填写如下)",
+      "properties": {
+        "reqTime": {
+          "type": "string",
+          "format": "date-time",
+          "title": "应答时间"
+        },
+        "sign": {
+          "type": "string",
+          "title": "签名字符串"
+        },
+        "transactionID": {
+          "type": "string",
+          "title": "交易流水号"
+        }
+      }
+    },
+    "ironicServerCreateNodesRootReqContractRootReq": {
+      "type": "object",
+      "title": "请求信息",
+      "properties": {
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerCreateNodesRootReqSvcContReq"
+        },
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContReq"
+        }
+      }
+    },
+    "ironicServerCreateNodesRootReqSvcContReq": {
+      "type": "object",
+      "properties": {
+        "requestObject": {
+          "title": "节点信息列表",
+          "$ref": "#/definitions/CreateNodesRootReqCreateNodeInfoReq"
+        }
+      }
+    },
+    "ironicServerCreateNodesRootRes": {
+      "type": "object",
+      "properties": {
+        "contractRootRes": {
+          "$ref": "#/definitions/ironicServerCreateNodesRootResContractRootRes"
+        }
+      }
+    },
+    "ironicServerCreateNodesRootResContractRootRes": {
+      "type": "object",
+      "properties": {
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerCreateNodesRootResSvcContRes"
+        },
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContRes"
+        }
+      }
+    },
+    "ironicServerCreateNodesRootResSvcContRes": {
+      "type": "object",
+      "properties": {
+        "resultCode": {
+          "type": "string",
+          "title": "响应码"
+        },
+        "resultMsg": {
+          "type": "string",
+          "title": "响应消息描述"
+        },
+        "resultObject": {
+          "title": "响应对象",
+          "$ref": "#/definitions/CreateNodesRootResCreateNodeInfoRsp"
+        }
+      }
+    },
+    "ironicServerInstallNodeSysRootReqContractRootReq": {
+      "type": "object",
+      "title": "请求信息",
+      "properties": {
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerInstallNodeSysRootReqSvcContReq"
+        },
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContReq"
+        }
+      }
+    },
+    "ironicServerInstallNodeSysRootReqSvcContReq": {
+      "type": "object",
+      "title": "安装裸金属系统请求",
+      "properties": {
+        "requestObject": {
+          "$ref": "#/definitions/InstallNodeSysRootReqInstallNodeSysReq"
+        }
+      }
+    },
+    "ironicServerInstallNodeSysRootRes": {
+      "type": "object",
+      "properties": {
+        "contractRootRes": {
+          "$ref": "#/definitions/ironicServerInstallNodeSysRootResContractRootRes"
+        }
+      }
+    },
+    "ironicServerInstallNodeSysRootResContractRootRes": {
+      "type": "object",
+      "title": "响应信息",
+      "properties": {
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerInstallNodeSysRootResSvcContRes"
+        },
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContRes"
+        }
+      }
+    },
+    "ironicServerInstallNodeSysRootResSvcContRes": {
+      "type": "object",
+      "properties": {
+        "resultCode": {
+          "type": "string",
+          "title": "响应码"
+        },
+        "resultMsg": {
+          "type": "string",
+          "title": "响应消息描述"
+        }
+      }
+    },
+    "ironicServerOperNodePowerRootReqContractRootReq": {
+      "type": "object",
+      "title": "请求信息",
+      "properties": {
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerOperNodePowerRootReqSvcContReq"
+        },
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContReq"
+        }
+      }
+    },
+    "ironicServerOperNodePowerRootReqSvcContReq": {
+      "type": "object",
+      "properties": {
+        "requestObject": {
+          "$ref": "#/definitions/OperNodePowerRootReqOperNodePowerReq"
+        }
+      }
+    },
+    "ironicServerOperNodePowerRootRes": {
+      "type": "object",
+      "properties": {
+        "contractRootRes": {
+          "$ref": "#/definitions/ironicServerOperNodePowerRootResContractRootRes"
+        }
+      }
+    },
+    "ironicServerOperNodePowerRootResContractRootRes": {
+      "type": "object",
+      "properties": {
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerOperNodePowerRootResSvcContRes"
+        },
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContRes"
+        }
+      }
+    },
+    "ironicServerOperNodePowerRootResSvcContRes": {
+      "type": "object",
+      "properties": {
+        "resultCode": {
+          "type": "string",
+          "title": "响应码"
+        },
+        "resultMsg": {
+          "type": "string",
+          "title": "响应消息描述"
+        },
+        "resultObject": {
+          "title": "响应对象",
+          "$ref": "#/definitions/OperNodePowerRootResOperNodePowerRsp"
+        }
+      }
+    },
+    "ironicServerQryNodeInfoRootReqContractRootReq": {
+      "type": "object",
+      "title": "请求信息",
+      "properties": {
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerQryNodeInfoRootReqSvcContReq"
+        },
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContReq"
+        }
+      }
+    },
+    "ironicServerQryNodeInfoRootReqSvcContReq": {
+      "type": "object",
+      "properties": {
+        "requestObject": {
+          "title": "节点id列表",
+          "$ref": "#/definitions/QryNodeInfoRootReqQryNodeInfoReq"
+        }
+      }
+    },
+    "ironicServerQryNodeInfoRootRes": {
+      "type": "object",
+      "properties": {
+        "contractRootRes": {
+          "$ref": "#/definitions/ironicServerQryNodeInfoRootResContractRootRes"
+        }
+      }
+    },
+    "ironicServerQryNodeInfoRootResContractRootRes": {
+      "type": "object",
+      "title": "响应信息",
+      "properties": {
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerQryNodeInfoRootResSvcContRes"
+        },
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContRes"
+        }
+      }
+    },
+    "ironicServerQryNodeInfoRootResSvcContRes": {
+      "type": "object",
+      "properties": {
+        "resultCode": {
+          "type": "string",
+          "title": "响应码"
+        },
+        "resultMsg": {
+          "type": "string",
+          "title": "响应消息描述"
+        },
+        "resultObject": {
+          "title": "响应对象",
+          "$ref": "#/definitions/QryNodeInfoRootResQryNodeInfoRsp"
         }
       }
     },
@@ -1420,8 +2015,11 @@
       ],
       "properties": {
         "cmdb_search_request": {
+          "type": "array",
           "title": "cmdb的搜索条件",
-          "$ref": "#/definitions/cmdbSearchHostRequest"
+          "items": {
+            "$ref": "#/definitions/cmdbChooseHostRequest"
+          }
         },
         "extra_var": {
           "type": "string",
@@ -1691,9 +2289,12 @@
           "$ref": "#/definitions/commonResponseStatus"
         },
         "sub_task_id": {
-          "type": "string",
-          "format": "int64",
-          "title": "子任务实例ID"
+          "type": "array",
+          "title": "子任务实例ID",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
         }
       }
     },
@@ -1716,12 +2317,24 @@
       ],
       "properties": {
         "cmdb_search_request": {
+          "type": "array",
           "title": "cmdb的搜索条件",
-          "$ref": "#/definitions/cmdbSearchHostRequest"
+          "items": {
+            "$ref": "#/definitions/cmdbChooseHostRequest"
+          }
         },
         "extra_var": {
           "type": "string",
           "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
+        },
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "定时任务ID"
+        },
+        "schedule_type": {
+          "title": "定时任务类型",
+          "$ref": "#/definitions/taskScheduleType"
         },
         "task_type": {
           "title": "任务类型",
@@ -1810,8 +2423,11 @@
       "title": "作业任务实例",
       "properties": {
         "cmdb_search_request": {
+          "type": "array",
           "title": "cmdb的搜索条件",
-          "$ref": "#/definitions/cmdbSearchHostRequest"
+          "items": {
+            "$ref": "#/definitions/cmdbChooseHostRequest"
+          }
         },
         "end_time": {
           "type": "string",

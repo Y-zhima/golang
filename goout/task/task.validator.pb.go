@@ -7,12 +7,12 @@ import (
 	fmt "fmt"
 	math "math"
 	proto "github.com/golang/protobuf/proto"
+	_ "github.com/mwitkow/go-proto-validators"
+	_ "git.fogcdn.top/axe/protos/goout/common"
 	_ "git.fogcdn.top/axe/protos/goout/schedule"
 	_ "git.fogcdn.top/axe/protos/goout/cmdb"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
-	_ "github.com/mwitkow/go-proto-validators"
-	_ "git.fogcdn.top/axe/protos/goout/common"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
@@ -22,9 +22,11 @@ var _ = fmt.Errorf
 var _ = math.Inf
 
 func (this *TaskObject) Validate() error {
-	if this.CmdbSearchRequest != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbSearchRequest); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+	for _, item := range this.CmdbSearchRequest {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+			}
 		}
 	}
 	return nil
@@ -33,9 +35,11 @@ func (this *CreateRequest) Validate() error {
 	if !(this.TemplateId > 0) {
 		return github_com_mwitkow_go_proto_validators.FieldError("TemplateId", fmt.Errorf(`模板ID不能为空`))
 	}
-	if this.CmdbSearchRequest != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbSearchRequest); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+	for _, item := range this.CmdbSearchRequest {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+			}
 		}
 	}
 	return nil

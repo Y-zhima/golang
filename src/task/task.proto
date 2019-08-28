@@ -67,7 +67,7 @@ message TaskObject {
     // 任务类型
     schedule.TaskType task_type = 5;
     // cmdb的搜索条件
-    cmdb.SearchHostRequest cmdb_search_request = 6;
+    repeated cmdb.ChooseHostRequest cmdb_search_request = 6;
     // 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
     string extra_var = 7;
     // 执行人ID
@@ -94,11 +94,15 @@ message CreateRequest {
     // 模板ID
     int32 template_id = 1 [(validator.field) = {int_gt: 0, human_error: "模板ID不能为空"}];
     // cmdb的搜索条件
-    cmdb.SearchHostRequest cmdb_search_request = 2 [(validator.field) = {string_not_empty: true, human_error: "cmdb的搜索条件不能为空"}];
+    repeated cmdb.ChooseHostRequest cmdb_search_request = 2 [(validator.field) = {string_not_empty: true, human_error: "cmdb的搜索条件不能为空"}];
     // 任务类型
     schedule.TaskType task_type = 3;
     // 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
     string extra_var = 4;
+    // 定时任务ID
+    int32 schedule_id = 5;
+    // 定时任务类型
+    ScheduleType schedule_type = 6;
 }
 
 // 创建任务实例请求返回
