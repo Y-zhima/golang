@@ -29,7 +29,8 @@ service Cmdb {
     // 导入主机
     rpc ImportHost (ImportHostRequest) returns (ImportHostResponse) {
         option (google.api.http) = {
-            get: "/v1/cmdb/importHost"
+            post: "/v1/cmdb/importHost"
+            body: "*"
         };
     }
 }

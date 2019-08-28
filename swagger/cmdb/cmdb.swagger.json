@@ -16,7 +16,7 @@
   ],
   "paths": {
     "/v1/cmdb/importHost": {
-      "get": {
+      "post": {
         "summary": "导入主机",
         "operationId": "ImportHost",
         "responses": {
@@ -29,11 +29,12 @@
         },
         "parameters": [
           {
-            "name": "url",
-            "description": "csv文件下载路径.",
-            "in": "query",
-            "required": false,
-            "type": "string"
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportHostRequest"
+            }
           }
         ],
         "tags": [
@@ -239,6 +240,16 @@
         }
       },
       "title": "主机"
+    },
+    "cmdbImportHostRequest": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "title": "csv文件下载路径"
+        }
+      },
+      "title": "导入主机请求"
     },
     "cmdbImportHostResponse": {
       "type": "object",

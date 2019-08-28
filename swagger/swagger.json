@@ -18,7 +18,7 @@
   "host": "192.168.0.129:8969",
   "paths": {
     "/v1/cmdb/importHost": {
-      "get": {
+      "post": {
         "tags": [
           "Cmdb"
         ],
@@ -26,10 +26,12 @@
         "operationId": "ImportHost",
         "parameters": [
           {
-            "type": "string",
-            "description": "csv文件下载路径.",
-            "name": "url",
-            "in": "query"
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportHostRequest"
+            }
           }
         ],
         "responses": {
@@ -1175,6 +1177,16 @@
         "bk_host_innerip": {
           "type": "string",
           "title": "内网IP"
+        }
+      }
+    },
+    "cmdbImportHostRequest": {
+      "type": "object",
+      "title": "导入主机请求",
+      "properties": {
+        "url": {
+          "type": "string",
+          "title": "csv文件下载路径"
         }
       }
     },
