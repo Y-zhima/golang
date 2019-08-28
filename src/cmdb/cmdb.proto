@@ -113,7 +113,7 @@ message CommonObject {
 // 关联关系请求
 message CreateAssociationRequest {
     // 实例关联唯一标识
-    string bk_obj_inst_id = 1;
+    string bk_obj_asst_id = 1;
     // 源实例ID
     int32 bk_inst_id = 2;
     // 目标实例ID
