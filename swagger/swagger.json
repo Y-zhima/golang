@@ -102,6 +102,13 @@
             "in": "query"
           },
           {
+            "type": "integer",
+            "format": "int32",
+            "description": "主机ID.",
+            "name": "host.bk_host_id",
+            "in": "query"
+          },
+          {
             "type": "string",
             "description": "模块名.",
             "name": "module.bk_module_name",
@@ -1160,6 +1167,11 @@
       "type": "object",
       "title": "主机",
       "properties": {
+        "bk_host_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "主机ID"
+        },
         "bk_host_innerip": {
           "type": "string",
           "title": "内网IP"

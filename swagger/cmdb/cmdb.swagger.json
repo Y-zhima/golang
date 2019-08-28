@@ -111,6 +111,14 @@
             "type": "string"
           },
           {
+            "name": "host.bk_host_id",
+            "description": "主机ID.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
             "name": "module.bk_module_name",
             "description": "模块名.",
             "in": "query",
@@ -223,6 +231,11 @@
         "bk_host_innerip": {
           "type": "string",
           "title": "内网IP"
+        },
+        "bk_host_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "主机ID"
         }
       },
       "title": "主机"
