@@ -172,6 +172,8 @@ message FilterRequest {
     string schedule_name = 2;
     // 用于筛选的定时任务的任务类型
     TaskType task_type = 3;
+    // task_type对应的id
+    int32 task_id = 4;
 }
 
 // 筛选定时任务请求返回
