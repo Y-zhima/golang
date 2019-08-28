@@ -74,8 +74,11 @@
       "type": "object",
       "properties": {
         "sub_task_id": {
-          "type": "string",
-          "format": "int64",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          },
           "title": "子任务实例ID"
         },
         "status": {
