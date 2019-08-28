@@ -65,6 +65,8 @@ message InstanceTopologyResponse {
 message HostObject {
     // 内网IP
     string bk_host_innerip = 1;
+    // 主机ID
+    int32 bk_host_id = 2;
 }
 
 // 模块
