@@ -60,6 +60,12 @@ func (this *ZoneObject) Validate() error {
 func (this *BizObject) Validate() error {
 	return nil
 }
+func (this *CommonObject) Validate() error {
+	return nil
+}
+func (this *CreateAssociationRequest) Validate() error {
+	return nil
+}
 func (this *HostInfoObject) Validate() error {
 	if this.Host != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Host); err != nil {
