@@ -51,6 +51,16 @@
         ],
         "summary": "导入lake节点",
         "operationId": "ImportLake",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportLakeRequest"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -68,6 +78,16 @@
         ],
         "summary": "导入交换机",
         "operationId": "ImportSwitch",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportSwitchRequest"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1234,6 +1254,16 @@
         }
       }
     },
+    "cmdbImportLakeRequest": {
+      "type": "object",
+      "title": "导入lake节点请求",
+      "properties": {
+        "url": {
+          "type": "string",
+          "title": "csv文件下载路径"
+        }
+      }
+    },
     "cmdbImportLakeResponse": {
       "type": "object",
       "title": "导入lake节点请求返回",
@@ -1241,6 +1271,16 @@
         "status": {
           "title": "状态码",
           "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbImportSwitchRequest": {
+      "type": "object",
+      "title": "导入交换机请求",
+      "properties": {
+        "url": {
+          "type": "string",
+          "title": "csv文件下载路径"
         }
       }
     },

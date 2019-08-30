@@ -54,6 +54,16 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportLakeRequest"
+            }
+          }
+        ],
         "tags": [
           "Cmdb"
         ]
@@ -71,6 +81,16 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportSwitchRequest"
+            }
+          }
+        ],
         "tags": [
           "Cmdb"
         ]
@@ -295,6 +315,16 @@
       },
       "title": "导入主机请求返回"
     },
+    "cmdbImportLakeRequest": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "title": "csv文件下载路径"
+        }
+      },
+      "title": "导入lake节点请求"
+    },
     "cmdbImportLakeResponse": {
       "type": "object",
       "properties": {
@@ -304,6 +334,16 @@
         }
       },
       "title": "导入lake节点请求返回"
+    },
+    "cmdbImportSwitchRequest": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "title": "csv文件下载路径"
+        }
+      },
+      "title": "导入交换机请求"
     },
     "cmdbImportSwitchResponse": {
       "type": "object",
