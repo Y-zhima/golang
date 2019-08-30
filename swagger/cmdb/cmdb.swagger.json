@@ -42,6 +42,40 @@
         ]
       }
     },
+    "/v1/cmdb/importLake": {
+      "post": {
+        "summary": "导入lake节点",
+        "operationId": "ImportLake",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportLakeResponse"
+            }
+          }
+        },
+        "tags": [
+          "Cmdb"
+        ]
+      }
+    },
+    "/v1/cmdb/importSwitch": {
+      "post": {
+        "summary": "导入交换机",
+        "operationId": "ImportSwitch",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportSwitchResponse"
+            }
+          }
+        },
+        "tags": [
+          "Cmdb"
+        ]
+      }
+    },
     "/v1/cmdb/instanceTopology": {
       "get": {
         "summary": "实例拓扑",
@@ -260,6 +294,26 @@
         }
       },
       "title": "导入主机请求返回"
+    },
+    "cmdbImportLakeResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
+        }
+      },
+      "title": "导入lake节点请求返回"
+    },
+    "cmdbImportSwitchResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
+        }
+      },
+      "title": "导入交换机请求返回"
     },
     "cmdbInstanceTopologyResponse": {
       "type": "object",
