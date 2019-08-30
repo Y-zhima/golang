@@ -33,6 +33,20 @@ service Cmdb {
             body: "*"
         };
     }
+
+    // 导入交换机
+    rpc ImportSwitch (ImportSwitchRequest) returns (ImportSwitchResponse) {
+        option (google.api.http) = {
+            post: "/v1/cmdb/importSwitch"
+        };
+    }
+
+    // 导入lake节点
+    rpc ImportLake (ImportLakeRequest) returns (ImportLakeResponse) {
+        option (google.api.http) = {
+            post: "/v1/cmdb/importLake"
+        };
+    }
 }
 
 // 业务拓扑对象
@@ -176,4 +190,31 @@ message ChooseHostRequest {
     int32 bk_set_id = 1;
     // 模块ID
     repeated int32 bk_module_id = 2;
+}
+
+
+// 导入交换机请求
+message ImportSwitchRequest {
+    // csv文件下载路径
+    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
+}
+
+
+// 导入交换机请求返回
+message ImportSwitchResponse {
+    // 状态码
+    common.ResponseStatus status = 1;
+}
+
+// 导入lake节点请求
+message ImportLakeRequest {
+    // csv文件下载路径
+    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
+}
+
+
+// 导入lake节点请求返回
+message ImportLakeResponse {
+    // 状态码
+    common.ResponseStatus status = 1;
 }
