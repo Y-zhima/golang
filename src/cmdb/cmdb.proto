@@ -38,6 +38,7 @@ service Cmdb {
     rpc ImportSwitch (ImportSwitchRequest) returns (ImportSwitchResponse) {
         option (google.api.http) = {
             post: "/v1/cmdb/importSwitch"
+            body: "*"
         };
     }
 
@@ -45,6 +46,7 @@ service Cmdb {
     rpc ImportLake (ImportLakeRequest) returns (ImportLakeResponse) {
         option (google.api.http) = {
             post: "/v1/cmdb/importLake"
+            body: "*"
         };
     }
 }
