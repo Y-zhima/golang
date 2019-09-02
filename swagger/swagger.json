@@ -2276,6 +2276,10 @@
           "type": "string",
           "title": "定时任务名"
         },
+        "next_time": {
+          "type": "string",
+          "title": "下次执行时间"
+        },
         "schedule_id": {
           "type": "integer",
           "format": "int32",

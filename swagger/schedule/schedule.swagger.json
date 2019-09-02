@@ -559,6 +559,10 @@
           "type": "integer",
           "format": "int32",
           "title": "执行总数"
+        },
+        "next_time": {
+          "type": "string",
+          "title": "下次执行时间"
         }
       },
       "title": "定时任务实例"
