@@ -935,6 +935,11 @@
           "type": "string",
           "title": "Ipmi密码"
         },
+        "port": {
+          "type": "string",
+          "format": "int64",
+          "title": "Ipmi端口"
+        },
         "regionName": {
           "type": "string",
           "title": "区域名称"
