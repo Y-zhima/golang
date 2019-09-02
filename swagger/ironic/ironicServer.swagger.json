@@ -64,6 +64,11 @@
         "macAddr": {
           "type": "string",
           "title": "裸金属主机mac地址"
+        },
+        "port": {
+          "type": "string",
+          "format": "int64",
+          "title": "Ipmi端口"
         }
       },
       "title": "节点信息"

@@ -18,7 +18,7 @@
   "host": "192.168.0.129:8969",
   "paths": {
     "/v1/cmdb/importHost": {
-      "get": {
+      "post": {
         "tags": [
           "Cmdb"
         ],
@@ -26,10 +26,12 @@
         "operationId": "ImportHost",
         "parameters": [
           {
-            "type": "string",
-            "description": "csv文件下载路径.",
-            "name": "url",
-            "in": "query"
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportHostRequest"
+            }
           }
         ],
         "responses": {
@@ -37,6 +39,60 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/cmdbImportHostResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/importLake": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "导入lake节点",
+        "operationId": "ImportLake",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportLakeRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportLakeResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/importSwitch": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "导入交换机",
+        "operationId": "ImportSwitch",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportSwitchRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportSwitchResponse"
             }
           }
         }
@@ -99,6 +155,13 @@
             "type": "string",
             "description": "内网IP.",
             "name": "host.bk_host_innerip",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "主机ID.",
+            "name": "host.bk_host_id",
             "in": "query"
           },
           {
@@ -872,6 +935,11 @@
           "type": "string",
           "title": "Ipmi密码"
         },
+        "port": {
+          "type": "string",
+          "format": "int64",
+          "title": "Ipmi端口"
+        },
         "regionName": {
           "type": "string",
           "title": "区域名称"
@@ -1160,15 +1228,70 @@
       "type": "object",
       "title": "主机",
       "properties": {
+        "bk_host_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "主机ID"
+        },
         "bk_host_innerip": {
           "type": "string",
           "title": "内网IP"
         }
       }
     },
+    "cmdbImportHostRequest": {
+      "type": "object",
+      "title": "导入主机请求",
+      "properties": {
+        "url": {
+          "type": "string",
+          "title": "csv文件下载路径"
+        }
+      }
+    },
     "cmdbImportHostResponse": {
       "type": "object",
       "title": "导入主机请求返回",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbImportLakeRequest": {
+      "type": "object",
+      "title": "导入lake节点请求",
+      "properties": {
+        "url": {
+          "type": "string",
+          "title": "csv文件下载路径"
+        }
+      }
+    },
+    "cmdbImportLakeResponse": {
+      "type": "object",
+      "title": "导入lake节点请求返回",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbImportSwitchRequest": {
+      "type": "object",
+      "title": "导入交换机请求",
+      "properties": {
+        "url": {
+          "type": "string",
+          "title": "csv文件下载路径"
+        }
+      }
+    },
+    "cmdbImportSwitchResponse": {
+      "type": "object",
+      "title": "导入交换机请求返回",
       "properties": {
         "status": {
           "title": "状态码",

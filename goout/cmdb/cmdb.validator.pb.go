@@ -60,6 +60,12 @@ func (this *ZoneObject) Validate() error {
 func (this *BizObject) Validate() error {
 	return nil
 }
+func (this *CommonObject) Validate() error {
+	return nil
+}
+func (this *CreateAssociationRequest) Validate() error {
+	return nil
+}
 func (this *HostInfoObject) Validate() error {
 	if this.Host != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Host); err != nil {
@@ -157,5 +163,33 @@ func (this *ImportHostResponse) Validate() error {
 	return nil
 }
 func (this *ChooseHostRequest) Validate() error {
+	return nil
+}
+func (this *ImportSwitchRequest) Validate() error {
+	if this.Url == "" {
+		return github_com_mwitkow_go_proto_validators.FieldError("Url", fmt.Errorf(`URL不能为空`))
+	}
+	return nil
+}
+func (this *ImportSwitchResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}
+func (this *ImportLakeRequest) Validate() error {
+	if this.Url == "" {
+		return github_com_mwitkow_go_proto_validators.FieldError("Url", fmt.Errorf(`URL不能为空`))
+	}
+	return nil
+}
+func (this *ImportLakeResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
 	return nil
 }

@@ -234,6 +234,8 @@ message CreateNodesRootReq{
         string password = 6;
         // 裸金属主机mac地址
         string macAddr = 7;
+        // Ipmi端口
+        int64 port = 8;
     }
 }
 
