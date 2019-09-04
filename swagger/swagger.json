@@ -1429,6 +1429,10 @@
           "items": {
             "$ref": "#/definitions/cmdbModuleObject"
           }
+        },
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
         }
       }
     },
