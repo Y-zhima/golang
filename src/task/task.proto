@@ -82,6 +82,8 @@ message TaskObject {
     string start_time = 12;
     // 执行结束时间
     string end_time = 13;
+    // 作业名称
+    string name = 14;
 }
 
 // 创建任务实例请求
@@ -103,6 +105,8 @@ message CreateRequest {
     int32 schedule_id = 5;
     // 定时任务类型
     ScheduleType schedule_type = 6;
+    // 作业名称
+    string name = 7;
 }
 
 // 创建任务实例请求返回
