@@ -228,6 +228,26 @@
         ],
         "summary": "查询模块",
         "operationId": "SearchModule",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "集群ID.",
+            "name": "cmdb_search_request.bk_set_id",
+            "in": "query"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "collectionFormat": "multi",
+            "description": "模块ID.",
+            "name": "cmdb_search_request.bk_module_id",
+            "in": "query"
+          }
+        ],
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -2516,6 +2536,10 @@
         "extra_var": {
           "type": "string",
           "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
+        },
+        "name": {
+          "type": "string",
+          "title": "作业名称"
         },
         "schedule_id": {
           "type": "integer",

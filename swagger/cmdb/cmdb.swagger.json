@@ -244,6 +244,28 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "cmdb_search_request.bk_set_id",
+            "description": "集群ID.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "cmdb_search_request.bk_module_id",
+            "description": "模块ID.",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
         "tags": [
           "Cmdb"
         ]
