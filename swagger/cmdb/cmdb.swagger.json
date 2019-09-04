@@ -466,6 +466,10 @@
     "cmdbSearchMoudleResponse": {
       "type": "object",
       "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
+        },
         "moudule": {
           "type": "array",
           "items": {
