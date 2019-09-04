@@ -5,13 +5,13 @@ package queue
 
 import (
 	fmt "fmt"
-	_ "git.fogcdn.top/axe/protos/goout/cmdb"
-	_ "git.fogcdn.top/axe/protos/goout/schedule"
+	math "math"
 	proto "github.com/golang/protobuf/proto"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
-	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
+	_ "git.fogcdn.top/axe/protos/goout/cmdb"
+	_ "git.fogcdn.top/axe/protos/goout/schedule"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
-	math "math"
+	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
