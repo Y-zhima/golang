@@ -307,6 +307,14 @@
           "$ref": "#/definitions/taskTaskObject",
           "title": "获取的作业任务实例"
         },
+        "playbook_version": {
+          "type": "string",
+          "title": "task对于的作业版本"
+        },
+        "host_module": {
+          "type": "string",
+          "title": "task对于的主机模块"
+        },
         "status": {
           "$ref": "#/definitions/commonResponseStatus",
           "title": "返回的请求状态"
