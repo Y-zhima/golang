@@ -193,3 +193,23 @@ func (this *ImportLakeResponse) Validate() error {
 	}
 	return nil
 }
+func (this *SearchMoudleRequest) Validate() error {
+	for _, item := range this.CmdbSearchRequest {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+			}
+		}
+	}
+	return nil
+}
+func (this *SearchMoudleResponse) Validate() error {
+	for _, item := range this.Moudule {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Moudule", err)
+			}
+		}
+	}
+	return nil
+}
