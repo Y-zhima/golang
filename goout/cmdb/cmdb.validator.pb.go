@@ -7,10 +7,10 @@ import (
 	fmt "fmt"
 	math "math"
 	proto "github.com/golang/protobuf/proto"
+	_ "github.com/mwitkow/go-proto-validators"
 	_ "git.fogcdn.top/axe/protos/goout/common"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
-	_ "github.com/mwitkow/go-proto-validators"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
@@ -163,5 +163,51 @@ func (this *ImportHostResponse) Validate() error {
 	return nil
 }
 func (this *ChooseHostRequest) Validate() error {
+	return nil
+}
+func (this *ImportSwitchRequest) Validate() error {
+	if this.Url == "" {
+		return github_com_mwitkow_go_proto_validators.FieldError("Url", fmt.Errorf(`URL不能为空`))
+	}
+	return nil
+}
+func (this *ImportSwitchResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}
+func (this *ImportLakeRequest) Validate() error {
+	if this.Url == "" {
+		return github_com_mwitkow_go_proto_validators.FieldError("Url", fmt.Errorf(`URL不能为空`))
+	}
+	return nil
+}
+func (this *ImportLakeResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}
+func (this *SearchMoudleRequest) Validate() error {
+	if this.CmdbSearchRequest != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbSearchRequest); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+		}
+	}
+	return nil
+}
+func (this *SearchMoudleResponse) Validate() error {
+	for _, item := range this.Moudule {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Moudule", err)
+			}
+		}
+	}
 	return nil
 }

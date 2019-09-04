@@ -44,6 +44,60 @@
         }
       }
     },
+    "/v1/cmdb/importLake": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "导入lake节点",
+        "operationId": "ImportLake",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportLakeRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportLakeResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/importSwitch": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "导入交换机",
+        "operationId": "ImportSwitch",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportSwitchRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportSwitchResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/cmdb/instanceTopology": {
       "get": {
         "tags": [
@@ -167,6 +221,43 @@
         }
       }
     },
+    "/v1/cmdb/searchModule": {
+      "get": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "查询模块",
+        "operationId": "SearchModule",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "集群ID.",
+            "name": "cmdb_search_request.bk_set_id",
+            "in": "query"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "collectionFormat": "multi",
+            "description": "模块ID.",
+            "name": "cmdb_search_request.bk_module_id",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbSearchMoudleResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/file/upload": {
       "post": {
         "tags": [
@@ -251,7 +342,7 @@
           "Playbook"
         ],
         "summary": "创建playbook项目",
-        "operationId": "Create",
+        "operationId": "CreateMixin12",
         "parameters": [
           {
             "name": "body",
@@ -278,7 +369,7 @@
           "Playbook"
         ],
         "summary": "筛选playbook项目",
-        "operationId": "Filter",
+        "operationId": "FilterMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -331,7 +422,7 @@
           "Playbook"
         ],
         "summary": "获取playbook项目",
-        "operationId": "Get",
+        "operationId": "GetMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -358,7 +449,7 @@
           "Playbook"
         ],
         "summary": "更新playbook项目",
-        "operationId": "Update",
+        "operationId": "UpdateMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -393,7 +484,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin9",
+        "operationId": "CreateMixin7",
         "parameters": [
           {
             "name": "body",
@@ -420,7 +511,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin9",
+        "operationId": "FilterMixin7",
         "parameters": [
           {
             "type": "integer",
@@ -493,7 +584,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin9",
+        "operationId": "GetMixin7",
         "parameters": [
           {
             "type": "integer",
@@ -555,7 +646,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "UpdateMixin9",
+        "operationId": "Update",
         "parameters": [
           {
             "type": "integer",
@@ -590,7 +681,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "CreateMixin11",
+        "operationId": "Create",
         "parameters": [
           {
             "name": "body",
@@ -617,7 +708,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "FilterMixin11",
+        "operationId": "Filter",
         "parameters": [
           {
             "type": "integer",
@@ -646,6 +737,12 @@
             "description": "总记录数.",
             "name": "paging.total_record",
             "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "用于筛选任务名字的关键字.",
+            "name": "task_name",
+            "in": "query"
           }
         ],
         "responses": {
@@ -658,13 +755,40 @@
         }
       }
     },
+    "/v1/task/get/{task_id}": {
+      "get": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "获取作业任务",
+        "operationId": "Get",
+        "parameters": [
+          {
+            "type": "string",
+            "format": "int64",
+            "description": "作业任务ID",
+            "name": "task_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskGetResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/template/create": {
       "post": {
         "tags": [
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin12",
+        "operationId": "CreateMixin10",
         "parameters": [
           {
             "name": "body",
@@ -691,7 +815,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin12",
+        "operationId": "FilterMixin10",
         "parameters": [
           {
             "type": "integer",
@@ -750,7 +874,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin12",
+        "operationId": "GetMixin10",
         "parameters": [
           {
             "type": "integer",
@@ -777,7 +901,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin12",
+        "operationId": "UpdateMixin10",
         "parameters": [
           {
             "type": "integer",
@@ -880,6 +1004,11 @@
         "password": {
           "type": "string",
           "title": "Ipmi密码"
+        },
+        "port": {
+          "type": "string",
+          "format": "int64",
+          "title": "Ipmi端口"
         },
         "regionName": {
           "type": "string",
@@ -1200,6 +1329,46 @@
         }
       }
     },
+    "cmdbImportLakeRequest": {
+      "type": "object",
+      "title": "导入lake节点请求",
+      "properties": {
+        "url": {
+          "type": "string",
+          "title": "csv文件下载路径"
+        }
+      }
+    },
+    "cmdbImportLakeResponse": {
+      "type": "object",
+      "title": "导入lake节点请求返回",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbImportSwitchRequest": {
+      "type": "object",
+      "title": "导入交换机请求",
+      "properties": {
+        "url": {
+          "type": "string",
+          "title": "csv文件下载路径"
+        }
+      }
+    },
+    "cmdbImportSwitchResponse": {
+      "type": "object",
+      "title": "导入交换机请求返回",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
     "cmdbInstanceTopologyResponse": {
       "type": "object",
       "title": "拓扑实例请求返回",
@@ -1247,6 +1416,19 @@
         "status": {
           "title": "状态码",
           "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbSearchMoudleResponse": {
+      "type": "object",
+      "title": "查询模块请求返回",
+      "properties": {
+        "moudule": {
+          "type": "array",
+          "title": "模块对象",
+          "items": {
+            "$ref": "#/definitions/cmdbModuleObject"
+          }
         }
       }
     },
@@ -2177,6 +2359,10 @@
           "type": "string",
           "title": "定时任务名"
         },
+        "next_time": {
+          "type": "string",
+          "title": "下次执行时间"
+        },
         "schedule_id": {
           "type": "integer",
           "format": "int32",
@@ -2351,6 +2537,10 @@
           "type": "string",
           "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
         },
+        "name": {
+          "type": "string",
+          "title": "作业名称"
+        },
         "schedule_id": {
           "type": "integer",
           "format": "int32",
@@ -2475,6 +2665,10 @@
           "type": "integer",
           "format": "int32",
           "title": "执行失败多少台主机"
+        },
+        "name": {
+          "type": "string",
+          "title": "作业名称"
         },
         "schedule_id": {
           "type": "integer",

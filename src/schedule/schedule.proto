@@ -96,6 +96,8 @@ message ScheduleObject {
     TaskType task_type = 8;
     // 执行总数
     int32 execute_count = 9;
+    // 下次执行时间
+    string next_time = 10;
 }
 
 // 创建定时任务的请求内容体

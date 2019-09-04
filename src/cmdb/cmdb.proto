@@ -33,6 +33,29 @@ service Cmdb {
             body: "*"
         };
     }
+
+    // 导入交换机
+    rpc ImportSwitch (ImportSwitchRequest) returns (ImportSwitchResponse) {
+        option (google.api.http) = {
+            post: "/v1/cmdb/importSwitch"
+            body: "*"
+        };
+    }
+
+    // 导入lake节点
+    rpc ImportLake (ImportLakeRequest) returns (ImportLakeResponse) {
+        option (google.api.http) = {
+            post: "/v1/cmdb/importLake"
+            body: "*"
+        };
+    }
+
+    // 查询模块
+    rpc SearchModule (SearchMoudleRequest) returns (SearchMoudleResponse) {
+        option (google.api.http) = {
+            get: "/v1/cmdb/searchModule"
+        };
+    }
 }
 
 // 业务拓扑对象
@@ -51,7 +74,7 @@ message TopologyObject {
 
 // 拓扑实例请求
 message InstanceTopologyRequest {
-//    int32 level = 1;
+    //    int32 level = 1;
 }
 
 // 拓扑实例请求返回
@@ -161,7 +184,8 @@ message SearchHostResponse {
 // 导入主机请求
 message ImportHostRequest {
     // csv文件下载路径
-    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
+    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"
+                   }];
 }
 
 // 导入主机请求返回
@@ -176,4 +200,47 @@ message ChooseHostRequest {
     int32 bk_set_id = 1;
     // 模块ID
     repeated int32 bk_module_id = 2;
+}
+
+// 导入交换机请求
+message ImportSwitchRequest {
+    // csv文件下载路径
+    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"
+                   }];
+}
+
+// 导入交换机请求返回
+message ImportSwitchResponse {
+    // 状态码
+    common.ResponseStatus status = 1;
+}
+
+// 导入lake节点请求
+message ImportLakeRequest {
+    // csv文件下载路径
+    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"
+                   }];
+}
+
+// 导入lake节点请求返回
+message ImportLakeResponse {
+    // 状态码
+    common.ResponseStatus status = 1;
+}
+
+// 查询模块请求
+message SearchMoudleRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+          required: ["cmdb_search_request"]
+        }
+    };
+    ChooseHostRequest cmdb_search_request = 1 [(validator.field) = {string_not_empty: true, human_error: "cmdb的搜索条件不能为空"
+                                                       }];
+}
+
+// 查询模块请求返回
+message SearchMoudleResponse {
+    // 模块对象
+    repeated ModuleObject moudule = 1;
 }
