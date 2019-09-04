@@ -2662,6 +2662,10 @@
           "format": "int32",
           "title": "执行失败多少台主机"
         },
+        "name": {
+          "type": "string",
+          "title": "作业名称"
+        },
         "schedule_id": {
           "type": "integer",
           "format": "int32",

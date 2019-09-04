@@ -242,6 +242,10 @@
         "schedule_type": {
           "$ref": "#/definitions/taskScheduleType",
           "title": "定时任务类型"
+        },
+        "name": {
+          "type": "string",
+          "title": "作业名称"
         }
       },
       "title": "创建任务实例请求",
@@ -385,6 +389,10 @@
         "end_time": {
           "type": "string",
           "title": "执行结束时间"
+        },
+        "name": {
+          "type": "string",
+          "title": "作业名称"
         }
       },
       "title": "作业任务实例"
