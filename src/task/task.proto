@@ -32,9 +32,9 @@ service Task {
 
     // 获取作业任务
     rpc Get (GetRequest) returns (GetResponse) {
-        //        option (google.api.http) = {
-        //            get: "/v1/task/{task_id}"
-        //        };
+        option (google.api.http) = {
+            get: "/v1/task/get/{task_id}"
+        };
     }
     // 获取作业任务详细执行过程
     rpc GetLog (GetLogRequest) returns (GetLogResponse) {
@@ -144,6 +144,8 @@ message GetLogResponse {
 message FilterRequest {
     // 分页信息
     common.Paging paging = 1;
+    // 用于筛选任务名字的关键字
+    string task_name = 2;
 }
 
 // 筛选作业任务请求返回
