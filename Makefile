@@ -15,17 +15,17 @@ push: package
 	docker push ${IMAGE_NAME}:${VERSION}
 
 gen-proto: clean
-	docker run -it -v $(PWD):/opt/protos ${IMAGE_NAME}:${VERSION} sh gen.sh proto
+	docker run -it -v `pwd`:/opt/protos ${IMAGE_NAME}:${VERSION} sh gen.sh proto
 
 gen-mock:
 	@rm -rf gooutmock
-	docker run -it -v $(PWD):/opt/protos ${IMAGE_NAME}:${VERSION} sh gen.sh mock
+	docker run -it -v `pwd`:/opt/protos ${IMAGE_NAME}:${VERSION} sh gen.sh mock
 
 swagger-mixin:
-	@docker run --rm -it -v $(PWD):/tmp/protos -w /tmp/protos quay.io/goswagger/swagger -q mixin ${SWAGGER_FILES} -o swagger/swagger.json || true
+	@docker run --rm -it -v `pwd`:/tmp/protos -w /tmp/protos quay.io/goswagger/swagger -q mixin ${SWAGGER_FILES} -o swagger/swagger.json || true
 
 swagger-ui:
-	@docker run --rm -it -v $(PWD):/tmp/protos -p 8080:8080 -w /tmp/protos quay.io/goswagger/swagger serve swagger/swagger.json -Fswagger --port 8080 --no-open
+	@docker run --rm -it -v `pwd`:/tmp/protos -p 8080:8080 -w /tmp/protos quay.io/goswagger/swagger serve swagger/swagger.json -Fswagger --port 8080 --no-open
 
 clean:
 	@rm -rf goout javaout swagger
