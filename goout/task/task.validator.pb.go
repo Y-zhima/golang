@@ -7,12 +7,19 @@ import (
 	fmt "fmt"
 	math "math"
 	proto "github.com/golang/protobuf/proto"
+<<<<<<< HEAD
+=======
+	_ "git.fogcdn.top/axe/protos/goout/common"
+>>>>>>> master
 	_ "git.fogcdn.top/axe/protos/goout/schedule"
 	_ "git.fogcdn.top/axe/protos/goout/cmdb"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "github.com/mwitkow/go-proto-validators"
+<<<<<<< HEAD
 	_ "git.fogcdn.top/axe/protos/goout/common"
+=======
+>>>>>>> master
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 

@@ -65,6 +65,33 @@ func request_Task_Filter_0(ctx context.Context, marshaler runtime.Marshaler, cli
 
 }
 
+func request_Task_Get_0(ctx context.Context, marshaler runtime.Marshaler, client TaskClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq GetRequest
+	var metadata runtime.ServerMetadata
+
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["task_id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "task_id")
+	}
+
+	protoReq.TaskId, err = runtime.Int64(val)
+
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "task_id", err)
+	}
+
+	msg, err := client.Get(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
 // RegisterTaskHandlerFromEndpoint is same as RegisterTaskHandler but
 // automatically dials to "endpoint" and closes the connection when "ctx" gets done.
 func RegisterTaskHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
@@ -143,6 +170,26 @@ func RegisterTaskHandlerClient(ctx context.Context, mux *runtime.ServeMux, clien
 
 	})
 
+	mux.Handle("GET", pattern_Task_Get_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_Task_Get_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_Task_Get_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
 	return nil
 }
 
@@ -150,10 +197,14 @@ var (
 	pattern_Task_Create_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "task", "create"}, "", runtime.AssumeColonVerbOpt(true)))
 
 	pattern_Task_Filter_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "task", "filter"}, "", runtime.AssumeColonVerbOpt(true)))
+
+	pattern_Task_Get_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"v1", "task", "get", "task_id"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
 	forward_Task_Create_0 = runtime.ForwardResponseMessage
 
 	forward_Task_Filter_0 = runtime.ForwardResponseMessage
+
+	forward_Task_Get_0 = runtime.ForwardResponseMessage
 )

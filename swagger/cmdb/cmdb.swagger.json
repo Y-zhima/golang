@@ -69,6 +69,33 @@
         ]
       }
     },
+    "/v1/cmdb/importServer": {
+      "post": {
+        "summary": "导入物理机",
+        "operationId": "ImportServer",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportServerResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportServerRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Cmdb"
+        ]
+      }
+    },
     "/v1/cmdb/importSwitch": {
       "post": {
         "summary": "导入交换机",
@@ -249,19 +276,31 @@
         ]
       }
     },
+<<<<<<< HEAD
     "/v1/cmdb/serverList": {
       "get": {
         "operationId": "ServerList",
+=======
+    "/v1/cmdb/searchModule": {
+      "get": {
+        "summary": "查询模块",
+        "operationId": "SearchModule",
+>>>>>>> master
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
+<<<<<<< HEAD
               "$ref": "#/definitions/cmdbServerListResponse"
+=======
+              "$ref": "#/definitions/cmdbSearchMoudleResponse"
+>>>>>>> master
             }
           }
         },
         "parameters": [
           {
+<<<<<<< HEAD
             "name": "room_id",
             "description": "机房id，相当于 RoomObject 中的 bk_inst_id.",
             "in": "query",
@@ -280,12 +319,17 @@
           {
             "name": "paging.page",
             "description": "当前页数.",
+=======
+            "name": "cmdb_search_request.bk_set_id",
+            "description": "集群ID.",
+>>>>>>> master
             "in": "query",
             "required": false,
             "type": "integer",
             "format": "int32"
           },
           {
+<<<<<<< HEAD
             "name": "paging.per_page",
             "description": "每页显示的记录条数.",
             "in": "query",
@@ -300,6 +344,18 @@
             "required": false,
             "type": "integer",
             "format": "int32"
+=======
+            "name": "cmdb_search_request.bk_module_id",
+            "description": "模块ID.",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "collectionFormat": "multi"
+>>>>>>> master
           }
         ],
         "tags": [
@@ -323,6 +379,25 @@
         }
       },
       "title": "业务"
+    },
+    "cmdbChooseHostRequest": {
+      "type": "object",
+      "properties": {
+        "bk_set_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "集群ID"
+        },
+        "bk_module_id": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": "模块ID"
+        }
+      },
+      "title": "选择主机请求"
     },
     "cmdbHostInfoObject": {
       "type": "object",
@@ -409,6 +484,26 @@
         }
       },
       "title": "导入lake节点请求返回"
+    },
+    "cmdbImportServerRequest": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "title": "csv文件下载路径"
+        }
+      },
+      "title": "导入物理机请求"
+    },
+    "cmdbImportServerResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
+        }
+      },
+      "title": "导入物理机请求返回"
     },
     "cmdbImportSwitchRequest": {
       "type": "object",
@@ -562,6 +657,7 @@
       },
       "title": "查找主机请求返回"
     },
+<<<<<<< HEAD
     "cmdbServerInstallState": {
       "type": "string",
       "enum": [
@@ -654,6 +750,24 @@
       "default": "OFF",
       "description": "- OFF: 下电\n - ON: 上电",
       "title": "电源状态"
+=======
+    "cmdbSearchMoudleResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
+        },
+        "moudule": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbModuleObject"
+          },
+          "title": "模块对象"
+        }
+      },
+      "title": "查询模块请求返回"
+>>>>>>> master
     },
     "cmdbSetObject": {
       "type": "object",

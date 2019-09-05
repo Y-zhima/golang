@@ -15,7 +15,7 @@
     "title": "AXE运维API",
     "version": "1.0.0"
   },
-  "host": "192.168.0.129:8969",
+  "host": "192.168.0.129:9001",
   "paths": {
     "/v1/cmdb/importHost": {
       "post": {
@@ -66,6 +66,33 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/cmdbImportLakeResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/importServer": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "导入物理机",
+        "operationId": "ImportServer",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportServerRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportServerResponse"
             }
           }
         }
@@ -238,11 +265,16 @@
         }
       }
     },
+<<<<<<< HEAD
     "/v1/cmdb/serverList": {
+=======
+    "/v1/cmdb/searchModule": {
+>>>>>>> master
       "get": {
         "tags": [
           "Cmdb"
         ],
+<<<<<<< HEAD
         "operationId": "ServerList",
         "parameters": [
           {
@@ -278,6 +310,27 @@
             "format": "int32",
             "description": "总记录数.",
             "name": "paging.total_record",
+=======
+        "summary": "查询模块",
+        "operationId": "SearchModule",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "集群ID.",
+            "name": "cmdb_search_request.bk_set_id",
+            "in": "query"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "collectionFormat": "multi",
+            "description": "模块ID.",
+            "name": "cmdb_search_request.bk_module_id",
+>>>>>>> master
             "in": "query"
           }
         ],
@@ -285,7 +338,11 @@
           "200": {
             "description": "A successful response.",
             "schema": {
+<<<<<<< HEAD
               "$ref": "#/definitions/cmdbServerListResponse"
+=======
+              "$ref": "#/definitions/cmdbSearchMoudleResponse"
+>>>>>>> master
             }
           }
         }
@@ -770,6 +827,12 @@
             "description": "总记录数.",
             "name": "paging.total_record",
             "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "用于筛选任务名字的关键字.",
+            "name": "task_name",
+            "in": "query"
           }
         ],
         "responses": {
@@ -777,6 +840,33 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/taskFilterResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/task/get/{task_id}": {
+      "get": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "获取作业任务",
+        "operationId": "GetMixin11",
+        "parameters": [
+          {
+            "type": "string",
+            "format": "int64",
+            "description": "作业任务ID",
+            "name": "task_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskGetResponse"
             }
           }
         }
@@ -1349,6 +1439,26 @@
         }
       }
     },
+    "cmdbImportServerRequest": {
+      "type": "object",
+      "title": "导入物理机请求",
+      "properties": {
+        "url": {
+          "type": "string",
+          "title": "csv文件下载路径"
+        }
+      }
+    },
+    "cmdbImportServerResponse": {
+      "type": "object",
+      "title": "导入物理机请求返回",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
     "cmdbImportSwitchRequest": {
       "type": "object",
       "title": "导入交换机请求",
@@ -1501,6 +1611,7 @@
         }
       }
     },
+<<<<<<< HEAD
     "cmdbServerInstallState": {
       "description": "- UNINSTALLED: 未装机\n - INSTALLING: 装机中\n - INSTALLED: 已装机",
       "type": "string",
@@ -1529,10 +1640,26 @@
         },
         "status": {
           "title": "返回的请求状态",
+=======
+    "cmdbSearchMoudleResponse": {
+      "type": "object",
+      "title": "查询模块请求返回",
+      "properties": {
+        "moudule": {
+          "type": "array",
+          "title": "模块对象",
+          "items": {
+            "$ref": "#/definitions/cmdbModuleObject"
+          }
+        },
+        "status": {
+          "title": "状态码",
+>>>>>>> master
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
     },
+<<<<<<< HEAD
     "cmdbServerObject": {
       "type": "object",
       "title": "物理机对象",
@@ -1594,6 +1721,8 @@
         "ON"
       ]
     },
+=======
+>>>>>>> master
     "cmdbSetObject": {
       "type": "object",
       "title": "集群",
@@ -2699,6 +2828,10 @@
           "type": "string",
           "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
         },
+        "name": {
+          "type": "string",
+          "title": "作业名称"
+        },
         "schedule_id": {
           "type": "integer",
           "format": "int32",
@@ -2823,6 +2956,10 @@
           "type": "integer",
           "format": "int32",
           "title": "执行失败多少台主机"
+        },
+        "name": {
+          "type": "string",
+          "title": "作业名称"
         },
         "schedule_id": {
           "type": "integer",
