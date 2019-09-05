@@ -140,6 +140,23 @@
         ]
       }
     },
+    "/v1/cmdb/roomTopology": {
+      "get": {
+        "summary": "机房拓扑",
+        "operationId": "RoomTopology",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbRoomTopologyResponse"
+            }
+          }
+        },
+        "tags": [
+          "Cmdb"
+        ]
+      }
+    },
     "/v1/cmdb/searchHost": {
       "get": {
         "summary": "查找主机",
@@ -291,6 +308,65 @@
               "format": "int32"
             },
             "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "Cmdb"
+        ]
+      }
+    },
+    "/v1/cmdb/serverList": {
+      "get": {
+        "summary": "裸金属列表",
+        "operationId": "ServerList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbServerListResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "room_id",
+            "description": "机房id，相当于 RoomObject 中的 bk_inst_id.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "paging.total_page",
+            "description": "总页数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paging.page",
+            "description": "当前页数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paging.per_page",
+            "description": "每页显示的记录条数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paging.total_record",
+            "description": "总记录数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
           }
         ],
         "tags": [
@@ -489,6 +565,61 @@
       },
       "title": "模块"
     },
+    "cmdbRoomObject": {
+      "type": "object",
+      "properties": {
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "业务ID"
+        },
+        "bk_inst_name": {
+          "type": "string",
+          "title": "业务名称"
+        },
+        "bk_obj_id": {
+          "type": "string",
+          "title": "对象ID"
+        },
+        "room_name": {
+          "type": "string",
+          "title": "机房名称"
+        },
+        "city": {
+          "type": "string",
+          "title": "城市"
+        },
+        "prov": {
+          "type": "string",
+          "title": "省份"
+        },
+        "child": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbRoomObject"
+          },
+          "title": "子对象"
+        }
+      },
+      "title": "机房对象"
+    },
+    "cmdbRoomTopologyResponse": {
+      "type": "object",
+      "properties": {
+        "rooms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbRoomObject"
+          },
+          "title": "业务拓扑对象"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
+        }
+      },
+      "title": "机房拓扑请求返回"
+    },
     "cmdbSearchHostResponse": {
       "type": "object",
       "properties": {
@@ -526,6 +657,99 @@
         }
       },
       "title": "查询模块请求返回"
+    },
+    "cmdbServerInstallState": {
+      "type": "string",
+      "enum": [
+        "UNINSTALLED",
+        "INSTALLING",
+        "INSTALLED"
+      ],
+      "default": "UNINSTALLED",
+      "description": "- UNINSTALLED: 未装机\n - INSTALLING: 装机中\n - INSTALLED: 已装机",
+      "title": "装机状态"
+    },
+    "cmdbServerListResponse": {
+      "type": "object",
+      "properties": {
+        "servers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbServerObject"
+          },
+          "title": "裸金属列表"
+        },
+        "paging": {
+          "$ref": "#/definitions/commonPaging",
+          "title": "分页信息"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        }
+      },
+      "title": "裸金属列表响应"
+    },
+    "cmdbServerObject": {
+      "type": "object",
+      "properties": {
+        "bk_inst_name": {
+          "type": "string",
+          "title": "实例名"
+        },
+        "manage_ip": {
+          "type": "string",
+          "title": "IPMI地址"
+        },
+        "account": {
+          "type": "string",
+          "title": "IPMI账号"
+        },
+        "password": {
+          "type": "string",
+          "title": "IPMI密码"
+        },
+        "mac_address": {
+          "type": "string",
+          "title": "MAC地址"
+        },
+        "uuid": {
+          "type": "string",
+          "title": "uuid编码"
+        },
+        "cabinet": {
+          "type": "string",
+          "title": "机柜"
+        },
+        "port": {
+          "type": "string",
+          "title": "IPMI端口"
+        },
+        "power_state": {
+          "$ref": "#/definitions/cmdbServerPowerState",
+          "title": "电源状态"
+        },
+        "install_state": {
+          "$ref": "#/definitions/cmdbServerInstallState",
+          "title": "装机状态"
+        },
+        "room_id": {
+          "type": "string",
+          "format": "int64",
+          "title": "机房id"
+        }
+      },
+      "title": "物理机对象"
+    },
+    "cmdbServerPowerState": {
+      "type": "string",
+      "enum": [
+        "OFF",
+        "ON"
+      ],
+      "default": "OFF",
+      "description": "- OFF: 下电\n - ON: 上电",
+      "title": "电源状态"
     },
     "cmdbSetObject": {
       "type": "object",
