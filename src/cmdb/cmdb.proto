@@ -34,6 +34,14 @@ service Cmdb {
         };
     }
 
+    // 导入物理机
+    rpc ImportServer (ImportServerRequest) returns (ImportServerResponse) {
+        option (google.api.http) = {
+            post: "/v1/cmdb/importServer"
+            body: "*"
+        };
+    }
+
     // 导入交换机
     rpc ImportSwitch (ImportSwitchRequest) returns (ImportSwitchResponse) {
         option (google.api.http) = {
@@ -194,6 +202,19 @@ message ImportHostResponse {
     common.ResponseStatus status = 1;
 }
 
+// 导入物理机请求
+message ImportServerRequest {
+    // csv文件下载路径
+    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"
+                   }];
+}
+
+// 导入物理机请求返回
+message ImportServerResponse {
+    // 状态码
+    common.ResponseStatus status = 1;
+}
+
 // 选择主机请求
 message ChooseHostRequest {
     // 集群ID
@@ -241,6 +262,8 @@ message SearchMoudleRequest {
 
 // 查询模块请求返回
 message SearchMoudleResponse {
+    // 状态码
+    common.ResponseStatus status = 1;
     // 模块对象
-    repeated ModuleObject moudule = 1;
+    repeated ModuleObject moudule = 2;
 }

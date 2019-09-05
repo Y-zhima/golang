@@ -69,6 +69,33 @@
         ]
       }
     },
+    "/v1/cmdb/importServer": {
+      "post": {
+        "summary": "导入物理机",
+        "operationId": "ImportServer",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportServerResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportServerRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Cmdb"
+        ]
+      }
+    },
     "/v1/cmdb/importSwitch": {
       "post": {
         "summary": "导入交换机",
@@ -393,6 +420,26 @@
       },
       "title": "导入lake节点请求返回"
     },
+    "cmdbImportServerRequest": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "title": "csv文件下载路径"
+        }
+      },
+      "title": "导入物理机请求"
+    },
+    "cmdbImportServerResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
+        }
+      },
+      "title": "导入物理机请求返回"
+    },
     "cmdbImportSwitchRequest": {
       "type": "object",
       "properties": {
@@ -466,6 +513,10 @@
     "cmdbSearchMoudleResponse": {
       "type": "object",
       "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
+        },
         "moudule": {
           "type": "array",
           "items": {
