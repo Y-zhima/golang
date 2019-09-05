@@ -611,7 +611,7 @@
           "items": {
             "$ref": "#/definitions/cmdbRoomObject"
           },
-          "title": "业务拓扑对象"
+          "title": "机房拓扑对象"
         },
         "status": {
           "$ref": "#/definitions/commonResponseStatus",
@@ -712,10 +712,6 @@
         "mac_address": {
           "type": "string",
           "title": "MAC地址"
-        },
-        "uuid": {
-          "type": "string",
-          "title": "uuid编码"
         },
         "cabinet": {
           "type": "string",

@@ -279,19 +279,11 @@ message RoomObject {
 
 // 机房拓扑请求
 message RoomTopologyRequest {
-    // 分页信息
-//    common.Paging paging = 1;
-    // 省份
-//    string prov = 2;
-    // 城市
-//    string city = 3;
-    // 机房名称
-//    string room_name = 4;
 }
 
 // 机房拓扑请求返回
 message RoomTopologyResponse {
-    // 业务拓扑对象
+    // 机房拓扑对象
     repeated RoomObject rooms = 1;
     // 状态码
     common.ResponseStatus status = 2;
@@ -328,18 +320,16 @@ message ServerObject {
     string password = 4;
     // MAC地址
     string mac_address = 5;
-    // uuid编码
-    string uuid = 6;
     // 机柜
-    string cabinet = 7;
+    string cabinet = 6;
     // IPMI端口
-    string port = 8;
+    string port = 7;
     // 电源状态
-    ServerPowerState power_state = 9;
+    ServerPowerState power_state = 8;
     // 装机状态
-    ServerInstallState install_state = 10;
+    ServerInstallState install_state = 9;
     // 机房id
-    int64 room_id = 11;
+    int64 room_id = 10;
 }
 
 // 裸金属列表请求
