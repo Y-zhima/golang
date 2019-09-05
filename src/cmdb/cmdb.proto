@@ -91,7 +91,7 @@ service Cmdb {
 // 导入状态: 0-正在导入 1-导入完成 2-导入失败
 enum ImportStatus {
     // 0-正在导入
-    UNKNOWN= 0;
+    IMPORTING = 0;
     // 1-导入完成
     COMPLETED = 1;
     // 2-导入失败

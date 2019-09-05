@@ -653,12 +653,12 @@
     "cmdbImportStatus": {
       "type": "string",
       "enum": [
-        "UNKNOWN",
+        "IMPORTING",
         "COMPLETED",
         "FAILED"
       ],
-      "default": "UNKNOWN",
-      "description": "- UNKNOWN: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败",
+      "default": "IMPORTING",
+      "description": "- IMPORTING: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败",
       "title": "导入状态: 0-正在导入 1-导入完成 2-导入失败"
     },
     "cmdbImportSwitchRequest": {
