@@ -259,22 +259,6 @@ message ImportLakeResponse {
     common.ResponseStatus status = 1;
 }
 
-// 机房拓扑对象
-message RoomTopology {
-    // 省份
-    string prov = 1;
-    // 城市列表
-    repeated RoomCityObject cities = 2;
-}
-
-// 机房城市对象
-message RoomCityObject {
-    // 城市
-    string city = 1;
-    // 机房列表
-    repeated RoomObject rooms = 2;
-}
-
 // 机房对象
 message RoomObject {
     // 业务ID
@@ -289,6 +273,8 @@ message RoomObject {
     string city = 5;
     // 省份
     string prov = 6;
+    // 子对象
+    repeated RoomObject child = 7;
 }
 
 // 机房拓扑请求
@@ -306,7 +292,7 @@ message RoomTopologyRequest {
 // 机房拓扑请求返回
 message RoomTopologyResponse {
     // 业务拓扑对象
-    repeated RoomTopology roomTopology = 1;
+    repeated RoomObject rooms = 1;
     // 状态码
     common.ResponseStatus status = 2;
 }
