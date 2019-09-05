@@ -561,9 +561,7 @@ type FilterRequest struct {
 	// 分页信息
 	Paging *common.Paging `protobuf:"bytes,1,opt,name=paging,proto3" json:"paging,omitempty"`
 	// 用于筛选任务名字的关键字
-	TaskName string `protobuf:"bytes,2,opt,name=task_name,json=taskName,proto3" json:"task_name,omitempty"`
-	// 用于筛选定时任务的任务类型 0-undefined 1-作业模板；2-容器部署 3-裸金属管理
-	TaskType             int64    `protobuf:"varint,3,opt,name=task_type,json=taskType,proto3" json:"task_type,omitempty"`
+	TaskName             string   `protobuf:"bytes,2,opt,name=task_name,json=taskName,proto3" json:"task_name,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
