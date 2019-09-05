@@ -576,7 +576,7 @@
           "title": "返回的请求状态"
         }
       },
-      "title": "查询导入历史列表请求"
+      "title": "查询导入历史列表返回"
     },
     "cmdbImportHostRequest": {
       "type": "object",
@@ -695,7 +695,7 @@
         "SWITCH"
       ],
       "default": "UNDEFINED",
-      "description": "- UNDEFINED: 0-undefined\n - HOST: 1-主机\n - SERVER: 2-物理机\n - LAKE: 3-LAKE\n - SWITCH: 3-LAKE",
+      "description": "- UNDEFINED: 0-undefined\n - HOST: 1-主机\n - SERVER: 2-物理机\n - LAKE: 3-LAKE\n - SWITCH: 4-交换机",
       "title": "导入类型:0-undefined 1-主机 2-物理机 3-LAKE 4-交换机"
     },
     "cmdbInstanceTopologyResponse": {

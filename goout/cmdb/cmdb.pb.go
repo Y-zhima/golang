@@ -72,7 +72,7 @@ const (
 	ImportType_SERVER ImportType = 2
 	// 3-LAKE
 	ImportType_LAKE ImportType = 3
-	// 3-LAKE
+	// 4-交换机
 	ImportType_SWITCH ImportType = 4
 )
 
@@ -1966,7 +1966,7 @@ func (m *ImportHistoryRequest) GetPaging() *common.Paging {
 	return nil
 }
 
-// 查询导入历史列表请求
+// 查询导入历史列表返回
 type ImportHistoryResponse struct {
 	// 导入历史对象列表
 	History []*ImportHistoryObject `protobuf:"bytes,1,rep,name=history,proto3" json:"history,omitempty"`

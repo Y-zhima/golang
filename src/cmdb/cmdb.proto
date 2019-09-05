@@ -108,7 +108,7 @@ enum ImportType {
     SERVER = 2;
     // 3-LAKE
     LAKE = 3;
-    // 3-LAKE
+    // 4-交换机
     SWITCH = 4;
 }
 
@@ -444,7 +444,7 @@ message ImportHistoryRequest {
     common.Paging paging = 1;
 }
 
-// 查询导入历史列表请求
+// 查询导入历史列表返回
 message ImportHistoryResponse {
     // 导入历史对象列表
     repeated ImportHistoryObject history = 1;
