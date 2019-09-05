@@ -1529,23 +1529,6 @@
         }
       }
     },
-    "cmdbRoomCityObject": {
-      "type": "object",
-      "title": "机房城市对象",
-      "properties": {
-        "city": {
-          "type": "string",
-          "title": "城市"
-        },
-        "rooms": {
-          "type": "array",
-          "title": "机房列表",
-          "items": {
-            "$ref": "#/definitions/cmdbRoomObject"
-          }
-        }
-      }
-    },
     "cmdbRoomObject": {
       "type": "object",
       "title": "机房对象",
@@ -1563,6 +1546,13 @@
           "type": "string",
           "title": "对象ID"
         },
+        "child": {
+          "type": "array",
+          "title": "子对象",
+          "items": {
+            "$ref": "#/definitions/cmdbRoomObject"
+          }
+        },
         "city": {
           "type": "string",
           "title": "城市"
@@ -1577,32 +1567,15 @@
         }
       }
     },
-    "cmdbRoomTopology": {
-      "type": "object",
-      "title": "机房拓扑对象",
-      "properties": {
-        "cities": {
-          "type": "array",
-          "title": "城市列表",
-          "items": {
-            "$ref": "#/definitions/cmdbRoomCityObject"
-          }
-        },
-        "prov": {
-          "type": "string",
-          "title": "省份"
-        }
-      }
-    },
     "cmdbRoomTopologyResponse": {
       "type": "object",
       "title": "机房拓扑请求返回",
       "properties": {
-        "roomTopology": {
+        "rooms": {
           "type": "array",
           "title": "业务拓扑对象",
           "items": {
-            "$ref": "#/definitions/cmdbRoomTopology"
+            "$ref": "#/definitions/cmdbRoomObject"
           }
         },
         "status": {
