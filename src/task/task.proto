@@ -127,8 +127,12 @@ message GetRequest {
 message GetResponse {
     // 获取的作业任务实例
     TaskObject task = 1;
+    // task对于的作业版本
+    string playbook_version = 2;
+    // task对于的主机模块
+    string host_module = 3;
     // 返回的请求状态
-    common.ResponseStatus status = 2;
+    common.ResponseStatus status = 4;
 }
 
 // 获取作业任务详细执行过程请求
@@ -150,6 +154,8 @@ message FilterRequest {
     common.Paging paging = 1;
     // 用于筛选任务名字的关键字
     string task_name = 2;
+    // 用于筛选定时任务的任务类型 0-undefined 1-作业模板；2-容器部署 3-裸金属管理
+    int64 task_type = 3;
 }
 
 // 筛选作业任务请求返回

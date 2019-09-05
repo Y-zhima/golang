@@ -342,7 +342,7 @@
           "Playbook"
         ],
         "summary": "创建playbook项目",
-        "operationId": "Create",
+        "operationId": "CreateMixin11",
         "parameters": [
           {
             "name": "body",
@@ -369,7 +369,7 @@
           "Playbook"
         ],
         "summary": "筛选playbook项目",
-        "operationId": "Filter",
+        "operationId": "FilterMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -422,7 +422,7 @@
           "Playbook"
         ],
         "summary": "获取playbook项目",
-        "operationId": "Get",
+        "operationId": "GetMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -449,7 +449,7 @@
           "Playbook"
         ],
         "summary": "更新playbook项目",
-        "operationId": "Update",
+        "operationId": "UpdateMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -484,7 +484,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin9",
+        "operationId": "CreateMixin7",
         "parameters": [
           {
             "name": "body",
@@ -511,7 +511,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin9",
+        "operationId": "FilterMixin7",
         "parameters": [
           {
             "type": "integer",
@@ -584,7 +584,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin9",
+        "operationId": "GetMixin7",
         "parameters": [
           {
             "type": "integer",
@@ -646,7 +646,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "UpdateMixin9",
+        "operationId": "Update",
         "parameters": [
           {
             "type": "integer",
@@ -681,7 +681,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "CreateMixin11",
+        "operationId": "Create",
         "parameters": [
           {
             "name": "body",
@@ -708,7 +708,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "FilterMixin11",
+        "operationId": "Filter",
         "parameters": [
           {
             "type": "integer",
@@ -743,6 +743,13 @@
             "description": "用于筛选任务名字的关键字.",
             "name": "task_name",
             "in": "query"
+          },
+          {
+            "type": "string",
+            "format": "int64",
+            "description": "用于筛选定时任务的任务类型 0-undefined 1-作业模板；2-容器部署 3-裸金属管理.",
+            "name": "task_type",
+            "in": "query"
           }
         ],
         "responses": {
@@ -761,7 +768,7 @@
           "Task"
         ],
         "summary": "获取作业任务",
-        "operationId": "GetMixin11",
+        "operationId": "Get",
         "parameters": [
           {
             "type": "string",
@@ -788,7 +795,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin12",
+        "operationId": "CreateMixin9",
         "parameters": [
           {
             "name": "body",
@@ -815,7 +822,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin12",
+        "operationId": "FilterMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -874,7 +881,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin12",
+        "operationId": "GetMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -901,7 +908,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin12",
+        "operationId": "UpdateMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -2611,6 +2618,14 @@
       "type": "object",
       "title": "获取作业任务请求返回",
       "properties": {
+        "host_module": {
+          "type": "string",
+          "title": "task对于的主机模块"
+        },
+        "playbook_version": {
+          "type": "string",
+          "title": "task对于的作业版本"
+        },
         "status": {
           "title": "返回的请求状态",
           "$ref": "#/definitions/commonResponseStatus"
