@@ -1326,7 +1326,7 @@ var xxx_messageInfo_RoomTopologyRequest proto.InternalMessageInfo
 
 // 机房拓扑请求返回
 type RoomTopologyResponse struct {
-	// 业务拓扑对象
+	// 机房拓扑对象
 	Rooms []*RoomObject `protobuf:"bytes,1,rep,name=rooms,proto3" json:"rooms,omitempty"`
 	// 状态码
 	Status               *common.ResponseStatus `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`

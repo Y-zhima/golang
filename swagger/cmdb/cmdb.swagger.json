@@ -611,7 +611,7 @@
           "items": {
             "$ref": "#/definitions/cmdbRoomObject"
           },
-          "title": "业务拓扑对象"
+          "title": "机房拓扑对象"
         },
         "status": {
           "$ref": "#/definitions/commonResponseStatus",

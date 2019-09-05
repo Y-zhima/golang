@@ -279,19 +279,11 @@ message RoomObject {
 
 // 机房拓扑请求
 message RoomTopologyRequest {
-    // 分页信息
-//    common.Paging paging = 1;
-    // 省份
-//    string prov = 2;
-    // 城市
-//    string city = 3;
-    // 机房名称
-//    string room_name = 4;
 }
 
 // 机房拓扑请求返回
 message RoomTopologyResponse {
-    // 业务拓扑对象
+    // 机房拓扑对象
     repeated RoomObject rooms = 1;
     // 状态码
     common.ResponseStatus status = 2;
