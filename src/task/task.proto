@@ -155,7 +155,7 @@ message FilterRequest {
     // 用于筛选任务名字的关键字
     string task_name = 2;
     // 用于筛选定时任务的任务类型 0-undefined 1-作业模板；2-容器部署 3-裸金属管理
-    int64 task_type = 3;
+    schedule.TaskType task_type = 3;
 }
 
 // 筛选作业任务请求返回
