@@ -320,18 +320,16 @@ message ServerObject {
     string password = 4;
     // MAC地址
     string mac_address = 5;
-    // uuid编码
-    string uuid = 6;
     // 机柜
-    string cabinet = 7;
+    string cabinet = 6;
     // IPMI端口
-    string port = 8;
+    string port = 7;
     // 电源状态
-    ServerPowerState power_state = 9;
+    ServerPowerState power_state = 8;
     // 装机状态
-    ServerInstallState install_state = 10;
+    ServerInstallState install_state = 9;
     // 机房id
-    int64 room_id = 11;
+    int64 room_id = 10;
 }
 
 // 裸金属列表请求

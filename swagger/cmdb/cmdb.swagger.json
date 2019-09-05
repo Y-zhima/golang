@@ -713,10 +713,6 @@
           "type": "string",
           "title": "MAC地址"
         },
-        "uuid": {
-          "type": "string",
-          "title": "uuid编码"
-        },
         "cabinet": {
           "type": "string",
           "title": "机柜"

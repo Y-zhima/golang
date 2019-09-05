@@ -1698,10 +1698,6 @@
           "type": "string",
           "format": "int64",
           "title": "机房id"
-        },
-        "uuid": {
-          "type": "string",
-          "title": "uuid编码"
         }
       }
     },
