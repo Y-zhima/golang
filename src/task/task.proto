@@ -51,7 +51,7 @@ service Task {
         };
     }
 
-    // 调用裸金属应用执行开机操作
+    // 调用裸金属应用执行开关机操作
     rpc NodePowerCon (NodePowerConRequest) returns (NodePowerConResponse) {
         option (google.api.http) = {
             post: "/v1/task/nodePowerCon"
