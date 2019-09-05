@@ -42,7 +42,66 @@ service Task {
         //            get: "/v1/task/{task_id}/logs"
         //        };
     }
+
+    // 调用裸金属应用检查裸金属状态
+    rpc SearchNodeInfo (SearchNodeInfoRequest) returns (SearchNodeInfoResponse) {
+        option (google.api.http) = {
+            post: "/v1/task/searchNodeInfo"
+            body: "*"
+        };
+    }
+
+    // 调用裸金属应用执行开机操作
+    rpc NodePowerCon (NodePowerConRequest) returns (NodePowerConResponse) {
+        option (google.api.http) = {
+            post: "/v1/task/nodePowerCon"
+            body: "*"
+        };
+    }
 }
+
+
+message RoomNode {
+    // 机房ID
+    string room = 1;
+    // 机房下对应物理机UUID
+    repeated string  uuid = 2;
+}
+
+
+// 调用裸金属应用检查裸金属状态请求体
+message SearchNodeInfoRequest {
+    repeated RoomNode room_node = 1;
+}
+
+// 调用裸金属应用检查裸金属状态返回体
+message SearchNodeInfoResponse {
+    // 状态码
+    common.ResponseStatus status = 1;
+}
+
+
+// 调用裸金属应用执行开关机操作请求体
+message NodePowerConRequest {
+    NodePowerOpers  operator = 1;
+    repeated RoomNode room_node = 2;
+}
+
+// 调用裸金属应用执行开关机操作返回体
+message NodePowerConResponse {
+    // 状态码
+    common.ResponseStatus status = 1;
+}
+
+// 裸金属应用执行开关
+enum NodePowerOpers {
+    // 关机
+    OFF = 0;
+    // 开机
+    ON = 1;
+}
+
+
 
 // 定时任务类型 0-undefined 1-单次任务 2-定时任务
 enum ScheduleType {
