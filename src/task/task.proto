@@ -154,7 +154,7 @@ message FilterRequest {
     common.Paging paging = 1;
     // 用于筛选任务名字的关键字
     string task_name = 2;
-    // 用于筛选定时任务的任务类型 0-undefined 1-作业模板；2-容器部署 3-裸金属管理
+    // 用于筛选定时任务的任务类型 0-undefined 1-作业模板；2-容器部署；3-裸金属管理
     schedule.TaskType task_type = 3;
 }
 
