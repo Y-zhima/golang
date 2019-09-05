@@ -629,7 +629,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin9",
+        "operationId": "CreateMixin8",
         "parameters": [
           {
             "name": "body",
@@ -656,7 +656,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin9",
+        "operationId": "FilterMixin8",
         "parameters": [
           {
             "type": "integer",
@@ -729,7 +729,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin9",
+        "operationId": "GetMixin8",
         "parameters": [
           {
             "type": "integer",
@@ -791,7 +791,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "UpdateMixin9",
+        "operationId": "UpdateMixin8",
         "parameters": [
           {
             "type": "integer",
