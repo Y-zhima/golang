@@ -193,3 +193,75 @@ func (this *ImportLakeResponse) Validate() error {
 	}
 	return nil
 }
+func (this *RoomTopology) Validate() error {
+	for _, item := range this.Cities {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Cities", err)
+			}
+		}
+	}
+	return nil
+}
+func (this *RoomCityObject) Validate() error {
+	for _, item := range this.Rooms {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Rooms", err)
+			}
+		}
+	}
+	return nil
+}
+func (this *RoomObject) Validate() error {
+	return nil
+}
+func (this *RoomTopologyRequest) Validate() error {
+	return nil
+}
+func (this *RoomTopologyResponse) Validate() error {
+	for _, item := range this.RoomTopology {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("RoomTopology", err)
+			}
+		}
+	}
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}
+func (this *ServerObject) Validate() error {
+	return nil
+}
+func (this *ServerListRequest) Validate() error {
+	if this.Paging != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Paging); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Paging", err)
+		}
+	}
+	return nil
+}
+func (this *ServerListResponse) Validate() error {
+	for _, item := range this.Servers {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Servers", err)
+			}
+		}
+	}
+	if this.Paging != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Paging); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Paging", err)
+		}
+	}
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}
