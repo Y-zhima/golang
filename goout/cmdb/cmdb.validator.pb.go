@@ -162,6 +162,20 @@ func (this *ImportHostResponse) Validate() error {
 	}
 	return nil
 }
+func (this *ImportServerRequest) Validate() error {
+	if this.Url == "" {
+		return github_com_mwitkow_go_proto_validators.FieldError("Url", fmt.Errorf(`URL不能为空`))
+	}
+	return nil
+}
+func (this *ImportServerResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}
 func (this *ChooseHostRequest) Validate() error {
 	return nil
 }

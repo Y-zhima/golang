@@ -71,6 +71,33 @@
         }
       }
     },
+    "/v1/cmdb/importServer": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "导入物理机",
+        "operationId": "ImportServer",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportServerRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportServerResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/cmdb/importSwitch": {
       "post": {
         "tags": [
@@ -1342,6 +1369,26 @@
     "cmdbImportLakeResponse": {
       "type": "object",
       "title": "导入lake节点请求返回",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbImportServerRequest": {
+      "type": "object",
+      "title": "导入物理机请求",
+      "properties": {
+        "url": {
+          "type": "string",
+          "title": "csv文件下载路径"
+        }
+      }
+    },
+    "cmdbImportServerResponse": {
+      "type": "object",
+      "title": "导入物理机请求返回",
       "properties": {
         "status": {
           "title": "状态码",
