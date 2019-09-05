@@ -265,16 +265,49 @@
         }
       }
     },
-<<<<<<< HEAD
-    "/v1/cmdb/serverList": {
-=======
     "/v1/cmdb/searchModule": {
->>>>>>> master
       "get": {
         "tags": [
           "Cmdb"
         ],
-<<<<<<< HEAD
+        "summary": "查询模块",
+        "operationId": "SearchModule",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "集群ID.",
+            "name": "cmdb_search_request.bk_set_id",
+            "in": "query"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "collectionFormat": "multi",
+            "description": "模块ID.",
+            "name": "cmdb_search_request.bk_module_id",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbSearchMoudleResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/serverList": {
+      "get": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "裸金属列表",
         "operationId": "ServerList",
         "parameters": [
           {
@@ -310,27 +343,6 @@
             "format": "int32",
             "description": "总记录数.",
             "name": "paging.total_record",
-=======
-        "summary": "查询模块",
-        "operationId": "SearchModule",
-        "parameters": [
-          {
-            "type": "integer",
-            "format": "int32",
-            "description": "集群ID.",
-            "name": "cmdb_search_request.bk_set_id",
-            "in": "query"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "collectionFormat": "multi",
-            "description": "模块ID.",
-            "name": "cmdb_search_request.bk_module_id",
->>>>>>> master
             "in": "query"
           }
         ],
@@ -338,11 +350,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-<<<<<<< HEAD
               "$ref": "#/definitions/cmdbServerListResponse"
-=======
-              "$ref": "#/definitions/cmdbSearchMoudleResponse"
->>>>>>> master
             }
           }
         }
@@ -1611,7 +1619,23 @@
         }
       }
     },
-<<<<<<< HEAD
+    "cmdbSearchMoudleResponse": {
+      "type": "object",
+      "title": "查询模块请求返回",
+      "properties": {
+        "moudule": {
+          "type": "array",
+          "title": "模块对象",
+          "items": {
+            "$ref": "#/definitions/cmdbModuleObject"
+          }
+        },
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
     "cmdbServerInstallState": {
       "description": "- UNINSTALLED: 未装机\n - INSTALLING: 装机中\n - INSTALLED: 已装机",
       "type": "string",
@@ -1640,26 +1664,10 @@
         },
         "status": {
           "title": "返回的请求状态",
-=======
-    "cmdbSearchMoudleResponse": {
-      "type": "object",
-      "title": "查询模块请求返回",
-      "properties": {
-        "moudule": {
-          "type": "array",
-          "title": "模块对象",
-          "items": {
-            "$ref": "#/definitions/cmdbModuleObject"
-          }
-        },
-        "status": {
-          "title": "状态码",
->>>>>>> master
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
     },
-<<<<<<< HEAD
     "cmdbServerObject": {
       "type": "object",
       "title": "物理机对象",
@@ -1721,8 +1729,6 @@
         "ON"
       ]
     },
-=======
->>>>>>> master
     "cmdbSetObject": {
       "type": "object",
       "title": "集群",

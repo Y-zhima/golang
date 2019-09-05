@@ -207,24 +207,16 @@ func (this *ImportLakeResponse) Validate() error {
 	}
 	return nil
 }
-<<<<<<< HEAD
 func (this *RoomTopology) Validate() error {
 	for _, item := range this.Cities {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
 				return github_com_mwitkow_go_proto_validators.FieldError("Cities", err)
 			}
-=======
-func (this *SearchMoudleRequest) Validate() error {
-	if this.CmdbSearchRequest != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbSearchRequest); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
->>>>>>> master
 		}
 	}
 	return nil
 }
-<<<<<<< HEAD
 func (this *RoomCityObject) Validate() error {
 	for _, item := range this.Rooms {
 		if item != nil {
@@ -249,15 +241,11 @@ func (this *RoomTopologyResponse) Validate() error {
 			}
 		}
 	}
-=======
-func (this *SearchMoudleResponse) Validate() error {
->>>>>>> master
 	if this.Status != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
 		}
 	}
-<<<<<<< HEAD
 	return nil
 }
 func (this *ServerObject) Validate() error {
@@ -289,7 +277,22 @@ func (this *ServerListResponse) Validate() error {
 			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
 		}
 	}
-=======
+	return nil
+}
+func (this *SearchMoudleRequest) Validate() error {
+	if this.CmdbSearchRequest != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbSearchRequest); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+		}
+	}
+	return nil
+}
+func (this *SearchMoudleResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
 	for _, item := range this.Moudule {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
@@ -297,6 +300,5 @@ func (this *ServerListResponse) Validate() error {
 			}
 		}
 	}
->>>>>>> master
 	return nil
 }
