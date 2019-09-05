@@ -5,13 +5,13 @@ package cmdb
 
 import (
 	fmt "fmt"
-	_ "git.fogcdn.top/axe/protos/goout/common"
+	math "math"
 	proto "github.com/golang/protobuf/proto"
+	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "github.com/mwitkow/go-proto-validators"
+	_ "git.fogcdn.top/axe/protos/goout/common"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
-	_ "google.golang.org/genproto/googleapis/api/annotations"
-	math "math"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -200,6 +200,65 @@ func (this *ImportLakeRequest) Validate() error {
 	return nil
 }
 func (this *ImportLakeResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}
+func (this *RoomObject) Validate() error {
+	for _, item := range this.Child {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Child", err)
+			}
+		}
+	}
+	return nil
+}
+func (this *RoomTopologyRequest) Validate() error {
+	return nil
+}
+func (this *RoomTopologyResponse) Validate() error {
+	for _, item := range this.Rooms {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Rooms", err)
+			}
+		}
+	}
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}
+func (this *ServerObject) Validate() error {
+	return nil
+}
+func (this *ServerListRequest) Validate() error {
+	if this.Paging != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Paging); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Paging", err)
+		}
+	}
+	return nil
+}
+func (this *ServerListResponse) Validate() error {
+	for _, item := range this.Servers {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Servers", err)
+			}
+		}
+	}
+	if this.Paging != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Paging); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Paging", err)
+		}
+	}
 	if this.Status != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)

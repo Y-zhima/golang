@@ -142,6 +142,23 @@
         }
       }
     },
+    "/v1/cmdb/roomTopology": {
+      "get": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "机房拓扑",
+        "operationId": "RoomTopology",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbRoomTopologyResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/cmdb/searchHost": {
       "get": {
         "tags": [
@@ -285,6 +302,60 @@
         }
       }
     },
+    "/v1/cmdb/serverList": {
+      "get": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "裸金属列表",
+        "operationId": "ServerList",
+        "parameters": [
+          {
+            "type": "string",
+            "format": "int64",
+            "description": "机房id，相当于 RoomObject 中的 bk_inst_id.",
+            "name": "room_id",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总页数.",
+            "name": "paging.total_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页数.",
+            "name": "paging.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页显示的记录条数.",
+            "name": "paging.per_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总记录数.",
+            "name": "paging.total_record",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbServerListResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/file/upload": {
       "post": {
         "tags": [
@@ -369,7 +440,7 @@
           "Playbook"
         ],
         "summary": "创建playbook项目",
-        "operationId": "CreateMixin11",
+        "operationId": "Create",
         "parameters": [
           {
             "name": "body",
@@ -396,7 +467,7 @@
           "Playbook"
         ],
         "summary": "筛选playbook项目",
-        "operationId": "FilterMixin11",
+        "operationId": "Filter",
         "parameters": [
           {
             "type": "integer",
@@ -449,7 +520,7 @@
           "Playbook"
         ],
         "summary": "获取playbook项目",
-        "operationId": "GetMixin11",
+        "operationId": "Get",
         "parameters": [
           {
             "type": "integer",
@@ -476,7 +547,7 @@
           "Playbook"
         ],
         "summary": "更新playbook项目",
-        "operationId": "UpdateMixin11",
+        "operationId": "Update",
         "parameters": [
           {
             "type": "integer",
@@ -511,7 +582,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin7",
+        "operationId": "CreateMixin8",
         "parameters": [
           {
             "name": "body",
@@ -538,7 +609,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin7",
+        "operationId": "FilterMixin8",
         "parameters": [
           {
             "type": "integer",
@@ -611,7 +682,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin7",
+        "operationId": "GetMixin8",
         "parameters": [
           {
             "type": "integer",
@@ -673,7 +744,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "Update",
+        "operationId": "UpdateMixin8",
         "parameters": [
           {
             "type": "integer",
@@ -708,7 +779,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "Create",
+        "operationId": "CreateMixin11",
         "parameters": [
           {
             "name": "body",
@@ -735,7 +806,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "Filter",
+        "operationId": "FilterMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -780,7 +851,7 @@
             ],
             "type": "string",
             "default": "UNDEFINED",
-            "description": "用于筛选定时任务的任务类型 0-undefined 1-作业模板；2-容器部署 3-裸金属管理.\n\n - UNDEFINED: 0-undefined\n - PLAYBOOK: 1-作业模板\n - CONTAINER: 2-容器部署\n - BARE_METAL: 3-裸金属管理",
+            "description": "用于筛选定时任务的任务类型 0-undefined 1-作业模板；2-容器部署；3-裸金属管理.\n\n - UNDEFINED: 0-undefined\n - PLAYBOOK: 1-作业模板\n - CONTAINER: 2-容器部署\n - BARE_METAL: 3-裸金属管理",
             "name": "task_type",
             "in": "query"
           }
@@ -801,7 +872,7 @@
           "Task"
         ],
         "summary": "获取作业任务",
-        "operationId": "Get",
+        "operationId": "GetMixin11",
         "parameters": [
           {
             "type": "string",
@@ -828,7 +899,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin9",
+        "operationId": "CreateMixin12",
         "parameters": [
           {
             "name": "body",
@@ -855,7 +926,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin9",
+        "operationId": "FilterMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -914,7 +985,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin9",
+        "operationId": "GetMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -941,7 +1012,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin9",
+        "operationId": "UpdateMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -1458,6 +1529,61 @@
         }
       }
     },
+    "cmdbRoomObject": {
+      "type": "object",
+      "title": "机房对象",
+      "properties": {
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "业务ID"
+        },
+        "bk_inst_name": {
+          "type": "string",
+          "title": "业务名称"
+        },
+        "bk_obj_id": {
+          "type": "string",
+          "title": "对象ID"
+        },
+        "child": {
+          "type": "array",
+          "title": "子对象",
+          "items": {
+            "$ref": "#/definitions/cmdbRoomObject"
+          }
+        },
+        "city": {
+          "type": "string",
+          "title": "城市"
+        },
+        "prov": {
+          "type": "string",
+          "title": "省份"
+        },
+        "room_name": {
+          "type": "string",
+          "title": "机房名称"
+        }
+      }
+    },
+    "cmdbRoomTopologyResponse": {
+      "type": "object",
+      "title": "机房拓扑请求返回",
+      "properties": {
+        "rooms": {
+          "type": "array",
+          "title": "机房拓扑对象",
+          "items": {
+            "$ref": "#/definitions/cmdbRoomObject"
+          }
+        },
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
     "cmdbSearchHostResponse": {
       "type": "object",
       "title": "查找主机请求返回",
@@ -1495,6 +1621,95 @@
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
+    },
+    "cmdbServerInstallState": {
+      "description": "- UNINSTALLED: 未装机\n - INSTALLING: 装机中\n - INSTALLED: 已装机",
+      "type": "string",
+      "title": "装机状态",
+      "default": "UNINSTALLED",
+      "enum": [
+        "UNINSTALLED",
+        "INSTALLING",
+        "INSTALLED"
+      ]
+    },
+    "cmdbServerListResponse": {
+      "type": "object",
+      "title": "裸金属列表响应",
+      "properties": {
+        "paging": {
+          "title": "分页信息",
+          "$ref": "#/definitions/commonPaging"
+        },
+        "servers": {
+          "type": "array",
+          "title": "裸金属列表",
+          "items": {
+            "$ref": "#/definitions/cmdbServerObject"
+          }
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbServerObject": {
+      "type": "object",
+      "title": "物理机对象",
+      "properties": {
+        "account": {
+          "type": "string",
+          "title": "IPMI账号"
+        },
+        "bk_inst_name": {
+          "type": "string",
+          "title": "实例名"
+        },
+        "cabinet": {
+          "type": "string",
+          "title": "机柜"
+        },
+        "install_state": {
+          "title": "装机状态",
+          "$ref": "#/definitions/cmdbServerInstallState"
+        },
+        "mac_address": {
+          "type": "string",
+          "title": "MAC地址"
+        },
+        "manage_ip": {
+          "type": "string",
+          "title": "IPMI地址"
+        },
+        "password": {
+          "type": "string",
+          "title": "IPMI密码"
+        },
+        "port": {
+          "type": "string",
+          "title": "IPMI端口"
+        },
+        "power_state": {
+          "title": "电源状态",
+          "$ref": "#/definitions/cmdbServerPowerState"
+        },
+        "room_id": {
+          "type": "string",
+          "format": "int64",
+          "title": "机房id"
+        }
+      }
+    },
+    "cmdbServerPowerState": {
+      "description": "- OFF: 下电\n - ON: 上电",
+      "type": "string",
+      "title": "电源状态",
+      "default": "OFF",
+      "enum": [
+        "OFF",
+        "ON"
+      ]
     },
     "cmdbSetObject": {
       "type": "object",

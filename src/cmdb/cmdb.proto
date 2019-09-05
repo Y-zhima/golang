@@ -58,6 +58,20 @@ service Cmdb {
         };
     }
 
+    // 机房拓扑
+    rpc RoomTopology (RoomTopologyRequest) returns (RoomTopologyResponse) {
+        option (google.api.http) = {
+            get: "/v1/cmdb/roomTopology"
+        };
+    }
+
+    // 裸金属列表
+    rpc ServerList(ServerListRequest) returns (ServerListResponse) {
+        option (google.api.http) = {
+            get: "/v1/cmdb/serverList"
+        };
+    }
+
     // 查询模块
     rpc SearchModule (SearchMoudleRequest) returns (SearchMoudleResponse) {
         option (google.api.http) = {
@@ -192,8 +206,7 @@ message SearchHostResponse {
 // 导入主机请求
 message ImportHostRequest {
     // csv文件下载路径
-    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"
-                   }];
+    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
 }
 
 // 导入主机请求返回
@@ -205,8 +218,7 @@ message ImportHostResponse {
 // 导入物理机请求
 message ImportServerRequest {
     // csv文件下载路径
-    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"
-                   }];
+    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
 }
 
 // 导入物理机请求返回
@@ -226,8 +238,7 @@ message ChooseHostRequest {
 // 导入交换机请求
 message ImportSwitchRequest {
     // csv文件下载路径
-    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"
-                   }];
+    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
 }
 
 // 导入交换机请求返回
@@ -239,14 +250,110 @@ message ImportSwitchResponse {
 // 导入lake节点请求
 message ImportLakeRequest {
     // csv文件下载路径
-    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"
-                   }];
+    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
 }
 
 // 导入lake节点请求返回
 message ImportLakeResponse {
     // 状态码
     common.ResponseStatus status = 1;
+}
+
+// 机房对象
+message RoomObject {
+    // 业务ID
+    int32 bk_inst_id = 1;
+    // 业务名称
+    string bk_inst_name = 2;
+    // 对象ID
+    string bk_obj_id = 3;
+    // 机房名称
+    string room_name = 4;
+    // 城市
+    string city = 5;
+    // 省份
+    string prov = 6;
+    // 子对象
+    repeated RoomObject child = 7;
+}
+
+// 机房拓扑请求
+message RoomTopologyRequest {
+}
+
+// 机房拓扑请求返回
+message RoomTopologyResponse {
+    // 机房拓扑对象
+    repeated RoomObject rooms = 1;
+    // 状态码
+    common.ResponseStatus status = 2;
+}
+
+
+// 电源状态
+enum ServerPowerState {
+    // 下电
+    OFF = 0;
+    // 上电
+    ON = 1;
+}
+
+// 装机状态
+enum ServerInstallState {
+    // 未装机
+    UNINSTALLED = 0;
+    // 装机中
+    INSTALLING = 1;
+    // 已装机
+    INSTALLED = 2;
+}
+
+// 物理机对象
+message ServerObject {
+    //实例名
+    string bk_inst_name = 1;
+    // IPMI地址
+    string manage_ip = 2;
+    // IPMI账号
+    string account = 3;
+    // IPMI密码
+    string password = 4;
+    // MAC地址
+    string mac_address = 5;
+    // 机柜
+    string cabinet = 6;
+    // IPMI端口
+    string port = 7;
+    // 电源状态
+    ServerPowerState power_state = 8;
+    // 装机状态
+    ServerInstallState install_state = 9;
+    // 机房id
+    int64 room_id = 10;
+}
+
+// 裸金属列表请求
+message ServerListRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+          required: ["room_id"]
+        }
+    };
+
+    // 机房id，相当于 RoomObject 中的 bk_inst_id
+    int64 room_id = 1;
+    // 分页信息
+    common.Paging paging = 2;
+}
+
+// 裸金属列表响应
+message ServerListResponse {
+    // 裸金属列表
+    repeated ServerObject servers = 1;
+    // 分页信息
+    common.Paging paging = 2;
+    // 返回的请求状态
+    common.ResponseStatus status = 3;
 }
 
 // 查询模块请求
@@ -256,8 +363,7 @@ message SearchMoudleRequest {
           required: ["cmdb_search_request"]
         }
     };
-    ChooseHostRequest cmdb_search_request = 1 [(validator.field) = {string_not_empty: true, human_error: "cmdb的搜索条件不能为空"
-                                                       }];
+    ChooseHostRequest cmdb_search_request = 1 [(validator.field) = {string_not_empty: true, human_error: "cmdb的搜索条件不能为空"}];
 }
 
 // 查询模块请求返回
