@@ -7,10 +7,10 @@ import (
 	fmt "fmt"
 	math "math"
 	proto "github.com/golang/protobuf/proto"
+	_ "github.com/mwitkow/go-proto-validators"
 	_ "git.fogcdn.top/axe/protos/goout/common"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
-	_ "github.com/mwitkow/go-proto-validators"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
@@ -207,37 +207,24 @@ func (this *ImportLakeResponse) Validate() error {
 	}
 	return nil
 }
-func (this *RoomTopology) Validate() error {
-	for _, item := range this.Cities {
-		if item != nil {
-			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Cities", err)
-			}
-		}
-	}
-	return nil
-}
-func (this *RoomCityObject) Validate() error {
-	for _, item := range this.Rooms {
-		if item != nil {
-			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Rooms", err)
-			}
-		}
-	}
-	return nil
-}
 func (this *RoomObject) Validate() error {
+	for _, item := range this.Child {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Child", err)
+			}
+		}
+	}
 	return nil
 }
 func (this *RoomTopologyRequest) Validate() error {
 	return nil
 }
 func (this *RoomTopologyResponse) Validate() error {
-	for _, item := range this.RoomTopology {
+	for _, item := range this.Rooms {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("RoomTopology", err)
+				return github_com_mwitkow_go_proto_validators.FieldError("Rooms", err)
 			}
 		}
 	}

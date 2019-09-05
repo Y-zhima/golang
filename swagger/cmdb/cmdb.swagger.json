@@ -565,23 +565,6 @@
       },
       "title": "模块"
     },
-    "cmdbRoomCityObject": {
-      "type": "object",
-      "properties": {
-        "city": {
-          "type": "string",
-          "title": "城市"
-        },
-        "rooms": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/cmdbRoomObject"
-          },
-          "title": "机房列表"
-        }
-      },
-      "title": "机房城市对象"
-    },
     "cmdbRoomObject": {
       "type": "object",
       "properties": {
@@ -609,34 +592,24 @@
         "prov": {
           "type": "string",
           "title": "省份"
+        },
+        "child": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbRoomObject"
+          },
+          "title": "子对象"
         }
       },
       "title": "机房对象"
     },
-    "cmdbRoomTopology": {
-      "type": "object",
-      "properties": {
-        "prov": {
-          "type": "string",
-          "title": "省份"
-        },
-        "cities": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/cmdbRoomCityObject"
-          },
-          "title": "城市列表"
-        }
-      },
-      "title": "机房拓扑对象"
-    },
     "cmdbRoomTopologyResponse": {
       "type": "object",
       "properties": {
-        "roomTopology": {
+        "rooms": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/cmdbRoomTopology"
+            "$ref": "#/definitions/cmdbRoomObject"
           },
           "title": "业务拓扑对象"
         },
