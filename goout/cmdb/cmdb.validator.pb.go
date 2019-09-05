@@ -289,3 +289,39 @@ func (this *SearchMoudleResponse) Validate() error {
 	}
 	return nil
 }
+func (this *ImportHistoryObject) Validate() error {
+	if this.Operator != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Operator); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Operator", err)
+		}
+	}
+	return nil
+}
+func (this *ImportHistoryRequest) Validate() error {
+	if this.Paging != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Paging); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Paging", err)
+		}
+	}
+	return nil
+}
+func (this *ImportHistoryResponse) Validate() error {
+	for _, item := range this.History {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("History", err)
+			}
+		}
+	}
+	if this.Paging != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Paging); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Paging", err)
+		}
+	}
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}

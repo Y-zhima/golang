@@ -15,6 +15,57 @@
     "application/json"
   ],
   "paths": {
+    "/v1/cmdb/importHistory": {
+      "get": {
+        "summary": "查询导入历史记录列表",
+        "operationId": "ImportHistory",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportHistoryResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paging.total_page",
+            "description": "总页数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paging.page",
+            "description": "当前页数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paging.per_page",
+            "description": "每页显示的记录条数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paging.total_record",
+            "description": "总记录数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Cmdb"
+        ]
+      }
+    },
     "/v1/cmdb/importHost": {
       "post": {
         "summary": "导入主机",
@@ -456,12 +507,87 @@
       },
       "title": "主机"
     },
+    "cmdbImportHistoryObject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "ID"
+        },
+        "url": {
+          "type": "string",
+          "title": "xlsx文件路径"
+        },
+        "md5": {
+          "type": "string",
+          "title": "xlsx文件md5"
+        },
+        "logfile_url": {
+          "type": "string",
+          "title": "日志文件下载路径"
+        },
+        "total_count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总行数"
+        },
+        "success_count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "成功行数"
+        },
+        "fail_count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "失败行数"
+        },
+        "operator": {
+          "$ref": "#/definitions/commonUser",
+          "title": "操作人"
+        },
+        "import_type": {
+          "$ref": "#/definitions/cmdbImportType",
+          "title": "导入类型"
+        },
+        "status": {
+          "$ref": "#/definitions/cmdbImportStatus",
+          "title": "导入状态"
+        }
+      },
+      "title": "导入历史对象"
+    },
+    "cmdbImportHistoryResponse": {
+      "type": "object",
+      "properties": {
+        "history": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbImportHistoryObject"
+          },
+          "title": "导入历史对象列表"
+        },
+        "paging": {
+          "$ref": "#/definitions/commonPaging",
+          "title": "分页信息"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        }
+      },
+      "title": "查询导入历史列表请求"
+    },
     "cmdbImportHostRequest": {
       "type": "object",
       "properties": {
         "url": {
           "type": "string",
-          "title": "csv文件下载路径"
+          "title": "xlsx文件下载路径"
+        },
+        "md5": {
+          "type": "string",
+          "title": "xlsx文件md5"
         }
       },
       "title": "导入主机请求"
@@ -481,7 +607,11 @@
       "properties": {
         "url": {
           "type": "string",
-          "title": "csv文件下载路径"
+          "title": "xlsx文件下载路径"
+        },
+        "md5": {
+          "type": "string",
+          "title": "xlsx文件md5"
         }
       },
       "title": "导入lake节点请求"
@@ -501,7 +631,11 @@
       "properties": {
         "url": {
           "type": "string",
-          "title": "csv文件下载路径"
+          "title": "xlsx文件下载路径"
+        },
+        "md5": {
+          "type": "string",
+          "title": "xlsx文件md5"
         }
       },
       "title": "导入物理机请求"
@@ -516,12 +650,27 @@
       },
       "title": "导入物理机请求返回"
     },
+    "cmdbImportStatus": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "COMPLETED",
+        "FAILED"
+      ],
+      "default": "UNKNOWN",
+      "description": "- UNKNOWN: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败",
+      "title": "导入状态: 0-正在导入 1-导入完成 2-导入失败"
+    },
     "cmdbImportSwitchRequest": {
       "type": "object",
       "properties": {
         "url": {
           "type": "string",
-          "title": "csv文件下载路径"
+          "title": "xlsx文件下载路径"
+        },
+        "md5": {
+          "type": "string",
+          "title": "xlsx文件md5"
         }
       },
       "title": "导入交换机请求"
@@ -535,6 +684,19 @@
         }
       },
       "title": "导入交换机请求返回"
+    },
+    "cmdbImportType": {
+      "type": "string",
+      "enum": [
+        "UNDEFINED",
+        "HOST",
+        "SERVER",
+        "LAKE",
+        "SWITCH"
+      ],
+      "default": "UNDEFINED",
+      "description": "- UNDEFINED: 0-undefined\n - HOST: 1-主机\n - SERVER: 2-物理机\n - LAKE: 3-LAKE\n - SWITCH: 3-LAKE",
+      "title": "导入类型:0-undefined 1-主机 2-物理机 3-LAKE 4-交换机"
     },
     "cmdbInstanceTopologyResponse": {
       "type": "object",
@@ -853,6 +1015,18 @@
       "default": "SUCCESS",
       "description": "- SUCCESS: 成功\n - INVALID_ARGUMENT: 参数错误\n - ACCESS_DENIED: 访问拒绝",
       "title": "请求返回状态码"
+    },
+    "commonUser": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "user_name": {
+          "type": "string"
+        }
+      }
     }
   }
 }
