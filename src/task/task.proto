@@ -54,6 +54,18 @@ enum ScheduleType {
     CRONTAB = 2;
 }
 
+// 任务类型 0-undefine 1-作业模板；2-容器部署 3-裸金属管理
+enum TaskType {
+    // 0-undefine
+    UNDEFINE = 0;
+    // 1-作业模板
+    PLAYBOOK = 1;
+    // 2-容器部署
+    CONTAINER = 2;
+    // 3-裸金属管理
+    BARE_METAL = 3;
+}
+
 // 作业任务实例
 message TaskObject {
     // 作业任务ID
@@ -155,7 +167,7 @@ message FilterRequest {
     // 用于筛选任务名字的关键字
     string task_name = 2;
     // 用于筛选定时任务的任务类型 0-undefined 1-作业模板；2-容器部署 3-裸金属管理
-    int64 task_type = 3;
+    TaskType task_type = 3;
 }
 
 // 筛选作业任务请求返回

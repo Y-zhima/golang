@@ -772,9 +772,15 @@
             "in": "query"
           },
           {
+            "enum": [
+              "UNDEFINE",
+              "PLAYBOOK",
+              "CONTAINER",
+              "BARE_METAL"
+            ],
             "type": "string",
-            "format": "int64",
-            "description": "用于筛选定时任务的任务类型 0-undefined 1-作业模板；2-容器部署 3-裸金属管理.",
+            "default": "UNDEFINE",
+            "description": "用于筛选定时任务的任务类型 0-undefined 1-作业模板；2-容器部署 3-裸金属管理.\n\n - UNDEFINE: 0-undefined\n - PLAYBOOK: 1-作业模板\n - CONTAINER: 2-容器部署\n - BARE_METAL: 3-裸金属管理",
             "name": "task_type",
             "in": "query"
           }
@@ -2769,6 +2775,18 @@
           "title": "模板ID"
         }
       }
+    },
+    "taskTaskType": {
+      "description": "- UNDEFINE: 0-undefined\n - PLAYBOOK: 1-作业模板\n - CONTAINER: 2-容器部署\n - BARE_METAL: 3-裸金属管理",
+      "type": "string",
+      "title": "任务类型 0-undefine 1-作业模板；2-容器部署 3-裸金属管理",
+      "default": "UNDEFINE",
+      "enum": [
+        "UNDEFINE",
+        "PLAYBOOK",
+        "CONTAINER",
+        "BARE_METAL"
+      ]
     },
     "templateCreateRequest": {
       "type": "object",
