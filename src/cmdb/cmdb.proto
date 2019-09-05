@@ -241,6 +241,8 @@ message SearchMoudleRequest {
 
 // 查询模块请求返回
 message SearchMoudleResponse {
+    // 状态码
+    common.ResponseStatus status = 1;
     // 模块对象
-    repeated ModuleObject moudule = 1;
+    repeated ModuleObject moudule = 2;
 }

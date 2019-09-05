@@ -13,7 +13,7 @@ gen_proto() {
       "http",
       "https"
     ],
-    "host": "192.168.0.129:8969",
+    "host": "192.168.0.129:9001",
     "swagger": "2.0",
     "info": {
       "description": "AXE运维平台RESTful API",
