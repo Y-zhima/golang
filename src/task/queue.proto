@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package task;
+
+option go_package = "git.fogcdn.top/axe/protos/goout/task";
+option java_package = "top.fogcdn.axe.protos.task";
+
+import "google/api/annotations.proto";
+import "protoc-gen-swagger/options/annotations.proto";
+
+import "cmdb/cmdb.proto";
+
+// 作业模板执行任务
+message TemplateExecuteTask {
+    // cmdb的搜索条件
+    cmdb.ChooseHostRequest cmdb_search_request = 2;
+    // playbook 文件的URL
+    string playbook_file_url = 3;
+    // playbook 文件的MD5
+    string playbook_file_md5 = 4;
+    // playbook 入口文件
+    string playbook_yml_name = 5;
+    // 额外变量
+    string extra_var = 6;
+}
+
+// 裸金属安装任务
+message BareMetalInstallTask {
+    // cmdb的搜索条件
+    cmdb.ChooseHostRequest cmdb_search_request = 2;
+    // 安装镜像文件的URL
+    string image_file_url = 3;
+    // 安装镜像文件的MD5
+    string image_file_md5 = 4;
+    // 额外变量
+    string extra_var = 6;
+}
