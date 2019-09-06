@@ -17,6 +17,53 @@
   },
   "host": "192.168.0.129:9001",
   "paths": {
+    "/v1/cmdb/importHistory": {
+      "get": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "查询导入历史记录列表",
+        "operationId": "ImportHistory",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总页数.",
+            "name": "paging.total_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页数.",
+            "name": "paging.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页显示的记录条数.",
+            "name": "paging.per_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总记录数.",
+            "name": "paging.total_record",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportHistoryResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/cmdb/importHost": {
       "post": {
         "tags": [
@@ -440,7 +487,7 @@
           "Playbook"
         ],
         "summary": "创建playbook项目",
-        "operationId": "CreateMixin12",
+        "operationId": "Create",
         "parameters": [
           {
             "name": "body",
@@ -467,7 +514,7 @@
           "Playbook"
         ],
         "summary": "筛选playbook项目",
-        "operationId": "FilterMixin12",
+        "operationId": "Filter",
         "parameters": [
           {
             "type": "integer",
@@ -520,7 +567,7 @@
           "Playbook"
         ],
         "summary": "获取playbook项目",
-        "operationId": "GetMixin12",
+        "operationId": "Get",
         "parameters": [
           {
             "type": "integer",
@@ -547,7 +594,7 @@
           "Playbook"
         ],
         "summary": "更新playbook项目",
-        "operationId": "UpdateMixin12",
+        "operationId": "Update",
         "parameters": [
           {
             "type": "integer",
@@ -744,7 +791,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "Update",
+        "operationId": "UpdateMixin8",
         "parameters": [
           {
             "type": "integer",
@@ -779,7 +826,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "Create",
+        "operationId": "CreateMixin11",
         "parameters": [
           {
             "name": "body",
@@ -806,7 +853,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "Filter",
+        "operationId": "FilterMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -872,7 +919,7 @@
           "Task"
         ],
         "summary": "获取作业任务",
-        "operationId": "Get",
+        "operationId": "GetMixin11",
         "parameters": [
           {
             "type": "string",
@@ -899,7 +946,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin10",
+        "operationId": "CreateMixin12",
         "parameters": [
           {
             "name": "body",
@@ -926,7 +973,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin10",
+        "operationId": "FilterMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -985,7 +1032,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin10",
+        "operationId": "GetMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -1012,7 +1059,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin10",
+        "operationId": "UpdateMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -1420,13 +1467,88 @@
         }
       }
     },
+    "cmdbImportHistoryObject": {
+      "type": "object",
+      "title": "导入历史对象",
+      "properties": {
+        "fail_count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "失败行数"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "ID"
+        },
+        "import_type": {
+          "title": "导入类型",
+          "$ref": "#/definitions/cmdbImportType"
+        },
+        "logfile_url": {
+          "type": "string",
+          "title": "日志文件下载路径"
+        },
+        "md5": {
+          "type": "string",
+          "title": "xlsx文件md5"
+        },
+        "operator": {
+          "title": "操作人",
+          "$ref": "#/definitions/commonUser"
+        },
+        "status": {
+          "title": "导入状态",
+          "$ref": "#/definitions/cmdbImportStatus"
+        },
+        "success_count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "成功行数"
+        },
+        "total_count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总行数"
+        },
+        "url": {
+          "type": "string",
+          "title": "xlsx文件路径"
+        }
+      }
+    },
+    "cmdbImportHistoryResponse": {
+      "type": "object",
+      "title": "查询导入历史列表返回",
+      "properties": {
+        "history": {
+          "type": "array",
+          "title": "导入历史对象列表",
+          "items": {
+            "$ref": "#/definitions/cmdbImportHistoryObject"
+          }
+        },
+        "paging": {
+          "title": "分页信息",
+          "$ref": "#/definitions/commonPaging"
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
     "cmdbImportHostRequest": {
       "type": "object",
       "title": "导入主机请求",
       "properties": {
+        "md5": {
+          "type": "string",
+          "title": "xlsx文件md5"
+        },
         "url": {
           "type": "string",
-          "title": "csv文件下载路径"
+          "title": "xlsx文件下载路径"
         }
       }
     },
@@ -1444,9 +1566,13 @@
       "type": "object",
       "title": "导入lake节点请求",
       "properties": {
+        "md5": {
+          "type": "string",
+          "title": "xlsx文件md5"
+        },
         "url": {
           "type": "string",
-          "title": "csv文件下载路径"
+          "title": "xlsx文件下载路径"
         }
       }
     },
@@ -1464,9 +1590,13 @@
       "type": "object",
       "title": "导入物理机请求",
       "properties": {
+        "md5": {
+          "type": "string",
+          "title": "xlsx文件md5"
+        },
         "url": {
           "type": "string",
-          "title": "csv文件下载路径"
+          "title": "xlsx文件下载路径"
         }
       }
     },
@@ -1480,13 +1610,28 @@
         }
       }
     },
+    "cmdbImportStatus": {
+      "description": "- IMPORTING: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败",
+      "type": "string",
+      "title": "导入状态: 0-正在导入 1-导入完成 2-导入失败",
+      "default": "IMPORTING",
+      "enum": [
+        "IMPORTING",
+        "COMPLETED",
+        "FAILED"
+      ]
+    },
     "cmdbImportSwitchRequest": {
       "type": "object",
       "title": "导入交换机请求",
       "properties": {
+        "md5": {
+          "type": "string",
+          "title": "xlsx文件md5"
+        },
         "url": {
           "type": "string",
-          "title": "csv文件下载路径"
+          "title": "xlsx文件下载路径"
         }
       }
     },
@@ -1499,6 +1644,19 @@
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
+    },
+    "cmdbImportType": {
+      "description": "- UNDEFINED: 0-undefined\n - HOST: 1-主机\n - SERVER: 2-物理机\n - LAKE: 3-LAKE\n - SWITCH: 4-交换机",
+      "type": "string",
+      "title": "导入类型:0-undefined 1-主机 2-物理机 3-LAKE 4-交换机",
+      "default": "UNDEFINED",
+      "enum": [
+        "UNDEFINED",
+        "HOST",
+        "SERVER",
+        "LAKE",
+        "SWITCH"
+      ]
     },
     "cmdbInstanceTopologyResponse": {
       "type": "object",
