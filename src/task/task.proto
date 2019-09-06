@@ -44,9 +44,9 @@ service Task {
     }
 
     // 调用裸金属应用检查裸金属状态
-    rpc SearchServerInfo (SearchServerInfoRequest) returns (SearchServerInfoResponse) {
+    rpc CheckServerState (CheckServerStateRequest) returns (CheckServerStateResponse) {
         option (google.api.http) = {
-            post: "/v1/task/searchServerInfo"
+            post: "/v1/task/checkServerState"
             body: "*"
         };
     }
@@ -78,13 +78,13 @@ service Task {
 
 
 // 调用裸金属应用检查裸金属状态请求体
-message SearchServerInfoRequest {
+message CheckServerStateRequest {
     // 机房及对应物理机
     cmdb.ChooseServerRequest cmdb_search_request = 1;
 }
 
 // 调用裸金属应用检查裸金属状态返回体
-message SearchServerInfoResponse {
+message CheckServerStateResponse {
     // 状态码
     common.ResponseStatus status = 1;
 }
