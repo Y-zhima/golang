@@ -44,57 +44,88 @@ service Task {
     }
 
     // 调用裸金属应用检查裸金属状态
-    rpc SearchNodeInfo (SearchNodeInfoRequest) returns (SearchNodeInfoResponse) {
+    rpc SearchServerInfo (SearchServerInfoRequest) returns (SearchServerInfoResponse) {
         option (google.api.http) = {
-            post: "/v1/task/searchNodeInfo"
+            post: "/v1/task/searchServerInfo"
             body: "*"
         };
     }
 
     // 调用裸金属应用执行开关机操作
-    rpc NodePowerController (NodePowerControllerRequest) returns (NodePowerControllerResponse) {
+    rpc ServerPowerControl (ServerPowerControlRequest) returns (ServerPowerControlResponse) {
         option (google.api.http) = {
-            post: "/v1/task/nodePowerController"
+            post: "/v1/task/serverPowerControl"
+            body: "*"
+        };
+    }
+
+    // 调用裸金属创建操作
+    rpc CreateServer (CreateServerRequest) returns (CreateServerResponse) {
+        option (google.api.http) = {
+            post: "/v1/task/CreateServer"
+            body: "*"
+        };
+    }
+
+    // 调用裸金属安装操作
+    rpc InstallServer (InstallServerRequest) returns (InstallServerResponse) {
+        option (google.api.http) = {
+            post: "/v1/task/InstallServer"
             body: "*"
         };
     }
 }
 
+
 // 调用裸金属应用检查裸金属状态请求体
-message SearchNodeInfoRequest {
+message SearchServerInfoRequest {
     // 机房及对应物理机
-    repeated cmdb.RoomNode room_node = 1;
+    cmdb.ChooseServerRequest cmdb_search_request = 1;
 }
 
 // 调用裸金属应用检查裸金属状态返回体
-message SearchNodeInfoResponse {
+message SearchServerInfoResponse {
     // 状态码
     common.ResponseStatus status = 1;
 }
 
-
 // 调用裸金属应用执行开关机操作请求体
-message NodePowerControllerRequest {
+message ServerPowerControlRequest {
     // 电源开关操作
-    NodePowerOperate  operate = 1;
+    cmdb.ServerPowerState state = 1;
     // 机房及对应物理机
-    repeated cmdb.RoomNode room_node = 2;
+    cmdb.ChooseServerRequest cmdb_search_request = 2;
 }
 
 // 调用裸金属应用执行开关机操作返回体
-message NodePowerControllerResponse {
+message ServerPowerControlResponse {
     // 状态码
     common.ResponseStatus status = 1;
 }
 
-// 裸金属应用执行开关
-enum NodePowerOperate {
-    // 关机
-    OFF = 0;
-    // 开机
-    ON = 1;
+// 调用裸金属创建操作请求体
+message CreateServerRequest {
+    // 机房及对应物理机
+    cmdb.ChooseServerRequest cmdb_search_request = 1;
 }
 
+// 调用裸金属创建操作返回体
+message CreateServerResponse {
+    // 状态码
+    common.ResponseStatus status = 1;
+}
+
+// 调用裸金属安装操作请求体
+message CreateServerRequest {
+    // 机房及对应物理机
+    cmdb.ChooseServerRequest cmdb_search_request = 1;
+}
+
+// 调用裸金属安装操作返回体
+message CreateServerResponse {
+    // 状态码
+    common.ResponseStatus status = 1;
+}
 
 
 // 定时任务类型 0-undefined 1-单次任务 2-定时任务
