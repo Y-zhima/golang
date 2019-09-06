@@ -271,6 +271,27 @@ message ChooseHostRequest {
     repeated int32 bk_module_id = 2;
 }
 
+// 物理机传入信息
+message Server {
+    // 裸金属uuid
+    string  uuid = 1;
+    // 物理机ipmi的ip
+    string  ipmi_ip = 2;
+}
+
+message RoomServer {
+    // 机房ID
+    int32 room_id = 1;
+    // 机房下对应物理机UUID及ipmi的ip
+    repeated Server server = 2;
+}
+
+// 选择物理机请求
+message ChooseServerRequest {
+    repeated RoomServer room_server = 1;
+}
+
+
 // 导入交换机请求
 message ImportSwitchRequest {
     // xlsx文件下载路径
@@ -369,7 +390,9 @@ message ServerObject {
     // 装机状态
     ServerInstallState install_state = 9;
     // 机房id
-    int64 room_id = 10;
+    int32 room_id = 10;
+    // 裸金属uuid
+    string uuid = 11;
 }
 
 // 裸金属列表请求
@@ -381,7 +404,7 @@ message ServerListRequest {
     };
 
     // 机房id，相当于 RoomObject 中的 bk_inst_id
-    int64 room_id = 1;
+    int32 room_id = 1;
     // 分页信息
     common.Paging paging = 2;
 }

@@ -15,6 +15,87 @@
     "application/json"
   ],
   "paths": {
+    "/v1/task/CreateServer": {
+      "post": {
+        "summary": "调用裸金属创建操作",
+        "operationId": "CreateServer",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskCreateServerResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskCreateServerRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      }
+    },
+    "/v1/task/InstallServer": {
+      "post": {
+        "summary": "调用裸金属安装操作",
+        "operationId": "InstallServer",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskInstallServerResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskInstallServerRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      }
+    },
+    "/v1/task/checkServerState": {
+      "post": {
+        "summary": "调用裸金属应用检查裸金属状态",
+        "operationId": "CheckServerState",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskCheckServerStateResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskCheckServerStateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      }
+    },
     "/v1/task/create": {
       "post": {
         "summary": "创建作业任务(执行作业模板)",
@@ -140,6 +221,33 @@
           "Task"
         ]
       }
+    },
+    "/v1/task/serverPowerControl": {
+      "post": {
+        "summary": "调用裸金属应用执行开关机操作",
+        "operationId": "ServerPowerControl",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskServerPowerControlResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskServerPowerControlRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      }
     }
   },
   "definitions": {
@@ -161,6 +269,58 @@
         }
       },
       "title": "选择主机请求"
+    },
+    "cmdbChooseServerRequest": {
+      "type": "object",
+      "properties": {
+        "room_server": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbRoomServer"
+          }
+        }
+      },
+      "title": "选择物理机请求"
+    },
+    "cmdbRoomServer": {
+      "type": "object",
+      "properties": {
+        "room": {
+          "type": "string",
+          "title": "机房ID"
+        },
+        "server": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbServer"
+          },
+          "title": "机房下对应物理机UUID及ipmi的ip"
+        }
+      }
+    },
+    "cmdbServer": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "title": "裸金属uuid"
+        },
+        "ipmi_ip": {
+          "type": "string",
+          "title": "物理机ipmi的ip"
+        }
+      },
+      "title": "物理机传入信息"
+    },
+    "cmdbServerPowerState": {
+      "type": "string",
+      "enum": [
+        "OFF",
+        "ON"
+      ],
+      "default": "OFF",
+      "description": "- OFF: 下电\n - ON: 上电",
+      "title": "电源状态"
     },
     "commonPaging": {
       "type": "object",
@@ -225,6 +385,26 @@
       "description": "- UNDEFINED: 0-undefined\n - PLAYBOOK: 1-作业模板\n - CONTAINER: 2-容器部署\n - BARE_METAL: 3-裸金属管理",
       "title": "任务类型 0-undefined 1-作业模板；2-容器部署 3-裸金属管理"
     },
+    "taskCheckServerStateRequest": {
+      "type": "object",
+      "properties": {
+        "cmdb_search_request": {
+          "$ref": "#/definitions/cmdbChooseServerRequest",
+          "title": "机房及对应物理机"
+        }
+      },
+      "title": "调用裸金属应用检查裸金属状态请求体"
+    },
+    "taskCheckServerStateResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
+        }
+      },
+      "title": "调用裸金属应用检查裸金属状态返回体"
+    },
     "taskCreateRequest": {
       "type": "object",
       "properties": {
@@ -283,6 +463,26 @@
       },
       "title": "创建任务实例请求返回"
     },
+    "taskCreateServerRequest": {
+      "type": "object",
+      "properties": {
+        "cmdb_search_request": {
+          "$ref": "#/definitions/cmdbChooseServerRequest",
+          "title": "机房及对应物理机"
+        }
+      },
+      "title": "调用裸金属创建操作请求体"
+    },
+    "taskCreateServerResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
+        }
+      },
+      "title": "调用裸金属创建操作返回体"
+    },
     "taskFilterResponse": {
       "type": "object",
       "properties": {
@@ -336,6 +536,26 @@
       },
       "title": "获取作业任务请求返回"
     },
+    "taskInstallServerRequest": {
+      "type": "object",
+      "properties": {
+        "cmdb_search_request": {
+          "$ref": "#/definitions/cmdbChooseServerRequest",
+          "title": "机房及对应物理机"
+        }
+      },
+      "title": "调用裸金属安装操作请求体"
+    },
+    "taskInstallServerResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
+        }
+      },
+      "title": "调用裸金属安装操作返回体"
+    },
     "taskScheduleType": {
       "type": "string",
       "enum": [
@@ -346,6 +566,30 @@
       "default": "UNDEFINED",
       "description": "- UNDEFINED: 0-undefined\n - SINGLE: 1-单次任务\n - CRONTAB: 2-定时任务",
       "title": "定时任务类型 0-undefined 1-单次任务 2-定时任务"
+    },
+    "taskServerPowerControlRequest": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "$ref": "#/definitions/cmdbServerPowerState",
+          "title": "电源开关操作"
+        },
+        "cmdb_search_request": {
+          "$ref": "#/definitions/cmdbChooseServerRequest",
+          "title": "机房及对应物理机"
+        }
+      },
+      "title": "调用裸金属应用执行开关机操作请求体"
+    },
+    "taskServerPowerControlResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
+        }
+      },
+      "title": "调用裸金属应用执行开关机操作返回体"
     },
     "taskTaskObject": {
       "type": "object",

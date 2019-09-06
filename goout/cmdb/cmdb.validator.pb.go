@@ -179,6 +179,29 @@ func (this *ImportServerResponse) Validate() error {
 func (this *ChooseHostRequest) Validate() error {
 	return nil
 }
+func (this *Server) Validate() error {
+	return nil
+}
+func (this *RoomServer) Validate() error {
+	for _, item := range this.Server {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Server", err)
+			}
+		}
+	}
+	return nil
+}
+func (this *ChooseServerRequest) Validate() error {
+	for _, item := range this.RoomServer {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("RoomServer", err)
+			}
+		}
+	}
+	return nil
+}
 func (this *ImportSwitchRequest) Validate() error {
 	if this.Url == "" {
 		return github_com_mwitkow_go_proto_validators.FieldError("Url", fmt.Errorf(`URL不能为空`))

@@ -384,8 +384,8 @@
             "description": "机房id，相当于 RoomObject 中的 bk_inst_id.",
             "in": "query",
             "required": false,
-            "type": "string",
-            "format": "int64"
+            "type": "integer",
+            "format": "int32"
           },
           {
             "name": "paging.total_page",
@@ -892,9 +892,13 @@
           "title": "装机状态"
         },
         "room_id": {
-          "type": "string",
-          "format": "int64",
+          "type": "integer",
+          "format": "int32",
           "title": "机房id"
+        },
+        "uuid": {
+          "type": "string",
+          "title": "裸金属uuid"
         }
       },
       "title": "物理机对象"
