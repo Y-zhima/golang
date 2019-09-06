@@ -52,9 +52,9 @@ service Task {
     }
 
     // 调用裸金属应用执行开关机操作
-    rpc NodePowerCon (NodePowerConRequest) returns (NodePowerConResponse) {
+    rpc NodePowerController (NodePowerControllerRequest) returns (NodePowerControllerResponse) {
         option (google.api.http) = {
-            post: "/v1/task/nodePowerCon"
+            post: "/v1/task/nodePowerController"
             body: "*"
         };
     }
@@ -71,6 +71,7 @@ message RoomNode {
 
 // 调用裸金属应用检查裸金属状态请求体
 message SearchNodeInfoRequest {
+    // 机房及对应物理机
     repeated RoomNode room_node = 1;
 }
 
@@ -82,19 +83,21 @@ message SearchNodeInfoResponse {
 
 
 // 调用裸金属应用执行开关机操作请求体
-message NodePowerConRequest {
-    NodePowerOpers  operator = 1;
+message NodePowerControllerRequest {
+    // 电源开关操作
+    NodePowerOperate  operate = 1;
+    // 机房及对应物理机
     repeated RoomNode room_node = 2;
 }
 
 // 调用裸金属应用执行开关机操作返回体
-message NodePowerConResponse {
+message NodePowerControllerResponse {
     // 状态码
     common.ResponseStatus status = 1;
 }
 
 // 裸金属应用执行开关
-enum NodePowerOpers {
+enum NodePowerOperate {
     // 关机
     OFF = 0;
     // 开机
