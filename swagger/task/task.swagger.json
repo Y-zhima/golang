@@ -285,8 +285,9 @@
     "cmdbRoomServer": {
       "type": "object",
       "properties": {
-        "room": {
-          "type": "string",
+        "room_id": {
+          "type": "integer",
+          "format": "int32",
           "title": "机房ID"
         },
         "server": {
