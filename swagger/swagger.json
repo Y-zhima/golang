@@ -487,7 +487,7 @@
           "Playbook"
         ],
         "summary": "创建playbook项目",
-        "operationId": "CreateMixin12",
+        "operationId": "Create",
         "parameters": [
           {
             "name": "body",
@@ -514,7 +514,7 @@
           "Playbook"
         ],
         "summary": "筛选playbook项目",
-        "operationId": "FilterMixin12",
+        "operationId": "Filter",
         "parameters": [
           {
             "type": "integer",
@@ -567,7 +567,7 @@
           "Playbook"
         ],
         "summary": "获取playbook项目",
-        "operationId": "GetMixin12",
+        "operationId": "Get",
         "parameters": [
           {
             "type": "integer",
@@ -594,7 +594,7 @@
           "Playbook"
         ],
         "summary": "更新playbook项目",
-        "operationId": "UpdateMixin12",
+        "operationId": "Update",
         "parameters": [
           {
             "type": "integer",
@@ -791,7 +791,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "Update",
+        "operationId": "UpdateMixin8",
         "parameters": [
           {
             "type": "integer",
@@ -826,7 +826,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "Create",
+        "operationId": "CreateMixin11",
         "parameters": [
           {
             "name": "body",
@@ -853,7 +853,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "Filter",
+        "operationId": "FilterMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -919,7 +919,7 @@
           "Task"
         ],
         "summary": "获取作业任务",
-        "operationId": "Get",
+        "operationId": "GetMixin11",
         "parameters": [
           {
             "type": "string",
@@ -946,7 +946,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin10",
+        "operationId": "CreateMixin12",
         "parameters": [
           {
             "name": "body",
@@ -973,7 +973,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin10",
+        "operationId": "FilterMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -1032,7 +1032,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin10",
+        "operationId": "GetMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -1059,7 +1059,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin10",
+        "operationId": "UpdateMixin12",
         "parameters": [
           {
             "type": "integer",
