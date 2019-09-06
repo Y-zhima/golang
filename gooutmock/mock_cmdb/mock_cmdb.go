@@ -195,3 +195,21 @@ func (mr *MockCmdbClientMockRecorder) ServerList(arg0, arg1 interface{}, arg2 ..
 	varargs := append([]interface{}{arg0, arg1}, arg2...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ServerList", reflect.TypeOf((*MockCmdbClient)(nil).ServerList), varargs...)
 }
+
+func (m *MockCmdbClient) ImportServer(ctx context.Context, in *cmdb.ImportServerRequest, opts ...grpc.CallOption) (*cmdb.ImportServerResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{ctx, in}
+	for _, a := range opts {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ImportServer", varargs...)
+	ret0, _ := ret[0].(*cmdb.ImportServerResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+func (mr *MockCmdbClientMockRecorder) ImportServer(ctx, in interface{}, opts ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{ctx, in}, opts...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ImportServer", reflect.TypeOf((*MockCmdbClient)(nil).ImportServer), varargs...)
+}
