@@ -235,6 +235,19 @@ message ChooseHostRequest {
     repeated int32 bk_module_id = 2;
 }
 
+message RoomNode {
+    // 机房ID
+    string room = 1;
+    // 机房下对应物理机UUID
+    repeated string  uuid = 2;
+}
+
+// 选择裸金属请求
+message ChooseBareMetalRequest {
+    repeated RoomNode room_node = 1;
+}
+
+
 // 导入交换机请求
 message ImportSwitchRequest {
     // csv文件下载路径

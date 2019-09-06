@@ -28,6 +28,8 @@ message TemplateExecuteTask {
 message BareMetalSearchTask {
     // 裸金属uuid
     string uuid = 1;
+    // cmdb的搜索条件
+    cmdb.ChooseBareMetalRequest cmdb_search_request = 2;
 }
 
 // 裸金属电源开关任务
@@ -36,13 +38,15 @@ message BareMetalPowerTask {
     string uuid = 1;
     // 电源开关操作
     NodePowerOperate  operate = 2;
+    // cmdb的搜索条件
+    cmdb.ChooseBareMetalRequest cmdb_search_request = 3;
 }
 
 
 // 裸金属安装任务
 message BareMetalInstallTask {
     // cmdb的搜索条件
-    cmdb.ChooseHostRequest cmdb_search_request = 2;
+    cmdb.ChooseBareMetalRequest cmdb_search_request = 2;
     // 安装镜像文件的URL
     string image_file_url = 3;
     // 安装镜像文件的MD5

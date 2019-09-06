@@ -60,19 +60,10 @@ service Task {
     }
 }
 
-
-message RoomNode {
-    // 机房ID
-    string room = 1;
-    // 机房下对应物理机UUID
-    repeated string  uuid = 2;
-}
-
-
 // 调用裸金属应用检查裸金属状态请求体
 message SearchNodeInfoRequest {
     // 机房及对应物理机
-    repeated RoomNode room_node = 1;
+    repeated cmdb.RoomNode room_node = 1;
 }
 
 // 调用裸金属应用检查裸金属状态返回体
@@ -87,7 +78,7 @@ message NodePowerControllerRequest {
     // 电源开关操作
     NodePowerOperate  operate = 1;
     // 机房及对应物理机
-    repeated RoomNode room_node = 2;
+    repeated cmdb.RoomNode room_node = 2;
 }
 
 // 调用裸金属应用执行开关机操作返回体
