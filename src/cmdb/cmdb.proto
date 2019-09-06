@@ -6,6 +6,7 @@ option go_package = "git.fogcdn.top/axe/protos/goout/cmdb";
 option java_package = "top.fogcdn.axe.protos.cmdb";
 
 import "common/api.proto";
+import "common/user.proto";
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
 import "github.com/mwitkow/go-proto-validators/validator.proto";
@@ -78,6 +79,37 @@ service Cmdb {
             get: "/v1/cmdb/searchModule"
         };
     }
+
+    // 查询导入历史记录列表
+    rpc ImportHistory (ImportHistoryRequest) returns (ImportHistoryResponse) {
+        option (google.api.http) = {
+            get: "/v1/cmdb/importHistory"
+        };
+    }
+}
+
+// 导入状态: 0-正在导入 1-导入完成 2-导入失败
+enum ImportStatus {
+    // 0-正在导入
+    IMPORTING = 0;
+    // 1-导入完成
+    COMPLETED = 1;
+    // 2-导入失败
+    FAILED = 2;
+}
+
+// 导入类型:0-undefined 1-主机 2-物理机 3-LAKE 4-交换机
+enum ImportType {
+    // 0-undefined
+    UNDEFINED = 0;
+    // 1-主机
+    HOST = 1;
+    // 2-物理机
+    SERVER = 2;
+    // 3-LAKE
+    LAKE = 3;
+    // 4-交换机
+    SWITCH = 4;
 }
 
 // 业务拓扑对象
@@ -205,8 +237,10 @@ message SearchHostResponse {
 
 // 导入主机请求
 message ImportHostRequest {
-    // csv文件下载路径
+    // xlsx文件下载路径
     string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
+    // xlsx文件md5
+    string md5 = 2;
 }
 
 // 导入主机请求返回
@@ -217,8 +251,10 @@ message ImportHostResponse {
 
 // 导入物理机请求
 message ImportServerRequest {
-    // csv文件下载路径
+    // xlsx文件下载路径
     string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
+    // xlsx文件md5
+    string md5 = 2;
 }
 
 // 导入物理机请求返回
@@ -235,10 +271,33 @@ message ChooseHostRequest {
     repeated int32 bk_module_id = 2;
 }
 
+// 物理机传入信息
+message Server {
+    // 裸金属uuid
+    string  uuid = 1;
+    // 物理机ipmi的ip
+    string  ipmi_ip = 2;
+}
+
+message RoomServer {
+    // 机房ID
+    string room = 1;
+    // 机房下对应物理机UUID及ipmi的ip
+    repeated Server server = 2;
+}
+
+// 选择物理机请求
+message ChooseServerRequest {
+    repeated RoomServer room_server = 1;
+}
+
+
 // 导入交换机请求
 message ImportSwitchRequest {
-    // csv文件下载路径
+    // xlsx文件下载路径
     string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
+    // xlsx文件md5
+    string md5 = 2;
 }
 
 // 导入交换机请求返回
@@ -249,8 +308,10 @@ message ImportSwitchResponse {
 
 // 导入lake节点请求
 message ImportLakeRequest {
-    // csv文件下载路径
+    // xlsx文件下载路径
     string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
+    // xlsx文件md5
+    string md5 = 2;
 }
 
 // 导入lake节点请求返回
@@ -374,4 +435,44 @@ message SearchMoudleResponse {
     common.ResponseStatus status = 1;
     // 模块对象
     repeated ModuleObject moudule = 2;
+}
+
+// 导入历史对象
+message ImportHistoryObject {
+    // ID
+    int32 id = 1;
+    // xlsx文件路径
+    string url = 2;
+    // xlsx文件md5
+    string md5 = 3;
+    // 日志文件下载路径
+    string logfile_url = 4;
+    // 总行数
+    int32 total_count = 5;
+    // 成功行数
+    int32 success_count = 6;
+    // 失败行数
+    int32 fail_count = 7;
+    // 操作人
+    common.User operator = 13;
+    // 导入类型
+    ImportType import_type = 9;
+    // 导入状态
+    ImportStatus status = 10;
+}
+
+// 查询导入历史列表请求
+message ImportHistoryRequest {
+    // 分页信息
+    common.Paging paging = 1;
+}
+
+// 查询导入历史列表返回
+message ImportHistoryResponse {
+    // 导入历史对象列表
+    repeated ImportHistoryObject history = 1;
+    // 分页信息
+    common.Paging paging = 2;
+    // 返回的请求状态
+    common.ResponseStatus status = 3;
 }

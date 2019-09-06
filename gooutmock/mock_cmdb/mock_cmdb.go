@@ -155,40 +155,61 @@ func (mr *MockCmdbClientMockRecorder) SearchHost(arg0, arg1 interface{}, arg2 ..
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SearchHost", reflect.TypeOf((*MockCmdbClient)(nil).SearchHost), varargs...)
 }
 
-<<<<<<< HEAD
-// ServerList mocks base method
-func (m *MockCmdbClient) ServerList(arg0 context.Context, arg1 *cmdb.ServerListRequest, arg2 ...grpc.CallOption) (*cmdb.ServerListResponse, error) {
-=======
 // SearchModule mocks base method
 func (m *MockCmdbClient) SearchModule(arg0 context.Context, arg1 *cmdb.SearchMoudleRequest, arg2 ...grpc.CallOption) (*cmdb.SearchMoudleResponse, error) {
->>>>>>> master
 	m.ctrl.T.Helper()
 	varargs := []interface{}{arg0, arg1}
 	for _, a := range arg2 {
 		varargs = append(varargs, a)
 	}
-<<<<<<< HEAD
-	ret := m.ctrl.Call(m, "ServerList", varargs...)
-	ret0, _ := ret[0].(*cmdb.ServerListResponse)
-=======
 	ret := m.ctrl.Call(m, "SearchModule", varargs...)
 	ret0, _ := ret[0].(*cmdb.SearchMoudleResponse)
->>>>>>> master
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
-<<<<<<< HEAD
-// ServerList indicates an expected call of ServerList
-func (mr *MockCmdbClientMockRecorder) ServerList(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	varargs := append([]interface{}{arg0, arg1}, arg2...)
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ServerList", reflect.TypeOf((*MockCmdbClient)(nil).ServerList), varargs...)
-=======
 // SearchModule indicates an expected call of SearchModule
 func (mr *MockCmdbClientMockRecorder) SearchModule(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{arg0, arg1}, arg2...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SearchModule", reflect.TypeOf((*MockCmdbClient)(nil).SearchModule), varargs...)
->>>>>>> master
+}
+
+// ServerList mocks base method
+func (m *MockCmdbClient) ServerList(arg0 context.Context, arg1 *cmdb.ServerListRequest, arg2 ...grpc.CallOption) (*cmdb.ServerListResponse, error) {
+
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ServerList", varargs...)
+	ret0, _ := ret[0].(*cmdb.ServerListResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// ServerList indicates an expected call of ServerList
+func (mr *MockCmdbClientMockRecorder) ServerList(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ServerList", reflect.TypeOf((*MockCmdbClient)(nil).ServerList), varargs...)
+}
+
+func (m *MockCmdbClient) ImportServer(ctx context.Context, in *cmdb.ImportServerRequest, opts ...grpc.CallOption) (*cmdb.ImportServerResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{ctx, in}
+	for _, a := range opts {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ImportServer", varargs...)
+	ret0, _ := ret[0].(*cmdb.ImportServerResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+func (mr *MockCmdbClientMockRecorder) ImportServer(ctx, in interface{}, opts ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{ctx, in}, opts...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ImportServer", reflect.TypeOf((*MockCmdbClient)(nil).ImportServer), varargs...)
 }
