@@ -213,3 +213,21 @@ func (mr *MockCmdbClientMockRecorder) ImportServer(ctx, in interface{}, opts ...
 	varargs := append([]interface{}{ctx, in}, opts...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ImportServer", reflect.TypeOf((*MockCmdbClient)(nil).ImportServer), varargs...)
 }
+
+func (m *MockCmdbClient) ImportHistory(ctx context.Context, in *cmdb.ImportHistoryRequest, opts ...grpc.CallOption) (*cmdb.ImportHistoryResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{ctx, in}
+	for _, a := range opts {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ImportHistory", varargs...)
+	ret0, _ := ret[0].(*cmdb.ImportHistoryResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+func (mr *MockCmdbClientMockRecorder) ImportHistory(ctx, in interface{}, opts ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{ctx, in}, opts...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ImportHistory", reflect.TypeOf((*MockCmdbClient)(nil).ImportHistory), varargs...)
+}
