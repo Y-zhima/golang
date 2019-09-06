@@ -463,9 +463,9 @@ message ImportHistoryObject {
     // 导入状态
     ImportStatus status = 11;
     // 起始时间
-    google.protobuf.Timestamp startTime = 12;
+    google.protobuf.Timestamp start_time = 12;
     // 结束时间
-    google.protobuf.Timestamp endTime = 13;
+    google.protobuf.Timestamp end_time = 13;
 }
 
 // 查询导入历史列表请求
