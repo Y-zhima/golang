@@ -558,12 +558,12 @@
           "$ref": "#/definitions/cmdbImportStatus",
           "title": "导入状态"
         },
-        "startTime": {
+        "start_time": {
           "type": "string",
           "format": "date-time",
           "title": "起始时间"
         },
-        "endTime": {
+        "end_time": {
           "type": "string",
           "format": "date-time",
           "title": "结束时间"
