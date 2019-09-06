@@ -235,11 +235,17 @@ message ChooseHostRequest {
     repeated int32 bk_module_id = 2;
 }
 
+
+message Server {
+    string  uuid = 1;
+    string  ipmi_ip = 2;
+}
+
 message RoomServer {
     // 机房ID
     string room = 1;
-    // 机房下对应物理机UUID
-    repeated string  uuid = 2;
+    // 机房下对应物理机UUID及ipmi的ip
+    repeated Server server = 2;
 }
 
 // 选择物理机请求
