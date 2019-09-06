@@ -281,7 +281,7 @@ message Server {
 
 message RoomServer {
     // 机房ID
-    string room = 1;
+    int32 room_id = 1;
     // 机房下对应物理机UUID及ipmi的ip
     repeated Server server = 2;
 }
