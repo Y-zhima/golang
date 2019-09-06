@@ -7,10 +7,10 @@ import (
 	fmt "fmt"
 	math "math"
 	proto "github.com/golang/protobuf/proto"
-	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "github.com/mwitkow/go-proto-validators"
 	_ "git.fogcdn.top/axe/protos/goout/common"
+	_ "google.golang.org/genproto/googleapis/api/annotations"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
@@ -177,6 +177,29 @@ func (this *ImportServerResponse) Validate() error {
 	return nil
 }
 func (this *ChooseHostRequest) Validate() error {
+	return nil
+}
+func (this *Server) Validate() error {
+	return nil
+}
+func (this *RoomServer) Validate() error {
+	for _, item := range this.Server {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Server", err)
+			}
+		}
+	}
+	return nil
+}
+func (this *ChooseServerRequest) Validate() error {
+	for _, item := range this.RoomServer {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("RoomServer", err)
+			}
+		}
+	}
 	return nil
 }
 func (this *ImportSwitchRequest) Validate() error {

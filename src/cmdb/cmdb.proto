@@ -390,7 +390,9 @@ message ServerObject {
     // 装机状态
     ServerInstallState install_state = 9;
     // 机房id
-    int64 room_id = 10;
+    int32 room_id = 10;
+    // 裸金属uuid
+    string uuid = 11;
 }
 
 // 裸金属列表请求
