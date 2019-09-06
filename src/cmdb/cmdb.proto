@@ -404,7 +404,7 @@ message ServerListRequest {
     };
 
     // 机房id，相当于 RoomObject 中的 bk_inst_id
-    int64 room_id = 1;
+    int32 room_id = 1;
     // 分页信息
     common.Paging paging = 2;
 }

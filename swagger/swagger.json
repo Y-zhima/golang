@@ -358,8 +358,8 @@
         "operationId": "ServerList",
         "parameters": [
           {
-            "type": "string",
-            "format": "int64",
+            "type": "integer",
+            "format": "int32",
             "description": "机房id，相当于 RoomObject 中的 bk_inst_id.",
             "name": "room_id",
             "in": "query"
