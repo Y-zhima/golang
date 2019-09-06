@@ -116,13 +116,13 @@ message CreateServerResponse {
 }
 
 // 调用裸金属安装操作请求体
-message CreateServerRequest {
+message InstallServerRequest {
     // 机房及对应物理机
     cmdb.ChooseServerRequest cmdb_search_request = 1;
 }
 
 // 调用裸金属安装操作返回体
-message CreateServerResponse {
+message InstallServerResponse {
     // 状态码
     common.ResponseStatus status = 1;
 }
