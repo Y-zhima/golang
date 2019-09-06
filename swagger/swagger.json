@@ -1591,6 +1591,11 @@
       "type": "object",
       "title": "导入历史对象",
       "properties": {
+        "endTime": {
+          "type": "string",
+          "format": "date-time",
+          "title": "结束时间"
+        },
         "fail_count": {
           "type": "integer",
           "format": "int32",
@@ -1605,6 +1610,10 @@
           "title": "导入类型",
           "$ref": "#/definitions/cmdbImportType"
         },
+        "logfile_md5": {
+          "type": "string",
+          "title": "日志文件md5"
+        },
         "logfile_url": {
           "type": "string",
           "title": "日志文件下载路径"
@@ -1616,6 +1625,11 @@
         "operator": {
           "title": "操作人",
           "$ref": "#/definitions/commonUser"
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time",
+          "title": "起始时间"
         },
         "status": {
           "title": "导入状态",
@@ -1848,8 +1862,9 @@
     "cmdbRoomServer": {
       "type": "object",
       "properties": {
-        "room": {
-          "type": "string",
+        "room_id": {
+          "type": "integer",
+          "format": "int32",
           "title": "机房ID"
         },
         "server": {
