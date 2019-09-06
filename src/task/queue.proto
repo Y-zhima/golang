@@ -24,10 +24,31 @@ message TemplateExecuteTask {
     string extra_var = 6;
 }
 
+// 裸金属状态查询任务
+message BareMetalSearchTask {
+    // cmdb的搜索条件
+    cmdb.RoomServer cmdb_search_request = 1;
+}
+
+// 裸金属电源开关任务
+message BareMetalPowerTask {
+    // 电源开关操作
+    cmdb.ServerPowerState state = 1;
+    // cmdb的搜索条件
+    cmdb.RoomServer cmdb_search_request = 2;
+}
+
+// 裸金属创建任务
+message BareMetalCreateTask {
+    // cmdb的搜索条件
+    cmdb.RoomServer cmdb_search_request = 2;
+}
+
+
 // 裸金属安装任务
 message BareMetalInstallTask {
     // cmdb的搜索条件
-    cmdb.ChooseHostRequest cmdb_search_request = 2;
+    cmdb.RoomServer cmdb_search_request = 2;
     // 安装镜像文件的URL
     string image_file_url = 3;
     // 安装镜像文件的MD5
