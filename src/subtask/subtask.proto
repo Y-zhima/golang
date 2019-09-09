@@ -54,6 +54,12 @@ message CompleteRequest {
     string end_time = 3;
     // 子任务执行结果
     SubTaskResult result = 4;
+    // 总共执行多少主机
+    int32 execute_count = 5;
+    // 执行失败多少台主机
+    int32 fail_count = 6;
+    // 执行成功多少台主机
+    int32 success_count = 7;
 }
 
 // 完成子任务实例请求返回
