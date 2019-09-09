@@ -41,7 +41,7 @@ message CreateResponse {
 // 裸金属任务状态
 enum ServerTaskType {
     // 未定义任务类型
-    UNDEFINED = 0
+    UNDEFINED = 0;
     // 裸金属状态查询任务
     CHECK = 1;
     // 裸金属电源开关任务
