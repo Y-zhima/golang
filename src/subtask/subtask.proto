@@ -36,6 +36,39 @@ message CreateResponse {
     common.ResponseStatus status = 2;
 }
 
+// 模板状态
+enum ServerTaskType {
+    // 裸金属状态查询任务
+    BareMetalSearchTask ServerTaskType = 0
+    // 裸金属电源开关任务
+    BareMetalPowerTask ServerTaskType = 1
+    // 裸金属初始化创建uuid任务
+    BareMetalCreateTask ServerTaskType = 2
+    // 裸金属安装任务
+    BareMetalInstallTask ServerTaskType = 3
+}
+
+// 裸金属子任务实例请求
+message ServerRequest {
+    // 任务实例ID
+    int64 task_id = 1;
+    // 电源状态
+    State cmdb.ServerPowerState = 2;
+    // 裸金属任务类型
+    SubTaskType  ServerTaskType = 3;
+    // cmdb的搜索条件
+    cmdb.ChooseServerRequest cmdb_search_request = 4;
+}
+
+// 裸金属子任务实例返回
+message ServerResponse {
+    // 子任务实例ID
+    int64 sub_task_id = 1;
+    // 返回的请求状态
+    common.ResponseStatus status = 2;
+}
+
+
 // 子任务执行结果
 enum SubTaskResult {
     // 失败

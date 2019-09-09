@@ -280,16 +280,12 @@ message Server {
     string  ipmi_ip = 2;
 }
 
-message RoomServer {
+// 选择物理机请求
+message ChooseServerRequest {
     // 机房ID
     int32 room_id = 1;
     // 机房下对应物理机UUID及ipmi的ip
     repeated Server server = 2;
-}
-
-// 选择物理机请求
-message ChooseServerRequest {
-    repeated RoomServer room_server = 1;
 }
 
 
@@ -358,6 +354,8 @@ enum ServerPowerState {
     OFF = 0;
     // 上电
     ON = 1;
+    // 未定义
+    UNDEFINED = 2;
 }
 
 // 装机状态
