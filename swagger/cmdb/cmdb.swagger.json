@@ -527,6 +527,10 @@
           "type": "string",
           "title": "日志文件下载路径"
         },
+        "logfile_md5": {
+          "type": "string",
+          "title": "日志文件md5"
+        },
         "total_count": {
           "type": "integer",
           "format": "int32",
@@ -553,6 +557,16 @@
         "status": {
           "$ref": "#/definitions/cmdbImportStatus",
           "title": "导入状态"
+        },
+        "start_time": {
+          "type": "string",
+          "format": "date-time",
+          "title": "起始时间"
+        },
+        "end_time": {
+          "type": "string",
+          "format": "date-time",
+          "title": "结束时间"
         }
       },
       "title": "导入历史对象"

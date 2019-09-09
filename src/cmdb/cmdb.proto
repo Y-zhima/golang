@@ -10,6 +10,7 @@ import "common/user.proto";
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
 import "github.com/mwitkow/go-proto-validators/validator.proto";
+import "google/protobuf/timestamp.proto";
 
 // 主机
 service Cmdb {
@@ -447,18 +448,24 @@ message ImportHistoryObject {
     string md5 = 3;
     // 日志文件下载路径
     string logfile_url = 4;
+    // 日志文件md5
+    string logfile_md5 = 5;
     // 总行数
-    int32 total_count = 5;
+    int32 total_count = 6;
     // 成功行数
-    int32 success_count = 6;
+    int32 success_count = 7;
     // 失败行数
-    int32 fail_count = 7;
+    int32 fail_count = 8;
     // 操作人
-    common.User operator = 13;
+    common.User operator = 9;
     // 导入类型
-    ImportType import_type = 9;
+    ImportType import_type = 10;
     // 导入状态
-    ImportStatus status = 10;
+    ImportStatus status = 11;
+    // 起始时间
+    google.protobuf.Timestamp start_time = 12;
+    // 结束时间
+    google.protobuf.Timestamp end_time = 13;
 }
 
 // 查询导入历史列表请求

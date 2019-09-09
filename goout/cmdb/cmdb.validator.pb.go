@@ -5,13 +5,14 @@ package cmdb
 
 import (
 	fmt "fmt"
-	math "math"
+	_ "git.fogcdn.top/axe/protos/goout/common"
 	proto "github.com/golang/protobuf/proto"
-	_ "google.golang.org/genproto/googleapis/api/annotations"
+	_ "github.com/golang/protobuf/ptypes/timestamp"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "github.com/mwitkow/go-proto-validators"
-	_ "git.fogcdn.top/axe/protos/goout/common"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
+	_ "google.golang.org/genproto/googleapis/api/annotations"
+	math "math"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -316,6 +317,16 @@ func (this *ImportHistoryObject) Validate() error {
 	if this.Operator != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Operator); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Operator", err)
+		}
+	}
+	if this.StartTime != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.StartTime); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("StartTime", err)
+		}
+	}
+	if this.EndTime != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.EndTime); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("EndTime", err)
 		}
 	}
 	return nil
