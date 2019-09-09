@@ -354,8 +354,6 @@ enum ServerPowerState {
     OFF = 0;
     // 上电
     ON = 1;
-    // 未定义
-    UNDEFINED = 2;
 }
 
 // 装机状态
