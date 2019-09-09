@@ -526,6 +526,10 @@
           "type": "string",
           "title": "task对于的作业版本"
         },
+        "template_name": {
+          "type": "string",
+          "title": "作业对应的模板名字"
+        },
         "host_module": {
           "type": "string",
           "title": "task对于的主机模块"

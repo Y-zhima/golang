@@ -213,10 +213,12 @@ message GetResponse {
     TaskObject task = 1;
     // task对于的作业版本
     string playbook_version = 2;
+    // 作业对应的模板名字
+    string template_name = 3;
     // task对于的主机模块
-    string host_module = 3;
+    string host_module = 4;
     // 返回的请求状态
-    common.ResponseStatus status = 4;
+    common.ResponseStatus status = 5;
 }
 
 // 获取作业任务详细执行过程请求
