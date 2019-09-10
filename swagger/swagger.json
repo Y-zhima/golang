@@ -1607,6 +1607,10 @@
           "format": "int32",
           "title": "失败行数"
         },
+        "filename": {
+          "type": "string",
+          "title": "用户上传的文件名"
+        },
         "id": {
           "type": "integer",
           "format": "int32",
@@ -2199,6 +2203,10 @@
     "fileUploadResponse": {
       "type": "object",
       "properties": {
+        "filename": {
+          "type": "string",
+          "title": "解析出来的通用文件name"
+        },
         "filesize": {
           "type": "string",
           "title": "解析出来的通用文件大小"

@@ -567,6 +567,10 @@
           "type": "string",
           "format": "date-time",
           "title": "结束时间"
+        },
+        "filename": {
+          "type": "string",
+          "title": "用户上传的文件名"
         }
       },
       "title": "导入历史对象"
