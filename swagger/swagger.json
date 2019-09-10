@@ -1686,6 +1686,10 @@
       "type": "object",
       "title": "导入主机请求",
       "properties": {
+        "filename": {
+          "type": "string",
+          "title": "用户上传xlsx文件的文件名"
+        },
         "md5": {
           "type": "string",
           "title": "xlsx文件md5"
@@ -1710,6 +1714,10 @@
       "type": "object",
       "title": "导入lake节点请求",
       "properties": {
+        "filename": {
+          "type": "string",
+          "title": "用户上传xlsx文件的文件名"
+        },
         "md5": {
           "type": "string",
           "title": "xlsx文件md5"
@@ -1734,6 +1742,10 @@
       "type": "object",
       "title": "导入物理机请求",
       "properties": {
+        "filename": {
+          "type": "string",
+          "title": "用户上传xlsx文件的文件名"
+        },
         "md5": {
           "type": "string",
           "title": "xlsx文件md5"
@@ -1769,6 +1781,10 @@
       "type": "object",
       "title": "导入交换机请求",
       "properties": {
+        "filename": {
+          "type": "string",
+          "title": "用户上传xlsx文件的文件名"
+        },
         "md5": {
           "type": "string",
           "title": "xlsx文件md5"

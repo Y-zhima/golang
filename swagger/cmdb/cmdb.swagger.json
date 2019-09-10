@@ -606,6 +606,10 @@
         "md5": {
           "type": "string",
           "title": "xlsx文件md5"
+        },
+        "filename": {
+          "type": "string",
+          "title": "用户上传xlsx文件的文件名"
         }
       },
       "title": "导入主机请求"
@@ -630,6 +634,10 @@
         "md5": {
           "type": "string",
           "title": "xlsx文件md5"
+        },
+        "filename": {
+          "type": "string",
+          "title": "用户上传xlsx文件的文件名"
         }
       },
       "title": "导入lake节点请求"
@@ -654,6 +662,10 @@
         "md5": {
           "type": "string",
           "title": "xlsx文件md5"
+        },
+        "filename": {
+          "type": "string",
+          "title": "用户上传xlsx文件的文件名"
         }
       },
       "title": "导入物理机请求"
@@ -689,6 +701,10 @@
         "md5": {
           "type": "string",
           "title": "xlsx文件md5"
+        },
+        "filename": {
+          "type": "string",
+          "title": "用户上传xlsx文件的文件名"
         }
       },
       "title": "导入交换机请求"
