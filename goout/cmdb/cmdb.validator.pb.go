@@ -183,21 +183,11 @@ func (this *ChooseHostRequest) Validate() error {
 func (this *Server) Validate() error {
 	return nil
 }
-func (this *RoomServer) Validate() error {
+func (this *ChooseServerRequest) Validate() error {
 	for _, item := range this.Server {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
 				return github_com_mwitkow_go_proto_validators.FieldError("Server", err)
-			}
-		}
-	}
-	return nil
-}
-func (this *ChooseServerRequest) Validate() error {
-	for _, item := range this.RoomServer {
-		if item != nil {
-			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("RoomServer", err)
 			}
 		}
 	}

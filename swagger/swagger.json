@@ -820,60 +820,6 @@
         }
       }
     },
-    "/v1/task/CreateServer": {
-      "post": {
-        "tags": [
-          "Task"
-        ],
-        "summary": "调用裸金属创建操作",
-        "operationId": "CreateServer",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/taskCreateServerRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/taskCreateServerResponse"
-            }
-          }
-        }
-      }
-    },
-    "/v1/task/InstallServer": {
-      "post": {
-        "tags": [
-          "Task"
-        ],
-        "summary": "调用裸金属安装操作",
-        "operationId": "InstallServer",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/taskInstallServerRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/taskInstallServerResponse"
-            }
-          }
-        }
-      }
-    },
     "/v1/task/checkServerState": {
       "post": {
         "tags": [
@@ -923,6 +869,33 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/taskCreateResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/task/createServer": {
+      "post": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "调用裸金属创建操作",
+        "operationId": "CreateServer",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskCreateServerRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskCreateServerResponse"
             }
           }
         }
@@ -1016,6 +989,33 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/taskGetResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/task/installServer": {
+      "post": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "调用裸金属安装操作",
+        "operationId": "InstallServer",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskInstallServerRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskInstallServerResponse"
             }
           }
         }
@@ -1533,10 +1533,16 @@
       "type": "object",
       "title": "选择物理机请求",
       "properties": {
-        "room_server": {
+        "room_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "机房ID"
+        },
+        "server": {
           "type": "array",
+          "title": "机房下对应物理机UUID及ipmi的ip",
           "items": {
-            "$ref": "#/definitions/cmdbRoomServer"
+            "$ref": "#/definitions/cmdbServer"
           }
         }
       }
@@ -1856,23 +1862,6 @@
         "room_name": {
           "type": "string",
           "title": "机房名称"
-        }
-      }
-    },
-    "cmdbRoomServer": {
-      "type": "object",
-      "properties": {
-        "room_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "机房ID"
-        },
-        "server": {
-          "type": "array",
-          "title": "机房下对应物理机UUID及ipmi的ip",
-          "items": {
-            "$ref": "#/definitions/cmdbServer"
-          }
         }
       }
     },
@@ -3114,6 +3103,34 @@
         }
       }
     },
+    "subtaskCreateServerResponse": {
+      "type": "object",
+      "title": "裸金属子任务实例返回",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "sub_task_id": {
+          "type": "string",
+          "format": "int64",
+          "title": "子任务实例ID"
+        }
+      }
+    },
+    "subtaskServerTaskType": {
+      "description": "- UNDEFINED: 未定义任务类型\n - CHECK: 裸金属状态查询任务\n - POWER: 裸金属电源开关任务\n - CREATE: 裸金属初始化创建uuid任务\n - INSTALL: 裸金属安装任务",
+      "type": "string",
+      "title": "裸金属任务状态",
+      "default": "UNDEFINED",
+      "enum": [
+        "UNDEFINED",
+        "CHECK",
+        "POWER",
+        "CREATE",
+        "INSTALL"
+      ]
+    },
     "subtaskSubTaskResult": {
       "description": "- FAILURE: 失败\n - SUCCESS: 成功",
       "type": "string",
@@ -3129,8 +3146,11 @@
       "title": "调用裸金属应用检查裸金属状态请求体",
       "properties": {
         "cmdb_search_request": {
+          "type": "array",
           "title": "机房及对应物理机",
-          "$ref": "#/definitions/cmdbChooseServerRequest"
+          "items": {
+            "$ref": "#/definitions/cmdbChooseServerRequest"
+          }
         }
       }
     },
@@ -3207,8 +3227,11 @@
       "title": "调用裸金属创建操作请求体",
       "properties": {
         "cmdb_search_request": {
+          "type": "array",
           "title": "机房及对应物理机",
-          "$ref": "#/definitions/cmdbChooseServerRequest"
+          "items": {
+            "$ref": "#/definitions/cmdbChooseServerRequest"
+          }
         }
       }
     },
@@ -3272,6 +3295,10 @@
         "task": {
           "title": "获取的作业任务实例",
           "$ref": "#/definitions/taskTaskObject"
+        },
+        "template_name": {
+          "type": "string",
+          "title": "作业对应的模板名字"
         }
       }
     },
@@ -3280,8 +3307,11 @@
       "title": "调用裸金属安装操作请求体",
       "properties": {
         "cmdb_search_request": {
+          "type": "array",
           "title": "机房及对应物理机",
-          "$ref": "#/definitions/cmdbChooseServerRequest"
+          "items": {
+            "$ref": "#/definitions/cmdbChooseServerRequest"
+          }
         }
       }
     },
@@ -3311,8 +3341,11 @@
       "title": "调用裸金属应用执行开关机操作请求体",
       "properties": {
         "cmdb_search_request": {
+          "type": "array",
           "title": "机房及对应物理机",
-          "$ref": "#/definitions/cmdbChooseServerRequest"
+          "items": {
+            "$ref": "#/definitions/cmdbChooseServerRequest"
+          }
         },
         "state": {
           "title": "电源开关操作",
