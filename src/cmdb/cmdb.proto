@@ -242,6 +242,8 @@ message ImportHostRequest {
     string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
     // xlsx文件md5
     string md5 = 2;
+    // 用户上传xlsx文件的文件名
+    string filename = 3;
 }
 
 // 导入主机请求返回
@@ -256,6 +258,8 @@ message ImportServerRequest {
     string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
     // xlsx文件md5
     string md5 = 2;
+    // 用户上传xlsx文件的文件名
+    string filename = 3;
 }
 
 // 导入物理机请求返回
@@ -295,6 +299,8 @@ message ImportSwitchRequest {
     string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
     // xlsx文件md5
     string md5 = 2;
+    // 用户上传xlsx文件的文件名
+    string filename = 3;
 }
 
 // 导入交换机请求返回
@@ -309,6 +315,8 @@ message ImportLakeRequest {
     string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
     // xlsx文件md5
     string md5 = 2;
+    // 用户上传xlsx文件的文件名
+    string filename = 3;
 }
 
 // 导入lake节点请求返回
