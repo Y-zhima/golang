@@ -181,7 +181,7 @@ func (m *BareMetalPowerTask) GetState() cmdb.ServerPowerState {
 	if m != nil {
 		return m.State
 	}
-	return cmdb.ServerPowerState_OFF
+	return cmdb.ServerPowerState_UNKNOWN
 }
 
 func (m *BareMetalPowerTask) GetCmdbSearchRequest() *cmdb.ChooseServerRequest {

@@ -184,7 +184,7 @@ func (m *ServerPowerControlRequest) GetState() cmdb.ServerPowerState {
 	if m != nil {
 		return m.State
 	}
-	return cmdb.ServerPowerState_OFF
+	return cmdb.ServerPowerState_UNKNOWN
 }
 
 func (m *ServerPowerControlRequest) GetCmdbSearchRequest() []*cmdb.ChooseServerRequest {

@@ -358,8 +358,8 @@ message RoomTopologyResponse {
 
 // 电源状态
 enum ServerPowerState {
-    // 未定义类型
-    UNDEFINED = 0;
+    // 未知状态
+    UNKNOWN = 0;
     // 下电
     OFF = 1;
     // 上电

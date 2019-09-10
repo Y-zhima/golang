@@ -2038,11 +2038,12 @@
       }
     },
     "cmdbServerPowerState": {
-      "description": "- OFF: 下电\n - ON: 上电",
+      "description": "- UNKNOWN: 未知状态\n - OFF: 下电\n - ON: 上电",
       "type": "string",
       "title": "电源状态",
-      "default": "OFF",
+      "default": "UNKNOWN",
       "enum": [
+        "UNKNOWN",
         "OFF",
         "ON"
       ]
