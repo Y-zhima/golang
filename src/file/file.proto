@@ -61,6 +61,8 @@ message UploadResponse {
     string md5 = 2;
     // 解析出来的通用文件大小
     string filesize = 3;
+    // 解析出来的通用文件name
+    string filename = 4;
     // 返回的请求状态
-    common.ResponseStatus status = 4;
+    common.ResponseStatus status = 5;
 }
