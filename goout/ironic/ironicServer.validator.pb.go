@@ -153,6 +153,29 @@ func (this *InstallNodeSysRootRes_ContractRootRes) Validate() error {
 	return nil
 }
 func (this *InstallNodeSysRootRes_SvcContRes) Validate() error {
+	if this.ResultObject != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.ResultObject); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("ResultObject", err)
+		}
+	}
+	return nil
+}
+func (this *InstallNodeSysRootRes_InstallNodeInfoRsp) Validate() error {
+	for _, item := range this.NodeInfoRsps {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("NodeInfoRsps", err)
+			}
+		}
+	}
+	if this.PageInfo != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.PageInfo); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("PageInfo", err)
+		}
+	}
+	return nil
+}
+func (this *InstallNodeSysRootRes_NodeInfoRsp) Validate() error {
 	return nil
 }
 func (this *OperNodePowerRootReq) Validate() error {
