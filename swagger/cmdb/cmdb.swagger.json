@@ -567,6 +567,10 @@
           "type": "string",
           "format": "date-time",
           "title": "结束时间"
+        },
+        "filename": {
+          "type": "string",
+          "title": "用户上传的文件名"
         }
       },
       "title": "导入历史对象"
@@ -602,6 +606,10 @@
         "md5": {
           "type": "string",
           "title": "xlsx文件md5"
+        },
+        "filename": {
+          "type": "string",
+          "title": "用户上传xlsx文件的文件名"
         }
       },
       "title": "导入主机请求"
@@ -626,6 +634,10 @@
         "md5": {
           "type": "string",
           "title": "xlsx文件md5"
+        },
+        "filename": {
+          "type": "string",
+          "title": "用户上传xlsx文件的文件名"
         }
       },
       "title": "导入lake节点请求"
@@ -650,6 +662,10 @@
         "md5": {
           "type": "string",
           "title": "xlsx文件md5"
+        },
+        "filename": {
+          "type": "string",
+          "title": "用户上传xlsx文件的文件名"
         }
       },
       "title": "导入物理机请求"
@@ -685,6 +701,10 @@
         "md5": {
           "type": "string",
           "title": "xlsx文件md5"
+        },
+        "filename": {
+          "type": "string",
+          "title": "用户上传xlsx文件的文件名"
         }
       },
       "title": "导入交换机请求"
@@ -920,11 +940,12 @@
     "cmdbServerPowerState": {
       "type": "string",
       "enum": [
+        "UNKNOWN",
         "OFF",
         "ON"
       ],
-      "default": "OFF",
-      "description": "- OFF: 下电\n - ON: 上电",
+      "default": "UNKNOWN",
+      "description": "- UNKNOWN: 未知状态\n - OFF: 下电\n - ON: 上电",
       "title": "电源状态"
     },
     "cmdbSetObject": {

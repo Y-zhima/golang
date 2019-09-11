@@ -22,9 +22,11 @@ var _ = fmt.Errorf
 var _ = math.Inf
 
 func (this *CheckServerStateRequest) Validate() error {
-	if this.CmdbSearchRequest != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbSearchRequest); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+	for _, item := range this.CmdbSearchRequest {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+			}
 		}
 	}
 	return nil
@@ -38,9 +40,11 @@ func (this *CheckServerStateResponse) Validate() error {
 	return nil
 }
 func (this *ServerPowerControlRequest) Validate() error {
-	if this.CmdbSearchRequest != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbSearchRequest); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+	for _, item := range this.CmdbSearchRequest {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+			}
 		}
 	}
 	return nil
@@ -54,9 +58,11 @@ func (this *ServerPowerControlResponse) Validate() error {
 	return nil
 }
 func (this *CreateServerRequest) Validate() error {
-	if this.CmdbSearchRequest != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbSearchRequest); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+	for _, item := range this.CmdbSearchRequest {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+			}
 		}
 	}
 	return nil
@@ -70,9 +76,11 @@ func (this *CreateServerResponse) Validate() error {
 	return nil
 }
 func (this *InstallServerRequest) Validate() error {
-	if this.CmdbSearchRequest != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbSearchRequest); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+	for _, item := range this.CmdbSearchRequest {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+			}
 		}
 	}
 	return nil

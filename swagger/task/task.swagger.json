@@ -15,60 +15,6 @@
     "application/json"
   ],
   "paths": {
-    "/v1/task/CreateServer": {
-      "post": {
-        "summary": "调用裸金属创建操作",
-        "operationId": "CreateServer",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/taskCreateServerResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/taskCreateServerRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Task"
-        ]
-      }
-    },
-    "/v1/task/InstallServer": {
-      "post": {
-        "summary": "调用裸金属安装操作",
-        "operationId": "InstallServer",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/taskInstallServerResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/taskInstallServerRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Task"
-        ]
-      }
-    },
     "/v1/task/checkServerState": {
       "post": {
         "summary": "调用裸金属应用检查裸金属状态",
@@ -115,6 +61,33 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/taskCreateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      }
+    },
+    "/v1/task/createServer": {
+      "post": {
+        "summary": "调用裸金属创建操作",
+        "operationId": "CreateServer",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskCreateServerResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskCreateServerRequest"
             }
           }
         ],
@@ -222,6 +195,33 @@
         ]
       }
     },
+    "/v1/task/installServer": {
+      "post": {
+        "summary": "调用裸金属安装操作",
+        "operationId": "InstallServer",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskInstallServerResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskInstallServerRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      }
+    },
     "/v1/task/serverPowerControl": {
       "post": {
         "summary": "调用裸金属应用执行开关机操作",
@@ -273,18 +273,6 @@
     "cmdbChooseServerRequest": {
       "type": "object",
       "properties": {
-        "room_server": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/cmdbRoomServer"
-          }
-        }
-      },
-      "title": "选择物理机请求"
-    },
-    "cmdbRoomServer": {
-      "type": "object",
-      "properties": {
         "room_id": {
           "type": "integer",
           "format": "int32",
@@ -297,7 +285,8 @@
           },
           "title": "机房下对应物理机UUID及ipmi的ip"
         }
-      }
+      },
+      "title": "选择物理机请求"
     },
     "cmdbServer": {
       "type": "object",
@@ -316,11 +305,12 @@
     "cmdbServerPowerState": {
       "type": "string",
       "enum": [
+        "UNKNOWN",
         "OFF",
         "ON"
       ],
-      "default": "OFF",
-      "description": "- OFF: 下电\n - ON: 上电",
+      "default": "UNKNOWN",
+      "description": "- UNKNOWN: 未知状态\n - OFF: 下电\n - ON: 上电",
       "title": "电源状态"
     },
     "commonPaging": {
@@ -390,7 +380,10 @@
       "type": "object",
       "properties": {
         "cmdb_search_request": {
-          "$ref": "#/definitions/cmdbChooseServerRequest",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbChooseServerRequest"
+          },
           "title": "机房及对应物理机"
         }
       },
@@ -468,7 +461,10 @@
       "type": "object",
       "properties": {
         "cmdb_search_request": {
-          "$ref": "#/definitions/cmdbChooseServerRequest",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbChooseServerRequest"
+          },
           "title": "机房及对应物理机"
         }
       },
@@ -545,7 +541,10 @@
       "type": "object",
       "properties": {
         "cmdb_search_request": {
-          "$ref": "#/definitions/cmdbChooseServerRequest",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbChooseServerRequest"
+          },
           "title": "机房及对应物理机"
         }
       },
@@ -580,7 +579,10 @@
           "title": "电源开关操作"
         },
         "cmdb_search_request": {
-          "$ref": "#/definitions/cmdbChooseServerRequest",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbChooseServerRequest"
+          },
           "title": "机房及对应物理机"
         }
       },

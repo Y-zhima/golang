@@ -242,6 +242,8 @@ message ImportHostRequest {
     string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
     // xlsx文件md5
     string md5 = 2;
+    // 用户上传xlsx文件的文件名
+    string filename = 3;
 }
 
 // 导入主机请求返回
@@ -256,6 +258,8 @@ message ImportServerRequest {
     string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
     // xlsx文件md5
     string md5 = 2;
+    // 用户上传xlsx文件的文件名
+    string filename = 3;
 }
 
 // 导入物理机请求返回
@@ -280,16 +284,12 @@ message Server {
     string  ipmi_ip = 2;
 }
 
-message RoomServer {
+// 选择物理机请求
+message ChooseServerRequest {
     // 机房ID
     int32 room_id = 1;
     // 机房下对应物理机UUID及ipmi的ip
     repeated Server server = 2;
-}
-
-// 选择物理机请求
-message ChooseServerRequest {
-    repeated RoomServer room_server = 1;
 }
 
 
@@ -299,6 +299,8 @@ message ImportSwitchRequest {
     string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
     // xlsx文件md5
     string md5 = 2;
+    // 用户上传xlsx文件的文件名
+    string filename = 3;
 }
 
 // 导入交换机请求返回
@@ -313,6 +315,8 @@ message ImportLakeRequest {
     string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
     // xlsx文件md5
     string md5 = 2;
+    // 用户上传xlsx文件的文件名
+    string filename = 3;
 }
 
 // 导入lake节点请求返回
@@ -354,10 +358,12 @@ message RoomTopologyResponse {
 
 // 电源状态
 enum ServerPowerState {
+    // 未知状态
+    UNKNOWN = 0;
     // 下电
-    OFF = 0;
+    OFF = 1;
     // 上电
-    ON = 1;
+    ON = 2;
 }
 
 // 装机状态
@@ -466,6 +472,8 @@ message ImportHistoryObject {
     google.protobuf.Timestamp start_time = 12;
     // 结束时间
     google.protobuf.Timestamp end_time = 13;
+    // 用户上传的文件名
+    string filename = 14;
 }
 
 // 查询导入历史列表请求

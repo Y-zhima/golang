@@ -161,6 +161,10 @@
           "type": "string",
           "title": "解析出来的通用文件大小"
         },
+        "filename": {
+          "type": "string",
+          "title": "解析出来的通用文件name"
+        },
         "status": {
           "$ref": "#/definitions/commonResponseStatus",
           "title": "返回的请求状态"

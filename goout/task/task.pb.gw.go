@@ -352,9 +352,9 @@ var (
 
 	pattern_Task_ServerPowerControl_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "task", "serverPowerControl"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Task_CreateServer_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "task", "CreateServer"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Task_CreateServer_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "task", "createServer"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Task_InstallServer_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "task", "InstallServer"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Task_InstallServer_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "task", "installServer"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (

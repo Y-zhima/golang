@@ -17,6 +17,8 @@ service SubTask {
     rpc Create (CreateRequest) returns (CreateResponse) {}
     // 完成作业子任务
     rpc Complete(CompleteRequest) returns(CompleteResponse) {}
+    // 创建裸金属子任务
+    rpc CreateServer (CreateServerRequest) returns (CreateServerResponse) {}
 }
 
 // 创建子任务实例请求
@@ -35,6 +37,39 @@ message CreateResponse {
     // 返回的请求状态
     common.ResponseStatus status = 2;
 }
+
+// 裸金属任务状态
+enum ServerTaskType {
+    // 未定义任务类型
+    UNDEFINED = 0;
+    // 裸金属状态查询任务
+    CHECK = 1;
+    // 裸金属电源开关任务
+    POWER = 2;
+    // 裸金属初始化创建uuid任务
+    CREATE = 3;
+    // 裸金属安装任务
+    INSTALL = 4;
+}
+
+// 裸金属子任务实例请求
+message CreateServerRequest {
+    // 任务实例ID
+    int64 task_id = 1;
+    // 裸金属任务类型
+    ServerTaskType task_type = 2;
+    // cmdb的搜索条件
+    cmdb.ChooseServerRequest cmdb_search_request = 3;
+}
+
+// 裸金属子任务实例返回
+message CreateServerResponse {
+    // 子任务实例ID
+    int64 sub_task_id = 1;
+    // 返回的请求状态
+    common.ResponseStatus status = 2;
+}
+
 
 // 子任务执行结果
 enum SubTaskResult {

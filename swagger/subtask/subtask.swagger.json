@@ -35,6 +35,38 @@
       },
       "title": "选择主机请求"
     },
+    "cmdbChooseServerRequest": {
+      "type": "object",
+      "properties": {
+        "room_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "机房ID"
+        },
+        "server": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbServer"
+          },
+          "title": "机房下对应物理机UUID及ipmi的ip"
+        }
+      },
+      "title": "选择物理机请求"
+    },
+    "cmdbServer": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "title": "裸金属uuid"
+        },
+        "ipmi_ip": {
+          "type": "string",
+          "title": "物理机ipmi的ip"
+        }
+      },
+      "title": "物理机传入信息"
+    },
     "commonResponseStatus": {
       "type": "object",
       "properties": {
@@ -87,6 +119,34 @@
         }
       },
       "title": "创建子任务实例请求返回"
+    },
+    "subtaskCreateServerResponse": {
+      "type": "object",
+      "properties": {
+        "sub_task_id": {
+          "type": "string",
+          "format": "int64",
+          "title": "子任务实例ID"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        }
+      },
+      "title": "裸金属子任务实例返回"
+    },
+    "subtaskServerTaskType": {
+      "type": "string",
+      "enum": [
+        "UNDEFINED",
+        "CHECK",
+        "POWER",
+        "CREATE",
+        "INSTALL"
+      ],
+      "default": "UNDEFINED",
+      "description": "- UNDEFINED: 未定义任务类型\n - CHECK: 裸金属状态查询任务\n - POWER: 裸金属电源开关任务\n - CREATE: 裸金属初始化创建uuid任务\n - INSTALL: 裸金属安装任务",
+      "title": "裸金属任务状态"
     },
     "subtaskSubTaskResult": {
       "type": "string",
