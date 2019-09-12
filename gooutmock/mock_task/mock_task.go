@@ -35,6 +35,26 @@ func (m *MockTaskClient) EXPECT() *MockTaskClientMockRecorder {
 	return m.recorder
 }
 
+// CheckServerState mocks base method
+func (m *MockTaskClient) CheckServerState(arg0 context.Context, arg1 *task.CheckServerStateRequest, arg2 ...grpc.CallOption) (*task.CheckServerStateResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "CheckServerState", varargs...)
+	ret0, _ := ret[0].(*task.CheckServerStateResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// CheckServerState indicates an expected call of CheckServerState
+func (mr *MockTaskClientMockRecorder) CheckServerState(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CheckServerState", reflect.TypeOf((*MockTaskClient)(nil).CheckServerState), varargs...)
+}
+
 // Create mocks base method
 func (m *MockTaskClient) Create(arg0 context.Context, arg1 *task.CreateRequest, arg2 ...grpc.CallOption) (*task.CreateResponse, error) {
 	m.ctrl.T.Helper()
@@ -53,6 +73,26 @@ func (mr *MockTaskClientMockRecorder) Create(arg0, arg1 interface{}, arg2 ...int
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{arg0, arg1}, arg2...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Create", reflect.TypeOf((*MockTaskClient)(nil).Create), varargs...)
+}
+
+// CreateServer mocks base method
+func (m *MockTaskClient) CreateServer(arg0 context.Context, arg1 *task.CreateServerRequest, arg2 ...grpc.CallOption) (*task.CreateServerResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "CreateServer", varargs...)
+	ret0, _ := ret[0].(*task.CreateServerResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// CreateServer indicates an expected call of CreateServer
+func (mr *MockTaskClientMockRecorder) CreateServer(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateServer", reflect.TypeOf((*MockTaskClient)(nil).CreateServer), varargs...)
 }
 
 // Filter mocks base method
@@ -113,4 +153,44 @@ func (mr *MockTaskClientMockRecorder) GetLog(arg0, arg1 interface{}, arg2 ...int
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{arg0, arg1}, arg2...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetLog", reflect.TypeOf((*MockTaskClient)(nil).GetLog), varargs...)
+}
+
+// InstallServer mocks base method
+func (m *MockTaskClient) InstallServer(arg0 context.Context, arg1 *task.InstallServerRequest, arg2 ...grpc.CallOption) (*task.InstallServerResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "InstallServer", varargs...)
+	ret0, _ := ret[0].(*task.InstallServerResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// InstallServer indicates an expected call of InstallServer
+func (mr *MockTaskClientMockRecorder) InstallServer(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "InstallServer", reflect.TypeOf((*MockTaskClient)(nil).InstallServer), varargs...)
+}
+
+// ServerPowerControl mocks base method
+func (m *MockTaskClient) ServerPowerControl(arg0 context.Context, arg1 *task.ServerPowerControlRequest, arg2 ...grpc.CallOption) (*task.ServerPowerControlResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ServerPowerControl", varargs...)
+	ret0, _ := ret[0].(*task.ServerPowerControlResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// ServerPowerControl indicates an expected call of ServerPowerControl
+func (mr *MockTaskClientMockRecorder) ServerPowerControl(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ServerPowerControl", reflect.TypeOf((*MockTaskClient)(nil).ServerPowerControl), varargs...)
 }
