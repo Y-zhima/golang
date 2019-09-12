@@ -7,11 +7,11 @@ import (
 	fmt "fmt"
 	math "math"
 	proto "github.com/golang/protobuf/proto"
-	_ "github.com/mwitkow/go-proto-validators"
-	_ "github.com/golang/protobuf/ptypes/timestamp"
 	_ "git.fogcdn.top/axe/protos/goout/common"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
+	_ "github.com/mwitkow/go-proto-validators"
+	_ "github.com/golang/protobuf/ptypes/timestamp"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
@@ -355,10 +355,30 @@ func (this *AreaObject) Validate() error {
 func (this *IspObject) Validate() error {
 	return nil
 }
+func (this *VipObject) Validate() error {
+	return nil
+}
+func (this *ServerRoomObject) Validate() error {
+	return nil
+}
 func (this *LakeObject) Validate() error {
+	for _, item := range this.Vip {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Vip", err)
+			}
+		}
+	}
 	if this.ConstructUpdatetime != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.ConstructUpdatetime); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("ConstructUpdatetime", err)
+		}
+	}
+	for _, item := range this.Room {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Room", err)
+			}
 		}
 	}
 	return nil

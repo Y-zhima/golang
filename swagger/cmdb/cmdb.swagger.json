@@ -786,6 +786,11 @@
     "cmdbLakeObject": {
       "type": "object",
       "properties": {
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "业务ID"
+        },
         "bk_inst_name": {
           "type": "string",
           "title": "实例名"
@@ -796,8 +801,10 @@
           "title": "节点ID"
         },
         "vip": {
-          "type": "integer",
-          "format": "int32",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbVipObject"
+          },
           "title": "节点VIP"
         },
         "bandwidth_limit": {
@@ -826,17 +833,12 @@
           "format": "date-time",
           "title": "节点建设状态变更时间"
         },
-        "room_name": {
-          "type": "string",
-          "title": "机房名称"
-        },
-        "area_code": {
-          "type": "string",
-          "title": "地区编码"
-        },
-        "isp_code": {
-          "type": "string",
-          "title": "运营商编码"
+        "room": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbServerRoomObject"
+          },
+          "title": "机房信息"
         }
       },
       "title": "LAKE节点对象"
@@ -1109,6 +1111,37 @@
       "description": "- UNKNOWN: 未知状态\n - OFF: 下电\n - ON: 上电",
       "title": "电源状态"
     },
+    "cmdbServerRoomObject": {
+      "type": "object",
+      "properties": {
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "机房ID"
+        },
+        "bk_inst_name": {
+          "type": "string",
+          "title": "实例名"
+        },
+        "room_name": {
+          "type": "string",
+          "title": "机房编号"
+        },
+        "state": {
+          "$ref": "#/definitions/cmdbConstructState",
+          "title": "机房状态"
+        },
+        "area_code": {
+          "type": "string",
+          "title": "地区编码"
+        },
+        "isp_code": {
+          "type": "string",
+          "title": "运营商编码"
+        }
+      },
+      "title": "机房对象"
+    },
     "cmdbServiceState": {
       "type": "string",
       "enum": [
@@ -1163,6 +1196,34 @@
         }
       },
       "title": "业务拓扑对象"
+    },
+    "cmdbVipObject": {
+      "type": "object",
+      "properties": {
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "实例ID"
+        },
+        "bk_inst_name": {
+          "type": "string",
+          "title": "实例名"
+        },
+        "biz_type": {
+          "type": "integer",
+          "format": "int32",
+          "title": "vip类型"
+        },
+        "vip_ipv4": {
+          "type": "string",
+          "title": "vip的ipv4地址"
+        },
+        "vip_ipv6": {
+          "type": "string",
+          "title": "vip的ipv6地址"
+        }
+      },
+      "title": "VIP对象"
     },
     "cmdbZoneObject": {
       "type": "object",
