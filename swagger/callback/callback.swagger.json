@@ -51,13 +51,15 @@
           "type": "object",
           "additionalProperties": {
             "type": "string"
-          }
+          },
+          "title": "时间触发前的实体数据"
         },
         "pre_data": {
           "type": "object",
           "additionalProperties": {
             "type": "string"
-          }
+          },
+          "title": "时间触发后的实体数据"
         }
       }
     },
@@ -65,19 +67,23 @@
       "type": "object",
       "properties": {
         "event_type": {
-          "type": "string"
+          "type": "string",
+          "title": "事件类型"
         },
         "action": {
-          "type": "string"
+          "type": "string",
+          "title": "触发动作"
         },
         "obj_type": {
-          "type": "string"
+          "type": "string",
+          "title": "事件相关的实体，如集群set"
         },
         "data": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/callbackCmdbEventData"
-          }
+          },
+          "title": "事件的变更数据"
         }
       },
       "title": "cmdb事件请求"
@@ -86,7 +92,8 @@
       "type": "object",
       "properties": {
         "status": {
-          "$ref": "#/definitions/commonResponseStatus"
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回状态码"
         }
       },
       "title": "cmdb事件请求返回"

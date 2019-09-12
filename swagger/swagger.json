@@ -1564,12 +1564,14 @@
       "properties": {
         "cur_data": {
           "type": "object",
+          "title": "时间触发前的实体数据",
           "additionalProperties": {
             "type": "string"
           }
         },
         "pre_data": {
           "type": "object",
+          "title": "时间触发后的实体数据",
           "additionalProperties": {
             "type": "string"
           }
@@ -1581,19 +1583,23 @@
       "title": "cmdb事件请求",
       "properties": {
         "action": {
-          "type": "string"
+          "type": "string",
+          "title": "触发动作"
         },
         "data": {
           "type": "array",
+          "title": "事件的变更数据",
           "items": {
             "$ref": "#/definitions/callbackCmdbEventData"
           }
         },
         "event_type": {
-          "type": "string"
+          "type": "string",
+          "title": "事件类型"
         },
         "obj_type": {
-          "type": "string"
+          "type": "string",
+          "title": "事件相关的实体，如集群set"
         }
       }
     },
@@ -1602,6 +1608,7 @@
       "title": "cmdb事件请求返回",
       "properties": {
         "status": {
+          "title": "返回状态码",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }

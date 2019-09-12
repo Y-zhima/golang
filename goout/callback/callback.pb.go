@@ -28,9 +28,13 @@ const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 // cmdb事件请求
 type CmdbEventRequest struct {
-	EventType            string           `protobuf:"bytes,1,opt,name=event_type,json=eventType,proto3" json:"event_type,omitempty"`
-	Action               string           `protobuf:"bytes,2,opt,name=action,proto3" json:"action,omitempty"`
-	ObjType              string           `protobuf:"bytes,3,opt,name=obj_type,json=objType,proto3" json:"obj_type,omitempty"`
+	// 事件类型
+	EventType string `protobuf:"bytes,1,opt,name=event_type,json=eventType,proto3" json:"event_type,omitempty"`
+	// 触发动作
+	Action string `protobuf:"bytes,2,opt,name=action,proto3" json:"action,omitempty"`
+	// 事件相关的实体，如集群set
+	ObjType string `protobuf:"bytes,3,opt,name=obj_type,json=objType,proto3" json:"obj_type,omitempty"`
+	// 事件的变更数据
 	Data                 []*CmdbEventData `protobuf:"bytes,4,rep,name=data,proto3" json:"data,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
 	XXX_unrecognized     []byte           `json:"-"`
@@ -92,6 +96,7 @@ func (m *CmdbEventRequest) GetData() []*CmdbEventData {
 
 // cmdb事件请求返回
 type CmdbEventResponse struct {
+	// 返回状态码
 	Status               *common.ResponseStatus `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`
@@ -131,7 +136,9 @@ func (m *CmdbEventResponse) GetStatus() *common.ResponseStatus {
 }
 
 type CmdbEventData struct {
-	CurData              map[string]string `protobuf:"bytes,1,rep,name=cur_data,json=curData,proto3" json:"cur_data,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	// 时间触发前的实体数据
+	CurData map[string]string `protobuf:"bytes,1,rep,name=cur_data,json=curData,proto3" json:"cur_data,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	// 时间触发后的实体数据
 	PreData              map[string]string `protobuf:"bytes,2,rep,name=pre_data,json=preData,proto3" json:"pre_data,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
 	XXX_unrecognized     []byte            `json:"-"`
