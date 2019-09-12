@@ -531,58 +531,86 @@ enum ConstructState {
 
 // 地区对象
 message AreaObject {
+    // 实例ID
+    int32 bk_inst_id = 1;
     // 实例名
-    string bk_inst_name = 1;
+    string bk_inst_name = 2;
     // 区域编码
-    string area_code = 2;
+    string area_code = 3;
     // 区域英文名称
-    string area_enname = 3;
+    string area_enname = 4;
     // 父节点ID
-    int32 parent_id = 4;
+    int32 parent_id = 5;
     // 地区层级
-    NodeLevel level = 5;
+    NodeLevel level = 6;
     // 地区id
-    int32 area_id = 6;
+    int32 area_id = 7;
 }
 
 // 运营商对象
 message IspObject {
+    // 实例ID
+    int32 bk_inst_id = 1;
     // 实例名
-    string bk_inst_name = 1;
+    string bk_inst_name = 2;
     // 运营商编码
-    string isp_code = 2;
+    string isp_code = 3;
     // 运营商英文名称
-    string isp_enname = 3;
+    string isp_enname = 4;
     // 运营商缩写英文名
-    string isp_abbr = 4;
+    string isp_abbr = 5;
+}
+
+// VIP对象
+message VipObject {
+    // 实例ID
+    int32 bk_inst_id = 1;
+    // ip的ipv4地址
+    string bk_inst_name = 2;
+    // vip类型
+    int32 biz_type = 3;
+    // vip的ipv6地址
+    string vip_ipv6 = 4;
+}
+
+// 机房对象
+message ServerRoomObject {
+    // 机房ID
+    int32 bk_inst_id = 1;
+    // 机房名称
+    string bk_inst_name = 2;
+    // 机房状态
+    ConstructState state = 3;
+    // 地区编码
+    string area_code = 10;
+    // 运营商编码
+    string isp_code = 11;
 }
 
 // LAKE节点对象
 message LakeObject {
+    // 业务ID
+    int32 bk_inst_id = 1;
     // 实例名
-    string bk_inst_name = 1;
+    string bk_inst_name = 2;
     // 节点ID
-    int32 node_id = 2;
+    int32 node_id = 3;
     // 节点VIP
-    int32 vip = 3;
+    repeated VipObject vip = 4;
     // 能力上限
-    int32 bandwidth_limit = 4;
+    int32 bandwidth_limit = 5;
     // 业务类型
-    string biz_type = 5;
+    string biz_type = 6;
     // 节点层次
-    NodeLevel node_level = 6;
+    NodeLevel node_level = 7;
     // 节点服务状态
-    ServiceState service_state = 7;
+    ServiceState service_state = 8;
     // 节点建设状态
-    ConstructState construct_state = 8;
+    ConstructState construct_state = 9;
     // 节点建设状态变更时间
-    google.protobuf.Timestamp construct_updatetime = 9;
-    // 机房名称
-    string room_name = 10;
-    // 地区编码
-    string area_code = 11;
-    // 运营商编码
-    string isp_code = 12;
+    google.protobuf.Timestamp construct_updatetime = 10;
+    // 机房信息
+    repeated ServerRoomObject room = 11;
 }
 
 // 查找Lake请求
