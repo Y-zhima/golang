@@ -2317,15 +2317,11 @@
         },
         "bk_inst_name": {
           "type": "string",
-          "title": "实例名"
+          "title": "机房名称"
         },
         "isp_code": {
           "type": "string",
           "title": "运营商编码"
-        },
-        "room_name": {
-          "type": "string",
-          "title": "机房编号"
         },
         "state": {
           "title": "机房状态",

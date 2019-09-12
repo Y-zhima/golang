@@ -579,12 +579,10 @@ message VipObject {
 message ServerRoomObject {
     // 机房ID
     int32 bk_inst_id = 1;
-    // 实例名
+    // 机房名称
     string bk_inst_name = 2;
-    // 机房编号
-    string room_name = 3;
     // 机房状态
-    ConstructState state = 4;
+    ConstructState state = 3;
     // 地区编码
     string area_code = 10;
     // 运营商编码

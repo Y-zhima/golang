@@ -1121,11 +1121,7 @@
         },
         "bk_inst_name": {
           "type": "string",
-          "title": "实例名"
-        },
-        "room_name": {
-          "type": "string",
-          "title": "机房编号"
+          "title": "机房名称"
         },
         "state": {
           "$ref": "#/definitions/cmdbConstructState",
