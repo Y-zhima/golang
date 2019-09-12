@@ -59,7 +59,7 @@ message CreateServerRequest {
     // 裸金属任务类型
     ServerTaskType task_type = 2;
     // 裸金属电源状态
-    State cmdb.ServerPowerState = 3;
+    cmdb.ServerPowerState power_state = 3;
     // cmdb的搜索条件
     cmdb.ChooseServerRequest cmdb_search_request = 4;
 }
