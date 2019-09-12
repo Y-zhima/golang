@@ -35,6 +35,26 @@ func (m *MockCmdbClient) EXPECT() *MockCmdbClientMockRecorder {
 	return m.recorder
 }
 
+// ImportHistory mocks base method
+func (m *MockCmdbClient) ImportHistory(arg0 context.Context, arg1 *cmdb.ImportHistoryRequest, arg2 ...grpc.CallOption) (*cmdb.ImportHistoryResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ImportHistory", varargs...)
+	ret0, _ := ret[0].(*cmdb.ImportHistoryResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// ImportHistory indicates an expected call of ImportHistory
+func (mr *MockCmdbClientMockRecorder) ImportHistory(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ImportHistory", reflect.TypeOf((*MockCmdbClient)(nil).ImportHistory), varargs...)
+}
+
 // ImportHost mocks base method
 func (m *MockCmdbClient) ImportHost(arg0 context.Context, arg1 *cmdb.ImportHostRequest, arg2 ...grpc.CallOption) (*cmdb.ImportHostResponse, error) {
 	m.ctrl.T.Helper()
@@ -73,6 +93,26 @@ func (mr *MockCmdbClientMockRecorder) ImportLake(arg0, arg1 interface{}, arg2 ..
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{arg0, arg1}, arg2...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ImportLake", reflect.TypeOf((*MockCmdbClient)(nil).ImportLake), varargs...)
+}
+
+// ImportServer mocks base method
+func (m *MockCmdbClient) ImportServer(arg0 context.Context, arg1 *cmdb.ImportServerRequest, arg2 ...grpc.CallOption) (*cmdb.ImportServerResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ImportServer", varargs...)
+	ret0, _ := ret[0].(*cmdb.ImportServerResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// ImportServer indicates an expected call of ImportServer
+func (mr *MockCmdbClientMockRecorder) ImportServer(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ImportServer", reflect.TypeOf((*MockCmdbClient)(nil).ImportServer), varargs...)
 }
 
 // ImportSwitch mocks base method
@@ -177,7 +217,6 @@ func (mr *MockCmdbClientMockRecorder) SearchModule(arg0, arg1 interface{}, arg2 
 
 // ServerList mocks base method
 func (m *MockCmdbClient) ServerList(arg0 context.Context, arg1 *cmdb.ServerListRequest, arg2 ...grpc.CallOption) (*cmdb.ServerListResponse, error) {
-
 	m.ctrl.T.Helper()
 	varargs := []interface{}{arg0, arg1}
 	for _, a := range arg2 {
@@ -194,40 +233,4 @@ func (mr *MockCmdbClientMockRecorder) ServerList(arg0, arg1 interface{}, arg2 ..
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{arg0, arg1}, arg2...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ServerList", reflect.TypeOf((*MockCmdbClient)(nil).ServerList), varargs...)
-}
-
-func (m *MockCmdbClient) ImportServer(ctx context.Context, in *cmdb.ImportServerRequest, opts ...grpc.CallOption) (*cmdb.ImportServerResponse, error) {
-	m.ctrl.T.Helper()
-	varargs := []interface{}{ctx, in}
-	for _, a := range opts {
-		varargs = append(varargs, a)
-	}
-	ret := m.ctrl.Call(m, "ImportServer", varargs...)
-	ret0, _ := ret[0].(*cmdb.ImportServerResponse)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
-}
-
-func (mr *MockCmdbClientMockRecorder) ImportServer(ctx, in interface{}, opts ...interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	varargs := append([]interface{}{ctx, in}, opts...)
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ImportServer", reflect.TypeOf((*MockCmdbClient)(nil).ImportServer), varargs...)
-}
-
-func (m *MockCmdbClient) ImportHistory(ctx context.Context, in *cmdb.ImportHistoryRequest, opts ...grpc.CallOption) (*cmdb.ImportHistoryResponse, error) {
-	m.ctrl.T.Helper()
-	varargs := []interface{}{ctx, in}
-	for _, a := range opts {
-		varargs = append(varargs, a)
-	}
-	ret := m.ctrl.Call(m, "ImportHistory", varargs...)
-	ret0, _ := ret[0].(*cmdb.ImportHistoryResponse)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
-}
-
-func (mr *MockCmdbClientMockRecorder) ImportHistory(ctx, in interface{}, opts ...interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	varargs := append([]interface{}{ctx, in}, opts...)
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ImportHistory", reflect.TypeOf((*MockCmdbClient)(nil).ImportHistory), varargs...)
 }
