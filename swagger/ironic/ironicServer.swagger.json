@@ -79,7 +79,7 @@
         "nodeInfoRsps": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/CreateNodesRootResNodeInfoRsp"
+            "$ref": "#/definitions/ironicServerCreateNodesRootResNodeInfoRsp"
           },
           "title": "节点"
         },
@@ -89,30 +89,6 @@
         }
       },
       "title": "创建节点请求对象"
-    },
-    "CreateNodesRootResNodeInfoRsp": {
-      "type": "object",
-      "properties": {
-        "nodeId": {
-          "type": "string",
-          "title": "裸金属节点id"
-        },
-        "initId": {
-          "type": "string",
-          "format": "int64",
-          "title": "初始化id"
-        },
-        "createResultCode": {
-          "type": "boolean",
-          "format": "boolean",
-          "title": "创建节点响应码"
-        },
-        "createResultMsg": {
-          "type": "string",
-          "title": "创建节点响应消息"
-        }
-      },
-      "title": "节点信息"
     },
     "InstallNodeSysRootReqInstallNodeSysReq": {
       "type": "object",
@@ -145,17 +121,29 @@
       },
       "title": "安装裸金属系统信息"
     },
+    "InstallNodeSysRootResInstallNodeInfoRsp": {
+      "type": "object",
+      "properties": {
+        "nodeInfoRsps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ironicServerInstallNodeSysRootResNodeInfoRsp"
+          },
+          "title": "节点"
+        },
+        "pageInfo": {
+          "$ref": "#/definitions/ironicComPageInfo",
+          "title": "分页信息"
+        }
+      },
+      "title": "创建节点请求对象"
+    },
     "OperNodePowerRootReqNodePowerOper": {
       "type": "object",
       "properties": {
         "nodeId": {
           "type": "string",
           "title": "裸金属节点id"
-        },
-        "timeOut": {
-          "type": "string",
-          "format": "int64",
-          "title": "超时时间(可选，电源状态转换的超时（以秒为单位）。)"
         }
       }
     },
@@ -179,8 +167,7 @@
           "title": "裸金属节点id"
         },
         "powerResultCode": {
-          "type": "boolean",
-          "format": "boolean",
+          "$ref": "#/definitions/ironicComResultCode",
           "title": "创建节点响应码"
         },
         "powerResultMsg": {
@@ -222,7 +209,7 @@
           "title": "裸金属节点id"
         },
         "status": {
-          "type": "string",
+          "$ref": "#/definitions/QryNodeInfoRootResStatus",
           "title": "当前状态"
         },
         "ip": {
@@ -250,8 +237,7 @@
           "title": "所属区域裸金属组件服务地址"
         },
         "qryResultCode": {
-          "type": "boolean",
-          "format": "boolean",
+          "$ref": "#/definitions/ironicComResultCode",
           "title": "查询节点响应码"
         },
         "qryResultMsg": {
@@ -259,11 +245,22 @@
           "title": "查询节点响应消息"
         },
         "powerStatus": {
-          "type": "string",
+          "$ref": "#/definitions/QryNodeInfoRootResPowerStatus",
           "title": "电源状态"
         }
       },
       "title": "节点信息"
+    },
+    "QryNodeInfoRootResPowerStatus": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "POWERON",
+        "POWEROFF"
+      ],
+      "default": "UNKNOWN",
+      "description": "- UNKNOWN: 未知\n - POWERON: 开机\n - POWEROFF: 关机",
+      "title": "电源状态"
     },
     "QryNodeInfoRootResQryNodeInfoRsp": {
       "type": "object",
@@ -277,6 +274,19 @@
         }
       },
       "title": "查询节点应答对象"
+    },
+    "QryNodeInfoRootResStatus": {
+      "type": "string",
+      "enum": [
+        "NULL",
+        "CREATED",
+        "DEPLOYING",
+        "DEPLOYFAILED",
+        "ACTIVE"
+      ],
+      "default": "NULL",
+      "description": "- NULL: 未知\n - CREATED: 已创建 :刚创建完节点后的状态，节点创建、验证成功，可进行装系统\n - DEPLOYING: 部署中 :正在执行装机任务\n - DEPLOYFAILED: 部署失败 : 执行装机异常\n - ACTIVE: 活动 ： 已经安装完系统活动中",
+      "title": "裸金属节点状态"
     },
     "ironicComPageInfo": {
       "type": "object",
@@ -303,6 +313,16 @@
         }
       },
       "title": "分页信息(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)"
+    },
+    "ironicComResultCode": {
+      "type": "string",
+      "enum": [
+        "SUCCESS",
+        "FAIL"
+      ],
+      "default": "SUCCESS",
+      "description": "- SUCCESS: 成功\n - FAIL: 失败",
+      "title": "响应码"
     },
     "ironicComTcpContReq": {
       "type": "object",
@@ -402,11 +422,34 @@
         }
       }
     },
+    "ironicServerCreateNodesRootResNodeInfoRsp": {
+      "type": "object",
+      "properties": {
+        "nodeId": {
+          "type": "string",
+          "title": "裸金属节点id"
+        },
+        "initId": {
+          "type": "string",
+          "format": "int64",
+          "title": "初始化id"
+        },
+        "createResultCode": {
+          "$ref": "#/definitions/ironicComResultCode",
+          "title": "创建节点响应码"
+        },
+        "createResultMsg": {
+          "type": "string",
+          "title": "创建节点响应消息"
+        }
+      },
+      "title": "节点信息"
+    },
     "ironicServerCreateNodesRootResSvcContRes": {
       "type": "object",
       "properties": {
         "resultCode": {
-          "type": "string",
+          "$ref": "#/definitions/ironicComResultCode",
           "title": "响应码"
         },
         "resultMsg": {
@@ -460,16 +503,43 @@
       },
       "title": "响应信息"
     },
+    "ironicServerInstallNodeSysRootResNodeInfoRsp": {
+      "type": "object",
+      "properties": {
+        "nodeId": {
+          "type": "string",
+          "title": "裸金属节点id"
+        },
+        "initId": {
+          "type": "string",
+          "format": "int64",
+          "title": "初始化id"
+        },
+        "installResultCode": {
+          "$ref": "#/definitions/ironicComResultCode",
+          "title": "创建节点响应码"
+        },
+        "installResultMsg": {
+          "type": "string",
+          "title": "创建节点响应消息"
+        }
+      },
+      "title": "节点信息"
+    },
     "ironicServerInstallNodeSysRootResSvcContRes": {
       "type": "object",
       "properties": {
         "resultCode": {
-          "type": "string",
+          "$ref": "#/definitions/ironicComResultCode",
           "title": "响应码"
         },
         "resultMsg": {
           "type": "string",
           "title": "响应消息描述"
+        },
+        "resultObject": {
+          "$ref": "#/definitions/InstallNodeSysRootResInstallNodeInfoRsp",
+          "title": "响应对象"
         }
       }
     },
@@ -516,7 +586,7 @@
       "type": "object",
       "properties": {
         "resultCode": {
-          "type": "string",
+          "$ref": "#/definitions/ironicComResultCode",
           "title": "响应码"
         },
         "resultMsg": {
@@ -574,7 +644,7 @@
       "type": "object",
       "properties": {
         "resultCode": {
-          "type": "string",
+          "$ref": "#/definitions/ironicComResultCode",
           "title": "响应码"
         },
         "resultMsg": {

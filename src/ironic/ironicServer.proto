@@ -49,7 +49,7 @@ message QryNodeInfoRootRes{
 
     message SvcContRes {
         // 响应码
-        string resultCode =1;
+        ironicCom.ResultCode resultCode =1;
         // 响应消息描述
         string resultMsg =2;
         // 响应对象
@@ -62,12 +62,14 @@ message QryNodeInfoRootRes{
         repeated  NodeInfo nodeInfos =1;
     }
 
+
+
     // 节点信息
     message NodeInfo{
         // 裸金属节点id
         string nodeId = 1;
         // 当前状态
-        string status = 2;
+        Status status = 2;
         // ipmi的IP地址
         string ip = 3;
         // ipmi用户名
@@ -81,11 +83,34 @@ message QryNodeInfoRootRes{
         // 所属区域裸金属组件服务地址
         string serverAddr = 8;
         // 查询节点响应码
-        bool qryResultCode = 9;
+        ironicCom.ResultCode qryResultCode = 9;
         // 查询节点响应消息
         string qryResultMsg = 10;
         // 电源状态
-        string powerStatus = 11;
+        PowerStatus powerStatus = 11 ;
+    }
+
+    //电源状态
+    enum PowerStatus{
+        // 未知
+        UNKNOWN = 0;
+        // 开机
+        POWERON = 1;
+        // 关机
+        POWEROFF =2;
+    }
+    //裸金属节点状态
+    enum Status{
+        // 未知
+        NULL = 0;
+        // 已创建 :刚创建完节点后的状态，节点创建、验证成功，可进行装系统
+        CREATED = 1300;
+        // 部署中 :正在执行装机任务
+        DEPLOYING = 1200;
+        // 部署失败 : 执行装机异常
+        DEPLOYFAILED = 1100;
+        // 活动 ： 已经安装完系统活动中
+        ACTIVE = 1000;
     }
 }
 //--------------- 裸金属节点状态查询结束 ---------------//
@@ -132,11 +157,35 @@ message InstallNodeSysRootRes{
 
     message SvcContRes {
         // 响应码
-        string resultCode =1;
+        ironicCom.ResultCode resultCode =1;
         // 响应消息描述
         string resultMsg =2;
+        // 响应对象
+        InstallNodeInfoRsp resultObject =3;
     }
+
+    //创建节点请求对象
+    message InstallNodeInfoRsp{
+        // 节点
+        repeated NodeInfoRsp nodeInfoRsps = 1;
+        // 分页信息
+        ironicCom.PageInfo pageInfo  = 2;
+    }
+
+    // 节点信息
+    message NodeInfoRsp {
+        // 裸金属节点id
+        string nodeId = 1;
+        // 初始化id
+        int64  initId = 2;
+        // 创建节点响应码
+        ironicCom.ResultCode  installResultCode = 3;
+        // 创建节点响应消息
+        string installResultMsg = 4;
+    }
+
 }
+
 //--------------- 安装裸金属系统结束 ---------------//
 
 //--------------- 操作裸金属实例电源 ---------------//
@@ -160,8 +209,6 @@ message OperNodePowerRootReq{
     message NodePowerOper{
         // 裸金属节点id
         string nodeId = 1;
-        // 超时时间(可选，电源状态转换的超时（以秒为单位）。)
-        int64 timeOut = 2;
     }
 }
 message OperNodePowerRootRes{
@@ -173,7 +220,7 @@ message OperNodePowerRootRes{
 
     message SvcContRes{
         // 响应码
-        string resultCode = 1;
+        ironicCom.ResultCode resultCode = 1;
         // 响应消息描述
         string resultMsg = 2;
         // 响应对象
@@ -188,7 +235,7 @@ message OperNodePowerRootRes{
         // 裸金属节点id
         string nodeId = 1;
         // 创建节点响应码
-        bool powerResultCode = 2;
+        ironicCom.ResultCode powerResultCode = 2;
         // 创建节点响应消息
         string powerResultMsg = 3;
     }
@@ -249,7 +296,7 @@ message CreateNodesRootRes{
 
     message SvcContRes{
         // 响应码
-        string resultCode =1;
+        ironicCom.ResultCode resultCode =1;
         // 响应消息描述
         string resultMsg =2;
         // 响应对象
@@ -271,7 +318,7 @@ message CreateNodesRootRes{
         // 初始化id
         int64  initId = 2;
         // 创建节点响应码
-        bool  createResultCode = 3;
+        ironicCom.ResultCode  createResultCode = 3;
         // 创建节点响应消息
         string createResultMsg = 4;
     }

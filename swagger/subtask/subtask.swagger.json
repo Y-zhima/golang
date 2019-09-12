@@ -67,6 +67,17 @@
       },
       "title": "物理机传入信息"
     },
+    "cmdbServerPowerState": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "OFF",
+        "ON"
+      ],
+      "default": "UNKNOWN",
+      "description": "- UNKNOWN: 未知状态\n - OFF: 下电\n - ON: 上电",
+      "title": "电源状态"
+    },
     "commonResponseStatus": {
       "type": "object",
       "properties": {

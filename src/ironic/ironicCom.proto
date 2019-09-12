@@ -86,3 +86,11 @@ message TcpContRes {
     // 签名字符串
     string sign = 3;
 }
+
+//响应码
+enum ResultCode{
+    //成功
+    SUCCESS = 0;
+    //失败
+    FAIL = 1;
+}
