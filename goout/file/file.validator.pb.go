@@ -9,7 +9,6 @@ import (
 	proto "github.com/golang/protobuf/proto"
 	_ "git.fogcdn.top/axe/protos/goout/common"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
-	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 

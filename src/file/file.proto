@@ -7,7 +7,6 @@ option java_package = "top.fogcdn.axe.protos.file";
 
 import "common/api.proto";
 import "google/api/annotations.proto";
-import "protoc-gen-swagger/options/annotations.proto";
 
 // 文件服务
 service File {

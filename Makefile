@@ -6,7 +6,7 @@ GIT_COMMIT=$(shell git rev-parse HEAD)
 
 SWAGGER_FILES=$(wildcard swagger/*.json) $(wildcard swagger/*/*.json)
 
-default: gen-proto gen-mock swagger-mixin
+default: gen-proto swagger-mixin
 
 package:
 	docker build --build-arg VERSION=${VERSION} --build-arg GIT_COMMIT=${GIT_COMMIT} -t ${IMAGE_NAME}:${VERSION} .

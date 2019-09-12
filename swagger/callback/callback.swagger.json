@@ -1,0 +1,127 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "callback/callback.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/callback/cmdbEvent": {
+      "post": {
+        "summary": "接收cmdb的事件推送",
+        "operationId": "CmdbEvent",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/callbackCmdbEventResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/callbackCmdbEventRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Callback"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "callbackCmdbEventData": {
+      "type": "object",
+      "properties": {
+        "cur_data": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "时间触发前的实体数据"
+        },
+        "pre_data": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "时间触发后的实体数据"
+        }
+      }
+    },
+    "callbackCmdbEventRequest": {
+      "type": "object",
+      "properties": {
+        "event_type": {
+          "type": "string",
+          "title": "事件类型"
+        },
+        "action": {
+          "type": "string",
+          "title": "触发动作"
+        },
+        "obj_type": {
+          "type": "string",
+          "title": "事件相关的实体，如集群set"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/callbackCmdbEventData"
+          },
+          "title": "事件的变更数据"
+        }
+      },
+      "title": "cmdb事件请求"
+    },
+    "callbackCmdbEventResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回状态码"
+        }
+      },
+      "title": "cmdb事件请求返回"
+    },
+    "commonResponseStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/commonStatusCode",
+          "title": "状态码"
+        },
+        "message": {
+          "type": "string",
+          "title": "信息"
+        }
+      },
+      "title": "请求返回状态"
+    },
+    "commonStatusCode": {
+      "type": "string",
+      "enum": [
+        "SUCCESS",
+        "INVALID_ARGUMENT",
+        "ACCESS_DENIED"
+      ],
+      "default": "SUCCESS",
+      "description": "- SUCCESS: 成功\n - INVALID_ARGUMENT: 参数错误\n - ACCESS_DENIED: 访问拒绝",
+      "title": "请求返回状态码"
+    }
+  }
+}
