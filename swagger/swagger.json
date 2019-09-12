@@ -312,6 +312,33 @@
         }
       }
     },
+    "/v1/cmdb/searchLake": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "查询Lake节点",
+        "operationId": "SearchLake",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbSearchLakeRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbSearchLakeResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/cmdb/searchModule": {
       "get": {
         "tags": [
@@ -1557,6 +1584,16 @@
         }
       }
     },
+    "cmdbConstructState": {
+      "description": "- OFFLINE: 0-下线\n - ONLINE: 1-上线",
+      "type": "string",
+      "title": "LAKE节点建设状态",
+      "default": "OFFLINE",
+      "enum": [
+        "OFFLINE",
+        "ONLINE"
+      ]
+    },
     "cmdbHostInfoObject": {
       "type": "object",
       "title": "主机内容信息",
@@ -1842,6 +1879,64 @@
         }
       }
     },
+    "cmdbLakeObject": {
+      "type": "object",
+      "title": "LAKE节点对象",
+      "properties": {
+        "area_code": {
+          "type": "string",
+          "title": "地区编码"
+        },
+        "bandwidth_limit": {
+          "type": "integer",
+          "format": "int32",
+          "title": "能力上限"
+        },
+        "biz_type": {
+          "type": "string",
+          "title": "业务类型"
+        },
+        "bk_inst_name": {
+          "type": "string",
+          "title": "实例名"
+        },
+        "construct_state": {
+          "title": "节点建设状态",
+          "$ref": "#/definitions/cmdbConstructState"
+        },
+        "construct_updatetime": {
+          "type": "string",
+          "format": "date-time",
+          "title": "节点建设状态变更时间"
+        },
+        "isp_code": {
+          "type": "string",
+          "title": "运营商编码"
+        },
+        "node_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "节点ID"
+        },
+        "node_level": {
+          "title": "节点层次",
+          "$ref": "#/definitions/cmdbNodeLevel"
+        },
+        "room_name": {
+          "type": "string",
+          "title": "机房名称"
+        },
+        "service_state": {
+          "title": "节点服务状态",
+          "$ref": "#/definitions/cmdbServiceState"
+        },
+        "vip": {
+          "type": "integer",
+          "format": "int32",
+          "title": "节点VIP"
+        }
+      }
+    },
     "cmdbModuleObject": {
       "type": "object",
       "title": "模块",
@@ -1856,6 +1951,19 @@
           "title": "模块名"
         }
       }
+    },
+    "cmdbNodeLevel": {
+      "description": "- COUNTRY: 0-全国中心\n - AREA: 1-区域中心\n - PROVINCE: 2-省边缘\n - CITY: 3-地市边缘\n - REGION: 4-区县边缘",
+      "type": "string",
+      "title": "节点层次",
+      "default": "COUNTRY",
+      "enum": [
+        "COUNTRY",
+        "AREA",
+        "PROVINCE",
+        "CITY",
+        "REGION"
+      ]
     },
     "cmdbRoomObject": {
       "type": "object",
@@ -1926,6 +2034,59 @@
         "paging": {
           "title": "分页信息",
           "$ref": "#/definitions/commonPaging"
+        },
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbSearchLakeRequest": {
+      "type": "object",
+      "title": "查找Lake请求",
+      "properties": {
+        "area_code": {
+          "type": "array",
+          "title": "地区编码(一个或多个，可为空)",
+          "items": {
+            "type": "string"
+          }
+        },
+        "isp_code": {
+          "type": "array",
+          "title": "运营商编码(一个或多个，可为空)",
+          "items": {
+            "type": "string"
+          }
+        },
+        "node_id": {
+          "type": "array",
+          "title": "节点ID(一个或多个，可为空)",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "vip": {
+          "type": "array",
+          "title": "节点VIP(一个或多个，可为空)",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    },
+    "cmdbSearchLakeResponse": {
+      "type": "object",
+      "title": "查找Lake请求返回",
+      "properties": {
+        "lake": {
+          "type": "array",
+          "title": "主机信息",
+          "items": {
+            "$ref": "#/definitions/cmdbLakeObject"
+          }
         },
         "status": {
           "title": "状态码",
@@ -2056,6 +2217,16 @@
         "UNKNOWN",
         "OFF",
         "ON"
+      ]
+    },
+    "cmdbServiceState": {
+      "description": "- UNAVAILABLE: 0-不可用\n - AVAILABLE: 1-可用",
+      "type": "string",
+      "title": "LAKE节点服务状态",
+      "default": "UNAVAILABLE",
+      "enum": [
+        "UNAVAILABLE",
+        "AVAILABLE"
       ]
     },
     "cmdbSetObject": {
