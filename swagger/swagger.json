@@ -17,6 +17,33 @@
   },
   "host": "192.168.0.129:9001",
   "paths": {
+    "/v1/callback/cmdbEvent": {
+      "post": {
+        "tags": [
+          "Callback"
+        ],
+        "summary": "接收cmdb的事件推送",
+        "operationId": "CmdbEvent",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/callbackCmdbEventRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/callbackCmdbEventResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/cmdb/importHistory": {
       "get": {
         "tags": [
@@ -629,7 +656,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin8",
+        "operationId": "CreateMixin9",
         "parameters": [
           {
             "name": "body",
@@ -656,7 +683,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin8",
+        "operationId": "FilterMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -729,7 +756,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin8",
+        "operationId": "GetMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -791,7 +818,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "UpdateMixin8",
+        "operationId": "UpdateMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -853,7 +880,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "CreateMixin11",
+        "operationId": "CreateMixin12",
         "parameters": [
           {
             "name": "body",
@@ -907,7 +934,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "FilterMixin11",
+        "operationId": "FilterMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -973,7 +1000,7 @@
           "Task"
         ],
         "summary": "获取作业任务",
-        "operationId": "GetMixin11",
+        "operationId": "GetMixin12",
         "parameters": [
           {
             "type": "string",
@@ -1054,7 +1081,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin12",
+        "operationId": "CreateMixin13",
         "parameters": [
           {
             "name": "body",
@@ -1081,7 +1108,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin12",
+        "operationId": "FilterMixin13",
         "parameters": [
           {
             "type": "integer",
@@ -1140,7 +1167,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin12",
+        "operationId": "GetMixin13",
         "parameters": [
           {
             "type": "integer",
@@ -1167,7 +1194,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin12",
+        "operationId": "UpdateMixin13",
         "parameters": [
           {
             "type": "integer",
@@ -1504,6 +1531,53 @@
         "DEPLOYFAILED",
         "ACTIVE"
       ]
+    },
+    "callbackCmdbEventData": {
+      "type": "object",
+      "properties": {
+        "cur_data": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "pre_data": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "callbackCmdbEventRequest": {
+      "type": "object",
+      "title": "cmdb事件请求",
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/callbackCmdbEventData"
+          }
+        },
+        "event_type": {
+          "type": "string"
+        },
+        "obj_type": {
+          "type": "string"
+        }
+      }
+    },
+    "callbackCmdbEventResponse": {
+      "type": "object",
+      "title": "cmdb事件请求返回",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
     },
     "cmdbBizObject": {
       "type": "object",

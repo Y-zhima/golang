@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package callback;
+
+option go_package = "git.fogcdn.top/axe/protos/goout/callback";
+option java_package = "top.fogcdn.axe.protos.callback";
+
+import "common/api.proto";
+import "google/api/annotations.proto";
+
+// 主机
+service Callback {
+    // 接收cmdb的事件推送
+    rpc CmdbEvent (CmdbEventRequest) returns (CmdbEventResponse) {
+        option (google.api.http) = {
+            post: "/v1/callback/cmdbEvent"
+            body: "*"
+        };
+    }
+}
+
+// cmdb事件请求
+message CmdbEventRequest {
+    string event_type = 1;
+    string action = 2;
+    string obj_type = 3;
+    repeated CmdbEventData data = 4;
+}
+
+// cmdb事件请求返回
+message CmdbEventResponse {
+    common.ResponseStatus status = 1;
+}
+
+message CmdbEventData {
+    map<string, string> cur_data = 1;
+    map<string, string> pre_data = 2;
+}
