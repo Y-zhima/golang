@@ -2400,11 +2400,7 @@
         },
         "bk_inst_name": {
           "type": "string",
-          "title": "实例名"
-        },
-        "vip_ipv4": {
-          "type": "string",
-          "title": "vip的ipv4地址"
+          "title": "ip的ipv4地址"
         },
         "vip_ipv6": {
           "type": "string",

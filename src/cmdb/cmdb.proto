@@ -565,14 +565,12 @@ message IspObject {
 message VipObject {
     // 实例ID
     int32 bk_inst_id = 1;
-    // 实例名
+    // ip的ipv4地址
     string bk_inst_name = 2;
     // vip类型
     int32 biz_type = 3;
-    // vip的ipv4地址
-    string vip_ipv4 = 4;
     // vip的ipv6地址
-    string vip_ipv6 = 5;
+    string vip_ipv6 = 4;
 }
 
 // 机房对象
