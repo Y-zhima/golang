@@ -7,11 +7,11 @@ import (
 	fmt "fmt"
 	math "math"
 	proto "github.com/golang/protobuf/proto"
-	_ "git.fogcdn.top/axe/protos/goout/common"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "github.com/mwitkow/go-proto-validators"
 	_ "github.com/golang/protobuf/ptypes/timestamp"
+	_ "git.fogcdn.top/axe/protos/goout/common"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
@@ -345,6 +345,38 @@ func (this *ImportHistoryResponse) Validate() error {
 	if this.Status != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}
+func (this *AreaObject) Validate() error {
+	return nil
+}
+func (this *IspObject) Validate() error {
+	return nil
+}
+func (this *LakeObject) Validate() error {
+	if this.ConstructUpdatetime != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.ConstructUpdatetime); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("ConstructUpdatetime", err)
+		}
+	}
+	return nil
+}
+func (this *SearchLakeRequest) Validate() error {
+	return nil
+}
+func (this *SearchLakeResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	for _, item := range this.Lake {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Lake", err)
+			}
 		}
 	}
 	return nil

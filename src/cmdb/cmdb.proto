@@ -87,6 +87,13 @@ service Cmdb {
             get: "/v1/cmdb/importHistory"
         };
     }
+    // 查询Lake节点
+    rpc SearchLake (SearchLakeRequest) returns (SearchLakeResponse) {
+        option (google.api.http) = {
+            post: "/v1/cmdb/searchLake"
+            body: "*"
+        };
+    }
 }
 
 // 导入状态: 0-正在导入 1-导入完成 2-导入失败
@@ -490,4 +497,110 @@ message ImportHistoryResponse {
     common.Paging paging = 2;
     // 返回的请求状态
     common.ResponseStatus status = 3;
+}
+
+// 节点层次
+enum NodeLevel {
+    // 0-全国中心
+    COUNTRY = 0;
+    // 1-区域中心
+    AREA = 1;
+    // 2-省边缘
+    PROVINCE = 2;
+    // 3-地市边缘
+    CITY = 3;
+    // 4-区县边缘
+    REGION = 4;
+}
+
+// LAKE节点服务状态
+enum ServiceState {
+    // 0-不可用
+    UNAVAILABLE = 0;
+    // 1-可用
+    AVAILABLE = 1;
+}
+
+// LAKE节点建设状态
+enum ConstructState {
+    // 0-下线
+    OFFLINE = 0;
+    // 1-上线
+    ONLINE = 1;
+}
+
+// 地区对象
+message AreaObject {
+    // 实例名
+    string bk_inst_name = 1;
+    // 区域编码
+    string area_code = 2;
+    // 区域英文名称
+    string area_enname = 3;
+    // 父节点ID
+    int32 parent_id = 4;
+    // 地区层级
+    NodeLevel level = 5;
+    // 地区id
+    int32 area_id = 6;
+}
+
+// 运营商对象
+message IspObject {
+    // 实例名
+    string bk_inst_name = 1;
+    // 运营商编码
+    string isp_code = 2;
+    // 运营商英文名称
+    string isp_enname = 3;
+    // 运营商缩写英文名
+    string isp_abbr = 4;
+}
+
+// LAKE节点对象
+message LakeObject {
+    // 实例名
+    string bk_inst_name = 1;
+    // 节点ID
+    int32 node_id = 2;
+    // 节点VIP
+    int32 vip = 3;
+    // 能力上限
+    int32 bandwidth_limit = 4;
+    // 业务类型
+    string biz_type = 5;
+    // 节点层次
+    NodeLevel node_level = 6;
+    // 节点服务状态
+    ServiceState service_state = 7;
+    // 节点建设状态
+    ConstructState construct_state = 8;
+    // 节点建设状态变更时间
+    google.protobuf.Timestamp construct_updatetime = 9;
+    // 机房名称
+    string room_name = 10;
+    // 地区编码
+    string area_code = 11;
+    // 运营商编码
+    string isp_code = 12;
+}
+
+// 查找Lake请求
+message SearchLakeRequest {
+    // 节点ID(一个或多个，可为空)
+    repeated int32 node_id = 1;
+    // 节点VIP(一个或多个，可为空)
+    repeated int32 vip = 2;
+    // 地区编码(一个或多个，可为空)
+    repeated string area_code = 3;
+    // 运营商编码(一个或多个，可为空)
+    repeated string isp_code = 4;
+}
+
+// 查找Lake请求返回
+message SearchLakeResponse {
+    // 状态码
+    common.ResponseStatus status = 2;
+    // 主机信息
+    repeated LakeObject lake = 3;
 }
