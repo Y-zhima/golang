@@ -1665,16 +1665,6 @@
         }
       }
     },
-    "cmdbConstructState": {
-      "description": "- OFFLINE: 0-下线\n - ONLINE: 1-上线",
-      "type": "string",
-      "title": "LAKE节点建设状态",
-      "default": "OFFLINE",
-      "enum": [
-        "OFFLINE",
-        "ONLINE"
-      ]
-    },
     "cmdbHostInfoObject": {
       "type": "object",
       "title": "主机内容信息",
@@ -1983,8 +1973,8 @@
           "title": "实例名"
         },
         "construct_state": {
-          "title": "节点建设状态",
-          "$ref": "#/definitions/cmdbConstructState"
+          "type": "string",
+          "title": "节点建设状态"
         },
         "construct_updatetime": {
           "type": "string",
@@ -1997,8 +1987,8 @@
           "title": "节点ID"
         },
         "node_level": {
-          "title": "节点层次",
-          "$ref": "#/definitions/cmdbNodeLevel"
+          "type": "string",
+          "title": "节点层次"
         },
         "room": {
           "type": "array",
@@ -2008,8 +1998,8 @@
           }
         },
         "service_state": {
-          "title": "节点服务状态",
-          "$ref": "#/definitions/cmdbServiceState"
+          "type": "string",
+          "title": "节点服务状态"
         },
         "vip": {
           "type": "array",
@@ -2034,19 +2024,6 @@
           "title": "模块名"
         }
       }
-    },
-    "cmdbNodeLevel": {
-      "description": "- COUNTRY: 0-全国中心\n - AREA: 1-区域中心\n - PROVINCE: 2-省边缘\n - CITY: 3-地市边缘\n - REGION: 4-区县边缘",
-      "type": "string",
-      "title": "节点层次",
-      "default": "COUNTRY",
-      "enum": [
-        "COUNTRY",
-        "AREA",
-        "PROVINCE",
-        "CITY",
-        "REGION"
-      ]
     },
     "cmdbRoomObject": {
       "type": "object",
@@ -2323,20 +2300,10 @@
           "title": "运营商编码"
         },
         "state": {
-          "title": "机房状态",
-          "$ref": "#/definitions/cmdbConstructState"
+          "type": "string",
+          "title": "机房状态"
         }
       }
-    },
-    "cmdbServiceState": {
-      "description": "- UNAVAILABLE: 0-不可用\n - AVAILABLE: 1-可用",
-      "type": "string",
-      "title": "LAKE节点服务状态",
-      "default": "UNAVAILABLE",
-      "enum": [
-        "UNAVAILABLE",
-        "AVAILABLE"
-      ]
     },
     "cmdbSetObject": {
       "type": "object",
