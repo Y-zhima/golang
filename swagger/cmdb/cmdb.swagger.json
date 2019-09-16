@@ -762,12 +762,13 @@
         "UNDEFINED",
         "HOST",
         "SERVER",
-        "LAKE",
-        "SWITCH"
+        "LAKEVIP",
+        "SWITCH",
+        "LAKESET"
       ],
       "default": "UNDEFINED",
-      "description": "- UNDEFINED: 0-undefined\n - HOST: 1-主机\n - SERVER: 2-物理机\n - LAKE: 3-LAKE\n - SWITCH: 4-交换机",
-      "title": "导入类型:0-undefined 1-主机 2-物理机 3-LAKE 4-交换机"
+      "description": "- UNDEFINED: 0-undefined\n - HOST: 1-主机\n - SERVER: 2-物理机\n - LAKEVIP: 3-lake和VIP的关系链\n - SWITCH: 4-交换机\n - LAKESET: 5-lake和集群的关系链",
+      "title": "导入类型:0-undefined 1-主机 2-物理机 3-lake和VIP的关系链 4-交换机 5-lake和集群的关系链"
     },
     "cmdbInstanceTopologyResponse": {
       "type": "object",

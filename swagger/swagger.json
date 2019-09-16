@@ -541,7 +541,7 @@
           "Playbook"
         ],
         "summary": "创建playbook项目",
-        "operationId": "Create",
+        "operationId": "CreateMixin13",
         "parameters": [
           {
             "name": "body",
@@ -568,7 +568,7 @@
           "Playbook"
         ],
         "summary": "筛选playbook项目",
-        "operationId": "Filter",
+        "operationId": "FilterMixin13",
         "parameters": [
           {
             "type": "integer",
@@ -621,7 +621,7 @@
           "Playbook"
         ],
         "summary": "获取playbook项目",
-        "operationId": "Get",
+        "operationId": "GetMixin13",
         "parameters": [
           {
             "type": "integer",
@@ -648,7 +648,7 @@
           "Playbook"
         ],
         "summary": "更新playbook项目",
-        "operationId": "Update",
+        "operationId": "UpdateMixin13",
         "parameters": [
           {
             "type": "integer",
@@ -683,7 +683,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin9",
+        "operationId": "CreateMixin8",
         "parameters": [
           {
             "name": "body",
@@ -710,7 +710,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin9",
+        "operationId": "FilterMixin8",
         "parameters": [
           {
             "type": "integer",
@@ -783,7 +783,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin9",
+        "operationId": "GetMixin8",
         "parameters": [
           {
             "type": "integer",
@@ -845,7 +845,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "UpdateMixin9",
+        "operationId": "Update",
         "parameters": [
           {
             "type": "integer",
@@ -907,7 +907,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "CreateMixin12",
+        "operationId": "Create",
         "parameters": [
           {
             "name": "body",
@@ -961,7 +961,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "FilterMixin12",
+        "operationId": "Filter",
         "parameters": [
           {
             "type": "integer",
@@ -1027,7 +1027,7 @@
           "Task"
         ],
         "summary": "获取作业任务",
-        "operationId": "GetMixin12",
+        "operationId": "Get",
         "parameters": [
           {
             "type": "string",
@@ -1108,7 +1108,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin13",
+        "operationId": "CreateMixin10",
         "parameters": [
           {
             "name": "body",
@@ -1135,7 +1135,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin13",
+        "operationId": "FilterMixin10",
         "parameters": [
           {
             "type": "integer",
@@ -1194,7 +1194,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin13",
+        "operationId": "GetMixin10",
         "parameters": [
           {
             "type": "integer",
@@ -1221,7 +1221,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin13",
+        "operationId": "UpdateMixin10",
         "parameters": [
           {
             "type": "integer",
@@ -1934,16 +1934,17 @@
       }
     },
     "cmdbImportType": {
-      "description": "- UNDEFINED: 0-undefined\n - HOST: 1-主机\n - SERVER: 2-物理机\n - LAKE: 3-LAKE\n - SWITCH: 4-交换机",
+      "description": "- UNDEFINED: 0-undefined\n - HOST: 1-主机\n - SERVER: 2-物理机\n - LAKEVIP: 3-lake和VIP的关系链\n - SWITCH: 4-交换机\n - LAKESET: 5-lake和集群的关系链",
       "type": "string",
-      "title": "导入类型:0-undefined 1-主机 2-物理机 3-LAKE 4-交换机",
+      "title": "导入类型:0-undefined 1-主机 2-物理机 3-lake和VIP的关系链 4-交换机 5-lake和集群的关系链",
       "default": "UNDEFINED",
       "enum": [
         "UNDEFINED",
         "HOST",
         "SERVER",
-        "LAKE",
-        "SWITCH"
+        "LAKEVIP",
+        "SWITCH",
+        "LAKESET"
       ]
     },
     "cmdbInstanceTopologyResponse": {
