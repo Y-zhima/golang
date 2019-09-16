@@ -820,7 +820,6 @@
         },
         "construct_updatetime": {
           "type": "string",
-          "format": "date-time",
           "title": "节点建设状态变更时间"
         },
         "room": {
