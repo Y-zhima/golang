@@ -608,7 +608,7 @@ message LakeObject {
     // 节点建设状态
     string construct_state = 9;
     // 节点建设状态变更时间
-    google.protobuf.Timestamp construct_updatetime = 10;
+    string construct_updatetime = 10;
     // 机房信息
     repeated ServerRoomObject room = 11;
 }
