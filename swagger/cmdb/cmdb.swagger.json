@@ -961,8 +961,7 @@
         "vip": {
           "type": "array",
           "items": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string"
           },
           "title": "节点VIP(一个或多个，可为空)"
         },

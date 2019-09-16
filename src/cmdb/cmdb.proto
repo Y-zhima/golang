@@ -632,7 +632,7 @@ message SearchLakeRequest {
     // 节点ID(一个或多个，可为空)
     repeated int32 node_id = 1;
     // 节点VIP(一个或多个，可为空)
-    repeated int32 vip = 2;
+    repeated string vip = 2;
     // 地区编码(一个或多个，可为空)
     repeated string area_code = 3;
     // 运营商编码(一个或多个，可为空)
