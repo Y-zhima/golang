@@ -383,6 +383,9 @@ func (this *LakeObject) Validate() error {
 	}
 	return nil
 }
+func (this *AssociationObject) Validate() error {
+	return nil
+}
 func (this *SearchLakeRequest) Validate() error {
 	return nil
 }
