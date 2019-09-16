@@ -598,7 +598,7 @@ message LakeObject {
     // 节点VIP
     repeated VipObject vip = 4;
     // 能力上限
-    int32 bandwidth_limit = 5;
+    float bandwidth_limit = 5;
     // 业务类型
     string biz_type = 6;
     // 节点层次

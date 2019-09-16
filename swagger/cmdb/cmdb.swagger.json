@@ -798,8 +798,8 @@
           "title": "节点VIP"
         },
         "bandwidth_limit": {
-          "type": "integer",
-          "format": "int32",
+          "type": "number",
+          "format": "float",
           "title": "能力上限"
         },
         "biz_type": {
