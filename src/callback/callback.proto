@@ -8,6 +8,7 @@ option java_package = "top.fogcdn.axe.protos.callback";
 import "common/api.proto";
 import "google/api/annotations.proto";
 
+
 // 主机
 service Callback {
     // 接收cmdb的事件推送
