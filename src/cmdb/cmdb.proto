@@ -115,11 +115,11 @@ enum ImportType {
     // 2-物理机
     SERVER = 2;
     // 3-lake和VIP的关系链
-    LAKEVIP = 3;
+    LAKE_VIP = 3;
     // 4-交换机
     SWITCH = 4;
     // 5-lake和集群的关系链
-    LAKESET = 5;
+    LAKE_SET = 5;
 }
 
 // 业务拓扑对象

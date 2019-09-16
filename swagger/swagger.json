@@ -1934,7 +1934,7 @@
       }
     },
     "cmdbImportType": {
-      "description": "- UNDEFINED: 0-undefined\n - HOST: 1-主机\n - SERVER: 2-物理机\n - LAKEVIP: 3-lake和VIP的关系链\n - SWITCH: 4-交换机\n - LAKESET: 5-lake和集群的关系链",
+      "description": "- UNDEFINED: 0-undefined\n - HOST: 1-主机\n - SERVER: 2-物理机\n - LAKE_VIP: 3-lake和VIP的关系链\n - SWITCH: 4-交换机\n - LAKE_SET: 5-lake和集群的关系链",
       "type": "string",
       "title": "导入类型:0-undefined 1-主机 2-物理机 3-lake和VIP的关系链 4-交换机 5-lake和集群的关系链",
       "default": "UNDEFINED",
@@ -1942,9 +1942,9 @@
         "UNDEFINED",
         "HOST",
         "SERVER",
-        "LAKEVIP",
+        "LAKE_VIP",
         "SWITCH",
-        "LAKESET"
+        "LAKE_SET"
       ]
     },
     "cmdbInstanceTopologyResponse": {
