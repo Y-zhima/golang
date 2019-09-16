@@ -488,16 +488,6 @@
       },
       "title": "选择主机请求"
     },
-    "cmdbConstructState": {
-      "type": "string",
-      "enum": [
-        "OFFLINE",
-        "ONLINE"
-      ],
-      "default": "OFFLINE",
-      "description": "- OFFLINE: 0-下线\n - ONLINE: 1-上线",
-      "title": "LAKE节点建设状态"
-    },
     "cmdbHostInfoObject": {
       "type": "object",
       "properties": {
@@ -817,15 +807,15 @@
           "title": "业务类型"
         },
         "node_level": {
-          "$ref": "#/definitions/cmdbNodeLevel",
+          "type": "string",
           "title": "节点层次"
         },
         "service_state": {
-          "$ref": "#/definitions/cmdbServiceState",
+          "type": "string",
           "title": "节点服务状态"
         },
         "construct_state": {
-          "$ref": "#/definitions/cmdbConstructState",
+          "type": "string",
           "title": "节点建设状态"
         },
         "construct_updatetime": {
@@ -857,19 +847,6 @@
         }
       },
       "title": "模块"
-    },
-    "cmdbNodeLevel": {
-      "type": "string",
-      "enum": [
-        "COUNTRY",
-        "AREA",
-        "PROVINCE",
-        "CITY",
-        "REGION"
-      ],
-      "default": "COUNTRY",
-      "description": "- COUNTRY: 0-全国中心\n - AREA: 1-区域中心\n - PROVINCE: 2-省边缘\n - CITY: 3-地市边缘\n - REGION: 4-区县边缘",
-      "title": "节点层次"
     },
     "cmdbRoomObject": {
       "type": "object",
@@ -1123,7 +1100,7 @@
           "title": "机房名称"
         },
         "state": {
-          "$ref": "#/definitions/cmdbConstructState",
+          "type": "string",
           "title": "机房状态"
         },
         "area_code": {
@@ -1136,16 +1113,6 @@
         }
       },
       "title": "机房对象"
-    },
-    "cmdbServiceState": {
-      "type": "string",
-      "enum": [
-        "UNAVAILABLE",
-        "AVAILABLE"
-      ],
-      "default": "UNAVAILABLE",
-      "description": "- UNAVAILABLE: 0-不可用\n - AVAILABLE: 1-可用",
-      "title": "LAKE节点服务状态"
     },
     "cmdbSetObject": {
       "type": "object",
