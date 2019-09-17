@@ -568,7 +568,7 @@ message VipObject {
     // ip的ipv4地址
     string bk_inst_name = 2;
     // vip类型
-    int32 biz_type = 3;
+    string biz_type = 3;
     // vip的ipv6地址
     string vip_ipv6 = 4;
 }
@@ -599,8 +599,6 @@ message LakeObject {
     repeated VipObject vip = 4;
     // 能力上限
     float bandwidth_limit = 5;
-    // 业务类型
-    string biz_type = 6;
     // 节点层次
     string node_level = 7;
     // 节点服务状态
