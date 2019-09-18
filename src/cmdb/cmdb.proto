@@ -106,7 +106,7 @@ enum ImportStatus {
     FAILED = 2;
 }
 
-// 导入类型:0-undefined 1-主机 2-物理机 3-lake和VIP的关系链 4-交换机 5-lake和集群的关系链
+// 导入类型:0-undefined 1-主机 2-物理机 3-LAKE 4-交换机
 enum ImportType {
     // 0-undefined
     UNDEFINED = 0;
@@ -114,12 +114,10 @@ enum ImportType {
     HOST = 1;
     // 2-物理机
     SERVER = 2;
-    // 3-lake和VIP的关系链
-    LAKE_VIP = 3;
+    // 3-LAKE
+    LAKE = 3;
     // 4-交换机
     SWITCH = 4;
-    // 5-lake和集群的关系链
-    LAKE_SET = 5;
 }
 
 // 业务拓扑对象
@@ -483,6 +481,8 @@ message ImportHistoryObject {
     google.protobuf.Timestamp end_time = 13;
     // 用户上传的文件名
     string filename = 14;
+    // 日志文件内容
+    string logfile_content = 15;
 }
 
 // 查询导入历史列表请求
