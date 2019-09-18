@@ -369,11 +369,6 @@ func (this *LakeObject) Validate() error {
 			}
 		}
 	}
-	if this.ConstructUpdatetime != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.ConstructUpdatetime); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("ConstructUpdatetime", err)
-		}
-	}
 	for _, item := range this.Room {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {

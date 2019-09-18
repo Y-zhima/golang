@@ -501,35 +501,35 @@ message ImportHistoryResponse {
     common.ResponseStatus status = 3;
 }
 
-// 节点层次
-enum NodeLevel {
-    // 0-全国中心
-    COUNTRY = 0;
-    // 1-区域中心
-    AREA = 1;
-    // 2-省边缘
-    PROVINCE = 2;
-    // 3-地市边缘
-    CITY = 3;
-    // 4-区县边缘
-    REGION = 4;
-}
-
-// LAKE节点服务状态
-enum ServiceState {
-    // 0-不可用
-    UNAVAILABLE = 0;
-    // 1-可用
-    AVAILABLE = 1;
-}
-
-// LAKE节点建设状态
-enum ConstructState {
-    // 0-下线
-    OFFLINE = 0;
-    // 1-上线
-    ONLINE = 1;
-}
+//// 节点层次
+//enum NodeLevel {
+//    // 0-全国中心
+//    COUNTRY = 0;
+//    // 1-区域中心
+//    AREA = 1;
+//    // 2-省边缘
+//    PROVINCE = 2;
+//    // 3-地市边缘
+//    CITY = 3;
+//    // 4-区县边缘
+//    REGION = 4;
+//}
+//
+//// LAKE节点服务状态
+//enum ServiceState {
+//    // 0-不可用
+//    UNAVAILABLE = 0;
+//    // 1-可用
+//    AVAILABLE = 1;
+//}
+//
+//// LAKE节点建设状态
+//enum ConstructState {
+//    // 0-下线
+//    OFFLINE = 0;
+//    // 1-上线
+//    ONLINE = 1;
+//}
 
 // 地区对象
 message AreaObject {
@@ -544,7 +544,7 @@ message AreaObject {
     // 父节点ID
     int32 parent_id = 5;
     // 地区层级
-    NodeLevel level = 6;
+    string level = 6;
     // 地区id
     int32 area_id = 7;
 }
@@ -570,7 +570,7 @@ message VipObject {
     // ip的ipv4地址
     string bk_inst_name = 2;
     // vip类型
-    int32 biz_type = 3;
+    string biz_type = 3;
     // vip的ipv6地址
     string vip_ipv6 = 4;
 }
@@ -582,7 +582,7 @@ message ServerRoomObject {
     // 机房名称
     string bk_inst_name = 2;
     // 机房状态
-    ConstructState state = 3;
+    string state = 3;
     // 地区编码
     string area_code = 10;
     // 运营商编码
@@ -600,17 +600,15 @@ message LakeObject {
     // 节点VIP
     repeated VipObject vip = 4;
     // 能力上限
-    int32 bandwidth_limit = 5;
-    // 业务类型
-    string biz_type = 6;
+    float bandwidth_limit = 5;
     // 节点层次
-    NodeLevel node_level = 7;
+    string node_level = 7;
     // 节点服务状态
-    ServiceState service_state = 8;
+    string service_state = 8;
     // 节点建设状态
-    ConstructState construct_state = 9;
+    string construct_state = 9;
     // 节点建设状态变更时间
-    google.protobuf.Timestamp construct_updatetime = 10;
+    string construct_updatetime = 10;
     // 机房信息
     repeated ServerRoomObject room = 11;
 }
@@ -634,7 +632,7 @@ message SearchLakeRequest {
     // 节点ID(一个或多个，可为空)
     repeated int32 node_id = 1;
     // 节点VIP(一个或多个，可为空)
-    repeated int32 vip = 2;
+    repeated string vip = 2;
     // 地区编码(一个或多个，可为空)
     repeated string area_code = 3;
     // 运营商编码(一个或多个，可为空)
