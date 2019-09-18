@@ -481,6 +481,8 @@ message ImportHistoryObject {
     google.protobuf.Timestamp end_time = 13;
     // 用户上传的文件名
     string filename = 14;
+    // 日志文件内容
+    string logfile_content = 15;
 }
 
 // 查询导入历史列表请求
