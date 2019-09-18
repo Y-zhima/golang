@@ -48,24 +48,36 @@ message TimeScope {
 }
 
 //调用方编码
-enum appKey{
+enum AppKey{
     UNDEFINED = 0;
     //裸金属应用
     IRONICAPP = 1000010000;
     //CMDB平台
     CMDB =2000020000;
 }
+//服务编码
+enum SvcCode{
+     SVCCODEDEFAULT = 0;
+    //创建裸金属节点
+    CREATENODES = 1010010001;
+    //查询裸金属状态
+    QRYNODEINFO = 1010010002;
+    //安装裸金属系统
+    INSTALLNODESYS = 1010010003;
+    //操作裸金属实例电源
+    OPERNODEPOWER = 1010010004;
+}
 
 // 控制对象(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)
 message TcpContReq {
     // 服务编码
-    string svcCode = 1;
+    SvcCode svcCode = 1;
     // 能力编码
-    string apiCode = 2;
+    string apiCode = 2 ;
     // 调用方编码
-    string appKey = 3;
+    AppKey appKey = 3;
     // 提供方编码
-    string dstSysID = 4;
+    AppKey dstSysID = 4;
     // 交易流水号
     string transactionID = 5;
     // 请求时间

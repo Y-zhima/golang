@@ -541,7 +541,7 @@
           "Playbook"
         ],
         "summary": "创建playbook项目",
-        "operationId": "CreateMixin13",
+        "operationId": "Create",
         "parameters": [
           {
             "name": "body",
@@ -568,7 +568,7 @@
           "Playbook"
         ],
         "summary": "筛选playbook项目",
-        "operationId": "FilterMixin13",
+        "operationId": "Filter",
         "parameters": [
           {
             "type": "integer",
@@ -621,7 +621,7 @@
           "Playbook"
         ],
         "summary": "获取playbook项目",
-        "operationId": "GetMixin13",
+        "operationId": "Get",
         "parameters": [
           {
             "type": "integer",
@@ -648,7 +648,7 @@
           "Playbook"
         ],
         "summary": "更新playbook项目",
-        "operationId": "UpdateMixin13",
+        "operationId": "Update",
         "parameters": [
           {
             "type": "integer",
@@ -683,7 +683,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin8",
+        "operationId": "CreateMixin9",
         "parameters": [
           {
             "name": "body",
@@ -710,7 +710,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin8",
+        "operationId": "FilterMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -783,7 +783,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin8",
+        "operationId": "GetMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -845,7 +845,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "Update",
+        "operationId": "UpdateMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -907,7 +907,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "Create",
+        "operationId": "CreateMixin12",
         "parameters": [
           {
             "name": "body",
@@ -961,7 +961,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "Filter",
+        "operationId": "FilterMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -1027,7 +1027,7 @@
           "Task"
         ],
         "summary": "获取作业任务",
-        "operationId": "Get",
+        "operationId": "GetMixin12",
         "parameters": [
           {
             "type": "string",
@@ -1108,7 +1108,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin10",
+        "operationId": "CreateMixin13",
         "parameters": [
           {
             "name": "body",
@@ -1135,7 +1135,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin10",
+        "operationId": "FilterMixin13",
         "parameters": [
           {
             "type": "integer",
@@ -1194,7 +1194,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin10",
+        "operationId": "GetMixin13",
         "parameters": [
           {
             "type": "integer",
@@ -1221,7 +1221,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin10",
+        "operationId": "UpdateMixin13",
         "parameters": [
           {
             "type": "integer",
@@ -2530,6 +2530,17 @@
         }
       }
     },
+    "ironicComAppKey": {
+      "description": "- IRONICAPP: 裸金属应用\n - CMDB: CMDB平台",
+      "type": "string",
+      "title": "调用方编码",
+      "default": "UNDEFINED",
+      "enum": [
+        "UNDEFINED",
+        "IRONICAPP",
+        "CMDB"
+      ]
+    },
     "ironicComPageInfo": {
       "type": "object",
       "title": "分页信息(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)",
@@ -2566,6 +2577,19 @@
         "FAIL"
       ]
     },
+    "ironicComSvcCode": {
+      "description": "- CREATENODES: 创建裸金属节点\n - QRYNODEINFO: 查询裸金属状态\n - INSTALLNODESYS: 安装裸金属系统\n - OPERNODEPOWER: 操作裸金属实例电源",
+      "type": "string",
+      "title": "服务编码",
+      "default": "SVCCODEDEFAULT",
+      "enum": [
+        "SVCCODEDEFAULT",
+        "CREATENODES",
+        "QRYNODEINFO",
+        "INSTALLNODESYS",
+        "OPERNODEPOWER"
+      ]
+    },
     "ironicComTcpContReq": {
       "type": "object",
       "title": "控制对象(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)",
@@ -2575,12 +2599,12 @@
           "title": "能力编码"
         },
         "appKey": {
-          "type": "string",
-          "title": "调用方编码"
+          "title": "调用方编码",
+          "$ref": "#/definitions/ironicComAppKey"
         },
         "dstSysID": {
-          "type": "string",
-          "title": "提供方编码"
+          "title": "提供方编码",
+          "$ref": "#/definitions/ironicComAppKey"
         },
         "reqTime": {
           "type": "string",
@@ -2592,8 +2616,8 @@
           "title": "签名字符串"
         },
         "svcCode": {
-          "type": "string",
-          "title": "服务编码"
+          "title": "服务编码",
+          "$ref": "#/definitions/ironicComSvcCode"
         },
         "transactionID": {
           "type": "string",

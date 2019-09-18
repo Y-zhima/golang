@@ -288,6 +288,17 @@
       "description": "- NULL: 未知\n - CREATED: 已创建 :刚创建完节点后的状态，节点创建、验证成功，可进行装系统\n - DEPLOYING: 部署中 :正在执行装机任务\n - DEPLOYFAILED: 部署失败 : 执行装机异常\n - ACTIVE: 活动 ： 已经安装完系统活动中",
       "title": "裸金属节点状态"
     },
+    "ironicComAppKey": {
+      "type": "string",
+      "enum": [
+        "UNDEFINED",
+        "IRONICAPP",
+        "CMDB"
+      ],
+      "default": "UNDEFINED",
+      "description": "- IRONICAPP: 裸金属应用\n - CMDB: CMDB平台",
+      "title": "调用方编码"
+    },
     "ironicComPageInfo": {
       "type": "object",
       "properties": {
@@ -324,11 +335,24 @@
       "description": "- SUCCESS: 成功\n - FAIL: 失败",
       "title": "响应码"
     },
+    "ironicComSvcCode": {
+      "type": "string",
+      "enum": [
+        "SVCCODEDEFAULT",
+        "CREATENODES",
+        "QRYNODEINFO",
+        "INSTALLNODESYS",
+        "OPERNODEPOWER"
+      ],
+      "default": "SVCCODEDEFAULT",
+      "description": "- CREATENODES: 创建裸金属节点\n - QRYNODEINFO: 查询裸金属状态\n - INSTALLNODESYS: 安装裸金属系统\n - OPERNODEPOWER: 操作裸金属实例电源",
+      "title": "服务编码"
+    },
     "ironicComTcpContReq": {
       "type": "object",
       "properties": {
         "svcCode": {
-          "type": "string",
+          "$ref": "#/definitions/ironicComSvcCode",
           "title": "服务编码"
         },
         "apiCode": {
@@ -336,11 +360,11 @@
           "title": "能力编码"
         },
         "appKey": {
-          "type": "string",
+          "$ref": "#/definitions/ironicComAppKey",
           "title": "调用方编码"
         },
         "dstSysID": {
-          "type": "string",
+          "$ref": "#/definitions/ironicComAppKey",
           "title": "提供方编码"
         },
         "transactionID": {
