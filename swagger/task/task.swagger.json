@@ -554,6 +554,10 @@
         "image_file_md5": {
           "type": "string",
           "title": "安装镜像文件的MD5"
+        },
+        "module_id": {
+          "type": "string",
+          "title": "模块id"
         }
       },
       "title": "调用裸金属安装操作请求体"

@@ -3708,6 +3708,10 @@
         "image_file_url": {
           "type": "string",
           "title": "安装镜像文件的URL"
+        },
+        "module_id": {
+          "type": "string",
+          "title": "模块id"
         }
       }
     },
