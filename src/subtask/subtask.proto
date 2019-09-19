@@ -62,6 +62,10 @@ message CreateServerRequest {
     cmdb.ServerPowerState power_state = 3;
     // cmdb的搜索条件
     cmdb.ChooseServerRequest cmdb_search_request = 4;
+    // 安装镜像文件的URL
+    string image_file_url = 5;
+    // 安装镜像文件的MD5
+    string image_file_md5 = 6;
 }
 
 // 裸金属子任务实例返回

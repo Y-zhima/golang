@@ -546,6 +546,14 @@
             "$ref": "#/definitions/cmdbChooseServerRequest"
           },
           "title": "机房及对应物理机"
+        },
+        "image_file_url": {
+          "type": "string",
+          "title": "安装镜像文件的URL"
+        },
+        "image_file_md5": {
+          "type": "string",
+          "title": "安装镜像文件的MD5"
         }
       },
       "title": "调用裸金属安装操作请求体"
