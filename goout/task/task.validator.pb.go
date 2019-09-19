@@ -83,9 +83,9 @@ func (this *InstallServerRequest) Validate() error {
 			}
 		}
 	}
-	if this.Cmdb_HostSearchRequest != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Cmdb_HostSearchRequest); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("Cmdb_HostSearchRequest", err)
+	if this.CmdbHostSearchRequest != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbHostSearchRequest); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("CmdbHostSearchRequest", err)
 		}
 	}
 	return nil
