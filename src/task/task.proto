@@ -119,6 +119,10 @@ message CreateServerResponse {
 message InstallServerRequest {
     // 机房及对应物理机
     repeated cmdb.ChooseServerRequest cmdb_search_request = 1;
+    // 安装镜像文件的URL
+    string image_file_url = 2;
+    // 安装镜像文件的MD5
+    string image_file_md5 = 3;
 }
 
 // 调用裸金属安装操作返回体
