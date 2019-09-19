@@ -1,0 +1,109 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "git.fogcdn.top/axe/protos/goout/auth";
+option java_package = "top.fogcdn.axe.protos.auth";
+
+import "common/api.proto";
+import "google/api/annotations.proto";
+
+// 鉴权网关服务
+service Auth {
+    // 服务鉴权入口
+    rpc Check (CheckRequest) returns (CheckResponse) {
+        option (google.api.http) = {
+            get: "/v1/auth/check"
+        };
+    }
+    // 用户登陆接口
+    rpc Login (LoginRequest) returns (LoginResponse) {
+        option (google.api.http) = {
+            get: "/v1/auth/login"
+        };
+    }
+    // 用户登出接口
+    rpc Logout (LogoutRequest) returns (LogoutResponse) {
+        option (google.api.http) = {
+            get: "/v1/auth/logout"
+        };
+    }
+    // 登陆回调接口
+    rpc Callback (CallbackRequest) returns (CallbackResponse) {
+        option (google.api.http) = {
+            get: "/v1/auth/callback"
+        };
+    }
+    // 获取用户信息接口
+    rpc GetUserInfo (GetUserInfoRequest) returns (GetUserInfoResponse) {
+        option (google.api.http) = {
+            get: "/v1/auth/getUserInfo"
+        };
+    }
+}
+
+
+// 服务鉴权入口请求
+message CheckRequest {
+}
+
+// 服务鉴权入口响应，返回200、401、403等状态码
+message CheckResponse {
+}
+
+// 用户登陆接口请求
+message LoginRequest {
+}
+
+// 用户登陆接口响应，返回301状态码
+message LoginResponse {
+}
+
+// 用户登出接口请求
+message LogoutRequest {
+}
+
+// 用户登出接口响应，返回301状态码
+message LogoutResponse {
+}
+
+// 登陆回调接口请求
+message CallbackRequest {
+}
+
+// 登陆回调接口响应，返回301状态码
+message CallbackResponse {
+}
+
+// 获取用户信息请求
+message GetUserInfoRequest {
+}
+
+// 外部系统编号
+enum SourceCode {
+    // 不依赖外部系统
+    NONE = 0;
+    // IAM系统
+    IAM = 1;
+}
+
+// 用户信息
+message UserInfo {
+    // 用户在鉴权网关中的唯一ID
+    string uid = 1;
+    // 用户名
+    string name = 2;
+    // 用户在外部系统中的ID
+    string source_uid = 3;
+    // 外部系统的编号
+    SourceCode source = 4;
+    // 用户头像路径
+    string avatar = 5;
+}
+
+message GetUserInfoResponse {
+    // 响应消息
+    UserInfo info = 1;
+    // 响应状态
+    common.ResponseStatus status = 2;
+}
