@@ -123,8 +123,8 @@ message InstallServerRequest {
     string image_file_url = 2;
     // 安装镜像文件的MD5
     string image_file_md5 = 3;
-    // 模块id
-    string module_id = 4;
+    // 主机查询条件
+    cmdb.ChooseHostRequest cmdb__host_search_request = 4;
 }
 
 // 调用裸金属安装操作返回体
