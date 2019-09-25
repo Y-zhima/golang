@@ -875,7 +875,7 @@
           "type": "string",
           "title": "省份"
         },
-        "areaCode": {
+        "area_code": {
           "type": "string",
           "title": "地区编码"
         },
