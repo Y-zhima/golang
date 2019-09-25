@@ -875,6 +875,10 @@
           "type": "string",
           "title": "省份"
         },
+        "areaCode": {
+          "type": "string",
+          "title": "地区编码"
+        },
         "child": {
           "type": "array",
           "items": {
