@@ -347,7 +347,7 @@ message RoomObject {
     // 省份
     string prov = 6;
     // 地区编码
-    string areaCode = 7;
+    string area_code = 7;
     // 子对象
     repeated RoomObject child = 8;
 }

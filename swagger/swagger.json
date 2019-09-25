@@ -2028,7 +2028,7 @@
       "type": "object",
       "title": "机房对象",
       "properties": {
-        "areaCode": {
+        "area_code": {
           "type": "string",
           "title": "地区编码"
         },
