@@ -2227,6 +2227,11 @@
           "type": "string",
           "title": "IPMI账号"
         },
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "物理机id"
+        },
         "bk_inst_name": {
           "type": "string",
           "title": "实例名"
@@ -2258,11 +2263,6 @@
         "power_state": {
           "title": "电源状态",
           "$ref": "#/definitions/cmdbServerPowerState"
-        },
-        "room_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "机房id"
         },
         "uuid": {
           "type": "string",
