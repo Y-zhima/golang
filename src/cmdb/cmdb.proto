@@ -387,26 +387,26 @@ enum ServerInstallState {
 
 // 物理机对象
 message ServerObject {
+    // 物理机id
+    int32 bk_inst_id = 1;
     //实例名
-    string bk_inst_name = 1;
+    string bk_inst_name = 2;
     // IPMI地址
-    string manage_ip = 2;
+    string manage_ip = 3;
     // IPMI账号
-    string account = 3;
+    string account = 4;
     // IPMI密码
-    string password = 4;
+    string password = 5;
     // MAC地址
-    string mac_address = 5;
+    string mac_address = 6;
     // 机柜
-    string cabinet = 6;
+    string cabinet = 7;
     // IPMI端口
-    string port = 7;
+    string port = 8;
     // 电源状态
-    ServerPowerState power_state = 8;
+    ServerPowerState power_state = 9;
     // 装机状态
-    ServerInstallState install_state = 9;
-    // 机房id
-    int32 room_id = 10;
+    ServerInstallState install_state = 10;
     // 裸金属uuid
     string uuid = 11;
 }
