@@ -1031,6 +1031,11 @@
     "cmdbServerObject": {
       "type": "object",
       "properties": {
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "物理机id"
+        },
         "bk_inst_name": {
           "type": "string",
           "title": "实例名"
@@ -1066,11 +1071,6 @@
         "install_state": {
           "$ref": "#/definitions/cmdbServerInstallState",
           "title": "装机状态"
-        },
-        "room_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "机房id"
         },
         "uuid": {
           "type": "string",
@@ -1181,6 +1181,10 @@
         "vip_ipv6": {
           "type": "string",
           "title": "vip的ipv6地址"
+        },
+        "vip_ipv4": {
+          "type": "string",
+          "title": "vip的ipv4地址"
         }
       },
       "title": "VIP对象"
