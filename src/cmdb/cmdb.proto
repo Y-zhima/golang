@@ -652,3 +652,11 @@ message SearchLakeResponse {
     // 主机信息
     repeated LakeObject lake = 3;
 }
+
+// 机柜对象
+message CabinetObject {
+    // 实例ID
+    int32 bk_inst_id = 1;
+    // 实例名
+    string bk_inst_name = 2;
+}
