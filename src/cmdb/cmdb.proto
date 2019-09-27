@@ -537,10 +537,10 @@ message ImportHistoryResponse {
 message AreaObject {
     // 实例ID
     int32 bk_inst_id = 1;
-    // 实例名
-    string bk_inst_name = 2;
     // 区域编码
-    string area_code = 3;
+    string bk_inst_name = 2;
+    // 区域中文名称
+    string area_cnname = 3;
     // 区域英文名称
     string area_enname = 4;
     // 父节点ID
