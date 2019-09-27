@@ -629,6 +629,8 @@ message AssociationObject {
     int32 bk_asst_inst_id = 4;
     // 目标对象名称
     string bk_asst_obj_id = 5;
+    // 实例关联的id
+    int32 id = 6;
 }
 
 // 查找Lake请求
