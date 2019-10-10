@@ -224,6 +224,11 @@
     "cmdbChooseHostRequest": {
       "type": "object",
       "properties": {
+        "bk_biz_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "业务ID"
+        },
         "bk_set_id": {
           "type": "integer",
           "format": "int32",

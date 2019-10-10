@@ -368,6 +368,14 @@
         },
         "parameters": [
           {
+            "name": "cmdb_search_request.bk_biz_id",
+            "description": "业务ID.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
             "name": "cmdb_search_request.bk_set_id",
             "description": "集群ID.",
             "in": "query",
@@ -472,6 +480,11 @@
     "cmdbChooseHostRequest": {
       "type": "object",
       "properties": {
+        "bk_biz_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "业务ID"
+        },
         "bk_set_id": {
           "type": "integer",
           "format": "int32",

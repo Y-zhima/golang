@@ -277,10 +277,12 @@ message ImportServerResponse {
 
 // 选择主机请求
 message ChooseHostRequest {
+    // 业务ID
+    int32 bk_biz_id = 1;
     // 集群ID
-    int32 bk_set_id = 1;
+    int32 bk_set_id = 2;
     // 模块ID
-    repeated int32 bk_module_id = 2;
+    repeated int32 bk_module_id = 3;
 }
 
 // 物理机传入信息
