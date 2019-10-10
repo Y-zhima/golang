@@ -1,19 +1,4177 @@
 {
-    "consumes": [
-      "application/json"
-    ],
-    "produces": [
-      "application/json"
-    ],
-    "schemes": [
-      "http",
-      "https"
-    ],
-    "host": "192.168.0.129:9001",
-    "swagger": "2.0",
-    "info": {
-      "description": "AXE运维平台RESTful API",
-      "title": "AXE运维API",
-      "version": "1.0.0"
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "AXE运维平台RESTful API",
+    "title": "AXE运维API",
+    "version": "1.0.0"
+  },
+  "host": "192.168.0.129:9001",
+  "paths": {
+    "/v1/callback/cmdbEvent": {
+      "post": {
+        "tags": [
+          "Callback"
+        ],
+        "summary": "接收cmdb的事件推送",
+        "operationId": "CmdbEvent",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/callbackCmdbEventRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/callbackCmdbEventResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/importHistory": {
+      "get": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "查询导入历史记录列表",
+        "operationId": "ImportHistory",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总页数.",
+            "name": "paging.total_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页数.",
+            "name": "paging.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页显示的记录条数.",
+            "name": "paging.per_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总记录数.",
+            "name": "paging.total_record",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportHistoryResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/importHost": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "导入主机",
+        "operationId": "ImportHost",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportHostRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportHostResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/importLake": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "导入lake节点",
+        "operationId": "ImportLake",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportLakeRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportLakeResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/importServer": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "导入物理机",
+        "operationId": "ImportServer",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportServerRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportServerResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/importSwitch": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "导入交换机",
+        "operationId": "ImportSwitch",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportSwitchRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportSwitchResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/instanceTopology": {
+      "get": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "实例拓扑",
+        "operationId": "InstanceTopology",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbInstanceTopologyResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/roomTopology": {
+      "get": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "机房拓扑",
+        "operationId": "RoomTopology",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbRoomTopologyResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/searchHost": {
+      "get": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "查找主机",
+        "operationId": "SearchHost",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总页数.",
+            "name": "paging.total_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页数.",
+            "name": "paging.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页显示的记录条数.",
+            "name": "paging.per_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总记录数.",
+            "name": "paging.total_record",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "内网IP.",
+            "name": "host.bk_host_innerip",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "主机ID.",
+            "name": "host.bk_host_id",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "模块名.",
+            "name": "module.bk_module_name",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "模块ID.",
+            "name": "module.bk_module_id",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "集群名.",
+            "name": "set.bk_set_name",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "集群ID.",
+            "name": "set.bk_set_id",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "业务名.",
+            "name": "biz.bk_biz_name",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "业务ID.",
+            "name": "biz.bk_biz_id",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "区域ID.",
+            "name": "zone.bk_inst_id",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbSearchHostResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/searchLake": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "查询Lake节点",
+        "operationId": "SearchLake",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbSearchLakeRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbSearchLakeResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/searchModule": {
+      "get": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "查询模块",
+        "operationId": "SearchModule",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "业务ID.",
+            "name": "cmdb_search_request.bk_biz_id",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "集群ID.",
+            "name": "cmdb_search_request.bk_set_id",
+            "in": "query"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "collectionFormat": "multi",
+            "description": "模块ID.",
+            "name": "cmdb_search_request.bk_module_id",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbSearchMoudleResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/serverList": {
+      "get": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "裸金属列表",
+        "operationId": "ServerList",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "机房id，相当于 RoomObject 中的 bk_inst_id.",
+            "name": "room_id",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总页数.",
+            "name": "paging.total_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页数.",
+            "name": "paging.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页显示的记录条数.",
+            "name": "paging.per_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总记录数.",
+            "name": "paging.total_record",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbServerListResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/file/upload": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "上传csv等通用文件",
+        "operationId": "Upload",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/fileUploadRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/fileUploadResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/file/uploadPlaybook": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "上传playbook压缩包并且解析入口yml文件",
+        "operationId": "UploadPlaybook",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/fileUploadPlaybookRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/fileUploadPlaybookResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/greeter/sayHello": {
+      "get": {
+        "tags": [
+          "Greeter"
+        ],
+        "summary": "Sends a greeting",
+        "operationId": "SayHello",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "name",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/greeterHelloReply"
+            }
+          }
+        }
+      }
+    },
+    "/v1/playbook/create": {
+      "post": {
+        "tags": [
+          "Playbook"
+        ],
+        "summary": "创建playbook项目",
+        "operationId": "CreateMixin13",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/playbookCreateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/playbookCreateResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/playbook/filter": {
+      "get": {
+        "tags": [
+          "Playbook"
+        ],
+        "summary": "筛选playbook项目",
+        "operationId": "FilterMixin13",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总页数.",
+            "name": "paging.total_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页数.",
+            "name": "paging.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页显示的记录条数.",
+            "name": "paging.per_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总记录数.",
+            "name": "paging.total_record",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "用于模糊筛选的playbook项目名称的关键字.",
+            "name": "keyword",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/playbookFilterResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/playbook/get/{playbook_id}": {
+      "get": {
+        "tags": [
+          "Playbook"
+        ],
+        "summary": "获取playbook项目",
+        "operationId": "GetMixin13",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "playbook项目ID",
+            "name": "playbook_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/playbookGetResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/playbook/update/{playbook_id}": {
+      "post": {
+        "tags": [
+          "Playbook"
+        ],
+        "summary": "更新playbook项目",
+        "operationId": "UpdateMixin13",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "playbook项目ID",
+            "name": "playbook_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/playbookUpdateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/playbookUpdateResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/schedule/create": {
+      "post": {
+        "tags": [
+          "Schedule"
+        ],
+        "summary": "创建定时任务",
+        "operationId": "CreateMixin8",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/scheduleCreateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/scheduleCreateResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/schedule/filter": {
+      "get": {
+        "tags": [
+          "Schedule"
+        ],
+        "summary": "筛选定时任务",
+        "operationId": "FilterMixin8",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总页数.",
+            "name": "paging.total_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页数.",
+            "name": "paging.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页显示的记录条数.",
+            "name": "paging.per_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总记录数.",
+            "name": "paging.total_record",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "用于筛选的定时任务名字的关键字.",
+            "name": "schedule_name",
+            "in": "query"
+          },
+          {
+            "enum": [
+              "UNDEFINED",
+              "PLAYBOOK",
+              "CONTAINER",
+              "BARE_METAL"
+            ],
+            "type": "string",
+            "default": "UNDEFINED",
+            "description": "用于筛选的定时任务的任务类型.\n\n - UNDEFINED: 0-undefined\n - PLAYBOOK: 1-作业模板\n - CONTAINER: 2-容器部署\n - BARE_METAL: 3-裸金属管理",
+            "name": "task_type",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "task_type对应的id.",
+            "name": "task_id",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/scheduleFilterResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/schedule/get/{schedule_id}": {
+      "get": {
+        "tags": [
+          "Schedule"
+        ],
+        "summary": "获取定时任务",
+        "operationId": "GetMixin8",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "定时任务ID",
+            "name": "schedule_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/scheduleGetResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/schedule/switchStatus/{schedule_id}": {
+      "post": {
+        "tags": [
+          "Schedule"
+        ],
+        "summary": "切换状态",
+        "operationId": "SwitchStatus",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "定时任务ID",
+            "name": "schedule_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/scheduleSwitchStatusRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/scheduleSwitchStatusResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/schedule/update/{schedule_id}": {
+      "post": {
+        "tags": [
+          "Schedule"
+        ],
+        "summary": "更新定时任务",
+        "operationId": "Update",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "定时任务ID",
+            "name": "schedule_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/scheduleUpdateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/scheduleUpdateResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/task/checkServerState": {
+      "post": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "调用裸金属应用检查裸金属状态",
+        "operationId": "CheckServerState",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskCheckServerStateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskCheckServerStateResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/task/create": {
+      "post": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "创建作业任务(执行作业模板)",
+        "operationId": "Create",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskCreateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskCreateResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/task/createServer": {
+      "post": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "调用裸金属创建操作",
+        "operationId": "CreateServer",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskCreateServerRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskCreateServerResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/task/filter": {
+      "get": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "筛选作业任务",
+        "operationId": "Filter",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总页数.",
+            "name": "paging.total_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页数.",
+            "name": "paging.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页显示的记录条数.",
+            "name": "paging.per_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总记录数.",
+            "name": "paging.total_record",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "用于筛选任务名字的关键字.",
+            "name": "task_name",
+            "in": "query"
+          },
+          {
+            "enum": [
+              "UNDEFINED",
+              "PLAYBOOK",
+              "CONTAINER",
+              "BARE_METAL"
+            ],
+            "type": "string",
+            "default": "UNDEFINED",
+            "description": "用于筛选定时任务的任务类型 0-undefined 1-作业模板；2-容器部署；3-裸金属管理.\n\n - UNDEFINED: 0-undefined\n - PLAYBOOK: 1-作业模板\n - CONTAINER: 2-容器部署\n - BARE_METAL: 3-裸金属管理",
+            "name": "task_type",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskFilterResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/task/get/{task_id}": {
+      "get": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "获取作业任务",
+        "operationId": "Get",
+        "parameters": [
+          {
+            "type": "string",
+            "format": "int64",
+            "description": "作业任务ID",
+            "name": "task_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskGetResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/task/installServer": {
+      "post": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "调用裸金属安装操作",
+        "operationId": "InstallServer",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskInstallServerRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskInstallServerResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/task/serverPowerControl": {
+      "post": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "调用裸金属应用执行开关机操作",
+        "operationId": "ServerPowerControl",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskServerPowerControlRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskServerPowerControlResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/template/create": {
+      "post": {
+        "tags": [
+          "Template"
+        ],
+        "summary": "创建作业模板",
+        "operationId": "CreateMixin10",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/templateCreateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateCreateResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/template/filter": {
+      "get": {
+        "tags": [
+          "Template"
+        ],
+        "summary": "筛选作业模板",
+        "operationId": "FilterMixin10",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总页数.",
+            "name": "paging.total_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页数.",
+            "name": "paging.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页显示的记录条数.",
+            "name": "paging.per_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总记录数.",
+            "name": "paging.total_record",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "模板名的一部分，模糊查询时的关键字.",
+            "name": "name",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "模板ID.",
+            "name": "template_id",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateFilterResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/template/get/{template_id}": {
+      "get": {
+        "tags": [
+          "Template"
+        ],
+        "summary": "获取作业模板",
+        "operationId": "GetMixin10",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "模板ID",
+            "name": "template_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateGetResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/template/update/{template_id}": {
+      "post": {
+        "tags": [
+          "Template"
+        ],
+        "summary": "更新作业模板",
+        "operationId": "UpdateMixin10",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "模板ID",
+            "name": "template_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/templateUpdateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateUpdateResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/template/updateState/{template_id}": {
+      "post": {
+        "tags": [
+          "Template"
+        ],
+        "summary": "更新作业模板状态开关",
+        "operationId": "UpdateState",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "模板ID",
+            "name": "template_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/templateUpdateStateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateUpdateStateResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CreateNodesRootReqCreateNodeInfoReq": {
+      "type": "object",
+      "title": "创建节点请求对象",
+      "properties": {
+        "nodeInfoReqs": {
+          "type": "array",
+          "title": "节点",
+          "items": {
+            "$ref": "#/definitions/CreateNodesRootReqNodeInfoReq"
+          }
+        },
+        "pageInfo": {
+          "title": "分页信息",
+          "$ref": "#/definitions/ironicComPageInfo"
+        }
+      }
+    },
+    "CreateNodesRootReqNodeInfoReq": {
+      "type": "object",
+      "title": "节点信息",
+      "properties": {
+        "initId": {
+          "type": "string",
+          "format": "int64",
+          "title": "初始化id"
+        },
+        "ip": {
+          "type": "string",
+          "title": "ipmi的IP地址"
+        },
+        "macAddr": {
+          "type": "string",
+          "title": "裸金属主机mac地址"
+        },
+        "password": {
+          "type": "string",
+          "title": "Ipmi密码"
+        },
+        "port": {
+          "type": "string",
+          "format": "int64",
+          "title": "Ipmi端口"
+        },
+        "regionName": {
+          "type": "string",
+          "title": "区域名称"
+        },
+        "serverAddr": {
+          "type": "string",
+          "title": "裸金属区域组件服务地址"
+        },
+        "userName": {
+          "type": "string",
+          "title": "ipmi用户名"
+        }
+      }
+    },
+    "CreateNodesRootResCreateNodeInfoRsp": {
+      "type": "object",
+      "title": "创建节点请求对象",
+      "properties": {
+        "nodeInfoRsps": {
+          "type": "array",
+          "title": "节点",
+          "items": {
+            "$ref": "#/definitions/ironicServerCreateNodesRootResNodeInfoRsp"
+          }
+        },
+        "pageInfo": {
+          "title": "分页信息",
+          "$ref": "#/definitions/ironicComPageInfo"
+        }
+      }
+    },
+    "InstallNodeSysRootReqInstallNodeSysReq": {
+      "type": "object",
+      "title": "安装裸金属系统请求对象",
+      "properties": {
+        "nodeInstallInfos": {
+          "type": "array",
+          "title": "安装裸金属系统信息",
+          "items": {
+            "$ref": "#/definitions/InstallNodeSysRootReqNodeInstallInfo"
+          }
+        }
+      }
+    },
+    "InstallNodeSysRootReqNodeInstallInfo": {
+      "type": "object",
+      "title": "安装裸金属系统信息",
+      "properties": {
+        "imageAddr": {
+          "type": "string",
+          "title": "安装镜像地址(一般为http url)"
+        },
+        "imageCheckSum": {
+          "type": "string",
+          "title": "镜像MD5校验码"
+        },
+        "nodeId": {
+          "type": "string",
+          "title": "裸金属节点id"
+        }
+      }
+    },
+    "InstallNodeSysRootResInstallNodeInfoRsp": {
+      "type": "object",
+      "title": "创建节点请求对象",
+      "properties": {
+        "nodeInfoRsps": {
+          "type": "array",
+          "title": "节点",
+          "items": {
+            "$ref": "#/definitions/ironicServerInstallNodeSysRootResNodeInfoRsp"
+          }
+        },
+        "pageInfo": {
+          "title": "分页信息",
+          "$ref": "#/definitions/ironicComPageInfo"
+        }
+      }
+    },
+    "OperNodePowerRootReqNodePowerOper": {
+      "type": "object",
+      "properties": {
+        "nodeId": {
+          "type": "string",
+          "title": "裸金属节点id"
+        }
+      }
+    },
+    "OperNodePowerRootReqOperNodePowerReq": {
+      "type": "object",
+      "properties": {
+        "nodePowerOpers": {
+          "type": "array",
+          "title": "安装裸金属系统信息",
+          "items": {
+            "$ref": "#/definitions/OperNodePowerRootReqNodePowerOper"
+          }
+        }
+      }
+    },
+    "OperNodePowerRootResNodePowerRsp": {
+      "type": "object",
+      "properties": {
+        "nodeId": {
+          "type": "string",
+          "title": "裸金属节点id"
+        },
+        "powerResultCode": {
+          "title": "创建节点响应码",
+          "$ref": "#/definitions/ironicComResultCode"
+        },
+        "powerResultMsg": {
+          "type": "string",
+          "title": "创建节点响应消息"
+        }
+      }
+    },
+    "OperNodePowerRootResOperNodePowerRsp": {
+      "type": "object",
+      "properties": {
+        "nodePowerRsps": {
+          "type": "array",
+          "title": "电源操作应答",
+          "items": {
+            "$ref": "#/definitions/OperNodePowerRootResNodePowerRsp"
+          }
+        }
+      }
+    },
+    "QryNodeInfoRootReqQryNodeInfoReq": {
+      "type": "object",
+      "title": "查询节点信息请求对象",
+      "properties": {
+        "nodeIds": {
+          "type": "array",
+          "title": "裸金属节点id",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "QryNodeInfoRootResNodeInfo": {
+      "type": "object",
+      "title": "节点信息",
+      "properties": {
+        "imagerAddr": {
+          "type": "string",
+          "title": "镜像地址"
+        },
+        "ip": {
+          "type": "string",
+          "title": "ipmi的IP地址"
+        },
+        "macAddr": {
+          "type": "string",
+          "title": "裸金属主机mac地址"
+        },
+        "nodeId": {
+          "type": "string",
+          "title": "裸金属节点id"
+        },
+        "password": {
+          "type": "string",
+          "title": "Ipmi密码"
+        },
+        "powerStatus": {
+          "title": "电源状态",
+          "$ref": "#/definitions/QryNodeInfoRootResPowerStatus"
+        },
+        "qryResultCode": {
+          "title": "查询节点响应码",
+          "$ref": "#/definitions/ironicComResultCode"
+        },
+        "qryResultMsg": {
+          "type": "string",
+          "title": "查询节点响应消息"
+        },
+        "serverAddr": {
+          "type": "string",
+          "title": "所属区域裸金属组件服务地址"
+        },
+        "status": {
+          "title": "当前状态",
+          "$ref": "#/definitions/QryNodeInfoRootResStatus"
+        },
+        "userName": {
+          "type": "string",
+          "title": "ipmi用户名"
+        }
+      }
+    },
+    "QryNodeInfoRootResPowerStatus": {
+      "description": "- UNKNOWN: 未知\n - POWERON: 开机\n - POWEROFF: 关机",
+      "type": "string",
+      "title": "电源状态",
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "POWERON",
+        "POWEROFF"
+      ]
+    },
+    "QryNodeInfoRootResQryNodeInfoRsp": {
+      "type": "object",
+      "title": "查询节点应答对象",
+      "properties": {
+        "nodeInfos": {
+          "type": "array",
+          "title": "节点",
+          "items": {
+            "$ref": "#/definitions/QryNodeInfoRootResNodeInfo"
+          }
+        }
+      }
+    },
+    "QryNodeInfoRootResStatus": {
+      "description": "- NULL: 未知\n - CREATED: 已创建 :刚创建完节点后的状态，节点创建、验证成功，可进行装系统\n - DEPLOYING: 部署中 :正在执行装机任务\n - DEPLOYFAILED: 部署失败 : 执行装机异常\n - ACTIVE: 活动 ： 已经安装完系统活动中",
+      "type": "string",
+      "title": "裸金属节点状态",
+      "default": "NULL",
+      "enum": [
+        "NULL",
+        "CREATED",
+        "DEPLOYING",
+        "DEPLOYFAILED",
+        "ACTIVE"
+      ]
+    },
+    "callbackCmdbEventData": {
+      "type": "object",
+      "properties": {
+        "cur_data": {
+          "type": "object",
+          "title": "时间触发前的实体数据",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "pre_data": {
+          "type": "object",
+          "title": "时间触发后的实体数据",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "callbackCmdbEventRequest": {
+      "type": "object",
+      "title": "cmdb事件请求",
+      "properties": {
+        "action": {
+          "type": "string",
+          "title": "触发动作"
+        },
+        "data": {
+          "type": "array",
+          "title": "事件的变更数据",
+          "items": {
+            "$ref": "#/definitions/callbackCmdbEventData"
+          }
+        },
+        "event_type": {
+          "type": "string",
+          "title": "事件类型"
+        },
+        "obj_type": {
+          "type": "string",
+          "title": "事件相关的实体，如集群set"
+        }
+      }
+    },
+    "callbackCmdbEventResponse": {
+      "type": "object",
+      "title": "cmdb事件请求返回",
+      "properties": {
+        "status": {
+          "title": "返回状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbBizObject": {
+      "type": "object",
+      "title": "业务",
+      "properties": {
+        "bk_biz_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "业务ID"
+        },
+        "bk_biz_name": {
+          "type": "string",
+          "title": "业务名"
+        }
+      }
+    },
+    "cmdbChooseHostRequest": {
+      "type": "object",
+      "title": "选择主机请求",
+      "properties": {
+        "bk_biz_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "业务ID"
+        },
+        "bk_module_id": {
+          "type": "array",
+          "title": "模块ID",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "bk_set_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "集群ID"
+        }
+      }
+    },
+    "cmdbChooseServerRequest": {
+      "type": "object",
+      "title": "选择物理机请求",
+      "properties": {
+        "room_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "机房ID"
+        },
+        "server": {
+          "type": "array",
+          "title": "机房下对应物理机UUID及ipmi的ip",
+          "items": {
+            "$ref": "#/definitions/cmdbServer"
+          }
+        }
+      }
+    },
+    "cmdbHostInfoObject": {
+      "type": "object",
+      "title": "主机内容信息",
+      "properties": {
+        "biz": {
+          "type": "array",
+          "title": "业务对象",
+          "items": {
+            "$ref": "#/definitions/cmdbBizObject"
+          }
+        },
+        "host": {
+          "title": "主机对象",
+          "$ref": "#/definitions/cmdbHostObject"
+        },
+        "module": {
+          "type": "array",
+          "title": "模块对象",
+          "items": {
+            "$ref": "#/definitions/cmdbModuleObject"
+          }
+        },
+        "set": {
+          "type": "array",
+          "title": "集群对象",
+          "items": {
+            "$ref": "#/definitions/cmdbSetObject"
+          }
+        }
+      }
+    },
+    "cmdbHostObject": {
+      "type": "object",
+      "title": "主机",
+      "properties": {
+        "bk_host_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "主机ID"
+        },
+        "bk_host_innerip": {
+          "type": "string",
+          "title": "内网IP"
+        }
+      }
+    },
+    "cmdbImportHistoryObject": {
+      "type": "object",
+      "title": "导入历史对象",
+      "properties": {
+        "end_time": {
+          "type": "string",
+          "format": "date-time",
+          "title": "结束时间"
+        },
+        "fail_count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "失败行数"
+        },
+        "filename": {
+          "type": "string",
+          "title": "用户上传的文件名"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "ID"
+        },
+        "import_type": {
+          "title": "导入类型",
+          "$ref": "#/definitions/cmdbImportType"
+        },
+        "logfile_content": {
+          "type": "string",
+          "title": "日志文件内容"
+        },
+        "logfile_md5": {
+          "type": "string",
+          "title": "日志文件md5"
+        },
+        "logfile_url": {
+          "type": "string",
+          "title": "日志文件下载路径"
+        },
+        "md5": {
+          "type": "string",
+          "title": "xlsx文件md5"
+        },
+        "operator": {
+          "title": "操作人",
+          "$ref": "#/definitions/commonUser"
+        },
+        "start_time": {
+          "type": "string",
+          "format": "date-time",
+          "title": "起始时间"
+        },
+        "status": {
+          "title": "导入状态",
+          "$ref": "#/definitions/cmdbImportStatus"
+        },
+        "success_count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "成功行数"
+        },
+        "total_count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总行数"
+        },
+        "url": {
+          "type": "string",
+          "title": "xlsx文件路径"
+        }
+      }
+    },
+    "cmdbImportHistoryResponse": {
+      "type": "object",
+      "title": "查询导入历史列表返回",
+      "properties": {
+        "history": {
+          "type": "array",
+          "title": "导入历史对象列表",
+          "items": {
+            "$ref": "#/definitions/cmdbImportHistoryObject"
+          }
+        },
+        "paging": {
+          "title": "分页信息",
+          "$ref": "#/definitions/commonPaging"
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbImportHostRequest": {
+      "type": "object",
+      "title": "导入主机请求",
+      "properties": {
+        "filename": {
+          "type": "string",
+          "title": "用户上传xlsx文件的文件名"
+        },
+        "md5": {
+          "type": "string",
+          "title": "xlsx文件md5"
+        },
+        "url": {
+          "type": "string",
+          "title": "xlsx文件下载路径"
+        }
+      }
+    },
+    "cmdbImportHostResponse": {
+      "type": "object",
+      "title": "导入主机请求返回",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbImportLakeRequest": {
+      "type": "object",
+      "title": "导入lake节点请求",
+      "properties": {
+        "filename": {
+          "type": "string",
+          "title": "用户上传xlsx文件的文件名"
+        },
+        "md5": {
+          "type": "string",
+          "title": "xlsx文件md5"
+        },
+        "url": {
+          "type": "string",
+          "title": "xlsx文件下载路径"
+        }
+      }
+    },
+    "cmdbImportLakeResponse": {
+      "type": "object",
+      "title": "导入lake节点请求返回",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbImportServerRequest": {
+      "type": "object",
+      "title": "导入物理机请求",
+      "properties": {
+        "filename": {
+          "type": "string",
+          "title": "用户上传xlsx文件的文件名"
+        },
+        "md5": {
+          "type": "string",
+          "title": "xlsx文件md5"
+        },
+        "url": {
+          "type": "string",
+          "title": "xlsx文件下载路径"
+        }
+      }
+    },
+    "cmdbImportServerResponse": {
+      "type": "object",
+      "title": "导入物理机请求返回",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbImportStatus": {
+      "description": "- IMPORTING: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败",
+      "type": "string",
+      "title": "导入状态: 0-正在导入 1-导入完成 2-导入失败",
+      "default": "IMPORTING",
+      "enum": [
+        "IMPORTING",
+        "COMPLETED",
+        "FAILED"
+      ]
+    },
+    "cmdbImportSwitchRequest": {
+      "type": "object",
+      "title": "导入交换机请求",
+      "properties": {
+        "filename": {
+          "type": "string",
+          "title": "用户上传xlsx文件的文件名"
+        },
+        "md5": {
+          "type": "string",
+          "title": "xlsx文件md5"
+        },
+        "url": {
+          "type": "string",
+          "title": "xlsx文件下载路径"
+        }
+      }
+    },
+    "cmdbImportSwitchResponse": {
+      "type": "object",
+      "title": "导入交换机请求返回",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbImportType": {
+      "description": "- UNDEFINED: 0-undefined\n - HOST: 1-主机\n - SERVER: 2-物理机\n - LAKE: 3-LAKE\n - SWITCH: 4-交换机",
+      "type": "string",
+      "title": "导入类型:0-undefined 1-主机 2-物理机 3-LAKE 4-交换机",
+      "default": "UNDEFINED",
+      "enum": [
+        "UNDEFINED",
+        "HOST",
+        "SERVER",
+        "LAKE",
+        "SWITCH"
+      ]
+    },
+    "cmdbInstanceTopologyResponse": {
+      "type": "object",
+      "title": "拓扑实例请求返回",
+      "properties": {
+        "instance": {
+          "title": "业务拓扑对象",
+          "$ref": "#/definitions/cmdbTopologyObject"
+        },
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbLakeObject": {
+      "type": "object",
+      "title": "LAKE节点对象",
+      "properties": {
+        "bandwidth_limit": {
+          "type": "number",
+          "format": "float",
+          "title": "能力上限"
+        },
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "业务ID"
+        },
+        "bk_inst_name": {
+          "type": "string",
+          "title": "实例名"
+        },
+        "construct_state": {
+          "type": "string",
+          "title": "节点建设状态"
+        },
+        "construct_updatetime": {
+          "type": "string",
+          "title": "节点建设状态变更时间"
+        },
+        "node_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "节点ID"
+        },
+        "node_level": {
+          "type": "string",
+          "title": "节点层次"
+        },
+        "room": {
+          "type": "array",
+          "title": "机房信息",
+          "items": {
+            "$ref": "#/definitions/cmdbServerRoomObject"
+          }
+        },
+        "service_state": {
+          "type": "string",
+          "title": "节点服务状态"
+        },
+        "vip": {
+          "type": "array",
+          "title": "节点VIP",
+          "items": {
+            "$ref": "#/definitions/cmdbVipObject"
+          }
+        }
+      }
+    },
+    "cmdbModuleObject": {
+      "type": "object",
+      "title": "模块",
+      "properties": {
+        "bk_module_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "模块ID"
+        },
+        "bk_module_name": {
+          "type": "string",
+          "title": "模块名"
+        }
+      }
+    },
+    "cmdbRoomObject": {
+      "type": "object",
+      "title": "机房对象",
+      "properties": {
+        "area_code": {
+          "type": "string",
+          "title": "地区编码"
+        },
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "业务ID"
+        },
+        "bk_inst_name": {
+          "type": "string",
+          "title": "业务名称"
+        },
+        "bk_obj_id": {
+          "type": "string",
+          "title": "对象ID"
+        },
+        "child": {
+          "type": "array",
+          "title": "子对象",
+          "items": {
+            "$ref": "#/definitions/cmdbRoomObject"
+          }
+        },
+        "city": {
+          "type": "string",
+          "title": "城市"
+        },
+        "prov": {
+          "type": "string",
+          "title": "省份"
+        },
+        "room_name": {
+          "type": "string",
+          "title": "机房名称"
+        }
+      }
+    },
+    "cmdbRoomTopologyResponse": {
+      "type": "object",
+      "title": "机房拓扑请求返回",
+      "properties": {
+        "rooms": {
+          "type": "array",
+          "title": "机房拓扑对象",
+          "items": {
+            "$ref": "#/definitions/cmdbRoomObject"
+          }
+        },
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbSearchHostResponse": {
+      "type": "object",
+      "title": "查找主机请求返回",
+      "properties": {
+        "info": {
+          "type": "array",
+          "title": "主机信息",
+          "items": {
+            "$ref": "#/definitions/cmdbHostInfoObject"
+          }
+        },
+        "paging": {
+          "title": "分页信息",
+          "$ref": "#/definitions/commonPaging"
+        },
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbSearchLakeRequest": {
+      "type": "object",
+      "title": "查找Lake请求",
+      "properties": {
+        "area_code": {
+          "type": "array",
+          "title": "地区编码(一个或多个，可为空)",
+          "items": {
+            "type": "string"
+          }
+        },
+        "isp_code": {
+          "type": "array",
+          "title": "运营商编码(一个或多个，可为空)",
+          "items": {
+            "type": "string"
+          }
+        },
+        "node_id": {
+          "type": "array",
+          "title": "节点ID(一个或多个，可为空)",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "vip": {
+          "type": "array",
+          "title": "节点VIP(一个或多个，可为空)",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "cmdbSearchLakeResponse": {
+      "type": "object",
+      "title": "查找Lake请求返回",
+      "properties": {
+        "lake": {
+          "type": "array",
+          "title": "主机信息",
+          "items": {
+            "$ref": "#/definitions/cmdbLakeObject"
+          }
+        },
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbSearchMoudleResponse": {
+      "type": "object",
+      "title": "查询模块请求返回",
+      "properties": {
+        "moudule": {
+          "type": "array",
+          "title": "模块对象",
+          "items": {
+            "$ref": "#/definitions/cmdbModuleObject"
+          }
+        },
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbServer": {
+      "type": "object",
+      "title": "物理机传入信息",
+      "properties": {
+        "ipmi_ip": {
+          "type": "string",
+          "title": "物理机ipmi的ip"
+        },
+        "uuid": {
+          "type": "string",
+          "title": "裸金属uuid"
+        }
+      }
+    },
+    "cmdbServerInstallState": {
+      "description": "- UNINSTALLED: 未装机\n - INSTALLING: 装机中\n - INSTALLED: 已装机",
+      "type": "string",
+      "title": "装机状态",
+      "default": "UNINSTALLED",
+      "enum": [
+        "UNINSTALLED",
+        "INSTALLING",
+        "INSTALLED"
+      ]
+    },
+    "cmdbServerListResponse": {
+      "type": "object",
+      "title": "裸金属列表响应",
+      "properties": {
+        "paging": {
+          "title": "分页信息",
+          "$ref": "#/definitions/commonPaging"
+        },
+        "servers": {
+          "type": "array",
+          "title": "裸金属列表",
+          "items": {
+            "$ref": "#/definitions/cmdbServerObject"
+          }
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbServerObject": {
+      "type": "object",
+      "title": "物理机对象",
+      "properties": {
+        "account": {
+          "type": "string",
+          "title": "IPMI账号"
+        },
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "物理机id"
+        },
+        "bk_inst_name": {
+          "type": "string",
+          "title": "实例名"
+        },
+        "cabinet": {
+          "type": "string",
+          "title": "机柜"
+        },
+        "install_state": {
+          "title": "装机状态",
+          "$ref": "#/definitions/cmdbServerInstallState"
+        },
+        "mac_address": {
+          "type": "string",
+          "title": "MAC地址"
+        },
+        "manage_ip": {
+          "type": "string",
+          "title": "IPMI地址"
+        },
+        "password": {
+          "type": "string",
+          "title": "IPMI密码"
+        },
+        "port": {
+          "type": "string",
+          "title": "IPMI端口"
+        },
+        "power_state": {
+          "title": "电源状态",
+          "$ref": "#/definitions/cmdbServerPowerState"
+        },
+        "uuid": {
+          "type": "string",
+          "title": "裸金属uuid"
+        }
+      }
+    },
+    "cmdbServerPowerState": {
+      "description": "- UNKNOWN: 未知状态\n - OFF: 下电\n - ON: 上电",
+      "type": "string",
+      "title": "电源状态",
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "OFF",
+        "ON"
+      ]
+    },
+    "cmdbServerRoomObject": {
+      "type": "object",
+      "title": "机房对象",
+      "properties": {
+        "area_code": {
+          "type": "string",
+          "title": "地区编码"
+        },
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "机房ID"
+        },
+        "bk_inst_name": {
+          "type": "string",
+          "title": "机房名称"
+        },
+        "isp_code": {
+          "type": "string",
+          "title": "运营商编码"
+        },
+        "state": {
+          "type": "string",
+          "title": "机房状态"
+        }
+      }
+    },
+    "cmdbSetObject": {
+      "type": "object",
+      "title": "集群",
+      "properties": {
+        "bk_set_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "集群ID"
+        },
+        "bk_set_name": {
+          "type": "string",
+          "title": "集群名"
+        }
+      }
+    },
+    "cmdbTopologyObject": {
+      "type": "object",
+      "title": "业务拓扑对象",
+      "properties": {
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "业务ID"
+        },
+        "bk_inst_name": {
+          "type": "string",
+          "title": "业务名称"
+        },
+        "bk_obj_id": {
+          "type": "string",
+          "title": "对象ID"
+        },
+        "bk_obj_name": {
+          "type": "string",
+          "title": "对象名称"
+        },
+        "child": {
+          "type": "array",
+          "title": "子对象",
+          "items": {
+            "$ref": "#/definitions/cmdbTopologyObject"
+          }
+        }
+      }
+    },
+    "cmdbVipObject": {
+      "type": "object",
+      "title": "VIP对象",
+      "properties": {
+        "biz_type": {
+          "type": "string",
+          "title": "vip类型"
+        },
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "实例ID"
+        },
+        "bk_inst_name": {
+          "type": "string",
+          "title": "ip的ipv4地址"
+        },
+        "vip_ipv4": {
+          "type": "string",
+          "title": "vip的ipv4地址"
+        },
+        "vip_ipv6": {
+          "type": "string",
+          "title": "vip的ipv6地址"
+        }
+      }
+    },
+    "cmdbZoneObject": {
+      "type": "object",
+      "title": "区域",
+      "properties": {
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "区域ID"
+        }
+      }
+    },
+    "commonPaging": {
+      "type": "object",
+      "title": "分页",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "title": "当前页数"
+        },
+        "per_page": {
+          "type": "integer",
+          "format": "int32",
+          "title": "每页显示的记录条数"
+        },
+        "total_page": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总页数"
+        },
+        "total_record": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总记录数"
+        }
+      }
+    },
+    "commonResponseStatus": {
+      "type": "object",
+      "title": "请求返回状态",
+      "properties": {
+        "code": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonStatusCode"
+        },
+        "message": {
+          "type": "string",
+          "title": "信息"
+        }
+      }
+    },
+    "commonStatusCode": {
+      "description": "- SUCCESS: 成功\n - INVALID_ARGUMENT: 参数错误\n - ACCESS_DENIED: 访问拒绝",
+      "type": "string",
+      "title": "请求返回状态码",
+      "default": "SUCCESS",
+      "enum": [
+        "SUCCESS",
+        "INVALID_ARGUMENT",
+        "ACCESS_DENIED"
+      ]
+    },
+    "commonUser": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "user_name": {
+          "type": "string"
+        }
+      }
+    },
+    "fileUploadPlaybookRequest": {
+      "type": "object",
+      "title": "上传playbook压缩包并且解析入口yml文件的请求体",
+      "properties": {
+        "content": {
+          "type": "string",
+          "format": "byte",
+          "title": "上传的playbook压缩包"
+        }
+      }
+    },
+    "fileUploadPlaybookResponse": {
+      "type": "object",
+      "properties": {
+        "entrypoint": {
+          "type": "array",
+          "title": "解析出来的playbook项目入口yml文件，有多个",
+          "items": {
+            "type": "string"
+          }
+        },
+        "filesize": {
+          "type": "string",
+          "title": "解析出来的playbook项目文件大小"
+        },
+        "md5": {
+          "type": "string",
+          "title": "解析出来的playbook项目文件md5"
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "url": {
+          "type": "string",
+          "title": "解析出来的playbook项目存储在对象存储的url"
+        }
+      }
+    },
+    "fileUploadRequest": {
+      "type": "object",
+      "title": "上传csv等通用文件",
+      "properties": {
+        "content": {
+          "type": "string",
+          "format": "byte",
+          "title": "文件字段"
+        }
+      }
+    },
+    "fileUploadResponse": {
+      "type": "object",
+      "properties": {
+        "filename": {
+          "type": "string",
+          "title": "解析出来的通用文件name"
+        },
+        "filesize": {
+          "type": "string",
+          "title": "解析出来的通用文件大小"
+        },
+        "md5": {
+          "type": "string",
+          "title": "解析出来的通用文件md5"
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "url": {
+          "type": "string",
+          "title": "通用文件对象存储的url"
+        }
+      }
+    },
+    "greeterHelloReply": {
+      "type": "object",
+      "title": "The response message containing the greetings",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "ironicComAppKey": {
+      "description": "- IRONICAPP: 裸金属应用\n - CMDB: CMDB平台",
+      "type": "string",
+      "title": "调用方编码",
+      "default": "UNDEFINED",
+      "enum": [
+        "UNDEFINED",
+        "IRONICAPP",
+        "CMDB"
+      ]
+    },
+    "ironicComPageInfo": {
+      "type": "object",
+      "title": "分页信息(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)",
+      "properties": {
+        "pageCount": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总页数"
+        },
+        "pageIndex": {
+          "type": "integer",
+          "format": "int32",
+          "title": "当前页"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "title": "每页数量"
+        },
+        "rowCount": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总记录数"
+        }
+      }
+    },
+    "ironicComResultCode": {
+      "description": "- SUCCESS: 成功\n - FAIL: 失败",
+      "type": "string",
+      "title": "响应码",
+      "default": "SUCCESS",
+      "enum": [
+        "SUCCESS",
+        "FAIL"
+      ]
+    },
+    "ironicComSvcCode": {
+      "description": "- CREATENODES: 创建裸金属节点\n - QRYNODEINFO: 查询裸金属状态\n - INSTALLNODESYS: 安装裸金属系统\n - OPERNODEPOWER: 操作裸金属实例电源",
+      "type": "string",
+      "title": "服务编码",
+      "default": "SVCCODEDEFAULT",
+      "enum": [
+        "SVCCODEDEFAULT",
+        "CREATENODES",
+        "QRYNODEINFO",
+        "INSTALLNODESYS",
+        "OPERNODEPOWER"
+      ]
+    },
+    "ironicComTcpContReq": {
+      "type": "object",
+      "title": "控制对象(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)",
+      "properties": {
+        "apiCode": {
+          "type": "string",
+          "title": "能力编码"
+        },
+        "appKey": {
+          "title": "调用方编码",
+          "$ref": "#/definitions/ironicComAppKey"
+        },
+        "dstSysID": {
+          "title": "提供方编码",
+          "$ref": "#/definitions/ironicComAppKey"
+        },
+        "reqTime": {
+          "type": "string",
+          "format": "date-time",
+          "title": "请求时间"
+        },
+        "sign": {
+          "type": "string",
+          "title": "签名字符串"
+        },
+        "svcCode": {
+          "title": "服务编码",
+          "$ref": "#/definitions/ironicComSvcCode"
+        },
+        "transactionID": {
+          "type": "string",
+          "title": "交易流水号"
+        },
+        "version": {
+          "type": "string",
+          "title": "服务版本"
+        }
+      }
+    },
+    "ironicComTcpContRes": {
+      "type": "object",
+      "title": "控制对象(每个服务通用的控制信息，当服务端反馈应答时，信息填写如下)",
+      "properties": {
+        "reqTime": {
+          "type": "string",
+          "format": "date-time",
+          "title": "应答时间"
+        },
+        "sign": {
+          "type": "string",
+          "title": "签名字符串"
+        },
+        "transactionID": {
+          "type": "string",
+          "title": "交易流水号"
+        }
+      }
+    },
+    "ironicServerCreateNodesRootReqContractRootReq": {
+      "type": "object",
+      "title": "请求信息",
+      "properties": {
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerCreateNodesRootReqSvcContReq"
+        },
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContReq"
+        }
+      }
+    },
+    "ironicServerCreateNodesRootReqSvcContReq": {
+      "type": "object",
+      "properties": {
+        "requestObject": {
+          "title": "节点信息列表",
+          "$ref": "#/definitions/CreateNodesRootReqCreateNodeInfoReq"
+        }
+      }
+    },
+    "ironicServerCreateNodesRootRes": {
+      "type": "object",
+      "properties": {
+        "contractRootRes": {
+          "$ref": "#/definitions/ironicServerCreateNodesRootResContractRootRes"
+        }
+      }
+    },
+    "ironicServerCreateNodesRootResContractRootRes": {
+      "type": "object",
+      "properties": {
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerCreateNodesRootResSvcContRes"
+        },
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContRes"
+        }
+      }
+    },
+    "ironicServerCreateNodesRootResNodeInfoRsp": {
+      "type": "object",
+      "title": "节点信息",
+      "properties": {
+        "createResultCode": {
+          "title": "创建节点响应码",
+          "$ref": "#/definitions/ironicComResultCode"
+        },
+        "createResultMsg": {
+          "type": "string",
+          "title": "创建节点响应消息"
+        },
+        "initId": {
+          "type": "string",
+          "format": "int64",
+          "title": "初始化id"
+        },
+        "nodeId": {
+          "type": "string",
+          "title": "裸金属节点id"
+        }
+      }
+    },
+    "ironicServerCreateNodesRootResSvcContRes": {
+      "type": "object",
+      "properties": {
+        "resultCode": {
+          "title": "响应码",
+          "$ref": "#/definitions/ironicComResultCode"
+        },
+        "resultMsg": {
+          "type": "string",
+          "title": "响应消息描述"
+        },
+        "resultObject": {
+          "title": "响应对象",
+          "$ref": "#/definitions/CreateNodesRootResCreateNodeInfoRsp"
+        }
+      }
+    },
+    "ironicServerInstallNodeSysRootReqContractRootReq": {
+      "type": "object",
+      "title": "请求信息",
+      "properties": {
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerInstallNodeSysRootReqSvcContReq"
+        },
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContReq"
+        }
+      }
+    },
+    "ironicServerInstallNodeSysRootReqSvcContReq": {
+      "type": "object",
+      "title": "安装裸金属系统请求",
+      "properties": {
+        "requestObject": {
+          "$ref": "#/definitions/InstallNodeSysRootReqInstallNodeSysReq"
+        }
+      }
+    },
+    "ironicServerInstallNodeSysRootRes": {
+      "type": "object",
+      "properties": {
+        "contractRootRes": {
+          "$ref": "#/definitions/ironicServerInstallNodeSysRootResContractRootRes"
+        }
+      }
+    },
+    "ironicServerInstallNodeSysRootResContractRootRes": {
+      "type": "object",
+      "title": "响应信息",
+      "properties": {
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerInstallNodeSysRootResSvcContRes"
+        },
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContRes"
+        }
+      }
+    },
+    "ironicServerInstallNodeSysRootResNodeInfoRsp": {
+      "type": "object",
+      "title": "节点信息",
+      "properties": {
+        "initId": {
+          "type": "string",
+          "format": "int64",
+          "title": "初始化id"
+        },
+        "installResultCode": {
+          "title": "创建节点响应码",
+          "$ref": "#/definitions/ironicComResultCode"
+        },
+        "installResultMsg": {
+          "type": "string",
+          "title": "创建节点响应消息"
+        },
+        "nodeId": {
+          "type": "string",
+          "title": "裸金属节点id"
+        }
+      }
+    },
+    "ironicServerInstallNodeSysRootResSvcContRes": {
+      "type": "object",
+      "properties": {
+        "resultCode": {
+          "title": "响应码",
+          "$ref": "#/definitions/ironicComResultCode"
+        },
+        "resultMsg": {
+          "type": "string",
+          "title": "响应消息描述"
+        },
+        "resultObject": {
+          "title": "响应对象",
+          "$ref": "#/definitions/InstallNodeSysRootResInstallNodeInfoRsp"
+        }
+      }
+    },
+    "ironicServerOperNodePowerRootReqContractRootReq": {
+      "type": "object",
+      "title": "请求信息",
+      "properties": {
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerOperNodePowerRootReqSvcContReq"
+        },
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContReq"
+        }
+      }
+    },
+    "ironicServerOperNodePowerRootReqSvcContReq": {
+      "type": "object",
+      "properties": {
+        "requestObject": {
+          "$ref": "#/definitions/OperNodePowerRootReqOperNodePowerReq"
+        }
+      }
+    },
+    "ironicServerOperNodePowerRootRes": {
+      "type": "object",
+      "properties": {
+        "contractRootRes": {
+          "$ref": "#/definitions/ironicServerOperNodePowerRootResContractRootRes"
+        }
+      }
+    },
+    "ironicServerOperNodePowerRootResContractRootRes": {
+      "type": "object",
+      "properties": {
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerOperNodePowerRootResSvcContRes"
+        },
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContRes"
+        }
+      }
+    },
+    "ironicServerOperNodePowerRootResSvcContRes": {
+      "type": "object",
+      "properties": {
+        "resultCode": {
+          "title": "响应码",
+          "$ref": "#/definitions/ironicComResultCode"
+        },
+        "resultMsg": {
+          "type": "string",
+          "title": "响应消息描述"
+        },
+        "resultObject": {
+          "title": "响应对象",
+          "$ref": "#/definitions/OperNodePowerRootResOperNodePowerRsp"
+        }
+      }
+    },
+    "ironicServerQryNodeInfoRootReqContractRootReq": {
+      "type": "object",
+      "title": "请求信息",
+      "properties": {
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerQryNodeInfoRootReqSvcContReq"
+        },
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContReq"
+        }
+      }
+    },
+    "ironicServerQryNodeInfoRootReqSvcContReq": {
+      "type": "object",
+      "properties": {
+        "requestObject": {
+          "title": "节点id列表",
+          "$ref": "#/definitions/QryNodeInfoRootReqQryNodeInfoReq"
+        }
+      }
+    },
+    "ironicServerQryNodeInfoRootRes": {
+      "type": "object",
+      "properties": {
+        "contractRootRes": {
+          "$ref": "#/definitions/ironicServerQryNodeInfoRootResContractRootRes"
+        }
+      }
+    },
+    "ironicServerQryNodeInfoRootResContractRootRes": {
+      "type": "object",
+      "title": "响应信息",
+      "properties": {
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerQryNodeInfoRootResSvcContRes"
+        },
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContRes"
+        }
+      }
+    },
+    "ironicServerQryNodeInfoRootResSvcContRes": {
+      "type": "object",
+      "properties": {
+        "resultCode": {
+          "title": "响应码",
+          "$ref": "#/definitions/ironicComResultCode"
+        },
+        "resultMsg": {
+          "type": "string",
+          "title": "响应消息描述"
+        },
+        "resultObject": {
+          "title": "响应对象",
+          "$ref": "#/definitions/QryNodeInfoRootResQryNodeInfoRsp"
+        }
+      }
+    },
+    "jobCreateResponse": {
+      "type": "object",
+      "title": "创建作业任务请求返回",
+      "properties": {
+        "job_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "作业任务ID"
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "jobDeleteResponse": {
+      "type": "object",
+      "title": "删除作业任务请求返回"
+    },
+    "jobFilterResponse": {
+      "type": "object",
+      "title": "筛选作业任务请求返回",
+      "properties": {
+        "jobs": {
+          "type": "array",
+          "title": "筛选到的多个作业任务实例",
+          "items": {
+            "$ref": "#/definitions/jobJobObject"
+          }
+        },
+        "paging": {
+          "title": "分页信息",
+          "$ref": "#/definitions/commonPaging"
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "jobGetLogResponse": {
+      "type": "object",
+      "title": "获取作业任务详细执行过程请求返回",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "jobGetResponse": {
+      "type": "object",
+      "title": "获取作业任务请求返回",
+      "properties": {
+        "job": {
+          "title": "获取的作业任务实例",
+          "$ref": "#/definitions/jobJobObject"
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "jobJobObject": {
+      "type": "object",
+      "title": "作业任务实例",
+      "properties": {
+        "job_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "作业任务ID"
+        }
+      }
+    },
+    "jobScheduleListResponse": {
+      "type": "object",
+      "title": "查看定时作业任务请求返回"
+    },
+    "jobScheduleResponse": {
+      "type": "object",
+      "title": "创建定时作业任务请求返回"
+    },
+    "playbookCreateRequest": {
+      "type": "object",
+      "title": "创建项目请求内容体",
+      "required": [
+        "name",
+        "url",
+        "url_type",
+        "entrypoint"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "title": "playbook项目描述"
+        },
+        "entrypoint": {
+          "type": "array",
+          "title": "playbook入口yml文件，有多个",
+          "items": {
+            "type": "string"
+          }
+        },
+        "md5": {
+          "type": "string",
+          "title": "文件md5"
+        },
+        "name": {
+          "type": "string",
+          "title": "playbook项目名称"
+        },
+        "size": {
+          "type": "string",
+          "format": "int64",
+          "title": "文件大小"
+        },
+        "url": {
+          "type": "string",
+          "title": "playbook存储在对象存储的url"
+        },
+        "url_type": {
+          "title": "枚举类型 1-文件下载 2-git下载",
+          "$ref": "#/definitions/playbookUrlType"
+        }
+      }
+    },
+    "playbookCreateResponse": {
+      "type": "object",
+      "title": "创建项目请求返回",
+      "properties": {
+        "created": {
+          "type": "string",
+          "title": "playbook项目创建时间"
+        },
+        "playbook_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "playbook项目ID"
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "playbookFilterResponse": {
+      "type": "object",
+      "title": "筛选项目请求返回",
+      "properties": {
+        "paging": {
+          "title": "分页信息",
+          "$ref": "#/definitions/commonPaging"
+        },
+        "projects": {
+          "type": "array",
+          "title": "返回的筛选到的多个项目实例",
+          "items": {
+            "$ref": "#/definitions/playbookProjectObject"
+          }
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "playbookGetResponse": {
+      "type": "object",
+      "title": "获取项目请求返回",
+      "properties": {
+        "project": {
+          "title": "返回的项目实例",
+          "$ref": "#/definitions/playbookProjectObject"
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "playbookPlaybookEntrypointObject": {
+      "type": "object",
+      "title": "playbook入口文件实例",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "入口文件名称"
+        },
+        "playbook_entrypoint_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "入口文件ID"
+        }
+      }
+    },
+    "playbookProjectObject": {
+      "type": "object",
+      "title": "项目实例",
+      "properties": {
+        "created": {
+          "type": "string",
+          "title": "创建时间"
+        },
+        "creator": {
+          "title": "创建人",
+          "$ref": "#/definitions/commonUser"
+        },
+        "description": {
+          "type": "string",
+          "title": "playbook项目描述"
+        },
+        "entrypoint": {
+          "type": "array",
+          "title": "playbook入口yml文件，有多个",
+          "items": {
+            "$ref": "#/definitions/playbookPlaybookEntrypointObject"
+          }
+        },
+        "md5": {
+          "type": "string",
+          "title": "文件md5"
+        },
+        "name": {
+          "type": "string",
+          "title": "playbook项目名称"
+        },
+        "playbook_file_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "playbook项目文件ID"
+        },
+        "playbook_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "playbook项目ID"
+        },
+        "size": {
+          "type": "string",
+          "format": "int64",
+          "title": "文件大小"
+        },
+        "updated": {
+          "type": "string",
+          "title": "更新时间"
+        },
+        "url": {
+          "type": "string",
+          "title": "playbook存储在对象存储的url"
+        },
+        "url_type": {
+          "title": "枚举类型 1-文件下载 2-git下载",
+          "$ref": "#/definitions/playbookUrlType"
+        },
+        "version": {
+          "type": "string",
+          "title": "playbook文件的版本号"
+        }
+      }
+    },
+    "playbookSaveVersionResponse": {
+      "type": "object",
+      "title": "版本列表请求响应",
+      "properties": {
+        "created": {
+          "type": "string",
+          "title": "playbook项目创建时间"
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "version_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "版本信息"
+        }
+      }
+    },
+    "playbookUpdateRequest": {
+      "type": "object",
+      "title": "更新项目请求内容体",
+      "required": [
+        "playbook_id",
+        "name"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "title": "playbook项目描述"
+        },
+        "entrypoint": {
+          "type": "array",
+          "title": "playbook入口yml文件，有多个",
+          "items": {
+            "type": "string"
+          }
+        },
+        "md5": {
+          "type": "string",
+          "title": "文件md5"
+        },
+        "name": {
+          "type": "string",
+          "title": "playbook项目名称"
+        },
+        "playbook_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "playbook项目ID"
+        },
+        "size": {
+          "type": "string",
+          "format": "int64",
+          "title": "文件大小"
+        },
+        "url": {
+          "type": "string",
+          "title": "playbook存储在对象存储的url"
+        },
+        "url_type": {
+          "title": "枚举类型 1-文件下载 2-git下载",
+          "$ref": "#/definitions/playbookUrlType"
+        },
+        "version": {
+          "type": "string",
+          "title": "playbook文件的版本号"
+        }
+      }
+    },
+    "playbookUpdateResponse": {
+      "type": "object",
+      "title": "更新项目请求返回",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "updated": {
+          "type": "string",
+          "title": "playbook项目更新时间"
+        }
+      }
+    },
+    "playbookUrlType": {
+      "description": "- UNDEFINED: 未定义\n - FILE: 文件下载\n - GIT: git下载",
+      "type": "string",
+      "title": "枚举URL类型",
+      "default": "UNDEFINED",
+      "enum": [
+        "UNDEFINED",
+        "FILE",
+        "GIT"
+      ]
+    },
+    "scheduleCreateRequest": {
+      "type": "object",
+      "title": "创建定时任务请求",
+      "required": [
+        "schedules",
+        "cmdb_search_request"
+      ],
+      "properties": {
+        "cmdb_search_request": {
+          "type": "array",
+          "title": "cmdb的搜索条件",
+          "items": {
+            "$ref": "#/definitions/cmdbChooseHostRequest"
+          }
+        },
+        "extra_var": {
+          "type": "string",
+          "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
+        },
+        "schedules": {
+          "type": "array",
+          "title": "创建定时任务的请求内容体",
+          "items": {
+            "$ref": "#/definitions/scheduleCreateScheduleObject"
+          }
+        }
+      }
+    },
+    "scheduleCreateResponse": {
+      "type": "object",
+      "title": "创建定时任务请求返回",
+      "properties": {
+        "schedules": {
+          "type": "array",
+          "title": "创建定时任务的请求返回内容体",
+          "items": {
+            "$ref": "#/definitions/scheduleCreateScheduleResponseObject"
+          }
+        },
+        "status": {
+          "title": "返回请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "scheduleCreateScheduleObject": {
+      "type": "object",
+      "title": "创建定时任务的请求内容体",
+      "properties": {
+        "cron_expression": {
+          "type": "string",
+          "title": "定时任务表达式"
+        },
+        "end_time": {
+          "type": "string",
+          "title": "定时任务结束时间"
+        },
+        "name": {
+          "type": "string",
+          "title": "定时任务名"
+        },
+        "start_time": {
+          "type": "string",
+          "title": "定时任务开始时间"
+        },
+        "task_type": {
+          "title": "任务类型",
+          "$ref": "#/definitions/scheduleTaskType"
+        },
+        "template_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "模板ID"
+        }
+      }
+    },
+    "scheduleCreateScheduleResponseObject": {
+      "type": "object",
+      "title": "创建定时任务的请求返回内容体",
+      "properties": {
+        "created": {
+          "type": "string",
+          "title": "定时任务创建时间"
+        },
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "定时任务ID"
+        }
+      }
+    },
+    "scheduleFilterResponse": {
+      "type": "object",
+      "title": "筛选定时任务请求返回",
+      "properties": {
+        "paging": {
+          "title": "分页信息",
+          "$ref": "#/definitions/commonPaging"
+        },
+        "schedules": {
+          "type": "array",
+          "title": "筛选到的多个定时任务实例",
+          "items": {
+            "$ref": "#/definitions/scheduleScheduleObject"
+          }
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "scheduleGetResponse": {
+      "type": "object",
+      "title": "获取定时任务请求返回",
+      "properties": {
+        "schedule": {
+          "title": "定时任务实例",
+          "$ref": "#/definitions/scheduleScheduleObject"
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "scheduleScheduleObject": {
+      "type": "object",
+      "title": "定时任务实例",
+      "properties": {
+        "cron_expression": {
+          "type": "string",
+          "title": "定时任务表达式"
+        },
+        "end_time": {
+          "type": "string",
+          "title": "开始时间"
+        },
+        "execute_count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "执行总数"
+        },
+        "name": {
+          "type": "string",
+          "title": "定时任务名"
+        },
+        "next_time": {
+          "type": "string",
+          "title": "下次执行时间"
+        },
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "定时任务ID"
+        },
+        "start_time": {
+          "type": "string",
+          "title": "开始日期"
+        },
+        "status": {
+          "title": "任务状态",
+          "$ref": "#/definitions/scheduleScheduleStatus"
+        },
+        "task_type": {
+          "title": "任务类型",
+          "$ref": "#/definitions/scheduleTaskType"
+        },
+        "template": {
+          "title": "模板实例",
+          "$ref": "#/definitions/templateTemplateObject"
+        }
+      }
+    },
+    "scheduleScheduleStatus": {
+      "type": "string",
+      "title": "任务状态",
+      "default": "OFF",
+      "enum": [
+        "OFF",
+        "ON"
+      ]
+    },
+    "scheduleSwitchStatusRequest": {
+      "type": "object",
+      "title": "切换定时任务状态请求",
+      "properties": {
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "定时任务ID"
+        },
+        "schedule_status": {
+          "title": "定时任务状态",
+          "$ref": "#/definitions/scheduleScheduleStatus"
+        }
+      }
+    },
+    "scheduleSwitchStatusResponse": {
+      "type": "object",
+      "title": "切换定时任务状态请求返回",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "scheduleTaskType": {
+      "description": "- UNDEFINED: 0-undefined\n - PLAYBOOK: 1-作业模板\n - CONTAINER: 2-容器部署\n - BARE_METAL: 3-裸金属管理",
+      "type": "string",
+      "title": "任务类型 0-undefined 1-作业模板；2-容器部署 3-裸金属管理",
+      "default": "UNDEFINED",
+      "enum": [
+        "UNDEFINED",
+        "PLAYBOOK",
+        "CONTAINER",
+        "BARE_METAL"
+      ]
+    },
+    "scheduleUpdateRequest": {
+      "type": "object",
+      "title": "更新定时任务请求",
+      "required": [
+        "schedule_id",
+        "name",
+        "start_time",
+        "end_time",
+        "cron_expression"
+      ],
+      "properties": {
+        "cron_expression": {
+          "type": "string",
+          "title": "定时任务表达式"
+        },
+        "end_time": {
+          "type": "string",
+          "title": "定时任务结束时间"
+        },
+        "name": {
+          "type": "string",
+          "title": "定时任务名字"
+        },
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "定时任务ID"
+        },
+        "start_time": {
+          "type": "string",
+          "title": "定时任务开启时间"
+        }
+      }
+    },
+    "scheduleUpdateResponse": {
+      "type": "object",
+      "title": "更新请求返回",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "updated": {
+          "type": "string",
+          "title": "定时任务更新时间"
+        }
+      }
+    },
+    "subtaskCompleteResponse": {
+      "type": "object",
+      "title": "完成子任务实例请求返回",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "subtaskCreateResponse": {
+      "type": "object",
+      "title": "创建子任务实例请求返回",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "sub_task_id": {
+          "type": "array",
+          "title": "子任务实例ID",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        }
+      }
+    },
+    "subtaskCreateServerResponse": {
+      "type": "object",
+      "title": "裸金属子任务实例返回",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "sub_task_id": {
+          "type": "string",
+          "format": "int64",
+          "title": "子任务实例ID"
+        }
+      }
+    },
+    "subtaskServerTaskType": {
+      "description": "- UNDEFINED: 未定义任务类型\n - CHECK: 裸金属状态查询任务\n - POWER: 裸金属电源开关任务\n - CREATE: 裸金属初始化创建uuid任务\n - INSTALL: 裸金属安装任务",
+      "type": "string",
+      "title": "裸金属任务状态",
+      "default": "UNDEFINED",
+      "enum": [
+        "UNDEFINED",
+        "CHECK",
+        "POWER",
+        "CREATE",
+        "INSTALL"
+      ]
+    },
+    "subtaskSubTaskResult": {
+      "description": "- FAILURE: 失败\n - SUCCESS: 成功",
+      "type": "string",
+      "title": "子任务执行结果",
+      "default": "FAILURE",
+      "enum": [
+        "FAILURE",
+        "SUCCESS"
+      ]
+    },
+    "taskCheckServerStateRequest": {
+      "type": "object",
+      "title": "调用裸金属应用检查裸金属状态请求体",
+      "properties": {
+        "cmdb_search_request": {
+          "type": "array",
+          "title": "机房及对应物理机",
+          "items": {
+            "$ref": "#/definitions/cmdbChooseServerRequest"
+          }
+        }
+      }
+    },
+    "taskCheckServerStateResponse": {
+      "type": "object",
+      "title": "调用裸金属应用检查裸金属状态返回体",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "taskCreateRequest": {
+      "type": "object",
+      "title": "创建任务实例请求",
+      "required": [
+        "schedules",
+        "cmdb_search_request"
+      ],
+      "properties": {
+        "cmdb_search_request": {
+          "type": "array",
+          "title": "cmdb的搜索条件",
+          "items": {
+            "$ref": "#/definitions/cmdbChooseHostRequest"
+          }
+        },
+        "extra_var": {
+          "type": "string",
+          "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
+        },
+        "name": {
+          "type": "string",
+          "title": "作业名称"
+        },
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "定时任务ID"
+        },
+        "schedule_type": {
+          "title": "定时任务类型",
+          "$ref": "#/definitions/taskScheduleType"
+        },
+        "task_type": {
+          "title": "任务类型",
+          "$ref": "#/definitions/scheduleTaskType"
+        },
+        "template_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "模板ID"
+        }
+      }
+    },
+    "taskCreateResponse": {
+      "type": "object",
+      "title": "创建任务实例请求返回",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "task_id": {
+          "type": "string",
+          "format": "int64",
+          "title": "任务实例ID"
+        }
+      }
+    },
+    "taskCreateServerRequest": {
+      "type": "object",
+      "title": "调用裸金属创建操作请求体",
+      "properties": {
+        "cmdb_search_request": {
+          "type": "array",
+          "title": "机房及对应物理机",
+          "items": {
+            "$ref": "#/definitions/cmdbChooseServerRequest"
+          }
+        }
+      }
+    },
+    "taskCreateServerResponse": {
+      "type": "object",
+      "title": "调用裸金属创建操作返回体",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "taskFilterResponse": {
+      "type": "object",
+      "title": "筛选作业任务请求返回",
+      "properties": {
+        "paging": {
+          "title": "分页信息",
+          "$ref": "#/definitions/commonPaging"
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "tasks": {
+          "type": "array",
+          "title": "筛选到的多个作业任务实例",
+          "items": {
+            "$ref": "#/definitions/taskTaskObject"
+          }
+        }
+      }
+    },
+    "taskGetLogResponse": {
+      "type": "object",
+      "title": "获取作业任务详细执行过程请求返回",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "taskGetResponse": {
+      "type": "object",
+      "title": "获取作业任务请求返回",
+      "properties": {
+        "host_module": {
+          "type": "string",
+          "title": "task对于的主机模块"
+        },
+        "playbook_version": {
+          "type": "string",
+          "title": "task对于的作业版本"
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "task": {
+          "title": "获取的作业任务实例",
+          "$ref": "#/definitions/taskTaskObject"
+        },
+        "template_name": {
+          "type": "string",
+          "title": "作业对应的模板名字"
+        }
+      }
+    },
+    "taskInstallServerRequest": {
+      "type": "object",
+      "title": "调用裸金属安装操作请求体",
+      "properties": {
+        "cmdb_host_search_request": {
+          "title": "主机查询条件",
+          "$ref": "#/definitions/cmdbChooseHostRequest"
+        },
+        "cmdb_search_request": {
+          "type": "array",
+          "title": "机房及对应物理机",
+          "items": {
+            "$ref": "#/definitions/cmdbChooseServerRequest"
+          }
+        },
+        "image_file_md5": {
+          "type": "string",
+          "title": "安装镜像文件的MD5"
+        },
+        "image_file_url": {
+          "type": "string",
+          "title": "安装镜像文件的URL"
+        }
+      }
+    },
+    "taskInstallServerResponse": {
+      "type": "object",
+      "title": "调用裸金属安装操作返回体",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "taskScheduleType": {
+      "description": "- UNDEFINED: 0-undefined\n - SINGLE: 1-单次任务\n - CRONTAB: 2-定时任务",
+      "type": "string",
+      "title": "定时任务类型 0-undefined 1-单次任务 2-定时任务",
+      "default": "UNDEFINED",
+      "enum": [
+        "UNDEFINED",
+        "SINGLE",
+        "CRONTAB"
+      ]
+    },
+    "taskServerPowerControlRequest": {
+      "type": "object",
+      "title": "调用裸金属应用执行开关机操作请求体",
+      "properties": {
+        "cmdb_search_request": {
+          "type": "array",
+          "title": "机房及对应物理机",
+          "items": {
+            "$ref": "#/definitions/cmdbChooseServerRequest"
+          }
+        },
+        "state": {
+          "title": "电源开关操作",
+          "$ref": "#/definitions/cmdbServerPowerState"
+        }
+      }
+    },
+    "taskServerPowerControlResponse": {
+      "type": "object",
+      "title": "调用裸金属应用执行开关机操作返回体",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "taskTaskObject": {
+      "type": "object",
+      "title": "作业任务实例",
+      "properties": {
+        "cmdb_search_request": {
+          "type": "array",
+          "title": "cmdb的搜索条件",
+          "items": {
+            "$ref": "#/definitions/cmdbChooseHostRequest"
+          }
+        },
+        "end_time": {
+          "type": "string",
+          "title": "执行结束时间"
+        },
+        "execute_count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总共执行多少主机"
+        },
+        "executor": {
+          "type": "integer",
+          "format": "int32",
+          "title": "执行人ID"
+        },
+        "extra_var": {
+          "type": "string",
+          "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
+        },
+        "fail_count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "执行失败多少台主机"
+        },
+        "name": {
+          "type": "string",
+          "title": "作业名称"
+        },
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "定时任务ID"
+        },
+        "schedule_type": {
+          "title": "定时任务类型",
+          "$ref": "#/definitions/taskScheduleType"
+        },
+        "start_time": {
+          "type": "string",
+          "title": "执行开始时间"
+        },
+        "success_count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "执行成功多少台主机"
+        },
+        "task_id": {
+          "type": "string",
+          "format": "int64",
+          "title": "作业任务ID"
+        },
+        "task_type": {
+          "title": "任务类型",
+          "$ref": "#/definitions/scheduleTaskType"
+        },
+        "template_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "模板ID"
+        }
+      }
+    },
+    "templateCreateRequest": {
+      "type": "object",
+      "title": "创建模板请求",
+      "required": [
+        "name",
+        "playbook_id",
+        "playbook_file_id",
+        "playbook_entrypoint_id"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "title": "模板描述"
+        },
+        "extra_var": {
+          "type": "string",
+          "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
+        },
+        "name": {
+          "type": "string",
+          "title": "模板名"
+        },
+        "playbook_entrypoint_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "选择的playbook入口yml文件"
+        },
+        "playbook_file_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "选择的playbook项目对应的playbook_file"
+        },
+        "playbook_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "playbook 项目id"
+        }
+      }
+    },
+    "templateCreateResponse": {
+      "type": "object",
+      "title": "创建模板请求返回",
+      "properties": {
+        "created": {
+          "type": "string",
+          "title": "模板创建的时间"
+        },
+        "status": {
+          "title": "请求返回状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "template_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "模板ID"
+        }
+      }
+    },
+    "templateDeleteResponse": {
+      "type": "object",
+      "title": "删除请求返回",
+      "properties": {
+        "status": {
+          "title": "请求返回的状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "templateFilterResponse": {
+      "type": "object",
+      "title": "筛选模板请求返回",
+      "properties": {
+        "paging": {
+          "title": "分页信息",
+          "$ref": "#/definitions/commonPaging"
+        },
+        "status": {
+          "title": "请求返回状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "templates": {
+          "type": "array",
+          "title": "请求返回的模板",
+          "items": {
+            "$ref": "#/definitions/templateTemplateObject"
+          }
+        }
+      }
+    },
+    "templateGetResponse": {
+      "type": "object",
+      "title": "获取模板请求返回",
+      "properties": {
+        "status": {
+          "title": "请求返回状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "template": {
+          "title": "请求返回的模板",
+          "$ref": "#/definitions/templateTemplateObject"
+        }
+      }
+    },
+    "templateTemplateObject": {
+      "type": "object",
+      "title": "模板实例",
+      "properties": {
+        "created": {
+          "type": "string",
+          "title": "创建时间"
+        },
+        "creator": {
+          "title": "创建人",
+          "$ref": "#/definitions/commonUser"
+        },
+        "description": {
+          "type": "string",
+          "title": "模板描述"
+        },
+        "extra_var": {
+          "type": "string",
+          "title": "额外变量"
+        },
+        "name": {
+          "type": "string",
+          "title": "模板名"
+        },
+        "playbook": {
+          "title": "playbook 项目",
+          "$ref": "#/definitions/playbookProjectObject"
+        },
+        "playbook_entrypoint_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "选择的playbook入口yml文件"
+        },
+        "playbook_file_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "选择的playbook项目对应的playbook_file"
+        },
+        "state": {
+          "title": "模板状态开关标识",
+          "$ref": "#/definitions/templateTemplateState"
+        },
+        "template_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "模板ID"
+        },
+        "updated": {
+          "type": "string",
+          "title": "更新时间"
+        }
+      }
+    },
+    "templateTemplateState": {
+      "description": "- OFF: 没运行\n - ON: 运行",
+      "type": "string",
+      "title": "模板状态",
+      "default": "OFF",
+      "enum": [
+        "OFF",
+        "ON"
+      ]
+    },
+    "templateUpdateRequest": {
+      "type": "object",
+      "title": "更新模板请求",
+      "required": [
+        "template_id",
+        "name"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "title": "模板描述"
+        },
+        "extra_var": {
+          "type": "string",
+          "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
+        },
+        "name": {
+          "type": "string",
+          "title": "模板名"
+        },
+        "template_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "模板ID"
+        }
+      }
+    },
+    "templateUpdateResponse": {
+      "type": "object",
+      "title": "更新请求返回",
+      "properties": {
+        "status": {
+          "title": "请求返回的状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "updated": {
+          "type": "string",
+          "title": "模板更新的时间"
+        }
+      }
+    },
+    "templateUpdateStateRequest": {
+      "type": "object",
+      "title": "更新模板状态开关请求",
+      "required": [
+        "template_id"
+      ],
+      "properties": {
+        "state": {
+          "title": "模板状态开关标识",
+          "$ref": "#/definitions/templateTemplateState"
+        },
+        "template_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "模板ID"
+        }
+      }
+    },
+    "templateUpdateStateResponse": {
+      "type": "object",
+      "title": "更新模板状态请求返回",
+      "properties": {
+        "status": {
+          "title": "请求返回的状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
     }
   }
+}
