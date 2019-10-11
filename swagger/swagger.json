@@ -1957,11 +1957,14 @@
       "title": "拓扑实例请求返回",
       "properties": {
         "instance": {
-          "title": "业务拓扑对象",
-          "$ref": "#/definitions/cmdbTopologyObject"
+          "type": "array",
+          "title": "多个业务拓扑对象",
+          "items": {
+            "$ref": "#/definitions/cmdbTopologyObject"
+          }
         },
         "status": {
-          "title": "状态码",
+          "title": "TopologyObject instance = 1;\n状态码",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }

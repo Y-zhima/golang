@@ -34,9 +34,11 @@ func (this *InstanceTopologyRequest) Validate() error {
 	return nil
 }
 func (this *InstanceTopologyResponse) Validate() error {
-	if this.Instance != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Instance); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("Instance", err)
+	for _, item := range this.Instance {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Instance", err)
+			}
 		}
 	}
 	if this.Status != nil {

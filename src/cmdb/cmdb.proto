@@ -141,8 +141,9 @@ message InstanceTopologyRequest {
 
 // 拓扑实例请求返回
 message InstanceTopologyResponse {
-    // 业务拓扑对象
-    TopologyObject instance = 1;
+    // 多个业务拓扑对象
+    repeated TopologyObject instance = 1;
+    // TopologyObject instance = 1;
     // 状态码
     common.ResponseStatus status = 2;
 }
