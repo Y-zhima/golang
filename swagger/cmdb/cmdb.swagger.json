@@ -780,12 +780,15 @@
       "type": "object",
       "properties": {
         "instance": {
-          "$ref": "#/definitions/cmdbTopologyObject",
-          "title": "业务拓扑对象"
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbTopologyObject"
+          },
+          "title": "多个业务拓扑对象"
         },
         "status": {
           "$ref": "#/definitions/commonResponseStatus",
-          "title": "状态码"
+          "title": "TopologyObject instance = 1;\n状态码"
         }
       },
       "title": "拓扑实例请求返回"
