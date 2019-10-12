@@ -302,6 +302,14 @@ message ChooseServerRequest {
     repeated Server server = 2;
 }
 
+// 选择需要巡检校验的物理机请求
+message ChooseCompareServerRequest {
+    // 机房ID
+    int32 room_id = 1;
+    // 机房下物理机对应主机的ip
+    repeated Host host = 2;
+}
+
 
 // 导入交换机请求
 message ImportSwitchRequest {
