@@ -222,6 +222,33 @@
         ]
       }
     },
+    "/v1/task/redo": {
+      "post": {
+        "summary": "重新执行作业任务",
+        "operationId": "Redo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskRedoResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskRedoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      }
+    },
     "/v1/task/serverPowerControl": {
       "post": {
         "summary": "调用裸金属应用执行开关机操作",
@@ -576,6 +603,27 @@
         }
       },
       "title": "调用裸金属安装操作返回体"
+    },
+    "taskRedoRequest": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "format": "int64",
+          "title": "作业任务ID"
+        }
+      },
+      "title": "调用重新执行作业任务操作请求体"
+    },
+    "taskRedoResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
+        }
+      },
+      "title": "调用重新执行作业任务操作返回体"
     },
     "taskScheduleType": {
       "type": "string",

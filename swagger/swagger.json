@@ -1082,6 +1082,33 @@
         }
       }
     },
+    "/v1/task/redo": {
+      "post": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "重新执行作业任务",
+        "operationId": "Redo",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskRedoRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskRedoResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/task/serverPowerControl": {
       "post": {
         "tags": [
@@ -2946,89 +2973,6 @@
         }
       }
     },
-    "jobCreateResponse": {
-      "type": "object",
-      "title": "创建作业任务请求返回",
-      "properties": {
-        "job_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "作业任务ID"
-        },
-        "status": {
-          "title": "返回的请求状态",
-          "$ref": "#/definitions/commonResponseStatus"
-        }
-      }
-    },
-    "jobDeleteResponse": {
-      "type": "object",
-      "title": "删除作业任务请求返回"
-    },
-    "jobFilterResponse": {
-      "type": "object",
-      "title": "筛选作业任务请求返回",
-      "properties": {
-        "jobs": {
-          "type": "array",
-          "title": "筛选到的多个作业任务实例",
-          "items": {
-            "$ref": "#/definitions/jobJobObject"
-          }
-        },
-        "paging": {
-          "title": "分页信息",
-          "$ref": "#/definitions/commonPaging"
-        },
-        "status": {
-          "title": "返回的请求状态",
-          "$ref": "#/definitions/commonResponseStatus"
-        }
-      }
-    },
-    "jobGetLogResponse": {
-      "type": "object",
-      "title": "获取作业任务详细执行过程请求返回",
-      "properties": {
-        "status": {
-          "title": "返回的请求状态",
-          "$ref": "#/definitions/commonResponseStatus"
-        }
-      }
-    },
-    "jobGetResponse": {
-      "type": "object",
-      "title": "获取作业任务请求返回",
-      "properties": {
-        "job": {
-          "title": "获取的作业任务实例",
-          "$ref": "#/definitions/jobJobObject"
-        },
-        "status": {
-          "title": "返回的请求状态",
-          "$ref": "#/definitions/commonResponseStatus"
-        }
-      }
-    },
-    "jobJobObject": {
-      "type": "object",
-      "title": "作业任务实例",
-      "properties": {
-        "job_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "作业任务ID"
-        }
-      }
-    },
-    "jobScheduleListResponse": {
-      "type": "object",
-      "title": "查看定时作业任务请求返回"
-    },
-    "jobScheduleResponse": {
-      "type": "object",
-      "title": "创建定时作业任务请求返回"
-    },
     "playbookCreateRequest": {
       "type": "object",
       "title": "创建项目请求内容体",
@@ -3824,6 +3768,27 @@
     "taskInstallServerResponse": {
       "type": "object",
       "title": "调用裸金属安装操作返回体",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "taskRedoRequest": {
+      "type": "object",
+      "title": "调用重新执行作业任务操作请求体",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "format": "int64",
+          "title": "作业任务ID"
+        }
+      }
+    },
+    "taskRedoResponse": {
+      "type": "object",
+      "title": "调用重新执行作业任务操作返回体",
       "properties": {
         "status": {
           "title": "状态码",

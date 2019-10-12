@@ -74,6 +74,14 @@ service Task {
             body: "*"
         };
     }
+
+    // 重新执行作业任务
+    rpc Redo (RedoRequest) returns (RedoResponse) {
+        option (google.api.http) = {
+            post: "/v1/task/redo"
+            body: "*"
+        };
+    }
 }
 
 
@@ -258,4 +266,16 @@ message FilterResponse {
     common.Paging paging = 2;
     // 返回的请求状态
     common.ResponseStatus status = 3;
+}
+
+// 调用重新执行作业任务操作请求体
+message RedoRequest {
+    // 作业任务ID
+    int64 task_id = 1;
+}
+
+// 调用重新执行作业任务操作返回体
+message RedoResponse {
+    // 状态码
+    common.ResponseStatus status = 1;
 }
