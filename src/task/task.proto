@@ -44,9 +44,9 @@ service Task {
     }
 
     // 交维表导入后巡检任务
-    rpc CompareServerInfo () returns (CompareServerInfoResponse) {
+    rpc CreateServerCompare () returns (CreateServerCompareResponse) {
         option (google.api.http) = {
-            get: "/v1/task/compareServerInfo"
+            get: "/v1/task/createServerCompare"
         };
     }
 
@@ -149,7 +149,7 @@ message InstallServerResponse {
 }
 
 // 交维表导入后巡检任务返回体
-message CompareServerInfoResponse {
+message CreateServerCompareResponse {
     // 状态码
     common.ResponseStatus status = 1;
 }

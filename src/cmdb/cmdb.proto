@@ -303,7 +303,7 @@ message ChooseServerRequest {
 }
 
 // 选择需要巡检校验的物理机请求
-message ChooseCompareServerRequest {
+message ChooseServerCompareRequest {
     // 机房ID
     int32 room_id = 1;
     // 机房下物理机对应主机的ip

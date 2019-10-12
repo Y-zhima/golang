@@ -20,7 +20,7 @@ service SubTask {
     // 创建裸金属子任务
     rpc CreateServer (CreateServerRequest) returns (CreateServerResponse) {}
     // 交维表导入后巡检子任务
-    rpc CreateCompare (CreateCompareRequest) returns (CreateCompareResponse) {}
+    rpc CreateServerCompare (CreateServerCompareRequest) returns (CreateServerCompareResponse) {}
 }
 
 // 创建子任务实例请求
@@ -41,15 +41,15 @@ message CreateResponse {
 }
 
 // 交维表导入后巡检子任务请求
-message CreateCompareRequest {
+message CreateServerCompareRequest {
     // 任务实例ID
     int64 task_id = 1;
     // cmdb的搜索条件
-    cmdb.ChooseCompareServerRequest cmdb_search_request = 2;
+    cmdb.ChooseServerCompareRequest cmdb_search_request = 2;
 }
 
 // 交维表导入后巡检子任务请求返回
-message CreateCompareResponse {
+message CreateServerCompareResponse {
     // 子任务实例ID
     int64 sub_task_id = 1;
     // 返回的请求状态
