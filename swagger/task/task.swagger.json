@@ -15,33 +15,6 @@
     "application/json"
   ],
   "paths": {
-    "/v1/task/Retry": {
-      "post": {
-        "summary": "重新执行作业任务",
-        "operationId": "Retry",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/taskRetryResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/taskRetryRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Task"
-        ]
-      }
-    },
     "/v1/task/checkServerState": {
       "post": {
         "summary": "调用裸金属应用检查裸金属状态",
@@ -241,6 +214,33 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/taskInstallServerRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      }
+    },
+    "/v1/task/retry": {
+      "post": {
+        "summary": "重新执行作业任务",
+        "operationId": "Retry",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskRetryResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskRetryRequest"
             }
           }
         ],

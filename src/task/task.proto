@@ -78,7 +78,7 @@ service Task {
     // 重新执行作业任务
     rpc Retry (RetryRequest) returns (RetryResponse) {
         option (google.api.http) = {
-            post: "/v1/task/Retry"
+            post: "/v1/task/retry"
             body: "*"
         };
     }

@@ -393,7 +393,7 @@ var (
 
 	pattern_Task_InstallServer_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "task", "installServer"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Task_Retry_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "task", "Retry"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Task_Retry_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "task", "retry"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (

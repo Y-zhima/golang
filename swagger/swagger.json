@@ -881,33 +881,6 @@
         }
       }
     },
-    "/v1/task/Retry": {
-      "post": {
-        "tags": [
-          "Task"
-        ],
-        "summary": "重新执行作业任务",
-        "operationId": "Retry",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/taskRetryRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/taskRetryResponse"
-            }
-          }
-        }
-      }
-    },
     "/v1/task/checkServerState": {
       "post": {
         "tags": [
@@ -1104,6 +1077,33 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/taskInstallServerResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/task/retry": {
+      "post": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "重新执行作业任务",
+        "operationId": "Retry",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskRetryRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskRetryResponse"
             }
           }
         }
