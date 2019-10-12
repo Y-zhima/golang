@@ -881,6 +881,33 @@
         }
       }
     },
+    "/v1/task/Retry": {
+      "post": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "重新执行作业任务",
+        "operationId": "Retry",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskRetryRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskRetryResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/task/checkServerState": {
       "post": {
         "tags": [
@@ -1077,33 +1104,6 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/taskInstallServerResponse"
-            }
-          }
-        }
-      }
-    },
-    "/v1/task/redo": {
-      "post": {
-        "tags": [
-          "Task"
-        ],
-        "summary": "重新执行作业任务",
-        "operationId": "Redo",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/taskRedoRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/taskRedoResponse"
             }
           }
         }
@@ -3775,7 +3775,7 @@
         }
       }
     },
-    "taskRedoRequest": {
+    "taskRetryRequest": {
       "type": "object",
       "title": "调用重新执行作业任务操作请求体",
       "properties": {
@@ -3786,7 +3786,7 @@
         }
       }
     },
-    "taskRedoResponse": {
+    "taskRetryResponse": {
       "type": "object",
       "title": "调用重新执行作业任务操作返回体",
       "properties": {

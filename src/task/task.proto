@@ -76,9 +76,9 @@ service Task {
     }
 
     // 重新执行作业任务
-    rpc Redo (RedoRequest) returns (RedoResponse) {
+    rpc Retry (RetryRequest) returns (RetryResponse) {
         option (google.api.http) = {
-            post: "/v1/task/redo"
+            post: "/v1/task/Retry"
             body: "*"
         };
     }
@@ -269,13 +269,13 @@ message FilterResponse {
 }
 
 // 调用重新执行作业任务操作请求体
-message RedoRequest {
+message RetryRequest {
     // 作业任务ID
     int64 task_id = 1;
 }
 
 // 调用重新执行作业任务操作返回体
-message RedoResponse {
+message RetryResponse {
     // 状态码
     common.ResponseStatus status = 1;
 }

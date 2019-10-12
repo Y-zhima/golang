@@ -15,6 +15,33 @@
     "application/json"
   ],
   "paths": {
+    "/v1/task/Retry": {
+      "post": {
+        "summary": "重新执行作业任务",
+        "operationId": "Retry",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskRetryResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskRetryRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      }
+    },
     "/v1/task/checkServerState": {
       "post": {
         "summary": "调用裸金属应用检查裸金属状态",
@@ -214,33 +241,6 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/taskInstallServerRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Task"
-        ]
-      }
-    },
-    "/v1/task/redo": {
-      "post": {
-        "summary": "重新执行作业任务",
-        "operationId": "Redo",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/taskRedoResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/taskRedoRequest"
             }
           }
         ],
@@ -604,7 +604,7 @@
       },
       "title": "调用裸金属安装操作返回体"
     },
-    "taskRedoRequest": {
+    "taskRetryRequest": {
       "type": "object",
       "properties": {
         "task_id": {
@@ -615,7 +615,7 @@
       },
       "title": "调用重新执行作业任务操作请求体"
     },
-    "taskRedoResponse": {
+    "taskRetryResponse": {
       "type": "object",
       "properties": {
         "status": {
