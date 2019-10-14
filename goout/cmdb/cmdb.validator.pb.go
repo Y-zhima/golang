@@ -195,6 +195,9 @@ func (this *ChooseServerRequest) Validate() error {
 	}
 	return nil
 }
+func (this *ChooseServerCompareRequest) Validate() error {
+	return nil
+}
 func (this *ImportSwitchRequest) Validate() error {
 	if this.Url == "" {
 		return github_com_mwitkow_go_proto_validators.FieldError("Url", fmt.Errorf(`URL不能为空`))
