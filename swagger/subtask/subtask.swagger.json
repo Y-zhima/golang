@@ -40,6 +40,24 @@
       },
       "title": "选择主机请求"
     },
+    "cmdbChooseServerCompareRequest": {
+      "type": "object",
+      "properties": {
+        "room_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "机房ID"
+        },
+        "host_ip": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "机房下物理机对应主机的ip"
+        }
+      },
+      "title": "选择需要巡检校验的物理机请求"
+    },
     "cmdbChooseServerRequest": {
       "type": "object",
       "properties": {
@@ -135,6 +153,21 @@
         }
       },
       "title": "创建子任务实例请求返回"
+    },
+    "subtaskCreateServerCompareResponse": {
+      "type": "object",
+      "properties": {
+        "sub_task_id": {
+          "type": "string",
+          "format": "int64",
+          "title": "子任务实例ID"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        }
+      },
+      "title": "交维表导入后巡检子任务请求返回"
     },
     "subtaskCreateServerResponse": {
       "type": "object",

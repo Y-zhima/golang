@@ -5,12 +5,12 @@ package task
 
 import (
 	fmt "fmt"
-	math "math"
-	proto "github.com/golang/protobuf/proto"
-	_ "google.golang.org/genproto/googleapis/api/annotations"
-	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "git.fogcdn.top/axe/protos/goout/cmdb"
+	proto "github.com/golang/protobuf/proto"
+	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
+	_ "google.golang.org/genproto/googleapis/api/annotations"
+	math "math"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -19,6 +19,14 @@ var _ = fmt.Errorf
 var _ = math.Inf
 
 func (this *TemplateExecuteTask) Validate() error {
+	if this.CmdbSearchRequest != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbSearchRequest); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+		}
+	}
+	return nil
+}
+func (this *ServerCompareTask) Validate() error {
 	if this.CmdbSearchRequest != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbSearchRequest); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)

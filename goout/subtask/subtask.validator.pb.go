@@ -35,6 +35,22 @@ func (this *CreateResponse) Validate() error {
 	}
 	return nil
 }
+func (this *CreateServerCompareRequest) Validate() error {
+	if this.CmdbSearchRequest != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbSearchRequest); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
+		}
+	}
+	return nil
+}
+func (this *CreateServerCompareResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}
 func (this *CreateServerRequest) Validate() error {
 	if this.CmdbSearchRequest != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbSearchRequest); err != nil {
