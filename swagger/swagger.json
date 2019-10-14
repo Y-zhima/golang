@@ -548,7 +548,7 @@
           "Playbook"
         ],
         "summary": "创建playbook项目",
-        "operationId": "CreateMixin12",
+        "operationId": "Create",
         "parameters": [
           {
             "name": "body",
@@ -575,7 +575,7 @@
           "Playbook"
         ],
         "summary": "筛选playbook项目",
-        "operationId": "FilterMixin12",
+        "operationId": "Filter",
         "parameters": [
           {
             "type": "integer",
@@ -628,7 +628,7 @@
           "Playbook"
         ],
         "summary": "获取playbook项目",
-        "operationId": "GetMixin12",
+        "operationId": "Get",
         "parameters": [
           {
             "type": "integer",
@@ -655,7 +655,7 @@
           "Playbook"
         ],
         "summary": "更新playbook项目",
-        "operationId": "UpdateMixin12",
+        "operationId": "Update",
         "parameters": [
           {
             "type": "integer",
@@ -690,7 +690,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "Create",
+        "operationId": "CreateMixin9",
         "parameters": [
           {
             "name": "body",
@@ -717,7 +717,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "Filter",
+        "operationId": "FilterMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -790,7 +790,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "Get",
+        "operationId": "GetMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -852,7 +852,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "Update",
+        "operationId": "UpdateMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -881,13 +881,285 @@
         }
       }
     },
+    "/v1/task/checkServerState": {
+      "post": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "调用裸金属应用检查裸金属状态",
+        "operationId": "CheckServerState",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskCheckServerStateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskCheckServerStateResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/task/create": {
+      "post": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "创建作业任务(执行作业模板)",
+        "operationId": "CreateMixin12",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskCreateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskCreateResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/task/createServer": {
+      "post": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "调用裸金属创建操作",
+        "operationId": "CreateServer",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskCreateServerRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskCreateServerResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/task/createServerCompare": {
+      "get": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "交维表导入后巡检任务",
+        "operationId": "CreateServerCompare",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskCreateServerCompareResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/task/filter": {
+      "get": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "筛选作业任务",
+        "operationId": "FilterMixin12",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总页数.",
+            "name": "paging.total_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页数.",
+            "name": "paging.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页显示的记录条数.",
+            "name": "paging.per_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总记录数.",
+            "name": "paging.total_record",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "用于筛选任务名字的关键字.",
+            "name": "task_name",
+            "in": "query"
+          },
+          {
+            "enum": [
+              "UNDEFINED",
+              "PLAYBOOK",
+              "CONTAINER",
+              "BARE_METAL"
+            ],
+            "type": "string",
+            "default": "UNDEFINED",
+            "description": "用于筛选定时任务的任务类型 0-undefined 1-作业模板；2-容器部署；3-裸金属管理.\n\n - UNDEFINED: 0-undefined\n - PLAYBOOK: 1-作业模板\n - CONTAINER: 2-容器部署\n - BARE_METAL: 3-裸金属管理",
+            "name": "task_type",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskFilterResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/task/get/{task_id}": {
+      "get": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "获取作业任务",
+        "operationId": "GetMixin12",
+        "parameters": [
+          {
+            "type": "string",
+            "format": "int64",
+            "description": "作业任务ID",
+            "name": "task_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskGetResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/task/installServer": {
+      "post": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "调用裸金属安装操作",
+        "operationId": "InstallServer",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskInstallServerRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskInstallServerResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/task/retry": {
+      "post": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "重新执行作业任务",
+        "operationId": "Retry",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskRetryRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskRetryResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/task/serverPowerControl": {
+      "post": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "调用裸金属应用执行开关机操作",
+        "operationId": "ServerPowerControl",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskServerPowerControlRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskServerPowerControlResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/template/create": {
       "post": {
         "tags": [
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin9",
+        "operationId": "CreateMixin13",
         "parameters": [
           {
             "name": "body",
@@ -914,7 +1186,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin9",
+        "operationId": "FilterMixin13",
         "parameters": [
           {
             "type": "integer",
@@ -973,7 +1245,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin9",
+        "operationId": "GetMixin13",
         "parameters": [
           {
             "type": "integer",
@@ -1000,7 +1272,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin9",
+        "operationId": "UpdateMixin13",
         "parameters": [
           {
             "type": "integer",
@@ -3356,6 +3628,343 @@
         "FAILURE",
         "SUCCESS"
       ]
+    },
+    "taskCheckServerStateRequest": {
+      "type": "object",
+      "title": "调用裸金属应用检查裸金属状态请求体",
+      "properties": {
+        "cmdb_search_request": {
+          "type": "array",
+          "title": "机房及对应物理机",
+          "items": {
+            "$ref": "#/definitions/cmdbChooseServerRequest"
+          }
+        }
+      }
+    },
+    "taskCheckServerStateResponse": {
+      "type": "object",
+      "title": "调用裸金属应用检查裸金属状态返回体",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "taskCreateRequest": {
+      "type": "object",
+      "title": "创建任务实例请求",
+      "required": [
+        "schedules",
+        "cmdb_search_request"
+      ],
+      "properties": {
+        "cmdb_search_request": {
+          "type": "array",
+          "title": "cmdb的搜索条件",
+          "items": {
+            "$ref": "#/definitions/cmdbChooseHostRequest"
+          }
+        },
+        "extra_var": {
+          "type": "string",
+          "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
+        },
+        "name": {
+          "type": "string",
+          "title": "作业名称"
+        },
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "定时任务ID"
+        },
+        "schedule_type": {
+          "title": "定时任务类型",
+          "$ref": "#/definitions/taskScheduleType"
+        },
+        "task_type": {
+          "title": "任务类型",
+          "$ref": "#/definitions/scheduleTaskType"
+        },
+        "template_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "模板ID"
+        }
+      }
+    },
+    "taskCreateResponse": {
+      "type": "object",
+      "title": "创建任务实例请求返回",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "task_id": {
+          "type": "string",
+          "format": "int64",
+          "title": "任务实例ID"
+        }
+      }
+    },
+    "taskCreateServerCompareResponse": {
+      "type": "object",
+      "title": "交维表导入后巡检任务返回体",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "taskCreateServerRequest": {
+      "type": "object",
+      "title": "调用裸金属创建操作请求体",
+      "properties": {
+        "cmdb_search_request": {
+          "type": "array",
+          "title": "机房及对应物理机",
+          "items": {
+            "$ref": "#/definitions/cmdbChooseServerRequest"
+          }
+        }
+      }
+    },
+    "taskCreateServerResponse": {
+      "type": "object",
+      "title": "调用裸金属创建操作返回体",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "taskFilterResponse": {
+      "type": "object",
+      "title": "筛选作业任务请求返回",
+      "properties": {
+        "paging": {
+          "title": "分页信息",
+          "$ref": "#/definitions/commonPaging"
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "tasks": {
+          "type": "array",
+          "title": "筛选到的多个作业任务实例",
+          "items": {
+            "$ref": "#/definitions/taskTaskObject"
+          }
+        }
+      }
+    },
+    "taskGetLogResponse": {
+      "type": "object",
+      "title": "获取作业任务详细执行过程请求返回",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "taskGetResponse": {
+      "type": "object",
+      "title": "获取作业任务请求返回",
+      "properties": {
+        "host_module": {
+          "type": "string",
+          "title": "task对于的主机模块"
+        },
+        "playbook_version": {
+          "type": "string",
+          "title": "task对于的作业版本"
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "task": {
+          "title": "获取的作业任务实例",
+          "$ref": "#/definitions/taskTaskObject"
+        },
+        "template_name": {
+          "type": "string",
+          "title": "作业对应的模板名字"
+        }
+      }
+    },
+    "taskInstallServerRequest": {
+      "type": "object",
+      "title": "调用裸金属安装操作请求体",
+      "properties": {
+        "cmdb_host_search_request": {
+          "title": "主机查询条件",
+          "$ref": "#/definitions/cmdbChooseHostRequest"
+        },
+        "cmdb_search_request": {
+          "type": "array",
+          "title": "机房及对应物理机",
+          "items": {
+            "$ref": "#/definitions/cmdbChooseServerRequest"
+          }
+        },
+        "image_file_md5": {
+          "type": "string",
+          "title": "安装镜像文件的MD5"
+        },
+        "image_file_url": {
+          "type": "string",
+          "title": "安装镜像文件的URL"
+        }
+      }
+    },
+    "taskInstallServerResponse": {
+      "type": "object",
+      "title": "调用裸金属安装操作返回体",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "taskRetryRequest": {
+      "type": "object",
+      "title": "调用重新执行作业任务操作请求体",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "format": "int64",
+          "title": "作业任务ID"
+        }
+      }
+    },
+    "taskRetryResponse": {
+      "type": "object",
+      "title": "调用重新执行作业任务操作返回体",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "taskScheduleType": {
+      "description": "- UNDEFINED: 0-undefined\n - SINGLE: 1-单次任务\n - CRONTAB: 2-定时任务",
+      "type": "string",
+      "title": "定时任务类型 0-undefined 1-单次任务 2-定时任务",
+      "default": "UNDEFINED",
+      "enum": [
+        "UNDEFINED",
+        "SINGLE",
+        "CRONTAB"
+      ]
+    },
+    "taskServerPowerControlRequest": {
+      "type": "object",
+      "title": "调用裸金属应用执行开关机操作请求体",
+      "properties": {
+        "cmdb_search_request": {
+          "type": "array",
+          "title": "机房及对应物理机",
+          "items": {
+            "$ref": "#/definitions/cmdbChooseServerRequest"
+          }
+        },
+        "state": {
+          "title": "电源开关操作",
+          "$ref": "#/definitions/cmdbServerPowerState"
+        }
+      }
+    },
+    "taskServerPowerControlResponse": {
+      "type": "object",
+      "title": "调用裸金属应用执行开关机操作返回体",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "taskTaskObject": {
+      "type": "object",
+      "title": "作业任务实例",
+      "properties": {
+        "cmdb_search_request": {
+          "type": "array",
+          "title": "cmdb的搜索条件",
+          "items": {
+            "$ref": "#/definitions/cmdbChooseHostRequest"
+          }
+        },
+        "end_time": {
+          "type": "string",
+          "title": "执行结束时间"
+        },
+        "execute_count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总共执行多少主机"
+        },
+        "executor": {
+          "type": "integer",
+          "format": "int32",
+          "title": "执行人ID"
+        },
+        "extra_var": {
+          "type": "string",
+          "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
+        },
+        "fail_count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "执行失败多少台主机"
+        },
+        "name": {
+          "type": "string",
+          "title": "作业名称"
+        },
+        "schedule_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "定时任务ID"
+        },
+        "schedule_type": {
+          "title": "定时任务类型",
+          "$ref": "#/definitions/taskScheduleType"
+        },
+        "start_time": {
+          "type": "string",
+          "title": "执行开始时间"
+        },
+        "success_count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "执行成功多少台主机"
+        },
+        "task_id": {
+          "type": "string",
+          "format": "int64",
+          "title": "作业任务ID"
+        },
+        "task_type": {
+          "title": "任务类型",
+          "$ref": "#/definitions/scheduleTaskType"
+        },
+        "template_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "模板ID"
+        }
+      }
     },
     "templateCreateRequest": {
       "type": "object",

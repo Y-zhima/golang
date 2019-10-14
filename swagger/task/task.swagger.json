@@ -96,6 +96,23 @@
         ]
       }
     },
+    "/v1/task/createServerCompare": {
+      "get": {
+        "summary": "交维表导入后巡检任务",
+        "operationId": "CreateServerCompare",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskCreateServerCompareResponse"
+            }
+          }
+        },
+        "tags": [
+          "Task"
+        ]
+      }
+    },
     "/v1/task/filter": {
       "get": {
         "summary": "筛选作业任务",
@@ -488,6 +505,16 @@
         }
       },
       "title": "创建任务实例请求返回"
+    },
+    "taskCreateServerCompareResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
+        }
+      },
+      "title": "交维表导入后巡检任务返回体"
     },
     "taskCreateServerRequest": {
       "type": "object",

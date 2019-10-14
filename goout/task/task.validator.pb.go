@@ -5,15 +5,15 @@ package task
 
 import (
 	fmt "fmt"
-	_ "git.fogcdn.top/axe/protos/goout/cmdb"
-	_ "git.fogcdn.top/axe/protos/goout/common"
-	_ "git.fogcdn.top/axe/protos/goout/schedule"
+	math "math"
 	proto "github.com/golang/protobuf/proto"
+	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "github.com/mwitkow/go-proto-validators"
+	_ "git.fogcdn.top/axe/protos/goout/common"
+	_ "git.fogcdn.top/axe/protos/goout/schedule"
+	_ "git.fogcdn.top/axe/protos/goout/cmdb"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
-	_ "google.golang.org/genproto/googleapis/api/annotations"
-	math "math"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -91,6 +91,17 @@ func (this *InstallServerRequest) Validate() error {
 	return nil
 }
 func (this *InstallServerResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}
+func (this *CreateServerCompareRequest) Validate() error {
+	return nil
+}
+func (this *CreateServerCompareResponse) Validate() error {
 	if this.Status != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
