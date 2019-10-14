@@ -19,6 +19,8 @@ service SubTask {
     rpc Complete(CompleteRequest) returns(CompleteResponse) {}
     // 创建裸金属子任务
     rpc CreateServer (CreateServerRequest) returns (CreateServerResponse) {}
+    // 交维表导入后巡检子任务
+    rpc CreateServerCompare (CreateServerCompareRequest) returns (CreateServerCompareResponse) {}
 }
 
 // 创建子任务实例请求
@@ -34,6 +36,22 @@ message CreateRequest {
 message CreateResponse {
     // 子任务实例ID
     repeated int64 sub_task_id = 1;
+    // 返回的请求状态
+    common.ResponseStatus status = 2;
+}
+
+// 交维表导入后巡检子任务请求
+message CreateServerCompareRequest {
+    // 任务实例ID
+    int64 task_id = 1;
+    // cmdb的搜索条件
+    cmdb.ChooseServerCompareRequest cmdb_search_request = 2;
+}
+
+// 交维表导入后巡检子任务请求返回
+message CreateServerCompareResponse {
+    // 子任务实例ID
+    int64 sub_task_id = 1;
     // 返回的请求状态
     common.ResponseStatus status = 2;
 }

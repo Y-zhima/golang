@@ -43,6 +43,13 @@ service Task {
         //        };
     }
 
+    // 交维表导入后巡检任务
+    rpc CreateServerCompare () returns (CreateServerCompareResponse) {
+        option (google.api.http) = {
+            get: "/v1/task/createServerCompare"
+        };
+    }
+
     // 调用裸金属应用检查裸金属状态
     rpc CheckServerState (CheckServerStateRequest) returns (CheckServerStateResponse) {
         option (google.api.http) = {
@@ -137,6 +144,12 @@ message InstallServerRequest {
 
 // 调用裸金属安装操作返回体
 message InstallServerResponse {
+    // 状态码
+    common.ResponseStatus status = 1;
+}
+
+// 交维表导入后巡检任务返回体
+message CreateServerCompareResponse {
     // 状态码
     common.ResponseStatus status = 1;
 }
