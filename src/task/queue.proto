@@ -26,6 +26,14 @@ message TemplateExecuteTask {
     string extra_var = 6;
 }
 
+// 交维表导入后巡检任务
+message ServerCompareTask {
+    // 任务实例ID
+    int64 sub_task_id = 1;
+    // 查询条件
+    cmdb.ChooseServerCompareRequest cmdb_search_request = 2;
+}
+
 // 裸金属状态查询任务
 message BareMetalSearchTask {
     // 子任务实例ID
