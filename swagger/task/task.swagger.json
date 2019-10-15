@@ -108,6 +108,20 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "room_id",
+            "description": "机房ID列表.",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
         "tags": [
           "Task"
         ]

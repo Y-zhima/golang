@@ -969,6 +969,19 @@
         ],
         "summary": "交维表导入后巡检任务",
         "operationId": "CreateServerCompare",
+        "parameters": [
+          {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "collectionFormat": "multi",
+            "description": "机房ID列表.",
+            "name": "room_id",
+            "in": "query"
+          }
+        ],
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1707,13 +1720,6 @@
       "type": "object",
       "title": "选择需要巡检校验的物理机请求",
       "properties": {
-        "host_ip": {
-          "type": "array",
-          "title": "机房下物理机对应主机的ip",
-          "items": {
-            "type": "string"
-          }
-        },
         "room_id": {
           "type": "integer",
           "format": "int32",
