@@ -150,6 +150,8 @@ message InstallServerResponse {
 
 // 交维表导入后巡检任务请求体
 message CreateServerCompareRequest {
+    // 机房ID列表
+    repeated int32 room_id = 1;
 }
 
 // 交维表导入后巡检任务返回体
