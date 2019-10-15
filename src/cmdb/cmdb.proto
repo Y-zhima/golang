@@ -306,8 +306,6 @@ message ChooseServerRequest {
 message ChooseServerCompareRequest {
     // 机房ID
     int32 room_id = 1;
-    // 机房下物理机对应主机的ip
-    repeated string host_ip = 2;
 }
 
 
