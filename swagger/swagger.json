@@ -980,7 +980,7 @@
       }
     },
     "/v1/task/createServerCompare": {
-      "get": {
+      "post": {
         "tags": [
           "Task"
         ],
@@ -988,15 +988,12 @@
         "operationId": "CreateServerCompare",
         "parameters": [
           {
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "collectionFormat": "multi",
-            "description": "机房ID列表.",
-            "name": "room_id",
-            "in": "query"
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskCreateServerCompareRequest"
+            }
           }
         ],
         "responses": {
@@ -3762,6 +3759,20 @@
           "type": "string",
           "format": "int64",
           "title": "任务实例ID"
+        }
+      }
+    },
+    "taskCreateServerCompareRequest": {
+      "type": "object",
+      "title": "交维表导入后巡检任务请求体",
+      "properties": {
+        "room_id": {
+          "type": "array",
+          "title": "机房ID列表",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
         }
       }
     },
