@@ -327,6 +327,23 @@
         ]
       }
     },
+    "/v1/cmdb/searchHostInLake": {
+      "get": {
+        "summary": "查询Lake节点下的主机列表",
+        "operationId": "SearchHostInLake",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbSearchHostInLakeResponse"
+            }
+          }
+        },
+        "tags": [
+          "Cmdb"
+        ]
+      }
+    },
     "/v1/cmdb/searchLake": {
       "post": {
         "summary": "查询Lake节点",
@@ -546,6 +563,21 @@
         }
       },
       "title": "主机"
+    },
+    "cmdbHostObjectInLake": {
+      "type": "object",
+      "properties": {
+        "lake": {
+          "type": "string"
+        },
+        "host": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbHostObject"
+          }
+        }
+      },
+      "title": "lake下的主机列表"
     },
     "cmdbImportHistoryObject": {
       "type": "object",
@@ -788,7 +820,7 @@
         },
         "status": {
           "$ref": "#/definitions/commonResponseStatus",
-          "title": "TopologyObject instance = 1;\n状态码"
+          "title": "TopologyObject instance = 1;\r\n状态码"
         }
       },
       "title": "拓扑实例请求返回"
@@ -921,6 +953,18 @@
         }
       },
       "title": "机房拓扑请求返回"
+    },
+    "cmdbSearchHostInLakeResponse": {
+      "type": "object",
+      "properties": {
+        "host_in_lake": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbHostObjectInLake"
+          }
+        }
+      },
+      "title": "查询lake下的主机列表的返回"
     },
     "cmdbSearchHostResponse": {
       "type": "object",

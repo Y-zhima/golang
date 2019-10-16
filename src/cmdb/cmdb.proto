@@ -94,6 +94,13 @@ service Cmdb {
             body: "*"
         };
     }
+
+    // 查询Lake节点下的主机列表
+    rpc SearchHostInLake (SearchHostInLakeRequest) returns (SearchHostInLakeResponse) {
+        option (google.api.http) = {
+            get: "/v1/cmdb/searchHostInLake"
+        };
+    }
 }
 
 // 导入状态: 0-正在导入 1-导入完成 2-导入失败
@@ -668,4 +675,18 @@ message CabinetObject {
     int32 bk_inst_id = 1;
     // 实例名
     string bk_inst_name = 2;
+}
+
+// 查询lake下的主机列表的请求体
+message SearchHostInLakeRequest {
+}
+// 查询lake下的主机列表的返回
+message SearchHostInLakeResponse {
+    repeated HostObjectInLake host_in_lake = 1;
+}
+
+// lake下的主机列表
+message HostObjectInLake {
+    string lake = 1;
+    repeated HostObject host = 2;
 }

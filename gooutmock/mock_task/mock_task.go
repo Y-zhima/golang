@@ -95,6 +95,26 @@ func (mr *MockTaskClientMockRecorder) CreateServer(arg0, arg1 interface{}, arg2 
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateServer", reflect.TypeOf((*MockTaskClient)(nil).CreateServer), varargs...)
 }
 
+// CreateServerCompare mocks base method
+func (m *MockTaskClient) CreateServerCompare(arg0 context.Context, arg1 *task.CreateServerCompareRequest, arg2 ...grpc.CallOption) (*task.CreateServerCompareResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "CreateServerCompare", varargs...)
+	ret0, _ := ret[0].(*task.CreateServerCompareResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// CreateServerCompare indicates an expected call of CreateServerCompare
+func (mr *MockTaskClientMockRecorder) CreateServerCompare(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateServerCompare", reflect.TypeOf((*MockTaskClient)(nil).CreateServerCompare), varargs...)
+}
+
 // Filter mocks base method
 func (m *MockTaskClient) Filter(arg0 context.Context, arg1 *task.FilterRequest, arg2 ...grpc.CallOption) (*task.FilterResponse, error) {
 	m.ctrl.T.Helper()
@@ -173,6 +193,26 @@ func (mr *MockTaskClientMockRecorder) InstallServer(arg0, arg1 interface{}, arg2
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{arg0, arg1}, arg2...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "InstallServer", reflect.TypeOf((*MockTaskClient)(nil).InstallServer), varargs...)
+}
+
+// Retry mocks base method
+func (m *MockTaskClient) Retry(arg0 context.Context, arg1 *task.RetryRequest, arg2 ...grpc.CallOption) (*task.RetryResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "Retry", varargs...)
+	ret0, _ := ret[0].(*task.RetryResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// Retry indicates an expected call of Retry
+func (mr *MockTaskClientMockRecorder) Retry(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Retry", reflect.TypeOf((*MockTaskClient)(nil).Retry), varargs...)
 }
 
 // ServerPowerControl mocks base method
