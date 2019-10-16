@@ -524,7 +524,7 @@ var (
 
 	pattern_Cmdb_SearchLake_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "cmdb", "searchLake"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Cmdb_SearchHostInLake_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "cmdb", "searchHostInLake"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Cmdb_SearchHostInLake_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "cmdb", "searchLakeHost"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (

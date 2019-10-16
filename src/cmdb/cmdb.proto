@@ -98,7 +98,7 @@ service Cmdb {
     // 查询Lake节点下的主机列表
     rpc SearchHostInLake (SearchHostInLakeRequest) returns (SearchHostInLakeResponse) {
         option (google.api.http) = {
-            get: "/v1/cmdb/searchHostInLake"
+            get: "/v1/cmdb/searchLakeHost"
         };
     }
 }
@@ -685,12 +685,13 @@ message SearchHostInLakeRequest {
 }
 // 查询lake下的主机列表的返回
 message SearchHostInLakeResponse {
-    repeated HostObjectInLake host_in_lake = 1;
+    repeated LakeHost host_in_lake = 1;
 }
 
 // lake下的主机列表
-message HostObjectInLake {
+message LakeHost {
     string lake_name = 1;
+    // 缓存节点id
     int32 node_id = 2;
     repeated HostObject host = 3;
 }

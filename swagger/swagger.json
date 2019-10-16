@@ -339,23 +339,6 @@
         }
       }
     },
-    "/v1/cmdb/searchHostInLake": {
-      "get": {
-        "tags": [
-          "Cmdb"
-        ],
-        "summary": "查询Lake节点下的主机列表",
-        "operationId": "SearchHostInLake",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/cmdbSearchHostInLakeResponse"
-            }
-          }
-        }
-      }
-    },
     "/v1/cmdb/searchLake": {
       "post": {
         "tags": [
@@ -378,6 +361,23 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/cmdbSearchLakeResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/searchLakeHost": {
+      "get": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "查询Lake节点下的主机列表",
+        "operationId": "SearchHostInLake",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbSearchHostInLakeResponse"
             }
           }
         }
@@ -1808,25 +1808,6 @@
         }
       }
     },
-    "cmdbHostObjectInLake": {
-      "type": "object",
-      "title": "lake下的主机列表",
-      "properties": {
-        "host": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/cmdbHostObject"
-          }
-        },
-        "lake_name": {
-          "type": "string"
-        },
-        "node_id": {
-          "type": "integer",
-          "format": "int32"
-        }
-      }
-    },
     "cmdbImportHistoryObject": {
       "type": "object",
       "title": "导入历史对象",
@@ -2073,6 +2054,26 @@
         }
       }
     },
+    "cmdbLakeHost": {
+      "type": "object",
+      "title": "lake下的主机列表",
+      "properties": {
+        "host": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbHostObject"
+          }
+        },
+        "lake_name": {
+          "type": "string"
+        },
+        "node_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "缓存节点id"
+        }
+      }
+    },
     "cmdbLakeObject": {
       "type": "object",
       "title": "LAKE节点对象",
@@ -2209,7 +2210,7 @@
         "host_in_lake": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/cmdbHostObjectInLake"
+            "$ref": "#/definitions/cmdbLakeHost"
           }
         }
       }
