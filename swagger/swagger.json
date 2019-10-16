@@ -366,6 +366,23 @@
         }
       }
     },
+    "/v1/cmdb/searchLakeHost": {
+      "get": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "查询Lake节点下的主机列表",
+        "operationId": "SearchHostInLake",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbSearchHostInLakeResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/cmdb/searchModule": {
       "get": {
         "tags": [
@@ -2029,8 +2046,28 @@
           }
         },
         "status": {
-          "title": "TopologyObject instance = 1;\n状态码",
+          "title": "TopologyObject instance = 1;\r\n状态码",
           "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbLakeHost": {
+      "type": "object",
+      "title": "lake下的主机列表",
+      "properties": {
+        "host": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbHostObject"
+          }
+        },
+        "lake_name": {
+          "type": "string"
+        },
+        "node_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "缓存节点id"
         }
       }
     },
@@ -2160,6 +2197,18 @@
         "status": {
           "title": "状态码",
           "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbSearchHostInLakeResponse": {
+      "type": "object",
+      "title": "查询lake下的主机列表的返回",
+      "properties": {
+        "host_in_lake": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbLakeHost"
+          }
         }
       }
     },

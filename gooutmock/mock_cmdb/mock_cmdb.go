@@ -195,6 +195,26 @@ func (mr *MockCmdbClientMockRecorder) SearchHost(arg0, arg1 interface{}, arg2 ..
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SearchHost", reflect.TypeOf((*MockCmdbClient)(nil).SearchHost), varargs...)
 }
 
+// SearchHostInLake mocks base method
+func (m *MockCmdbClient) SearchHostInLake(arg0 context.Context, arg1 *cmdb.SearchHostInLakeRequest, arg2 ...grpc.CallOption) (*cmdb.SearchHostInLakeResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "SearchHostInLake", varargs...)
+	ret0, _ := ret[0].(*cmdb.SearchHostInLakeResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// SearchHostInLake indicates an expected call of SearchHostInLake
+func (mr *MockCmdbClientMockRecorder) SearchHostInLake(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SearchHostInLake", reflect.TypeOf((*MockCmdbClient)(nil).SearchHostInLake), varargs...)
+}
+
 // SearchLake mocks base method
 func (m *MockCmdbClient) SearchLake(arg0 context.Context, arg1 *cmdb.SearchLakeRequest, arg2 ...grpc.CallOption) (*cmdb.SearchLakeResponse, error) {
 	m.ctrl.T.Helper()
