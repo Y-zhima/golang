@@ -685,7 +685,9 @@ message SearchHostInLakeRequest {
 }
 // 查询lake下的主机列表的返回
 message SearchHostInLakeResponse {
-    repeated LakeHost host_in_lake = 1;
+    repeated LakeHost lake_host = 1;
+    // 状态码
+    common.ResponseStatus status = 2;
 }
 
 // lake下的主机列表
