@@ -68,7 +68,7 @@ service Cmdb {
     }
 
     // 裸金属列表
-    rpc ServerList(ServerListRequest) returns (ServerListResponse) {
+    rpc ServerList (ServerListRequest) returns (ServerListResponse) {
         option (google.api.http) = {
             get: "/v1/cmdb/serverList"
         };
@@ -254,7 +254,8 @@ message SearchHostResponse {
 // 导入主机请求
 message ImportHostRequest {
     // xlsx文件下载路径
-    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
+    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"
+                   }];
     // xlsx文件md5
     string md5 = 2;
     // 用户上传xlsx文件的文件名
@@ -270,7 +271,8 @@ message ImportHostResponse {
 // 导入物理机请求
 message ImportServerRequest {
     // xlsx文件下载路径
-    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
+    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"
+                   }];
     // xlsx文件md5
     string md5 = 2;
     // 用户上传xlsx文件的文件名
@@ -296,9 +298,9 @@ message ChooseHostRequest {
 // 物理机传入信息
 message Server {
     // 裸金属uuid
-    string  uuid = 1;
+    string uuid = 1;
     // 物理机ipmi的ip
-    string  ipmi_ip = 2;
+    string ipmi_ip = 2;
 }
 
 // 选择物理机请求
@@ -315,11 +317,11 @@ message ChooseServerCompareRequest {
     int32 room_id = 1;
 }
 
-
 // 导入交换机请求
 message ImportSwitchRequest {
     // xlsx文件下载路径
-    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
+    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"
+                   }];
     // xlsx文件md5
     string md5 = 2;
     // 用户上传xlsx文件的文件名
@@ -335,7 +337,8 @@ message ImportSwitchResponse {
 // 导入lake节点请求
 message ImportLakeRequest {
     // xlsx文件下载路径
-    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"}];
+    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"
+                   }];
     // xlsx文件md5
     string md5 = 2;
     // 用户上传xlsx文件的文件名
@@ -379,7 +382,6 @@ message RoomTopologyResponse {
     // 状态码
     common.ResponseStatus status = 2;
 }
-
 
 // 电源状态
 enum ServerPowerState {
@@ -458,7 +460,8 @@ message SearchMoudleRequest {
           required: ["cmdb_search_request"]
         }
     };
-    ChooseHostRequest cmdb_search_request = 1 [(validator.field) = {string_not_empty: true, human_error: "cmdb的搜索条件不能为空"}];
+    ChooseHostRequest cmdb_search_request = 1 [(validator.field) = {string_not_empty: true, human_error: "cmdb的搜索条件不能为空"
+                                              }];
 }
 
 // 查询模块请求返回
@@ -687,6 +690,7 @@ message SearchHostInLakeResponse {
 
 // lake下的主机列表
 message HostObjectInLake {
-    string lake = 1;
-    repeated HostObject host = 2;
+    string lake_name = 1;
+    int32 node_id = 2;
+    repeated HostObject host = 3;
 }

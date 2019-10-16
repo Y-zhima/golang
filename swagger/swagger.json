@@ -1818,8 +1818,12 @@
             "$ref": "#/definitions/cmdbHostObject"
           }
         },
-        "lake": {
+        "lake_name": {
           "type": "string"
+        },
+        "node_id": {
+          "type": "integer",
+          "format": "int32"
         }
       }
     },
