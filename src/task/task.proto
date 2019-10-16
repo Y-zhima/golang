@@ -46,7 +46,8 @@ service Task {
     // 交维表导入后巡检任务
     rpc CreateServerCompare (CreateServerCompareRequest) returns (CreateServerCompareResponse) {
         option (google.api.http) = {
-            get: "/v1/task/createServerCompare"
+            post: "/v1/task/createServerCompare"
+            body: "*"
         };
     }
 
