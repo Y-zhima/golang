@@ -548,7 +548,7 @@
           "Playbook"
         ],
         "summary": "创建playbook项目",
-        "operationId": "Create",
+        "operationId": "CreateMixin13",
         "parameters": [
           {
             "name": "body",
@@ -575,7 +575,7 @@
           "Playbook"
         ],
         "summary": "筛选playbook项目",
-        "operationId": "Filter",
+        "operationId": "FilterMixin13",
         "parameters": [
           {
             "type": "integer",
@@ -628,7 +628,7 @@
           "Playbook"
         ],
         "summary": "获取playbook项目",
-        "operationId": "Get",
+        "operationId": "GetMixin13",
         "parameters": [
           {
             "type": "integer",
@@ -655,7 +655,7 @@
           "Playbook"
         ],
         "summary": "更新playbook项目",
-        "operationId": "Update",
+        "operationId": "UpdateMixin13",
         "parameters": [
           {
             "type": "integer",
@@ -690,7 +690,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin9",
+        "operationId": "CreateMixin8",
         "parameters": [
           {
             "name": "body",
@@ -717,7 +717,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin9",
+        "operationId": "FilterMixin8",
         "parameters": [
           {
             "type": "integer",
@@ -790,7 +790,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin9",
+        "operationId": "GetMixin8",
         "parameters": [
           {
             "type": "integer",
@@ -852,7 +852,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "UpdateMixin9",
+        "operationId": "Update",
         "parameters": [
           {
             "type": "integer",
@@ -914,7 +914,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "CreateMixin12",
+        "operationId": "Create",
         "parameters": [
           {
             "name": "body",
@@ -963,7 +963,7 @@
       }
     },
     "/v1/task/createServerCompare": {
-      "get": {
+      "post": {
         "tags": [
           "Task"
         ],
@@ -971,15 +971,12 @@
         "operationId": "CreateServerCompare",
         "parameters": [
           {
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "collectionFormat": "multi",
-            "description": "机房ID列表.",
-            "name": "room_id",
-            "in": "query"
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskCreateServerCompareRequest"
+            }
           }
         ],
         "responses": {
@@ -998,7 +995,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "FilterMixin12",
+        "operationId": "Filter",
         "parameters": [
           {
             "type": "integer",
@@ -1064,7 +1061,7 @@
           "Task"
         ],
         "summary": "获取作业任务",
-        "operationId": "GetMixin12",
+        "operationId": "Get",
         "parameters": [
           {
             "type": "string",
@@ -1172,7 +1169,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin13",
+        "operationId": "CreateMixin10",
         "parameters": [
           {
             "name": "body",
@@ -1199,7 +1196,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin13",
+        "operationId": "FilterMixin10",
         "parameters": [
           {
             "type": "integer",
@@ -1258,7 +1255,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin13",
+        "operationId": "GetMixin10",
         "parameters": [
           {
             "type": "integer",
@@ -1285,7 +1282,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin13",
+        "operationId": "UpdateMixin10",
         "parameters": [
           {
             "type": "integer",
@@ -3713,6 +3710,20 @@
           "type": "string",
           "format": "int64",
           "title": "任务实例ID"
+        }
+      }
+    },
+    "taskCreateServerCompareRequest": {
+      "type": "object",
+      "title": "交维表导入后巡检任务请求体",
+      "properties": {
+        "room_id": {
+          "type": "array",
+          "title": "机房ID列表",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
         }
       }
     },

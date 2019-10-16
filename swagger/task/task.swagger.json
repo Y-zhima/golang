@@ -97,7 +97,7 @@
       }
     },
     "/v1/task/createServerCompare": {
-      "get": {
+      "post": {
         "summary": "交维表导入后巡检任务",
         "operationId": "CreateServerCompare",
         "responses": {
@@ -110,16 +110,12 @@
         },
         "parameters": [
           {
-            "name": "room_id",
-            "description": "机房ID列表.",
-            "in": "query",
-            "required": false,
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "collectionFormat": "multi"
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskCreateServerCompareRequest"
+            }
           }
         ],
         "tags": [
@@ -519,6 +515,20 @@
         }
       },
       "title": "创建任务实例请求返回"
+    },
+    "taskCreateServerCompareRequest": {
+      "type": "object",
+      "properties": {
+        "room_id": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": "机房ID列表"
+        }
+      },
+      "title": "交维表导入后巡检任务请求体"
     },
     "taskCreateServerCompareResponse": {
       "type": "object",
