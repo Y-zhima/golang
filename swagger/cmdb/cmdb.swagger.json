@@ -962,11 +962,15 @@
     "cmdbSearchHostInLakeResponse": {
       "type": "object",
       "properties": {
-        "host_in_lake": {
+        "lake_host": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/cmdbLakeHost"
           }
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
         }
       },
       "title": "查询lake下的主机列表的返回"

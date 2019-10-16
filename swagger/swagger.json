@@ -2204,11 +2204,15 @@
       "type": "object",
       "title": "查询lake下的主机列表的返回",
       "properties": {
-        "host_in_lake": {
+        "lake_host": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/cmdbLakeHost"
           }
+        },
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
         }
       }
     },
