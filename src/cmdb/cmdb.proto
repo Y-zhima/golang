@@ -682,6 +682,7 @@ message CabinetObject {
 
 // 查询lake下的主机列表的请求体
 message SearchHostInLakeRequest {
+    repeated string lake_name = 1;
 }
 // 查询lake下的主机列表的返回
 message SearchHostInLakeResponse {

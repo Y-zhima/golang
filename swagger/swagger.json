@@ -373,6 +373,17 @@
         ],
         "summary": "查询Lake节点下的主机列表",
         "operationId": "SearchHostInLake",
+        "parameters": [
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "name": "lake_name",
+            "in": "query"
+          }
+        ],
         "responses": {
           "200": {
             "description": "A successful response.",
