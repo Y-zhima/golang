@@ -32,6 +32,14 @@ message ServerCompareTask {
     int64 sub_task_id = 1;
     // 查询条件
     cmdb.ChooseServerCompareRequest cmdb_search_request = 2;
+    // playbook 文件的URL
+    string playbook_file_url = 3;
+    // playbook 文件的MD5
+    string playbook_file_md5 = 4;
+    // playbook 入口文件
+    string playbook_yml_name = 5;
+    // 额外变量
+    string extra_var = 6;
 }
 
 // 裸金属状态查询任务
