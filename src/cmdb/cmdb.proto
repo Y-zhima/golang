@@ -272,7 +272,7 @@ message ImportCrossTableRequest {
     string filename = 3;
 }
 
-// 导入主机请求返回
+// 导入交维表请求返回
 message ImportCrossTableResponse {
     // 状态码
     common.ResponseStatus status = 1;
