@@ -17,6 +17,91 @@
   },
   "host": "192.168.0.129:9001",
   "paths": {
+    "/v1/auth/callback": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "登陆回调接口",
+        "operationId": "Callback",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authCallbackResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/auth/check": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "服务鉴权入口",
+        "operationId": "Check",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authCheckResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/auth/getUserInfo": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "获取用户信息接口",
+        "operationId": "GetUserInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authGetUserInfoResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/auth/login": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "用户登陆接口",
+        "operationId": "Login",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authLoginResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/auth/logout": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "用户登出接口",
+        "operationId": "Logout",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authLogoutResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/callback/cmdbEvent": {
       "post": {
         "tags": [
@@ -718,7 +803,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin9",
+        "operationId": "CreateMixin10",
         "parameters": [
           {
             "name": "body",
@@ -745,7 +830,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin9",
+        "operationId": "FilterMixin10",
         "parameters": [
           {
             "type": "integer",
@@ -818,7 +903,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin9",
+        "operationId": "GetMixin10",
         "parameters": [
           {
             "type": "integer",
@@ -880,7 +965,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "UpdateMixin9",
+        "operationId": "UpdateMixin10",
         "parameters": [
           {
             "type": "integer",
@@ -942,7 +1027,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "CreateMixin12",
+        "operationId": "CreateMixin13",
         "parameters": [
           {
             "name": "body",
@@ -1023,7 +1108,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "FilterMixin12",
+        "operationId": "FilterMixin13",
         "parameters": [
           {
             "type": "integer",
@@ -1089,7 +1174,7 @@
           "Task"
         ],
         "summary": "获取作业任务",
-        "operationId": "GetMixin12",
+        "operationId": "GetMixin13",
         "parameters": [
           {
             "type": "string",
@@ -1197,7 +1282,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin13",
+        "operationId": "CreateMixin14",
         "parameters": [
           {
             "name": "body",
@@ -1224,7 +1309,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin13",
+        "operationId": "FilterMixin14",
         "parameters": [
           {
             "type": "integer",
@@ -1283,7 +1368,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin13",
+        "operationId": "GetMixin14",
         "parameters": [
           {
             "type": "integer",
@@ -1310,7 +1395,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin13",
+        "operationId": "UpdateMixin14",
         "parameters": [
           {
             "type": "integer",
@@ -1647,6 +1732,71 @@
         "DEPLOYFAILED",
         "ACTIVE"
       ]
+    },
+    "authCallbackResponse": {
+      "type": "object",
+      "title": "登陆回调接口响应，返回301状态码"
+    },
+    "authCheckResponse": {
+      "type": "object",
+      "title": "服务鉴权入口响应，返回200、401、403等状态码"
+    },
+    "authGetUserInfoResponse": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "title": "响应消息",
+          "$ref": "#/definitions/authUserInfo"
+        },
+        "status": {
+          "title": "响应状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "authLoginResponse": {
+      "type": "object",
+      "title": "用户登陆接口响应，返回301状态码"
+    },
+    "authLogoutResponse": {
+      "type": "object",
+      "title": "用户登出接口响应，返回301状态码"
+    },
+    "authSourceCode": {
+      "description": "- NONE: 不依赖外部系统\n - IAM: IAM系统",
+      "type": "string",
+      "title": "外部系统编号",
+      "default": "NONE",
+      "enum": [
+        "NONE",
+        "IAM"
+      ]
+    },
+    "authUserInfo": {
+      "type": "object",
+      "title": "用户信息",
+      "properties": {
+        "avatar": {
+          "type": "string",
+          "title": "用户头像路径"
+        },
+        "name": {
+          "type": "string",
+          "title": "用户名"
+        },
+        "source": {
+          "title": "外部系统的编号",
+          "$ref": "#/definitions/authSourceCode"
+        },
+        "source_uid": {
+          "type": "string",
+          "title": "用户在外部系统中的ID"
+        },
+        "uid": {
+          "type": "string",
+          "title": "用户在鉴权网关中的唯一ID"
+        }
+      }
     },
     "callbackCmdbEventData": {
       "type": "object",

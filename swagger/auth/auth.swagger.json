@@ -1,0 +1,196 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "auth/auth.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/auth/callback": {
+      "get": {
+        "summary": "登陆回调接口",
+        "operationId": "Callback",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authCallbackResponse"
+            }
+          }
+        },
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/v1/auth/check": {
+      "get": {
+        "summary": "服务鉴权入口",
+        "operationId": "Check",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authCheckResponse"
+            }
+          }
+        },
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/v1/auth/getUserInfo": {
+      "get": {
+        "summary": "获取用户信息接口",
+        "operationId": "GetUserInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authGetUserInfoResponse"
+            }
+          }
+        },
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/v1/auth/login": {
+      "get": {
+        "summary": "用户登陆接口",
+        "operationId": "Login",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authLoginResponse"
+            }
+          }
+        },
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/v1/auth/logout": {
+      "get": {
+        "summary": "用户登出接口",
+        "operationId": "Logout",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authLogoutResponse"
+            }
+          }
+        },
+        "tags": [
+          "Auth"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "authCallbackResponse": {
+      "type": "object",
+      "title": "登陆回调接口响应，返回301状态码"
+    },
+    "authCheckResponse": {
+      "type": "object",
+      "title": "服务鉴权入口响应，返回200、401、403等状态码"
+    },
+    "authGetUserInfoResponse": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "$ref": "#/definitions/authUserInfo",
+          "title": "响应消息"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "响应状态"
+        }
+      }
+    },
+    "authLoginResponse": {
+      "type": "object",
+      "title": "用户登陆接口响应，返回301状态码"
+    },
+    "authLogoutResponse": {
+      "type": "object",
+      "title": "用户登出接口响应，返回301状态码"
+    },
+    "authSourceCode": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "IAM"
+      ],
+      "default": "NONE",
+      "description": "- NONE: 不依赖外部系统\n - IAM: IAM系统",
+      "title": "外部系统编号"
+    },
+    "authUserInfo": {
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "title": "用户在鉴权网关中的唯一ID"
+        },
+        "name": {
+          "type": "string",
+          "title": "用户名"
+        },
+        "source_uid": {
+          "type": "string",
+          "title": "用户在外部系统中的ID"
+        },
+        "source": {
+          "$ref": "#/definitions/authSourceCode",
+          "title": "外部系统的编号"
+        },
+        "avatar": {
+          "type": "string",
+          "title": "用户头像路径"
+        }
+      },
+      "title": "用户信息"
+    },
+    "commonResponseStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/commonStatusCode",
+          "title": "状态码"
+        },
+        "message": {
+          "type": "string",
+          "title": "信息"
+        }
+      },
+      "title": "请求返回状态"
+    },
+    "commonStatusCode": {
+      "type": "string",
+      "enum": [
+        "SUCCESS",
+        "INVALID_ARGUMENT",
+        "ACCESS_DENIED"
+      ],
+      "default": "SUCCESS",
+      "description": "- SUCCESS: 成功\n - INVALID_ARGUMENT: 参数错误\n - ACCESS_DENIED: 访问拒绝",
+      "title": "请求返回状态码"
+    }
+  }
+}
