@@ -15,6 +15,33 @@
     "application/json"
   ],
   "paths": {
+    "/v1/cmdb/importCrossTable": {
+      "post": {
+        "summary": "导入交维表",
+        "operationId": "ImportCrossTable",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportCrossTableResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportCrossTableRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Cmdb"
+        ]
+      }
+    },
     "/v1/cmdb/importHistory": {
       "get": {
         "summary": "查询导入历史记录列表",
@@ -576,6 +603,34 @@
       },
       "title": "主机"
     },
+    "cmdbImportCrossTableRequest": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "title": "xlsx文件下载路径"
+        },
+        "md5": {
+          "type": "string",
+          "title": "xlsx文件md5"
+        },
+        "filename": {
+          "type": "string",
+          "title": "用户上传xlsx文件的文件名"
+        }
+      },
+      "title": "导入交维表请求"
+    },
+    "cmdbImportCrossTableResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
+        }
+      },
+      "title": "导入交维表请求返回"
+    },
     "cmdbImportHistoryObject": {
       "type": "object",
       "properties": {
@@ -799,10 +854,11 @@
         "HOST",
         "SERVER",
         "LAKE",
-        "SWITCH"
+        "SWITCH",
+        "CROSSTABLE"
       ],
       "default": "UNDEFINED",
-      "description": "- UNDEFINED: 0-undefined\n - HOST: 1-主机\n - SERVER: 2-物理机\n - LAKE: 3-LAKE\n - SWITCH: 4-交换机",
+      "description": "- UNDEFINED: 0-undefined\n - HOST: 1-主机\n - SERVER: 2-物理机\n - LAKE: 3-LAKE\n - SWITCH: 4-交换机\n - CROSSTABLE: 5-交维表",
       "title": "导入类型:0-undefined 1-主机 2-物理机 3-LAKE 4-交换机"
     },
     "cmdbInstanceTopologyResponse": {
@@ -817,7 +873,7 @@
         },
         "status": {
           "$ref": "#/definitions/commonResponseStatus",
-          "title": "TopologyObject instance = 1;\n状态码"
+          "title": "TopologyObject instance = 1;\r\n状态码"
         }
       },
       "title": "拓扑实例请求返回"
