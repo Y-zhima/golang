@@ -36,6 +36,14 @@ service Cmdb {
         };
     }
 
+    // 导入交维表
+    rpc ImportCrossTable (ImportCrossTableRequest) returns (ImportCrossTableResponse) {
+        option (google.api.http) = {
+            post: "/v1/cmdb/importCrossTable"
+            body: "*"
+        };
+    }
+
     // 导入物理机
     rpc ImportServer (ImportServerRequest) returns (ImportServerResponse) {
         option (google.api.http) = {
@@ -125,6 +133,8 @@ enum ImportType {
     LAKE = 3;
     // 4-交换机
     SWITCH = 4;
+    // 5-交维表
+    CROSSTABLE = 5;
 }
 
 // 业务拓扑对象
@@ -249,6 +259,23 @@ message SearchHostResponse {
     common.ResponseStatus status = 2;
     // 主机信息
     repeated HostInfoObject info = 3;
+}
+
+// 导入交维表请求
+message ImportCrossTableRequest {
+    // xlsx文件下载路径
+    string url = 1 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"
+                   }];
+    // xlsx文件md5
+    string md5 = 2;
+    // 用户上传xlsx文件的文件名
+    string filename = 3;
+}
+
+// 导入交维表请求返回
+message ImportCrossTableResponse {
+    // 状态码
+    common.ResponseStatus status = 1;
 }
 
 // 导入主机请求
