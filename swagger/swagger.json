@@ -129,6 +129,33 @@
         }
       }
     },
+    "/v1/cmdb/importCrossTable": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "导入交维表",
+        "operationId": "ImportCrossTable",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportCrossTableRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportCrossTableResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/cmdb/importHistory": {
       "get": {
         "tags": [
@@ -661,7 +688,7 @@
           "Playbook"
         ],
         "summary": "创建playbook项目",
-        "operationId": "Create",
+        "operationId": "CreateMixin14",
         "parameters": [
           {
             "name": "body",
@@ -688,7 +715,7 @@
           "Playbook"
         ],
         "summary": "筛选playbook项目",
-        "operationId": "Filter",
+        "operationId": "FilterMixin14",
         "parameters": [
           {
             "type": "integer",
@@ -741,7 +768,7 @@
           "Playbook"
         ],
         "summary": "获取playbook项目",
-        "operationId": "Get",
+        "operationId": "GetMixin14",
         "parameters": [
           {
             "type": "integer",
@@ -768,7 +795,7 @@
           "Playbook"
         ],
         "summary": "更新playbook项目",
-        "operationId": "Update",
+        "operationId": "UpdateMixin14",
         "parameters": [
           {
             "type": "integer",
@@ -803,7 +830,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin10",
+        "operationId": "CreateMixin9",
         "parameters": [
           {
             "name": "body",
@@ -830,7 +857,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin10",
+        "operationId": "FilterMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -903,7 +930,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin10",
+        "operationId": "GetMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -965,7 +992,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "UpdateMixin10",
+        "operationId": "Update",
         "parameters": [
           {
             "type": "integer",
@@ -1027,7 +1054,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "CreateMixin13",
+        "operationId": "Create",
         "parameters": [
           {
             "name": "body",
@@ -1108,7 +1135,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "FilterMixin13",
+        "operationId": "Filter",
         "parameters": [
           {
             "type": "integer",
@@ -1174,7 +1201,7 @@
           "Task"
         ],
         "summary": "获取作业任务",
-        "operationId": "GetMixin13",
+        "operationId": "Get",
         "parameters": [
           {
             "type": "string",
@@ -1282,7 +1309,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin14",
+        "operationId": "CreateMixin11",
         "parameters": [
           {
             "name": "body",
@@ -1309,7 +1336,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin14",
+        "operationId": "FilterMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -1368,7 +1395,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin14",
+        "operationId": "GetMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -1395,7 +1422,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin14",
+        "operationId": "UpdateMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -1966,6 +1993,34 @@
         }
       }
     },
+    "cmdbImportCrossTableRequest": {
+      "type": "object",
+      "title": "导入交维表请求",
+      "properties": {
+        "filename": {
+          "type": "string",
+          "title": "用户上传xlsx文件的文件名"
+        },
+        "md5": {
+          "type": "string",
+          "title": "xlsx文件md5"
+        },
+        "url": {
+          "type": "string",
+          "title": "xlsx文件下载路径"
+        }
+      }
+    },
+    "cmdbImportCrossTableResponse": {
+      "type": "object",
+      "title": "导入交维表请求返回",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
     "cmdbImportHistoryObject": {
       "type": "object",
       "title": "导入历史对象",
@@ -2183,7 +2238,7 @@
       }
     },
     "cmdbImportType": {
-      "description": "- UNDEFINED: 0-undefined\n - HOST: 1-主机\n - SERVER: 2-物理机\n - LAKE: 3-LAKE\n - SWITCH: 4-交换机",
+      "description": "- UNDEFINED: 0-undefined\n - HOST: 1-主机\n - SERVER: 2-物理机\n - LAKE: 3-LAKE\n - SWITCH: 4-交换机\n - CROSSTABLE: 5-交维表",
       "type": "string",
       "title": "导入类型:0-undefined 1-主机 2-物理机 3-LAKE 4-交换机",
       "default": "UNDEFINED",
@@ -2192,7 +2247,8 @@
         "HOST",
         "SERVER",
         "LAKE",
-        "SWITCH"
+        "SWITCH",
+        "CROSSTABLE"
       ]
     },
     "cmdbInstanceTopologyResponse": {
@@ -2644,6 +2700,11 @@
           "items": {
             "$ref": "#/definitions/cmdbTopologyObject"
           }
+        },
+        "uuid": {
+          "type": "integer",
+          "format": "int32",
+          "title": "唯一标识"
         }
       }
     },
@@ -3224,6 +3285,89 @@
           "$ref": "#/definitions/QryNodeInfoRootResQryNodeInfoRsp"
         }
       }
+    },
+    "jobCreateResponse": {
+      "type": "object",
+      "title": "创建作业任务请求返回",
+      "properties": {
+        "job_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "作业任务ID"
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "jobDeleteResponse": {
+      "type": "object",
+      "title": "删除作业任务请求返回"
+    },
+    "jobFilterResponse": {
+      "type": "object",
+      "title": "筛选作业任务请求返回",
+      "properties": {
+        "jobs": {
+          "type": "array",
+          "title": "筛选到的多个作业任务实例",
+          "items": {
+            "$ref": "#/definitions/jobJobObject"
+          }
+        },
+        "paging": {
+          "title": "分页信息",
+          "$ref": "#/definitions/commonPaging"
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "jobGetLogResponse": {
+      "type": "object",
+      "title": "获取作业任务详细执行过程请求返回",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "jobGetResponse": {
+      "type": "object",
+      "title": "获取作业任务请求返回",
+      "properties": {
+        "job": {
+          "title": "获取的作业任务实例",
+          "$ref": "#/definitions/jobJobObject"
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "jobJobObject": {
+      "type": "object",
+      "title": "作业任务实例",
+      "properties": {
+        "job_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "作业任务ID"
+        }
+      }
+    },
+    "jobScheduleListResponse": {
+      "type": "object",
+      "title": "查看定时作业任务请求返回"
+    },
+    "jobScheduleResponse": {
+      "type": "object",
+      "title": "创建定时作业任务请求返回"
     },
     "playbookCreateRequest": {
       "type": "object",

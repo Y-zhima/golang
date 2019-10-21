@@ -1,0 +1,154 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "job/job.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {},
+  "definitions": {
+    "commonPaging": {
+      "type": "object",
+      "properties": {
+        "total_page": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总页数"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "title": "当前页数"
+        },
+        "per_page": {
+          "type": "integer",
+          "format": "int32",
+          "title": "每页显示的记录条数"
+        },
+        "total_record": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总记录数"
+        }
+      },
+      "title": "分页"
+    },
+    "commonResponseStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/commonStatusCode",
+          "title": "状态码"
+        },
+        "message": {
+          "type": "string",
+          "title": "信息"
+        }
+      },
+      "title": "请求返回状态"
+    },
+    "commonStatusCode": {
+      "type": "string",
+      "enum": [
+        "SUCCESS",
+        "INVALID_ARGUMENT",
+        "ACCESS_DENIED"
+      ],
+      "default": "SUCCESS",
+      "description": "- SUCCESS: 成功\n - INVALID_ARGUMENT: 参数错误\n - ACCESS_DENIED: 访问拒绝",
+      "title": "请求返回状态码"
+    },
+    "jobCreateResponse": {
+      "type": "object",
+      "properties": {
+        "job_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "作业任务ID"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        }
+      },
+      "title": "创建作业任务请求返回"
+    },
+    "jobDeleteResponse": {
+      "type": "object",
+      "title": "删除作业任务请求返回"
+    },
+    "jobFilterResponse": {
+      "type": "object",
+      "properties": {
+        "jobs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/jobJobObject"
+          },
+          "title": "筛选到的多个作业任务实例"
+        },
+        "paging": {
+          "$ref": "#/definitions/commonPaging",
+          "title": "分页信息"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        }
+      },
+      "title": "筛选作业任务请求返回"
+    },
+    "jobGetLogResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        }
+      },
+      "title": "获取作业任务详细执行过程请求返回"
+    },
+    "jobGetResponse": {
+      "type": "object",
+      "properties": {
+        "job": {
+          "$ref": "#/definitions/jobJobObject",
+          "title": "获取的作业任务实例"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        }
+      },
+      "title": "获取作业任务请求返回"
+    },
+    "jobJobObject": {
+      "type": "object",
+      "properties": {
+        "job_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "作业任务ID"
+        }
+      },
+      "title": "作业任务实例"
+    },
+    "jobScheduleListResponse": {
+      "type": "object",
+      "title": "查看定时作业任务请求返回"
+    },
+    "jobScheduleResponse": {
+      "type": "object",
+      "title": "创建定时作业任务请求返回"
+    }
+  }
+}
