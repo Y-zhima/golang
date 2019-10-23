@@ -257,60 +257,6 @@
         }
       }
     },
-    "/v1/cmdb/importServer": {
-      "post": {
-        "tags": [
-          "Cmdb"
-        ],
-        "summary": "导入物理机",
-        "operationId": "ImportServer",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/cmdbImportServerRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/cmdbImportServerResponse"
-            }
-          }
-        }
-      }
-    },
-    "/v1/cmdb/importSwitch": {
-      "post": {
-        "tags": [
-          "Cmdb"
-        ],
-        "summary": "导入交换机",
-        "operationId": "ImportSwitch",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/cmdbImportSwitchRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/cmdbImportSwitchResponse"
-            }
-          }
-        }
-      }
-    },
     "/v1/cmdb/instanceTopology": {
       "get": {
         "tags": [
@@ -2170,34 +2116,6 @@
         }
       }
     },
-    "cmdbImportServerRequest": {
-      "type": "object",
-      "title": "导入物理机请求",
-      "properties": {
-        "filename": {
-          "type": "string",
-          "title": "用户上传xlsx文件的文件名"
-        },
-        "md5": {
-          "type": "string",
-          "title": "xlsx文件md5"
-        },
-        "url": {
-          "type": "string",
-          "title": "xlsx文件下载路径"
-        }
-      }
-    },
-    "cmdbImportServerResponse": {
-      "type": "object",
-      "title": "导入物理机请求返回",
-      "properties": {
-        "status": {
-          "title": "状态码",
-          "$ref": "#/definitions/commonResponseStatus"
-        }
-      }
-    },
     "cmdbImportStatus": {
       "description": "- IMPORTING: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败",
       "type": "string",
@@ -2208,34 +2126,6 @@
         "COMPLETED",
         "FAILED"
       ]
-    },
-    "cmdbImportSwitchRequest": {
-      "type": "object",
-      "title": "导入交换机请求",
-      "properties": {
-        "filename": {
-          "type": "string",
-          "title": "用户上传xlsx文件的文件名"
-        },
-        "md5": {
-          "type": "string",
-          "title": "xlsx文件md5"
-        },
-        "url": {
-          "type": "string",
-          "title": "xlsx文件下载路径"
-        }
-      }
-    },
-    "cmdbImportSwitchResponse": {
-      "type": "object",
-      "title": "导入交换机请求返回",
-      "properties": {
-        "status": {
-          "title": "状态码",
-          "$ref": "#/definitions/commonResponseStatus"
-        }
-      }
     },
     "cmdbImportType": {
       "description": "- UNDEFINED: 0-undefined\n - HOST: 1-主机\n - SERVER: 2-物理机\n - LAKE: 3-LAKE\n - SWITCH: 4-交换机\n - CROSSTABLE: 5-交维表",
