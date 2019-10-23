@@ -45,20 +45,20 @@ service Cmdb {
     }
 
     // 导入物理机
-    rpc ImportServer (ImportServerRequest) returns (ImportServerResponse) {
+    /* rpc ImportServer (ImportServerRequest) returns (ImportServerResponse) {
         option (google.api.http) = {
             post: "/v1/cmdb/importServer"
             body: "*"
         };
-    }
+    } */
 
     // 导入交换机
-    rpc ImportSwitch (ImportSwitchRequest) returns (ImportSwitchResponse) {
+    /* rpc ImportSwitch (ImportSwitchRequest) returns (ImportSwitchResponse) {
         option (google.api.http) = {
             post: "/v1/cmdb/importSwitch"
             body: "*"
         };
-    }
+    } */
 
     // 导入lake节点
     rpc ImportLake (ImportLakeRequest) returns (ImportLakeResponse) {
