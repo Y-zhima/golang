@@ -260,7 +260,7 @@ message SearchHostResponse {
     // 状态码
     common.ResponseStatus status = 2;
     // 主机信息
-    repeated HostInfoObject info = 3;
+    repeated TopologyObject instance = 3;
 }
 
 // 导入交维表请求
