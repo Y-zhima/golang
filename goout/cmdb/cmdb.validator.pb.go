@@ -142,10 +142,10 @@ func (this *SearchHostResponse) Validate() error {
 			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
 		}
 	}
-	for _, item := range this.Info {
+	for _, item := range this.Instance {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Info", err)
+				return github_com_mwitkow_go_proto_validators.FieldError("Instance", err)
 			}
 		}
 	}
