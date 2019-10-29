@@ -348,6 +348,12 @@
           },
           {
             "type": "string",
+            "description": "ipv6的地址.",
+            "name": "host.ipv6",
+            "in": "query"
+          },
+          {
+            "type": "string",
             "description": "模块名.",
             "name": "module.bk_module_name",
             "in": "query"
@@ -2018,6 +2024,10 @@
         "bk_host_innerip": {
           "type": "string",
           "title": "内网IP"
+        },
+        "ipv6": {
+          "type": "string",
+          "title": "ipv6的地址"
         },
         "state": {
           "type": "string",
