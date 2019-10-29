@@ -425,7 +425,7 @@
       }
     },
     "/v1/cmdb/searchLakeArea": {
-      "post": {
+      "get": {
         "tags": [
           "Cmdb"
         ],
@@ -433,12 +433,13 @@
         "operationId": "SearchLakeArea",
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/cmdbSearchLakeAreaRequest"
-            }
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "name": "host_ip",
+            "in": "query"
           }
         ],
         "responses": {
@@ -1854,12 +1855,22 @@
         }
       }
     },
-    "cmdbAreaTopo": {
+    "cmdbAreaObject": {
       "type": "object",
+      "title": "地区对象",
       "properties": {
         "area_cnname": {
           "type": "string",
           "title": "区域中文名称"
+        },
+        "area_enname": {
+          "type": "string",
+          "title": "区域英文名称"
+        },
+        "area_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "地区id"
         },
         "bk_inst_id": {
           "type": "integer",
@@ -1870,13 +1881,25 @@
           "type": "string",
           "title": "区域编码"
         },
-        "child": {
-          "title": "子区域",
-          "$ref": "#/definitions/cmdbAreaTopo"
-        },
         "level": {
           "type": "string",
           "title": "地区层级"
+        },
+        "parent_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "父节点ID"
+        }
+      }
+    },
+    "cmdbAreaTopo": {
+      "type": "object",
+      "properties": {
+        "area": {
+          "$ref": "#/definitions/cmdbAreaObject"
+        },
+        "child": {
+          "$ref": "#/definitions/cmdbAreaTopo"
         }
       }
     },
@@ -2272,6 +2295,42 @@
         }
       }
     },
+    "cmdbRoomAndIP": {
+      "type": "object",
+      "properties": {
+        "host_ip": {
+          "type": "string"
+        },
+        "room": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbRoomAreaTopo"
+          }
+        }
+      }
+    },
+    "cmdbRoomAreaTopo": {
+      "type": "object",
+      "properties": {
+        "area_code": {
+          "type": "string",
+          "title": "地区编码"
+        },
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "机房ID"
+        },
+        "child": {
+          "title": "地区信息",
+          "$ref": "#/definitions/cmdbAreaTopo"
+        },
+        "room_name": {
+          "type": "string",
+          "title": "机房名称"
+        }
+      }
+    },
     "cmdbRoomObject": {
       "type": "object",
       "title": "机房对象",
@@ -2368,30 +2427,18 @@
         }
       }
     },
-    "cmdbSearchLakeAreaRequest": {
-      "type": "object",
-      "title": "通过IP获取节点的地区和位置信息的请求体",
-      "properties": {
-        "vip": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/cmdbVipObject"
-          }
-        }
-      }
-    },
     "cmdbSearchLakeAreaResponse": {
       "type": "object",
       "properties": {
+        "room_ip": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbRoomAndIP"
+          }
+        },
         "status": {
           "title": "状态码",
           "$ref": "#/definitions/commonResponseStatus"
-        },
-        "vip_room": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/cmdbVipRoom"
-          }
         }
       }
     },
@@ -2673,20 +2720,6 @@
         "vip_ipv6": {
           "type": "string",
           "title": "vip的ipv6地址"
-        }
-      }
-    },
-    "cmdbVipRoom": {
-      "type": "object",
-      "properties": {
-        "address": {
-          "type": "string"
-        },
-        "area": {
-          "$ref": "#/definitions/cmdbAreaTopo"
-        },
-        "vip": {
-          "$ref": "#/definitions/cmdbVipObject"
         }
       }
     },

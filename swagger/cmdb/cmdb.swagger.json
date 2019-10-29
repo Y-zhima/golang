@@ -328,7 +328,7 @@
       }
     },
     "/v1/cmdb/searchLakeArea": {
-      "post": {
+      "get": {
         "summary": "通过IP获取节点的地区和位置信息",
         "operationId": "SearchLakeArea",
         "responses": {
@@ -341,12 +341,14 @@
         },
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/cmdbSearchLakeAreaRequest"
-            }
+            "name": "host_ip",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
           }
         ],
         "tags": [
@@ -491,7 +493,7 @@
     }
   },
   "definitions": {
-    "cmdbAreaTopo": {
+    "cmdbAreaObject": {
       "type": "object",
       "properties": {
         "bk_inst_id": {
@@ -507,13 +509,35 @@
           "type": "string",
           "title": "区域中文名称"
         },
+        "area_enname": {
+          "type": "string",
+          "title": "区域英文名称"
+        },
+        "parent_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "父节点ID"
+        },
         "level": {
           "type": "string",
           "title": "地区层级"
         },
+        "area_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "地区id"
+        }
+      },
+      "title": "地区对象"
+    },
+    "cmdbAreaTopo": {
+      "type": "object",
+      "properties": {
+        "area": {
+          "$ref": "#/definitions/cmdbAreaObject"
+        },
         "child": {
-          "$ref": "#/definitions/cmdbAreaTopo",
-          "title": "子区域"
+          "$ref": "#/definitions/cmdbAreaTopo"
         }
       }
     },
@@ -880,6 +904,42 @@
       },
       "title": "模块"
     },
+    "cmdbRoomAndIP": {
+      "type": "object",
+      "properties": {
+        "host_ip": {
+          "type": "string"
+        },
+        "room": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbRoomAreaTopo"
+          }
+        }
+      }
+    },
+    "cmdbRoomAreaTopo": {
+      "type": "object",
+      "properties": {
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "机房ID"
+        },
+        "room_name": {
+          "type": "string",
+          "title": "机房名称"
+        },
+        "area_code": {
+          "type": "string",
+          "title": "地区编码"
+        },
+        "child": {
+          "$ref": "#/definitions/cmdbAreaTopo",
+          "title": "地区信息"
+        }
+      }
+    },
     "cmdbRoomObject": {
       "type": "object",
       "properties": {
@@ -976,25 +1036,13 @@
       },
       "title": "查找主机请求返回"
     },
-    "cmdbSearchLakeAreaRequest": {
-      "type": "object",
-      "properties": {
-        "vip": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/cmdbVipObject"
-          }
-        }
-      },
-      "title": "通过IP获取节点的地区和位置信息的请求体"
-    },
     "cmdbSearchLakeAreaResponse": {
       "type": "object",
       "properties": {
-        "vip_room": {
+        "room_ip": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/cmdbVipRoom"
+            "$ref": "#/definitions/cmdbRoomAndIP"
           }
         },
         "status": {
@@ -1269,20 +1317,6 @@
         }
       },
       "title": "VIP对象"
-    },
-    "cmdbVipRoom": {
-      "type": "object",
-      "properties": {
-        "vip": {
-          "$ref": "#/definitions/cmdbVipObject"
-        },
-        "area": {
-          "$ref": "#/definitions/cmdbAreaTopo"
-        },
-        "address": {
-          "type": "string"
-        }
-      }
     },
     "cmdbZoneObject": {
       "type": "object",

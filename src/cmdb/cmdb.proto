@@ -738,31 +738,35 @@ message LakeHost {
 
 // 通过IP获取节点的地区和位置信息的请求体
 message SearchLakeAreaRequest {
-    repeated VipObject vip = 1;
+    repeated AreaLevelAndIP area_level_ip = 1;
+}
+
+message AreaLevelAndIP {
+    string host_ip = 1;
+    string area_level = 2;
 }
 
 message SearchLakeAreaResponse {
-    repeated VipRoom vip_room = 1;
+    repeated RoomAndIP room_ip = 1;
     // 状态码
     common.ResponseStatus status = 2;
 }
 
-message VipRoom {
-    VipObject vip = 1;
-    AreaTopo area = 2;
-    string address = 3;
+message RoomAndIP {
+    string host_ip = 1;
+    repeated RoomAreaTopo room = 2;
 }
 
-message AreaTopo {
-    // 实例ID
+message RoomAreaTopo {
+    // 机房ID
     int32 bk_inst_id = 1;
-    // 区域编码
-    string bk_inst_name = 2;
-    // 区域中文名称
-    string area_cnname = 3;
-    // 地区层级
-    string level = 4;
-    // 子区域
-    AreaTopo child = 5;
+    // 机房名称
+    string room_name = 2;
+    // 地区编码
+    string area_code = 3;
+    // 机房地址
+    string room_address = 4;
+    // 地区信息
+    AreaObject area = 5;
 }
 

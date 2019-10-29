@@ -7,11 +7,11 @@ import (
 	fmt "fmt"
 	math "math"
 	proto "github.com/golang/protobuf/proto"
-	_ "git.fogcdn.top/axe/protos/goout/common"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "github.com/mwitkow/go-proto-validators"
 	_ "github.com/golang/protobuf/ptypes/timestamp"
+	_ "git.fogcdn.top/axe/protos/goout/common"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
@@ -450,20 +450,13 @@ func (this *LakeHost) Validate() error {
 	return nil
 }
 func (this *SearchLakeAreaRequest) Validate() error {
-	for _, item := range this.Vip {
-		if item != nil {
-			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Vip", err)
-			}
-		}
-	}
 	return nil
 }
 func (this *SearchLakeAreaResponse) Validate() error {
-	for _, item := range this.VipRoom {
+	for _, item := range this.RoomIp {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("VipRoom", err)
+				return github_com_mwitkow_go_proto_validators.FieldError("RoomIp", err)
 			}
 		}
 	}
@@ -474,20 +467,30 @@ func (this *SearchLakeAreaResponse) Validate() error {
 	}
 	return nil
 }
-func (this *VipRoom) Validate() error {
-	if this.Vip != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Vip); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("Vip", err)
+func (this *RoomAndIP) Validate() error {
+	for _, item := range this.Room {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Room", err)
+			}
 		}
 	}
-	if this.Area != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Area); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("Area", err)
+	return nil
+}
+func (this *RoomAreaTopo) Validate() error {
+	if this.Child != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Child); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Child", err)
 		}
 	}
 	return nil
 }
 func (this *AreaTopo) Validate() error {
+	if this.Area != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Area); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Area", err)
+		}
+	}
 	if this.Child != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Child); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Child", err)
