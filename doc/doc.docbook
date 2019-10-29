@@ -1,0 +1,908 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article>
+  <title>Protocol Documentation</title>
+  
+  <section>
+    <title>template/template.proto</title>
+    <para></para>
+    
+    <section id="template.CreateRequest">
+      <title>CreateRequest</title>
+      <para>创建模板请求</para>
+      
+      <table frame="all">
+        <title><classname>CreateRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>模板名</para></entry>
+            </row>
+            
+            <row>
+              <entry>playbook_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>playbook 项目id</para></entry>
+            </row>
+            
+            <row>
+              <entry>playbook_file_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>选择的playbook项目对应的playbook_file</para></entry>
+            </row>
+            
+            <row>
+              <entry>playbook_entrypoint_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>选择的playbook入口yml文件</para></entry>
+            </row>
+            
+            <row>
+              <entry>description</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>模板描述</para></entry>
+            </row>
+            
+            <row>
+              <entry>extra_var</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="template.CreateResponse">
+      <title>CreateResponse</title>
+      <para>创建模板请求返回</para>
+      
+      <table frame="all">
+        <title><classname>CreateResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>template_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>模板ID</para></entry>
+            </row>
+            
+            <row>
+              <entry>created</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>模板创建的时间</para></entry>
+            </row>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>请求返回状态</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="template.DeleteRequest">
+      <title>DeleteRequest</title>
+      <para>删除模板请求</para>
+      
+      <table frame="all">
+        <title><classname>DeleteRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>template_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>模板ID</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="template.DeleteResponse">
+      <title>DeleteResponse</title>
+      <para>删除请求返回</para>
+      
+      <table frame="all">
+        <title><classname>DeleteResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>请求返回的状态</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="template.FilterRequest">
+      <title>FilterRequest</title>
+      <para>筛选模板请求</para>
+      
+      <table frame="all">
+        <title><classname>FilterRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>paging</entry>
+              <entry><link linkend="common.Paging">common.Paging</link></entry>
+              <entry></entry>
+              <entry><para>分页信息</para></entry>
+            </row>
+            
+            <row>
+              <entry>name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>模板名的一部分，模糊查询时的关键字</para></entry>
+            </row>
+            
+            <row>
+              <entry>template_id</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>模板ID</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="template.FilterResponse">
+      <title>FilterResponse</title>
+      <para>筛选模板请求返回</para>
+      
+      <table frame="all">
+        <title><classname>FilterResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>templates</entry>
+              <entry><link linkend="template.TemplateObject">TemplateObject</link></entry>
+              <entry>repeated</entry>
+              <entry><para>请求返回的模板</para></entry>
+            </row>
+            
+            <row>
+              <entry>paging</entry>
+              <entry><link linkend="common.Paging">common.Paging</link></entry>
+              <entry></entry>
+              <entry><para>分页信息</para></entry>
+            </row>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>请求返回状态</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="template.GetRequest">
+      <title>GetRequest</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>GetRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>template_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>模板ID</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="template.GetResponse">
+      <title>GetResponse</title>
+      <para>获取模板请求返回</para>
+      
+      <table frame="all">
+        <title><classname>GetResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>template</entry>
+              <entry><link linkend="template.TemplateObject">TemplateObject</link></entry>
+              <entry></entry>
+              <entry><para>请求返回的模板</para></entry>
+            </row>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>请求返回状态</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="template.TemplateObject">
+      <title>TemplateObject</title>
+      <para>模板实例</para>
+      
+      <table frame="all">
+        <title><classname>TemplateObject</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>template_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>模板ID</para></entry>
+            </row>
+            
+            <row>
+              <entry>name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>模板名</para></entry>
+            </row>
+            
+            <row>
+              <entry>description</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>模板描述</para></entry>
+            </row>
+            
+            <row>
+              <entry>playbook</entry>
+              <entry><link linkend="playbook.ProjectObject">playbook.ProjectObject</link></entry>
+              <entry></entry>
+              <entry><para>playbook 项目</para></entry>
+            </row>
+            
+            <row>
+              <entry>playbook_file_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>选择的playbook项目对应的playbook_file</para></entry>
+            </row>
+            
+            <row>
+              <entry>playbook_entrypoint_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>选择的playbook入口yml文件</para></entry>
+            </row>
+            
+            <row>
+              <entry>extra_var</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>额外变量</para></entry>
+            </row>
+            
+            <row>
+              <entry>creator</entry>
+              <entry><link linkend="common.User">common.User</link></entry>
+              <entry></entry>
+              <entry><para>创建人</para></entry>
+            </row>
+            
+            <row>
+              <entry>created</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>创建时间</para></entry>
+            </row>
+            
+            <row>
+              <entry>updated</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>更新时间</para></entry>
+            </row>
+            
+            <row>
+              <entry>state</entry>
+              <entry><link linkend="template.TemplateState">TemplateState</link></entry>
+              <entry></entry>
+              <entry><para>模板状态开关标识</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="template.UpdateRequest">
+      <title>UpdateRequest</title>
+      <para>更新模板请求</para>
+      
+      <table frame="all">
+        <title><classname>UpdateRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>template_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>模板ID</para></entry>
+            </row>
+            
+            <row>
+              <entry>name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>模板名</para></entry>
+            </row>
+            
+            <row>
+              <entry>description</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>模板描述</para></entry>
+            </row>
+            
+            <row>
+              <entry>extra_var</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="template.UpdateResponse">
+      <title>UpdateResponse</title>
+      <para>更新请求返回</para>
+      
+      <table frame="all">
+        <title><classname>UpdateResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>updated</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>模板更新的时间</para></entry>
+            </row>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>请求返回的状态</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="template.UpdateStateRequest">
+      <title>UpdateStateRequest</title>
+      <para>更新模板状态开关请求</para>
+      
+      <table frame="all">
+        <title><classname>UpdateStateRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>template_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>模板ID</para></entry>
+            </row>
+            
+            <row>
+              <entry>state</entry>
+              <entry><link linkend="template.TemplateState">TemplateState</link></entry>
+              <entry></entry>
+              <entry><para>模板状态开关标识</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="template.UpdateStateResponse">
+      <title>UpdateStateResponse</title>
+      <para>更新模板状态请求返回</para>
+      
+      <table frame="all">
+        <title><classname>UpdateStateResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>请求返回的状态</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    
+    <section id="template.TemplateState">
+      <title>TemplateState</title>
+      <para>模板状态</para>
+      <table frame="all">
+        <title><classname>TemplateState</classname> Values</title>
+        <tgroup cols="3">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Name</entry>
+              <entry>Number</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>OFF</entry>
+              <entry>0</entry>
+              <entry><para>没运行</para></entry>
+            </row>
+            
+            <row>
+              <entry>ON</entry>
+              <entry>1</entry>
+              <entry><para>运行</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    
+
+    
+
+    
+    <section id="template.Template">
+      <title>Template</title>
+      <para>作业模板</para>
+      <table frame="all">
+        <title><classname>Template</classname> Methods</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Method Name</entry>
+              <entry>Request Type</entry>
+              <entry>Response Type</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>Create</entry>
+              <entry><link linkend="template.CreateRequest">CreateRequest</link></entry>
+              <entry><link linkend="template.CreateResponse">CreateResponse</link></entry>
+              <entry><para>创建作业模板</para></entry>
+            </row>
+            
+            <row>
+              <entry>Filter</entry>
+              <entry><link linkend="template.FilterRequest">FilterRequest</link></entry>
+              <entry><link linkend="template.FilterResponse">FilterResponse</link></entry>
+              <entry><para>筛选作业模板</para></entry>
+            </row>
+            
+            <row>
+              <entry>Get</entry>
+              <entry><link linkend="template.GetRequest">GetRequest</link></entry>
+              <entry><link linkend="template.GetResponse">GetResponse</link></entry>
+              <entry><para>获取作业模板</para></entry>
+            </row>
+            
+            <row>
+              <entry>Update</entry>
+              <entry><link linkend="template.UpdateRequest">UpdateRequest</link></entry>
+              <entry><link linkend="template.UpdateResponse">UpdateResponse</link></entry>
+              <entry><para>更新作业模板</para></entry>
+            </row>
+            
+            <row>
+              <entry>UpdateState</entry>
+              <entry><link linkend="template.UpdateStateRequest">UpdateStateRequest</link></entry>
+              <entry><link linkend="template.UpdateStateResponse">UpdateStateResponse</link></entry>
+              <entry><para>更新作业模板状态开关</para></entry>
+            </row>
+            
+            <row>
+              <entry>Delete</entry>
+              <entry><link linkend="template.DeleteRequest">DeleteRequest</link></entry>
+              <entry><link linkend="template.DeleteResponse">DeleteResponse</link></entry>
+              <entry><para>删除作业模板</para><para>option (google.api.http) = {</para><para>post: "/v1/template/delete/{template_id}"</para><para>};</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    
+  </section>
+  
+
+  <section>
+    <title>Scalar Value Types</title>
+    <informaltable frame="all">
+      <tgroup cols="5">
+        <colspec colwidth="*"/>
+        <colspec colwidth="5*"/>
+        <colspec colwidth="*"/>
+        <colspec colwidth="*"/>
+        <colspec colwidth="*"/>
+        <thead>
+          <row>
+            <entry>.proto Type</entry>
+            <entry>Notes</entry>
+            <entry>C++ Type</entry>
+            <entry>Java Type</entry>
+            <entry>Python Type</entry>
+          </row>
+        </thead>
+        <tbody>
+          
+          <row>
+            <entry id="double">double</entry>
+            <entry></entry>
+            <entry>double</entry>
+            <entry>double</entry>
+            <entry>float</entry>
+          </row>
+          
+          <row>
+            <entry id="float">float</entry>
+            <entry></entry>
+            <entry>float</entry>
+            <entry>float</entry>
+            <entry>float</entry>
+          </row>
+          
+          <row>
+            <entry id="int32">int32</entry>
+            <entry>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead.</entry>
+            <entry>int32</entry>
+            <entry>int</entry>
+            <entry>int</entry>
+          </row>
+          
+          <row>
+            <entry id="int64">int64</entry>
+            <entry>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead.</entry>
+            <entry>int64</entry>
+            <entry>long</entry>
+            <entry>int/long</entry>
+          </row>
+          
+          <row>
+            <entry id="uint32">uint32</entry>
+            <entry>Uses variable-length encoding.</entry>
+            <entry>uint32</entry>
+            <entry>int</entry>
+            <entry>int/long</entry>
+          </row>
+          
+          <row>
+            <entry id="uint64">uint64</entry>
+            <entry>Uses variable-length encoding.</entry>
+            <entry>uint64</entry>
+            <entry>long</entry>
+            <entry>int/long</entry>
+          </row>
+          
+          <row>
+            <entry id="sint32">sint32</entry>
+            <entry>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.</entry>
+            <entry>int32</entry>
+            <entry>int</entry>
+            <entry>int</entry>
+          </row>
+          
+          <row>
+            <entry id="sint64">sint64</entry>
+            <entry>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.</entry>
+            <entry>int64</entry>
+            <entry>long</entry>
+            <entry>int/long</entry>
+          </row>
+          
+          <row>
+            <entry id="fixed32">fixed32</entry>
+            <entry>Always four bytes. More efficient than uint32 if values are often greater than 2^28.</entry>
+            <entry>uint32</entry>
+            <entry>int</entry>
+            <entry>int</entry>
+          </row>
+          
+          <row>
+            <entry id="fixed64">fixed64</entry>
+            <entry>Always eight bytes. More efficient than uint64 if values are often greater than 2^56.</entry>
+            <entry>uint64</entry>
+            <entry>long</entry>
+            <entry>int/long</entry>
+          </row>
+          
+          <row>
+            <entry id="sfixed32">sfixed32</entry>
+            <entry>Always four bytes.</entry>
+            <entry>int32</entry>
+            <entry>int</entry>
+            <entry>int</entry>
+          </row>
+          
+          <row>
+            <entry id="sfixed64">sfixed64</entry>
+            <entry>Always eight bytes.</entry>
+            <entry>int64</entry>
+            <entry>long</entry>
+            <entry>int/long</entry>
+          </row>
+          
+          <row>
+            <entry id="bool">bool</entry>
+            <entry></entry>
+            <entry>bool</entry>
+            <entry>boolean</entry>
+            <entry>boolean</entry>
+          </row>
+          
+          <row>
+            <entry id="string">string</entry>
+            <entry>A string must always contain UTF-8 encoded or 7-bit ASCII text.</entry>
+            <entry>string</entry>
+            <entry>String</entry>
+            <entry>str/unicode</entry>
+          </row>
+          
+          <row>
+            <entry id="bytes">bytes</entry>
+            <entry>May contain any arbitrary sequence of bytes.</entry>
+            <entry>string</entry>
+            <entry>ByteString</entry>
+            <entry>str</entry>
+          </row>
+          
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+</article>

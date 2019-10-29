@@ -40,6 +40,35 @@ gen_proto() {
   cp -rf /tmp/protos/git.fogcdn.top/axe/protos/goout .
 }
 
+gen_doc() {
+  for f in src/*/*.proto ; do
+    echo "gen doc File -> $f";
+    protoc -Isrc -I/usr/local/include -I$GOPATH/src \
+    -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway \
+    -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+    --doc_out=./doc --doc_opt=markdown,doc.md \
+    $f
+
+    protoc -Isrc -I/usr/local/include -I$GOPATH/src \
+    -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway \
+    -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+    --doc_out=./doc --doc_opt=html,doc.html \
+    $f
+
+    protoc -Isrc -I/usr/local/include -I$GOPATH/src \
+    -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway \
+    -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+    --doc_out=./doc --doc_opt=json,doc.json \
+    $f
+
+    protoc -Isrc -I/usr/local/include -I$GOPATH/src \
+    -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway \
+    -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+    --doc_out=./doc --doc_opt=docbook,doc.docbook \
+    $f
+  done ;
+}
+
 gen_mock() {
   for f in goout/*/*.pb.go ; do
     services=$(cat $f |grep interface|grep -o "[A-Z].*Client")

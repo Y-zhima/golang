@@ -1,0 +1,977 @@
+{
+  "files": [
+    {
+      "name": "template/template.proto",
+      "description": "",
+      "package": "template",
+      "hasEnums": true,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": true,
+      "enums": [
+        {
+          "name": "TemplateState",
+          "longName": "TemplateState",
+          "fullName": "template.TemplateState",
+          "description": "模板状态",
+          "values": [
+            {
+              "name": "OFF",
+              "number": "0",
+              "description": "没运行"
+            },
+            {
+              "name": "ON",
+              "number": "1",
+              "description": "运行"
+            }
+          ]
+        }
+      ],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "CreateRequest",
+          "longName": "CreateRequest",
+          "fullName": "template.CreateRequest",
+          "description": "创建模板请求",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "name",
+              "description": "模板名",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "human_error",
+                    "value": "模板名称不能为空"
+                  },
+                  {
+                    "name": "string_not_empty",
+                    "value": true
+                  }
+                ]
+              }
+            },
+            {
+              "name": "playbook_id",
+              "description": "playbook 项目id",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "int_gt",
+                    "value": 0
+                  },
+                  {
+                    "name": "human_error",
+                    "value": "项目ID不能为空"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "playbook_file_id",
+              "description": "选择的playbook项目对应的playbook_file",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "int_gt",
+                    "value": 0
+                  },
+                  {
+                    "name": "human_error",
+                    "value": "项目文件ID不能为空"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "playbook_entrypoint_id",
+              "description": "选择的playbook入口yml文件",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "int_gt",
+                    "value": 0
+                  },
+                  {
+                    "name": "human_error",
+                    "value": "项目入口文件ID不能为空"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "description",
+              "description": "模板描述",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "extra_var",
+              "description": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "CreateResponse",
+          "longName": "CreateResponse",
+          "fullName": "template.CreateResponse",
+          "description": "创建模板请求返回",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "template_id",
+              "description": "模板ID",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "created",
+              "description": "模板创建的时间",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "status",
+              "description": "请求返回状态",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "DeleteRequest",
+          "longName": "DeleteRequest",
+          "fullName": "template.DeleteRequest",
+          "description": "删除模板请求",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "template_id",
+              "description": "模板ID",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "DeleteResponse",
+          "longName": "DeleteResponse",
+          "fullName": "template.DeleteResponse",
+          "description": "删除请求返回",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "请求返回的状态",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "FilterRequest",
+          "longName": "FilterRequest",
+          "fullName": "template.FilterRequest",
+          "description": "筛选模板请求",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "paging",
+              "description": "分页信息",
+              "label": "",
+              "type": "Paging",
+              "longType": "common.Paging",
+              "fullType": "common.Paging",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "模板名的一部分，模糊查询时的关键字",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "template_id",
+              "description": "模板ID",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "FilterResponse",
+          "longName": "FilterResponse",
+          "fullName": "template.FilterResponse",
+          "description": "筛选模板请求返回",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "templates",
+              "description": "请求返回的模板",
+              "label": "repeated",
+              "type": "TemplateObject",
+              "longType": "TemplateObject",
+              "fullType": "template.TemplateObject",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "paging",
+              "description": "分页信息",
+              "label": "",
+              "type": "Paging",
+              "longType": "common.Paging",
+              "fullType": "common.Paging",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "status",
+              "description": "请求返回状态",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "GetRequest",
+          "longName": "GetRequest",
+          "fullName": "template.GetRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "template_id",
+              "description": "模板ID",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "GetResponse",
+          "longName": "GetResponse",
+          "fullName": "template.GetResponse",
+          "description": "获取模板请求返回",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "template",
+              "description": "请求返回的模板",
+              "label": "",
+              "type": "TemplateObject",
+              "longType": "TemplateObject",
+              "fullType": "template.TemplateObject",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "status",
+              "description": "请求返回状态",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "TemplateObject",
+          "longName": "TemplateObject",
+          "fullName": "template.TemplateObject",
+          "description": "模板实例",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "template_id",
+              "description": "模板ID",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "模板名",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "description",
+              "description": "模板描述",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "playbook",
+              "description": "playbook 项目",
+              "label": "",
+              "type": "ProjectObject",
+              "longType": "playbook.ProjectObject",
+              "fullType": "playbook.ProjectObject",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "playbook_file_id",
+              "description": "选择的playbook项目对应的playbook_file",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "playbook_entrypoint_id",
+              "description": "选择的playbook入口yml文件",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "extra_var",
+              "description": "额外变量",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "creator",
+              "description": "创建人",
+              "label": "",
+              "type": "User",
+              "longType": "common.User",
+              "fullType": "common.User",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "created",
+              "description": "创建时间",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "updated",
+              "description": "更新时间",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "state",
+              "description": "模板状态开关标识",
+              "label": "",
+              "type": "TemplateState",
+              "longType": "TemplateState",
+              "fullType": "template.TemplateState",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "UpdateRequest",
+          "longName": "UpdateRequest",
+          "fullName": "template.UpdateRequest",
+          "description": "更新模板请求",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "template_id",
+              "description": "模板ID",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "int_gt",
+                    "value": 0
+                  },
+                  {
+                    "name": "human_error",
+                    "value": "模板ID不能为空"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "name",
+              "description": "模板名",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "human_error",
+                    "value": "模板名称不能为空"
+                  },
+                  {
+                    "name": "string_not_empty",
+                    "value": true
+                  }
+                ]
+              }
+            },
+            {
+              "name": "description",
+              "description": "模板描述",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "extra_var",
+              "description": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "UpdateResponse",
+          "longName": "UpdateResponse",
+          "fullName": "template.UpdateResponse",
+          "description": "更新请求返回",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "updated",
+              "description": "模板更新的时间",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "status",
+              "description": "请求返回的状态",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "UpdateStateRequest",
+          "longName": "UpdateStateRequest",
+          "fullName": "template.UpdateStateRequest",
+          "description": "更新模板状态开关请求",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "template_id",
+              "description": "模板ID",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "int_gt",
+                    "value": 0
+                  },
+                  {
+                    "name": "human_error",
+                    "value": "模板ID不能为空"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "state",
+              "description": "模板状态开关标识",
+              "label": "",
+              "type": "TemplateState",
+              "longType": "TemplateState",
+              "fullType": "template.TemplateState",
+              "ismap": false,
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "human_error",
+                    "value": "State类型不正确"
+                  },
+                  {
+                    "name": "is_in_enum",
+                    "value": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "UpdateStateResponse",
+          "longName": "UpdateStateResponse",
+          "fullName": "template.UpdateStateResponse",
+          "description": "更新模板状态请求返回",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "请求返回的状态",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": [
+        {
+          "name": "Template",
+          "longName": "Template",
+          "fullName": "template.Template",
+          "description": "作业模板",
+          "methods": [
+            {
+              "name": "Create",
+              "description": "创建作业模板",
+              "requestType": "CreateRequest",
+              "requestLongType": "CreateRequest",
+              "requestFullType": "template.CreateRequest",
+              "requestStreaming": false,
+              "responseType": "CreateResponse",
+              "responseLongType": "CreateResponse",
+              "responseFullType": "template.CreateResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "POST",
+                      "pattern": "/v1/template/create",
+                      "body": "*"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Filter",
+              "description": "筛选作业模板",
+              "requestType": "FilterRequest",
+              "requestLongType": "FilterRequest",
+              "requestFullType": "template.FilterRequest",
+              "requestStreaming": false,
+              "responseType": "FilterResponse",
+              "responseLongType": "FilterResponse",
+              "responseFullType": "template.FilterResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/template/filter"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get",
+              "description": "获取作业模板",
+              "requestType": "GetRequest",
+              "requestLongType": "GetRequest",
+              "requestFullType": "template.GetRequest",
+              "requestStreaming": false,
+              "responseType": "GetResponse",
+              "responseLongType": "GetResponse",
+              "responseFullType": "template.GetResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/template/get/{template_id}"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update",
+              "description": "更新作业模板",
+              "requestType": "UpdateRequest",
+              "requestLongType": "UpdateRequest",
+              "requestFullType": "template.UpdateRequest",
+              "requestStreaming": false,
+              "responseType": "UpdateResponse",
+              "responseLongType": "UpdateResponse",
+              "responseFullType": "template.UpdateResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "POST",
+                      "pattern": "/v1/template/update/{template_id}",
+                      "body": "*"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "UpdateState",
+              "description": "更新作业模板状态开关",
+              "requestType": "UpdateStateRequest",
+              "requestLongType": "UpdateStateRequest",
+              "requestFullType": "template.UpdateStateRequest",
+              "requestStreaming": false,
+              "responseType": "UpdateStateResponse",
+              "responseLongType": "UpdateStateResponse",
+              "responseFullType": "template.UpdateStateResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "POST",
+                      "pattern": "/v1/template/updateState/{template_id}",
+                      "body": "*"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete",
+              "description": "删除作业模板\n\noption (google.api.http) = {\n           post: \"/v1/template/delete/{template_id}\"\n       };",
+              "requestType": "DeleteRequest",
+              "requestLongType": "DeleteRequest",
+              "requestFullType": "template.DeleteRequest",
+              "requestStreaming": false,
+              "responseType": "DeleteResponse",
+              "responseLongType": "DeleteResponse",
+              "responseFullType": "template.DeleteResponse",
+              "responseStreaming": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "scalarValueTypes": [
+    {
+      "protoType": "double",
+      "notes": "",
+      "cppType": "double",
+      "csType": "double",
+      "goType": "float64",
+      "javaType": "double",
+      "phpType": "float",
+      "pythonType": "float",
+      "rubyType": "Float"
+    },
+    {
+      "protoType": "float",
+      "notes": "",
+      "cppType": "float",
+      "csType": "float",
+      "goType": "float32",
+      "javaType": "float",
+      "phpType": "float",
+      "pythonType": "float",
+      "rubyType": "Float"
+    },
+    {
+      "protoType": "int32",
+      "notes": "Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead.",
+      "cppType": "int32",
+      "csType": "int",
+      "goType": "int32",
+      "javaType": "int",
+      "phpType": "integer",
+      "pythonType": "int",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "int64",
+      "notes": "Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead.",
+      "cppType": "int64",
+      "csType": "long",
+      "goType": "int64",
+      "javaType": "long",
+      "phpType": "integer/string",
+      "pythonType": "int/long",
+      "rubyType": "Bignum"
+    },
+    {
+      "protoType": "uint32",
+      "notes": "Uses variable-length encoding.",
+      "cppType": "uint32",
+      "csType": "uint",
+      "goType": "uint32",
+      "javaType": "int",
+      "phpType": "integer",
+      "pythonType": "int/long",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "uint64",
+      "notes": "Uses variable-length encoding.",
+      "cppType": "uint64",
+      "csType": "ulong",
+      "goType": "uint64",
+      "javaType": "long",
+      "phpType": "integer/string",
+      "pythonType": "int/long",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "sint32",
+      "notes": "Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.",
+      "cppType": "int32",
+      "csType": "int",
+      "goType": "int32",
+      "javaType": "int",
+      "phpType": "integer",
+      "pythonType": "int",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "sint64",
+      "notes": "Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.",
+      "cppType": "int64",
+      "csType": "long",
+      "goType": "int64",
+      "javaType": "long",
+      "phpType": "integer/string",
+      "pythonType": "int/long",
+      "rubyType": "Bignum"
+    },
+    {
+      "protoType": "fixed32",
+      "notes": "Always four bytes. More efficient than uint32 if values are often greater than 2^28.",
+      "cppType": "uint32",
+      "csType": "uint",
+      "goType": "uint32",
+      "javaType": "int",
+      "phpType": "integer",
+      "pythonType": "int",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "fixed64",
+      "notes": "Always eight bytes. More efficient than uint64 if values are often greater than 2^56.",
+      "cppType": "uint64",
+      "csType": "ulong",
+      "goType": "uint64",
+      "javaType": "long",
+      "phpType": "integer/string",
+      "pythonType": "int/long",
+      "rubyType": "Bignum"
+    },
+    {
+      "protoType": "sfixed32",
+      "notes": "Always four bytes.",
+      "cppType": "int32",
+      "csType": "int",
+      "goType": "int32",
+      "javaType": "int",
+      "phpType": "integer",
+      "pythonType": "int",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "sfixed64",
+      "notes": "Always eight bytes.",
+      "cppType": "int64",
+      "csType": "long",
+      "goType": "int64",
+      "javaType": "long",
+      "phpType": "integer/string",
+      "pythonType": "int/long",
+      "rubyType": "Bignum"
+    },
+    {
+      "protoType": "bool",
+      "notes": "",
+      "cppType": "bool",
+      "csType": "bool",
+      "goType": "bool",
+      "javaType": "boolean",
+      "phpType": "boolean",
+      "pythonType": "boolean",
+      "rubyType": "TrueClass/FalseClass"
+    },
+    {
+      "protoType": "string",
+      "notes": "A string must always contain UTF-8 encoded or 7-bit ASCII text.",
+      "cppType": "string",
+      "csType": "string",
+      "goType": "string",
+      "javaType": "String",
+      "phpType": "string",
+      "pythonType": "str/unicode",
+      "rubyType": "String (UTF-8)"
+    },
+    {
+      "protoType": "bytes",
+      "notes": "May contain any arbitrary sequence of bytes.",
+      "cppType": "string",
+      "csType": "ByteString",
+      "goType": "[]byte",
+      "javaType": "ByteString",
+      "phpType": "string",
+      "pythonType": "str",
+      "rubyType": "String (ASCII-8BIT)"
+    }
+  ]
+}

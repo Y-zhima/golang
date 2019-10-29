@@ -6,7 +6,7 @@ GIT_COMMIT=$(shell git rev-parse HEAD)
 
 SWAGGER_FILES=$(wildcard swagger/*.json) $(wildcard swagger/*/*.json)
 
-default: gen-proto swagger-mixin
+default: gen-proto swagger-mixin gen-doc
 
 package:
 	docker build --build-arg VERSION=${VERSION} --build-arg GIT_COMMIT=${GIT_COMMIT} -t ${IMAGE_NAME}:${VERSION} .
@@ -16,6 +16,9 @@ push: package
 
 gen-proto: clean
 	docker run -it -v `pwd`:/opt/protos ${IMAGE_NAME}:${VERSION} sh gen.sh proto
+
+gen-doc:
+	docker run -it -v `pwd`:/opt/protos ${IMAGE_NAME}:${VERSION} sh gen.sh doc
 
 gen-mock:
 	@rm -rf gooutmock
