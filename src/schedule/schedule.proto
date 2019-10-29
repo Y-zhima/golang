@@ -74,6 +74,8 @@ enum TaskType {
     CONTAINER = 2;
     // 3-裸金属管理
     BARE_METAL = 3;
+    // 4-交维表导入后巡检任务
+    SERVER_COMPARE = 4;
 }
 
 // 定时任务实例

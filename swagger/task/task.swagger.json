@@ -177,7 +177,7 @@
           },
           {
             "name": "task_type",
-            "description": "用于筛选定时任务的任务类型 0-undefined 1-作业模板；2-容器部署；3-裸金属管理.\n\n - UNDEFINED: 0-undefined\n - PLAYBOOK: 1-作业模板\n - CONTAINER: 2-容器部署\n - BARE_METAL: 3-裸金属管理",
+            "description": "用于筛选定时任务的任务类型 0-undefined 1-作业模板；2-容器部署；3-裸金属管理.\n\n - UNDEFINED: 0-undefined\n - PLAYBOOK: 1-作业模板\n - CONTAINER: 2-容器部署\n - BARE_METAL: 3-裸金属管理\n - SERVER_COMPARE: 4-交维表导入后巡检任务",
             "in": "query",
             "required": false,
             "type": "string",
@@ -185,7 +185,8 @@
               "UNDEFINED",
               "PLAYBOOK",
               "CONTAINER",
-              "BARE_METAL"
+              "BARE_METAL",
+              "SERVER_COMPARE"
             ],
             "default": "UNDEFINED"
           }
@@ -429,10 +430,11 @@
         "UNDEFINED",
         "PLAYBOOK",
         "CONTAINER",
-        "BARE_METAL"
+        "BARE_METAL",
+        "SERVER_COMPARE"
       ],
       "default": "UNDEFINED",
-      "description": "- UNDEFINED: 0-undefined\n - PLAYBOOK: 1-作业模板\n - CONTAINER: 2-容器部署\n - BARE_METAL: 3-裸金属管理",
+      "description": "- UNDEFINED: 0-undefined\n - PLAYBOOK: 1-作业模板\n - CONTAINER: 2-容器部署\n - BARE_METAL: 3-裸金属管理\n - SERVER_COMPARE: 4-交维表导入后巡检任务",
       "title": "任务类型 0-undefined 1-作业模板；2-容器部署 3-裸金属管理"
     },
     "taskCheckServerStateRequest": {

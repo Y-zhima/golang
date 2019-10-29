@@ -115,46 +115,6 @@ func (mr *MockCmdbClientMockRecorder) ImportLake(arg0, arg1 interface{}, arg2 ..
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ImportLake", reflect.TypeOf((*MockCmdbClient)(nil).ImportLake), varargs...)
 }
 
-// ImportServer mocks base method
-func (m *MockCmdbClient) ImportServer(arg0 context.Context, arg1 *cmdb.ImportServerRequest, arg2 ...grpc.CallOption) (*cmdb.ImportServerResponse, error) {
-	m.ctrl.T.Helper()
-	varargs := []interface{}{arg0, arg1}
-	for _, a := range arg2 {
-		varargs = append(varargs, a)
-	}
-	ret := m.ctrl.Call(m, "ImportServer", varargs...)
-	ret0, _ := ret[0].(*cmdb.ImportServerResponse)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
-}
-
-// ImportServer indicates an expected call of ImportServer
-func (mr *MockCmdbClientMockRecorder) ImportServer(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	varargs := append([]interface{}{arg0, arg1}, arg2...)
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ImportServer", reflect.TypeOf((*MockCmdbClient)(nil).ImportServer), varargs...)
-}
-
-// ImportSwitch mocks base method
-func (m *MockCmdbClient) ImportSwitch(arg0 context.Context, arg1 *cmdb.ImportSwitchRequest, arg2 ...grpc.CallOption) (*cmdb.ImportSwitchResponse, error) {
-	m.ctrl.T.Helper()
-	varargs := []interface{}{arg0, arg1}
-	for _, a := range arg2 {
-		varargs = append(varargs, a)
-	}
-	ret := m.ctrl.Call(m, "ImportSwitch", varargs...)
-	ret0, _ := ret[0].(*cmdb.ImportSwitchResponse)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
-}
-
-// ImportSwitch indicates an expected call of ImportSwitch
-func (mr *MockCmdbClientMockRecorder) ImportSwitch(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	varargs := append([]interface{}{arg0, arg1}, arg2...)
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ImportSwitch", reflect.TypeOf((*MockCmdbClient)(nil).ImportSwitch), varargs...)
-}
-
 // InstanceTopology mocks base method
 func (m *MockCmdbClient) InstanceTopology(arg0 context.Context, arg1 *cmdb.InstanceTopologyRequest, arg2 ...grpc.CallOption) (*cmdb.InstanceTopologyResponse, error) {
 	m.ctrl.T.Helper()

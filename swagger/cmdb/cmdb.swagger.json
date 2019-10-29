@@ -147,60 +147,6 @@
         ]
       }
     },
-    "/v1/cmdb/importServer": {
-      "post": {
-        "summary": "导入物理机",
-        "operationId": "ImportServer",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/cmdbImportServerResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/cmdbImportServerRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Cmdb"
-        ]
-      }
-    },
-    "/v1/cmdb/importSwitch": {
-      "post": {
-        "summary": "导入交换机",
-        "operationId": "ImportSwitch",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/cmdbImportSwitchResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/cmdbImportSwitchRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Cmdb"
-        ]
-      }
-    },
     "/v1/cmdb/instanceTopology": {
       "get": {
         "summary": "实例拓扑",
@@ -557,37 +503,6 @@
       },
       "title": "选择主机请求"
     },
-    "cmdbHostInfoObject": {
-      "type": "object",
-      "properties": {
-        "host": {
-          "$ref": "#/definitions/cmdbHostObject",
-          "title": "主机对象"
-        },
-        "module": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/cmdbModuleObject"
-          },
-          "title": "模块对象"
-        },
-        "set": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/cmdbSetObject"
-          },
-          "title": "集群对象"
-        },
-        "biz": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/cmdbBizObject"
-          },
-          "title": "业务对象"
-        }
-      },
-      "title": "主机内容信息"
-    },
     "cmdbHostObject": {
       "type": "object",
       "properties": {
@@ -780,34 +695,6 @@
       },
       "title": "导入lake节点请求返回"
     },
-    "cmdbImportServerRequest": {
-      "type": "object",
-      "properties": {
-        "url": {
-          "type": "string",
-          "title": "xlsx文件下载路径"
-        },
-        "md5": {
-          "type": "string",
-          "title": "xlsx文件md5"
-        },
-        "filename": {
-          "type": "string",
-          "title": "用户上传xlsx文件的文件名"
-        }
-      },
-      "title": "导入物理机请求"
-    },
-    "cmdbImportServerResponse": {
-      "type": "object",
-      "properties": {
-        "status": {
-          "$ref": "#/definitions/commonResponseStatus",
-          "title": "状态码"
-        }
-      },
-      "title": "导入物理机请求返回"
-    },
     "cmdbImportStatus": {
       "type": "string",
       "enum": [
@@ -818,34 +705,6 @@
       "default": "IMPORTING",
       "description": "- IMPORTING: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败",
       "title": "导入状态: 0-正在导入 1-导入完成 2-导入失败"
-    },
-    "cmdbImportSwitchRequest": {
-      "type": "object",
-      "properties": {
-        "url": {
-          "type": "string",
-          "title": "xlsx文件下载路径"
-        },
-        "md5": {
-          "type": "string",
-          "title": "xlsx文件md5"
-        },
-        "filename": {
-          "type": "string",
-          "title": "用户上传xlsx文件的文件名"
-        }
-      },
-      "title": "导入交换机请求"
-    },
-    "cmdbImportSwitchResponse": {
-      "type": "object",
-      "properties": {
-        "status": {
-          "$ref": "#/definitions/commonResponseStatus",
-          "title": "状态码"
-        }
-      },
-      "title": "导入交换机请求返回"
     },
     "cmdbImportType": {
       "type": "string",
@@ -1054,10 +913,10 @@
           "$ref": "#/definitions/commonResponseStatus",
           "title": "状态码"
         },
-        "info": {
+        "instance": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/cmdbHostInfoObject"
+            "$ref": "#/definitions/cmdbTopologyObject"
           },
           "title": "主机信息"
         }
