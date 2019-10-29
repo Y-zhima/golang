@@ -147,8 +147,10 @@ message TopologyObject {
     string bk_obj_id = 3;
     // 对象名称
     string bk_obj_name = 4;
+    // 唯一标识
+    int32 uuid = 5;
     // 子对象
-    repeated TopologyObject child = 5;
+    repeated TopologyObject child = 6;
 }
 
 // 拓扑实例请求

@@ -1289,6 +1289,11 @@
           "type": "string",
           "title": "对象名称"
         },
+        "uuid": {
+          "type": "integer",
+          "format": "int32",
+          "title": "唯一标识"
+        },
         "child": {
           "type": "array",
           "items": {

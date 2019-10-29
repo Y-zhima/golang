@@ -2700,6 +2700,11 @@
           "items": {
             "$ref": "#/definitions/cmdbTopologyObject"
           }
+        },
+        "uuid": {
+          "type": "integer",
+          "format": "int32",
+          "title": "唯一标识"
         }
       }
     },
