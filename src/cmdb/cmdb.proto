@@ -113,8 +113,7 @@ service Cmdb {
     // 通过IP获取节点的地区和位置信息
     rpc SearchLakeArea (SearchLakeAreaRequest) returns (SearchLakeAreaResponse) {
         option (google.api.http) = {
-            post: "/v1/cmdb/searchLakeArea"
-            body: "*"
+            get: "/v1/cmdb/searchLakeArea"
         };
     }
 }
@@ -644,9 +643,13 @@ message ServerRoomObject {
     // 机房状态
     string state = 3;
     // 地区编码
-    string area_code = 10;
+    string area_code = 4;
     // 运营商编码
-    string isp_code = 11;
+    string isp_code = 5;
+    // 机房的具体区域信息
+    AreaObject area = 6;
+    // 机房的具体地址
+    string room_address = 7;
 }
 
 // LAKE节点对象
@@ -738,35 +741,43 @@ message LakeHost {
 
 // 通过IP获取节点的地区和位置信息的请求体
 message SearchLakeAreaRequest {
-    repeated AreaLevelAndIP area_level_ip = 1;
+    // ipv4,可传多个
+    repeated string ipv4 = 1;
+    // ipv6,可传多个
+    repeated string ipv6 = 2;
+    // 要查询的区域的地区层级
+    AreaLevel area_level = 3;
 }
 
-message AreaLevelAndIP {
-    string host_ip = 1;
-    string area_level = 2;
-}
-
+// 通过IP获取节点的地区和位置信息的返回
 message SearchLakeAreaResponse {
-    repeated RoomAndIP room_ip = 1;
+    repeated LakeAreaObject lake_area = 1;
     // 状态码
     common.ResponseStatus status = 2;
 }
 
-message RoomAndIP {
-    string host_ip = 1;
-    repeated RoomAreaTopo room = 2;
+// 通过IP获取节点的地区和位置信息的返回的具体结构体
+message LakeAreaObject {
+    string ipv4 = 1;
+    string ipv6 = 2;
+    // 对应的lake节点信息,包括机房信息
+    repeated LakeObject lake = 3;
+    // 主机的状态，有上线和下线两种
+    string host_state = 4;
 }
 
-message RoomAreaTopo {
-    // 机房ID
-    int32 bk_inst_id = 1;
-    // 机房名称
-    string room_name = 2;
-    // 地区编码
-    string area_code = 3;
-    // 机房地址
-    string room_address = 4;
-    // 地区信息
-    AreaObject area = 5;
+// 地区层级
+enum AreaLevel {
+    // 0-不存在
+    NULL = 0;
+    // 1-国家级
+    NATION = 1;
+    // 2-大区级
+    REGION = 2;
+    // 3-省级
+    PROVINCE = 3;
+    // 4-市级
+    CITY = 4;
+    // 5-区县级
+    COUNTY = 5;
 }
-
