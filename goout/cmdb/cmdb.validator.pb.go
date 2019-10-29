@@ -7,11 +7,11 @@ import (
 	fmt "fmt"
 	math "math"
 	proto "github.com/golang/protobuf/proto"
-	_ "github.com/mwitkow/go-proto-validators"
-	_ "github.com/golang/protobuf/ptypes/timestamp"
 	_ "git.fogcdn.top/axe/protos/goout/common"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
+	_ "github.com/mwitkow/go-proto-validators"
+	_ "github.com/golang/protobuf/ptypes/timestamp"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
@@ -378,6 +378,11 @@ func (this *VipObject) Validate() error {
 	return nil
 }
 func (this *ServerRoomObject) Validate() error {
+	if this.Area != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Area); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Area", err)
+		}
+	}
 	return nil
 }
 func (this *LakeObject) Validate() error {
@@ -444,6 +449,34 @@ func (this *LakeHost) Validate() error {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
 				return github_com_mwitkow_go_proto_validators.FieldError("Host", err)
+			}
+		}
+	}
+	return nil
+}
+func (this *SearchLakeAreaRequest) Validate() error {
+	return nil
+}
+func (this *SearchLakeAreaResponse) Validate() error {
+	for _, item := range this.LakeArea {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("LakeArea", err)
+			}
+		}
+	}
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}
+func (this *LakeAreaObject) Validate() error {
+	for _, item := range this.Lake {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Lake", err)
 			}
 		}
 	}

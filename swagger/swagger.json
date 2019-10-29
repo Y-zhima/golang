@@ -424,6 +424,60 @@
         }
       }
     },
+    "/v1/cmdb/searchLakeArea": {
+      "get": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "通过IP获取节点的地区和位置信息",
+        "operationId": "SearchLakeArea",
+        "parameters": [
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "description": "ipv4,可传多个.",
+            "name": "ipv4",
+            "in": "query"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "description": "ipv6,可传多个.",
+            "name": "ipv6",
+            "in": "query"
+          },
+          {
+            "enum": [
+              "NULL",
+              "NATION",
+              "REGION",
+              "PROVINCE",
+              "CITY",
+              "COUNTY"
+            ],
+            "type": "string",
+            "default": "NULL",
+            "description": "要查询的区域的地区层级.\n\n - NULL: 0-不存在\n - NATION: 1-国家级\n - REGION: 2-大区级\n - PROVINCE: 3-省级\n - CITY: 4-市级\n - COUNTY: 5-区县级",
+            "name": "area_level",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbSearchLakeAreaResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/cmdb/searchLakeHost": {
       "get": {
         "tags": [
@@ -1827,6 +1881,57 @@
         }
       }
     },
+    "cmdbAreaLevel": {
+      "description": "- NULL: 0-不存在\n - NATION: 1-国家级\n - REGION: 2-大区级\n - PROVINCE: 3-省级\n - CITY: 4-市级\n - COUNTY: 5-区县级",
+      "type": "string",
+      "title": "地区层级",
+      "default": "NULL",
+      "enum": [
+        "NULL",
+        "NATION",
+        "REGION",
+        "PROVINCE",
+        "CITY",
+        "COUNTY"
+      ]
+    },
+    "cmdbAreaObject": {
+      "type": "object",
+      "title": "地区对象",
+      "properties": {
+        "area_cnname": {
+          "type": "string",
+          "title": "区域中文名称"
+        },
+        "area_enname": {
+          "type": "string",
+          "title": "区域英文名称"
+        },
+        "area_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "地区id"
+        },
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "实例ID"
+        },
+        "bk_inst_name": {
+          "type": "string",
+          "title": "区域编码"
+        },
+        "level": {
+          "type": "string",
+          "title": "地区层级"
+        },
+        "parent_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "父节点ID"
+        }
+      }
+    },
     "cmdbBizObject": {
       "type": "object",
       "title": "业务",
@@ -2124,8 +2229,31 @@
           }
         },
         "status": {
-          "title": "TopologyObject instance = 1;\n状态码",
+          "title": "TopologyObject instance = 1;\r\n状态码",
           "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbLakeAreaObject": {
+      "type": "object",
+      "title": "通过IP获取节点的地区和位置信息的返回的具体结构体",
+      "properties": {
+        "host_state": {
+          "type": "string",
+          "title": "主机的状态，有上线和下线两种"
+        },
+        "ipv4": {
+          "type": "string"
+        },
+        "ipv6": {
+          "type": "string"
+        },
+        "lake": {
+          "type": "array",
+          "title": "对应的lake节点信息,包括机房信息",
+          "items": {
+            "$ref": "#/definitions/cmdbLakeObject"
+          }
         }
       }
     },
@@ -2315,6 +2443,22 @@
         }
       }
     },
+    "cmdbSearchLakeAreaResponse": {
+      "type": "object",
+      "title": "通过IP获取节点的地区和位置信息的返回",
+      "properties": {
+        "lake_area": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbLakeAreaObject"
+          }
+        },
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
     "cmdbSearchLakeRequest": {
       "type": "object",
       "title": "查找Lake请求",
@@ -2496,6 +2640,10 @@
       "type": "object",
       "title": "机房对象",
       "properties": {
+        "area": {
+          "title": "机房的具体区域信息",
+          "$ref": "#/definitions/cmdbAreaObject"
+        },
         "area_code": {
           "type": "string",
           "title": "地区编码"
@@ -2512,6 +2660,10 @@
         "isp_code": {
           "type": "string",
           "title": "运营商编码"
+        },
+        "room_address": {
+          "type": "string",
+          "title": "机房的具体地址"
         },
         "state": {
           "type": "string",
