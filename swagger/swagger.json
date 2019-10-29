@@ -342,6 +342,12 @@
           },
           {
             "type": "string",
+            "description": "主机状态,有上线和下线两种.",
+            "name": "host.state",
+            "in": "query"
+          },
+          {
+            "type": "string",
             "description": "模块名.",
             "name": "module.bk_module_name",
             "in": "query"
@@ -2012,6 +2018,10 @@
         "bk_host_innerip": {
           "type": "string",
           "title": "内网IP"
+        },
+        "state": {
+          "type": "string",
+          "title": "主机状态,有上线和下线两种"
         }
       }
     },

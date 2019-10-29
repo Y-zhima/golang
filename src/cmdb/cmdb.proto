@@ -180,6 +180,8 @@ message HostObject {
     string bk_host_innerip = 1;
     // 主机ID
     int32 bk_host_id = 2;
+    // 主机状态,有上线和下线两种
+    string state = 3;
 }
 
 // 模块
