@@ -424,6 +424,33 @@
         }
       }
     },
+    "/v1/cmdb/searchLakeArea": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "通过IP获取节点的地区和位置信息",
+        "operationId": "SearchLakeArea",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbSearchLakeAreaRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbSearchLakeAreaResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/cmdb/searchLakeHost": {
       "get": {
         "tags": [
@@ -1827,6 +1854,32 @@
         }
       }
     },
+    "cmdbAreaTopo": {
+      "type": "object",
+      "properties": {
+        "area_cnname": {
+          "type": "string",
+          "title": "区域中文名称"
+        },
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "实例ID"
+        },
+        "bk_inst_name": {
+          "type": "string",
+          "title": "区域编码"
+        },
+        "child": {
+          "title": "子区域",
+          "$ref": "#/definitions/cmdbAreaTopo"
+        },
+        "level": {
+          "type": "string",
+          "title": "地区层级"
+        }
+      }
+    },
     "cmdbBizObject": {
       "type": "object",
       "title": "业务",
@@ -2315,6 +2368,33 @@
         }
       }
     },
+    "cmdbSearchLakeAreaRequest": {
+      "type": "object",
+      "title": "通过IP获取节点的地区和位置信息的请求体",
+      "properties": {
+        "vip": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbVipObject"
+          }
+        }
+      }
+    },
+    "cmdbSearchLakeAreaResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "vip_room": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbVipRoom"
+          }
+        }
+      }
+    },
     "cmdbSearchLakeRequest": {
       "type": "object",
       "title": "查找Lake请求",
@@ -2593,6 +2673,20 @@
         "vip_ipv6": {
           "type": "string",
           "title": "vip的ipv6地址"
+        }
+      }
+    },
+    "cmdbVipRoom": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "area": {
+          "$ref": "#/definitions/cmdbAreaTopo"
+        },
+        "vip": {
+          "$ref": "#/definitions/cmdbVipObject"
         }
       }
     },

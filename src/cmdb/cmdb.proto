@@ -109,6 +109,14 @@ service Cmdb {
             get: "/v1/cmdb/searchLakeHost"
         };
     }
+
+    // 通过IP获取节点的地区和位置信息
+    rpc SearchLakeArea (SearchLakeAreaRequest) returns (SearchLakeAreaResponse) {
+        option (google.api.http) = {
+            post: "/v1/cmdb/searchLakeArea"
+            body: "*"
+        };
+    }
 }
 
 // 导入状态: 0-正在导入 1-导入完成 2-导入失败
@@ -727,3 +735,34 @@ message LakeHost {
     int32 node_id = 2;
     repeated HostObject host = 3;
 }
+
+// 通过IP获取节点的地区和位置信息的请求体
+message SearchLakeAreaRequest {
+    repeated VipObject vip = 1;
+}
+
+message SearchLakeAreaResponse {
+    repeated VipRoom vip_room = 1;
+    // 状态码
+    common.ResponseStatus status = 2;
+}
+
+message VipRoom {
+    VipObject vip = 1;
+    AreaTopo area = 2;
+    string address = 3;
+}
+
+message AreaTopo {
+    // 实例ID
+    int32 bk_inst_id = 1;
+    // 区域编码
+    string bk_inst_name = 2;
+    // 区域中文名称
+    string area_cnname = 3;
+    // 地区层级
+    string level = 4;
+    // 子区域
+    AreaTopo child = 5;
+}
+
