@@ -41,32 +41,27 @@ gen_proto() {
 }
 
 gen_doc() {
-  for f in src/*/*.proto ; do
-    echo "gen doc File -> $f";
-    protoc -Isrc -I/usr/local/include -I$GOPATH/src \
-    -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway \
-    -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
-    --doc_out=./doc --doc_opt=markdown,doc.md \
-    $f
+  rm -rf doc && mkdir -p doc
 
-    protoc -Isrc -I/usr/local/include -I$GOPATH/src \
-    -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway \
-    -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
-    --doc_out=./doc --doc_opt=html,doc.html \
-    $f
+  protoc -Isrc -I/usr/local/include -I$GOPATH/src \
+  -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway \
+  -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+  --doc_out=./doc --doc_opt=markdown,doc.md src/*/*.proto
 
-    protoc -Isrc -I/usr/local/include -I$GOPATH/src \
-    -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway \
-    -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
-    --doc_out=./doc --doc_opt=json,doc.json \
-    $f
+  protoc -Isrc -I/usr/local/include -I$GOPATH/src \
+  -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway \
+  -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+  --doc_out=./doc --doc_opt=html,doc.html src/*/*.proto
 
-    protoc -Isrc -I/usr/local/include -I$GOPATH/src \
-    -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway \
-    -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
-    --doc_out=./doc --doc_opt=docbook,doc.docbook \
-    $f
-  done ;
+  protoc -Isrc -I/usr/local/include -I$GOPATH/src \
+  -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway \
+  -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+  --doc_out=./doc --doc_opt=json,doc.json src/*/*.proto
+
+  protoc -Isrc -I/usr/local/include -I$GOPATH/src \
+  -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway \
+  -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+  --doc_out=./doc --doc_opt=docbook,doc.docbook src/*/*.proto
 }
 
 gen_mock() {
