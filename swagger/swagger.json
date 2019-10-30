@@ -342,6 +342,18 @@
           },
           {
             "type": "string",
+            "description": "主机状态,有上线和下线两种.",
+            "name": "host.state",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "ipv6的地址.",
+            "name": "host.ipv6",
+            "in": "query"
+          },
+          {
+            "type": "string",
             "description": "模块名.",
             "name": "module.bk_module_name",
             "in": "query"
@@ -688,7 +700,7 @@
           "Playbook"
         ],
         "summary": "创建playbook项目",
-        "operationId": "Create",
+        "operationId": "CreateMixin14",
         "parameters": [
           {
             "name": "body",
@@ -715,7 +727,7 @@
           "Playbook"
         ],
         "summary": "筛选playbook项目",
-        "operationId": "Filter",
+        "operationId": "FilterMixin14",
         "parameters": [
           {
             "type": "integer",
@@ -768,7 +780,7 @@
           "Playbook"
         ],
         "summary": "获取playbook项目",
-        "operationId": "Get",
+        "operationId": "GetMixin14",
         "parameters": [
           {
             "type": "integer",
@@ -795,7 +807,7 @@
           "Playbook"
         ],
         "summary": "更新playbook项目",
-        "operationId": "Update",
+        "operationId": "UpdateMixin14",
         "parameters": [
           {
             "type": "integer",
@@ -830,7 +842,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin10",
+        "operationId": "CreateMixin9",
         "parameters": [
           {
             "name": "body",
@@ -857,7 +869,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin10",
+        "operationId": "FilterMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -931,7 +943,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin10",
+        "operationId": "GetMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -993,7 +1005,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "UpdateMixin10",
+        "operationId": "Update",
         "parameters": [
           {
             "type": "integer",
@@ -1055,7 +1067,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "CreateMixin13",
+        "operationId": "Create",
         "parameters": [
           {
             "name": "body",
@@ -1136,7 +1148,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "FilterMixin13",
+        "operationId": "Filter",
         "parameters": [
           {
             "type": "integer",
@@ -1203,7 +1215,7 @@
           "Task"
         ],
         "summary": "获取作业任务",
-        "operationId": "GetMixin13",
+        "operationId": "Get",
         "parameters": [
           {
             "type": "string",
@@ -1311,7 +1323,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin14",
+        "operationId": "CreateMixin11",
         "parameters": [
           {
             "name": "body",
@@ -1338,7 +1350,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin14",
+        "operationId": "FilterMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -1397,7 +1409,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin14",
+        "operationId": "GetMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -1424,7 +1436,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin14",
+        "operationId": "UpdateMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -2012,6 +2024,14 @@
         "bk_host_innerip": {
           "type": "string",
           "title": "内网IP"
+        },
+        "ipv6": {
+          "type": "string",
+          "title": "ipv6的地址"
+        },
+        "state": {
+          "type": "string",
+          "title": "主机状态,有上线和下线两种"
         }
       }
     },
