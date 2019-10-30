@@ -77,6 +77,8 @@ message CallbackResponse {
 
 // 获取用户信息请求
 message GetUserInfoRequest {
+	// 控制是否显示API访问授权Token，默认值false，即不显示
+	bool access_token = 1;
 }
 
 // 外部系统编号
@@ -99,6 +101,8 @@ message UserInfo {
     SourceCode source = 4;
     // 用户头像路径
     string avatar = 5;
+    // API访问授权Token
+    string access_token = 6;
 }
 
 message GetUserInfoResponse {
