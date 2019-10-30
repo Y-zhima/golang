@@ -51,6 +51,10 @@ message UploadPlaybookResponse {
 message UploadRequest {
     // 文件字段
     bytes content = 1;
+    // 指定上传bucket_name（可选）
+    string bucket = 2;
+    // 指定上传存储路径（可选）
+    string job = 3;
 }
 
 message UploadResponse {

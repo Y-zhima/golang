@@ -21,6 +21,13 @@ service SubTask {
     rpc CreateServer (CreateServerRequest) returns (CreateServerResponse) {}
     // 交维表导入后巡检子任务
     rpc CreateServerCompare (CreateServerCompareRequest) returns (CreateServerCompareResponse) {}
+
+    // 获取作业任务SubTask具体日志
+    rpc GetLog (GetLogRequest) returns (GetLogResponse) {
+        option (google.api.http) = {
+            get: "/v1/task/GetLog/{sub_task_id}"
+        };
+    }
 }
 
 // 创建子任务实例请求
@@ -125,4 +132,16 @@ message CompleteRequest {
 message CompleteResponse {
     // 返回的请求状态
     common.ResponseStatus status = 1;
+}
+
+message GetLogRequest{
+    // 作业子任务ID
+    int64 sub_task_id = 1;
+}
+
+message GetLogResponse {
+    // 返回的请求状态
+    common.ResponseStatus status = 1;
+    // 子任务实例名
+    string sub_task_log = 2;
 }

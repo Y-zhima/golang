@@ -43,6 +43,14 @@ service Task {
         //        };
     }
 
+    // 获取作业任务日志SubTask列表
+    rpc GetSubTask (GetSubTaskRequest) returns (GetSubTaskResponse) {
+        option (google.api.http) = {
+            get: "/v1/task/GetSubTask/{task_id}"
+        };
+    }
+
+
     // 交维表导入后巡检任务
     rpc CreateServerCompare (CreateServerCompareRequest) returns (CreateServerCompareResponse) {
         option (google.api.http) = {
@@ -265,6 +273,26 @@ message GetLogRequest {
 message GetLogResponse {
     // 返回的请求状态
     common.ResponseStatus status = 2;
+}
+
+message GetSubTaskRequest {
+    // 作业任务ID
+    int64 task_id = 1;
+}
+
+// 获取作业任务详细执行过程请求返回
+message GetSubTaskResponse {
+    // 返回的请求状态
+    common.ResponseStatus status = 1;
+    // 子任务信息列表
+    repeated SubTaskInfo sub_task_info = 2;
+}
+
+message SubTaskInfo {
+    // 子任务实例ID
+    int64 sub_task_id = 1;
+    // 子任务实例名
+    string sub_task_name = 2;
 }
 
 
