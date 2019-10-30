@@ -1170,6 +1170,26 @@
               "fullType": "int32",
               "ismap": false,
               "defaultValue": ""
+            },
+            {
+              "name": "state",
+              "description": "主机状态,有上线和下线两种",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ipv6",
+              "description": "ipv6的地址",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
             }
           ]
         },

@@ -1086,6 +1086,20 @@
               <entry><para>主机ID</para></entry>
             </row>
             
+            <row>
+              <entry>state</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>主机状态,有上线和下线两种</para></entry>
+            </row>
+            
+            <row>
+              <entry>ipv6</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>ipv6的地址</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>

@@ -786,6 +786,8 @@ cmdb事件请求返回
 | ----- | ---- | ----- | ----------- |
 | bk_host_innerip | [string](#string) |  | 内网IP |
 | bk_host_id | [int32](#int32) |  | 主机ID |
+| state | [string](#string) |  | 主机状态,有上线和下线两种 |
+| ipv6 | [string](#string) |  | ipv6的地址 |
 
 
 

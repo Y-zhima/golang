@@ -242,6 +242,20 @@
             "format": "int32"
           },
           {
+            "name": "host.state",
+            "description": "主机状态,有上线和下线两种.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.ipv6",
+            "description": "ipv6的地址.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "module.bk_module_name",
             "description": "模块名.",
             "in": "query",
@@ -622,6 +636,14 @@
           "type": "integer",
           "format": "int32",
           "title": "主机ID"
+        },
+        "state": {
+          "type": "string",
+          "title": "主机状态,有上线和下线两种"
+        },
+        "ipv6": {
+          "type": "string",
+          "title": "ipv6的地址"
         }
       },
       "title": "主机"
