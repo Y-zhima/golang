@@ -80,3 +80,11 @@ message BareMetalInstallTask {
     // 额外变量
     string extra_var = 6;
 }
+
+// agent上报kafka日志结构体
+message JobAgentLog {
+    // 任务实例ID
+    int64 sub_task_id = 1;
+    // ansible执行日志
+    string job_agent_log = 2;
+}
