@@ -14,7 +14,35 @@
   "produces": [
     "application/json"
   ],
-  "paths": {},
+  "paths": {
+    "/v1/task/GetLog/{sub_task_id}": {
+      "get": {
+        "summary": "获取作业任务SubTask具体日志",
+        "operationId": "GetLog",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/subtaskGetLogResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "sub_task_id",
+            "description": "作业子任务ID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "SubTask"
+        ]
+      }
+    }
+  },
   "definitions": {
     "cmdbChooseHostRequest": {
       "type": "object",
@@ -176,6 +204,19 @@
         }
       },
       "title": "裸金属子任务实例返回"
+    },
+    "subtaskGetLogResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        },
+        "sub_task_log": {
+          "type": "string",
+          "title": "子任务实例名"
+        }
+      }
     },
     "subtaskServerTaskType": {
       "type": "string",

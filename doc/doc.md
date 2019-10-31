@@ -248,6 +248,8 @@
     - [CreateServerCompareResponse](#subtask.CreateServerCompareResponse)
     - [CreateServerRequest](#subtask.CreateServerRequest)
     - [CreateServerResponse](#subtask.CreateServerResponse)
+    - [GetLogRequest](#subtask.GetLogRequest)
+    - [GetLogResponse](#subtask.GetLogResponse)
   
     - [ServerTaskType](#subtask.ServerTaskType)
     - [SubTaskResult](#subtask.SubTaskResult)
@@ -283,12 +285,15 @@
     - [GetLogResponse](#task.GetLogResponse)
     - [GetRequest](#task.GetRequest)
     - [GetResponse](#task.GetResponse)
+    - [GetSubTaskRequest](#task.GetSubTaskRequest)
+    - [GetSubTaskResponse](#task.GetSubTaskResponse)
     - [InstallServerRequest](#task.InstallServerRequest)
     - [InstallServerResponse](#task.InstallServerResponse)
     - [RetryRequest](#task.RetryRequest)
     - [RetryResponse](#task.RetryResponse)
     - [ServerPowerControlRequest](#task.ServerPowerControlRequest)
     - [ServerPowerControlResponse](#task.ServerPowerControlResponse)
+    - [SubTaskInfo](#task.SubTaskInfo)
     - [TaskObject](#task.TaskObject)
   
     - [ScheduleType](#task.ScheduleType)
@@ -375,6 +380,11 @@
 获取用户信息请求
 
 
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| access_token | [bool](#bool) |  | 控制是否显示API访问授权Token，默认值false，即不显示 |
+
+
 
 
 
@@ -448,6 +458,7 @@
 | source_uid | [string](#string) |  | 用户在外部系统中的ID |
 | source | [SourceCode](#auth.SourceCode) |  | 外部系统的编号 |
 | avatar | [string](#string) |  | 用户头像路径 |
+| access_token | [string](#string) |  | API访问授权Token |
 
 
 
@@ -1762,6 +1773,8 @@ VIP对象
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | content | [bytes](#bytes) |  | 文件字段 |
+| bucket | [string](#string) |  | 指定上传bucket_name（可选） |
+| job | [string](#string) |  | 指定上传存储路径（可选） |
 
 
 
@@ -3389,6 +3402,37 @@ playbook入口文件实例
 
 
 
+
+<a name="subtask.GetLogRequest"></a>
+
+### GetLogRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sub_task_id | [int64](#int64) |  | 作业子任务ID |
+
+
+
+
+
+
+<a name="subtask.GetLogResponse"></a>
+
+### GetLogResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
+| sub_task_log | [string](#string) |  | 子任务实例名 |
+
+
+
+
+
  
 
 
@@ -3434,6 +3478,7 @@ playbook入口文件实例
 | Complete | [CompleteRequest](#subtask.CompleteRequest) | [CompleteResponse](#subtask.CompleteResponse) | 完成作业子任务 |
 | CreateServer | [CreateServerRequest](#subtask.CreateServerRequest) | [CreateServerResponse](#subtask.CreateServerResponse) | 创建裸金属子任务 |
 | CreateServerCompare | [CreateServerCompareRequest](#subtask.CreateServerCompareRequest) | [CreateServerCompareResponse](#subtask.CreateServerCompareResponse) | 交维表导入后巡检子任务 |
+| GetLog | [GetLogRequest](#subtask.GetLogRequest) | [GetLogResponse](#subtask.GetLogResponse) | 获取作业任务SubTask具体日志 |
 
  
 
@@ -3794,6 +3839,37 @@ playbook入口文件实例
 
 
 
+<a name="task.GetSubTaskRequest"></a>
+
+### GetSubTaskRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| task_id | [int64](#int64) |  | 作业任务ID |
+
+
+
+
+
+
+<a name="task.GetSubTaskResponse"></a>
+
+### GetSubTaskResponse
+获取作业任务详细执行过程请求返回
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
+| sub_task_info | [SubTaskInfo](#task.SubTaskInfo) | repeated | 子任务信息列表 |
+
+
+
+
+
+
 <a name="task.InstallServerRequest"></a>
 
 ### InstallServerRequest
@@ -3888,6 +3964,22 @@ playbook入口文件实例
 
 
 
+<a name="task.SubTaskInfo"></a>
+
+### SubTaskInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sub_task_id | [int64](#int64) |  | 子任务实例ID |
+| sub_task_name | [string](#string) |  | 子任务实例名 |
+
+
+
+
+
+
 <a name="task.TaskObject"></a>
 
 ### TaskObject
@@ -3948,6 +4040,7 @@ playbook入口文件实例
 | GetLog | [GetLogRequest](#task.GetLogRequest) | [GetLogResponse](#task.GetLogResponse) | 获取作业任务详细执行过程
 
 option (google.api.http) = { get: &#34;/v1/task/{task_id}/logs&#34; }; |
+| GetSubTask | [GetSubTaskRequest](#task.GetSubTaskRequest) | [GetSubTaskResponse](#task.GetSubTaskResponse) | 获取作业任务日志SubTask列表 |
 | CreateServerCompare | [CreateServerCompareRequest](#task.CreateServerCompareRequest) | [CreateServerCompareResponse](#task.CreateServerCompareResponse) | 交维表导入后巡检任务 |
 | CheckServerState | [CheckServerStateRequest](#task.CheckServerStateRequest) | [CheckServerStateResponse](#task.CheckServerStateResponse) | 调用裸金属应用检查裸金属状态 |
 | ServerPowerControl | [ServerPowerControlRequest](#task.ServerPowerControlRequest) | [ServerPowerControlResponse](#task.ServerPowerControlResponse) | 调用裸金属应用执行开关机操作 |

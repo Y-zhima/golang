@@ -15,6 +15,33 @@
     "application/json"
   ],
   "paths": {
+    "/v1/task/GetSubTask/{task_id}": {
+      "get": {
+        "summary": "获取作业任务日志SubTask列表",
+        "operationId": "GetSubTask",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskGetSubTaskResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "task_id",
+            "description": "作业任务ID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      }
+    },
     "/v1/task/checkServerState": {
       "post": {
         "summary": "调用裸金属应用检查裸金属状态",
@@ -622,6 +649,23 @@
       },
       "title": "获取作业任务请求返回"
     },
+    "taskGetSubTaskResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        },
+        "sub_task_info": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/taskSubTaskInfo"
+          },
+          "title": "子任务信息列表"
+        }
+      },
+      "title": "获取作业任务详细执行过程请求返回"
+    },
     "taskInstallServerRequest": {
       "type": "object",
       "properties": {
@@ -715,6 +759,20 @@
         }
       },
       "title": "调用裸金属应用执行开关机操作返回体"
+    },
+    "taskSubTaskInfo": {
+      "type": "object",
+      "properties": {
+        "sub_task_id": {
+          "type": "string",
+          "format": "int64",
+          "title": "子任务实例ID"
+        },
+        "sub_task_name": {
+          "type": "string",
+          "title": "子任务实例名"
+        }
+      }
     },
     "taskTaskObject": {
       "type": "object",

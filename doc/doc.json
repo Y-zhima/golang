@@ -76,9 +76,20 @@
           "fullName": "auth.GetUserInfoRequest",
           "description": "获取用户信息请求",
           "hasExtensions": false,
-          "hasFields": false,
+          "hasFields": true,
           "extensions": [],
-          "fields": []
+          "fields": [
+            {
+              "name": "access_token",
+              "description": "控制是否显示API访问授权Token，默认值false，即不显示",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
         },
         {
           "name": "GetUserInfoResponse",
@@ -203,6 +214,16 @@
             {
               "name": "avatar",
               "description": "用户头像路径",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "access_token",
+              "description": "API访问授权Token",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -3679,6 +3700,26 @@
               "type": "bytes",
               "longType": "bytes",
               "fullType": "bytes",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bucket",
+              "description": "指定上传bucket_name（可选）",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "job",
+              "description": "指定上传存储路径（可选）",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "defaultValue": ""
             }
@@ -7855,6 +7896,58 @@
               "defaultValue": ""
             }
           ]
+        },
+        {
+          "name": "GetLogRequest",
+          "longName": "GetLogRequest",
+          "fullName": "subtask.GetLogRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "sub_task_id",
+              "description": "作业子任务ID",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "GetLogResponse",
+          "longName": "GetLogResponse",
+          "fullName": "subtask.GetLogResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "返回的请求状态",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "sub_task_log",
+              "description": "子任务实例名",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
         }
       ],
       "services": [
@@ -7911,6 +8004,28 @@
               "responseLongType": "CreateServerCompareResponse",
               "responseFullType": "subtask.CreateServerCompareResponse",
               "responseStreaming": false
+            },
+            {
+              "name": "GetLog",
+              "description": "获取作业任务SubTask具体日志",
+              "requestType": "GetLogRequest",
+              "requestLongType": "GetLogRequest",
+              "requestFullType": "subtask.GetLogRequest",
+              "requestStreaming": false,
+              "responseType": "GetLogResponse",
+              "responseLongType": "GetLogResponse",
+              "responseFullType": "subtask.GetLogResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/task/GetLog/{sub_task_id}"
+                    }
+                  ]
+                }
+              }
             }
           ]
         }
@@ -8730,6 +8845,58 @@
           ]
         },
         {
+          "name": "GetSubTaskRequest",
+          "longName": "GetSubTaskRequest",
+          "fullName": "task.GetSubTaskRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "task_id",
+              "description": "作业任务ID",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "GetSubTaskResponse",
+          "longName": "GetSubTaskResponse",
+          "fullName": "task.GetSubTaskResponse",
+          "description": "获取作业任务详细执行过程请求返回",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "返回的请求状态",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "sub_task_info",
+              "description": "子任务信息列表",
+              "label": "repeated",
+              "type": "SubTaskInfo",
+              "longType": "SubTaskInfo",
+              "fullType": "task.SubTaskInfo",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
           "name": "InstallServerRequest",
           "longName": "InstallServerRequest",
           "fullName": "task.InstallServerRequest",
@@ -8890,6 +9057,37 @@
               "type": "ResponseStatus",
               "longType": "common.ResponseStatus",
               "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "SubTaskInfo",
+          "longName": "SubTaskInfo",
+          "fullName": "task.SubTaskInfo",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "sub_task_id",
+              "description": "子任务实例ID",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "sub_task_name",
+              "description": "子任务实例名",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "defaultValue": ""
             }
@@ -9132,6 +9330,28 @@
               "responseLongType": "GetLogResponse",
               "responseFullType": "task.GetLogResponse",
               "responseStreaming": false
+            },
+            {
+              "name": "GetSubTask",
+              "description": "获取作业任务日志SubTask列表",
+              "requestType": "GetSubTaskRequest",
+              "requestLongType": "GetSubTaskRequest",
+              "requestFullType": "task.GetSubTaskRequest",
+              "requestStreaming": false,
+              "responseType": "GetSubTaskResponse",
+              "responseLongType": "GetSubTaskResponse",
+              "responseFullType": "task.GetSubTaskResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/task/GetSubTask/{task_id}"
+                    }
+                  ]
+                }
+              }
             },
             {
               "name": "CreateServerCompare",

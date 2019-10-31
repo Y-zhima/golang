@@ -175,6 +175,26 @@ func (mr *MockTaskClientMockRecorder) GetLog(arg0, arg1 interface{}, arg2 ...int
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetLog", reflect.TypeOf((*MockTaskClient)(nil).GetLog), varargs...)
 }
 
+// GetSubTask mocks base method
+func (m *MockTaskClient) GetSubTask(arg0 context.Context, arg1 *task.GetSubTaskRequest, arg2 ...grpc.CallOption) (*task.GetSubTaskResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "GetSubTask", varargs...)
+	ret0, _ := ret[0].(*task.GetSubTaskResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// GetSubTask indicates an expected call of GetSubTask
+func (mr *MockTaskClientMockRecorder) GetSubTask(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetSubTask", reflect.TypeOf((*MockTaskClient)(nil).GetSubTask), varargs...)
+}
+
 // InstallServer mocks base method
 func (m *MockTaskClient) InstallServer(arg0 context.Context, arg1 *task.InstallServerRequest, arg2 ...grpc.CallOption) (*task.InstallServerResponse, error) {
 	m.ctrl.T.Helper()

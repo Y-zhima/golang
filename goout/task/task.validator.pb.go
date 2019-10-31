@@ -5,15 +5,15 @@ package task
 
 import (
 	fmt "fmt"
-	_ "git.fogcdn.top/axe/protos/goout/cmdb"
-	_ "git.fogcdn.top/axe/protos/goout/common"
-	_ "git.fogcdn.top/axe/protos/goout/schedule"
+	math "math"
 	proto "github.com/golang/protobuf/proto"
+	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "github.com/mwitkow/go-proto-validators"
+	_ "git.fogcdn.top/axe/protos/goout/common"
+	_ "git.fogcdn.top/axe/protos/goout/schedule"
+	_ "git.fogcdn.top/axe/protos/goout/cmdb"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
-	_ "google.golang.org/genproto/googleapis/api/annotations"
-	math "math"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -165,6 +165,27 @@ func (this *GetLogResponse) Validate() error {
 			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
 		}
 	}
+	return nil
+}
+func (this *GetSubTaskRequest) Validate() error {
+	return nil
+}
+func (this *GetSubTaskResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	for _, item := range this.SubTaskInfo {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("SubTaskInfo", err)
+			}
+		}
+	}
+	return nil
+}
+func (this *SubTaskInfo) Validate() error {
 	return nil
 }
 func (this *FilterRequest) Validate() error {

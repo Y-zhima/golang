@@ -61,6 +61,16 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "access_token",
+            "description": "控制是否显示API访问授权Token，默认值false，即不显示.",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "format": "boolean"
+          }
+        ],
         "tags": [
           "Auth"
         ]
@@ -163,6 +173,10 @@
         "avatar": {
           "type": "string",
           "title": "用户头像路径"
+        },
+        "access_token": {
+          "type": "string",
+          "title": "API访问授权Token"
         }
       },
       "title": "用户信息"

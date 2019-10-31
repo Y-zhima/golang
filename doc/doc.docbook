@@ -38,6 +38,34 @@
       <title>GetUserInfoRequest</title>
       <para>获取用户信息请求</para>
       
+      <table frame="all">
+        <title><classname>GetUserInfoRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>access_token</entry>
+              <entry><link linkend="bool">bool</link></entry>
+              <entry></entry>
+              <entry><para>控制是否显示API访问授权Token，默认值false，即不显示</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
       
     </section>
     
@@ -165,6 +193,13 @@
               <entry><link linkend="string">string</link></entry>
               <entry></entry>
               <entry><para>用户头像路径</para></entry>
+            </row>
+            
+            <row>
+              <entry>access_token</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>API访问授权Token</para></entry>
             </row>
             
           </tbody>
@@ -3909,6 +3944,20 @@
               <entry><link linkend="bytes">bytes</link></entry>
               <entry></entry>
               <entry><para>文件字段</para></entry>
+            </row>
+            
+            <row>
+              <entry>bucket</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>指定上传bucket_name（可选）</para></entry>
+            </row>
+            
+            <row>
+              <entry>job</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>指定上传存储路径（可选）</para></entry>
             </row>
             
           </tbody>
@@ -8472,6 +8521,83 @@
       
     </section>
     
+    <section id="subtask.GetLogRequest">
+      <title>GetLogRequest</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>GetLogRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>sub_task_id</entry>
+              <entry><link linkend="int64">int64</link></entry>
+              <entry></entry>
+              <entry><para>作业子任务ID</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="subtask.GetLogResponse">
+      <title>GetLogResponse</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>GetLogResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>返回的请求状态</para></entry>
+            </row>
+            
+            <row>
+              <entry>sub_task_log</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>子任务实例名</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
     
     <section id="subtask.ServerTaskType">
       <title>ServerTaskType</title>
@@ -8611,6 +8737,13 @@
               <entry><link linkend="subtask.CreateServerCompareRequest">CreateServerCompareRequest</link></entry>
               <entry><link linkend="subtask.CreateServerCompareResponse">CreateServerCompareResponse</link></entry>
               <entry><para>交维表导入后巡检子任务</para></entry>
+            </row>
+            
+            <row>
+              <entry>GetLog</entry>
+              <entry><link linkend="subtask.GetLogRequest">GetLogRequest</link></entry>
+              <entry><link linkend="subtask.GetLogResponse">GetLogResponse</link></entry>
+              <entry><para>获取作业任务SubTask具体日志</para></entry>
             </row>
             
           </tbody>
@@ -9559,6 +9692,83 @@
       
     </section>
     
+    <section id="task.GetSubTaskRequest">
+      <title>GetSubTaskRequest</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>GetSubTaskRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>task_id</entry>
+              <entry><link linkend="int64">int64</link></entry>
+              <entry></entry>
+              <entry><para>作业任务ID</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="task.GetSubTaskResponse">
+      <title>GetSubTaskResponse</title>
+      <para>获取作业任务详细执行过程请求返回</para>
+      
+      <table frame="all">
+        <title><classname>GetSubTaskResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>返回的请求状态</para></entry>
+            </row>
+            
+            <row>
+              <entry>sub_task_info</entry>
+              <entry><link linkend="task.SubTaskInfo">SubTaskInfo</link></entry>
+              <entry>repeated</entry>
+              <entry><para>子任务信息列表</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
     <section id="task.InstallServerRequest">
       <title>InstallServerRequest</title>
       <para>调用裸金属安装操作请求体</para>
@@ -9797,6 +10007,48 @@
       
     </section>
     
+    <section id="task.SubTaskInfo">
+      <title>SubTaskInfo</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>SubTaskInfo</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>sub_task_id</entry>
+              <entry><link linkend="int64">int64</link></entry>
+              <entry></entry>
+              <entry><para>子任务实例ID</para></entry>
+            </row>
+            
+            <row>
+              <entry>sub_task_name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>子任务实例名</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
     <section id="task.TaskObject">
       <title>TaskObject</title>
       <para>作业任务实例</para>
@@ -10015,6 +10267,13 @@
               <entry><link linkend="task.GetLogRequest">GetLogRequest</link></entry>
               <entry><link linkend="task.GetLogResponse">GetLogResponse</link></entry>
               <entry><para>获取作业任务详细执行过程</para><para>option (google.api.http) = {</para><para>get: "/v1/task/{task_id}/logs"</para><para>};</para></entry>
+            </row>
+            
+            <row>
+              <entry>GetSubTask</entry>
+              <entry><link linkend="task.GetSubTaskRequest">GetSubTaskRequest</link></entry>
+              <entry><link linkend="task.GetSubTaskResponse">GetSubTaskResponse</link></entry>
+              <entry><para>获取作业任务日志SubTask列表</para></entry>
             </row>
             
             <row>

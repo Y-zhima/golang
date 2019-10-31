@@ -1011,6 +1011,14 @@
                   <a href="#subtask.CreateServerResponse"><span class="badge">M</span>CreateServerResponse</a>
                 </li>
               
+                <li>
+                  <a href="#subtask.GetLogRequest"><span class="badge">M</span>GetLogRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#subtask.GetLogResponse"><span class="badge">M</span>GetLogResponse</a>
+                </li>
+              
               
                 <li>
                   <a href="#subtask.ServerTaskType"><span class="badge">E</span>ServerTaskType</a>
@@ -1126,6 +1134,14 @@
                 </li>
               
                 <li>
+                  <a href="#task.GetSubTaskRequest"><span class="badge">M</span>GetSubTaskRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#task.GetSubTaskResponse"><span class="badge">M</span>GetSubTaskResponse</a>
+                </li>
+              
+                <li>
                   <a href="#task.InstallServerRequest"><span class="badge">M</span>InstallServerRequest</a>
                 </li>
               
@@ -1147,6 +1163,10 @@
               
                 <li>
                   <a href="#task.ServerPowerControlResponse"><span class="badge">M</span>ServerPowerControlResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#task.SubTaskInfo"><span class="badge">M</span>SubTaskInfo</a>
                 </li>
               
                 <li>
@@ -1282,6 +1302,23 @@
         <p>获取用户信息请求</p>
 
         
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>access_token</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>控制是否显示API访问授权Token，默认值false，即不显示 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
 
         
       
@@ -1387,6 +1424,13 @@
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>用户头像路径 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>access_token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>API访问授权Token </p></td>
                 </tr>
               
             </tbody>
@@ -4750,6 +4794,20 @@
                   <td><a href="#bytes">bytes</a></td>
                   <td></td>
                   <td><p>文件字段 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>bucket</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>指定上传bucket_name（可选） </p></td>
+                </tr>
+              
+                <tr>
+                  <td>job</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>指定上传存储路径（可选） </p></td>
                 </tr>
               
             </tbody>
@@ -8794,6 +8852,61 @@
 
         
       
+        <h3 id="subtask.GetLogRequest">GetLogRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>sub_task_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>作业子任务ID </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="subtask.GetLogResponse">GetLogResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#common.ResponseStatus">common.ResponseStatus</a></td>
+                  <td></td>
+                  <td><p>返回的请求状态 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sub_task_log</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>子任务实例名 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
 
       
         <h3 id="subtask.ServerTaskType">ServerTaskType</h3>
@@ -8900,9 +9013,44 @@
                 <td><p>交维表导入后巡检子任务</p></td>
               </tr>
             
+              <tr>
+                <td>GetLog</td>
+                <td><a href="#subtask.GetLogRequest">GetLogRequest</a></td>
+                <td><a href="#subtask.GetLogResponse">GetLogResponse</a></td>
+                <td><p>获取作业任务SubTask具体日志</p></td>
+              </tr>
+            
           </tbody>
         </table>
 
+        
+          
+          
+          <h4>Methods with HTTP bindings</h4>
+          <table>
+            <thead>
+              <tr>
+                <td>Method Name</td>
+                <td>Method</td>
+                <td>Pattern</td>
+                <td>Body</td>
+              </tr>
+            </thead>
+            <tbody>
+            
+              
+              
+              <tr>
+                <td>GetLog</td>
+                <td>GET</td>
+                <td>/v1/task/GetLog/{sub_task_id}</td>
+                <td></td>
+              </tr>
+              
+            
+            </tbody>
+          </table>
+          
         
     
       
@@ -9672,6 +9820,61 @@
 
         
       
+        <h3 id="task.GetSubTaskRequest">GetSubTaskRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>task_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>作业任务ID </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="task.GetSubTaskResponse">GetSubTaskResponse</h3>
+        <p>获取作业任务详细执行过程请求返回</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#common.ResponseStatus">common.ResponseStatus</a></td>
+                  <td></td>
+                  <td><p>返回的请求状态 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sub_task_info</td>
+                  <td><a href="#task.SubTaskInfo">SubTaskInfo</a></td>
+                  <td>repeated</td>
+                  <td><p>子任务信息列表 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="task.InstallServerRequest">InstallServerRequest</h3>
         <p>调用裸金属安装操作请求体</p>
 
@@ -9835,6 +10038,37 @@
                   <td><a href="#common.ResponseStatus">common.ResponseStatus</a></td>
                   <td></td>
                   <td><p>状态码 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="task.SubTaskInfo">SubTaskInfo</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>sub_task_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>子任务实例ID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sub_task_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>子任务实例名 </p></td>
                 </tr>
               
             </tbody>
@@ -10035,6 +10269,13 @@ option (google.api.http) = {
               </tr>
             
               <tr>
+                <td>GetSubTask</td>
+                <td><a href="#task.GetSubTaskRequest">GetSubTaskRequest</a></td>
+                <td><a href="#task.GetSubTaskResponse">GetSubTaskResponse</a></td>
+                <td><p>获取作业任务日志SubTask列表</p></td>
+              </tr>
+            
+              <tr>
                 <td>CreateServerCompare</td>
                 <td><a href="#task.CreateServerCompareRequest">CreateServerCompareRequest</a></td>
                 <td><a href="#task.CreateServerCompareResponse">CreateServerCompareResponse</a></td>
@@ -10120,6 +10361,16 @@ option (google.api.http) = {
                 <td>Get</td>
                 <td>GET</td>
                 <td>/v1/task/get/{task_id}</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetSubTask</td>
+                <td>GET</td>
+                <td>/v1/task/GetSubTask/{task_id}</td>
                 <td></td>
               </tr>
               
