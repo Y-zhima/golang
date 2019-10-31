@@ -1059,6 +1059,10 @@
                 </li>
               
                 <li>
+                  <a href="#task.JobAgentLog"><span class="badge">M</span>JobAgentLog</a>
+                </li>
+              
+                <li>
                   <a href="#task.ServerCompareTask"><span class="badge">M</span>ServerCompareTask</a>
                 </li>
               
@@ -9203,6 +9207,37 @@
                   <td><a href="#cmdb.ChooseServerRequest">cmdb.ChooseServerRequest</a></td>
                   <td></td>
                   <td><p>cmdb的搜索条件 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="task.JobAgentLog">JobAgentLog</h3>
+        <p>agent上报kafka日志结构体</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>sub_task_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>任务实例ID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>job_agent_log</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>ansible执行日志 </p></td>
                 </tr>
               
             </tbody>

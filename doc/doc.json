@@ -8207,6 +8207,37 @@
           ]
         },
         {
+          "name": "JobAgentLog",
+          "longName": "JobAgentLog",
+          "fullName": "task.JobAgentLog",
+          "description": "agent上报kafka日志结构体",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "sub_task_id",
+              "description": "任务实例ID",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "job_agent_log",
+              "description": "ansible执行日志",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
           "name": "ServerCompareTask",
           "longName": "ServerCompareTask",
           "fullName": "task.ServerCompareTask",

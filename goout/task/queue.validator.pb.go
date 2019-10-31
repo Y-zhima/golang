@@ -66,3 +66,6 @@ func (this *BareMetalInstallTask) Validate() error {
 	}
 	return nil
 }
+func (this *JobAgentLog) Validate() error {
+	return nil
+}

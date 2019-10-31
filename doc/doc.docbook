@@ -8953,6 +8953,48 @@
       
     </section>
     
+    <section id="task.JobAgentLog">
+      <title>JobAgentLog</title>
+      <para>agent上报kafka日志结构体</para>
+      
+      <table frame="all">
+        <title><classname>JobAgentLog</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>sub_task_id</entry>
+              <entry><link linkend="int64">int64</link></entry>
+              <entry></entry>
+              <entry><para>任务实例ID</para></entry>
+            </row>
+            
+            <row>
+              <entry>job_agent_log</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>ansible执行日志</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
     <section id="task.ServerCompareTask">
       <title>ServerCompareTask</title>
       <para>交维表导入后巡检任务</para>

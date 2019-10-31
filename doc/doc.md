@@ -263,6 +263,7 @@
     - [BareMetalInstallTask](#task.BareMetalInstallTask)
     - [BareMetalPowerTask](#task.BareMetalPowerTask)
     - [BareMetalSearchTask](#task.BareMetalSearchTask)
+    - [JobAgentLog](#task.JobAgentLog)
     - [ServerCompareTask](#task.ServerCompareTask)
     - [TemplateExecuteTask](#task.TemplateExecuteTask)
   
@@ -3553,6 +3554,22 @@ playbook入口文件实例
 | ----- | ---- | ----- | ----------- |
 | sub_task_id | [int64](#int64) |  | 子任务实例ID |
 | cmdb_search_request | [cmdb.ChooseServerRequest](#cmdb.ChooseServerRequest) |  | cmdb的搜索条件 |
+
+
+
+
+
+
+<a name="task.JobAgentLog"></a>
+
+### JobAgentLog
+agent上报kafka日志结构体
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sub_task_id | [int64](#int64) |  | 任务实例ID |
+| job_agent_log | [string](#string) |  | ansible执行日志 |
 
 
 
