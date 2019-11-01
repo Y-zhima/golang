@@ -271,7 +271,7 @@ message SearchHostResponse {
     // 状态码
     common.ResponseStatus status = 2;
     // 主机信息
-    repeated TopologyObject instance = 3;
+    repeated HostInfoObject hostInfoObject = 3;
 }
 
 // 导入交维表请求
