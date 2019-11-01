@@ -46,6 +46,8 @@
     - [CreateAssociationRequest](#cmdb.CreateAssociationRequest)
     - [HostInfoObject](#cmdb.HostInfoObject)
     - [HostObject](#cmdb.HostObject)
+    - [ImportAssetRequest](#cmdb.ImportAssetRequest)
+    - [ImportAssetResponse](#cmdb.ImportAssetResponse)
     - [ImportCrossTableRequest](#cmdb.ImportCrossTableRequest)
     - [ImportCrossTableResponse](#cmdb.ImportCrossTableResponse)
     - [ImportHistoryObject](#cmdb.ImportHistoryObject)
@@ -116,11 +118,14 @@
   
 
 - [file/file.proto](#file/file.proto)
+    - [DownloadTemplateRequest](#file.DownloadTemplateRequest)
+    - [DownloadTemplateResponse](#file.DownloadTemplateResponse)
     - [UploadPlaybookRequest](#file.UploadPlaybookRequest)
     - [UploadPlaybookResponse](#file.UploadPlaybookResponse)
     - [UploadRequest](#file.UploadRequest)
     - [UploadResponse](#file.UploadResponse)
   
+    - [TemplateType](#file.TemplateType)
   
   
     - [File](#file.File)
@@ -806,6 +811,39 @@ cmdb事件请求返回
 
 
 
+<a name="cmdb.ImportAssetRequest"></a>
+
+### ImportAssetRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| import_type | [ImportType](#cmdb.ImportType) |  | 导入资产实体类型 |
+| url | [string](#string) |  | xlsx文件下载路径 |
+| md5 | [string](#string) |  | xlsx文件md5 |
+| filename | [string](#string) |  | 用户上传xlsx文件的文件名 |
+
+
+
+
+
+
+<a name="cmdb.ImportAssetResponse"></a>
+
+### ImportAssetResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [common.ResponseStatus](#common.ResponseStatus) |  | 状态码 |
+
+
+
+
+
+
 <a name="cmdb.ImportCrossTableRequest"></a>
 
 ### ImportCrossTableRequest
@@ -1032,7 +1070,10 @@ cmdb事件请求返回
 ### InstanceTopologyRequest
 拓扑实例请求
 
-int32 level = 1;
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| with_idlepool | [bool](#bool) |  | int32 level = 1; |
 
 
 
@@ -1258,7 +1299,7 @@ LAKE节点对象
 | ----- | ---- | ----- | ----------- |
 | paging | [common.Paging](#common.Paging) |  | 分页信息 |
 | status | [common.ResponseStatus](#common.ResponseStatus) |  | 状态码 |
-| instance | [TopologyObject](#cmdb.TopologyObject) | repeated | 主机信息 |
+| host_info_object | [HostInfoObject](#cmdb.HostInfoObject) | repeated | 主机信息 |
 
 
 
@@ -1572,6 +1613,7 @@ VIP对象
 | LAKE | 3 | 3-LAKE |
 | SWITCH | 4 | 4-交换机 |
 | CROSSTABLE | 5 | 5-交维表 |
+| VIP | 6 | 6-VIP |
 
 
 
@@ -1624,6 +1666,7 @@ VIP对象
 | SearchLake | [SearchLakeRequest](#cmdb.SearchLakeRequest) | [SearchLakeResponse](#cmdb.SearchLakeResponse) | 查询Lake节点 |
 | SearchHostInLake | [SearchHostInLakeRequest](#cmdb.SearchHostInLakeRequest) | [SearchHostInLakeResponse](#cmdb.SearchHostInLakeResponse) | 查询Lake节点下的主机列表 |
 | SearchLakeArea | [SearchLakeAreaRequest](#cmdb.SearchLakeAreaRequest) | [SearchLakeAreaResponse](#cmdb.SearchLakeAreaResponse) | 通过IP获取节点的地区和位置信息 |
+| ImportAsset | [ImportAssetRequest](#cmdb.ImportAssetRequest) | [ImportAssetResponse](#cmdb.ImportAssetResponse) | 导入实体资产 |
 
  
 
@@ -1731,6 +1774,37 @@ VIP对象
 
 
 
+<a name="file.DownloadTemplateRequest"></a>
+
+### DownloadTemplateRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| template_type | [TemplateType](#file.TemplateType) |  |  |
+
+
+
+
+
+
+<a name="file.DownloadTemplateResponse"></a>
+
+### DownloadTemplateResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
+| content | [bytes](#bytes) |  | 返回的excel文件 |
+
+
+
+
+
+
 <a name="file.UploadPlaybookRequest"></a>
 
 ### UploadPlaybookRequest
@@ -1802,6 +1876,23 @@ VIP对象
 
  
 
+
+<a name="file.TemplateType"></a>
+
+### TemplateType
+下载模板类型
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNDEFINED | 0 | 0-undefined |
+| HOST | 1 | 1-导入主机 |
+| VIP | 2 | 2-导入物理机 |
+| LAKE | 3 | 3-导入LAKE |
+| HOSTCHAIN | 4 | 4-导入主机业务拓扑 |
+| LAKECHAIN | 5 | 5-导入lake节点关系链 |
+| CROSSTABLE | 6 | 6-导入交维表 |
+
+
  
 
  
@@ -1816,6 +1907,7 @@ VIP对象
 | ----------- | ------------ | ------------- | ------------|
 | UploadPlaybook | [UploadPlaybookRequest](#file.UploadPlaybookRequest) | [UploadPlaybookResponse](#file.UploadPlaybookResponse) | 上传playbook压缩包并且解析入口yml文件 |
 | Upload | [UploadRequest](#file.UploadRequest) | [UploadResponse](#file.UploadResponse) | 上传csv等通用文件 |
+| DownloadTemplate | [DownloadTemplateRequest](#file.DownloadTemplateRequest) | [DownloadTemplateResponse](#file.DownloadTemplateResponse) | 获取导入模板 |
 
  
 

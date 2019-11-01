@@ -116,6 +116,15 @@ service Cmdb {
             get: "/v1/cmdb/searchLakeArea"
         };
     }
+
+    // 导入实体资产
+    rpc ImportAsset (ImportAssetRequest) returns (ImportAssetResponse) {
+        option (google.api.http) = {
+            post: "/v1/cmdb/importAsset"
+            body: "*"
+        };
+    }
+
 }
 
 // 导入状态: 0-正在导入 1-导入完成 2-导入失败
@@ -142,6 +151,8 @@ enum ImportType {
     SWITCH = 4;
     // 5-交维表
     CROSSTABLE = 5;
+    // 6-VIP
+    VIP = 6;
 }
 
 // 业务拓扑对象
@@ -162,6 +173,7 @@ message TopologyObject {
 
 // 拓扑实例请求
 message InstanceTopologyRequest {
+    bool with_idlepool = 1;
     //    int32 level = 1;
 }
 
@@ -271,7 +283,7 @@ message SearchHostResponse {
     // 状态码
     common.ResponseStatus status = 2;
     // 主机信息
-    repeated TopologyObject instance = 3;
+    repeated HostInfoObject host_info_object = 3;
 }
 
 // 导入交维表请求
@@ -784,4 +796,21 @@ enum AreaLevel {
     CITY = 4;
     // 5-区县级
     COUNTY = 5;
+}
+
+message ImportAssetRequest {
+    // 导入资产实体类型
+    ImportType import_type = 1;
+    // xlsx文件下载路径
+    string url = 2 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"
+                   }];
+    // xlsx文件md5
+    string md5 = 3;
+    // 用户上传xlsx文件的文件名
+    string filename = 4;
+}
+
+message ImportAssetResponse {
+    // 状态码
+    common.ResponseStatus status = 1;
 }

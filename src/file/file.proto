@@ -25,6 +25,42 @@ service File {
             body: "*"
         };
     }
+
+    // 获取导入模板
+    rpc DownloadTemplate (DownloadTemplateRequest) returns (DownloadTemplateResponse) {
+        option (google.api.http) = {
+            get: "/v1/cmdb/downloadTemplate"
+        };
+    }
+}
+
+// 下载模板类型
+enum TemplateType {
+    // 0-undefined
+    UNDEFINED = 0;
+    // 1-导入主机
+    HOST = 1;
+    // 2-导入物理机
+    VIP = 2;
+    // 3-导入LAKE
+    LAKE = 3;
+    // 4-导入主机业务拓扑
+    HOSTCHAIN = 4;
+    // 5-导入lake节点关系链
+    LAKECHAIN = 5;
+    // 6-导入交维表
+    CROSSTABLE = 6;
+}
+
+message DownloadTemplateRequest {
+    TemplateType template_type = 1;
+}
+
+message DownloadTemplateResponse {
+    // 返回的请求状态
+    common.ResponseStatus status = 1;
+    // 返回的excel文件
+    bytes content = 2;
 }
 
 // 上传playbook压缩包并且解析入口yml文件的请求体
@@ -45,7 +81,6 @@ message UploadPlaybookResponse {
     // 返回的请求状态
     common.ResponseStatus status = 5;
 }
-
 
 // 上传csv等通用文件
 message UploadRequest {

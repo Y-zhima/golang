@@ -35,6 +35,26 @@ func (m *MockFileClient) EXPECT() *MockFileClientMockRecorder {
 	return m.recorder
 }
 
+// DownloadTemplate mocks base method
+func (m *MockFileClient) DownloadTemplate(arg0 context.Context, arg1 *file.DownloadTemplateRequest, arg2 ...grpc.CallOption) (*file.DownloadTemplateResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "DownloadTemplate", varargs...)
+	ret0, _ := ret[0].(*file.DownloadTemplateResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// DownloadTemplate indicates an expected call of DownloadTemplate
+func (mr *MockFileClientMockRecorder) DownloadTemplate(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DownloadTemplate", reflect.TypeOf((*MockFileClient)(nil).DownloadTemplate), varargs...)
+}
+
 // Upload mocks base method
 func (m *MockFileClient) Upload(arg0 context.Context, arg1 *file.UploadRequest, arg2 ...grpc.CallOption) (*file.UploadResponse, error) {
 	m.ctrl.T.Helper()

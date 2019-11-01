@@ -1142,6 +1142,97 @@
       
     </section>
     
+    <section id="cmdb.ImportAssetRequest">
+      <title>ImportAssetRequest</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>ImportAssetRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>import_type</entry>
+              <entry><link linkend="cmdb.ImportType">ImportType</link></entry>
+              <entry></entry>
+              <entry><para>导入资产实体类型</para></entry>
+            </row>
+            
+            <row>
+              <entry>url</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>xlsx文件下载路径</para></entry>
+            </row>
+            
+            <row>
+              <entry>md5</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>xlsx文件md5</para></entry>
+            </row>
+            
+            <row>
+              <entry>filename</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>用户上传xlsx文件的文件名</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="cmdb.ImportAssetResponse">
+      <title>ImportAssetResponse</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>ImportAssetResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>状态码</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
     <section id="cmdb.ImportCrossTableRequest">
       <title>ImportCrossTableRequest</title>
       <para>导入交维表请求</para>
@@ -1781,7 +1872,35 @@
     
     <section id="cmdb.InstanceTopologyRequest">
       <title>InstanceTopologyRequest</title>
-      <para>拓扑实例请求</para><para>int32 level = 1;</para>
+      <para>拓扑实例请求</para>
+      
+      <table frame="all">
+        <title><classname>InstanceTopologyRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>with_idlepool</entry>
+              <entry><link linkend="bool">bool</link></entry>
+              <entry></entry>
+              <entry><para>int32 level = 1;</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
       
       
     </section>
@@ -2452,8 +2571,8 @@
             </row>
             
             <row>
-              <entry>instance</entry>
-              <entry><link linkend="cmdb.TopologyObject">TopologyObject</link></entry>
+              <entry>host_info_object</entry>
+              <entry><link linkend="cmdb.HostInfoObject">HostInfoObject</link></entry>
               <entry>repeated</entry>
               <entry><para>主机信息</para></entry>
             </row>
@@ -3411,6 +3530,12 @@
               <entry><para>5-交维表</para></entry>
             </row>
             
+            <row>
+              <entry>VIP</entry>
+              <entry>6</entry>
+              <entry><para>6-VIP</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>
@@ -3604,6 +3729,13 @@
               <entry><link linkend="cmdb.SearchLakeAreaRequest">SearchLakeAreaRequest</link></entry>
               <entry><link linkend="cmdb.SearchLakeAreaResponse">SearchLakeAreaResponse</link></entry>
               <entry><para>通过IP获取节点的地区和位置信息</para></entry>
+            </row>
+            
+            <row>
+              <entry>ImportAsset</entry>
+              <entry><link linkend="cmdb.ImportAssetRequest">ImportAssetRequest</link></entry>
+              <entry><link linkend="cmdb.ImportAssetResponse">ImportAssetResponse</link></entry>
+              <entry><para>导入实体资产</para></entry>
             </row>
             
           </tbody>
@@ -3820,6 +3952,83 @@
     <title>file/file.proto</title>
     <para></para>
     
+    <section id="file.DownloadTemplateRequest">
+      <title>DownloadTemplateRequest</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>DownloadTemplateRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>template_type</entry>
+              <entry><link linkend="file.TemplateType">TemplateType</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="file.DownloadTemplateResponse">
+      <title>DownloadTemplateResponse</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>DownloadTemplateResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>返回的请求状态</para></entry>
+            </row>
+            
+            <row>
+              <entry>content</entry>
+              <entry><link linkend="bytes">bytes</link></entry>
+              <entry></entry>
+              <entry><para>返回的excel文件</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
     <section id="file.UploadPlaybookRequest">
       <title>UploadPlaybookRequest</title>
       <para>上传playbook压缩包并且解析入口yml文件的请求体</para>
@@ -4031,6 +4240,71 @@
     </section>
     
     
+    <section id="file.TemplateType">
+      <title>TemplateType</title>
+      <para>下载模板类型</para>
+      <table frame="all">
+        <title><classname>TemplateType</classname> Values</title>
+        <tgroup cols="3">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Name</entry>
+              <entry>Number</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>UNDEFINED</entry>
+              <entry>0</entry>
+              <entry><para>0-undefined</para></entry>
+            </row>
+            
+            <row>
+              <entry>HOST</entry>
+              <entry>1</entry>
+              <entry><para>1-导入主机</para></entry>
+            </row>
+            
+            <row>
+              <entry>VIP</entry>
+              <entry>2</entry>
+              <entry><para>2-导入物理机</para></entry>
+            </row>
+            
+            <row>
+              <entry>LAKE</entry>
+              <entry>3</entry>
+              <entry><para>3-导入LAKE</para></entry>
+            </row>
+            
+            <row>
+              <entry>HOSTCHAIN</entry>
+              <entry>4</entry>
+              <entry><para>4-导入主机业务拓扑</para></entry>
+            </row>
+            
+            <row>
+              <entry>LAKECHAIN</entry>
+              <entry>5</entry>
+              <entry><para>5-导入lake节点关系链</para></entry>
+            </row>
+            
+            <row>
+              <entry>CROSSTABLE</entry>
+              <entry>6</entry>
+              <entry><para>6-导入交维表</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    
 
     
 
@@ -4067,6 +4341,13 @@
               <entry><link linkend="file.UploadRequest">UploadRequest</link></entry>
               <entry><link linkend="file.UploadResponse">UploadResponse</link></entry>
               <entry><para>上传csv等通用文件</para></entry>
+            </row>
+            
+            <row>
+              <entry>DownloadTemplate</entry>
+              <entry><link linkend="file.DownloadTemplateRequest">DownloadTemplateRequest</link></entry>
+              <entry><link linkend="file.DownloadTemplateResponse">DownloadTemplateResponse</link></entry>
+              <entry><para>获取导入模板</para></entry>
             </row>
             
           </tbody>

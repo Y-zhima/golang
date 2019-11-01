@@ -321,6 +321,14 @@
                 </li>
               
                 <li>
+                  <a href="#cmdb.ImportAssetRequest"><span class="badge">M</span>ImportAssetRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#cmdb.ImportAssetResponse"><span class="badge">M</span>ImportAssetResponse</a>
+                </li>
+              
+                <li>
                   <a href="#cmdb.ImportCrossTableRequest"><span class="badge">M</span>ImportCrossTableRequest</a>
                 </li>
               
@@ -562,6 +570,14 @@
             <ul>
               
                 <li>
+                  <a href="#file.DownloadTemplateRequest"><span class="badge">M</span>DownloadTemplateRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#file.DownloadTemplateResponse"><span class="badge">M</span>DownloadTemplateResponse</a>
+                </li>
+              
+                <li>
                   <a href="#file.UploadPlaybookRequest"><span class="badge">M</span>UploadPlaybookRequest</a>
                 </li>
               
@@ -577,6 +593,10 @@
                   <a href="#file.UploadResponse"><span class="badge">M</span>UploadResponse</a>
                 </li>
               
+              
+                <li>
+                  <a href="#file.TemplateType"><span class="badge">E</span>TemplateType</a>
+                </li>
               
               
               
@@ -2265,6 +2285,104 @@
 
         
       
+        <h3 id="cmdb.ImportAssetRequest">ImportAssetRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>import_type</td>
+                  <td><a href="#cmdb.ImportType">ImportType</a></td>
+                  <td></td>
+                  <td><p>导入资产实体类型 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>url</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>xlsx文件下载路径 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>md5</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>xlsx文件md5 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>filename</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>用户上传xlsx文件的文件名 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>url</td>
+                  <td>
+                    <ul>
+                    
+                      <li>human_error: URL不能为空</li>
+                    
+                      <li>string_not_empty: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="cmdb.ImportAssetResponse">ImportAssetResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#common.ResponseStatus">common.ResponseStatus</a></td>
+                  <td></td>
+                  <td><p>状态码 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="cmdb.ImportCrossTableRequest">ImportCrossTableRequest</h3>
         <p>导入交维表请求</p>
 
@@ -2905,9 +3023,26 @@
         
       
         <h3 id="cmdb.InstanceTopologyRequest">InstanceTopologyRequest</h3>
-        <p>拓扑实例请求</p><p>int32 level = 1;</p>
+        <p>拓扑实例请求</p>
 
         
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>with_idlepool</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>int32 level = 1; </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
 
         
       
@@ -3446,8 +3581,8 @@
                 </tr>
               
                 <tr>
-                  <td>instance</td>
-                  <td><a href="#cmdb.TopologyObject">TopologyObject</a></td>
+                  <td>host_info_object</td>
+                  <td><a href="#cmdb.HostInfoObject">HostInfoObject</a></td>
                   <td>repeated</td>
                   <td><p>主机信息 </p></td>
                 </tr>
@@ -4236,6 +4371,12 @@
                 <td><p>5-交维表</p></td>
               </tr>
             
+              <tr>
+                <td>VIP</td>
+                <td>6</td>
+                <td><p>6-VIP</p></td>
+              </tr>
+            
           </tbody>
         </table>
       
@@ -4393,6 +4534,13 @@
                 <td><p>通过IP获取节点的地区和位置信息</p></td>
               </tr>
             
+              <tr>
+                <td>ImportAsset</td>
+                <td><a href="#cmdb.ImportAssetRequest">ImportAssetRequest</a></td>
+                <td><a href="#cmdb.ImportAssetResponse">ImportAssetResponse</a></td>
+                <td><p>导入实体资产</p></td>
+              </tr>
+            
           </tbody>
         </table>
 
@@ -4528,6 +4676,16 @@
                 <td>GET</td>
                 <td>/v1/cmdb/searchLakeArea</td>
                 <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>ImportAsset</td>
+                <td>POST</td>
+                <td>/v1/cmdb/importAsset</td>
+                <td>*</td>
               </tr>
               
             
@@ -4707,6 +4865,61 @@
       <p></p>
 
       
+        <h3 id="file.DownloadTemplateRequest">DownloadTemplateRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>template_type</td>
+                  <td><a href="#file.TemplateType">TemplateType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="file.DownloadTemplateResponse">DownloadTemplateResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#common.ResponseStatus">common.ResponseStatus</a></td>
+                  <td></td>
+                  <td><p>返回的请求状态 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>content</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p>返回的excel文件 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="file.UploadPlaybookRequest">UploadPlaybookRequest</h3>
         <p>上传playbook压缩包并且解析入口yml文件的请求体</p>
 
@@ -4875,6 +5088,59 @@
       
 
       
+        <h3 id="file.TemplateType">TemplateType</h3>
+        <p>下载模板类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>UNDEFINED</td>
+                <td>0</td>
+                <td><p>0-undefined</p></td>
+              </tr>
+            
+              <tr>
+                <td>HOST</td>
+                <td>1</td>
+                <td><p>1-导入主机</p></td>
+              </tr>
+            
+              <tr>
+                <td>VIP</td>
+                <td>2</td>
+                <td><p>2-导入物理机</p></td>
+              </tr>
+            
+              <tr>
+                <td>LAKE</td>
+                <td>3</td>
+                <td><p>3-导入LAKE</p></td>
+              </tr>
+            
+              <tr>
+                <td>HOSTCHAIN</td>
+                <td>4</td>
+                <td><p>4-导入主机业务拓扑</p></td>
+              </tr>
+            
+              <tr>
+                <td>LAKECHAIN</td>
+                <td>5</td>
+                <td><p>5-导入lake节点关系链</p></td>
+              </tr>
+            
+              <tr>
+                <td>CROSSTABLE</td>
+                <td>6</td>
+                <td><p>6-导入交维表</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
 
       
 
@@ -4899,6 +5165,13 @@
                 <td><a href="#file.UploadRequest">UploadRequest</a></td>
                 <td><a href="#file.UploadResponse">UploadResponse</a></td>
                 <td><p>上传csv等通用文件</p></td>
+              </tr>
+            
+              <tr>
+                <td>DownloadTemplate</td>
+                <td><a href="#file.DownloadTemplateRequest">DownloadTemplateRequest</a></td>
+                <td><a href="#file.DownloadTemplateResponse">DownloadTemplateResponse</a></td>
+                <td><p>获取导入模板</p></td>
               </tr>
             
           </tbody>
@@ -4936,6 +5209,16 @@
                 <td>POST</td>
                 <td>/v1/file/upload</td>
                 <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>DownloadTemplate</td>
+                <td>GET</td>
+                <td>/v1/cmdb/downloadTemplate</td>
+                <td></td>
               </tr>
               
             
