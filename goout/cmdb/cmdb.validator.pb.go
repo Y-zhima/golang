@@ -7,11 +7,11 @@ import (
 	fmt "fmt"
 	math "math"
 	proto "github.com/golang/protobuf/proto"
+	_ "github.com/mwitkow/go-proto-validators"
+	_ "github.com/golang/protobuf/ptypes/timestamp"
 	_ "git.fogcdn.top/axe/protos/goout/common"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
-	_ "github.com/mwitkow/go-proto-validators"
-	_ "github.com/golang/protobuf/ptypes/timestamp"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
@@ -142,10 +142,10 @@ func (this *SearchHostResponse) Validate() error {
 			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
 		}
 	}
-	for _, item := range this.Instance {
+	for _, item := range this.HostInfoObject {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Instance", err)
+				return github_com_mwitkow_go_proto_validators.FieldError("HostInfoObject", err)
 			}
 		}
 	}

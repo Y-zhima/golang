@@ -2528,12 +2528,12 @@
               "defaultValue": ""
             },
             {
-              "name": "instance",
+              "name": "hostInfoObject",
               "description": "主机信息",
               "label": "repeated",
-              "type": "TopologyObject",
-              "longType": "TopologyObject",
-              "fullType": "cmdb.TopologyObject",
+              "type": "HostInfoObject",
+              "longType": "HostInfoObject",
+              "fullType": "cmdb.HostInfoObject",
               "ismap": false,
               "defaultValue": ""
             }

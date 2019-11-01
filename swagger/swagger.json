@@ -2149,6 +2149,37 @@
         }
       }
     },
+    "cmdbHostInfoObject": {
+      "type": "object",
+      "title": "主机内容信息",
+      "properties": {
+        "biz": {
+          "type": "array",
+          "title": "业务对象",
+          "items": {
+            "$ref": "#/definitions/cmdbBizObject"
+          }
+        },
+        "host": {
+          "title": "主机对象",
+          "$ref": "#/definitions/cmdbHostObject"
+        },
+        "module": {
+          "type": "array",
+          "title": "模块对象",
+          "items": {
+            "$ref": "#/definitions/cmdbModuleObject"
+          }
+        },
+        "set": {
+          "type": "array",
+          "title": "集群对象",
+          "items": {
+            "$ref": "#/definitions/cmdbSetObject"
+          }
+        }
+      }
+    },
     "cmdbHostObject": {
       "type": "object",
       "title": "主机",
@@ -2614,11 +2645,11 @@
       "type": "object",
       "title": "查找主机请求返回",
       "properties": {
-        "instance": {
+        "hostInfoObject": {
           "type": "array",
           "title": "主机信息",
           "items": {
-            "$ref": "#/definitions/cmdbTopologyObject"
+            "$ref": "#/definitions/cmdbHostInfoObject"
           }
         },
         "paging": {

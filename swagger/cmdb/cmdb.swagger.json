@@ -661,6 +661,37 @@
       },
       "title": "选择主机请求"
     },
+    "cmdbHostInfoObject": {
+      "type": "object",
+      "properties": {
+        "host": {
+          "$ref": "#/definitions/cmdbHostObject",
+          "title": "主机对象"
+        },
+        "module": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbModuleObject"
+          },
+          "title": "模块对象"
+        },
+        "set": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbSetObject"
+          },
+          "title": "集群对象"
+        },
+        "biz": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbBizObject"
+          },
+          "title": "业务对象"
+        }
+      },
+      "title": "主机内容信息"
+    },
     "cmdbHostObject": {
       "type": "object",
       "properties": {
@@ -1133,10 +1164,10 @@
           "$ref": "#/definitions/commonResponseStatus",
           "title": "状态码"
         },
-        "instance": {
+        "hostInfoObject": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/cmdbTopologyObject"
+            "$ref": "#/definitions/cmdbHostInfoObject"
           },
           "title": "主机信息"
         }

@@ -2571,8 +2571,8 @@
             </row>
             
             <row>
-              <entry>instance</entry>
-              <entry><link linkend="cmdb.TopologyObject">TopologyObject</link></entry>
+              <entry>hostInfoObject</entry>
+              <entry><link linkend="cmdb.HostInfoObject">HostInfoObject</link></entry>
               <entry>repeated</entry>
               <entry><para>主机信息</para></entry>
             </row>
