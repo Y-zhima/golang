@@ -2528,7 +2528,7 @@
               "defaultValue": ""
             },
             {
-              "name": "hostInfoObject",
+              "name": "host_info_object",
               "description": "主机信息",
               "label": "repeated",
               "type": "HostInfoObject",

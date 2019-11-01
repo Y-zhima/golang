@@ -1299,7 +1299,7 @@ LAKE节点对象
 | ----- | ---- | ----- | ----------- |
 | paging | [common.Paging](#common.Paging) |  | 分页信息 |
 | status | [common.ResponseStatus](#common.ResponseStatus) |  | 状态码 |
-| hostInfoObject | [HostInfoObject](#cmdb.HostInfoObject) | repeated | 主机信息 |
+| host_info_object | [HostInfoObject](#cmdb.HostInfoObject) | repeated | 主机信息 |
 
 
 

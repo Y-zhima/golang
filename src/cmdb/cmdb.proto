@@ -283,7 +283,7 @@ message SearchHostResponse {
     // 状态码
     common.ResponseStatus status = 2;
     // 主机信息
-    repeated HostInfoObject hostInfoObject = 3;
+    repeated HostInfoObject host_info_object = 3;
 }
 
 // 导入交维表请求

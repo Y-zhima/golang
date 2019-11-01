@@ -1164,7 +1164,7 @@
           "$ref": "#/definitions/commonResponseStatus",
           "title": "状态码"
         },
-        "hostInfoObject": {
+        "host_info_object": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/cmdbHostInfoObject"

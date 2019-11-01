@@ -2571,7 +2571,7 @@
             </row>
             
             <row>
-              <entry>hostInfoObject</entry>
+              <entry>host_info_object</entry>
               <entry><link linkend="cmdb.HostInfoObject">HostInfoObject</link></entry>
               <entry>repeated</entry>
               <entry><para>主机信息</para></entry>
