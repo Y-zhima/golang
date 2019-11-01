@@ -31,10 +31,10 @@ gen-mock:
 	docker run -it -v `pwd`:/opt/protos ${IMAGE_NAME}:${VERSION} sh gen.sh mock
 
 swagger-mixin: gen-swagger
-	@docker run --rm -it -v `pwd`:/tmp/protos -w /tmp/protos quay.io/goswagger/swagger -q mixin ${SWAGGER_FILES} -o swagger/swagger.json || true
+	@docker run --rm -it -v `pwd`:/tmp/protos -w /tmp/protos 192.168.0.103:8080/axe/goswagger:latest -q mixin ${SWAGGER_FILES} -o swagger/swagger.json || true
 
 swagger-ui:
-	@docker run --rm -it -v `pwd`:/tmp/protos -p 8080:8080 -w /tmp/protos quay.io/goswagger/swagger serve swagger/swagger.json -Fswagger --port 8080 --no-open
+	@docker run --rm -it -v `pwd`:/tmp/protos -p 8080:8080 -w /tmp/protos 192.168.0.103:8080/axe/goswagger:latest serve swagger/swagger.json -Fswagger --port 8080 --no-open
 
 clean:
 	@rm -rf goout javaout swagger

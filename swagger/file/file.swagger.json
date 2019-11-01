@@ -15,6 +15,42 @@
     "application/json"
   ],
   "paths": {
+    "/v1/cmdb/downloadTemplate": {
+      "get": {
+        "summary": "获取导入模板",
+        "operationId": "DownloadTemplate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/fileDownloadTemplateResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "template_type",
+            "description": " - UNDEFINED: 0-undefined\n - HOST: 1-导入主机\n - VIP: 2-导入物理机\n - LAKE: 3-导入LAKE\n - HOSTCHAIN: 4-导入主机业务拓扑\n - LAKECHAIN: 5-导入lake节点关系链\n - CROSSTABLE: 6-导入交维表",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNDEFINED",
+              "HOST",
+              "VIP",
+              "LAKE",
+              "HOSTCHAIN",
+              "LAKECHAIN",
+              "CROSSTABLE"
+            ],
+            "default": "UNDEFINED"
+          }
+        ],
+        "tags": [
+          "File"
+        ]
+      }
+    },
     "/v1/file/upload": {
       "post": {
         "summary": "上传csv等通用文件",
@@ -96,6 +132,35 @@
       "description": "- SUCCESS: 成功\n - INVALID_ARGUMENT: 参数错误\n - ACCESS_DENIED: 访问拒绝",
       "title": "请求返回状态码"
     },
+    "fileDownloadTemplateResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        },
+        "content": {
+          "type": "string",
+          "format": "byte",
+          "title": "返回的excel文件"
+        }
+      }
+    },
+    "fileTemplateType": {
+      "type": "string",
+      "enum": [
+        "UNDEFINED",
+        "HOST",
+        "VIP",
+        "LAKE",
+        "HOSTCHAIN",
+        "LAKECHAIN",
+        "CROSSTABLE"
+      ],
+      "default": "UNDEFINED",
+      "description": "- UNDEFINED: 0-undefined\n - HOST: 1-导入主机\n - VIP: 2-导入物理机\n - LAKE: 3-导入LAKE\n - HOSTCHAIN: 4-导入主机业务拓扑\n - LAKECHAIN: 5-导入lake节点关系链\n - CROSSTABLE: 6-导入交维表",
+      "title": "下载模板类型"
+    },
     "fileUploadPlaybookRequest": {
       "type": "object",
       "properties": {
@@ -142,6 +207,14 @@
           "type": "string",
           "format": "byte",
           "title": "文件字段"
+        },
+        "bucket": {
+          "type": "string",
+          "title": "指定上传bucket_name（可选）"
+        },
+        "job": {
+          "type": "string",
+          "title": "指定上传存储路径（可选）"
         }
       },
       "title": "上传csv等通用文件"

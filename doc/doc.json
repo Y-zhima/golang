@@ -76,9 +76,20 @@
           "fullName": "auth.GetUserInfoRequest",
           "description": "获取用户信息请求",
           "hasExtensions": false,
-          "hasFields": false,
+          "hasFields": true,
           "extensions": [],
-          "fields": []
+          "fields": [
+            {
+              "name": "access_token",
+              "description": "控制是否显示API访问授权Token，默认值false，即不显示",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
         },
         {
           "name": "GetUserInfoResponse",
@@ -203,6 +214,16 @@
             {
               "name": "avatar",
               "description": "用户头像路径",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "access_token",
+              "description": "API访问授权Token",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -650,6 +671,11 @@
               "name": "CROSSTABLE",
               "number": "5",
               "description": "5-交维表"
+            },
+            {
+              "name": "VIP",
+              "number": "6",
+              "description": "6-VIP"
             }
           ]
         },
@@ -1188,6 +1214,90 @@
               "type": "string",
               "longType": "string",
               "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ImportAssetRequest",
+          "longName": "ImportAssetRequest",
+          "fullName": "cmdb.ImportAssetRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "import_type",
+              "description": "导入资产实体类型",
+              "label": "",
+              "type": "ImportType",
+              "longType": "ImportType",
+              "fullType": "cmdb.ImportType",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "url",
+              "description": "xlsx文件下载路径",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "human_error",
+                    "value": "URL不能为空"
+                  },
+                  {
+                    "name": "string_not_empty",
+                    "value": true
+                  }
+                ]
+              }
+            },
+            {
+              "name": "md5",
+              "description": "xlsx文件md5",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "filename",
+              "description": "用户上传xlsx文件的文件名",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ImportAssetResponse",
+          "longName": "ImportAssetResponse",
+          "fullName": "cmdb.ImportAssetResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "状态码",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
               "ismap": false,
               "defaultValue": ""
             }
@@ -1790,11 +1900,22 @@
           "name": "InstanceTopologyRequest",
           "longName": "InstanceTopologyRequest",
           "fullName": "cmdb.InstanceTopologyRequest",
-          "description": "拓扑实例请求\n\nint32 level = 1;",
+          "description": "拓扑实例请求",
           "hasExtensions": false,
-          "hasFields": false,
+          "hasFields": true,
           "extensions": [],
-          "fields": []
+          "fields": [
+            {
+              "name": "with_idlepool",
+              "description": "int32 level = 1;",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
         },
         {
           "name": "InstanceTopologyResponse",
@@ -1817,7 +1938,7 @@
             },
             {
               "name": "status",
-              "description": "TopologyObject instance = 1;\n状态码",
+              "description": "TopologyObject instance = 1;\r\n状态码",
               "label": "",
               "type": "ResponseStatus",
               "longType": "common.ResponseStatus",
@@ -2407,12 +2528,12 @@
               "defaultValue": ""
             },
             {
-              "name": "instance",
+              "name": "host_info_object",
               "description": "主机信息",
               "label": "repeated",
-              "type": "TopologyObject",
-              "longType": "TopologyObject",
-              "fullType": "cmdb.TopologyObject",
+              "type": "HostInfoObject",
+              "longType": "HostInfoObject",
+              "fullType": "cmdb.HostInfoObject",
               "ismap": false,
               "defaultValue": ""
             }
@@ -3400,6 +3521,29 @@
                   ]
                 }
               }
+            },
+            {
+              "name": "ImportAsset",
+              "description": "导入实体资产",
+              "requestType": "ImportAssetRequest",
+              "requestLongType": "ImportAssetRequest",
+              "requestFullType": "cmdb.ImportAssetRequest",
+              "requestStreaming": false,
+              "responseType": "ImportAssetResponse",
+              "responseLongType": "ImportAssetResponse",
+              "responseFullType": "cmdb.ImportAssetResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "POST",
+                      "pattern": "/v1/cmdb/importAsset",
+                      "body": "*"
+                    }
+                  ]
+                }
+              }
             }
           ]
         }
@@ -3574,13 +3718,109 @@
       "name": "file/file.proto",
       "description": "",
       "package": "file",
-      "hasEnums": false,
+      "hasEnums": true,
       "hasExtensions": false,
       "hasMessages": true,
       "hasServices": true,
-      "enums": [],
+      "enums": [
+        {
+          "name": "TemplateType",
+          "longName": "TemplateType",
+          "fullName": "file.TemplateType",
+          "description": "下载模板类型",
+          "values": [
+            {
+              "name": "UNDEFINED",
+              "number": "0",
+              "description": "0-undefined"
+            },
+            {
+              "name": "HOST",
+              "number": "1",
+              "description": "1-导入主机"
+            },
+            {
+              "name": "VIP",
+              "number": "2",
+              "description": "2-导入物理机"
+            },
+            {
+              "name": "LAKE",
+              "number": "3",
+              "description": "3-导入LAKE"
+            },
+            {
+              "name": "HOSTCHAIN",
+              "number": "4",
+              "description": "4-导入主机业务拓扑"
+            },
+            {
+              "name": "LAKECHAIN",
+              "number": "5",
+              "description": "5-导入lake节点关系链"
+            },
+            {
+              "name": "CROSSTABLE",
+              "number": "6",
+              "description": "6-导入交维表"
+            }
+          ]
+        }
+      ],
       "extensions": [],
       "messages": [
+        {
+          "name": "DownloadTemplateRequest",
+          "longName": "DownloadTemplateRequest",
+          "fullName": "file.DownloadTemplateRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "template_type",
+              "description": "",
+              "label": "",
+              "type": "TemplateType",
+              "longType": "TemplateType",
+              "fullType": "file.TemplateType",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "DownloadTemplateResponse",
+          "longName": "DownloadTemplateResponse",
+          "fullName": "file.DownloadTemplateResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "返回的请求状态",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "content",
+              "description": "返回的excel文件",
+              "label": "",
+              "type": "bytes",
+              "longType": "bytes",
+              "fullType": "bytes",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
         {
           "name": "UploadPlaybookRequest",
           "longName": "UploadPlaybookRequest",
@@ -3679,6 +3919,26 @@
               "type": "bytes",
               "longType": "bytes",
               "fullType": "bytes",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bucket",
+              "description": "指定上传bucket_name（可选）",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "job",
+              "description": "指定上传存储路径（可选）",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "defaultValue": ""
             }
@@ -3794,6 +4054,28 @@
                       "method": "POST",
                       "pattern": "/v1/file/upload",
                       "body": "*"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "DownloadTemplate",
+              "description": "获取导入模板",
+              "requestType": "DownloadTemplateRequest",
+              "requestLongType": "DownloadTemplateRequest",
+              "requestFullType": "file.DownloadTemplateRequest",
+              "requestStreaming": false,
+              "responseType": "DownloadTemplateResponse",
+              "responseLongType": "DownloadTemplateResponse",
+              "responseFullType": "file.DownloadTemplateResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/cmdb/downloadTemplate"
                     }
                   ]
                 }
@@ -7855,6 +8137,58 @@
               "defaultValue": ""
             }
           ]
+        },
+        {
+          "name": "GetLogRequest",
+          "longName": "GetLogRequest",
+          "fullName": "subtask.GetLogRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "sub_task_id",
+              "description": "作业子任务ID",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "GetLogResponse",
+          "longName": "GetLogResponse",
+          "fullName": "subtask.GetLogResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "返回的请求状态",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "sub_task_log",
+              "description": "子任务实例名",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
         }
       ],
       "services": [
@@ -7911,6 +8245,28 @@
               "responseLongType": "CreateServerCompareResponse",
               "responseFullType": "subtask.CreateServerCompareResponse",
               "responseStreaming": false
+            },
+            {
+              "name": "GetLog",
+              "description": "获取作业任务SubTask具体日志",
+              "requestType": "GetLogRequest",
+              "requestLongType": "GetLogRequest",
+              "requestFullType": "subtask.GetLogRequest",
+              "requestStreaming": false,
+              "responseType": "GetLogResponse",
+              "responseLongType": "GetLogResponse",
+              "responseFullType": "subtask.GetLogResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/task/GetLog/{sub_task_id}"
+                    }
+                  ]
+                }
+              }
             }
           ]
         }
@@ -8086,6 +8442,37 @@
               "type": "ChooseServerRequest",
               "longType": "cmdb.ChooseServerRequest",
               "fullType": "cmdb.ChooseServerRequest",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "JobAgentLog",
+          "longName": "JobAgentLog",
+          "fullName": "task.JobAgentLog",
+          "description": "agent上报kafka日志结构体",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "sub_task_id",
+              "description": "任务实例ID",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "job_agent_log",
+              "description": "ansible执行日志",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "defaultValue": ""
             }
@@ -8730,6 +9117,58 @@
           ]
         },
         {
+          "name": "GetSubTaskRequest",
+          "longName": "GetSubTaskRequest",
+          "fullName": "task.GetSubTaskRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "task_id",
+              "description": "作业任务ID",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "GetSubTaskResponse",
+          "longName": "GetSubTaskResponse",
+          "fullName": "task.GetSubTaskResponse",
+          "description": "获取作业任务详细执行过程请求返回",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "返回的请求状态",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "sub_task_info",
+              "description": "子任务信息列表",
+              "label": "repeated",
+              "type": "SubTaskInfo",
+              "longType": "SubTaskInfo",
+              "fullType": "task.SubTaskInfo",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
           "name": "InstallServerRequest",
           "longName": "InstallServerRequest",
           "fullName": "task.InstallServerRequest",
@@ -8890,6 +9329,37 @@
               "type": "ResponseStatus",
               "longType": "common.ResponseStatus",
               "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "SubTaskInfo",
+          "longName": "SubTaskInfo",
+          "fullName": "task.SubTaskInfo",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "sub_task_id",
+              "description": "子任务实例ID",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "sub_task_name",
+              "description": "子任务实例名",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "defaultValue": ""
             }
@@ -9123,7 +9593,7 @@
             },
             {
               "name": "GetLog",
-              "description": "获取作业任务详细执行过程\n\noption (google.api.http) = {\n           get: \"/v1/task/{task_id}/logs\"\n       };",
+              "description": "获取作业任务详细执行过程\n\noption (google.api.http) = {\r\n           get: \"/v1/task/{task_id}/logs\"\r\n       };",
               "requestType": "GetLogRequest",
               "requestLongType": "GetLogRequest",
               "requestFullType": "task.GetLogRequest",
@@ -9132,6 +9602,28 @@
               "responseLongType": "GetLogResponse",
               "responseFullType": "task.GetLogResponse",
               "responseStreaming": false
+            },
+            {
+              "name": "GetSubTask",
+              "description": "获取作业任务日志SubTask列表",
+              "requestType": "GetSubTaskRequest",
+              "requestLongType": "GetSubTaskRequest",
+              "requestFullType": "task.GetSubTaskRequest",
+              "requestStreaming": false,
+              "responseType": "GetSubTaskResponse",
+              "responseLongType": "GetSubTaskResponse",
+              "responseFullType": "task.GetSubTaskResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/task/GetSubTask/{task_id}"
+                    }
+                  ]
+                }
+              }
             },
             {
               "name": "CreateServerCompare",
@@ -10067,7 +10559,7 @@
             },
             {
               "name": "Delete",
-              "description": "删除作业模板\n\noption (google.api.http) = {\n           post: \"/v1/template/delete/{template_id}\"\n       };",
+              "description": "删除作业模板\n\noption (google.api.http) = {\r\n           post: \"/v1/template/delete/{template_id}\"\r\n       };",
               "requestType": "DeleteRequest",
               "requestLongType": "DeleteRequest",
               "requestFullType": "template.DeleteRequest",

@@ -46,6 +46,8 @@
     - [CreateAssociationRequest](#cmdb.CreateAssociationRequest)
     - [HostInfoObject](#cmdb.HostInfoObject)
     - [HostObject](#cmdb.HostObject)
+    - [ImportAssetRequest](#cmdb.ImportAssetRequest)
+    - [ImportAssetResponse](#cmdb.ImportAssetResponse)
     - [ImportCrossTableRequest](#cmdb.ImportCrossTableRequest)
     - [ImportCrossTableResponse](#cmdb.ImportCrossTableResponse)
     - [ImportHistoryObject](#cmdb.ImportHistoryObject)
@@ -116,11 +118,14 @@
   
 
 - [file/file.proto](#file/file.proto)
+    - [DownloadTemplateRequest](#file.DownloadTemplateRequest)
+    - [DownloadTemplateResponse](#file.DownloadTemplateResponse)
     - [UploadPlaybookRequest](#file.UploadPlaybookRequest)
     - [UploadPlaybookResponse](#file.UploadPlaybookResponse)
     - [UploadRequest](#file.UploadRequest)
     - [UploadResponse](#file.UploadResponse)
   
+    - [TemplateType](#file.TemplateType)
   
   
     - [File](#file.File)
@@ -248,6 +253,8 @@
     - [CreateServerCompareResponse](#subtask.CreateServerCompareResponse)
     - [CreateServerRequest](#subtask.CreateServerRequest)
     - [CreateServerResponse](#subtask.CreateServerResponse)
+    - [GetLogRequest](#subtask.GetLogRequest)
+    - [GetLogResponse](#subtask.GetLogResponse)
   
     - [ServerTaskType](#subtask.ServerTaskType)
     - [SubTaskResult](#subtask.SubTaskResult)
@@ -261,6 +268,7 @@
     - [BareMetalInstallTask](#task.BareMetalInstallTask)
     - [BareMetalPowerTask](#task.BareMetalPowerTask)
     - [BareMetalSearchTask](#task.BareMetalSearchTask)
+    - [JobAgentLog](#task.JobAgentLog)
     - [ServerCompareTask](#task.ServerCompareTask)
     - [TemplateExecuteTask](#task.TemplateExecuteTask)
   
@@ -283,12 +291,15 @@
     - [GetLogResponse](#task.GetLogResponse)
     - [GetRequest](#task.GetRequest)
     - [GetResponse](#task.GetResponse)
+    - [GetSubTaskRequest](#task.GetSubTaskRequest)
+    - [GetSubTaskResponse](#task.GetSubTaskResponse)
     - [InstallServerRequest](#task.InstallServerRequest)
     - [InstallServerResponse](#task.InstallServerResponse)
     - [RetryRequest](#task.RetryRequest)
     - [RetryResponse](#task.RetryResponse)
     - [ServerPowerControlRequest](#task.ServerPowerControlRequest)
     - [ServerPowerControlResponse](#task.ServerPowerControlResponse)
+    - [SubTaskInfo](#task.SubTaskInfo)
     - [TaskObject](#task.TaskObject)
   
     - [ScheduleType](#task.ScheduleType)
@@ -375,6 +386,11 @@
 获取用户信息请求
 
 
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| access_token | [bool](#bool) |  | 控制是否显示API访问授权Token，默认值false，即不显示 |
+
+
 
 
 
@@ -448,6 +464,7 @@
 | source_uid | [string](#string) |  | 用户在外部系统中的ID |
 | source | [SourceCode](#auth.SourceCode) |  | 外部系统的编号 |
 | avatar | [string](#string) |  | 用户头像路径 |
+| access_token | [string](#string) |  | API访问授权Token |
 
 
 
@@ -794,6 +811,39 @@ cmdb事件请求返回
 
 
 
+<a name="cmdb.ImportAssetRequest"></a>
+
+### ImportAssetRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| import_type | [ImportType](#cmdb.ImportType) |  | 导入资产实体类型 |
+| url | [string](#string) |  | xlsx文件下载路径 |
+| md5 | [string](#string) |  | xlsx文件md5 |
+| filename | [string](#string) |  | 用户上传xlsx文件的文件名 |
+
+
+
+
+
+
+<a name="cmdb.ImportAssetResponse"></a>
+
+### ImportAssetResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [common.ResponseStatus](#common.ResponseStatus) |  | 状态码 |
+
+
+
+
+
+
 <a name="cmdb.ImportCrossTableRequest"></a>
 
 ### ImportCrossTableRequest
@@ -1020,7 +1070,10 @@ cmdb事件请求返回
 ### InstanceTopologyRequest
 拓扑实例请求
 
-int32 level = 1;
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| with_idlepool | [bool](#bool) |  | int32 level = 1; |
 
 
 
@@ -1246,7 +1299,7 @@ LAKE节点对象
 | ----- | ---- | ----- | ----------- |
 | paging | [common.Paging](#common.Paging) |  | 分页信息 |
 | status | [common.ResponseStatus](#common.ResponseStatus) |  | 状态码 |
-| instance | [TopologyObject](#cmdb.TopologyObject) | repeated | 主机信息 |
+| host_info_object | [HostInfoObject](#cmdb.HostInfoObject) | repeated | 主机信息 |
 
 
 
@@ -1560,6 +1613,7 @@ VIP对象
 | LAKE | 3 | 3-LAKE |
 | SWITCH | 4 | 4-交换机 |
 | CROSSTABLE | 5 | 5-交维表 |
+| VIP | 6 | 6-VIP |
 
 
 
@@ -1612,6 +1666,7 @@ VIP对象
 | SearchLake | [SearchLakeRequest](#cmdb.SearchLakeRequest) | [SearchLakeResponse](#cmdb.SearchLakeResponse) | 查询Lake节点 |
 | SearchHostInLake | [SearchHostInLakeRequest](#cmdb.SearchHostInLakeRequest) | [SearchHostInLakeResponse](#cmdb.SearchHostInLakeResponse) | 查询Lake节点下的主机列表 |
 | SearchLakeArea | [SearchLakeAreaRequest](#cmdb.SearchLakeAreaRequest) | [SearchLakeAreaResponse](#cmdb.SearchLakeAreaResponse) | 通过IP获取节点的地区和位置信息 |
+| ImportAsset | [ImportAssetRequest](#cmdb.ImportAssetRequest) | [ImportAssetResponse](#cmdb.ImportAssetResponse) | 导入实体资产 |
 
  
 
@@ -1719,6 +1774,37 @@ VIP对象
 
 
 
+<a name="file.DownloadTemplateRequest"></a>
+
+### DownloadTemplateRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| template_type | [TemplateType](#file.TemplateType) |  |  |
+
+
+
+
+
+
+<a name="file.DownloadTemplateResponse"></a>
+
+### DownloadTemplateResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
+| content | [bytes](#bytes) |  | 返回的excel文件 |
+
+
+
+
+
+
 <a name="file.UploadPlaybookRequest"></a>
 
 ### UploadPlaybookRequest
@@ -1762,6 +1848,8 @@ VIP对象
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | content | [bytes](#bytes) |  | 文件字段 |
+| bucket | [string](#string) |  | 指定上传bucket_name（可选） |
+| job | [string](#string) |  | 指定上传存储路径（可选） |
 
 
 
@@ -1788,6 +1876,23 @@ VIP对象
 
  
 
+
+<a name="file.TemplateType"></a>
+
+### TemplateType
+下载模板类型
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNDEFINED | 0 | 0-undefined |
+| HOST | 1 | 1-导入主机 |
+| VIP | 2 | 2-导入物理机 |
+| LAKE | 3 | 3-导入LAKE |
+| HOSTCHAIN | 4 | 4-导入主机业务拓扑 |
+| LAKECHAIN | 5 | 5-导入lake节点关系链 |
+| CROSSTABLE | 6 | 6-导入交维表 |
+
+
  
 
  
@@ -1802,6 +1907,7 @@ VIP对象
 | ----------- | ------------ | ------------- | ------------|
 | UploadPlaybook | [UploadPlaybookRequest](#file.UploadPlaybookRequest) | [UploadPlaybookResponse](#file.UploadPlaybookResponse) | 上传playbook压缩包并且解析入口yml文件 |
 | Upload | [UploadRequest](#file.UploadRequest) | [UploadResponse](#file.UploadResponse) | 上传csv等通用文件 |
+| DownloadTemplate | [DownloadTemplateRequest](#file.DownloadTemplateRequest) | [DownloadTemplateResponse](#file.DownloadTemplateResponse) | 获取导入模板 |
 
  
 
@@ -3389,6 +3495,37 @@ playbook入口文件实例
 
 
 
+
+<a name="subtask.GetLogRequest"></a>
+
+### GetLogRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sub_task_id | [int64](#int64) |  | 作业子任务ID |
+
+
+
+
+
+
+<a name="subtask.GetLogResponse"></a>
+
+### GetLogResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
+| sub_task_log | [string](#string) |  | 子任务实例名 |
+
+
+
+
+
  
 
 
@@ -3434,6 +3571,7 @@ playbook入口文件实例
 | Complete | [CompleteRequest](#subtask.CompleteRequest) | [CompleteResponse](#subtask.CompleteResponse) | 完成作业子任务 |
 | CreateServer | [CreateServerRequest](#subtask.CreateServerRequest) | [CreateServerResponse](#subtask.CreateServerResponse) | 创建裸金属子任务 |
 | CreateServerCompare | [CreateServerCompareRequest](#subtask.CreateServerCompareRequest) | [CreateServerCompareResponse](#subtask.CreateServerCompareResponse) | 交维表导入后巡检子任务 |
+| GetLog | [GetLogRequest](#subtask.GetLogRequest) | [GetLogResponse](#subtask.GetLogResponse) | 获取作业任务SubTask具体日志 |
 
  
 
@@ -3508,6 +3646,22 @@ playbook入口文件实例
 | ----- | ---- | ----- | ----------- |
 | sub_task_id | [int64](#int64) |  | 子任务实例ID |
 | cmdb_search_request | [cmdb.ChooseServerRequest](#cmdb.ChooseServerRequest) |  | cmdb的搜索条件 |
+
+
+
+
+
+
+<a name="task.JobAgentLog"></a>
+
+### JobAgentLog
+agent上报kafka日志结构体
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sub_task_id | [int64](#int64) |  | 任务实例ID |
+| job_agent_log | [string](#string) |  | ansible执行日志 |
 
 
 
@@ -3794,6 +3948,37 @@ playbook入口文件实例
 
 
 
+<a name="task.GetSubTaskRequest"></a>
+
+### GetSubTaskRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| task_id | [int64](#int64) |  | 作业任务ID |
+
+
+
+
+
+
+<a name="task.GetSubTaskResponse"></a>
+
+### GetSubTaskResponse
+获取作业任务详细执行过程请求返回
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
+| sub_task_info | [SubTaskInfo](#task.SubTaskInfo) | repeated | 子任务信息列表 |
+
+
+
+
+
+
 <a name="task.InstallServerRequest"></a>
 
 ### InstallServerRequest
@@ -3888,6 +4073,22 @@ playbook入口文件实例
 
 
 
+<a name="task.SubTaskInfo"></a>
+
+### SubTaskInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sub_task_id | [int64](#int64) |  | 子任务实例ID |
+| sub_task_name | [string](#string) |  | 子任务实例名 |
+
+
+
+
+
+
 <a name="task.TaskObject"></a>
 
 ### TaskObject
@@ -3948,6 +4149,7 @@ playbook入口文件实例
 | GetLog | [GetLogRequest](#task.GetLogRequest) | [GetLogResponse](#task.GetLogResponse) | 获取作业任务详细执行过程
 
 option (google.api.http) = { get: &#34;/v1/task/{task_id}/logs&#34; }; |
+| GetSubTask | [GetSubTaskRequest](#task.GetSubTaskRequest) | [GetSubTaskResponse](#task.GetSubTaskResponse) | 获取作业任务日志SubTask列表 |
 | CreateServerCompare | [CreateServerCompareRequest](#task.CreateServerCompareRequest) | [CreateServerCompareResponse](#task.CreateServerCompareResponse) | 交维表导入后巡检任务 |
 | CheckServerState | [CheckServerStateRequest](#task.CheckServerStateRequest) | [CheckServerStateResponse](#task.CheckServerStateResponse) | 调用裸金属应用检查裸金属状态 |
 | ServerPowerControl | [ServerPowerControlRequest](#task.ServerPowerControlRequest) | [ServerPowerControlResponse](#task.ServerPowerControlResponse) | 调用裸金属应用执行开关机操作 |

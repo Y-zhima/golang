@@ -5,11 +5,11 @@ package file
 
 import (
 	fmt "fmt"
-	math "math"
-	proto "github.com/golang/protobuf/proto"
 	_ "git.fogcdn.top/axe/protos/goout/common"
-	_ "google.golang.org/genproto/googleapis/api/annotations"
+	proto "github.com/golang/protobuf/proto"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
+	_ "google.golang.org/genproto/googleapis/api/annotations"
+	math "math"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -17,6 +17,17 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+func (this *DownloadTemplateRequest) Validate() error {
+	return nil
+}
+func (this *DownloadTemplateResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}
 func (this *UploadPlaybookRequest) Validate() error {
 	return nil
 }

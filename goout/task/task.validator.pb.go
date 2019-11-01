@@ -167,6 +167,27 @@ func (this *GetLogResponse) Validate() error {
 	}
 	return nil
 }
+func (this *GetSubTaskRequest) Validate() error {
+	return nil
+}
+func (this *GetSubTaskResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	for _, item := range this.SubTaskInfo {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("SubTaskInfo", err)
+			}
+		}
+	}
+	return nil
+}
+func (this *SubTaskInfo) Validate() error {
+	return nil
+}
 func (this *FilterRequest) Validate() error {
 	if this.Paging != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Paging); err != nil {
