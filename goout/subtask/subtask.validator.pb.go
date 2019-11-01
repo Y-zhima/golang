@@ -7,10 +7,10 @@ import (
 	fmt "fmt"
 	math "math"
 	proto "github.com/golang/protobuf/proto"
-	_ "git.fogcdn.top/axe/protos/goout/common"
-	_ "git.fogcdn.top/axe/protos/goout/cmdb"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
+	_ "git.fogcdn.top/axe/protos/goout/common"
+	_ "git.fogcdn.top/axe/protos/goout/cmdb"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
@@ -71,6 +71,17 @@ func (this *CompleteRequest) Validate() error {
 	return nil
 }
 func (this *CompleteResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}
+func (this *GetLogRequest) Validate() error {
+	return nil
+}
+func (this *GetLogResponse) Validate() error {
 	if this.Status != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)

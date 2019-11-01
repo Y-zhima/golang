@@ -15,6 +15,33 @@
     "application/json"
   ],
   "paths": {
+    "/v1/cmdb/importAsset": {
+      "post": {
+        "summary": "导入实体资产",
+        "operationId": "ImportAsset",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportAssetResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbImportAssetRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Cmdb"
+        ]
+      }
+    },
     "/v1/cmdb/importCrossTable": {
       "post": {
         "summary": "导入交维表",
@@ -159,6 +186,15 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "with_idlepool",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "format": "boolean"
+          }
+        ],
         "tags": [
           "Cmdb"
         ]
@@ -648,6 +684,36 @@
       },
       "title": "主机"
     },
+    "cmdbImportAssetRequest": {
+      "type": "object",
+      "properties": {
+        "import_type": {
+          "$ref": "#/definitions/cmdbImportType",
+          "title": "导入资产实体类型"
+        },
+        "url": {
+          "type": "string",
+          "title": "xlsx文件下载路径"
+        },
+        "md5": {
+          "type": "string",
+          "title": "xlsx文件md5"
+        },
+        "filename": {
+          "type": "string",
+          "title": "用户上传xlsx文件的文件名"
+        }
+      }
+    },
+    "cmdbImportAssetResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
+        }
+      }
+    },
     "cmdbImportCrossTableRequest": {
       "type": "object",
       "properties": {
@@ -844,10 +910,11 @@
         "SERVER",
         "LAKE",
         "SWITCH",
-        "CROSSTABLE"
+        "CROSSTABLE",
+        "VIP"
       ],
       "default": "UNDEFINED",
-      "description": "- UNDEFINED: 0-undefined\n - HOST: 1-主机\n - SERVER: 2-物理机\n - LAKE: 3-LAKE\n - SWITCH: 4-交换机\n - CROSSTABLE: 5-交维表",
+      "description": "- UNDEFINED: 0-undefined\n - HOST: 1-主机\n - SERVER: 2-物理机\n - LAKE: 3-LAKE\n - SWITCH: 4-交换机\n - CROSSTABLE: 5-交维表\n - VIP: 6-VIP",
       "title": "导入类型:0-undefined 1-主机 2-物理机 3-LAKE 4-交换机"
     },
     "cmdbInstanceTopologyResponse": {

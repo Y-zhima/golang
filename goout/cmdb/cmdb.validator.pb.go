@@ -482,3 +482,17 @@ func (this *LakeAreaObject) Validate() error {
 	}
 	return nil
 }
+func (this *ImportAssetRequest) Validate() error {
+	if this.Url == "" {
+		return github_com_mwitkow_go_proto_validators.FieldError("Url", fmt.Errorf(`URL不能为空`))
+	}
+	return nil
+}
+func (this *ImportAssetResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}

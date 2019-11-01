@@ -6,7 +6,7 @@ GIT_COMMIT=$(shell git rev-parse HEAD)
 
 SWAGGER_FILES=$(wildcard swagger/*.json) $(wildcard swagger/*/*.json)
 
-default: gen-proto swagger-mixin
+default: gen-proto swagger-mixin gen-doc
 
 package:
 	docker build --build-arg VERSION=${VERSION} --build-arg GIT_COMMIT=${GIT_COMMIT} -t ${IMAGE_NAME}:${VERSION} .
@@ -14,14 +14,23 @@ package:
 push: package
 	docker push ${IMAGE_NAME}:${VERSION}
 
-gen-proto: clean
+gen-proto:
+	@rm -rf goout
 	docker run -it -v `pwd`:/opt/protos ${IMAGE_NAME}:${VERSION} sh gen.sh proto
+
+gen-doc:
+	@rm -rf doc 
+	docker run -it -v `pwd`:/opt/protos ${IMAGE_NAME}:${VERSION} sh gen.sh doc
+
+gen-swagger:
+	@rm -rf swagger
+	docker run -it -v `pwd`:/opt/protos ${IMAGE_NAME}:${VERSION} sh gen.sh swagger
 
 gen-mock:
 	@rm -rf gooutmock
 	docker run -it -v `pwd`:/opt/protos ${IMAGE_NAME}:${VERSION} sh gen.sh mock
 
-swagger-mixin:
+swagger-mixin: gen-swagger
 	@docker run --rm -it -v `pwd`:/tmp/protos -w /tmp/protos quay.io/goswagger/swagger -q mixin ${SWAGGER_FILES} -o swagger/swagger.json || true
 
 swagger-ui:

@@ -114,3 +114,23 @@ func (mr *MockSubTaskClientMockRecorder) CreateServerCompare(arg0, arg1 interfac
 	varargs := append([]interface{}{arg0, arg1}, arg2...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateServerCompare", reflect.TypeOf((*MockSubTaskClient)(nil).CreateServerCompare), varargs...)
 }
+
+// GetLog mocks base method
+func (m *MockSubTaskClient) GetLog(arg0 context.Context, arg1 *subtask.GetLogRequest, arg2 ...grpc.CallOption) (*subtask.GetLogResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "GetLog", varargs...)
+	ret0, _ := ret[0].(*subtask.GetLogResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// GetLog indicates an expected call of GetLog
+func (mr *MockSubTaskClientMockRecorder) GetLog(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetLog", reflect.TypeOf((*MockSubTaskClient)(nil).GetLog), varargs...)
+}
