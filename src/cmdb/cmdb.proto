@@ -204,6 +204,10 @@ message ModuleObject {
     string bk_module_name = 1;
     // 模块ID
     int32 bk_module_id = 2;
+    // 业务拓扑模块名
+    string TopModuleName = 3;
+    // 父节点id
+    int32 bk_parent_id = 4;
 }
 
 // 集群
@@ -212,12 +216,18 @@ message SetObject {
     string bk_set_name = 1;
     // 集群ID
     int32 bk_set_id = 2;
+    // 业务拓扑模块名
+    string TopModuleName = 3;
+    // 父节点id
+    int32 bk_parent_id = 4;
 }
 
 // 区域
 message ZoneObject {
+    // 区域名
+    string bk_set_name = 1;
     // 区域ID
-    int32 bk_inst_id = 1;
+    int32 bk_inst_id = 2;
 }
 
 // 业务
@@ -283,11 +293,7 @@ message SearchHostResponse {
     // 状态码
     common.ResponseStatus status = 2;
     // 主机信息
-<<<<<<< HEAD
-    repeated HostInfoObject hostInfoObject = 3;
-=======
     repeated HostInfoObject host_info_object = 3;
->>>>>>> eab070e94404b4efaf51e6d652f2062240afd052
 }
 
 // 导入交维表请求

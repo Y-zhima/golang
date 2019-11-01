@@ -307,6 +307,21 @@
             "format": "int32"
           },
           {
+            "name": "module.TopModuleName",
+            "description": "业务拓扑模块名.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "module.bk_parent_id",
+            "description": "父节点id.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
             "name": "set.bk_set_name",
             "description": "集群名.",
             "in": "query",
@@ -316,6 +331,21 @@
           {
             "name": "set.bk_set_id",
             "description": "集群ID.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "set.TopModuleName",
+            "description": "业务拓扑模块名.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "set.bk_parent_id",
+            "description": "父节点id.",
             "in": "query",
             "required": false,
             "type": "integer",
@@ -335,6 +365,13 @@
             "required": false,
             "type": "integer",
             "format": "int32"
+          },
+          {
+            "name": "zone.bk_set_name",
+            "description": "区域名.",
+            "in": "query",
+            "required": false,
+            "type": "string"
           },
           {
             "name": "zone.bk_inst_id",
@@ -1074,6 +1111,15 @@
           "type": "integer",
           "format": "int32",
           "title": "模块ID"
+        },
+        "TopModuleName": {
+          "type": "string",
+          "title": "业务拓扑模块名"
+        },
+        "bk_parent_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "父节点id"
         }
       },
       "title": "模块"
@@ -1399,6 +1445,15 @@
           "type": "integer",
           "format": "int32",
           "title": "集群ID"
+        },
+        "TopModuleName": {
+          "type": "string",
+          "title": "业务拓扑模块名"
+        },
+        "bk_parent_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "父节点id"
         }
       },
       "title": "集群"
@@ -1468,6 +1523,10 @@
     "cmdbZoneObject": {
       "type": "object",
       "properties": {
+        "bk_set_name": {
+          "type": "string",
+          "title": "区域名"
+        },
         "bk_inst_id": {
           "type": "integer",
           "format": "int32",
