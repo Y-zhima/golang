@@ -25,7 +25,7 @@ service SubTask {
     // 获取作业任务SubTask具体日志
     rpc GetLog (GetLogRequest) returns (GetLogResponse) {
         option (google.api.http) = {
-            get: "/v1/task/GetLog/{sub_task_id}"
+            get: "/v1/task/getLog/{sub_task_id}"
         };
     }
 }

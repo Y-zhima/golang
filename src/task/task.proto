@@ -46,7 +46,7 @@ service Task {
     // 获取作业任务日志SubTask列表
     rpc GetSubTask (GetSubTaskRequest) returns (GetSubTaskResponse) {
         option (google.api.http) = {
-            get: "/v1/task/GetSubTask/{task_id}"
+            get: "/v1/task/getSubTask/{task_id}"
         };
     }
 
