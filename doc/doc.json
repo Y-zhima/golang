@@ -8261,18 +8261,6 @@
               "responseStreaming": false
             },
             {
-              "name": "Complete",
-              "description": "完成作业子任务",
-              "requestType": "CompleteRequest",
-              "requestLongType": "CompleteRequest",
-              "requestFullType": "subtask.CompleteRequest",
-              "requestStreaming": false,
-              "responseType": "CompleteResponse",
-              "responseLongType": "CompleteResponse",
-              "responseFullType": "subtask.CompleteResponse",
-              "responseStreaming": false
-            },
-            {
               "name": "CreateServer",
               "description": "创建裸金属子任务",
               "requestType": "CreateServerRequest",
@@ -10609,7 +10597,7 @@
             },
             {
               "name": "Delete",
-              "description": "删除作业模板\n\noption (google.api.http) = {\r\n           post: \"/v1/template/delete/{template_id}\"\r\n       };",
+              "description": "删除作业模板\n\noption (google.api.http) = {\n           post: \"/v1/template/delete/{template_id}\"\n       };",
               "requestType": "DeleteRequest",
               "requestLongType": "DeleteRequest",
               "requestFullType": "template.DeleteRequest",

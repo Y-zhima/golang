@@ -4150,16 +4150,6 @@
         }
       }
     },
-    "subtaskCompleteResponse": {
-      "type": "object",
-      "title": "完成子任务实例请求返回",
-      "properties": {
-        "status": {
-          "title": "返回的请求状态",
-          "$ref": "#/definitions/commonResponseStatus"
-        }
-      }
-    },
     "subtaskCreateResponse": {
       "type": "object",
       "title": "创建子任务实例请求返回",
@@ -4232,16 +4222,6 @@
         "POWER",
         "CREATE",
         "INSTALL"
-      ]
-    },
-    "subtaskSubTaskResult": {
-      "description": "- FAILURE: 失败\n - SUCCESS: 成功",
-      "type": "string",
-      "title": "子任务执行结果",
-      "default": "FAILURE",
-      "enum": [
-        "FAILURE",
-        "SUCCESS"
       ]
     },
     "taskCheckServerStateRequest": {
