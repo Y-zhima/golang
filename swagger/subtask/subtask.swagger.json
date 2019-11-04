@@ -15,7 +15,7 @@
     "application/json"
   ],
   "paths": {
-    "/v1/task/GetLog/{sub_task_id}": {
+    "/v1/task/getLog/{sub_task_id}": {
       "get": {
         "summary": "获取作业任务SubTask具体日志",
         "operationId": "GetLog",

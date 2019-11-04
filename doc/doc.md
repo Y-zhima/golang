@@ -1184,6 +1184,8 @@ LAKE节点对象
 | ----- | ---- | ----- | ----------- |
 | bk_module_name | [string](#string) |  | 模块名 |
 | bk_module_id | [int32](#int32) |  | 模块ID |
+| TopModuleName | [string](#string) |  | 业务拓扑模块名 |
+| bk_parent_id | [int32](#int32) |  | 父节点id |
 
 
 
@@ -1509,6 +1511,8 @@ LAKE节点对象
 | ----- | ---- | ----- | ----------- |
 | bk_set_name | [string](#string) |  | 集群名 |
 | bk_set_id | [int32](#int32) |  | 集群ID |
+| TopModuleName | [string](#string) |  | 业务拓扑模块名 |
+| bk_parent_id | [int32](#int32) |  | 父节点id |
 
 
 
@@ -1562,6 +1566,7 @@ VIP对象
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| bk_set_name | [string](#string) |  | 区域名 |
 | bk_inst_id | [int32](#int32) |  | 区域ID |
 
 

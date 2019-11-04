@@ -15,33 +15,6 @@
     "application/json"
   ],
   "paths": {
-    "/v1/task/GetSubTask/{task_id}": {
-      "get": {
-        "summary": "获取作业任务日志SubTask列表",
-        "operationId": "GetSubTask",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/taskGetSubTaskResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "task_id",
-            "description": "作业任务ID",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "int64"
-          }
-        ],
-        "tags": [
-          "Task"
-        ]
-      }
-    },
     "/v1/task/checkServerState": {
       "post": {
         "summary": "调用裸金属应用检查裸金属状态",
@@ -232,6 +205,33 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/taskGetResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "task_id",
+            "description": "作业任务ID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      }
+    },
+    "/v1/task/getSubTask/{task_id}": {
+      "get": {
+        "summary": "获取作业任务日志SubTask列表",
+        "operationId": "GetSubTask",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskGetSubTaskResponse"
             }
           }
         },

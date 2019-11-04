@@ -2240,6 +2240,26 @@
               "fullType": "int32",
               "ismap": false,
               "defaultValue": ""
+            },
+            {
+              "name": "TopModuleName",
+              "description": "业务拓扑模块名",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_parent_id",
+              "description": "父节点id",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
             }
           ]
         },
@@ -3090,6 +3110,26 @@
               "fullType": "int32",
               "ismap": false,
               "defaultValue": ""
+            },
+            {
+              "name": "TopModuleName",
+              "description": "业务拓扑模块名",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_parent_id",
+              "description": "父节点id",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
             }
           ]
         },
@@ -3234,6 +3274,16 @@
           "hasFields": true,
           "extensions": [],
           "fields": [
+            {
+              "name": "bk_set_name",
+              "description": "区域名",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
             {
               "name": "bk_inst_id",
               "description": "区域ID",
@@ -8262,7 +8312,7 @@
                   "rules": [
                     {
                       "method": "GET",
-                      "pattern": "/v1/task/GetLog/{sub_task_id}"
+                      "pattern": "/v1/task/getLog/{sub_task_id}"
                     }
                   ]
                 }
@@ -9619,7 +9669,7 @@
                   "rules": [
                     {
                       "method": "GET",
-                      "pattern": "/v1/task/GetSubTask/{task_id}"
+                      "pattern": "/v1/task/getSubTask/{task_id}"
                     }
                   ]
                 }

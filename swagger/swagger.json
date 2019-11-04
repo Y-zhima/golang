@@ -1145,60 +1145,6 @@
         }
       }
     },
-    "/v1/task/GetLog/{sub_task_id}": {
-      "get": {
-        "tags": [
-          "SubTask"
-        ],
-        "summary": "获取作业任务SubTask具体日志",
-        "operationId": "GetLog",
-        "parameters": [
-          {
-            "type": "string",
-            "format": "int64",
-            "description": "作业子任务ID",
-            "name": "sub_task_id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/subtaskGetLogResponse"
-            }
-          }
-        }
-      }
-    },
-    "/v1/task/GetSubTask/{task_id}": {
-      "get": {
-        "tags": [
-          "Task"
-        ],
-        "summary": "获取作业任务日志SubTask列表",
-        "operationId": "GetSubTask",
-        "parameters": [
-          {
-            "type": "string",
-            "format": "int64",
-            "description": "作业任务ID",
-            "name": "task_id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/taskGetSubTaskResponse"
-            }
-          }
-        }
-      }
-    },
     "/v1/task/checkServerState": {
       "post": {
         "tags": [
@@ -1396,6 +1342,60 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/taskGetResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/task/getLog/{sub_task_id}": {
+      "get": {
+        "tags": [
+          "SubTask"
+        ],
+        "summary": "获取作业任务SubTask具体日志",
+        "operationId": "GetLog",
+        "parameters": [
+          {
+            "type": "string",
+            "format": "int64",
+            "description": "作业子任务ID",
+            "name": "sub_task_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/subtaskGetLogResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/task/getSubTask/{task_id}": {
+      "get": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "获取作业任务日志SubTask列表",
+        "operationId": "GetSubTask",
+        "parameters": [
+          {
+            "type": "string",
+            "format": "int64",
+            "description": "作业任务ID",
+            "name": "task_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskGetSubTaskResponse"
             }
           }
         }
