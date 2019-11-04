@@ -2248,6 +2248,20 @@
               <entry><para>模块ID</para></entry>
             </row>
             
+            <row>
+              <entry>TopModuleName</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>业务拓扑模块名</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_parent_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>父节点id</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>
@@ -3200,6 +3214,20 @@
               <entry><para>集群ID</para></entry>
             </row>
             
+            <row>
+              <entry>TopModuleName</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>业务拓扑模块名</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_parent_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>父节点id</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>
@@ -3360,6 +3388,13 @@
             </row>
           </thead>
           <tbody>
+            
+            <row>
+              <entry>bk_set_name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>区域名</para></entry>
+            </row>
             
             <row>
               <entry>bk_inst_id</entry>

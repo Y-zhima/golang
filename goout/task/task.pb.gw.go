@@ -469,7 +469,7 @@ var (
 
 	pattern_Task_Get_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"v1", "task", "get", "task_id"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Task_GetSubTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"v1", "task", "GetSubTask", "task_id"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Task_GetSubTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"v1", "task", "getSubTask", "task_id"}, "", runtime.AssumeColonVerbOpt(true)))
 
 	pattern_Task_CreateServerCompare_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "task", "createServerCompare"}, "", runtime.AssumeColonVerbOpt(true)))
 
