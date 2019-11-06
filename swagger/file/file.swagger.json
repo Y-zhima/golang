@@ -30,20 +30,24 @@
         "parameters": [
           {
             "name": "template_type",
-            "description": " - UNDEFINED: 0-undefined\n - HOST: 1-导入主机\n - VIP: 2-导入物理机\n - LAKE: 3-导入LAKE\n - HOSTCHAIN: 4-导入主机业务拓扑\n - LAKECHAIN: 5-导入lake节点关系链\n - CROSSTABLE: 6-导入交维表",
+            "description": "导入类型.\n\n - UNDEFINED: 0-undefined,指除了关系链模板之外的导入模板，也可不传\n - HOSTCHAIN: 1-导入主机业务拓扑\n - LAKECHAIN: 2-导入lake节点关系链\n - CROSSTABLE: 3-导入交维表",
             "in": "query",
             "required": false,
             "type": "string",
             "enum": [
               "UNDEFINED",
-              "HOST",
-              "VIP",
-              "LAKE",
               "HOSTCHAIN",
               "LAKECHAIN",
               "CROSSTABLE"
             ],
             "default": "UNDEFINED"
+          },
+          {
+            "name": "asset_type",
+            "description": "非关系链的导入模板的类型.",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -150,15 +154,12 @@
       "type": "string",
       "enum": [
         "UNDEFINED",
-        "HOST",
-        "VIP",
-        "LAKE",
         "HOSTCHAIN",
         "LAKECHAIN",
         "CROSSTABLE"
       ],
       "default": "UNDEFINED",
-      "description": "- UNDEFINED: 0-undefined\n - HOST: 1-导入主机\n - VIP: 2-导入物理机\n - LAKE: 3-导入LAKE\n - HOSTCHAIN: 4-导入主机业务拓扑\n - LAKECHAIN: 5-导入lake节点关系链\n - CROSSTABLE: 6-导入交维表",
+      "description": "- UNDEFINED: 0-undefined,指除了关系链模板之外的导入模板，也可不传\n - HOSTCHAIN: 1-导入主机业务拓扑\n - LAKECHAIN: 2-导入lake节点关系链\n - CROSSTABLE: 3-导入交维表",
       "title": "下载模板类型"
     },
     "fileUploadPlaybookRequest": {

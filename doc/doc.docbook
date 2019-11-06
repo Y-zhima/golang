@@ -4012,7 +4012,14 @@
               <entry>template_type</entry>
               <entry><link linkend="file.TemplateType">TemplateType</link></entry>
               <entry></entry>
-              <entry><para></para></entry>
+              <entry><para>导入类型</para></entry>
+            </row>
+            
+            <row>
+              <entry>asset_type</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>非关系链的导入模板的类型</para></entry>
             </row>
             
           </tbody>
@@ -4296,43 +4303,25 @@
             <row>
               <entry>UNDEFINED</entry>
               <entry>0</entry>
-              <entry><para>0-undefined</para></entry>
-            </row>
-            
-            <row>
-              <entry>HOST</entry>
-              <entry>1</entry>
-              <entry><para>1-导入主机</para></entry>
-            </row>
-            
-            <row>
-              <entry>VIP</entry>
-              <entry>2</entry>
-              <entry><para>2-导入物理机</para></entry>
-            </row>
-            
-            <row>
-              <entry>LAKE</entry>
-              <entry>3</entry>
-              <entry><para>3-导入LAKE</para></entry>
+              <entry><para>0-undefined,指除了关系链模板之外的导入模板，也可不传</para></entry>
             </row>
             
             <row>
               <entry>HOSTCHAIN</entry>
-              <entry>4</entry>
-              <entry><para>4-导入主机业务拓扑</para></entry>
+              <entry>1</entry>
+              <entry><para>1-导入主机业务拓扑</para></entry>
             </row>
             
             <row>
               <entry>LAKECHAIN</entry>
-              <entry>5</entry>
-              <entry><para>5-导入lake节点关系链</para></entry>
+              <entry>2</entry>
+              <entry><para>2-导入lake节点关系链</para></entry>
             </row>
             
             <row>
               <entry>CROSSTABLE</entry>
-              <entry>6</entry>
-              <entry><para>6-导入交维表</para></entry>
+              <entry>3</entry>
+              <entry><para>3-导入交维表</para></entry>
             </row>
             
           </tbody>
