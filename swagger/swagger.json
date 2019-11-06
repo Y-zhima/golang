@@ -138,44 +138,6 @@
         }
       }
     },
-    "/v1/cmdb/downloadTemplate": {
-      "get": {
-        "tags": [
-          "File"
-        ],
-        "summary": "获取导入模板",
-        "operationId": "DownloadTemplate",
-        "parameters": [
-          {
-            "enum": [
-              "UNDEFINED",
-              "HOSTCHAIN",
-              "LAKECHAIN",
-              "CROSSTABLE"
-            ],
-            "type": "string",
-            "default": "UNDEFINED",
-            "description": "导入类型.\n\n - UNDEFINED: 0-undefined,指除了关系链模板之外的导入模板，也可不传\n - HOSTCHAIN: 1-导入主机业务拓扑\n - LAKECHAIN: 2-导入lake节点关系链\n - CROSSTABLE: 3-导入交维表",
-            "name": "template_type",
-            "in": "query"
-          },
-          {
-            "type": "string",
-            "description": "非关系链的导入模板的类型.",
-            "name": "asset_type",
-            "in": "query"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/fileDownloadTemplateResponse"
-            }
-          }
-        }
-      }
-    },
     "/v1/cmdb/importAsset": {
       "post": {
         "tags": [
@@ -730,6 +692,44 @@
         }
       }
     },
+    "/v1/file/downloadTemplate": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "获取导入模板",
+        "operationId": "DownloadTemplate",
+        "parameters": [
+          {
+            "enum": [
+              "UNDEFINED",
+              "HOSTCHAIN",
+              "LAKECHAIN",
+              "CROSSTABLE"
+            ],
+            "type": "string",
+            "default": "UNDEFINED",
+            "description": "导入类型.\n\n - UNDEFINED: 0-undefined,指除了关系链模板之外的导入模板，也可不传\n - HOSTCHAIN: 1-导入主机业务拓扑\n - LAKECHAIN: 2-导入lake节点关系链\n - CROSSTABLE: 3-导入交维表",
+            "name": "template_type",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "非关系链的导入模板的类型.",
+            "name": "asset_type",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/fileDownloadTemplateResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/file/upload": {
       "post": {
         "tags": [
@@ -814,7 +814,7 @@
           "Playbook"
         ],
         "summary": "创建playbook项目",
-        "operationId": "Create",
+        "operationId": "CreateMixin14",
         "parameters": [
           {
             "name": "body",
@@ -841,7 +841,7 @@
           "Playbook"
         ],
         "summary": "筛选playbook项目",
-        "operationId": "Filter",
+        "operationId": "FilterMixin14",
         "parameters": [
           {
             "type": "integer",
@@ -894,7 +894,7 @@
           "Playbook"
         ],
         "summary": "获取playbook项目",
-        "operationId": "Get",
+        "operationId": "GetMixin14",
         "parameters": [
           {
             "type": "integer",
@@ -921,7 +921,7 @@
           "Playbook"
         ],
         "summary": "更新playbook项目",
-        "operationId": "Update",
+        "operationId": "UpdateMixin14",
         "parameters": [
           {
             "type": "integer",
@@ -956,7 +956,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin10",
+        "operationId": "CreateMixin9",
         "parameters": [
           {
             "name": "body",
@@ -983,7 +983,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin10",
+        "operationId": "FilterMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -1057,7 +1057,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin10",
+        "operationId": "GetMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -1119,7 +1119,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "UpdateMixin10",
+        "operationId": "Update",
         "parameters": [
           {
             "type": "integer",
@@ -1181,7 +1181,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "CreateMixin13",
+        "operationId": "Create",
         "parameters": [
           {
             "name": "body",
@@ -1262,7 +1262,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "FilterMixin13",
+        "operationId": "Filter",
         "parameters": [
           {
             "type": "integer",
@@ -1329,7 +1329,7 @@
           "Task"
         ],
         "summary": "获取作业任务",
-        "operationId": "GetMixin13",
+        "operationId": "Get",
         "parameters": [
           {
             "type": "string",
@@ -1491,7 +1491,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin14",
+        "operationId": "CreateMixin11",
         "parameters": [
           {
             "name": "body",
@@ -1518,7 +1518,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin14",
+        "operationId": "FilterMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -1577,7 +1577,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin14",
+        "operationId": "GetMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -1604,7 +1604,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin14",
+        "operationId": "UpdateMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -2483,7 +2483,7 @@
           }
         },
         "status": {
-          "title": "TopologyObject instance = 1;\n状态码",
+          "title": "TopologyObject instance = 1;\r\n状态码",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }

@@ -29,7 +29,7 @@ service File {
     // 获取导入模板
     rpc DownloadTemplate (DownloadTemplateRequest) returns (DownloadTemplateResponse) {
         option (google.api.http) = {
-            get: "/v1/cmdb/downloadTemplate"
+            get: "/v1/file/downloadTemplate"
         };
     }
 }

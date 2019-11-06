@@ -15,7 +15,7 @@
     "application/json"
   ],
   "paths": {
-    "/v1/cmdb/downloadTemplate": {
+    "/v1/file/downloadTemplate": {
       "get": {
         "summary": "获取导入模板",
         "operationId": "DownloadTemplate",
