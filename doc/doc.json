@@ -1232,9 +1232,9 @@
               "name": "import_type",
               "description": "导入资产实体类型",
               "label": "",
-              "type": "ImportType",
-              "longType": "ImportType",
-              "fullType": "cmdb.ImportType",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "defaultValue": ""
             },

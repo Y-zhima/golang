@@ -2246,8 +2246,8 @@
           "title": "用户上传xlsx文件的文件名"
         },
         "import_type": {
-          "title": "导入资产实体类型",
-          "$ref": "#/definitions/cmdbImportType"
+          "type": "string",
+          "title": "导入资产实体类型"
         },
         "md5": {
           "type": "string",
