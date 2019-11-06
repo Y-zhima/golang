@@ -4309,19 +4309,19 @@
             <row>
               <entry>HOSTCHAIN</entry>
               <entry>1</entry>
-              <entry><para>4-导入主机业务拓扑</para></entry>
+              <entry><para>1-导入主机业务拓扑</para></entry>
             </row>
             
             <row>
               <entry>LAKECHAIN</entry>
               <entry>2</entry>
-              <entry><para>5-导入lake节点关系链</para></entry>
+              <entry><para>2-导入lake节点关系链</para></entry>
             </row>
             
             <row>
               <entry>CROSSTABLE</entry>
               <entry>3</entry>
-              <entry><para>6-导入交维表</para></entry>
+              <entry><para>3-导入交维表</para></entry>
             </row>
             
           </tbody>

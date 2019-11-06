@@ -32,11 +32,11 @@ type TemplateType int32
 const (
 	// 0-undefined,指除了关系链模板之外的导入模板，也可不传
 	TemplateType_UNDEFINED TemplateType = 0
-	// 4-导入主机业务拓扑
+	// 1-导入主机业务拓扑
 	TemplateType_HOSTCHAIN TemplateType = 1
-	// 5-导入lake节点关系链
+	// 2-导入lake节点关系链
 	TemplateType_LAKECHAIN TemplateType = 2
-	// 6-导入交维表
+	// 3-导入交维表
 	TemplateType_CROSSTABLE TemplateType = 3
 )
 

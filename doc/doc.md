@@ -1892,9 +1892,9 @@ VIP对象
 | Name | Number | Description |
 | ---- | ------ | ----------- |
 | UNDEFINED | 0 | 0-undefined,指除了关系链模板之外的导入模板，也可不传 |
-| HOSTCHAIN | 1 | 4-导入主机业务拓扑 |
-| LAKECHAIN | 2 | 5-导入lake节点关系链 |
-| CROSSTABLE | 3 | 6-导入交维表 |
+| HOSTCHAIN | 1 | 1-导入主机业务拓扑 |
+| LAKECHAIN | 2 | 2-导入lake节点关系链 |
+| CROSSTABLE | 3 | 3-导入交维表 |
 
 
 

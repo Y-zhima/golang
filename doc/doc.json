@@ -3787,17 +3787,17 @@
             {
               "name": "HOSTCHAIN",
               "number": "1",
-              "description": "4-导入主机业务拓扑"
+              "description": "1-导入主机业务拓扑"
             },
             {
               "name": "LAKECHAIN",
               "number": "2",
-              "description": "5-导入lake节点关系链"
+              "description": "2-导入lake节点关系链"
             },
             {
               "name": "CROSSTABLE",
               "number": "3",
-              "description": "6-导入交维表"
+              "description": "3-导入交维表"
             }
           ]
         },
