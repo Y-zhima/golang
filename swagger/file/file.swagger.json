@@ -212,7 +212,7 @@
           "type": "string",
           "title": "指定上传bucket_name（可选）"
         },
-        "job": {
+        "key": {
           "type": "string",
           "title": "指定上传存储路径（可选）"
         }

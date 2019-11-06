@@ -1854,7 +1854,7 @@ VIP对象
 | ----- | ---- | ----- | ----------- |
 | content | [bytes](#bytes) |  | 文件字段 |
 | bucket | [string](#string) |  | 指定上传bucket_name（可选） |
-| job | [string](#string) |  | 指定上传存储路径（可选） |
+| key | [string](#string) |  | 指定上传存储路径（可选） |
 
 
 
