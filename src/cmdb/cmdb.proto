@@ -810,7 +810,7 @@ enum AreaLevel {
 
 message ImportAssetRequest {
     // 导入资产实体类型
-    ImportType import_type = 1;
+    string import_type = 1;
     // xlsx文件下载路径
     string url = 2 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"
                    }];

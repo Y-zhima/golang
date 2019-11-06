@@ -756,7 +756,7 @@
       "type": "object",
       "properties": {
         "import_type": {
-          "$ref": "#/definitions/cmdbImportType",
+          "type": "string",
           "title": "导入资产实体类型"
         },
         "url": {

@@ -1165,7 +1165,7 @@
             
             <row>
               <entry>import_type</entry>
-              <entry><link linkend="cmdb.ImportType">ImportType</link></entry>
+              <entry><link linkend="string">string</link></entry>
               <entry></entry>
               <entry><para>导入资产实体类型</para></entry>
             </row>

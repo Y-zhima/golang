@@ -819,7 +819,7 @@ cmdb事件请求返回
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| import_type | [ImportType](#cmdb.ImportType) |  | 导入资产实体类型 |
+| import_type | [string](#string) |  | 导入资产实体类型 |
 | url | [string](#string) |  | xlsx文件下载路径 |
 | md5 | [string](#string) |  | xlsx文件md5 |
 | filename | [string](#string) |  | 用户上传xlsx文件的文件名 |
