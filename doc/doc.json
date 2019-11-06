@@ -3782,37 +3782,45 @@
             {
               "name": "UNDEFINED",
               "number": "0",
-              "description": "0-undefined"
-            },
-            {
-              "name": "HOST",
-              "number": "1",
-              "description": "1-导入主机"
-            },
-            {
-              "name": "VIP",
-              "number": "2",
-              "description": "2-导入物理机"
-            },
-            {
-              "name": "LAKE",
-              "number": "3",
-              "description": "3-导入LAKE"
+              "description": "0-undefined,指除了关系链模板之外的导入模板，也可不传"
             },
             {
               "name": "HOSTCHAIN",
-              "number": "4",
+              "number": "1",
               "description": "4-导入主机业务拓扑"
             },
             {
               "name": "LAKECHAIN",
-              "number": "5",
+              "number": "2",
               "description": "5-导入lake节点关系链"
             },
             {
               "name": "CROSSTABLE",
-              "number": "6",
+              "number": "3",
               "description": "6-导入交维表"
+            }
+          ]
+        },
+        {
+          "name": "asset_type",
+          "longName": "asset_type",
+          "fullName": "file.asset_type",
+          "description": "非关系链的导入模板的类型的示例，如导入host，前端需传asset_type=host,导入类型是关系链时可不传",
+          "values": [
+            {
+              "name": "host",
+              "number": "0",
+              "description": ""
+            },
+            {
+              "name": "lake",
+              "number": "1",
+              "description": ""
+            },
+            {
+              "name": "biz_vip",
+              "number": "2",
+              "description": ""
             }
           ]
         }
@@ -3830,11 +3838,21 @@
           "fields": [
             {
               "name": "template_type",
-              "description": "",
+              "description": "导入类型",
               "label": "",
               "type": "TemplateType",
               "longType": "TemplateType",
               "fullType": "file.TemplateType",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "asset_type",
+              "description": "非关系链的导入模板的类型",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "defaultValue": ""
             }

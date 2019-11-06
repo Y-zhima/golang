@@ -126,6 +126,7 @@
     - [UploadResponse](#file.UploadResponse)
   
     - [TemplateType](#file.TemplateType)
+    - [asset_type](#file.asset_type)
   
   
     - [File](#file.File)
@@ -1787,7 +1788,8 @@ VIP对象
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| template_type | [TemplateType](#file.TemplateType) |  |  |
+| template_type | [TemplateType](#file.TemplateType) |  | 导入类型 |
+| asset_type | [string](#string) |  | 非关系链的导入模板的类型 |
 
 
 
@@ -1889,13 +1891,23 @@ VIP对象
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| UNDEFINED | 0 | 0-undefined |
-| HOST | 1 | 1-导入主机 |
-| VIP | 2 | 2-导入物理机 |
-| LAKE | 3 | 3-导入LAKE |
-| HOSTCHAIN | 4 | 4-导入主机业务拓扑 |
-| LAKECHAIN | 5 | 5-导入lake节点关系链 |
-| CROSSTABLE | 6 | 6-导入交维表 |
+| UNDEFINED | 0 | 0-undefined,指除了关系链模板之外的导入模板，也可不传 |
+| HOSTCHAIN | 1 | 4-导入主机业务拓扑 |
+| LAKECHAIN | 2 | 5-导入lake节点关系链 |
+| CROSSTABLE | 3 | 6-导入交维表 |
+
+
+
+<a name="file.asset_type"></a>
+
+### asset_type
+非关系链的导入模板的类型的示例，如导入host，前端需传asset_type=host,导入类型是关系链时可不传
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| host | 0 |  |
+| lake | 1 |  |
+| biz_vip | 2 |  |
 
 
  
