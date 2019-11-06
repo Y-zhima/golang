@@ -52,12 +52,6 @@ message DownloadTemplateRequest {
     // 非关系链的导入模板的类型
     string asset_type = 2;
 }
-// 非关系链的导入模板的类型的示例，如导入host，前端需传asset_type=host,导入类型是关系链时可不传
-enum asset_type {
-    host = 0;
-    lake = 1;
-    biz_vip = 2;
-}
 
 message DownloadTemplateResponse {
     // 返回的请求状态

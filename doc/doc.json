@@ -3800,29 +3800,6 @@
               "description": "3-导入交维表"
             }
           ]
-        },
-        {
-          "name": "asset_type",
-          "longName": "asset_type",
-          "fullName": "file.asset_type",
-          "description": "非关系链的导入模板的类型的示例，如导入host，前端需传asset_type=host,导入类型是关系链时可不传",
-          "values": [
-            {
-              "name": "host",
-              "number": "0",
-              "description": ""
-            },
-            {
-              "name": "lake",
-              "number": "1",
-              "description": ""
-            },
-            {
-              "name": "biz_vip",
-              "number": "2",
-              "description": ""
-            }
-          ]
         }
       ],
       "extensions": [],

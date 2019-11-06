@@ -4329,47 +4329,6 @@
       </table>
     </section>
     
-    <section id="file.asset_type">
-      <title>asset_type</title>
-      <para>非关系链的导入模板的类型的示例，如导入host，前端需传asset_type=host,导入类型是关系链时可不传</para>
-      <table frame="all">
-        <title><classname>asset_type</classname> Values</title>
-        <tgroup cols="3">
-          <colspec colwidth="*"/>
-          <colspec colwidth="*"/>
-          <colspec colwidth="3*"/>
-          <thead>
-            <row>
-              <entry>Name</entry>
-              <entry>Number</entry>
-              <entry>Description</entry>
-            </row>
-          </thead>
-          <tbody>
-            
-            <row>
-              <entry>host</entry>
-              <entry>0</entry>
-              <entry><para></para></entry>
-            </row>
-            
-            <row>
-              <entry>lake</entry>
-              <entry>1</entry>
-              <entry><para></para></entry>
-            </row>
-            
-            <row>
-              <entry>biz_vip</entry>
-              <entry>2</entry>
-              <entry><para></para></entry>
-            </row>
-            
-          </tbody>
-        </tgroup>
-      </table>
-    </section>
-    
 
     
 
