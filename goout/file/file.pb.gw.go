@@ -188,7 +188,7 @@ var (
 
 	pattern_File_Upload_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "file", "upload"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_File_DownloadTemplate_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "cmdb", "downloadTemplate"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_File_DownloadTemplate_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "file", "downloadTemplate"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
