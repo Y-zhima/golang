@@ -1236,7 +1236,19 @@
               "longType": "string",
               "fullType": "string",
               "ismap": false,
-              "defaultValue": ""
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "human_error",
+                    "value": "importType能为空"
+                  },
+                  {
+                    "name": "string_not_empty",
+                    "value": true
+                  }
+                ]
+              }
             },
             {
               "name": "url",
@@ -1268,7 +1280,19 @@
               "longType": "string",
               "fullType": "string",
               "ismap": false,
-              "defaultValue": ""
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "human_error",
+                    "value": "MD5不能为空"
+                  },
+                  {
+                    "name": "string_not_empty",
+                    "value": true
+                  }
+                ]
+              }
             },
             {
               "name": "filename",
@@ -1278,7 +1302,19 @@
               "longType": "string",
               "fullType": "string",
               "ismap": false,
-              "defaultValue": ""
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "human_error",
+                    "value": "fileName不能为空"
+                  },
+                  {
+                    "name": "string_not_empty",
+                    "value": true
+                  }
+                ]
+              }
             }
           ]
         },

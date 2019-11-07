@@ -810,14 +810,17 @@ enum AreaLevel {
 
 message ImportAssetRequest {
     // 导入资产实体类型
-    string import_type = 1;
+    string import_type = 1 [(validator.field) = {string_not_empty: true, human_error: "importType能为空"
+                           }];
     // xlsx文件下载路径
     string url = 2 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"
                    }];
     // xlsx文件md5
-    string md5 = 3;
+    string md5 = 3 [(validator.field) = {string_not_empty: true, human_error: "MD5不能为空"
+                   }];
     // 用户上传xlsx文件的文件名
-    string filename = 4;
+    string filename = 4 [(validator.field) = {string_not_empty: true, human_error: "fileName不能为空"
+                        }];
 }
 
 message ImportAssetResponse {
