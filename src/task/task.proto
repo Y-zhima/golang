@@ -12,6 +12,7 @@ import "github.com/mwitkow/go-proto-validators/validator.proto";
 import "common/api.proto";
 import "schedule/schedule.proto";
 import "cmdb/cmdb.proto";
+import "common/user.proto";
 
 // 任务实例
 service Task {
