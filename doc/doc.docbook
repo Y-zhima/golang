@@ -10468,9 +10468,9 @@
             
             <row>
               <entry>executor</entry>
-              <entry><link linkend="int32">int32</link></entry>
+              <entry><link linkend="common.User">common.User</link></entry>
               <entry></entry>
-              <entry><para>执行人ID</para></entry>
+              <entry><para>执行人</para></entry>
             </row>
             
             <row>

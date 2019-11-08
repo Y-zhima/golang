@@ -4107,7 +4107,7 @@ agent上报kafka日志结构体
 | task_type | [schedule.TaskType](#schedule.TaskType) |  | 任务类型 |
 | cmdb_search_request | [cmdb.ChooseHostRequest](#cmdb.ChooseHostRequest) | repeated | cmdb的搜索条件 |
 | extra_var | [string](#string) |  | 额外变量JSON String 例如： {&#34;key&#34;:&#34;testKey&#34;,&#34;value&#34;:&#34;testVal&#34;,&#34;description&#34;:&#34;测试描述&#34;} |
-| executor | [int32](#int32) |  | 执行人ID |
+| executor | [common.User](#common.User) |  | 执行人 |
 | execute_count | [int32](#int32) |  | 总共执行多少主机 |
 | fail_count | [int32](#int32) |  | 执行失败多少台主机 |
 | success_count | [int32](#int32) |  | 执行成功多少台主机 |

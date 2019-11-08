@@ -451,6 +451,18 @@
       "description": "- SUCCESS: 成功\n - INVALID_ARGUMENT: 参数错误\n - ACCESS_DENIED: 访问拒绝",
       "title": "请求返回状态码"
     },
+    "commonUser": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "user_name": {
+          "type": "string"
+        }
+      }
+    },
     "scheduleTaskType": {
       "type": "string",
       "enum": [
@@ -812,9 +824,8 @@
           "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
         },
         "executor": {
-          "type": "integer",
-          "format": "int32",
-          "title": "执行人ID"
+          "$ref": "#/definitions/commonUser",
+          "title": "执行人"
         },
         "execute_count": {
           "type": "integer",

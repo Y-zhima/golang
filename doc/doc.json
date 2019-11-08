@@ -9527,11 +9527,11 @@
             },
             {
               "name": "executor",
-              "description": "执行人ID",
+              "description": "执行人",
               "label": "",
-              "type": "int32",
-              "longType": "int32",
-              "fullType": "int32",
+              "type": "User",
+              "longType": "common.User",
+              "fullType": "common.User",
               "ismap": false,
               "defaultValue": ""
             },

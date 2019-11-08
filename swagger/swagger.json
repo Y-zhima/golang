@@ -4575,9 +4575,8 @@
           "title": "总共执行多少主机"
         },
         "executor": {
-          "type": "integer",
-          "format": "int32",
-          "title": "执行人ID"
+          "title": "执行人",
+          "$ref": "#/definitions/commonUser"
         },
         "extra_var": {
           "type": "string",
