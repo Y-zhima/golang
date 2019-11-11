@@ -144,4 +144,13 @@ message GetLogResponse {
     common.ResponseStatus status = 1;
     // 子任务实例名
     string sub_task_log = 2;
+    SubTaskState sub_task_status = 3;
+}
+
+// 模板状态
+enum SubTaskState {
+    // 执行完成
+    COMPLETE = 0;
+    // 执行中
+    RUNNING = 1;
 }
