@@ -1048,6 +1048,10 @@
                   <a href="#subtask.SubTaskResult"><span class="badge">E</span>SubTaskResult</a>
                 </li>
               
+                <li>
+                  <a href="#subtask.SubTaskState"><span class="badge">E</span>SubTaskState</a>
+                </li>
+              
               
               
                 <li>
@@ -9250,6 +9254,13 @@
                   <td><p>子任务实例名 </p></td>
                 </tr>
               
+                <tr>
+                  <td>sub_task_status</td>
+                  <td><a href="#subtask.SubTaskState">SubTaskState</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -9318,6 +9329,29 @@
                 <td>SUCCESS</td>
                 <td>1</td>
                 <td><p>成功</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="subtask.SubTaskState">SubTaskState</h3>
+        <p>模板状态</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>COMPLETE</td>
+                <td>0</td>
+                <td><p>执行完成</p></td>
+              </tr>
+            
+              <tr>
+                <td>RUNNING</td>
+                <td>1</td>
+                <td><p>执行中</p></td>
               </tr>
             
           </tbody>

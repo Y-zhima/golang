@@ -8896,6 +8896,13 @@
               <entry><para>子任务实例名</para></entry>
             </row>
             
+            <row>
+              <entry>sub_task_status</entry>
+              <entry><link linkend="subtask.SubTaskState">SubTaskState</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>
@@ -8985,6 +8992,41 @@
               <entry>SUCCESS</entry>
               <entry>1</entry>
               <entry><para>成功</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    
+    <section id="subtask.SubTaskState">
+      <title>SubTaskState</title>
+      <para>模板状态</para>
+      <table frame="all">
+        <title><classname>SubTaskState</classname> Values</title>
+        <tgroup cols="3">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Name</entry>
+              <entry>Number</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>COMPLETE</entry>
+              <entry>0</entry>
+              <entry><para>执行完成</para></entry>
+            </row>
+            
+            <row>
+              <entry>RUNNING</entry>
+              <entry>1</entry>
+              <entry><para>执行中</para></entry>
             </row>
             
           </tbody>
