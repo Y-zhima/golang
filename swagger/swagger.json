@@ -398,6 +398,33 @@
           },
           {
             "type": "string",
+            "description": "设备角色(模块名).",
+            "name": "host.module_name",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "内存.",
+            "name": "host.bk_mem",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "硬盘(总量).",
+            "name": "host.bk_disk",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "网卡带宽.",
+            "name": "host.nic_speed",
+            "in": "query"
+          },
+          {
+            "type": "string",
             "description": "模块名.",
             "name": "module.bk_module_name",
             "in": "query"
@@ -580,7 +607,34 @@
               "type": "string"
             },
             "collectionFormat": "multi",
+            "description": "lake节点的名字列表.",
             "name": "lake_name",
+            "in": "query"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "collectionFormat": "multi",
+            "description": "lake节点的ID列表.",
+            "name": "id",
+            "in": "query"
+          },
+          {
+            "enum": [
+              "NULL",
+              "NATION",
+              "REGION",
+              "PROVINCE",
+              "CITY",
+              "COUNTY"
+            ],
+            "type": "string",
+            "default": "NULL",
+            "description": "要查询的区域的地区层级.\n\n - NULL: 0-不存在\n - NATION: 1-国家级\n - REGION: 2-大区级\n - PROVINCE: 3-省级\n - CITY: 4-市级\n - COUNTY: 5-区县级",
+            "name": "area_level",
             "in": "query"
           }
         ],
@@ -2219,6 +2273,11 @@
       "type": "object",
       "title": "主机",
       "properties": {
+        "bk_disk": {
+          "type": "integer",
+          "format": "int32",
+          "title": "硬盘(总量)"
+        },
         "bk_host_id": {
           "type": "integer",
           "format": "int32",
@@ -2228,9 +2287,23 @@
           "type": "string",
           "title": "内网IP"
         },
+        "bk_mem": {
+          "type": "integer",
+          "format": "int32",
+          "title": "内存"
+        },
         "ipv6": {
           "type": "string",
           "title": "ipv6的地址"
+        },
+        "module_name": {
+          "type": "string",
+          "title": "设备角色(模块名)"
+        },
+        "nic_speed": {
+          "type": "integer",
+          "format": "int32",
+          "title": "网卡带宽"
         },
         "state": {
           "type": "string",
@@ -2483,7 +2556,7 @@
           }
         },
         "status": {
-          "title": "TopologyObject instance = 1;\n状态码",
+          "title": "TopologyObject instance = 1;\r\n状态码",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
@@ -2515,6 +2588,15 @@
       "type": "object",
       "title": "lake下的主机列表",
       "properties": {
+        "area": {
+          "type": "string",
+          "title": "节点区域"
+        },
+        "bandwidth_limit": {
+          "type": "integer",
+          "format": "int32",
+          "title": "节点承载能力上限"
+        },
         "host": {
           "type": "array",
           "items": {
@@ -2522,12 +2604,17 @@
           }
         },
         "lake_name": {
-          "type": "string"
+          "type": "string",
+          "title": "缓存节点名称"
         },
         "node_id": {
           "type": "integer",
           "format": "int32",
           "title": "缓存节点id"
+        },
+        "service_state": {
+          "type": "string",
+          "title": "节点服务状态"
         }
       }
     },

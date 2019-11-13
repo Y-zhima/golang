@@ -1135,6 +1135,34 @@
               <entry><para>ipv6的地址</para></entry>
             </row>
             
+            <row>
+              <entry>module_name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>设备角色(模块名)</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_mem</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>内存</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_disk</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>硬盘(总量)</para></entry>
+            </row>
+            
+            <row>
+              <entry>nic_speed</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>网卡带宽</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>
@@ -2088,10 +2116,17 @@
           <tbody>
             
             <row>
+              <entry>host</entry>
+              <entry><link linkend="cmdb.HostObject">HostObject</link></entry>
+              <entry>repeated</entry>
+              <entry><para></para></entry>
+            </row>
+            
+            <row>
               <entry>lake_name</entry>
               <entry><link linkend="string">string</link></entry>
               <entry></entry>
-              <entry><para></para></entry>
+              <entry><para>缓存节点名称</para></entry>
             </row>
             
             <row>
@@ -2102,10 +2137,24 @@
             </row>
             
             <row>
-              <entry>host</entry>
-              <entry><link linkend="cmdb.HostObject">HostObject</link></entry>
-              <entry>repeated</entry>
-              <entry><para></para></entry>
+              <entry>bandwidth_limit</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>节点承载能力上限</para></entry>
+            </row>
+            
+            <row>
+              <entry>service_state</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>节点服务状态</para></entry>
+            </row>
+            
+            <row>
+              <entry>area</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>节点区域</para></entry>
             </row>
             
           </tbody>
@@ -2427,7 +2476,21 @@
               <entry>lake_name</entry>
               <entry><link linkend="string">string</link></entry>
               <entry>repeated</entry>
-              <entry><para></para></entry>
+              <entry><para>lake节点的名字列表</para></entry>
+            </row>
+            
+            <row>
+              <entry>id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry>repeated</entry>
+              <entry><para>lake节点的ID列表</para></entry>
+            </row>
+            
+            <row>
+              <entry>area_level</entry>
+              <entry><link linkend="cmdb.AreaLevel">AreaLevel</link></entry>
+              <entry></entry>
+              <entry><para>要查询的区域的地区层级</para></entry>
             </row>
             
           </tbody>

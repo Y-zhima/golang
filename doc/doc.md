@@ -806,6 +806,10 @@ cmdb事件请求返回
 | bk_host_id | [int32](#int32) |  | 主机ID |
 | state | [string](#string) |  | 主机状态,有上线和下线两种 |
 | ipv6 | [string](#string) |  | ipv6的地址 |
+| module_name | [string](#string) |  | 设备角色(模块名) |
+| bk_mem | [int32](#int32) |  | 内存 |
+| bk_disk | [int32](#int32) |  | 硬盘(总量) |
+| nic_speed | [int32](#int32) |  | 网卡带宽 |
 
 
 
@@ -1142,9 +1146,12 @@ lake下的主机列表
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| lake_name | [string](#string) |  |  |
-| node_id | [int32](#int32) |  | 缓存节点id |
 | host | [HostObject](#cmdb.HostObject) | repeated |  |
+| lake_name | [string](#string) |  | 缓存节点名称 |
+| node_id | [int32](#int32) |  | 缓存节点id |
+| bandwidth_limit | [int32](#int32) |  | 节点承载能力上限 |
+| service_state | [string](#string) |  | 节点服务状态 |
+| area | [string](#string) |  | 节点区域 |
 
 
 
@@ -1249,7 +1256,9 @@ LAKE节点对象
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| lake_name | [string](#string) | repeated |  |
+| lake_name | [string](#string) | repeated | lake节点的名字列表 |
+| id | [int32](#int32) | repeated | lake节点的ID列表 |
+| area_level | [AreaLevel](#cmdb.AreaLevel) |  | 要查询的区域的地区层级 |
 
 
 

@@ -292,6 +292,37 @@
             "type": "string"
           },
           {
+            "name": "host.module_name",
+            "description": "设备角色(模块名).",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.bk_mem",
+            "description": "内存.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "host.bk_disk",
+            "description": "硬盘(总量).",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "host.nic_speed",
+            "description": "网卡带宽.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
             "name": "module.bk_module_name",
             "description": "模块名.",
             "in": "query",
@@ -486,6 +517,7 @@
         "parameters": [
           {
             "name": "lake_name",
+            "description": "lake节点的名字列表.",
             "in": "query",
             "required": false,
             "type": "array",
@@ -493,6 +525,34 @@
               "type": "string"
             },
             "collectionFormat": "multi"
+          },
+          {
+            "name": "id",
+            "description": "lake节点的ID列表.",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "area_level",
+            "description": "要查询的区域的地区层级.\n\n - NULL: 0-不存在\n - NATION: 1-国家级\n - REGION: 2-大区级\n - PROVINCE: 3-省级\n - CITY: 4-市级\n - COUNTY: 5-区县级",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "NULL",
+              "NATION",
+              "REGION",
+              "PROVINCE",
+              "CITY",
+              "COUNTY"
+            ],
+            "default": "NULL"
           }
         ],
         "tags": [
@@ -748,6 +808,25 @@
         "ipv6": {
           "type": "string",
           "title": "ipv6的地址"
+        },
+        "module_name": {
+          "type": "string",
+          "title": "设备角色(模块名)"
+        },
+        "bk_mem": {
+          "type": "integer",
+          "format": "int32",
+          "title": "内存"
+        },
+        "bk_disk": {
+          "type": "integer",
+          "format": "int32",
+          "title": "硬盘(总量)"
+        },
+        "nic_speed": {
+          "type": "integer",
+          "format": "int32",
+          "title": "网卡带宽"
         }
       },
       "title": "主机"
@@ -997,7 +1076,7 @@
         },
         "status": {
           "$ref": "#/definitions/commonResponseStatus",
-          "title": "TopologyObject instance = 1;\n状态码"
+          "title": "TopologyObject instance = 1;\r\n状态码"
         }
       },
       "title": "拓扑实例请求返回"
@@ -1028,19 +1107,33 @@
     "cmdbLakeHost": {
       "type": "object",
       "properties": {
+        "host": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbHostObject"
+          }
+        },
         "lake_name": {
-          "type": "string"
+          "type": "string",
+          "title": "缓存节点名称"
         },
         "node_id": {
           "type": "integer",
           "format": "int32",
           "title": "缓存节点id"
         },
-        "host": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/cmdbHostObject"
-          }
+        "bandwidth_limit": {
+          "type": "integer",
+          "format": "int32",
+          "title": "节点承载能力上限"
+        },
+        "service_state": {
+          "type": "string",
+          "title": "节点服务状态"
+        },
+        "area": {
+          "type": "string",
+          "title": "节点区域"
         }
       },
       "title": "lake下的主机列表"
