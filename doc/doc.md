@@ -71,12 +71,12 @@
     - [RoomObject](#cmdb.RoomObject)
     - [RoomTopologyRequest](#cmdb.RoomTopologyRequest)
     - [RoomTopologyResponse](#cmdb.RoomTopologyResponse)
-    - [SearchHostInLakeRequest](#cmdb.SearchHostInLakeRequest)
-    - [SearchHostInLakeResponse](#cmdb.SearchHostInLakeResponse)
     - [SearchHostRequest](#cmdb.SearchHostRequest)
     - [SearchHostResponse](#cmdb.SearchHostResponse)
     - [SearchLakeAreaRequest](#cmdb.SearchLakeAreaRequest)
     - [SearchLakeAreaResponse](#cmdb.SearchLakeAreaResponse)
+    - [SearchLakeHostRequest](#cmdb.SearchLakeHostRequest)
+    - [SearchLakeHostResponse](#cmdb.SearchLakeHostResponse)
     - [SearchLakeRequest](#cmdb.SearchLakeRequest)
     - [SearchLakeResponse](#cmdb.SearchLakeResponse)
     - [SearchMoudleRequest](#cmdb.SearchMoudleRequest)
@@ -1244,39 +1244,6 @@ LAKE节点对象
 
 
 
-<a name="cmdb.SearchHostInLakeRequest"></a>
-
-### SearchHostInLakeRequest
-查询lake下的主机列表的请求体
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| lake_name | [string](#string) | repeated | lake节点的名字列表 |
-| id | [int32](#int32) | repeated | lake节点的ID列表 |
-| area_level | [AreaLevel](#cmdb.AreaLevel) |  | 要查询的区域的地区层级 |
-
-
-
-
-
-
-<a name="cmdb.SearchHostInLakeResponse"></a>
-
-### SearchHostInLakeResponse
-查询lake下的主机列表的返回
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| lake_host | [LakeHost](#cmdb.LakeHost) | repeated |  |
-| status | [common.ResponseStatus](#common.ResponseStatus) |  | 状态码 |
-
-
-
-
-
-
 <a name="cmdb.SearchHostRequest"></a>
 
 ### SearchHostRequest
@@ -1340,6 +1307,39 @@ LAKE节点对象
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | lake_area | [LakeAreaObject](#cmdb.LakeAreaObject) | repeated |  |
+| status | [common.ResponseStatus](#common.ResponseStatus) |  | 状态码 |
+
+
+
+
+
+
+<a name="cmdb.SearchLakeHostRequest"></a>
+
+### SearchLakeHostRequest
+查询lake下的主机列表的请求体
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| lake_name | [string](#string) | repeated | lake节点的名字列表 |
+| id | [int32](#int32) | repeated | lake节点的ID列表 |
+| area_level | [AreaLevel](#cmdb.AreaLevel) |  | 要查询的区域的地区层级 |
+
+
+
+
+
+
+<a name="cmdb.SearchLakeHostResponse"></a>
+
+### SearchLakeHostResponse
+查询lake下的主机列表的返回
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| lake_host | [LakeHost](#cmdb.LakeHost) | repeated |  |
 | status | [common.ResponseStatus](#common.ResponseStatus) |  | 状态码 |
 
 
@@ -1675,7 +1675,7 @@ VIP对象
 | SearchModule | [SearchMoudleRequest](#cmdb.SearchMoudleRequest) | [SearchMoudleResponse](#cmdb.SearchMoudleResponse) | 查询模块 |
 | ImportHistory | [ImportHistoryRequest](#cmdb.ImportHistoryRequest) | [ImportHistoryResponse](#cmdb.ImportHistoryResponse) | 查询导入历史记录列表 |
 | SearchLake | [SearchLakeRequest](#cmdb.SearchLakeRequest) | [SearchLakeResponse](#cmdb.SearchLakeResponse) | 查询Lake节点 |
-| SearchHostInLake | [SearchHostInLakeRequest](#cmdb.SearchHostInLakeRequest) | [SearchHostInLakeResponse](#cmdb.SearchHostInLakeResponse) | 查询Lake节点下的主机列表 |
+| SearchLakeHost | [SearchLakeHostRequest](#cmdb.SearchLakeHostRequest) | [SearchLakeHostResponse](#cmdb.SearchLakeHostResponse) | 查询Lake节点下的主机列表 |
 | SearchLakeArea | [SearchLakeAreaRequest](#cmdb.SearchLakeAreaRequest) | [SearchLakeAreaResponse](#cmdb.SearchLakeAreaResponse) | 通过IP获取节点的地区和位置信息 |
 | ImportAsset | [ImportAssetRequest](#cmdb.ImportAssetRequest) | [ImportAssetResponse](#cmdb.ImportAssetResponse) | 导入实体资产 |
 

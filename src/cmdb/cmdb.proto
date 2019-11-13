@@ -104,7 +104,7 @@ service Cmdb {
     }
 
     // 查询Lake节点下的主机列表
-    rpc SearchHostInLake (SearchHostInLakeRequest) returns (SearchHostInLakeResponse) {
+    rpc SearchLakeHost (SearchLakeHostRequest) returns (SearchLakeHostResponse) {
         option (google.api.http) = {
             get: "/v1/cmdb/searchLakeHost"
         };
@@ -756,7 +756,7 @@ message CabinetObject {
 }
 
 // 查询lake下的主机列表的请求体
-message SearchHostInLakeRequest {
+message SearchLakeHostRequest {
     // lake节点的名字列表
     repeated string lake_name = 1;
     // lake节点的ID列表
@@ -765,7 +765,7 @@ message SearchHostInLakeRequest {
     AreaLevel area_level = 3;
 }
 // 查询lake下的主机列表的返回
-message SearchHostInLakeResponse {
+message SearchLakeHostResponse {
     repeated LakeHost lake_host = 1;
     // 状态码
     common.ResponseStatus status = 2;

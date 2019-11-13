@@ -421,14 +421,6 @@
                 </li>
               
                 <li>
-                  <a href="#cmdb.SearchHostInLakeRequest"><span class="badge">M</span>SearchHostInLakeRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#cmdb.SearchHostInLakeResponse"><span class="badge">M</span>SearchHostInLakeResponse</a>
-                </li>
-              
-                <li>
                   <a href="#cmdb.SearchHostRequest"><span class="badge">M</span>SearchHostRequest</a>
                 </li>
               
@@ -442,6 +434,14 @@
               
                 <li>
                   <a href="#cmdb.SearchLakeAreaResponse"><span class="badge">M</span>SearchLakeAreaResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#cmdb.SearchLakeHostRequest"><span class="badge">M</span>SearchLakeHostRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#cmdb.SearchLakeHostResponse"><span class="badge">M</span>SearchLakeHostResponse</a>
                 </li>
               
                 <li>
@@ -3520,75 +3520,6 @@
 
         
       
-        <h3 id="cmdb.SearchHostInLakeRequest">SearchHostInLakeRequest</h3>
-        <p>查询lake下的主机列表的请求体</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>lake_name</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>lake节点的名字列表 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>id</td>
-                  <td><a href="#int32">int32</a></td>
-                  <td>repeated</td>
-                  <td><p>lake节点的ID列表 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>area_level</td>
-                  <td><a href="#cmdb.AreaLevel">AreaLevel</a></td>
-                  <td></td>
-                  <td><p>要查询的区域的地区层级 </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="cmdb.SearchHostInLakeResponse">SearchHostInLakeResponse</h3>
-        <p>查询lake下的主机列表的返回</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>lake_host</td>
-                  <td><a href="#cmdb.LakeHost">LakeHost</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>status</td>
-                  <td><a href="#common.ResponseStatus">common.ResponseStatus</a></td>
-                  <td></td>
-                  <td><p>状态码 </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="cmdb.SearchHostRequest">SearchHostRequest</h3>
         <p>查找主机请求</p>
 
@@ -3737,6 +3668,75 @@
                 <tr>
                   <td>lake_area</td>
                   <td><a href="#cmdb.LakeAreaObject">LakeAreaObject</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#common.ResponseStatus">common.ResponseStatus</a></td>
+                  <td></td>
+                  <td><p>状态码 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="cmdb.SearchLakeHostRequest">SearchLakeHostRequest</h3>
+        <p>查询lake下的主机列表的请求体</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>lake_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>lake节点的名字列表 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td>repeated</td>
+                  <td><p>lake节点的ID列表 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>area_level</td>
+                  <td><a href="#cmdb.AreaLevel">AreaLevel</a></td>
+                  <td></td>
+                  <td><p>要查询的区域的地区层级 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="cmdb.SearchLakeHostResponse">SearchLakeHostResponse</h3>
+        <p>查询lake下的主机列表的返回</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>lake_host</td>
+                  <td><a href="#cmdb.LakeHost">LakeHost</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
@@ -4634,9 +4634,9 @@
               </tr>
             
               <tr>
-                <td>SearchHostInLake</td>
-                <td><a href="#cmdb.SearchHostInLakeRequest">SearchHostInLakeRequest</a></td>
-                <td><a href="#cmdb.SearchHostInLakeResponse">SearchHostInLakeResponse</a></td>
+                <td>SearchLakeHost</td>
+                <td><a href="#cmdb.SearchLakeHostRequest">SearchLakeHostRequest</a></td>
+                <td><a href="#cmdb.SearchLakeHostResponse">SearchLakeHostResponse</a></td>
                 <td><p>查询Lake节点下的主机列表</p></td>
               </tr>
             
@@ -4775,7 +4775,7 @@
               
               
               <tr>
-                <td>SearchHostInLake</td>
+                <td>SearchLakeHost</td>
                 <td>GET</td>
                 <td>/v1/cmdb/searchLakeHost</td>
                 <td></td>

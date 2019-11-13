@@ -7,11 +7,11 @@ import (
 	fmt "fmt"
 	math "math"
 	proto "github.com/golang/protobuf/proto"
+	_ "github.com/golang/protobuf/ptypes/timestamp"
 	_ "git.fogcdn.top/axe/protos/goout/common"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "github.com/mwitkow/go-proto-validators"
-	_ "github.com/golang/protobuf/ptypes/timestamp"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
@@ -426,10 +426,10 @@ func (this *SearchLakeResponse) Validate() error {
 func (this *CabinetObject) Validate() error {
 	return nil
 }
-func (this *SearchHostInLakeRequest) Validate() error {
+func (this *SearchLakeHostRequest) Validate() error {
 	return nil
 }
-func (this *SearchHostInLakeResponse) Validate() error {
+func (this *SearchLakeHostResponse) Validate() error {
 	for _, item := range this.LakeHost {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {

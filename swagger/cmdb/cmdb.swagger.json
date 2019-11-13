@@ -505,12 +505,12 @@
     "/v1/cmdb/searchLakeHost": {
       "get": {
         "summary": "查询Lake节点下的主机列表",
-        "operationId": "SearchHostInLake",
+        "operationId": "SearchLakeHost",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/cmdbSearchHostInLakeResponse"
+              "$ref": "#/definitions/cmdbSearchLakeHostResponse"
             }
           }
         },
@@ -1257,22 +1257,6 @@
       },
       "title": "机房拓扑请求返回"
     },
-    "cmdbSearchHostInLakeResponse": {
-      "type": "object",
-      "properties": {
-        "lake_host": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/cmdbLakeHost"
-          }
-        },
-        "status": {
-          "$ref": "#/definitions/commonResponseStatus",
-          "title": "状态码"
-        }
-      },
-      "title": "查询lake下的主机列表的返回"
-    },
     "cmdbSearchHostResponse": {
       "type": "object",
       "properties": {
@@ -1309,6 +1293,22 @@
         }
       },
       "title": "通过IP获取节点的地区和位置信息的返回"
+    },
+    "cmdbSearchLakeHostResponse": {
+      "type": "object",
+      "properties": {
+        "lake_host": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbLakeHost"
+          }
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
+        }
+      },
+      "title": "查询lake下的主机列表的返回"
     },
     "cmdbSearchLakeRequest": {
       "type": "object",

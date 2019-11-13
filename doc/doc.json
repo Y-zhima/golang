@@ -2462,78 +2462,6 @@
           ]
         },
         {
-          "name": "SearchHostInLakeRequest",
-          "longName": "SearchHostInLakeRequest",
-          "fullName": "cmdb.SearchHostInLakeRequest",
-          "description": "查询lake下的主机列表的请求体",
-          "hasExtensions": false,
-          "hasFields": true,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "lake_name",
-              "description": "lake节点的名字列表",
-              "label": "repeated",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "id",
-              "description": "lake节点的ID列表",
-              "label": "repeated",
-              "type": "int32",
-              "longType": "int32",
-              "fullType": "int32",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "area_level",
-              "description": "要查询的区域的地区层级",
-              "label": "",
-              "type": "AreaLevel",
-              "longType": "AreaLevel",
-              "fullType": "cmdb.AreaLevel",
-              "ismap": false,
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "SearchHostInLakeResponse",
-          "longName": "SearchHostInLakeResponse",
-          "fullName": "cmdb.SearchHostInLakeResponse",
-          "description": "查询lake下的主机列表的返回",
-          "hasExtensions": false,
-          "hasFields": true,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "lake_host",
-              "description": "",
-              "label": "repeated",
-              "type": "LakeHost",
-              "longType": "LakeHost",
-              "fullType": "cmdb.LakeHost",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "status",
-              "description": "状态码",
-              "label": "",
-              "type": "ResponseStatus",
-              "longType": "common.ResponseStatus",
-              "fullType": "common.ResponseStatus",
-              "ismap": false,
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
           "name": "SearchHostRequest",
           "longName": "SearchHostRequest",
           "fullName": "cmdb.SearchHostRequest",
@@ -2702,6 +2630,78 @@
               "type": "LakeAreaObject",
               "longType": "LakeAreaObject",
               "fullType": "cmdb.LakeAreaObject",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "status",
+              "description": "状态码",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "SearchLakeHostRequest",
+          "longName": "SearchLakeHostRequest",
+          "fullName": "cmdb.SearchLakeHostRequest",
+          "description": "查询lake下的主机列表的请求体",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "lake_name",
+              "description": "lake节点的名字列表",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "id",
+              "description": "lake节点的ID列表",
+              "label": "repeated",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "area_level",
+              "description": "要查询的区域的地区层级",
+              "label": "",
+              "type": "AreaLevel",
+              "longType": "AreaLevel",
+              "fullType": "cmdb.AreaLevel",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "SearchLakeHostResponse",
+          "longName": "SearchLakeHostResponse",
+          "fullName": "cmdb.SearchLakeHostResponse",
+          "description": "查询lake下的主机列表的返回",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "lake_host",
+              "description": "",
+              "label": "repeated",
+              "type": "LakeHost",
+              "longType": "LakeHost",
+              "fullType": "cmdb.LakeHost",
               "ismap": false,
               "defaultValue": ""
             },
@@ -3615,15 +3615,15 @@
               }
             },
             {
-              "name": "SearchHostInLake",
+              "name": "SearchLakeHost",
               "description": "查询Lake节点下的主机列表",
-              "requestType": "SearchHostInLakeRequest",
-              "requestLongType": "SearchHostInLakeRequest",
-              "requestFullType": "cmdb.SearchHostInLakeRequest",
+              "requestType": "SearchLakeHostRequest",
+              "requestLongType": "SearchLakeHostRequest",
+              "requestFullType": "cmdb.SearchLakeHostRequest",
               "requestStreaming": false,
-              "responseType": "SearchHostInLakeResponse",
-              "responseLongType": "SearchHostInLakeResponse",
-              "responseFullType": "cmdb.SearchHostInLakeResponse",
+              "responseType": "SearchLakeHostResponse",
+              "responseLongType": "SearchLakeHostResponse",
+              "responseFullType": "cmdb.SearchLakeHostResponse",
               "responseStreaming": false,
               "options": {
                 "google.api.http": {

@@ -599,7 +599,7 @@
           "Cmdb"
         ],
         "summary": "查询Lake节点下的主机列表",
-        "operationId": "SearchHostInLake",
+        "operationId": "SearchLakeHost",
         "parameters": [
           {
             "type": "array",
@@ -642,7 +642,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/cmdbSearchHostInLakeResponse"
+              "$ref": "#/definitions/cmdbSearchLakeHostResponse"
             }
           }
         }
@@ -2737,22 +2737,6 @@
         }
       }
     },
-    "cmdbSearchHostInLakeResponse": {
-      "type": "object",
-      "title": "查询lake下的主机列表的返回",
-      "properties": {
-        "lake_host": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/cmdbLakeHost"
-          }
-        },
-        "status": {
-          "title": "状态码",
-          "$ref": "#/definitions/commonResponseStatus"
-        }
-      }
-    },
     "cmdbSearchHostResponse": {
       "type": "object",
       "title": "查找主机请求返回",
@@ -2782,6 +2766,22 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/cmdbLakeAreaObject"
+          }
+        },
+        "status": {
+          "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbSearchLakeHostResponse": {
+      "type": "object",
+      "title": "查询lake下的主机列表的返回",
+      "properties": {
+        "lake_host": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbLakeHost"
           }
         },
         "status": {
