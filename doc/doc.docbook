@@ -1165,7 +1165,7 @@
             
             <row>
               <entry>import_type</entry>
-              <entry><link linkend="cmdb.ImportType">ImportType</link></entry>
+              <entry><link linkend="string">string</link></entry>
               <entry></entry>
               <entry><para>导入资产实体类型</para></entry>
             </row>
@@ -4012,7 +4012,14 @@
               <entry>template_type</entry>
               <entry><link linkend="file.TemplateType">TemplateType</link></entry>
               <entry></entry>
-              <entry><para></para></entry>
+              <entry><para>导入类型</para></entry>
+            </row>
+            
+            <row>
+              <entry>asset_type</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>非关系链的导入模板的类型</para></entry>
             </row>
             
           </tbody>
@@ -4198,7 +4205,7 @@
             </row>
             
             <row>
-              <entry>job</entry>
+              <entry>key</entry>
               <entry><link linkend="string">string</link></entry>
               <entry></entry>
               <entry><para>指定上传存储路径（可选）</para></entry>
@@ -4296,43 +4303,25 @@
             <row>
               <entry>UNDEFINED</entry>
               <entry>0</entry>
-              <entry><para>0-undefined</para></entry>
-            </row>
-            
-            <row>
-              <entry>HOST</entry>
-              <entry>1</entry>
-              <entry><para>1-导入主机</para></entry>
-            </row>
-            
-            <row>
-              <entry>VIP</entry>
-              <entry>2</entry>
-              <entry><para>2-导入物理机</para></entry>
-            </row>
-            
-            <row>
-              <entry>LAKE</entry>
-              <entry>3</entry>
-              <entry><para>3-导入LAKE</para></entry>
+              <entry><para>0-undefined,指除了关系链模板之外的导入模板，也可不传</para></entry>
             </row>
             
             <row>
               <entry>HOSTCHAIN</entry>
-              <entry>4</entry>
-              <entry><para>4-导入主机业务拓扑</para></entry>
+              <entry>1</entry>
+              <entry><para>1-导入主机业务拓扑</para></entry>
             </row>
             
             <row>
               <entry>LAKECHAIN</entry>
-              <entry>5</entry>
-              <entry><para>5-导入lake节点关系链</para></entry>
+              <entry>2</entry>
+              <entry><para>2-导入lake节点关系链</para></entry>
             </row>
             
             <row>
               <entry>CROSSTABLE</entry>
-              <entry>6</entry>
-              <entry><para>6-导入交维表</para></entry>
+              <entry>3</entry>
+              <entry><para>3-导入交维表</para></entry>
             </row>
             
           </tbody>
@@ -8907,6 +8896,13 @@
               <entry><para>子任务实例名</para></entry>
             </row>
             
+            <row>
+              <entry>sub_task_status</entry>
+              <entry><link linkend="subtask.SubTaskState">SubTaskState</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>
@@ -8996,6 +8992,41 @@
               <entry>SUCCESS</entry>
               <entry>1</entry>
               <entry><para>成功</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    
+    <section id="subtask.SubTaskState">
+      <title>SubTaskState</title>
+      <para>模板状态</para>
+      <table frame="all">
+        <title><classname>SubTaskState</classname> Values</title>
+        <tgroup cols="3">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Name</entry>
+              <entry>Number</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>COMPLETE</entry>
+              <entry>0</entry>
+              <entry><para>执行完成</para></entry>
+            </row>
+            
+            <row>
+              <entry>RUNNING</entry>
+              <entry>1</entry>
+              <entry><para>执行中</para></entry>
             </row>
             
           </tbody>
@@ -10472,9 +10503,9 @@
             
             <row>
               <entry>executor</entry>
-              <entry><link linkend="int32">int32</link></entry>
+              <entry><link linkend="common.User">common.User</link></entry>
               <entry></entry>
-              <entry><para>执行人ID</para></entry>
+              <entry><para>执行人</para></entry>
             </row>
             
             <row>

@@ -1048,6 +1048,10 @@
                   <a href="#subtask.SubTaskResult"><span class="badge">E</span>SubTaskResult</a>
                 </li>
               
+                <li>
+                  <a href="#subtask.SubTaskState"><span class="badge">E</span>SubTaskState</a>
+                </li>
+              
               
               
                 <li>
@@ -2297,7 +2301,7 @@
               
                 <tr>
                   <td>import_type</td>
-                  <td><a href="#cmdb.ImportType">ImportType</a></td>
+                  <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>导入资产实体类型 </p></td>
                 </tr>
@@ -2340,11 +2344,50 @@
               <tbody>
               
                 <tr>
+                  <td>import_type</td>
+                  <td>
+                    <ul>
+                    
+                      <li>human_error: importType能为空</li>
+                    
+                      <li>string_not_empty: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
                   <td>url</td>
                   <td>
                     <ul>
                     
                       <li>human_error: URL不能为空</li>
+                    
+                      <li>string_not_empty: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>md5</td>
+                  <td>
+                    <ul>
+                    
+                      <li>human_error: MD5不能为空</li>
+                    
+                      <li>string_not_empty: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>filename</td>
+                  <td>
+                    <ul>
+                    
+                      <li>human_error: fileName不能为空</li>
                     
                       <li>string_not_empty: true</li>
                     
@@ -4914,7 +4957,14 @@
                   <td>template_type</td>
                   <td><a href="#file.TemplateType">TemplateType</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>导入类型 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>asset_type</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>非关系链的导入模板的类型 </p></td>
                 </tr>
               
             </tbody>
@@ -5056,7 +5106,7 @@
                 </tr>
               
                 <tr>
-                  <td>job</td>
+                  <td>key</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>指定上传存储路径（可选） </p></td>
@@ -5134,43 +5184,25 @@
               <tr>
                 <td>UNDEFINED</td>
                 <td>0</td>
-                <td><p>0-undefined</p></td>
-              </tr>
-            
-              <tr>
-                <td>HOST</td>
-                <td>1</td>
-                <td><p>1-导入主机</p></td>
-              </tr>
-            
-              <tr>
-                <td>VIP</td>
-                <td>2</td>
-                <td><p>2-导入物理机</p></td>
-              </tr>
-            
-              <tr>
-                <td>LAKE</td>
-                <td>3</td>
-                <td><p>3-导入LAKE</p></td>
+                <td><p>0-undefined,指除了关系链模板之外的导入模板，也可不传</p></td>
               </tr>
             
               <tr>
                 <td>HOSTCHAIN</td>
-                <td>4</td>
-                <td><p>4-导入主机业务拓扑</p></td>
+                <td>1</td>
+                <td><p>1-导入主机业务拓扑</p></td>
               </tr>
             
               <tr>
                 <td>LAKECHAIN</td>
-                <td>5</td>
-                <td><p>5-导入lake节点关系链</p></td>
+                <td>2</td>
+                <td><p>2-导入lake节点关系链</p></td>
               </tr>
             
               <tr>
                 <td>CROSSTABLE</td>
-                <td>6</td>
-                <td><p>6-导入交维表</p></td>
+                <td>3</td>
+                <td><p>3-导入交维表</p></td>
               </tr>
             
           </tbody>
@@ -5252,7 +5284,7 @@
               <tr>
                 <td>DownloadTemplate</td>
                 <td>GET</td>
-                <td>/v1/cmdb/downloadTemplate</td>
+                <td>/v1/file/downloadTemplate</td>
                 <td></td>
               </tr>
               
@@ -9222,6 +9254,13 @@
                   <td><p>子任务实例名 </p></td>
                 </tr>
               
+                <tr>
+                  <td>sub_task_status</td>
+                  <td><a href="#subtask.SubTaskState">SubTaskState</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -9290,6 +9329,29 @@
                 <td>SUCCESS</td>
                 <td>1</td>
                 <td><p>成功</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="subtask.SubTaskState">SubTaskState</h3>
+        <p>模板状态</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>COMPLETE</td>
+                <td>0</td>
+                <td><p>执行完成</p></td>
+              </tr>
+            
+              <tr>
+                <td>RUNNING</td>
+                <td>1</td>
+                <td><p>执行中</p></td>
               </tr>
             
           </tbody>
@@ -10485,9 +10547,9 @@
               
                 <tr>
                   <td>executor</td>
-                  <td><a href="#int32">int32</a></td>
+                  <td><a href="#common.User">common.User</a></td>
                   <td></td>
-                  <td><p>执行人ID </p></td>
+                  <td><p>执行人 </p></td>
                 </tr>
               
                 <tr>

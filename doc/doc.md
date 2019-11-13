@@ -258,6 +258,7 @@
   
     - [ServerTaskType](#subtask.ServerTaskType)
     - [SubTaskResult](#subtask.SubTaskResult)
+    - [SubTaskState](#subtask.SubTaskState)
   
   
     - [SubTask](#subtask.SubTask)
@@ -819,7 +820,7 @@ cmdb事件请求返回
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| import_type | [ImportType](#cmdb.ImportType) |  | 导入资产实体类型 |
+| import_type | [string](#string) |  | 导入资产实体类型 |
 | url | [string](#string) |  | xlsx文件下载路径 |
 | md5 | [string](#string) |  | xlsx文件md5 |
 | filename | [string](#string) |  | 用户上传xlsx文件的文件名 |
@@ -1787,7 +1788,8 @@ VIP对象
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| template_type | [TemplateType](#file.TemplateType) |  |  |
+| template_type | [TemplateType](#file.TemplateType) |  | 导入类型 |
+| asset_type | [string](#string) |  | 非关系链的导入模板的类型 |
 
 
 
@@ -1854,7 +1856,7 @@ VIP对象
 | ----- | ---- | ----- | ----------- |
 | content | [bytes](#bytes) |  | 文件字段 |
 | bucket | [string](#string) |  | 指定上传bucket_name（可选） |
-| job | [string](#string) |  | 指定上传存储路径（可选） |
+| key | [string](#string) |  | 指定上传存储路径（可选） |
 
 
 
@@ -1889,13 +1891,10 @@ VIP对象
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| UNDEFINED | 0 | 0-undefined |
-| HOST | 1 | 1-导入主机 |
-| VIP | 2 | 2-导入物理机 |
-| LAKE | 3 | 3-导入LAKE |
-| HOSTCHAIN | 4 | 4-导入主机业务拓扑 |
-| LAKECHAIN | 5 | 5-导入lake节点关系链 |
-| CROSSTABLE | 6 | 6-导入交维表 |
+| UNDEFINED | 0 | 0-undefined,指除了关系链模板之外的导入模板，也可不传 |
+| HOSTCHAIN | 1 | 1-导入主机业务拓扑 |
+| LAKECHAIN | 2 | 2-导入lake节点关系链 |
+| CROSSTABLE | 3 | 3-导入交维表 |
 
 
  
@@ -3526,6 +3525,7 @@ playbook入口文件实例
 | ----- | ---- | ----- | ----------- |
 | status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
 | sub_task_log | [string](#string) |  | 子任务实例名 |
+| sub_task_status | [SubTaskState](#subtask.SubTaskState) |  |  |
 
 
 
@@ -3558,6 +3558,18 @@ playbook入口文件实例
 | ---- | ------ | ----------- |
 | FAILURE | 0 | 失败 |
 | SUCCESS | 1 | 成功 |
+
+
+
+<a name="subtask.SubTaskState"></a>
+
+### SubTaskState
+模板状态
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| COMPLETE | 0 | 执行完成 |
+| RUNNING | 1 | 执行中 |
 
 
  
@@ -4108,7 +4120,7 @@ agent上报kafka日志结构体
 | task_type | [schedule.TaskType](#schedule.TaskType) |  | 任务类型 |
 | cmdb_search_request | [cmdb.ChooseHostRequest](#cmdb.ChooseHostRequest) | repeated | cmdb的搜索条件 |
 | extra_var | [string](#string) |  | 额外变量JSON String 例如： {&#34;key&#34;:&#34;testKey&#34;,&#34;value&#34;:&#34;testVal&#34;,&#34;description&#34;:&#34;测试描述&#34;} |
-| executor | [int32](#int32) |  | 执行人ID |
+| executor | [common.User](#common.User) |  | 执行人 |
 | execute_count | [int32](#int32) |  | 总共执行多少主机 |
 | fail_count | [int32](#int32) |  | 执行失败多少台主机 |
 | success_count | [int32](#int32) |  | 执行成功多少台主机 |

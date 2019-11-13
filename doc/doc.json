@@ -1232,11 +1232,23 @@
               "name": "import_type",
               "description": "导入资产实体类型",
               "label": "",
-              "type": "ImportType",
-              "longType": "ImportType",
-              "fullType": "cmdb.ImportType",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
-              "defaultValue": ""
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "human_error",
+                    "value": "importType能为空"
+                  },
+                  {
+                    "name": "string_not_empty",
+                    "value": true
+                  }
+                ]
+              }
             },
             {
               "name": "url",
@@ -1268,7 +1280,19 @@
               "longType": "string",
               "fullType": "string",
               "ismap": false,
-              "defaultValue": ""
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "human_error",
+                    "value": "MD5不能为空"
+                  },
+                  {
+                    "name": "string_not_empty",
+                    "value": true
+                  }
+                ]
+              }
             },
             {
               "name": "filename",
@@ -1278,7 +1302,19 @@
               "longType": "string",
               "fullType": "string",
               "ismap": false,
-              "defaultValue": ""
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "human_error",
+                    "value": "fileName不能为空"
+                  },
+                  {
+                    "name": "string_not_empty",
+                    "value": true
+                  }
+                ]
+              }
             }
           ]
         },
@@ -1938,7 +1974,7 @@
             },
             {
               "name": "status",
-              "description": "TopologyObject instance = 1;\r\n状态码",
+              "description": "TopologyObject instance = 1;\n状态码",
               "label": "",
               "type": "ResponseStatus",
               "longType": "common.ResponseStatus",
@@ -3782,37 +3818,22 @@
             {
               "name": "UNDEFINED",
               "number": "0",
-              "description": "0-undefined"
-            },
-            {
-              "name": "HOST",
-              "number": "1",
-              "description": "1-导入主机"
-            },
-            {
-              "name": "VIP",
-              "number": "2",
-              "description": "2-导入物理机"
-            },
-            {
-              "name": "LAKE",
-              "number": "3",
-              "description": "3-导入LAKE"
+              "description": "0-undefined,指除了关系链模板之外的导入模板，也可不传"
             },
             {
               "name": "HOSTCHAIN",
-              "number": "4",
-              "description": "4-导入主机业务拓扑"
+              "number": "1",
+              "description": "1-导入主机业务拓扑"
             },
             {
               "name": "LAKECHAIN",
-              "number": "5",
-              "description": "5-导入lake节点关系链"
+              "number": "2",
+              "description": "2-导入lake节点关系链"
             },
             {
               "name": "CROSSTABLE",
-              "number": "6",
-              "description": "6-导入交维表"
+              "number": "3",
+              "description": "3-导入交维表"
             }
           ]
         }
@@ -3830,11 +3851,21 @@
           "fields": [
             {
               "name": "template_type",
-              "description": "",
+              "description": "导入类型",
               "label": "",
               "type": "TemplateType",
               "longType": "TemplateType",
               "fullType": "file.TemplateType",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "asset_type",
+              "description": "非关系链的导入模板的类型",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "defaultValue": ""
             }
@@ -3983,7 +4014,7 @@
               "defaultValue": ""
             },
             {
-              "name": "job",
+              "name": "key",
               "description": "指定上传存储路径（可选）",
               "label": "",
               "type": "string",
@@ -4125,7 +4156,7 @@
                   "rules": [
                     {
                       "method": "GET",
-                      "pattern": "/v1/cmdb/downloadTemplate"
+                      "pattern": "/v1/file/downloadTemplate"
                     }
                   ]
                 }
@@ -7846,6 +7877,24 @@
               "description": "成功"
             }
           ]
+        },
+        {
+          "name": "SubTaskState",
+          "longName": "SubTaskState",
+          "fullName": "subtask.SubTaskState",
+          "description": "模板状态",
+          "values": [
+            {
+              "name": "COMPLETE",
+              "number": "0",
+              "description": "执行完成"
+            },
+            {
+              "name": "RUNNING",
+              "number": "1",
+              "description": "执行中"
+            }
+          ]
         }
       ],
       "extensions": [],
@@ -8235,6 +8284,16 @@
               "type": "string",
               "longType": "string",
               "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "sub_task_status",
+              "description": "",
+              "label": "",
+              "type": "SubTaskState",
+              "longType": "SubTaskState",
+              "fullType": "subtask.SubTaskState",
               "ismap": false,
               "defaultValue": ""
             }
@@ -9484,11 +9543,11 @@
             },
             {
               "name": "executor",
-              "description": "执行人ID",
+              "description": "执行人",
               "label": "",
-              "type": "int32",
-              "longType": "int32",
-              "fullType": "int32",
+              "type": "User",
+              "longType": "common.User",
+              "fullType": "common.User",
               "ismap": false,
               "defaultValue": ""
             },
@@ -9631,7 +9690,7 @@
             },
             {
               "name": "GetLog",
-              "description": "获取作业任务详细执行过程\n\noption (google.api.http) = {\r\n           get: \"/v1/task/{task_id}/logs\"\r\n       };",
+              "description": "获取作业任务详细执行过程\n\noption (google.api.http) = {\n           get: \"/v1/task/{task_id}/logs\"\n       };",
               "requestType": "GetLogRequest",
               "requestLongType": "GetLogRequest",
               "requestFullType": "task.GetLogRequest",

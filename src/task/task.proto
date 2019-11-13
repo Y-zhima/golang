@@ -12,6 +12,7 @@ import "github.com/mwitkow/go-proto-validators/validator.proto";
 import "common/api.proto";
 import "schedule/schedule.proto";
 import "cmdb/cmdb.proto";
+import "common/user.proto";
 
 // 任务实例
 service Task {
@@ -49,7 +50,6 @@ service Task {
             get: "/v1/task/getSubTask/{task_id}"
         };
     }
-
 
     // 交维表导入后巡检任务
     rpc CreateServerCompare (CreateServerCompareRequest) returns (CreateServerCompareResponse) {
@@ -99,7 +99,6 @@ service Task {
         };
     }
 }
-
 
 // 调用裸金属应用检查裸金属状态请求体
 message CheckServerStateRequest {
@@ -169,7 +168,6 @@ message CreateServerCompareResponse {
     common.ResponseStatus status = 1;
 }
 
-
 // 定时任务类型 0-undefined 1-单次任务 2-定时任务
 enum ScheduleType {
     // 0-undefined
@@ -196,8 +194,8 @@ message TaskObject {
     repeated cmdb.ChooseHostRequest cmdb_search_request = 6;
     // 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
     string extra_var = 7;
-    // 执行人ID
-    int32 executor = 8;
+    // 执行人
+    common.User executor = 8;
     // 总共执行多少主机
     int32 execute_count = 9;
     // 执行失败多少台主机
@@ -220,9 +218,11 @@ message CreateRequest {
         }
     };
     // 模板ID
-    int32 template_id = 1 [(validator.field) = {int_gt: 0, human_error: "模板ID不能为空"}];
+    int32 template_id = 1 [(validator.field) = {int_gt: 0, human_error: "模板ID不能为空"
+                          }];
     // cmdb的搜索条件
-    repeated cmdb.ChooseHostRequest cmdb_search_request = 2 [(validator.field) = {string_not_empty: true, human_error: "cmdb的搜索条件不能为空"}];
+    repeated cmdb.ChooseHostRequest cmdb_search_request = 2 [(validator.field) = {string_not_empty: true, human_error: "cmdb的搜索条件不能为空"
+                                                            }];
     // 任务类型
     schedule.TaskType task_type = 3;
     // 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
@@ -294,7 +294,6 @@ message SubTaskInfo {
     // 子任务实例名
     string sub_task_name = 2;
 }
-
 
 // 筛选获取作业任务请求
 message FilterRequest {

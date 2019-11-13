@@ -125,9 +125,22 @@ service Cmdb {
         };
     }
 
+    // 查看导入的实体信息列表
+    rpc ImportReview (ImportReviewRequest) returns (ImportReviewResponse) {
+        option (google.api.http) = {
+            get: "/v1/cmdb/importReview"
+        };
+    }
+
+    // 导入交维表审批结果
+    rpc ImportResult (ImportResultRequest) returns (ImportResultResponse) {
+        option (google.api.http) = {
+            get: "/v1/cmdb/importResult"
+        };
+    }
 }
 
-// 导入状态: 0-正在导入 1-导入完成 2-导入失败
+// 导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 // 5-审核不通过
 enum ImportStatus {
     // 0-正在导入
     IMPORTING = 0;
@@ -135,6 +148,12 @@ enum ImportStatus {
     COMPLETED = 1;
     // 2-导入失败
     FAILED = 2;
+    // 3-待审核
+    REVIEWING = 3;
+    // 4-审核通过
+    ACCEPT = 4;
+    // 5-审核不通过
+    REJECT = 5;
 }
 
 // 导入类型:0-undefined 1-主机 2-物理机 3-LAKE 4-交换机
@@ -810,17 +829,66 @@ enum AreaLevel {
 
 message ImportAssetRequest {
     // 导入资产实体类型
-    ImportType import_type = 1;
+    string import_type = 1 [(validator.field) = {string_not_empty: true, human_error: "importType能为空"
+                           }];
     // xlsx文件下载路径
     string url = 2 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"
                    }];
     // xlsx文件md5
-    string md5 = 3;
+    string md5 = 3 [(validator.field) = {string_not_empty: true, human_error: "MD5不能为空"
+                   }];
     // 用户上传xlsx文件的文件名
-    string filename = 4;
+    string filename = 4 [(validator.field) = {string_not_empty: true, human_error: "fileName不能为空"
+                        }];
 }
 
 message ImportAssetResponse {
     // 状态码
+    common.ResponseStatus status = 1;
+}
+
+// 查看导入的实体信息列表请求
+message ImportReviewRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+          required: ["import_id"]
+        }
+    };
+
+    // 导入记录id
+    int32 import_id = 1;
+    // 指定查看实体类型
+    string bk_obj_id = 2;
+    // 分页信息
+    common.Paging paging = 3;
+}
+
+// 查看导入的实体信息列表响应
+message ImportReviewResponse {
+    // 实体信息列表
+    map<string, repeated string>
+    // 分页信息
+    common.Paging paging = 2;
+    // 返回的请求状态
+    common.ResponseStatus status = 3;
+}
+
+// 导入交维表审批结果请求
+message ImportResultRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+          required: ["import_id"]
+        }
+    };
+
+    // 导入记录id
+    int32 import_id = 1;
+    // 指定查看实体类型
+    bool is_accept = 2;
+}
+
+// 执行审批结果返回
+message ImportResultResponse {
+    // 返回的请求状态
     common.ResponseStatus status = 1;
 }

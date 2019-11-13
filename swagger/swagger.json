@@ -138,41 +138,6 @@
         }
       }
     },
-    "/v1/cmdb/downloadTemplate": {
-      "get": {
-        "tags": [
-          "File"
-        ],
-        "summary": "获取导入模板",
-        "operationId": "DownloadTemplate",
-        "parameters": [
-          {
-            "enum": [
-              "UNDEFINED",
-              "HOST",
-              "VIP",
-              "LAKE",
-              "HOSTCHAIN",
-              "LAKECHAIN",
-              "CROSSTABLE"
-            ],
-            "type": "string",
-            "default": "UNDEFINED",
-            "description": " - UNDEFINED: 0-undefined\n - HOST: 1-导入主机\n - VIP: 2-导入物理机\n - LAKE: 3-导入LAKE\n - HOSTCHAIN: 4-导入主机业务拓扑\n - LAKECHAIN: 5-导入lake节点关系链\n - CROSSTABLE: 6-导入交维表",
-            "name": "template_type",
-            "in": "query"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/fileDownloadTemplateResponse"
-            }
-          }
-        }
-      }
-    },
     "/v1/cmdb/importAsset": {
       "post": {
         "tags": [
@@ -722,6 +687,44 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/cmdbServerListResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/file/downloadTemplate": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "获取导入模板",
+        "operationId": "DownloadTemplate",
+        "parameters": [
+          {
+            "enum": [
+              "UNDEFINED",
+              "HOSTCHAIN",
+              "LAKECHAIN",
+              "CROSSTABLE"
+            ],
+            "type": "string",
+            "default": "UNDEFINED",
+            "description": "导入类型.\n\n - UNDEFINED: 0-undefined,指除了关系链模板之外的导入模板，也可不传\n - HOSTCHAIN: 1-导入主机业务拓扑\n - LAKECHAIN: 2-导入lake节点关系链\n - CROSSTABLE: 3-导入交维表",
+            "name": "template_type",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "非关系链的导入模板的类型.",
+            "name": "asset_type",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/fileDownloadTemplateResponse"
             }
           }
         }
@@ -2243,8 +2246,8 @@
           "title": "用户上传xlsx文件的文件名"
         },
         "import_type": {
-          "title": "导入资产实体类型",
-          "$ref": "#/definitions/cmdbImportType"
+          "type": "string",
+          "title": "导入资产实体类型"
         },
         "md5": {
           "type": "string",
@@ -2480,7 +2483,7 @@
           }
         },
         "status": {
-          "title": "TopologyObject instance = 1;\r\n状态码",
+          "title": "TopologyObject instance = 1;\n状态码",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
@@ -3110,15 +3113,12 @@
       }
     },
     "fileTemplateType": {
-      "description": "- UNDEFINED: 0-undefined\n - HOST: 1-导入主机\n - VIP: 2-导入物理机\n - LAKE: 3-导入LAKE\n - HOSTCHAIN: 4-导入主机业务拓扑\n - LAKECHAIN: 5-导入lake节点关系链\n - CROSSTABLE: 6-导入交维表",
+      "description": "- UNDEFINED: 0-undefined,指除了关系链模板之外的导入模板，也可不传\n - HOSTCHAIN: 1-导入主机业务拓扑\n - LAKECHAIN: 2-导入lake节点关系链\n - CROSSTABLE: 3-导入交维表",
       "type": "string",
       "title": "下载模板类型",
       "default": "UNDEFINED",
       "enum": [
         "UNDEFINED",
-        "HOST",
-        "VIP",
-        "LAKE",
         "HOSTCHAIN",
         "LAKECHAIN",
         "CROSSTABLE"
@@ -3176,7 +3176,7 @@
           "format": "byte",
           "title": "文件字段"
         },
-        "job": {
+        "key": {
           "type": "string",
           "title": "指定上传存储路径（可选）"
         }
@@ -4150,6 +4150,16 @@
         }
       }
     },
+    "subtaskCompleteResponse": {
+      "type": "object",
+      "title": "完成子任务实例请求返回",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
     "subtaskCreateResponse": {
       "type": "object",
       "title": "创建子任务实例请求返回",
@@ -4208,6 +4218,9 @@
         "sub_task_log": {
           "type": "string",
           "title": "子任务实例名"
+        },
+        "sub_task_status": {
+          "$ref": "#/definitions/subtaskSubTaskState"
         }
       }
     },
@@ -4222,6 +4235,26 @@
         "POWER",
         "CREATE",
         "INSTALL"
+      ]
+    },
+    "subtaskSubTaskResult": {
+      "description": "- FAILURE: 失败\n - SUCCESS: 成功",
+      "type": "string",
+      "title": "子任务执行结果",
+      "default": "FAILURE",
+      "enum": [
+        "FAILURE",
+        "SUCCESS"
+      ]
+    },
+    "subtaskSubTaskState": {
+      "description": "- COMPLETE: 执行完成\n - RUNNING: 执行中",
+      "type": "string",
+      "title": "模板状态",
+      "default": "COMPLETE",
+      "enum": [
+        "COMPLETE",
+        "RUNNING"
       ]
     },
     "taskCheckServerStateRequest": {
@@ -4555,9 +4588,8 @@
           "title": "总共执行多少主机"
         },
         "executor": {
-          "type": "integer",
-          "format": "int32",
-          "title": "执行人ID"
+          "title": "执行人",
+          "$ref": "#/definitions/commonUser"
         },
         "extra_var": {
           "type": "string",

@@ -29,31 +29,28 @@ service File {
     // 获取导入模板
     rpc DownloadTemplate (DownloadTemplateRequest) returns (DownloadTemplateResponse) {
         option (google.api.http) = {
-            get: "/v1/cmdb/downloadTemplate"
+            get: "/v1/file/downloadTemplate"
         };
     }
 }
 
 // 下载模板类型
 enum TemplateType {
-    // 0-undefined
+    // 0-undefined,指除了关系链模板之外的导入模板，也可不传
     UNDEFINED = 0;
-    // 1-导入主机
-    HOST = 1;
-    // 2-导入物理机
-    VIP = 2;
-    // 3-导入LAKE
-    LAKE = 3;
-    // 4-导入主机业务拓扑
-    HOSTCHAIN = 4;
-    // 5-导入lake节点关系链
-    LAKECHAIN = 5;
-    // 6-导入交维表
-    CROSSTABLE = 6;
+    // 1-导入主机业务拓扑
+    HOSTCHAIN = 1;
+    // 2-导入lake节点关系链
+    LAKECHAIN = 2;
+    // 3-导入交维表
+    CROSSTABLE = 3;
 }
 
 message DownloadTemplateRequest {
+    // 导入类型
     TemplateType template_type = 1;
+    // 非关系链的导入模板的类型
+    string asset_type = 2;
 }
 
 message DownloadTemplateResponse {
@@ -89,7 +86,7 @@ message UploadRequest {
     // 指定上传bucket_name（可选）
     string bucket = 2;
     // 指定上传存储路径（可选）
-    string job = 3;
+    string key = 3;
 }
 
 message UploadResponse {

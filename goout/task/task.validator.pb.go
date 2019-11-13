@@ -117,6 +117,11 @@ func (this *TaskObject) Validate() error {
 			}
 		}
 	}
+	if this.Executor != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Executor); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Executor", err)
+		}
+	}
 	return nil
 }
 func (this *CreateRequest) Validate() error {
