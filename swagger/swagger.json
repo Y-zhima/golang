@@ -2588,33 +2588,14 @@
       "type": "object",
       "title": "lake下的主机列表",
       "properties": {
-        "area": {
-          "type": "string",
-          "title": "节点区域"
-        },
-        "bandwidth_limit": {
-          "type": "integer",
-          "format": "int32",
-          "title": "节点承载能力上限"
-        },
         "host": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/cmdbHostObject"
           }
         },
-        "lake_name": {
-          "type": "string",
-          "title": "缓存节点名称"
-        },
-        "node_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "缓存节点id"
-        },
-        "service_state": {
-          "type": "string",
-          "title": "节点服务状态"
+        "lakeObject": {
+          "$ref": "#/definitions/cmdbLakeObject"
         }
       }
     },

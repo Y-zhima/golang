@@ -2116,45 +2116,17 @@
           <tbody>
             
             <row>
-              <entry>host</entry>
-              <entry><link linkend="cmdb.HostObject">HostObject</link></entry>
-              <entry>repeated</entry>
+              <entry>lakeObject</entry>
+              <entry><link linkend="cmdb.LakeObject">LakeObject</link></entry>
+              <entry></entry>
               <entry><para></para></entry>
             </row>
             
             <row>
-              <entry>lake_name</entry>
-              <entry><link linkend="string">string</link></entry>
-              <entry></entry>
-              <entry><para>缓存节点名称</para></entry>
-            </row>
-            
-            <row>
-              <entry>node_id</entry>
-              <entry><link linkend="int32">int32</link></entry>
-              <entry></entry>
-              <entry><para>缓存节点id</para></entry>
-            </row>
-            
-            <row>
-              <entry>bandwidth_limit</entry>
-              <entry><link linkend="int32">int32</link></entry>
-              <entry></entry>
-              <entry><para>节点承载能力上限</para></entry>
-            </row>
-            
-            <row>
-              <entry>service_state</entry>
-              <entry><link linkend="string">string</link></entry>
-              <entry></entry>
-              <entry><para>节点服务状态</para></entry>
-            </row>
-            
-            <row>
-              <entry>area</entry>
-              <entry><link linkend="string">string</link></entry>
-              <entry></entry>
-              <entry><para>节点区域</para></entry>
+              <entry>host</entry>
+              <entry><link linkend="cmdb.HostObject">HostObject</link></entry>
+              <entry>repeated</entry>
+              <entry><para></para></entry>
             </row>
             
           </tbody>

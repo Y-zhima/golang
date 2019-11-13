@@ -773,19 +773,8 @@ message SearchHostInLakeResponse {
 
 // lake下的主机列表
 message LakeHost {
-    repeated HostObject host = 1;
-    // 缓存节点名称
-    string lake_name = 2;
-    // 缓存节点id
-    int32 node_id = 3;
-    // 节点承载能力上限
-    int32 bandwidth_limit = 4;
-    // 节点服务状态
-    string service_state = 5;
-    // 节点区域
-    string area = 6;
-
-
+    LakeObject lakeObject = 1;
+    repeated HostObject host = 2;
 }
 
 // 通过IP获取节点的地区和位置信息的请求体

@@ -2146,62 +2146,22 @@
           "extensions": [],
           "fields": [
             {
+              "name": "lakeObject",
+              "description": "",
+              "label": "",
+              "type": "LakeObject",
+              "longType": "LakeObject",
+              "fullType": "cmdb.LakeObject",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
               "name": "host",
               "description": "",
               "label": "repeated",
               "type": "HostObject",
               "longType": "HostObject",
               "fullType": "cmdb.HostObject",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "lake_name",
-              "description": "缓存节点名称",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "node_id",
-              "description": "缓存节点id",
-              "label": "",
-              "type": "int32",
-              "longType": "int32",
-              "fullType": "int32",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "bandwidth_limit",
-              "description": "节点承载能力上限",
-              "label": "",
-              "type": "int32",
-              "longType": "int32",
-              "fullType": "int32",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "service_state",
-              "description": "节点服务状态",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "area",
-              "description": "节点区域",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
               "ismap": false,
               "defaultValue": ""
             }

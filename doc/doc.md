@@ -1146,12 +1146,8 @@ lake下的主机列表
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| lakeObject | [LakeObject](#cmdb.LakeObject) |  |  |
 | host | [HostObject](#cmdb.HostObject) | repeated |  |
-| lake_name | [string](#string) |  | 缓存节点名称 |
-| node_id | [int32](#int32) |  | 缓存节点id |
-| bandwidth_limit | [int32](#int32) |  | 节点承载能力上限 |
-| service_state | [string](#string) |  | 节点服务状态 |
-| area | [string](#string) |  | 节点区域 |
 
 
 
