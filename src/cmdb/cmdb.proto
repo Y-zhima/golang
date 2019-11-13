@@ -760,7 +760,7 @@ message SearchLakeHostRequest {
     // lake节点的名字列表
     repeated string lake_name = 1;
     // lake节点的ID列表
-    repeated int32 id = 2;
+    repeated int32 node_id = 2;
     // 要查询的区域的地区层级
     AreaLevel area_level = 3;
 }
@@ -773,7 +773,7 @@ message SearchLakeHostResponse {
 
 // lake下的主机列表
 message LakeHost {
-    LakeObject lakeObject = 1;
+    LakeObject lake_object = 1;
     repeated HostObject host = 2;
 }
 

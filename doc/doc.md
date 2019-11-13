@@ -1146,7 +1146,7 @@ lake下的主机列表
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| lakeObject | [LakeObject](#cmdb.LakeObject) |  |  |
+| lake_object | [LakeObject](#cmdb.LakeObject) |  |  |
 | host | [HostObject](#cmdb.HostObject) | repeated |  |
 
 
@@ -1323,7 +1323,7 @@ LAKE节点对象
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | lake_name | [string](#string) | repeated | lake节点的名字列表 |
-| id | [int32](#int32) | repeated | lake节点的ID列表 |
+| node_id | [int32](#int32) | repeated | lake节点的ID列表 |
 | area_level | [AreaLevel](#cmdb.AreaLevel) |  | 要查询的区域的地区层级 |
 
 

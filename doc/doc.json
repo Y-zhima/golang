@@ -2146,7 +2146,7 @@
           "extensions": [],
           "fields": [
             {
-              "name": "lakeObject",
+              "name": "lake_object",
               "description": "",
               "label": "",
               "type": "LakeObject",
@@ -2665,7 +2665,7 @@
               "defaultValue": ""
             },
             {
-              "name": "id",
+              "name": "node_id",
               "description": "lake节点的ID列表",
               "label": "repeated",
               "type": "int32",

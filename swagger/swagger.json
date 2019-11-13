@@ -619,7 +619,7 @@
             },
             "collectionFormat": "multi",
             "description": "lake节点的ID列表.",
-            "name": "id",
+            "name": "node_id",
             "in": "query"
           },
           {
@@ -2594,7 +2594,7 @@
             "$ref": "#/definitions/cmdbHostObject"
           }
         },
-        "lakeObject": {
+        "lake_object": {
           "$ref": "#/definitions/cmdbLakeObject"
         }
       }

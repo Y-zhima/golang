@@ -2116,7 +2116,7 @@
           <tbody>
             
             <row>
-              <entry>lakeObject</entry>
+              <entry>lake_object</entry>
               <entry><link linkend="cmdb.LakeObject">LakeObject</link></entry>
               <entry></entry>
               <entry><para></para></entry>
@@ -2662,7 +2662,7 @@
             </row>
             
             <row>
-              <entry>id</entry>
+              <entry>node_id</entry>
               <entry><link linkend="int32">int32</link></entry>
               <entry>repeated</entry>
               <entry><para>lake节点的ID列表</para></entry>
