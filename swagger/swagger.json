@@ -293,6 +293,99 @@
         }
       }
     },
+    "/v1/cmdb/importResult": {
+      "get": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "导入交维表审批结果",
+        "operationId": "ImportResult",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "导入记录id.",
+            "name": "import_id",
+            "in": "query"
+          },
+          {
+            "type": "boolean",
+            "format": "boolean",
+            "description": "指定查看实体类型.",
+            "name": "is_accept",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportResultResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/importReview": {
+      "get": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "查看导入的实体信息列表",
+        "operationId": "ImportReview",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "导入记录id.",
+            "name": "import_id",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "指定查看实体类型.",
+            "name": "bk_obj_id",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总页数.",
+            "name": "paging.total_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页数.",
+            "name": "paging.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页显示的记录条数.",
+            "name": "paging.per_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总记录数.",
+            "name": "paging.total_record",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportReviewResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/cmdb/instanceTopology": {
       "get": {
         "tags": [
@@ -2445,15 +2538,49 @@
         }
       }
     },
+    "cmdbImportResultResponse": {
+      "type": "object",
+      "title": "执行审批结果返回",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbImportReviewResponse": {
+      "type": "object",
+      "title": "查看导入的实体信息列表响应",
+      "properties": {
+        "inst_info": {
+          "type": "object",
+          "title": "实体信息列表, map\u003cbk_obj_id, 可以转为map的字符串实体信息\u003e",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "paging": {
+          "title": "分页信息",
+          "$ref": "#/definitions/commonPaging"
+        },
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
     "cmdbImportStatus": {
-      "description": "- IMPORTING: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败",
+      "description": "- IMPORTING: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败\n - REVIEWING: 3-待审核\n - ACCEPT: 4-审核通过\n - REJECT: 5-审核不通过",
       "type": "string",
-      "title": "导入状态: 0-正在导入 1-导入完成 2-导入失败",
+      "title": "导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 // 5-审核不通过",
       "default": "IMPORTING",
       "enum": [
         "IMPORTING",
         "COMPLETED",
-        "FAILED"
+        "FAILED",
+        "REVIEWING",
+        "ACCEPT",
+        "REJECT"
       ]
     },
     "cmdbImportType": {
@@ -2483,7 +2610,7 @@
           }
         },
         "status": {
-          "title": "TopologyObject instance = 1;\n状态码",
+          "title": "TopologyObject instance = 1;\r\n状态码",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
@@ -4150,16 +4277,6 @@
         }
       }
     },
-    "subtaskCompleteResponse": {
-      "type": "object",
-      "title": "完成子任务实例请求返回",
-      "properties": {
-        "status": {
-          "title": "返回的请求状态",
-          "$ref": "#/definitions/commonResponseStatus"
-        }
-      }
-    },
     "subtaskCreateResponse": {
       "type": "object",
       "title": "创建子任务实例请求返回",
@@ -4235,16 +4352,6 @@
         "POWER",
         "CREATE",
         "INSTALL"
-      ]
-    },
-    "subtaskSubTaskResult": {
-      "description": "- FAILURE: 失败\n - SUCCESS: 成功",
-      "type": "string",
-      "title": "子任务执行结果",
-      "default": "FAILURE",
-      "enum": [
-        "FAILURE",
-        "SUCCESS"
       ]
     },
     "subtaskSubTaskState": {

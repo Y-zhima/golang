@@ -262,6 +262,46 @@ func request_Cmdb_ImportAsset_0(ctx context.Context, marshaler runtime.Marshaler
 
 }
 
+var (
+	filter_Cmdb_ImportReview_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+)
+
+func request_Cmdb_ImportReview_0(ctx context.Context, marshaler runtime.Marshaler, client CmdbClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq ImportReviewRequest
+	var metadata runtime.ServerMetadata
+
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Cmdb_ImportReview_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := client.ImportReview(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+var (
+	filter_Cmdb_ImportResult_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+)
+
+func request_Cmdb_ImportResult_0(ctx context.Context, marshaler runtime.Marshaler, client CmdbClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq ImportResultRequest
+	var metadata runtime.ServerMetadata
+
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Cmdb_ImportResult_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := client.ImportResult(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
 // RegisterCmdbHandlerFromEndpoint is same as RegisterCmdbHandler but
 // automatically dials to "endpoint" and closes the connection when "ctx" gets done.
 func RegisterCmdbHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
@@ -560,6 +600,46 @@ func RegisterCmdbHandlerClient(ctx context.Context, mux *runtime.ServeMux, clien
 
 	})
 
+	mux.Handle("GET", pattern_Cmdb_ImportReview_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_Cmdb_ImportReview_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_Cmdb_ImportReview_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("GET", pattern_Cmdb_ImportResult_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_Cmdb_ImportResult_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_Cmdb_ImportResult_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
 	return nil
 }
 
@@ -589,6 +669,10 @@ var (
 	pattern_Cmdb_SearchLakeArea_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "cmdb", "searchLakeArea"}, "", runtime.AssumeColonVerbOpt(true)))
 
 	pattern_Cmdb_ImportAsset_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "cmdb", "importAsset"}, "", runtime.AssumeColonVerbOpt(true)))
+
+	pattern_Cmdb_ImportReview_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "cmdb", "importReview"}, "", runtime.AssumeColonVerbOpt(true)))
+
+	pattern_Cmdb_ImportResult_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "cmdb", "importResult"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
@@ -617,4 +701,8 @@ var (
 	forward_Cmdb_SearchLakeArea_0 = runtime.ForwardResponseMessage
 
 	forward_Cmdb_ImportAsset_0 = runtime.ForwardResponseMessage
+
+	forward_Cmdb_ImportReview_0 = runtime.ForwardResponseMessage
+
+	forward_Cmdb_ImportResult_0 = runtime.ForwardResponseMessage
 )

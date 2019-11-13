@@ -865,8 +865,8 @@ message ImportReviewRequest {
 
 // 查看导入的实体信息列表响应
 message ImportReviewResponse {
-    // 实体信息列表
-    map<string, repeated string>
+    // 实体信息列表, map<bk_obj_id, 可以转为map的字符串实体信息>
+    map<string, string> inst_info = 1;
     // 分页信息
     common.Paging paging = 2;
     // 返回的请求状态

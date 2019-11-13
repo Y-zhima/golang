@@ -617,7 +617,7 @@
           "name": "ImportStatus",
           "longName": "ImportStatus",
           "fullName": "cmdb.ImportStatus",
-          "description": "导入状态: 0-正在导入 1-导入完成 2-导入失败",
+          "description": "导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 // 5-审核不通过",
           "values": [
             {
               "name": "IMPORTING",
@@ -633,6 +633,21 @@
               "name": "FAILED",
               "number": "2",
               "description": "2-导入失败"
+            },
+            {
+              "name": "REVIEWING",
+              "number": "3",
+              "description": "3-待审核"
+            },
+            {
+              "name": "ACCEPT",
+              "number": "4",
+              "description": "4-审核通过"
+            },
+            {
+              "name": "REJECT",
+              "number": "5",
+              "description": "5-审核不通过"
             }
           ]
         },
@@ -1785,6 +1800,171 @@
           ]
         },
         {
+          "name": "ImportResultRequest",
+          "longName": "ImportResultRequest",
+          "fullName": "cmdb.ImportResultRequest",
+          "description": "导入交维表审批结果请求",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "import_id",
+              "description": "导入记录id",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "is_accept",
+              "description": "指定查看实体类型",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ImportResultResponse",
+          "longName": "ImportResultResponse",
+          "fullName": "cmdb.ImportResultResponse",
+          "description": "执行审批结果返回",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "返回的请求状态",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ImportReviewRequest",
+          "longName": "ImportReviewRequest",
+          "fullName": "cmdb.ImportReviewRequest",
+          "description": "查看导入的实体信息列表请求",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "import_id",
+              "description": "导入记录id",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_obj_id",
+              "description": "指定查看实体类型",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "paging",
+              "description": "分页信息",
+              "label": "",
+              "type": "Paging",
+              "longType": "common.Paging",
+              "fullType": "common.Paging",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ImportReviewResponse",
+          "longName": "ImportReviewResponse",
+          "fullName": "cmdb.ImportReviewResponse",
+          "description": "查看导入的实体信息列表响应",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "inst_info",
+              "description": "实体信息列表, map\u003cbk_obj_id, 可以转为map的字符串实体信息\u003e",
+              "label": "repeated",
+              "type": "InstInfoEntry",
+              "longType": "ImportReviewResponse.InstInfoEntry",
+              "fullType": "cmdb.ImportReviewResponse.InstInfoEntry",
+              "ismap": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "paging",
+              "description": "分页信息",
+              "label": "",
+              "type": "Paging",
+              "longType": "common.Paging",
+              "fullType": "common.Paging",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "status",
+              "description": "返回的请求状态",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "InstInfoEntry",
+          "longName": "ImportReviewResponse.InstInfoEntry",
+          "fullName": "cmdb.ImportReviewResponse.InstInfoEntry",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "key",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "value",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
           "name": "ImportServerRequest",
           "longName": "ImportServerRequest",
           "fullName": "cmdb.ImportServerRequest",
@@ -1974,7 +2154,7 @@
             },
             {
               "name": "status",
-              "description": "TopologyObject instance = 1;\n状态码",
+              "description": "TopologyObject instance = 1;\r\n状态码",
               "label": "",
               "type": "ResponseStatus",
               "longType": "common.ResponseStatus",
@@ -3626,6 +3806,50 @@
                       "method": "POST",
                       "pattern": "/v1/cmdb/importAsset",
                       "body": "*"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "ImportReview",
+              "description": "查看导入的实体信息列表",
+              "requestType": "ImportReviewRequest",
+              "requestLongType": "ImportReviewRequest",
+              "requestFullType": "cmdb.ImportReviewRequest",
+              "requestStreaming": false,
+              "responseType": "ImportReviewResponse",
+              "responseLongType": "ImportReviewResponse",
+              "responseFullType": "cmdb.ImportReviewResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/cmdb/importReview"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "ImportResult",
+              "description": "导入交维表审批结果",
+              "requestType": "ImportResultRequest",
+              "requestLongType": "ImportResultRequest",
+              "requestFullType": "cmdb.ImportResultRequest",
+              "requestStreaming": false,
+              "responseType": "ImportResultResponse",
+              "responseLongType": "ImportResultResponse",
+              "responseFullType": "cmdb.ImportResultResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/cmdb/importResult"
                     }
                   ]
                 }
@@ -9690,7 +9914,7 @@
             },
             {
               "name": "GetLog",
-              "description": "获取作业任务详细执行过程\n\noption (google.api.http) = {\n           get: \"/v1/task/{task_id}/logs\"\n       };",
+              "description": "获取作业任务详细执行过程\n\noption (google.api.http) = {\r\n           get: \"/v1/task/{task_id}/logs\"\r\n       };",
               "requestType": "GetLogRequest",
               "requestLongType": "GetLogRequest",
               "requestFullType": "task.GetLogRequest",

@@ -1702,6 +1702,223 @@
       
     </section>
     
+    <section id="cmdb.ImportResultRequest">
+      <title>ImportResultRequest</title>
+      <para>导入交维表审批结果请求</para>
+      
+      <table frame="all">
+        <title><classname>ImportResultRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>import_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>导入记录id</para></entry>
+            </row>
+            
+            <row>
+              <entry>is_accept</entry>
+              <entry><link linkend="bool">bool</link></entry>
+              <entry></entry>
+              <entry><para>指定查看实体类型</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="cmdb.ImportResultResponse">
+      <title>ImportResultResponse</title>
+      <para>执行审批结果返回</para>
+      
+      <table frame="all">
+        <title><classname>ImportResultResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>返回的请求状态</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="cmdb.ImportReviewRequest">
+      <title>ImportReviewRequest</title>
+      <para>查看导入的实体信息列表请求</para>
+      
+      <table frame="all">
+        <title><classname>ImportReviewRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>import_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>导入记录id</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_obj_id</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>指定查看实体类型</para></entry>
+            </row>
+            
+            <row>
+              <entry>paging</entry>
+              <entry><link linkend="common.Paging">common.Paging</link></entry>
+              <entry></entry>
+              <entry><para>分页信息</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="cmdb.ImportReviewResponse">
+      <title>ImportReviewResponse</title>
+      <para>查看导入的实体信息列表响应</para>
+      
+      <table frame="all">
+        <title><classname>ImportReviewResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>inst_info</entry>
+              <entry><link linkend="cmdb.ImportReviewResponse.InstInfoEntry">ImportReviewResponse.InstInfoEntry</link></entry>
+              <entry>repeated</entry>
+              <entry><para>实体信息列表, map<bk_obj_id, 可以转为map的字符串实体信息></para></entry>
+            </row>
+            
+            <row>
+              <entry>paging</entry>
+              <entry><link linkend="common.Paging">common.Paging</link></entry>
+              <entry></entry>
+              <entry><para>分页信息</para></entry>
+            </row>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>返回的请求状态</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="cmdb.ImportReviewResponse.InstInfoEntry">
+      <title>ImportReviewResponse.InstInfoEntry</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>ImportReviewResponse.InstInfoEntry</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>key</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+            <row>
+              <entry>value</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
     <section id="cmdb.ImportServerRequest">
       <title>ImportServerRequest</title>
       <para>导入物理机请求</para>
@@ -3472,7 +3689,7 @@
     
     <section id="cmdb.ImportStatus">
       <title>ImportStatus</title>
-      <para>导入状态: 0-正在导入 1-导入完成 2-导入失败</para>
+      <para>导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 // 5-审核不通过</para>
       <table frame="all">
         <title><classname>ImportStatus</classname> Values</title>
         <tgroup cols="3">
@@ -3504,6 +3721,24 @@
               <entry>FAILED</entry>
               <entry>2</entry>
               <entry><para>2-导入失败</para></entry>
+            </row>
+            
+            <row>
+              <entry>REVIEWING</entry>
+              <entry>3</entry>
+              <entry><para>3-待审核</para></entry>
+            </row>
+            
+            <row>
+              <entry>ACCEPT</entry>
+              <entry>4</entry>
+              <entry><para>4-审核通过</para></entry>
+            </row>
+            
+            <row>
+              <entry>REJECT</entry>
+              <entry>5</entry>
+              <entry><para>5-审核不通过</para></entry>
             </row>
             
           </tbody>
@@ -3771,6 +4006,20 @@
               <entry><link linkend="cmdb.ImportAssetRequest">ImportAssetRequest</link></entry>
               <entry><link linkend="cmdb.ImportAssetResponse">ImportAssetResponse</link></entry>
               <entry><para>导入实体资产</para></entry>
+            </row>
+            
+            <row>
+              <entry>ImportReview</entry>
+              <entry><link linkend="cmdb.ImportReviewRequest">ImportReviewRequest</link></entry>
+              <entry><link linkend="cmdb.ImportReviewResponse">ImportReviewResponse</link></entry>
+              <entry><para>查看导入的实体信息列表</para></entry>
+            </row>
+            
+            <row>
+              <entry>ImportResult</entry>
+              <entry><link linkend="cmdb.ImportResultRequest">ImportResultRequest</link></entry>
+              <entry><link linkend="cmdb.ImportResultResponse">ImportResultResponse</link></entry>
+              <entry><para>导入交维表审批结果</para></entry>
             </row>
             
           </tbody>
