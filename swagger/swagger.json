@@ -2483,7 +2483,7 @@
           }
         },
         "status": {
-          "title": "TopologyObject instance = 1;\r\n状态码",
+          "title": "TopologyObject instance = 1;\n状态码",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
@@ -4218,6 +4218,9 @@
         "sub_task_log": {
           "type": "string",
           "title": "子任务实例名"
+        },
+        "sub_task_status": {
+          "$ref": "#/definitions/subtaskSubTaskState"
         }
       }
     },
@@ -4242,6 +4245,16 @@
       "enum": [
         "FAILURE",
         "SUCCESS"
+      ]
+    },
+    "subtaskSubTaskState": {
+      "description": "- COMPLETE: 执行完成\n - RUNNING: 执行中",
+      "type": "string",
+      "title": "模板状态",
+      "default": "COMPLETE",
+      "enum": [
+        "COMPLETE",
+        "RUNNING"
       ]
     },
     "taskCheckServerStateRequest": {

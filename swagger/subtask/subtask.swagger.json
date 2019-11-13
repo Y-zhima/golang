@@ -215,6 +215,9 @@
         "sub_task_log": {
           "type": "string",
           "title": "子任务实例名"
+        },
+        "sub_task_status": {
+          "$ref": "#/definitions/subtaskSubTaskState"
         }
       }
     },
@@ -240,6 +243,16 @@
       "default": "FAILURE",
       "description": "- FAILURE: 失败\n - SUCCESS: 成功",
       "title": "子任务执行结果"
+    },
+    "subtaskSubTaskState": {
+      "type": "string",
+      "enum": [
+        "COMPLETE",
+        "RUNNING"
+      ],
+      "default": "COMPLETE",
+      "description": "- COMPLETE: 执行完成\n - RUNNING: 执行中",
+      "title": "模板状态"
     }
   }
 }

@@ -258,6 +258,7 @@
   
     - [ServerTaskType](#subtask.ServerTaskType)
     - [SubTaskResult](#subtask.SubTaskResult)
+    - [SubTaskState](#subtask.SubTaskState)
   
   
     - [SubTask](#subtask.SubTask)
@@ -3524,6 +3525,7 @@ playbook入口文件实例
 | ----- | ---- | ----- | ----------- |
 | status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
 | sub_task_log | [string](#string) |  | 子任务实例名 |
+| sub_task_status | [SubTaskState](#subtask.SubTaskState) |  |  |
 
 
 
@@ -3556,6 +3558,18 @@ playbook入口文件实例
 | ---- | ------ | ----------- |
 | FAILURE | 0 | 失败 |
 | SUCCESS | 1 | 成功 |
+
+
+
+<a name="subtask.SubTaskState"></a>
+
+### SubTaskState
+模板状态
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| COMPLETE | 0 | 执行完成 |
+| RUNNING | 1 | 执行中 |
 
 
  
