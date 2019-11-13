@@ -206,21 +206,21 @@ func request_Cmdb_SearchLake_0(ctx context.Context, marshaler runtime.Marshaler,
 }
 
 var (
-	filter_Cmdb_SearchHostInLake_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_Cmdb_SearchLakeHost_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_Cmdb_SearchHostInLake_0(ctx context.Context, marshaler runtime.Marshaler, client CmdbClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq SearchHostInLakeRequest
+func request_Cmdb_SearchLakeHost_0(ctx context.Context, marshaler runtime.Marshaler, client CmdbClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SearchLakeHostRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Cmdb_SearchHostInLake_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Cmdb_SearchLakeHost_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := client.SearchHostInLake(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.SearchLakeHost(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -500,7 +500,7 @@ func RegisterCmdbHandlerClient(ctx context.Context, mux *runtime.ServeMux, clien
 
 	})
 
-	mux.Handle("GET", pattern_Cmdb_SearchHostInLake_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Cmdb_SearchLakeHost_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -509,14 +509,14 @@ func RegisterCmdbHandlerClient(ctx context.Context, mux *runtime.ServeMux, clien
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Cmdb_SearchHostInLake_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Cmdb_SearchLakeHost_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Cmdb_SearchHostInLake_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Cmdb_SearchLakeHost_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -584,7 +584,7 @@ var (
 
 	pattern_Cmdb_SearchLake_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "cmdb", "searchLake"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Cmdb_SearchHostInLake_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "cmdb", "searchLakeHost"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Cmdb_SearchLakeHost_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "cmdb", "searchLakeHost"}, "", runtime.AssumeColonVerbOpt(true)))
 
 	pattern_Cmdb_SearchLakeArea_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "cmdb", "searchLakeArea"}, "", runtime.AssumeColonVerbOpt(true)))
 
@@ -612,7 +612,7 @@ var (
 
 	forward_Cmdb_SearchLake_0 = runtime.ForwardResponseMessage
 
-	forward_Cmdb_SearchHostInLake_0 = runtime.ForwardResponseMessage
+	forward_Cmdb_SearchLakeHost_0 = runtime.ForwardResponseMessage
 
 	forward_Cmdb_SearchLakeArea_0 = runtime.ForwardResponseMessage
 

@@ -104,7 +104,7 @@ service Cmdb {
     }
 
     // 查询Lake节点下的主机列表
-    rpc SearchHostInLake (SearchHostInLakeRequest) returns (SearchHostInLakeResponse) {
+    rpc SearchLakeHost (SearchLakeHostRequest) returns (SearchLakeHostResponse) {
         option (google.api.http) = {
             get: "/v1/cmdb/searchLakeHost"
         };
@@ -196,6 +196,15 @@ message HostObject {
     string state = 3;
     // ipv6的地址
     string ipv6 = 4;
+    // 设备角色(模块名)
+    string module_name = 5;
+    // 内存
+    int32 bk_mem = 6;
+    // 硬盘(总量)
+    int32 bk_disk = 7;
+    // 网卡带宽
+    int32 nic_speed = 8;
+
 }
 
 // 模块
@@ -747,11 +756,16 @@ message CabinetObject {
 }
 
 // 查询lake下的主机列表的请求体
-message SearchHostInLakeRequest {
+message SearchLakeHostRequest {
+    // lake节点的名字列表
     repeated string lake_name = 1;
+    // lake节点的ID列表
+    repeated int32 node_id = 2;
+    // 要查询的区域的地区层级
+    AreaLevel area_level = 3;
 }
 // 查询lake下的主机列表的返回
-message SearchHostInLakeResponse {
+message SearchLakeHostResponse {
     repeated LakeHost lake_host = 1;
     // 状态码
     common.ResponseStatus status = 2;
@@ -759,10 +773,8 @@ message SearchHostInLakeResponse {
 
 // lake下的主机列表
 message LakeHost {
-    string lake_name = 1;
-    // 缓存节点id
-    int32 node_id = 2;
-    repeated HostObject host = 3;
+    LakeObject lake_object = 1;
+    repeated HostObject host = 2;
 }
 
 // 通过IP获取节点的地区和位置信息的请求体

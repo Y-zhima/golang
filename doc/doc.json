@@ -1216,6 +1216,46 @@
               "fullType": "string",
               "ismap": false,
               "defaultValue": ""
+            },
+            {
+              "name": "module_name",
+              "description": "设备角色(模块名)",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_mem",
+              "description": "内存",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_disk",
+              "description": "硬盘(总量)",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "nic_speed",
+              "description": "网卡带宽",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
             }
           ]
         },
@@ -1974,7 +2014,7 @@
             },
             {
               "name": "status",
-              "description": "TopologyObject instance = 1;\n状态码",
+              "description": "TopologyObject instance = 1;\r\n状态码",
               "label": "",
               "type": "ResponseStatus",
               "longType": "common.ResponseStatus",
@@ -2106,22 +2146,12 @@
           "extensions": [],
           "fields": [
             {
-              "name": "lake_name",
+              "name": "lake_object",
               "description": "",
               "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "node_id",
-              "description": "缓存节点id",
-              "label": "",
-              "type": "int32",
-              "longType": "int32",
-              "fullType": "int32",
+              "type": "LakeObject",
+              "longType": "LakeObject",
+              "fullType": "cmdb.LakeObject",
               "ismap": false,
               "defaultValue": ""
             },
@@ -2432,58 +2462,6 @@
           ]
         },
         {
-          "name": "SearchHostInLakeRequest",
-          "longName": "SearchHostInLakeRequest",
-          "fullName": "cmdb.SearchHostInLakeRequest",
-          "description": "查询lake下的主机列表的请求体",
-          "hasExtensions": false,
-          "hasFields": true,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "lake_name",
-              "description": "",
-              "label": "repeated",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "SearchHostInLakeResponse",
-          "longName": "SearchHostInLakeResponse",
-          "fullName": "cmdb.SearchHostInLakeResponse",
-          "description": "查询lake下的主机列表的返回",
-          "hasExtensions": false,
-          "hasFields": true,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "lake_host",
-              "description": "",
-              "label": "repeated",
-              "type": "LakeHost",
-              "longType": "LakeHost",
-              "fullType": "cmdb.LakeHost",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "status",
-              "description": "状态码",
-              "label": "",
-              "type": "ResponseStatus",
-              "longType": "common.ResponseStatus",
-              "fullType": "common.ResponseStatus",
-              "ismap": false,
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
           "name": "SearchHostRequest",
           "longName": "SearchHostRequest",
           "fullName": "cmdb.SearchHostRequest",
@@ -2652,6 +2630,78 @@
               "type": "LakeAreaObject",
               "longType": "LakeAreaObject",
               "fullType": "cmdb.LakeAreaObject",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "status",
+              "description": "状态码",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "SearchLakeHostRequest",
+          "longName": "SearchLakeHostRequest",
+          "fullName": "cmdb.SearchLakeHostRequest",
+          "description": "查询lake下的主机列表的请求体",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "lake_name",
+              "description": "lake节点的名字列表",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "node_id",
+              "description": "lake节点的ID列表",
+              "label": "repeated",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "area_level",
+              "description": "要查询的区域的地区层级",
+              "label": "",
+              "type": "AreaLevel",
+              "longType": "AreaLevel",
+              "fullType": "cmdb.AreaLevel",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "SearchLakeHostResponse",
+          "longName": "SearchLakeHostResponse",
+          "fullName": "cmdb.SearchLakeHostResponse",
+          "description": "查询lake下的主机列表的返回",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "lake_host",
+              "description": "",
+              "label": "repeated",
+              "type": "LakeHost",
+              "longType": "LakeHost",
+              "fullType": "cmdb.LakeHost",
               "ismap": false,
               "defaultValue": ""
             },
@@ -3565,15 +3615,15 @@
               }
             },
             {
-              "name": "SearchHostInLake",
+              "name": "SearchLakeHost",
               "description": "查询Lake节点下的主机列表",
-              "requestType": "SearchHostInLakeRequest",
-              "requestLongType": "SearchHostInLakeRequest",
-              "requestFullType": "cmdb.SearchHostInLakeRequest",
+              "requestType": "SearchLakeHostRequest",
+              "requestLongType": "SearchLakeHostRequest",
+              "requestFullType": "cmdb.SearchLakeHostRequest",
               "requestStreaming": false,
-              "responseType": "SearchHostInLakeResponse",
-              "responseLongType": "SearchHostInLakeResponse",
-              "responseFullType": "cmdb.SearchHostInLakeResponse",
+              "responseType": "SearchLakeHostResponse",
+              "responseLongType": "SearchLakeHostResponse",
+              "responseFullType": "cmdb.SearchLakeHostResponse",
               "responseStreaming": false,
               "options": {
                 "google.api.http": {
@@ -9702,7 +9752,7 @@
             },
             {
               "name": "GetLog",
-              "description": "获取作业任务详细执行过程\n\noption (google.api.http) = {\n           get: \"/v1/task/{task_id}/logs\"\n       };",
+              "description": "获取作业任务详细执行过程\n\noption (google.api.http) = {\r\n           get: \"/v1/task/{task_id}/logs\"\r\n       };",
               "requestType": "GetLogRequest",
               "requestLongType": "GetLogRequest",
               "requestFullType": "task.GetLogRequest",
@@ -10668,7 +10718,7 @@
             },
             {
               "name": "Delete",
-              "description": "删除作业模板\n\noption (google.api.http) = {\n           post: \"/v1/template/delete/{template_id}\"\n       };",
+              "description": "删除作业模板\n\noption (google.api.http) = {\r\n           post: \"/v1/template/delete/{template_id}\"\r\n       };",
               "requestType": "DeleteRequest",
               "requestLongType": "DeleteRequest",
               "requestFullType": "template.DeleteRequest",

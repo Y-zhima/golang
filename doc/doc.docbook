@@ -1135,6 +1135,34 @@
               <entry><para>ipv6的地址</para></entry>
             </row>
             
+            <row>
+              <entry>module_name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>设备角色(模块名)</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_mem</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>内存</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_disk</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>硬盘(总量)</para></entry>
+            </row>
+            
+            <row>
+              <entry>nic_speed</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>网卡带宽</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>
@@ -2088,17 +2116,10 @@
           <tbody>
             
             <row>
-              <entry>lake_name</entry>
-              <entry><link linkend="string">string</link></entry>
+              <entry>lake_object</entry>
+              <entry><link linkend="cmdb.LakeObject">LakeObject</link></entry>
               <entry></entry>
               <entry><para></para></entry>
-            </row>
-            
-            <row>
-              <entry>node_id</entry>
-              <entry><link linkend="int32">int32</link></entry>
-              <entry></entry>
-              <entry><para>缓存节点id</para></entry>
             </row>
             
             <row>
@@ -2402,83 +2423,6 @@
       
     </section>
     
-    <section id="cmdb.SearchHostInLakeRequest">
-      <title>SearchHostInLakeRequest</title>
-      <para>查询lake下的主机列表的请求体</para>
-      
-      <table frame="all">
-        <title><classname>SearchHostInLakeRequest</classname> Fields</title>
-        <tgroup cols="4">
-          <colspec colwidth="*"/>
-          <colspec colwidth="*"/>
-          <colspec colwidth="0.5*"/>
-          <colspec colwidth="3*"/>
-          <thead>
-            <row>
-              <entry>Field</entry>
-              <entry>Type</entry>
-              <entry>Label</entry>
-              <entry>Description</entry>
-            </row>
-          </thead>
-          <tbody>
-            
-            <row>
-              <entry>lake_name</entry>
-              <entry><link linkend="string">string</link></entry>
-              <entry>repeated</entry>
-              <entry><para></para></entry>
-            </row>
-            
-          </tbody>
-        </tgroup>
-      </table>
-      
-      
-    </section>
-    
-    <section id="cmdb.SearchHostInLakeResponse">
-      <title>SearchHostInLakeResponse</title>
-      <para>查询lake下的主机列表的返回</para>
-      
-      <table frame="all">
-        <title><classname>SearchHostInLakeResponse</classname> Fields</title>
-        <tgroup cols="4">
-          <colspec colwidth="*"/>
-          <colspec colwidth="*"/>
-          <colspec colwidth="0.5*"/>
-          <colspec colwidth="3*"/>
-          <thead>
-            <row>
-              <entry>Field</entry>
-              <entry>Type</entry>
-              <entry>Label</entry>
-              <entry>Description</entry>
-            </row>
-          </thead>
-          <tbody>
-            
-            <row>
-              <entry>lake_host</entry>
-              <entry><link linkend="cmdb.LakeHost">LakeHost</link></entry>
-              <entry>repeated</entry>
-              <entry><para></para></entry>
-            </row>
-            
-            <row>
-              <entry>status</entry>
-              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
-              <entry></entry>
-              <entry><para>状态码</para></entry>
-            </row>
-            
-          </tbody>
-        </tgroup>
-      </table>
-      
-      
-    </section>
-    
     <section id="cmdb.SearchHostRequest">
       <title>SearchHostRequest</title>
       <para>查找主机请求</para>
@@ -2671,6 +2615,97 @@
             <row>
               <entry>lake_area</entry>
               <entry><link linkend="cmdb.LakeAreaObject">LakeAreaObject</link></entry>
+              <entry>repeated</entry>
+              <entry><para></para></entry>
+            </row>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>状态码</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="cmdb.SearchLakeHostRequest">
+      <title>SearchLakeHostRequest</title>
+      <para>查询lake下的主机列表的请求体</para>
+      
+      <table frame="all">
+        <title><classname>SearchLakeHostRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>lake_name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry>repeated</entry>
+              <entry><para>lake节点的名字列表</para></entry>
+            </row>
+            
+            <row>
+              <entry>node_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry>repeated</entry>
+              <entry><para>lake节点的ID列表</para></entry>
+            </row>
+            
+            <row>
+              <entry>area_level</entry>
+              <entry><link linkend="cmdb.AreaLevel">AreaLevel</link></entry>
+              <entry></entry>
+              <entry><para>要查询的区域的地区层级</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="cmdb.SearchLakeHostResponse">
+      <title>SearchLakeHostResponse</title>
+      <para>查询lake下的主机列表的返回</para>
+      
+      <table frame="all">
+        <title><classname>SearchLakeHostResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>lake_host</entry>
+              <entry><link linkend="cmdb.LakeHost">LakeHost</link></entry>
               <entry>repeated</entry>
               <entry><para></para></entry>
             </row>
@@ -3753,9 +3788,9 @@
             </row>
             
             <row>
-              <entry>SearchHostInLake</entry>
-              <entry><link linkend="cmdb.SearchHostInLakeRequest">SearchHostInLakeRequest</link></entry>
-              <entry><link linkend="cmdb.SearchHostInLakeResponse">SearchHostInLakeResponse</link></entry>
+              <entry>SearchLakeHost</entry>
+              <entry><link linkend="cmdb.SearchLakeHostRequest">SearchLakeHostRequest</link></entry>
+              <entry><link linkend="cmdb.SearchLakeHostResponse">SearchLakeHostResponse</link></entry>
               <entry><para>查询Lake节点下的主机列表</para></entry>
             </row>
             
