@@ -147,6 +147,16 @@
       "description": "- SUCCESS: 成功\n - INVALID_ARGUMENT: 参数错误\n - ACCESS_DENIED: 访问拒绝",
       "title": "请求返回状态码"
     },
+    "subtaskCompleteResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        }
+      },
+      "title": "完成子任务实例请求返回"
+    },
     "subtaskCreateResponse": {
       "type": "object",
       "properties": {
@@ -223,6 +233,16 @@
       "default": "UNDEFINED",
       "description": "- UNDEFINED: 未定义任务类型\n - CHECK: 裸金属状态查询任务\n - POWER: 裸金属电源开关任务\n - CREATE: 裸金属初始化创建uuid任务\n - INSTALL: 裸金属安装任务",
       "title": "裸金属任务状态"
+    },
+    "subtaskSubTaskResult": {
+      "type": "string",
+      "enum": [
+        "FAILURE",
+        "SUCCESS"
+      ],
+      "default": "FAILURE",
+      "description": "- FAILURE: 失败\n - SUCCESS: 成功",
+      "title": "子任务执行结果"
     },
     "subtaskSubTaskState": {
       "type": "string",

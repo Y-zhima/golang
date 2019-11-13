@@ -17,7 +17,7 @@ service SubTask {
     rpc Create (CreateRequest) returns (CreateResponse) {}
 
     // 完成作业子任务
-    // rpc Complete(CompleteRequest) returns(CompleteResponse) {}
+    rpc Complete(CompleteRequest) returns(CompleteResponse) {}
 
     // 创建裸金属子任务
     rpc CreateServer (CreateServerRequest) returns (CreateServerResponse) {}

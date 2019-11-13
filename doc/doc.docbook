@@ -9315,6 +9315,13 @@
             </row>
             
             <row>
+              <entry>Complete</entry>
+              <entry><link linkend="subtask.CompleteRequest">CompleteRequest</link></entry>
+              <entry><link linkend="subtask.CompleteResponse">CompleteResponse</link></entry>
+              <entry><para>完成作业子任务</para></entry>
+            </row>
+            
+            <row>
               <entry>CreateServer</entry>
               <entry><link linkend="subtask.CreateServerRequest">CreateServerRequest</link></entry>
               <entry><link linkend="subtask.CreateServerResponse">CreateServerResponse</link></entry>

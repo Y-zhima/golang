@@ -3676,6 +3676,7 @@ playbook入口文件实例
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | Create | [CreateRequest](#subtask.CreateRequest) | [CreateResponse](#subtask.CreateResponse) | 创建作业子任务 |
+| Complete | [CompleteRequest](#subtask.CompleteRequest) | [CompleteResponse](#subtask.CompleteResponse) | 完成作业子任务 |
 | CreateServer | [CreateServerRequest](#subtask.CreateServerRequest) | [CreateServerResponse](#subtask.CreateServerResponse) | 创建裸金属子任务 |
 | CreateServerCompare | [CreateServerCompareRequest](#subtask.CreateServerCompareRequest) | [CreateServerCompareResponse](#subtask.CreateServerCompareResponse) | 交维表导入后巡检子任务 |
 | GetLog | [GetLogRequest](#subtask.GetLogRequest) | [GetLogResponse](#subtask.GetLogResponse) | 获取作业任务SubTask具体日志 |
