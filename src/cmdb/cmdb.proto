@@ -875,8 +875,8 @@ message ImportReviewRequest {
     int32 import_id = 1;
     // 指定查看实体类型
     bool is_accept = 2;
-    // 通过或拒绝描述
-    string description = 3;
+    // 审批通过或拒绝描述
+    string review_note = 3;
 }
 
 // 执行审批结果返回
