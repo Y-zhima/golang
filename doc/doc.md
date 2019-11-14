@@ -811,7 +811,7 @@ cmdb事件请求返回
 | bk_host_id | [int32](#int32) |  | 主机ID |
 | state | [string](#string) |  | 主机状态,有上线和下线两种 |
 | ipv6 | [string](#string) |  | ipv6的地址 |
-| module_name | [string](#string) |  | 设备角色(模块名) |
+| module_name | [string](#string) | repeated | 设备角色(模块名) |
 | bk_mem | [int32](#int32) |  | 内存 |
 | bk_disk | [int32](#int32) |  | 硬盘(总量) |
 | nic_speed | [int32](#int32) |  | 网卡带宽 |
@@ -975,7 +975,7 @@ cmdb事件请求返回
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | paging | [common.Paging](#common.Paging) |  | 分页信息 |
-| importStatus | [ImportStatus](#cmdb.ImportStatus) |  | 查看指定状态记录，0-查看全部 |
+| import_status | [ImportStatus](#cmdb.ImportStatus) |  | 查看指定状态记录，0-查看全部 |
 
 
 

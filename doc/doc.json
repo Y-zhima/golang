@@ -1235,7 +1235,7 @@
             {
               "name": "module_name",
               "description": "设备角色(模块名)",
-              "label": "",
+              "label": "repeated",
               "type": "string",
               "longType": "string",
               "fullType": "string",
@@ -1772,7 +1772,7 @@
               "defaultValue": ""
             },
             {
-              "name": "importStatus",
+              "name": "import_status",
               "description": "查看指定状态记录，0-查看全部",
               "label": "",
               "type": "ImportStatus",
@@ -10992,7 +10992,7 @@
             },
             {
               "name": "Delete",
-              "description": "删除作业模板\n\noption (google.api.http) = {\n           post: \"/v1/template/delete/{template_id}\"\n       };",
+              "description": "删除作业模板\n\noption (google.api.http) = {\r\n           post: \"/v1/template/delete/{template_id}\"\r\n       };",
               "requestType": "DeleteRequest",
               "requestLongType": "DeleteRequest",
               "requestFullType": "template.DeleteRequest",

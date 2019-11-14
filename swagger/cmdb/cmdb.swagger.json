@@ -181,7 +181,7 @@
             "format": "int32"
           },
           {
-            "name": "importStatus",
+            "name": "import_status",
             "description": "查看指定状态记录，0-查看全部.\n\n - IMPORTING: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败\n - REVIEWING: 3-待审核\n - ACCEPT: 4-审核通过\n - REJECT: 5-审核不通过",
             "in": "query",
             "required": false,
@@ -420,7 +420,11 @@
             "description": "设备角色(模块名).",
             "in": "query",
             "required": false,
-            "type": "string"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
           },
           {
             "name": "host.bk_mem",
@@ -934,7 +938,10 @@
           "title": "ipv6的地址"
         },
         "module_name": {
-          "type": "string",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
           "title": "设备角色(模块名)"
         },
         "bk_mem": {

@@ -216,7 +216,7 @@ message HostObject {
     // ipv6的地址
     string ipv6 = 4;
     // 设备角色(模块名)
-    string module_name = 5;
+    repeated string module_name = 5;
     // 内存
     int32 bk_mem = 6;
     // 硬盘(总量)
