@@ -603,7 +603,7 @@ message ImportHistoryRequest {
     // 分页信息
     common.Paging paging = 1;
     // 查看指定状态记录，0-查看全部
-    ImportStatus importStatus = 2;
+    ImportStatus import_status = 2;
 }
 
 // 查询导入历史列表返回
