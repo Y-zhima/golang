@@ -50,6 +50,9 @@
     - [ImportAssetResponse](#cmdb.ImportAssetResponse)
     - [ImportCrossTableRequest](#cmdb.ImportCrossTableRequest)
     - [ImportCrossTableResponse](#cmdb.ImportCrossTableResponse)
+    - [ImportDetailRequest](#cmdb.ImportDetailRequest)
+    - [ImportDetailResponse](#cmdb.ImportDetailResponse)
+    - [ImportDetailResponse.InstInfoEntry](#cmdb.ImportDetailResponse.InstInfoEntry)
     - [ImportHistoryObject](#cmdb.ImportHistoryObject)
     - [ImportHistoryRequest](#cmdb.ImportHistoryRequest)
     - [ImportHistoryResponse](#cmdb.ImportHistoryResponse)
@@ -57,11 +60,8 @@
     - [ImportHostResponse](#cmdb.ImportHostResponse)
     - [ImportLakeRequest](#cmdb.ImportLakeRequest)
     - [ImportLakeResponse](#cmdb.ImportLakeResponse)
-    - [ImportResultRequest](#cmdb.ImportResultRequest)
-    - [ImportResultResponse](#cmdb.ImportResultResponse)
     - [ImportReviewRequest](#cmdb.ImportReviewRequest)
     - [ImportReviewResponse](#cmdb.ImportReviewResponse)
-    - [ImportReviewResponse.InstInfoEntry](#cmdb.ImportReviewResponse.InstInfoEntry)
     - [ImportServerRequest](#cmdb.ImportServerRequest)
     - [ImportServerResponse](#cmdb.ImportServerResponse)
     - [ImportSwitchRequest](#cmdb.ImportSwitchRequest)
@@ -886,6 +886,56 @@ cmdb事件请求返回
 
 
 
+<a name="cmdb.ImportDetailRequest"></a>
+
+### ImportDetailRequest
+查看导入的实体信息列表请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| import_id | [int32](#int32) |  | 导入记录id |
+| bk_obj_id | [string](#string) |  | 指定查看实体类型 |
+| paging | [common.Paging](#common.Paging) |  | 分页信息 |
+
+
+
+
+
+
+<a name="cmdb.ImportDetailResponse"></a>
+
+### ImportDetailResponse
+查看导入的实体信息列表响应
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| inst_info | [ImportDetailResponse.InstInfoEntry](#cmdb.ImportDetailResponse.InstInfoEntry) | repeated | 实体信息列表, map&lt;bk_obj_id, 可以转为map的字符串实体信息&gt; |
+| paging | [common.Paging](#common.Paging) |  | 分页信息 |
+| status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
+
+
+
+
+
+
+<a name="cmdb.ImportDetailResponse.InstInfoEntry"></a>
+
+### ImportDetailResponse.InstInfoEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [string](#string) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="cmdb.ImportHistoryObject"></a>
 
 ### ImportHistoryObject
@@ -905,10 +955,11 @@ cmdb事件请求返回
 | operator | [common.User](#common.User) |  | 操作人 |
 | import_type | [ImportType](#cmdb.ImportType) |  | 导入类型 |
 | status | [ImportStatus](#cmdb.ImportStatus) |  | 导入状态 |
-| start_time | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | 起始时间 |
-| end_time | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | 结束时间 |
+| review_note | [string](#string) |  | 审批描述 |
 | filename | [string](#string) |  | 用户上传的文件名 |
 | logfile_content | [string](#string) |  | 日志文件内容 |
+| start_time | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | 起始时间 |
+| end_time | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | 结束时间 |
 
 
 
@@ -924,6 +975,7 @@ cmdb事件请求返回
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | paging | [common.Paging](#common.Paging) |  | 分页信息 |
+| importStatus | [ImportStatus](#cmdb.ImportStatus) |  | 查看指定状态记录，0-查看全部 |
 
 
 
@@ -1011,9 +1063,9 @@ cmdb事件请求返回
 
 
 
-<a name="cmdb.ImportResultRequest"></a>
+<a name="cmdb.ImportReviewRequest"></a>
 
-### ImportResultRequest
+### ImportReviewRequest
 导入交维表审批结果请求
 
 
@@ -1021,38 +1073,7 @@ cmdb事件请求返回
 | ----- | ---- | ----- | ----------- |
 | import_id | [int32](#int32) |  | 导入记录id |
 | is_accept | [bool](#bool) |  | 指定查看实体类型 |
-
-
-
-
-
-
-<a name="cmdb.ImportResultResponse"></a>
-
-### ImportResultResponse
-执行审批结果返回
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
-
-
-
-
-
-
-<a name="cmdb.ImportReviewRequest"></a>
-
-### ImportReviewRequest
-查看导入的实体信息列表请求
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| import_id | [int32](#int32) |  | 导入记录id |
-| bk_obj_id | [string](#string) |  | 指定查看实体类型 |
-| paging | [common.Paging](#common.Paging) |  | 分页信息 |
+| review_note | [string](#string) |  | 审批通过或拒绝描述 |
 
 
 
@@ -1062,30 +1083,12 @@ cmdb事件请求返回
 <a name="cmdb.ImportReviewResponse"></a>
 
 ### ImportReviewResponse
-查看导入的实体信息列表响应
+执行审批结果返回
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| inst_info | [ImportReviewResponse.InstInfoEntry](#cmdb.ImportReviewResponse.InstInfoEntry) | repeated | 实体信息列表, map&lt;bk_obj_id, 可以转为map的字符串实体信息&gt; |
-| paging | [common.Paging](#common.Paging) |  | 分页信息 |
 | status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
-
-
-
-
-
-
-<a name="cmdb.ImportReviewResponse.InstInfoEntry"></a>
-
-### ImportReviewResponse.InstInfoEntry
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| key | [string](#string) |  |  |
-| value | [string](#string) |  |  |
 
 
 
@@ -1587,6 +1590,8 @@ LAKE节点对象
 | isp_code | [string](#string) |  | 运营商编码 |
 | area | [AreaObject](#cmdb.AreaObject) |  | 机房的具体区域信息 |
 | room_address | [string](#string) |  | 机房的具体地址 |
+| up_bandwidth | [int32](#int32) |  | 上行带宽 |
+| min_bandwidth | [int32](#int32) |  | 保底带宽 |
 
 
 
@@ -1687,7 +1692,7 @@ VIP对象
 <a name="cmdb.ImportStatus"></a>
 
 ### ImportStatus
-导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 // 5-审核不通过
+导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
@@ -1767,8 +1772,8 @@ VIP对象
 | SearchLakeHost | [SearchLakeHostRequest](#cmdb.SearchLakeHostRequest) | [SearchLakeHostResponse](#cmdb.SearchLakeHostResponse) | 查询Lake节点下的主机列表 |
 | SearchLakeArea | [SearchLakeAreaRequest](#cmdb.SearchLakeAreaRequest) | [SearchLakeAreaResponse](#cmdb.SearchLakeAreaResponse) | 通过IP获取节点的地区和位置信息 |
 | ImportAsset | [ImportAssetRequest](#cmdb.ImportAssetRequest) | [ImportAssetResponse](#cmdb.ImportAssetResponse) | 导入实体资产 |
-| ImportReview | [ImportReviewRequest](#cmdb.ImportReviewRequest) | [ImportReviewResponse](#cmdb.ImportReviewResponse) | 查看导入的实体信息列表 |
-| ImportResult | [ImportResultRequest](#cmdb.ImportResultRequest) | [ImportResultResponse](#cmdb.ImportResultResponse) | 导入交维表审批结果 |
+| ImportReview | [ImportReviewRequest](#cmdb.ImportReviewRequest) | [ImportReviewResponse](#cmdb.ImportReviewResponse) | 导入交维表审批结果 |
+| ImportDetail | [ImportDetailRequest](#cmdb.ImportDetailRequest) | [ImportDetailResponse](#cmdb.ImportDetailResponse) | 查看导入的实体信息列表 |
 
  
 

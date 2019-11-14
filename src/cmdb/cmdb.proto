@@ -140,7 +140,7 @@ service Cmdb {
     }
 }
 
-// 导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 // 5-审核不通过
+// 导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过
 enum ImportStatus {
     // 0-正在导入
     IMPORTING = 0;
@@ -586,20 +586,24 @@ message ImportHistoryObject {
     ImportType import_type = 10;
     // 导入状态
     ImportStatus status = 11;
-    // 起始时间
-    google.protobuf.Timestamp start_time = 12;
-    // 结束时间
-    google.protobuf.Timestamp end_time = 13;
+    // 审批描述
+    string review_note = 12;
     // 用户上传的文件名
-    string filename = 14;
+    string filename = 13;
     // 日志文件内容
-    string logfile_content = 15;
+    string logfile_content = 14;
+    // 起始时间
+    google.protobuf.Timestamp start_time = 15;
+    // 结束时间
+    google.protobuf.Timestamp end_time = 16;
 }
 
 // 查询导入历史列表请求
 message ImportHistoryRequest {
     // 分页信息
     common.Paging paging = 1;
+    // 查看指定状态记录，0-查看全部
+    ImportStatus importStatus = 2;
 }
 
 // 查询导入历史列表返回
