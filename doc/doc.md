@@ -76,12 +76,12 @@
     - [RoomObject](#cmdb.RoomObject)
     - [RoomTopologyRequest](#cmdb.RoomTopologyRequest)
     - [RoomTopologyResponse](#cmdb.RoomTopologyResponse)
-    - [SearchHostInLakeRequest](#cmdb.SearchHostInLakeRequest)
-    - [SearchHostInLakeResponse](#cmdb.SearchHostInLakeResponse)
     - [SearchHostRequest](#cmdb.SearchHostRequest)
     - [SearchHostResponse](#cmdb.SearchHostResponse)
     - [SearchLakeAreaRequest](#cmdb.SearchLakeAreaRequest)
     - [SearchLakeAreaResponse](#cmdb.SearchLakeAreaResponse)
+    - [SearchLakeHostRequest](#cmdb.SearchLakeHostRequest)
+    - [SearchLakeHostResponse](#cmdb.SearchLakeHostResponse)
     - [SearchLakeRequest](#cmdb.SearchLakeRequest)
     - [SearchLakeResponse](#cmdb.SearchLakeResponse)
     - [SearchMoudleRequest](#cmdb.SearchMoudleRequest)
@@ -811,6 +811,10 @@ cmdb事件请求返回
 | bk_host_id | [int32](#int32) |  | 主机ID |
 | state | [string](#string) |  | 主机状态,有上线和下线两种 |
 | ipv6 | [string](#string) |  | ipv6的地址 |
+| module_name | [string](#string) |  | 设备角色(模块名) |
+| bk_mem | [int32](#int32) |  | 内存 |
+| bk_disk | [int32](#int32) |  | 硬盘(总量) |
+| nic_speed | [int32](#int32) |  | 网卡带宽 |
 
 
 
@@ -1228,8 +1232,7 @@ lake下的主机列表
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| lake_name | [string](#string) |  |  |
-| node_id | [int32](#int32) |  | 缓存节点id |
+| lake_object | [LakeObject](#cmdb.LakeObject) |  |  |
 | host | [HostObject](#cmdb.HostObject) | repeated |  |
 
 
@@ -1327,37 +1330,6 @@ LAKE节点对象
 
 
 
-<a name="cmdb.SearchHostInLakeRequest"></a>
-
-### SearchHostInLakeRequest
-查询lake下的主机列表的请求体
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| lake_name | [string](#string) | repeated |  |
-
-
-
-
-
-
-<a name="cmdb.SearchHostInLakeResponse"></a>
-
-### SearchHostInLakeResponse
-查询lake下的主机列表的返回
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| lake_host | [LakeHost](#cmdb.LakeHost) | repeated |  |
-| status | [common.ResponseStatus](#common.ResponseStatus) |  | 状态码 |
-
-
-
-
-
-
 <a name="cmdb.SearchHostRequest"></a>
 
 ### SearchHostRequest
@@ -1421,6 +1393,39 @@ LAKE节点对象
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | lake_area | [LakeAreaObject](#cmdb.LakeAreaObject) | repeated |  |
+| status | [common.ResponseStatus](#common.ResponseStatus) |  | 状态码 |
+
+
+
+
+
+
+<a name="cmdb.SearchLakeHostRequest"></a>
+
+### SearchLakeHostRequest
+查询lake下的主机列表的请求体
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| lake_name | [string](#string) | repeated | lake节点的名字列表 |
+| node_id | [int32](#int32) | repeated | lake节点的ID列表 |
+| area_level | [AreaLevel](#cmdb.AreaLevel) |  | 要查询的区域的地区层级 |
+
+
+
+
+
+
+<a name="cmdb.SearchLakeHostResponse"></a>
+
+### SearchLakeHostResponse
+查询lake下的主机列表的返回
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| lake_host | [LakeHost](#cmdb.LakeHost) | repeated |  |
 | status | [common.ResponseStatus](#common.ResponseStatus) |  | 状态码 |
 
 
@@ -1759,7 +1764,7 @@ VIP对象
 | SearchModule | [SearchMoudleRequest](#cmdb.SearchMoudleRequest) | [SearchMoudleResponse](#cmdb.SearchMoudleResponse) | 查询模块 |
 | ImportHistory | [ImportHistoryRequest](#cmdb.ImportHistoryRequest) | [ImportHistoryResponse](#cmdb.ImportHistoryResponse) | 查询导入历史记录列表 |
 | SearchLake | [SearchLakeRequest](#cmdb.SearchLakeRequest) | [SearchLakeResponse](#cmdb.SearchLakeResponse) | 查询Lake节点 |
-| SearchHostInLake | [SearchHostInLakeRequest](#cmdb.SearchHostInLakeRequest) | [SearchHostInLakeResponse](#cmdb.SearchHostInLakeResponse) | 查询Lake节点下的主机列表 |
+| SearchLakeHost | [SearchLakeHostRequest](#cmdb.SearchLakeHostRequest) | [SearchLakeHostResponse](#cmdb.SearchLakeHostResponse) | 查询Lake节点下的主机列表 |
 | SearchLakeArea | [SearchLakeAreaRequest](#cmdb.SearchLakeAreaRequest) | [SearchLakeAreaResponse](#cmdb.SearchLakeAreaResponse) | 通过IP获取节点的地区和位置信息 |
 | ImportAsset | [ImportAssetRequest](#cmdb.ImportAssetRequest) | [ImportAssetResponse](#cmdb.ImportAssetResponse) | 导入实体资产 |
 | ImportReview | [ImportReviewRequest](#cmdb.ImportReviewRequest) | [ImportReviewResponse](#cmdb.ImportReviewResponse) | 查看导入的实体信息列表 |

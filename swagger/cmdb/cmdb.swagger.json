@@ -393,6 +393,37 @@
             "type": "string"
           },
           {
+            "name": "host.module_name",
+            "description": "设备角色(模块名).",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.bk_mem",
+            "description": "内存.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "host.bk_disk",
+            "description": "硬盘(总量).",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "host.nic_speed",
+            "description": "网卡带宽.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
             "name": "module.bk_module_name",
             "description": "模块名.",
             "in": "query",
@@ -575,18 +606,19 @@
     "/v1/cmdb/searchLakeHost": {
       "get": {
         "summary": "查询Lake节点下的主机列表",
-        "operationId": "SearchHostInLake",
+        "operationId": "SearchLakeHost",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/cmdbSearchHostInLakeResponse"
+              "$ref": "#/definitions/cmdbSearchLakeHostResponse"
             }
           }
         },
         "parameters": [
           {
             "name": "lake_name",
+            "description": "lake节点的名字列表.",
             "in": "query",
             "required": false,
             "type": "array",
@@ -594,6 +626,34 @@
               "type": "string"
             },
             "collectionFormat": "multi"
+          },
+          {
+            "name": "node_id",
+            "description": "lake节点的ID列表.",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "area_level",
+            "description": "要查询的区域的地区层级.\n\n - NULL: 0-不存在\n - NATION: 1-国家级\n - REGION: 2-大区级\n - PROVINCE: 3-省级\n - CITY: 4-市级\n - COUNTY: 5-区县级",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "NULL",
+              "NATION",
+              "REGION",
+              "PROVINCE",
+              "CITY",
+              "COUNTY"
+            ],
+            "default": "NULL"
           }
         ],
         "tags": [
@@ -849,6 +909,25 @@
         "ipv6": {
           "type": "string",
           "title": "ipv6的地址"
+        },
+        "module_name": {
+          "type": "string",
+          "title": "设备角色(模块名)"
+        },
+        "bk_mem": {
+          "type": "integer",
+          "format": "int32",
+          "title": "内存"
+        },
+        "bk_disk": {
+          "type": "integer",
+          "format": "int32",
+          "title": "硬盘(总量)"
+        },
+        "nic_speed": {
+          "type": "integer",
+          "format": "int32",
+          "title": "网卡带宽"
         }
       },
       "title": "主机"
@@ -1163,13 +1242,8 @@
     "cmdbLakeHost": {
       "type": "object",
       "properties": {
-        "lake_name": {
-          "type": "string"
-        },
-        "node_id": {
-          "type": "integer",
-          "format": "int32",
-          "title": "缓存节点id"
+        "lake_object": {
+          "$ref": "#/definitions/cmdbLakeObject"
         },
         "host": {
           "type": "array",
@@ -1318,22 +1392,6 @@
       },
       "title": "机房拓扑请求返回"
     },
-    "cmdbSearchHostInLakeResponse": {
-      "type": "object",
-      "properties": {
-        "lake_host": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/cmdbLakeHost"
-          }
-        },
-        "status": {
-          "$ref": "#/definitions/commonResponseStatus",
-          "title": "状态码"
-        }
-      },
-      "title": "查询lake下的主机列表的返回"
-    },
     "cmdbSearchHostResponse": {
       "type": "object",
       "properties": {
@@ -1370,6 +1428,22 @@
         }
       },
       "title": "通过IP获取节点的地区和位置信息的返回"
+    },
+    "cmdbSearchLakeHostResponse": {
+      "type": "object",
+      "properties": {
+        "lake_host": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbLakeHost"
+          }
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "状态码"
+        }
+      },
+      "title": "查询lake下的主机列表的返回"
     },
     "cmdbSearchLakeRequest": {
       "type": "object",

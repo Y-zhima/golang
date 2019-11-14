@@ -426,10 +426,10 @@ func (this *SearchLakeResponse) Validate() error {
 func (this *CabinetObject) Validate() error {
 	return nil
 }
-func (this *SearchHostInLakeRequest) Validate() error {
+func (this *SearchLakeHostRequest) Validate() error {
 	return nil
 }
-func (this *SearchHostInLakeResponse) Validate() error {
+func (this *SearchLakeHostResponse) Validate() error {
 	for _, item := range this.LakeHost {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
@@ -445,6 +445,11 @@ func (this *SearchHostInLakeResponse) Validate() error {
 	return nil
 }
 func (this *LakeHost) Validate() error {
+	if this.LakeObject != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.LakeObject); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("LakeObject", err)
+		}
+	}
 	for _, item := range this.Host {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
@@ -498,39 +503,6 @@ func (this *ImportAssetRequest) Validate() error {
 	return nil
 }
 func (this *ImportAssetResponse) Validate() error {
-	if this.Status != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
-		}
-	}
-	return nil
-}
-func (this *ImportReviewRequest) Validate() error {
-	if this.Paging != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Paging); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("Paging", err)
-		}
-	}
-	return nil
-}
-func (this *ImportReviewResponse) Validate() error {
-	// Validation of proto3 map<> fields is unsupported.
-	if this.Paging != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Paging); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("Paging", err)
-		}
-	}
-	if this.Status != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
-		}
-	}
-	return nil
-}
-func (this *ImportResultRequest) Validate() error {
-	return nil
-}
-func (this *ImportResultResponse) Validate() error {
 	if this.Status != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
