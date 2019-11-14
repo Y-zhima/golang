@@ -1138,7 +1138,7 @@
             <row>
               <entry>module_name</entry>
               <entry><link linkend="string">string</link></entry>
-              <entry></entry>
+              <entry>repeated</entry>
               <entry><para>设备角色(模块名)</para></entry>
             </row>
             
@@ -1654,7 +1654,7 @@
             </row>
             
             <row>
-              <entry>importStatus</entry>
+              <entry>import_status</entry>
               <entry><link linkend="cmdb.ImportStatus">ImportStatus</link></entry>
               <entry></entry>
               <entry><para>查看指定状态记录，0-查看全部</para></entry>

@@ -75,6 +75,26 @@ func (mr *MockCmdbClientMockRecorder) ImportCrossTable(arg0, arg1 interface{}, a
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ImportCrossTable", reflect.TypeOf((*MockCmdbClient)(nil).ImportCrossTable), varargs...)
 }
 
+// ImportDetail mocks base method
+func (m *MockCmdbClient) ImportDetail(arg0 context.Context, arg1 *cmdb.ImportDetailRequest, arg2 ...grpc.CallOption) (*cmdb.ImportDetailResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ImportDetail", varargs...)
+	ret0, _ := ret[0].(*cmdb.ImportDetailResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// ImportDetail indicates an expected call of ImportDetail
+func (mr *MockCmdbClientMockRecorder) ImportDetail(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ImportDetail", reflect.TypeOf((*MockCmdbClient)(nil).ImportDetail), varargs...)
+}
+
 // ImportHistory mocks base method
 func (m *MockCmdbClient) ImportHistory(arg0 context.Context, arg1 *cmdb.ImportHistoryRequest, arg2 ...grpc.CallOption) (*cmdb.ImportHistoryResponse, error) {
 	m.ctrl.T.Helper()
@@ -133,6 +153,26 @@ func (mr *MockCmdbClientMockRecorder) ImportLake(arg0, arg1 interface{}, arg2 ..
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{arg0, arg1}, arg2...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ImportLake", reflect.TypeOf((*MockCmdbClient)(nil).ImportLake), varargs...)
+}
+
+// ImportReview mocks base method
+func (m *MockCmdbClient) ImportReview(arg0 context.Context, arg1 *cmdb.ImportReviewRequest, arg2 ...grpc.CallOption) (*cmdb.ImportReviewResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ImportReview", varargs...)
+	ret0, _ := ret[0].(*cmdb.ImportReviewResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// ImportReview indicates an expected call of ImportReview
+func (mr *MockCmdbClientMockRecorder) ImportReview(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ImportReview", reflect.TypeOf((*MockCmdbClient)(nil).ImportReview), varargs...)
 }
 
 // InstanceTopology mocks base method
