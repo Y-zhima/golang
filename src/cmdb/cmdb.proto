@@ -125,17 +125,17 @@ service Cmdb {
         };
     }
 
-    // 查看导入的实体信息列表
+    // 导入交维表审批结果
     rpc ImportReview (ImportReviewRequest) returns (ImportReviewResponse) {
         option (google.api.http) = {
             get: "/v1/cmdb/importReview"
         };
     }
 
-    // 导入交维表审批结果
-    rpc ImportResult (ImportResultRequest) returns (ImportResultResponse) {
+    // 查看导入的实体信息列表
+    rpc ImportDetail (ImportDetailRequest) returns (ImportDetailResponse) {
         option (google.api.http) = {
-            get: "/v1/cmdb/importResult"
+            get: "/v1/cmdb/importDetail"
         };
     }
 }
@@ -695,6 +695,10 @@ message ServerRoomObject {
     AreaObject area = 6;
     // 机房的具体地址
     string room_address = 7;
+    // 上行带宽
+    int32 up_bandwidth = 8;
+    // 保底带宽
+    int32 min_bandwidth = 9;
 }
 
 // LAKE节点对象
@@ -847,8 +851,30 @@ message ImportAssetResponse {
     common.ResponseStatus status = 1;
 }
 
-// 查看导入的实体信息列表请求
+// 导入交维表审批结果请求
 message ImportReviewRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+          required: ["import_id"]
+        }
+    };
+
+    // 导入记录id
+    int32 import_id = 1;
+    // 指定查看实体类型
+    bool is_accept = 2;
+    // 通过或拒绝描述
+    string description = 3;
+}
+
+// 执行审批结果返回
+message ImportReviewResponse {
+    // 返回的请求状态
+    common.ResponseStatus status = 1;
+}
+
+// 查看导入的实体信息列表请求
+message ImportDetailRequest {
     option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
         json_schema: {
           required: ["import_id"]
@@ -864,31 +890,11 @@ message ImportReviewRequest {
 }
 
 // 查看导入的实体信息列表响应
-message ImportReviewResponse {
+message ImportDetailResponse {
     // 实体信息列表, map<bk_obj_id, 可以转为map的字符串实体信息>
     map<string, string> inst_info = 1;
     // 分页信息
     common.Paging paging = 2;
     // 返回的请求状态
     common.ResponseStatus status = 3;
-}
-
-// 导入交维表审批结果请求
-message ImportResultRequest {
-    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
-        json_schema: {
-          required: ["import_id"]
-        }
-    };
-
-    // 导入记录id
-    int32 import_id = 1;
-    // 指定查看实体类型
-    bool is_accept = 2;
-}
-
-// 执行审批结果返回
-message ImportResultResponse {
-    // 返回的请求状态
-    common.ResponseStatus status = 1;
 }
