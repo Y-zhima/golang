@@ -365,6 +365,26 @@
                 </li>
               
                 <li>
+                  <a href="#cmdb.ImportResultRequest"><span class="badge">M</span>ImportResultRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#cmdb.ImportResultResponse"><span class="badge">M</span>ImportResultResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#cmdb.ImportReviewRequest"><span class="badge">M</span>ImportReviewRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#cmdb.ImportReviewResponse"><span class="badge">M</span>ImportReviewResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#cmdb.ImportReviewResponse.InstInfoEntry"><span class="badge">M</span>ImportReviewResponse.InstInfoEntry</a>
+                </li>
+              
+                <li>
                   <a href="#cmdb.ImportServerRequest"><span class="badge">M</span>ImportServerRequest</a>
                 </li>
               
@@ -2911,6 +2931,168 @@
 
         
       
+        <h3 id="cmdb.ImportResultRequest">ImportResultRequest</h3>
+        <p>导入交维表审批结果请求</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>import_id</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>导入记录id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_accept</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>指定查看实体类型 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="cmdb.ImportResultResponse">ImportResultResponse</h3>
+        <p>执行审批结果返回</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#common.ResponseStatus">common.ResponseStatus</a></td>
+                  <td></td>
+                  <td><p>返回的请求状态 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="cmdb.ImportReviewRequest">ImportReviewRequest</h3>
+        <p>查看导入的实体信息列表请求</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>import_id</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>导入记录id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>bk_obj_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>指定查看实体类型 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>paging</td>
+                  <td><a href="#common.Paging">common.Paging</a></td>
+                  <td></td>
+                  <td><p>分页信息 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="cmdb.ImportReviewResponse">ImportReviewResponse</h3>
+        <p>查看导入的实体信息列表响应</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>inst_info</td>
+                  <td><a href="#cmdb.ImportReviewResponse.InstInfoEntry">ImportReviewResponse.InstInfoEntry</a></td>
+                  <td>repeated</td>
+                  <td><p>实体信息列表, map&lt;bk_obj_id, 可以转为map的字符串实体信息&gt; </p></td>
+                </tr>
+              
+                <tr>
+                  <td>paging</td>
+                  <td><a href="#common.Paging">common.Paging</a></td>
+                  <td></td>
+                  <td><p>分页信息 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#common.ResponseStatus">common.ResponseStatus</a></td>
+                  <td></td>
+                  <td><p>返回的请求状态 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="cmdb.ImportReviewResponse.InstInfoEntry">ImportReviewResponse.InstInfoEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="cmdb.ImportServerRequest">ImportServerRequest</h3>
         <p>导入物理机请求</p>
 
@@ -4412,7 +4594,7 @@
         </table>
       
         <h3 id="cmdb.ImportStatus">ImportStatus</h3>
-        <p>导入状态: 0-正在导入 1-导入完成 2-导入失败</p>
+        <p>导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 // 5-审核不通过</p>
         <table class="enum-table">
           <thead>
             <tr><td>Name</td><td>Number</td><td>Description</td></tr>
@@ -4435,6 +4617,24 @@
                 <td>FAILED</td>
                 <td>2</td>
                 <td><p>2-导入失败</p></td>
+              </tr>
+            
+              <tr>
+                <td>REVIEWING</td>
+                <td>3</td>
+                <td><p>3-待审核</p></td>
+              </tr>
+            
+              <tr>
+                <td>ACCEPT</td>
+                <td>4</td>
+                <td><p>4-审核通过</p></td>
+              </tr>
+            
+              <tr>
+                <td>REJECT</td>
+                <td>5</td>
+                <td><p>5-审核不通过</p></td>
               </tr>
             
           </tbody>
@@ -4654,6 +4854,20 @@
                 <td><p>导入实体资产</p></td>
               </tr>
             
+              <tr>
+                <td>ImportReview</td>
+                <td><a href="#cmdb.ImportReviewRequest">ImportReviewRequest</a></td>
+                <td><a href="#cmdb.ImportReviewResponse">ImportReviewResponse</a></td>
+                <td><p>查看导入的实体信息列表</p></td>
+              </tr>
+            
+              <tr>
+                <td>ImportResult</td>
+                <td><a href="#cmdb.ImportResultRequest">ImportResultRequest</a></td>
+                <td><a href="#cmdb.ImportResultResponse">ImportResultResponse</a></td>
+                <td><p>导入交维表审批结果</p></td>
+              </tr>
+            
           </tbody>
         </table>
 
@@ -4799,6 +5013,26 @@
                 <td>POST</td>
                 <td>/v1/cmdb/importAsset</td>
                 <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>ImportReview</td>
+                <td>GET</td>
+                <td>/v1/cmdb/importReview</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>ImportResult</td>
+                <td>GET</td>
+                <td>/v1/cmdb/importResult</td>
+                <td></td>
               </tr>
               
             

@@ -15,10 +15,13 @@ import "cmdb/cmdb.proto";
 service SubTask {
     // 创建作业子任务
     rpc Create (CreateRequest) returns (CreateResponse) {}
+
     // 完成作业子任务
     rpc Complete(CompleteRequest) returns(CompleteResponse) {}
+
     // 创建裸金属子任务
     rpc CreateServer (CreateServerRequest) returns (CreateServerResponse) {}
+
     // 交维表导入后巡检子任务
     rpc CreateServerCompare (CreateServerCompareRequest) returns (CreateServerCompareResponse) {}
 

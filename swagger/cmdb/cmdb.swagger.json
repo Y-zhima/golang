@@ -174,6 +174,107 @@
         ]
       }
     },
+    "/v1/cmdb/importResult": {
+      "get": {
+        "summary": "导入交维表审批结果",
+        "operationId": "ImportResult",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportResultResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "import_id",
+            "description": "导入记录id.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "is_accept",
+            "description": "指定查看实体类型.",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "format": "boolean"
+          }
+        ],
+        "tags": [
+          "Cmdb"
+        ]
+      }
+    },
+    "/v1/cmdb/importReview": {
+      "get": {
+        "summary": "查看导入的实体信息列表",
+        "operationId": "ImportReview",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbImportReviewResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "import_id",
+            "description": "导入记录id.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "bk_obj_id",
+            "description": "指定查看实体类型.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "paging.total_page",
+            "description": "总页数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paging.page",
+            "description": "当前页数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paging.per_page",
+            "description": "每页显示的记录条数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paging.total_record",
+            "description": "总记录数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Cmdb"
+        ]
+      }
+    },
     "/v1/cmdb/instanceTopology": {
       "get": {
         "summary": "实例拓扑",
@@ -1038,16 +1139,50 @@
       },
       "title": "导入lake节点请求返回"
     },
+    "cmdbImportResultResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        }
+      },
+      "title": "执行审批结果返回"
+    },
+    "cmdbImportReviewResponse": {
+      "type": "object",
+      "properties": {
+        "inst_info": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "实体信息列表, map\u003cbk_obj_id, 可以转为map的字符串实体信息\u003e"
+        },
+        "paging": {
+          "$ref": "#/definitions/commonPaging",
+          "title": "分页信息"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        }
+      },
+      "title": "查看导入的实体信息列表响应"
+    },
     "cmdbImportStatus": {
       "type": "string",
       "enum": [
         "IMPORTING",
         "COMPLETED",
-        "FAILED"
+        "FAILED",
+        "REVIEWING",
+        "ACCEPT",
+        "REJECT"
       ],
       "default": "IMPORTING",
-      "description": "- IMPORTING: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败",
-      "title": "导入状态: 0-正在导入 1-导入完成 2-导入失败"
+      "description": "- IMPORTING: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败\n - REVIEWING: 3-待审核\n - ACCEPT: 4-审核通过\n - REJECT: 5-审核不通过",
+      "title": "导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 // 5-审核不通过"
     },
     "cmdbImportType": {
       "type": "string",
