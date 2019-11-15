@@ -600,10 +600,12 @@ message ImportHistoryObject {
 
 // 查询导入历史列表请求
 message ImportHistoryRequest {
-    // 分页信息
-    common.Paging paging = 1;
+    // 指定查看类型
+    ImportType import_type = 1;
     // 查看指定状态记录，0-查看全部
     ImportStatus import_status = 2;
+    // 分页信息
+    common.Paging paging = 3;
 }
 
 // 查询导入历史列表返回

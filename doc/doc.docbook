@@ -1647,10 +1647,10 @@
           <tbody>
             
             <row>
-              <entry>paging</entry>
-              <entry><link linkend="common.Paging">common.Paging</link></entry>
+              <entry>import_type</entry>
+              <entry><link linkend="cmdb.ImportType">ImportType</link></entry>
               <entry></entry>
-              <entry><para>分页信息</para></entry>
+              <entry><para>指定查看类型</para></entry>
             </row>
             
             <row>
@@ -1658,6 +1658,13 @@
               <entry><link linkend="cmdb.ImportStatus">ImportStatus</link></entry>
               <entry></entry>
               <entry><para>查看指定状态记录，0-查看全部</para></entry>
+            </row>
+            
+            <row>
+              <entry>paging</entry>
+              <entry><link linkend="common.Paging">common.Paging</link></entry>
+              <entry></entry>
+              <entry><para>分页信息</para></entry>
             </row>
             
           </tbody>

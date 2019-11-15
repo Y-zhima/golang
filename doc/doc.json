@@ -1762,12 +1762,12 @@
           "extensions": [],
           "fields": [
             {
-              "name": "paging",
-              "description": "分页信息",
+              "name": "import_type",
+              "description": "指定查看类型",
               "label": "",
-              "type": "Paging",
-              "longType": "common.Paging",
-              "fullType": "common.Paging",
+              "type": "ImportType",
+              "longType": "ImportType",
+              "fullType": "cmdb.ImportType",
               "ismap": false,
               "defaultValue": ""
             },
@@ -1778,6 +1778,16 @@
               "type": "ImportStatus",
               "longType": "ImportStatus",
               "fullType": "cmdb.ImportStatus",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "paging",
+              "description": "分页信息",
+              "label": "",
+              "type": "Paging",
+              "longType": "common.Paging",
+              "fullType": "common.Paging",
               "ismap": false,
               "defaultValue": ""
             }
@@ -10992,7 +11002,7 @@
             },
             {
               "name": "Delete",
-              "description": "删除作业模板\n\noption (google.api.http) = {\r\n           post: \"/v1/template/delete/{template_id}\"\r\n       };",
+              "description": "删除作业模板\n\noption (google.api.http) = {\n           post: \"/v1/template/delete/{template_id}\"\n       };",
               "requestType": "DeleteRequest",
               "requestLongType": "DeleteRequest",
               "requestFullType": "template.DeleteRequest",

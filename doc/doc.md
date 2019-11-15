@@ -974,8 +974,9 @@ cmdb事件请求返回
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| paging | [common.Paging](#common.Paging) |  | 分页信息 |
+| import_type | [ImportType](#cmdb.ImportType) |  | 指定查看类型 |
 | import_status | [ImportStatus](#cmdb.ImportStatus) |  | 查看指定状态记录，0-查看全部 |
+| paging | [common.Paging](#common.Paging) |  | 分页信息 |
 
 
 
