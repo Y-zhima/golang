@@ -617,7 +617,7 @@
           "name": "ImportStatus",
           "longName": "ImportStatus",
           "fullName": "cmdb.ImportStatus",
-          "description": "导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过",
+          "description": "导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过 6-撤销",
           "values": [
             {
               "name": "IMPORTING",
@@ -648,6 +648,11 @@
               "name": "REJECT",
               "number": "5",
               "description": "5-审核不通过"
+            },
+            {
+              "name": "Cancel",
+              "number": "6",
+              "description": "6-撤销"
             }
           ]
         },
@@ -2002,18 +2007,18 @@
               "defaultValue": ""
             },
             {
-              "name": "is_accept",
-              "description": "指定查看实体类型",
+              "name": "import_status",
+              "description": "指定审批结果，只处理通过，不通过和撤销",
               "label": "",
-              "type": "bool",
-              "longType": "bool",
-              "fullType": "bool",
+              "type": "ImportStatus",
+              "longType": "ImportStatus",
+              "fullType": "cmdb.ImportStatus",
               "ismap": false,
               "defaultValue": ""
             },
             {
               "name": "review_note",
-              "description": "审批通过或拒绝描述",
+              "description": "操作描述",
               "label": "",
               "type": "string",
               "longType": "string",

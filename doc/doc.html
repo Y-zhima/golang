@@ -3077,17 +3077,17 @@
                 </tr>
               
                 <tr>
-                  <td>is_accept</td>
-                  <td><a href="#bool">bool</a></td>
+                  <td>import_status</td>
+                  <td><a href="#cmdb.ImportStatus">ImportStatus</a></td>
                   <td></td>
-                  <td><p>指定查看实体类型 </p></td>
+                  <td><p>指定审批结果，只处理通过，不通过和撤销 </p></td>
                 </tr>
               
                 <tr>
                   <td>review_note</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>审批通过或拒绝描述 </p></td>
+                  <td><p>操作描述 </p></td>
                 </tr>
               
             </tbody>
@@ -4636,7 +4636,7 @@
         </table>
       
         <h3 id="cmdb.ImportStatus">ImportStatus</h3>
-        <p>导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过</p>
+        <p>导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过 6-撤销</p>
         <table class="enum-table">
           <thead>
             <tr><td>Name</td><td>Number</td><td>Description</td></tr>
@@ -4677,6 +4677,12 @@
                 <td>REJECT</td>
                 <td>5</td>
                 <td><p>5-审核不通过</p></td>
+              </tr>
+            
+              <tr>
+                <td>Cancel</td>
+                <td>6</td>
+                <td><p>6-撤销</p></td>
               </tr>
             
           </tbody>

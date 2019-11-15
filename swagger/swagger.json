@@ -283,11 +283,12 @@
               "FAILED",
               "REVIEWING",
               "ACCEPT",
-              "REJECT"
+              "REJECT",
+              "Cancel"
             ],
             "type": "string",
             "default": "IMPORTING",
-            "description": "查看指定状态记录，0-查看全部.\n\n - IMPORTING: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败\n - REVIEWING: 3-待审核\n - ACCEPT: 4-审核通过\n - REJECT: 5-审核不通过",
+            "description": "查看指定状态记录，0-查看全部.\n\n - IMPORTING: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败\n - REVIEWING: 3-待审核\n - ACCEPT: 4-审核通过\n - REJECT: 5-审核不通过\n - Cancel: 6-撤销",
             "name": "import_status",
             "in": "query"
           },
@@ -400,15 +401,24 @@
             "in": "query"
           },
           {
-            "type": "boolean",
-            "format": "boolean",
-            "description": "指定查看实体类型.",
-            "name": "is_accept",
+            "enum": [
+              "IMPORTING",
+              "COMPLETED",
+              "FAILED",
+              "REVIEWING",
+              "ACCEPT",
+              "REJECT",
+              "Cancel"
+            ],
+            "type": "string",
+            "default": "IMPORTING",
+            "description": "指定审批结果，只处理通过，不通过和撤销.\n\n - IMPORTING: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败\n - REVIEWING: 3-待审核\n - ACCEPT: 4-审核通过\n - REJECT: 5-审核不通过\n - Cancel: 6-撤销",
+            "name": "import_status",
             "in": "query"
           },
           {
             "type": "string",
-            "description": "审批通过或拒绝描述.",
+            "description": "操作描述.",
             "name": "review_note",
             "in": "query"
           }
@@ -2691,9 +2701,9 @@
       }
     },
     "cmdbImportStatus": {
-      "description": "- IMPORTING: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败\n - REVIEWING: 3-待审核\n - ACCEPT: 4-审核通过\n - REJECT: 5-审核不通过",
+      "description": "- IMPORTING: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败\n - REVIEWING: 3-待审核\n - ACCEPT: 4-审核通过\n - REJECT: 5-审核不通过\n - Cancel: 6-撤销",
       "type": "string",
-      "title": "导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过",
+      "title": "导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过 6-撤销",
       "default": "IMPORTING",
       "enum": [
         "IMPORTING",
@@ -2701,7 +2711,8 @@
         "FAILED",
         "REVIEWING",
         "ACCEPT",
-        "REJECT"
+        "REJECT",
+        "Cancel"
       ]
     },
     "cmdbImportType": {
