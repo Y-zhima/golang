@@ -974,8 +974,9 @@ cmdb事件请求返回
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| paging | [common.Paging](#common.Paging) |  | 分页信息 |
+| import_type | [ImportType](#cmdb.ImportType) |  | 指定查看类型 |
 | import_status | [ImportStatus](#cmdb.ImportStatus) |  | 查看指定状态记录，0-查看全部 |
+| paging | [common.Paging](#common.Paging) |  | 分页信息 |
 
 
 
@@ -1072,8 +1073,8 @@ cmdb事件请求返回
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | import_id | [int32](#int32) |  | 导入记录id |
-| is_accept | [bool](#bool) |  | 指定查看实体类型 |
-| review_note | [string](#string) |  | 审批通过或拒绝描述 |
+| import_status | [ImportStatus](#cmdb.ImportStatus) |  | 指定审批结果，只处理通过，不通过和撤销 |
+| review_note | [string](#string) |  | 操作描述 |
 
 
 
@@ -1692,7 +1693,7 @@ VIP对象
 <a name="cmdb.ImportStatus"></a>
 
 ### ImportStatus
-导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过
+导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过 6-撤销
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
@@ -1702,6 +1703,7 @@ VIP对象
 | REVIEWING | 3 | 3-待审核 |
 | ACCEPT | 4 | 4-审核通过 |
 | REJECT | 5 | 5-审核不通过 |
+| Cancel | 6 | 6-撤销 |
 
 
 

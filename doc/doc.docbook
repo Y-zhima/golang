@@ -1647,10 +1647,10 @@
           <tbody>
             
             <row>
-              <entry>paging</entry>
-              <entry><link linkend="common.Paging">common.Paging</link></entry>
+              <entry>import_type</entry>
+              <entry><link linkend="cmdb.ImportType">ImportType</link></entry>
               <entry></entry>
-              <entry><para>分页信息</para></entry>
+              <entry><para>指定查看类型</para></entry>
             </row>
             
             <row>
@@ -1658,6 +1658,13 @@
               <entry><link linkend="cmdb.ImportStatus">ImportStatus</link></entry>
               <entry></entry>
               <entry><para>查看指定状态记录，0-查看全部</para></entry>
+            </row>
+            
+            <row>
+              <entry>paging</entry>
+              <entry><link linkend="common.Paging">common.Paging</link></entry>
+              <entry></entry>
+              <entry><para>分页信息</para></entry>
             </row>
             
           </tbody>
@@ -1913,17 +1920,17 @@
             </row>
             
             <row>
-              <entry>is_accept</entry>
-              <entry><link linkend="bool">bool</link></entry>
+              <entry>import_status</entry>
+              <entry><link linkend="cmdb.ImportStatus">ImportStatus</link></entry>
               <entry></entry>
-              <entry><para>指定查看实体类型</para></entry>
+              <entry><para>指定审批结果，只处理通过，不通过和撤销</para></entry>
             </row>
             
             <row>
               <entry>review_note</entry>
               <entry><link linkend="string">string</link></entry>
               <entry></entry>
-              <entry><para>审批通过或拒绝描述</para></entry>
+              <entry><para>操作描述</para></entry>
             </row>
             
           </tbody>
@@ -3759,7 +3766,7 @@
     
     <section id="cmdb.ImportStatus">
       <title>ImportStatus</title>
-      <para>导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过</para>
+      <para>导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过 6-撤销</para>
       <table frame="all">
         <title><classname>ImportStatus</classname> Values</title>
         <tgroup cols="3">
@@ -3809,6 +3816,12 @@
               <entry>REJECT</entry>
               <entry>5</entry>
               <entry><para>5-审核不通过</para></entry>
+            </row>
+            
+            <row>
+              <entry>Cancel</entry>
+              <entry>6</entry>
+              <entry><para>6-撤销</para></entry>
             </row>
             
           </tbody>

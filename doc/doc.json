@@ -617,7 +617,7 @@
           "name": "ImportStatus",
           "longName": "ImportStatus",
           "fullName": "cmdb.ImportStatus",
-          "description": "导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过",
+          "description": "导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过 6-撤销",
           "values": [
             {
               "name": "IMPORTING",
@@ -648,6 +648,11 @@
               "name": "REJECT",
               "number": "5",
               "description": "5-审核不通过"
+            },
+            {
+              "name": "Cancel",
+              "number": "6",
+              "description": "6-撤销"
             }
           ]
         },
@@ -1762,12 +1767,12 @@
           "extensions": [],
           "fields": [
             {
-              "name": "paging",
-              "description": "分页信息",
+              "name": "import_type",
+              "description": "指定查看类型",
               "label": "",
-              "type": "Paging",
-              "longType": "common.Paging",
-              "fullType": "common.Paging",
+              "type": "ImportType",
+              "longType": "ImportType",
+              "fullType": "cmdb.ImportType",
               "ismap": false,
               "defaultValue": ""
             },
@@ -1778,6 +1783,16 @@
               "type": "ImportStatus",
               "longType": "ImportStatus",
               "fullType": "cmdb.ImportStatus",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "paging",
+              "description": "分页信息",
+              "label": "",
+              "type": "Paging",
+              "longType": "common.Paging",
+              "fullType": "common.Paging",
               "ismap": false,
               "defaultValue": ""
             }
@@ -1992,18 +2007,18 @@
               "defaultValue": ""
             },
             {
-              "name": "is_accept",
-              "description": "指定查看实体类型",
+              "name": "import_status",
+              "description": "指定审批结果，只处理通过，不通过和撤销",
               "label": "",
-              "type": "bool",
-              "longType": "bool",
-              "fullType": "bool",
+              "type": "ImportStatus",
+              "longType": "ImportStatus",
+              "fullType": "cmdb.ImportStatus",
               "ismap": false,
               "defaultValue": ""
             },
             {
               "name": "review_note",
-              "description": "审批通过或拒绝描述",
+              "description": "操作描述",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -10992,7 +11007,7 @@
             },
             {
               "name": "Delete",
-              "description": "删除作业模板\n\noption (google.api.http) = {\r\n           post: \"/v1/template/delete/{template_id}\"\r\n       };",
+              "description": "删除作业模板\n\noption (google.api.http) = {\n           post: \"/v1/template/delete/{template_id}\"\n       };",
               "requestType": "DeleteRequest",
               "requestLongType": "DeleteRequest",
               "requestFullType": "template.DeleteRequest",

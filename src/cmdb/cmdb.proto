@@ -140,7 +140,7 @@ service Cmdb {
     }
 }
 
-// 导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过
+// 导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过 6-撤销
 enum ImportStatus {
     // 0-正在导入
     IMPORTING = 0;
@@ -154,6 +154,8 @@ enum ImportStatus {
     ACCEPT = 4;
     // 5-审核不通过
     REJECT = 5;
+    // 6-撤销
+    Cancel = 6;
 }
 
 // 导入类型:0-undefined 1-主机 2-物理机 3-LAKE 4-交换机
@@ -600,10 +602,12 @@ message ImportHistoryObject {
 
 // 查询导入历史列表请求
 message ImportHistoryRequest {
-    // 分页信息
-    common.Paging paging = 1;
+    // 指定查看类型
+    ImportType import_type = 1;
     // 查看指定状态记录，0-查看全部
     ImportStatus import_status = 2;
+    // 分页信息
+    common.Paging paging = 3;
 }
 
 // 查询导入历史列表返回
@@ -877,9 +881,9 @@ message ImportReviewRequest {
 
     // 导入记录id
     int32 import_id = 1;
-    // 指定查看实体类型
-    bool is_accept = 2;
-    // 审批通过或拒绝描述
+    // 指定审批结果，只处理通过，不通过和撤销
+    ImportStatus import_status = 2;
+    // 操作描述
     string review_note = 3;
 }
 
