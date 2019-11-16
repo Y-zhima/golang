@@ -161,39 +161,39 @@ service Cmdb {
 // 实体 host，lake，vip的查询请求
 message SearchInstRequest {
     // 用于区分查询类型，此处查询主要包括 host，lake，vip
-    InstType search_type = 0;
+    InstType search_type = 1;
     // 用于fields查询条件
-    string fields = 1;
+    string fields = 2;
     // 用于condition查询条件
-    string condition = 2;
+    string condition = 3;
     // 用于page查询条件
-    string page = 3;
+    string page = 4;
 }
 
 // 实体 host，lake，vip的查询返回
 message SearchInstResponse {
     // 查询实体信息
-    string search_inst = 0;
+    string search_inst = 1;
     // 分页信息
-    common.Paging paging = 1;
+    common.Paging paging = 2;
     // 返回的请求状态
-    common.ResponseStatus status = 2;
+    common.ResponseStatus status = 3;
 }
 
 // 实体 host，lake，vip的更新请求
 message UpdateInstRequest {
     // 用于区分更新类型，此处更新主要包括 host，lake，vip
-    InstType update_type = 0;
+    InstType update_type = 1;
     // 实例id
-    int32 bk_inst_id = 1;
+    int32 bk_inst_id = 2;
     // 更新实体信息
-    string update_inst = 2;
+    string update_inst = 3;
 }
 
 // 实体 host，lake，vip的更新返回
 message UpdateInstResponse {
     // 返回的请求状态
-    common.ResponseStatus status = 0;
+    common.ResponseStatus status = 1;
 }
 
 // 实体类型:0-undefined 1-HOST 2-LAKE 3-vip
