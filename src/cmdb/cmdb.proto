@@ -199,13 +199,13 @@ message UpdateInstResponse {
 // 实体类型:0-undefined 1-HOST 2-LAKE 3-vip
 enum InstType {
     // 0-undefined
-    UNDEFINED = 0;
+    UNDEFINED_INST = 0;
     // 1-主机
-    HOST = 1;
+    HOST_INST = 1;
     // 2-LAKE
-    LAKE = 2;
+    LAKE_INST = 2;
     // 3-VIP
-    VIP = 3;
+    VIP_INST = 3;
 }
 
 // 导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过 6-撤销
