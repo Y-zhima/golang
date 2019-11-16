@@ -95,6 +95,23 @@ service Cmdb {
             get: "/v1/cmdb/importHistory"
         };
     }
+
+    // 实体的查询,包括 host，lake，vip列表
+    rpc SearchInst (SearchInstRequest) returns (SearchInstResponse) {
+        option (google.api.http) = {
+            post: "/v1/cmdb/searchInst"
+            body: "*"
+        };
+    }
+
+    // 实体的更新,包括 host，lake，vip列表
+    rpc UpdateInst (UpdateInstRequest) returns (UpdateInstResponse) {
+        option (google.api.http) = {
+            post: "/v1/cmdb/updateInst"
+            body: "*"
+        };
+    }
+
     // 查询Lake节点
     rpc SearchLake (SearchLakeRequest) returns (SearchLakeResponse) {
         option (google.api.http) = {
@@ -138,6 +155,57 @@ service Cmdb {
             get: "/v1/cmdb/importDetail"
         };
     }
+}
+
+
+// 实体 host，lake，vip的查询请求
+message SearchInstRequest {
+    // 用于区分查询类型，此处查询主要包括 host，lake，vip
+    InstType search_type = 0;
+    // 用于fields查询条件
+    string fields = 1;
+    // 用于condition查询条件
+    string condition = 2;
+    // 用于page查询条件
+    string page = 3;
+}
+
+// 实体 host，lake，vip的查询返回
+message SearchInstResponse {
+    // 查询实体信息
+    repeated string search_inst = 0;
+    // 分页信息
+    common.Paging paging = 1;
+    // 返回的请求状态
+    common.ResponseStatus status = 2;
+}
+
+// 实体 host，lake，vip的更新请求
+message UpdateInstRequest {
+    // 用于区分更新类型，此处更新主要包括 host，lake，vip
+    InstType update_type = 0;
+    // 实例id
+    int32 bk_inst_id = 1;
+    // 更新实体信息
+    string update_inst = 2;
+}
+
+// 实体 host，lake，vip的更新返回
+message UpdateInstResponse {
+    // 返回的请求状态
+    common.ResponseStatus status = 0;
+}
+
+// 实体类型:0-undefined 1-HOST 2-LAKE 3-vip
+enum InstType {
+    // 0-undefined
+    UNDEFINED = 0;
+    // 1-主机
+    HOST = 1;
+    // 2-LAKE
+    LAKE = 2;
+    // 3-VIP
+    VIP = 3;
 }
 
 // 导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过 6-撤销
