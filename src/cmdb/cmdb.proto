@@ -173,7 +173,7 @@ message SearchInstRequest {
 // 实体 host，lake，vip的查询返回
 message SearchInstResponse {
     // 查询实体信息
-    string search = 0;
+    string search_inst = 0;
     // 分页信息
     common.Paging paging = 1;
     // 返回的请求状态
@@ -187,7 +187,7 @@ message UpdateInstRequest {
     // 实例id
     int32 bk_inst_id = 1;
     // 更新实体信息
-    string update = 2;
+    string update_inst = 2;
 }
 
 // 实体 host，lake，vip的更新返回
