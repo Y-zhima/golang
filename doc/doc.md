@@ -78,6 +78,8 @@
     - [RoomTopologyResponse](#cmdb.RoomTopologyResponse)
     - [SearchHostRequest](#cmdb.SearchHostRequest)
     - [SearchHostResponse](#cmdb.SearchHostResponse)
+    - [SearchInstRequest](#cmdb.SearchInstRequest)
+    - [SearchInstResponse](#cmdb.SearchInstResponse)
     - [SearchLakeAreaRequest](#cmdb.SearchLakeAreaRequest)
     - [SearchLakeAreaResponse](#cmdb.SearchLakeAreaResponse)
     - [SearchLakeHostRequest](#cmdb.SearchLakeHostRequest)
@@ -93,12 +95,15 @@
     - [ServerRoomObject](#cmdb.ServerRoomObject)
     - [SetObject](#cmdb.SetObject)
     - [TopologyObject](#cmdb.TopologyObject)
+    - [UpdateInstRequest](#cmdb.UpdateInstRequest)
+    - [UpdateInstResponse](#cmdb.UpdateInstResponse)
     - [VipObject](#cmdb.VipObject)
     - [ZoneObject](#cmdb.ZoneObject)
   
     - [AreaLevel](#cmdb.AreaLevel)
     - [ImportStatus](#cmdb.ImportStatus)
     - [ImportType](#cmdb.ImportType)
+    - [InstType](#cmdb.InstType)
     - [ServerInstallState](#cmdb.ServerInstallState)
     - [ServerPowerState](#cmdb.ServerPowerState)
   
@@ -1371,6 +1376,41 @@ LAKE节点对象
 
 
 
+<a name="cmdb.SearchInstRequest"></a>
+
+### SearchInstRequest
+实体 host，lake，vip的查询请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| search_type | [InstType](#cmdb.InstType) |  | 用于区分查询类型，此处查询主要包括 host，lake，vip |
+| fields | [string](#string) |  | 用于fields查询条件 |
+| condition | [string](#string) |  | 用于condition查询条件 |
+| page | [string](#string) |  | 用于page查询条件 |
+
+
+
+
+
+
+<a name="cmdb.SearchInstResponse"></a>
+
+### SearchInstResponse
+实体 host，lake，vip的查询返回
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| search_inst | [string](#string) |  | 查询实体信息 |
+| paging | [common.Paging](#common.Paging) |  | 分页信息 |
+| status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
+
+
+
+
+
+
 <a name="cmdb.SearchLakeAreaRequest"></a>
 
 ### SearchLakeAreaRequest
@@ -1637,6 +1677,38 @@ LAKE节点对象
 
 
 
+<a name="cmdb.UpdateInstRequest"></a>
+
+### UpdateInstRequest
+实体 host，lake，vip的更新请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| update_type | [InstType](#cmdb.InstType) |  | 用于区分更新类型，此处更新主要包括 host，lake，vip |
+| bk_inst_id | [int32](#int32) |  | 实例id |
+| update_inst | [string](#string) |  | 更新实体信息 |
+
+
+
+
+
+
+<a name="cmdb.UpdateInstResponse"></a>
+
+### UpdateInstResponse
+实体 host，lake，vip的更新返回
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
+
+
+
+
+
+
 <a name="cmdb.VipObject"></a>
 
 ### VipObject
@@ -1724,6 +1796,20 @@ VIP对象
 
 
 
+<a name="cmdb.InstType"></a>
+
+### InstType
+实体类型:0-undefined 1-HOST 2-LAKE 3-vip
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNDEFINED_INST | 0 | 0-undefined |
+| HOST_INST | 1 | 1-主机 |
+| LAKE_INST | 2 | 2-LAKE |
+| VIP_INST | 3 | 3-VIP |
+
+
+
 <a name="cmdb.ServerInstallState"></a>
 
 ### ServerInstallState
@@ -1770,6 +1856,8 @@ VIP对象
 | ServerList | [ServerListRequest](#cmdb.ServerListRequest) | [ServerListResponse](#cmdb.ServerListResponse) | 裸金属列表 |
 | SearchModule | [SearchMoudleRequest](#cmdb.SearchMoudleRequest) | [SearchMoudleResponse](#cmdb.SearchMoudleResponse) | 查询模块 |
 | ImportHistory | [ImportHistoryRequest](#cmdb.ImportHistoryRequest) | [ImportHistoryResponse](#cmdb.ImportHistoryResponse) | 查询导入历史记录列表 |
+| SearchInst | [SearchInstRequest](#cmdb.SearchInstRequest) | [SearchInstResponse](#cmdb.SearchInstResponse) | 实体的查询,包括 host，lake，vip列表 |
+| UpdateInst | [UpdateInstRequest](#cmdb.UpdateInstRequest) | [UpdateInstResponse](#cmdb.UpdateInstResponse) | 实体的更新,包括 host，lake，vip列表 |
 | SearchLake | [SearchLakeRequest](#cmdb.SearchLakeRequest) | [SearchLakeResponse](#cmdb.SearchLakeResponse) | 查询Lake节点 |
 | SearchLakeHost | [SearchLakeHostRequest](#cmdb.SearchLakeHostRequest) | [SearchLakeHostResponse](#cmdb.SearchLakeHostResponse) | 查询Lake节点下的主机列表 |
 | SearchLakeArea | [SearchLakeAreaRequest](#cmdb.SearchLakeAreaRequest) | [SearchLakeAreaResponse](#cmdb.SearchLakeAreaResponse) | 通过IP获取节点的地区和位置信息 |

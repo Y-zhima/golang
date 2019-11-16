@@ -449,6 +449,14 @@
                 </li>
               
                 <li>
+                  <a href="#cmdb.SearchInstRequest"><span class="badge">M</span>SearchInstRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#cmdb.SearchInstResponse"><span class="badge">M</span>SearchInstResponse</a>
+                </li>
+              
+                <li>
                   <a href="#cmdb.SearchLakeAreaRequest"><span class="badge">M</span>SearchLakeAreaRequest</a>
                 </li>
               
@@ -509,6 +517,14 @@
                 </li>
               
                 <li>
+                  <a href="#cmdb.UpdateInstRequest"><span class="badge">M</span>UpdateInstRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#cmdb.UpdateInstResponse"><span class="badge">M</span>UpdateInstResponse</a>
+                </li>
+              
+                <li>
                   <a href="#cmdb.VipObject"><span class="badge">M</span>VipObject</a>
                 </li>
               
@@ -527,6 +543,10 @@
               
                 <li>
                   <a href="#cmdb.ImportType"><span class="badge">E</span>ImportType</a>
+                </li>
+              
+                <li>
+                  <a href="#cmdb.InstType"><span class="badge">E</span>InstType</a>
                 </li>
               
                 <li>
@@ -3827,6 +3847,89 @@
 
         
       
+        <h3 id="cmdb.SearchInstRequest">SearchInstRequest</h3>
+        <p>实体 host，lake，vip的查询请求</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>search_type</td>
+                  <td><a href="#cmdb.InstType">InstType</a></td>
+                  <td></td>
+                  <td><p>用于区分查询类型，此处查询主要包括 host，lake，vip </p></td>
+                </tr>
+              
+                <tr>
+                  <td>fields</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>用于fields查询条件 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>condition</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>用于condition查询条件 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>page</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>用于page查询条件 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="cmdb.SearchInstResponse">SearchInstResponse</h3>
+        <p>实体 host，lake，vip的查询返回</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>search_inst</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>查询实体信息 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>paging</td>
+                  <td><a href="#common.Paging">common.Paging</a></td>
+                  <td></td>
+                  <td><p>分页信息 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#common.ResponseStatus">common.ResponseStatus</a></td>
+                  <td></td>
+                  <td><p>返回的请求状态 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="cmdb.SearchLakeAreaRequest">SearchLakeAreaRequest</h3>
         <p>通过IP获取节点的地区和位置信息的请求体</p>
 
@@ -4503,6 +4606,68 @@
 
         
       
+        <h3 id="cmdb.UpdateInstRequest">UpdateInstRequest</h3>
+        <p>实体 host，lake，vip的更新请求</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>update_type</td>
+                  <td><a href="#cmdb.InstType">InstType</a></td>
+                  <td></td>
+                  <td><p>用于区分更新类型，此处更新主要包括 host，lake，vip </p></td>
+                </tr>
+              
+                <tr>
+                  <td>bk_inst_id</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>实例id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>update_inst</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>更新实体信息 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="cmdb.UpdateInstResponse">UpdateInstResponse</h3>
+        <p>实体 host，lake，vip的更新返回</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#common.ResponseStatus">common.ResponseStatus</a></td>
+                  <td></td>
+                  <td><p>返回的请求状态 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="cmdb.VipObject">VipObject</h3>
         <p>VIP对象</p>
 
@@ -4741,6 +4906,41 @@
           </tbody>
         </table>
       
+        <h3 id="cmdb.InstType">InstType</h3>
+        <p>实体类型:0-undefined 1-HOST 2-LAKE 3-vip</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>UNDEFINED_INST</td>
+                <td>0</td>
+                <td><p>0-undefined</p></td>
+              </tr>
+            
+              <tr>
+                <td>HOST_INST</td>
+                <td>1</td>
+                <td><p>1-主机</p></td>
+              </tr>
+            
+              <tr>
+                <td>LAKE_INST</td>
+                <td>2</td>
+                <td><p>2-LAKE</p></td>
+              </tr>
+            
+              <tr>
+                <td>VIP_INST</td>
+                <td>3</td>
+                <td><p>3-VIP</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
         <h3 id="cmdb.ServerInstallState">ServerInstallState</h3>
         <p>装机状态</p>
         <table class="enum-table">
@@ -4872,6 +5072,20 @@
                 <td><a href="#cmdb.ImportHistoryRequest">ImportHistoryRequest</a></td>
                 <td><a href="#cmdb.ImportHistoryResponse">ImportHistoryResponse</a></td>
                 <td><p>查询导入历史记录列表</p></td>
+              </tr>
+            
+              <tr>
+                <td>SearchInst</td>
+                <td><a href="#cmdb.SearchInstRequest">SearchInstRequest</a></td>
+                <td><a href="#cmdb.SearchInstResponse">SearchInstResponse</a></td>
+                <td><p>实体的查询,包括 host，lake，vip列表</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateInst</td>
+                <td><a href="#cmdb.UpdateInstRequest">UpdateInstRequest</a></td>
+                <td><a href="#cmdb.UpdateInstResponse">UpdateInstResponse</a></td>
+                <td><p>实体的更新,包括 host，lake，vip列表</p></td>
               </tr>
             
               <tr>
@@ -5021,6 +5235,26 @@
                 <td>GET</td>
                 <td>/v1/cmdb/importHistory</td>
                 <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>SearchInst</td>
+                <td>POST</td>
+                <td>/v1/cmdb/searchInst</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>UpdateInst</td>
+                <td>POST</td>
+                <td>/v1/cmdb/updateInst</td>
+                <td>*</td>
               </tr>
               
             

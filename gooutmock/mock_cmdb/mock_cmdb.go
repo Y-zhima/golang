@@ -235,6 +235,26 @@ func (mr *MockCmdbClientMockRecorder) SearchHost(arg0, arg1 interface{}, arg2 ..
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SearchHost", reflect.TypeOf((*MockCmdbClient)(nil).SearchHost), varargs...)
 }
 
+// SearchInst mocks base method
+func (m *MockCmdbClient) SearchInst(arg0 context.Context, arg1 *cmdb.SearchInstRequest, arg2 ...grpc.CallOption) (*cmdb.SearchInstResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "SearchInst", varargs...)
+	ret0, _ := ret[0].(*cmdb.SearchInstResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// SearchInst indicates an expected call of SearchInst
+func (mr *MockCmdbClientMockRecorder) SearchInst(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SearchInst", reflect.TypeOf((*MockCmdbClient)(nil).SearchInst), varargs...)
+}
+
 // SearchLake mocks base method
 func (m *MockCmdbClient) SearchLake(arg0 context.Context, arg1 *cmdb.SearchLakeRequest, arg2 ...grpc.CallOption) (*cmdb.SearchLakeResponse, error) {
 	m.ctrl.T.Helper()
@@ -333,4 +353,24 @@ func (mr *MockCmdbClientMockRecorder) ServerList(arg0, arg1 interface{}, arg2 ..
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{arg0, arg1}, arg2...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ServerList", reflect.TypeOf((*MockCmdbClient)(nil).ServerList), varargs...)
+}
+
+// UpdateInst mocks base method
+func (m *MockCmdbClient) UpdateInst(arg0 context.Context, arg1 *cmdb.UpdateInstRequest, arg2 ...grpc.CallOption) (*cmdb.UpdateInstResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "UpdateInst", varargs...)
+	ret0, _ := ret[0].(*cmdb.UpdateInstResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// UpdateInst indicates an expected call of UpdateInst
+func (mr *MockCmdbClientMockRecorder) UpdateInst(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpdateInst", reflect.TypeOf((*MockCmdbClient)(nil).UpdateInst), varargs...)
 }

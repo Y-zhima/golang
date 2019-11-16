@@ -2787,6 +2787,111 @@
       
     </section>
     
+    <section id="cmdb.SearchInstRequest">
+      <title>SearchInstRequest</title>
+      <para>实体 host，lake，vip的查询请求</para>
+      
+      <table frame="all">
+        <title><classname>SearchInstRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>search_type</entry>
+              <entry><link linkend="cmdb.InstType">InstType</link></entry>
+              <entry></entry>
+              <entry><para>用于区分查询类型，此处查询主要包括 host，lake，vip</para></entry>
+            </row>
+            
+            <row>
+              <entry>fields</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>用于fields查询条件</para></entry>
+            </row>
+            
+            <row>
+              <entry>condition</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>用于condition查询条件</para></entry>
+            </row>
+            
+            <row>
+              <entry>page</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>用于page查询条件</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="cmdb.SearchInstResponse">
+      <title>SearchInstResponse</title>
+      <para>实体 host，lake，vip的查询返回</para>
+      
+      <table frame="all">
+        <title><classname>SearchInstResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>search_inst</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>查询实体信息</para></entry>
+            </row>
+            
+            <row>
+              <entry>paging</entry>
+              <entry><link linkend="common.Paging">common.Paging</link></entry>
+              <entry></entry>
+              <entry><para>分页信息</para></entry>
+            </row>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>返回的请求状态</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
     <section id="cmdb.SearchLakeAreaRequest">
       <title>SearchLakeAreaRequest</title>
       <para>通过IP获取节点的地区和位置信息的请求体</para>
@@ -3599,6 +3704,90 @@
       
     </section>
     
+    <section id="cmdb.UpdateInstRequest">
+      <title>UpdateInstRequest</title>
+      <para>实体 host，lake，vip的更新请求</para>
+      
+      <table frame="all">
+        <title><classname>UpdateInstRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>update_type</entry>
+              <entry><link linkend="cmdb.InstType">InstType</link></entry>
+              <entry></entry>
+              <entry><para>用于区分更新类型，此处更新主要包括 host，lake，vip</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_inst_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>实例id</para></entry>
+            </row>
+            
+            <row>
+              <entry>update_inst</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>更新实体信息</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="cmdb.UpdateInstResponse">
+      <title>UpdateInstResponse</title>
+      <para>实体 host，lake，vip的更新返回</para>
+      
+      <table frame="all">
+        <title><classname>UpdateInstResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>返回的请求状态</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
     <section id="cmdb.VipObject">
       <title>VipObject</title>
       <para>VIP对象</para>
@@ -3894,6 +4083,53 @@
       </table>
     </section>
     
+    <section id="cmdb.InstType">
+      <title>InstType</title>
+      <para>实体类型:0-undefined 1-HOST 2-LAKE 3-vip</para>
+      <table frame="all">
+        <title><classname>InstType</classname> Values</title>
+        <tgroup cols="3">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Name</entry>
+              <entry>Number</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>UNDEFINED_INST</entry>
+              <entry>0</entry>
+              <entry><para>0-undefined</para></entry>
+            </row>
+            
+            <row>
+              <entry>HOST_INST</entry>
+              <entry>1</entry>
+              <entry><para>1-主机</para></entry>
+            </row>
+            
+            <row>
+              <entry>LAKE_INST</entry>
+              <entry>2</entry>
+              <entry><para>2-LAKE</para></entry>
+            </row>
+            
+            <row>
+              <entry>VIP_INST</entry>
+              <entry>3</entry>
+              <entry><para>3-VIP</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    
     <section id="cmdb.ServerInstallState">
       <title>ServerInstallState</title>
       <para>装机状态</para>
@@ -4061,6 +4297,20 @@
               <entry><link linkend="cmdb.ImportHistoryRequest">ImportHistoryRequest</link></entry>
               <entry><link linkend="cmdb.ImportHistoryResponse">ImportHistoryResponse</link></entry>
               <entry><para>查询导入历史记录列表</para></entry>
+            </row>
+            
+            <row>
+              <entry>SearchInst</entry>
+              <entry><link linkend="cmdb.SearchInstRequest">SearchInstRequest</link></entry>
+              <entry><link linkend="cmdb.SearchInstResponse">SearchInstResponse</link></entry>
+              <entry><para>实体的查询,包括 host，lake，vip列表</para></entry>
+            </row>
+            
+            <row>
+              <entry>UpdateInst</entry>
+              <entry><link linkend="cmdb.UpdateInstRequest">UpdateInstRequest</link></entry>
+              <entry><link linkend="cmdb.UpdateInstResponse">UpdateInstResponse</link></entry>
+              <entry><para>实体的更新,包括 host，lake，vip列表</para></entry>
             </row>
             
             <row>

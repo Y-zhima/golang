@@ -656,6 +656,33 @@
         }
       }
     },
+    "/v1/cmdb/searchInst": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "实体的查询,包括 host，lake，vip列表",
+        "operationId": "SearchInst",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbSearchInstRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbSearchInstResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/cmdb/searchLake": {
       "post": {
         "tags": [
@@ -885,6 +912,33 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/cmdbServerListResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/updateInst": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "实体的更新,包括 host，lake，vip列表",
+        "operationId": "UpdateInst",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateInstRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateInstResponse"
             }
           }
         }
@@ -2730,6 +2784,18 @@
         "VIP"
       ]
     },
+    "cmdbInstType": {
+      "description": "- UNDEFINED_INST: 0-undefined\n - HOST_INST: 1-主机\n - LAKE_INST: 2-LAKE\n - VIP_INST: 3-VIP",
+      "type": "string",
+      "title": "实体类型:0-undefined 1-HOST 2-LAKE 3-vip",
+      "default": "UNDEFINED_INST",
+      "enum": [
+        "UNDEFINED_INST",
+        "HOST_INST",
+        "LAKE_INST",
+        "VIP_INST"
+      ]
+    },
     "cmdbInstanceTopologyResponse": {
       "type": "object",
       "title": "拓扑实例请求返回",
@@ -2742,7 +2808,7 @@
           }
         },
         "status": {
-          "title": "TopologyObject instance = 1;\r\n状态码",
+          "title": "TopologyObject instance = 1;\n状态码",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
@@ -2940,6 +3006,46 @@
         },
         "status": {
           "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbSearchInstRequest": {
+      "type": "object",
+      "title": "实体 host，lake，vip的查询请求",
+      "properties": {
+        "condition": {
+          "type": "string",
+          "title": "用于condition查询条件"
+        },
+        "fields": {
+          "type": "string",
+          "title": "用于fields查询条件"
+        },
+        "page": {
+          "type": "string",
+          "title": "用于page查询条件"
+        },
+        "search_type": {
+          "title": "用于区分查询类型，此处查询主要包括 host，lake，vip",
+          "$ref": "#/definitions/cmdbInstType"
+        }
+      }
+    },
+    "cmdbSearchInstResponse": {
+      "type": "object",
+      "title": "实体 host，lake，vip的查询返回",
+      "properties": {
+        "paging": {
+          "title": "分页信息",
+          "$ref": "#/definitions/commonPaging"
+        },
+        "search_inst": {
+          "type": "string",
+          "title": "查询实体信息"
+        },
+        "status": {
+          "title": "返回的请求状态",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
@@ -3254,6 +3360,35 @@
           "type": "integer",
           "format": "int32",
           "title": "唯一标识"
+        }
+      }
+    },
+    "cmdbUpdateInstRequest": {
+      "type": "object",
+      "title": "实体 host，lake，vip的更新请求",
+      "properties": {
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "实例id"
+        },
+        "update_inst": {
+          "type": "string",
+          "title": "更新实体信息"
+        },
+        "update_type": {
+          "title": "用于区分更新类型，此处更新主要包括 host，lake，vip",
+          "$ref": "#/definitions/cmdbInstType"
+        }
+      }
+    },
+    "cmdbUpdateInstResponse": {
+      "type": "object",
+      "title": "实体 host，lake，vip的更新返回",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
         }
       }
     },

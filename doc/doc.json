@@ -700,6 +700,34 @@
           ]
         },
         {
+          "name": "InstType",
+          "longName": "InstType",
+          "fullName": "cmdb.InstType",
+          "description": "实体类型:0-undefined 1-HOST 2-LAKE 3-vip",
+          "values": [
+            {
+              "name": "UNDEFINED_INST",
+              "number": "0",
+              "description": "0-undefined"
+            },
+            {
+              "name": "HOST_INST",
+              "number": "1",
+              "description": "1-主机"
+            },
+            {
+              "name": "LAKE_INST",
+              "number": "2",
+              "description": "2-LAKE"
+            },
+            {
+              "name": "VIP_INST",
+              "number": "3",
+              "description": "3-VIP"
+            }
+          ]
+        },
+        {
           "name": "ServerInstallState",
           "longName": "ServerInstallState",
           "fullName": "cmdb.ServerInstallState",
@@ -2239,7 +2267,7 @@
             },
             {
               "name": "status",
-              "description": "TopologyObject instance = 1;\r\n状态码",
+              "description": "TopologyObject instance = 1;\n状态码",
               "label": "",
               "type": "ResponseStatus",
               "longType": "common.ResponseStatus",
@@ -2793,6 +2821,98 @@
               "type": "HostInfoObject",
               "longType": "HostInfoObject",
               "fullType": "cmdb.HostInfoObject",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "SearchInstRequest",
+          "longName": "SearchInstRequest",
+          "fullName": "cmdb.SearchInstRequest",
+          "description": "实体 host，lake，vip的查询请求",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "search_type",
+              "description": "用于区分查询类型，此处查询主要包括 host，lake，vip",
+              "label": "",
+              "type": "InstType",
+              "longType": "InstType",
+              "fullType": "cmdb.InstType",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "fields",
+              "description": "用于fields查询条件",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "condition",
+              "description": "用于condition查询条件",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "page",
+              "description": "用于page查询条件",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "SearchInstResponse",
+          "longName": "SearchInstResponse",
+          "fullName": "cmdb.SearchInstResponse",
+          "description": "实体 host，lake，vip的查询返回",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "search_inst",
+              "description": "查询实体信息",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "paging",
+              "description": "分页信息",
+              "label": "",
+              "type": "Paging",
+              "longType": "common.Paging",
+              "fullType": "common.Paging",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "status",
+              "description": "返回的请求状态",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
               "ismap": false,
               "defaultValue": ""
             }
@@ -3536,6 +3656,68 @@
           ]
         },
         {
+          "name": "UpdateInstRequest",
+          "longName": "UpdateInstRequest",
+          "fullName": "cmdb.UpdateInstRequest",
+          "description": "实体 host，lake，vip的更新请求",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "update_type",
+              "description": "用于区分更新类型，此处更新主要包括 host，lake，vip",
+              "label": "",
+              "type": "InstType",
+              "longType": "InstType",
+              "fullType": "cmdb.InstType",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_inst_id",
+              "description": "实例id",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "update_inst",
+              "description": "更新实体信息",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "UpdateInstResponse",
+          "longName": "UpdateInstResponse",
+          "fullName": "cmdb.UpdateInstResponse",
+          "description": "实体 host，lake，vip的更新返回",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "返回的请求状态",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
           "name": "VipObject",
           "longName": "VipObject",
           "fullName": "cmdb.VipObject",
@@ -3831,6 +4013,52 @@
                     {
                       "method": "GET",
                       "pattern": "/v1/cmdb/importHistory"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "SearchInst",
+              "description": "实体的查询,包括 host，lake，vip列表",
+              "requestType": "SearchInstRequest",
+              "requestLongType": "SearchInstRequest",
+              "requestFullType": "cmdb.SearchInstRequest",
+              "requestStreaming": false,
+              "responseType": "SearchInstResponse",
+              "responseLongType": "SearchInstResponse",
+              "responseFullType": "cmdb.SearchInstResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "POST",
+                      "pattern": "/v1/cmdb/searchInst",
+                      "body": "*"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "UpdateInst",
+              "description": "实体的更新,包括 host，lake，vip列表",
+              "requestType": "UpdateInstRequest",
+              "requestLongType": "UpdateInstRequest",
+              "requestFullType": "cmdb.UpdateInstRequest",
+              "requestStreaming": false,
+              "responseType": "UpdateInstResponse",
+              "responseLongType": "UpdateInstResponse",
+              "responseFullType": "cmdb.UpdateInstResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "POST",
+                      "pattern": "/v1/cmdb/updateInst",
+                      "body": "*"
                     }
                   ]
                 }
@@ -10041,7 +10269,7 @@
             },
             {
               "name": "GetLog",
-              "description": "获取作业任务详细执行过程\n\noption (google.api.http) = {\r\n           get: \"/v1/task/{task_id}/logs\"\r\n       };",
+              "description": "获取作业任务详细执行过程\n\noption (google.api.http) = {\n           get: \"/v1/task/{task_id}/logs\"\n       };",
               "requestType": "GetLogRequest",
               "requestLongType": "GetLogRequest",
               "requestFullType": "task.GetLogRequest",
