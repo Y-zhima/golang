@@ -820,6 +820,7 @@ cmdb事件请求返回
 | bk_mem | [int32](#int32) |  | 内存 |
 | bk_disk | [int32](#int32) |  | 硬盘(总量) |
 | nic_speed | [int32](#int32) |  | 网卡带宽 |
+| service_bandwidth | [int32](#int32) |  | 服务能力 |
 
 
 
@@ -1267,6 +1268,7 @@ LAKE节点对象
 | construct_state | [string](#string) |  | 节点建设状态 |
 | construct_updatetime | [string](#string) |  | 节点建设状态变更时间 |
 | room | [ServerRoomObject](#cmdb.ServerRoomObject) | repeated | 机房信息 |
+| node_code | [string](#string) |  | 节点编码 |
 
 
 
@@ -1453,7 +1455,8 @@ LAKE节点对象
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | lake_name | [string](#string) | repeated | lake节点的名字列表 |
-| node_id | [int32](#int32) | repeated | lake节点的ID列表 |
+| node_id | [int32](#int32) | repeated | lake节点的nodeID列表 |
+| node_code | [string](#string) | repeated | lake节点的节点编码列表 |
 | area_level | [AreaLevel](#cmdb.AreaLevel) |  | 要查询的区域的地区层级 |
 
 
@@ -1489,6 +1492,7 @@ LAKE节点对象
 | vip | [string](#string) | repeated | 节点VIP(一个或多个，可为空) |
 | area_code | [string](#string) | repeated | 地区编码(一个或多个，可为空) |
 | isp_code | [string](#string) | repeated | 运营商编码(一个或多个，可为空) |
+| node_code | [string](#string) | repeated | 节点编码(一个或多个，可为空) |
 
 
 
