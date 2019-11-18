@@ -167,7 +167,7 @@
           },
           {
             "name": "import_status",
-            "description": "查看指定状态记录，0-查看全部.\n\n - IMPORTING: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败\n - REVIEWING: 3-待审核\n - ACCEPT: 4-审核通过\n - REJECT: 5-审核不通过\n - Cancel: 6-撤销",
+            "description": "查看指定状态记录，0-查看全部.\n\n - IMPORTING: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败\n - REVIEWING: 3-待审核\n - ACCEPT: 4-审核通过\n - REJECT: 5-审核不通过\n - CANCEL: 6-撤销\n - ROLL_FAIL: 7-回滚失败",
             "in": "query",
             "required": false,
             "type": "string",
@@ -178,7 +178,8 @@
               "REVIEWING",
               "ACCEPT",
               "REJECT",
-              "Cancel"
+              "CANCEL",
+              "ROLL_FAIL"
             ],
             "default": "IMPORTING"
           },
@@ -297,7 +298,7 @@
           },
           {
             "name": "import_status",
-            "description": "指定审批结果，只处理通过，不通过和撤销.\n\n - IMPORTING: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败\n - REVIEWING: 3-待审核\n - ACCEPT: 4-审核通过\n - REJECT: 5-审核不通过\n - Cancel: 6-撤销",
+            "description": "指定审批结果，只处理通过，不通过和撤销.\n\n - IMPORTING: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败\n - REVIEWING: 3-待审核\n - ACCEPT: 4-审核通过\n - REJECT: 5-审核不通过\n - CANCEL: 6-撤销\n - ROLL_FAIL: 7-回滚失败",
             "in": "query",
             "required": false,
             "type": "string",
@@ -308,7 +309,8 @@
               "REVIEWING",
               "ACCEPT",
               "REJECT",
-              "Cancel"
+              "CANCEL",
+              "ROLL_FAIL"
             ],
             "default": "IMPORTING"
           },
@@ -1294,11 +1296,12 @@
         "REVIEWING",
         "ACCEPT",
         "REJECT",
-        "Cancel"
+        "CANCEL",
+        "ROLL_FAIL"
       ],
       "default": "IMPORTING",
-      "description": "- IMPORTING: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败\n - REVIEWING: 3-待审核\n - ACCEPT: 4-审核通过\n - REJECT: 5-审核不通过\n - Cancel: 6-撤销",
-      "title": "导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过 6-撤销"
+      "description": "- IMPORTING: 0-正在导入\n - COMPLETED: 1-导入完成\n - FAILED: 2-导入失败\n - REVIEWING: 3-待审核\n - ACCEPT: 4-审核通过\n - REJECT: 5-审核不通过\n - CANCEL: 6-撤销\n - ROLL_FAIL: 7-回滚失败",
+      "title": "导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过 6-撤销 7-回滚失败"
     },
     "cmdbImportType": {
       "type": "string",
@@ -1339,7 +1342,7 @@
         },
         "status": {
           "$ref": "#/definitions/commonResponseStatus",
-          "title": "TopologyObject instance = 1;\n状态码"
+          "title": "TopologyObject instance = 1;\r\n状态码"
         }
       },
       "title": "拓扑实例请求返回"

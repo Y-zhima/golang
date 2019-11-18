@@ -3955,7 +3955,7 @@
     
     <section id="cmdb.ImportStatus">
       <title>ImportStatus</title>
-      <para>导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过 6-撤销</para>
+      <para>导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过 6-撤销 7-回滚失败</para>
       <table frame="all">
         <title><classname>ImportStatus</classname> Values</title>
         <tgroup cols="3">
@@ -4008,9 +4008,15 @@
             </row>
             
             <row>
-              <entry>Cancel</entry>
+              <entry>CANCEL</entry>
               <entry>6</entry>
               <entry><para>6-撤销</para></entry>
+            </row>
+            
+            <row>
+              <entry>ROLL_FAIL</entry>
+              <entry>7</entry>
+              <entry><para>7-回滚失败</para></entry>
             </row>
             
           </tbody>

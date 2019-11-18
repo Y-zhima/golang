@@ -4801,7 +4801,7 @@
         </table>
       
         <h3 id="cmdb.ImportStatus">ImportStatus</h3>
-        <p>导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过 6-撤销</p>
+        <p>导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过 6-撤销 7-回滚失败</p>
         <table class="enum-table">
           <thead>
             <tr><td>Name</td><td>Number</td><td>Description</td></tr>
@@ -4845,9 +4845,15 @@
               </tr>
             
               <tr>
-                <td>Cancel</td>
+                <td>CANCEL</td>
                 <td>6</td>
                 <td><p>6-撤销</p></td>
+              </tr>
+            
+              <tr>
+                <td>ROLL_FAIL</td>
+                <td>7</td>
+                <td><p>7-回滚失败</p></td>
               </tr>
             
           </tbody>

@@ -208,7 +208,7 @@ enum InstType {
     VIP_INST = 3;
 }
 
-// 导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过 6-撤销
+// 导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过 6-撤销 7-回滚失败
 enum ImportStatus {
     // 0-正在导入
     IMPORTING = 0;
@@ -223,7 +223,9 @@ enum ImportStatus {
     // 5-审核不通过
     REJECT = 5;
     // 6-撤销
-    Cancel = 6;
+    CANCEL = 6;
+    // 7-回滚失败
+    ROLL_FAIL = 7;
 }
 
 // 导入类型:0-undefined 1-主机 2-物理机 3-LAKE 4-交换机
