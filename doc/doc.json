@@ -617,7 +617,7 @@
           "name": "ImportStatus",
           "longName": "ImportStatus",
           "fullName": "cmdb.ImportStatus",
-          "description": "导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过 6-撤销",
+          "description": "导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过 6-撤销 7-回滚失败",
           "values": [
             {
               "name": "IMPORTING",
@@ -650,9 +650,14 @@
               "description": "5-审核不通过"
             },
             {
-              "name": "Cancel",
+              "name": "CANCEL",
               "number": "6",
               "description": "6-撤销"
+            },
+            {
+              "name": "ROLL_FAIL",
+              "number": "7",
+              "description": "7-回滚失败"
             }
           ]
         },
@@ -2267,7 +2272,7 @@
             },
             {
               "name": "status",
-              "description": "TopologyObject instance = 1;\n状态码",
+              "description": "TopologyObject instance = 1;\r\n状态码",
               "label": "",
               "type": "ResponseStatus",
               "longType": "common.ResponseStatus",
@@ -10269,7 +10274,7 @@
             },
             {
               "name": "GetLog",
-              "description": "获取作业任务详细执行过程\n\noption (google.api.http) = {\n           get: \"/v1/task/{task_id}/logs\"\n       };",
+              "description": "获取作业任务详细执行过程\n\noption (google.api.http) = {\r\n           get: \"/v1/task/{task_id}/logs\"\r\n       };",
               "requestType": "GetLogRequest",
               "requestLongType": "GetLogRequest",
               "requestFullType": "task.GetLogRequest",
