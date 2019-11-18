@@ -38,6 +38,8 @@ message ServerCompareTask {
     string playbook_file_md5 = 4;
     // playbook 入口文件
     string playbook_yml_name = 5;
+    // 额外变量
+    string extra_var = 6;
 }
 
 // 裸金属状态查询任务

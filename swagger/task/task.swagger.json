@@ -567,6 +567,11 @@
             "format": "int32"
           },
           "title": "机房ID列表"
+        },
+        "template_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "检查作业模板"
         }
       },
       "title": "交维表导入后巡检任务请求体"

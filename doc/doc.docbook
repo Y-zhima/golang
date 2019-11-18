@@ -10014,6 +10014,13 @@
               <entry><para>playbook 入口文件</para></entry>
             </row>
             
+            <row>
+              <entry>extra_var</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>额外变量</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>
@@ -10317,6 +10324,13 @@
               <entry><link linkend="int32">int32</link></entry>
               <entry>repeated</entry>
               <entry><para>机房ID列表</para></entry>
+            </row>
+            
+            <row>
+              <entry>template_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>检查作业模板</para></entry>
             </row>
             
           </tbody>

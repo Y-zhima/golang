@@ -3894,6 +3894,7 @@ agent上报kafka日志结构体
 | playbook_file_url | [string](#string) |  | playbook 文件的URL |
 | playbook_file_md5 | [string](#string) |  | playbook 文件的MD5 |
 | playbook_yml_name | [string](#string) |  | playbook 入口文件 |
+| extra_var | [string](#string) |  | 额外变量 |
 
 
 
@@ -4012,6 +4013,7 @@ agent上报kafka日志结构体
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | room_id | [int32](#int32) | repeated | 机房ID列表 |
+| template_id | [int32](#int32) |  | 检查作业模板 |
 
 
 
