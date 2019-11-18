@@ -1309,6 +1309,16 @@
               "fullType": "int32",
               "ismap": false,
               "defaultValue": ""
+            },
+            {
+              "name": "service_bandwidth",
+              "description": "服务能力",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
             }
           ]
         },
@@ -2533,6 +2543,16 @@
               "fullType": "cmdb.ServerRoomObject",
               "ismap": false,
               "defaultValue": ""
+            },
+            {
+              "name": "node_code",
+              "description": "节点编码",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
             }
           ]
         },
@@ -3016,11 +3036,21 @@
             },
             {
               "name": "node_id",
-              "description": "lake节点的ID列表",
+              "description": "lake节点的nodeID列表",
               "label": "repeated",
               "type": "int32",
               "longType": "int32",
               "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "node_code",
+              "description": "lake节点的节点编码列表",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "defaultValue": ""
             },
@@ -3109,6 +3139,16 @@
             {
               "name": "isp_code",
               "description": "运营商编码(一个或多个，可为空)",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "node_code",
+              "description": "节点编码(一个或多个，可为空)",
               "label": "repeated",
               "type": "string",
               "longType": "string",
@@ -11240,7 +11280,7 @@
             },
             {
               "name": "Delete",
-              "description": "删除作业模板\n\noption (google.api.http) = {\n           post: \"/v1/template/delete/{template_id}\"\n       };",
+              "description": "删除作业模板\n\noption (google.api.http) = {\r\n           post: \"/v1/template/delete/{template_id}\"\r\n       };",
               "requestType": "DeleteRequest",
               "requestLongType": "DeleteRequest",
               "requestFullType": "template.DeleteRequest",

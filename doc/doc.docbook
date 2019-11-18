@@ -1163,6 +1163,13 @@
               <entry><para>网卡带宽</para></entry>
             </row>
             
+            <row>
+              <entry>service_bandwidth</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>服务能力</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>
@@ -2472,6 +2479,13 @@
               <entry><para>机房信息</para></entry>
             </row>
             
+            <row>
+              <entry>node_code</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>节点编码</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>
@@ -3015,7 +3029,14 @@
               <entry>node_id</entry>
               <entry><link linkend="int32">int32</link></entry>
               <entry>repeated</entry>
-              <entry><para>lake节点的ID列表</para></entry>
+              <entry><para>lake节点的nodeID列表</para></entry>
+            </row>
+            
+            <row>
+              <entry>node_code</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry>repeated</entry>
+              <entry><para>lake节点的节点编码列表</para></entry>
             </row>
             
             <row>
@@ -3121,6 +3142,13 @@
               <entry><link linkend="string">string</link></entry>
               <entry>repeated</entry>
               <entry><para>运营商编码(一个或多个，可为空)</para></entry>
+            </row>
+            
+            <row>
+              <entry>node_code</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry>repeated</entry>
+              <entry><para>节点编码(一个或多个，可为空)</para></entry>
             </row>
             
           </tbody>

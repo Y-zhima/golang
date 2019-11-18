@@ -570,6 +570,13 @@
             "in": "query"
           },
           {
+            "type": "integer",
+            "format": "int32",
+            "description": "服务能力.",
+            "name": "host.service_bandwidth",
+            "in": "query"
+          },
+          {
             "type": "string",
             "description": "模块名.",
             "name": "module.bk_module_name",
@@ -791,8 +798,18 @@
               "format": "int32"
             },
             "collectionFormat": "multi",
-            "description": "lake节点的ID列表.",
+            "description": "lake节点的nodeID列表.",
             "name": "node_id",
+            "in": "query"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "description": "lake节点的节点编码列表.",
+            "name": "node_code",
             "in": "query"
           },
           {
@@ -2508,6 +2525,11 @@
           "format": "int32",
           "title": "网卡带宽"
         },
+        "service_bandwidth": {
+          "type": "integer",
+          "format": "int32",
+          "title": "服务能力"
+        },
         "state": {
           "type": "string",
           "title": "主机状态,有上线和下线两种"
@@ -2880,6 +2902,10 @@
           "type": "string",
           "title": "节点建设状态变更时间"
         },
+        "node_code": {
+          "type": "string",
+          "title": "节点编码"
+        },
         "node_id": {
           "type": "integer",
           "format": "int32",
@@ -3099,6 +3125,13 @@
         "isp_code": {
           "type": "array",
           "title": "运营商编码(一个或多个，可为空)",
+          "items": {
+            "type": "string"
+          }
+        },
+        "node_code": {
+          "type": "array",
+          "title": "节点编码(一个或多个，可为空)",
           "items": {
             "type": "string"
           }

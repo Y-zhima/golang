@@ -480,6 +480,14 @@
             "format": "int32"
           },
           {
+            "name": "host.service_bandwidth",
+            "description": "服务能力.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
             "name": "module.bk_module_name",
             "description": "模块名.",
             "in": "query",
@@ -712,13 +720,24 @@
           },
           {
             "name": "node_id",
-            "description": "lake节点的ID列表.",
+            "description": "lake节点的nodeID列表.",
             "in": "query",
             "required": false,
             "type": "array",
             "items": {
               "type": "integer",
               "format": "int32"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "node_code",
+            "description": "lake节点的节点编码列表.",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
             },
             "collectionFormat": "multi"
           },
@@ -1041,6 +1060,11 @@
           "type": "integer",
           "format": "int32",
           "title": "网卡带宽"
+        },
+        "service_bandwidth": {
+          "type": "integer",
+          "format": "int32",
+          "title": "服务能力"
         }
       },
       "title": "主机"
@@ -1436,6 +1460,10 @@
             "$ref": "#/definitions/cmdbServerRoomObject"
           },
           "title": "机房信息"
+        },
+        "node_code": {
+          "type": "string",
+          "title": "节点编码"
         }
       },
       "title": "LAKE节点对象"
@@ -1647,6 +1675,13 @@
             "type": "string"
           },
           "title": "运营商编码(一个或多个，可为空)"
+        },
+        "node_code": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "节点编码(一个或多个，可为空)"
         }
       },
       "title": "查找Lake请求"

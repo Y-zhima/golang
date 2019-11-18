@@ -295,6 +295,8 @@ message HostObject {
     int32 bk_disk = 7;
     // 网卡带宽
     int32 nic_speed = 8;
+    // 服务能力
+    int32 service_bandwidth = 9;
 
 }
 
@@ -810,6 +812,8 @@ message LakeObject {
     string construct_updatetime = 10;
     // 机房信息
     repeated ServerRoomObject room = 11;
+    // 节点编码
+    string node_code = 12;
 }
 
 // 关联关系对象
@@ -838,6 +842,8 @@ message SearchLakeRequest {
     repeated string area_code = 3;
     // 运营商编码(一个或多个，可为空)
     repeated string isp_code = 4;
+    // 节点编码(一个或多个，可为空)
+    repeated string node_code = 5;
 }
 
 // 查找Lake请求返回
@@ -860,10 +866,12 @@ message CabinetObject {
 message SearchLakeHostRequest {
     // lake节点的名字列表
     repeated string lake_name = 1;
-    // lake节点的ID列表
+    // lake节点的nodeID列表
     repeated int32 node_id = 2;
+    // lake节点的节点编码列表
+    repeated string node_code = 3;
     // 要查询的区域的地区层级
-    AreaLevel area_level = 3;
+    AreaLevel area_level = 4;
 }
 // 查询lake下的主机列表的返回
 message SearchLakeHostResponse {
