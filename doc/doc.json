@@ -8589,6 +8589,16 @@
               "fullType": "int32",
               "ismap": false,
               "defaultValue": ""
+            },
+            {
+              "name": "log",
+              "description": "执行日志",
+              "label": "",
+              "type": "bytes",
+              "longType": "bytes",
+              "fullType": "bytes",
+              "ismap": false,
+              "defaultValue": ""
             }
           ]
         },

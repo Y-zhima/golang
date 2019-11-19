@@ -9113,6 +9113,13 @@
               <entry><para>执行成功多少台主机</para></entry>
             </row>
             
+            <row>
+              <entry>log</entry>
+              <entry><link linkend="bytes">bytes</link></entry>
+              <entry></entry>
+              <entry><para>执行日志</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>
