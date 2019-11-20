@@ -931,7 +931,7 @@ enum AreaLevel {
 
 message ImportAssetRequest {
     // 导入资产实体类型
-    string import_type = 1 [(validator.field) = {string_not_empty: true, human_error: "importType能为空"
+    string import_type = 1 [(validator.field) = {string_not_empty: true, human_error: "importType不能为空"
                            }];
     // xlsx文件下载路径
     string url = 2 [(validator.field) = {string_not_empty: true, human_error: "URL不能为空"
@@ -958,7 +958,7 @@ message ImportReviewRequest {
     };
 
     // 导入记录id
-    int32 import_id = 1;
+    int32 import_id = 1 [(validator.field) = {int_gt: 0, human_error: "导入记录ID不能为空"}];
     // 指定审批结果，只处理通过，不通过和撤销
     ImportStatus import_status = 2;
     // 操作描述
@@ -980,7 +980,7 @@ message ImportDetailRequest {
     };
 
     // 导入记录id
-    int32 import_id = 1;
+    int32 import_id = 1 [(validator.field) = {int_gt: 0, human_error: "导入记录ID不能为空"}];
     // 指定查看实体类型
     string bk_obj_id = 2;
     // 分页信息
