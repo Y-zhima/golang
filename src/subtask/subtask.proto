@@ -131,6 +131,8 @@ message CompleteRequest {
     int32 success_count = 7;
     // 执行日志
     bytes log = 8;
+    // 执行日志访问路径
+    string log_url = 9;
 }
 
 // 完成子任务实例请求返回

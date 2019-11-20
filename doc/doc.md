@@ -3575,6 +3575,7 @@ playbook入口文件实例
 | fail_count | [int32](#int32) |  | 执行失败多少台主机 |
 | success_count | [int32](#int32) |  | 执行成功多少台主机 |
 | log | [bytes](#bytes) |  | 执行日志 |
+| log_url | [string](#string) |  | 执行日志访问路径 |
 
 
 
