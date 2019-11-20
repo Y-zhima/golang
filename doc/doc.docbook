@@ -9120,6 +9120,13 @@
               <entry><para>执行日志</para></entry>
             </row>
             
+            <row>
+              <entry>log_url</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>执行日志访问路径</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>

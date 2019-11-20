@@ -8623,6 +8623,16 @@
               "fullType": "bytes",
               "ismap": false,
               "defaultValue": ""
+            },
+            {
+              "name": "log_url",
+              "description": "执行日志访问路径",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
             }
           ]
         },
