@@ -7,11 +7,11 @@ import (
 	fmt "fmt"
 	math "math"
 	proto "github.com/golang/protobuf/proto"
+	_ "github.com/golang/protobuf/ptypes/timestamp"
 	_ "git.fogcdn.top/axe/protos/goout/common"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "github.com/mwitkow/go-proto-validators"
-	_ "github.com/golang/protobuf/ptypes/timestamp"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
@@ -516,7 +516,7 @@ func (this *LakeAreaObject) Validate() error {
 }
 func (this *ImportAssetRequest) Validate() error {
 	if this.ImportType == "" {
-		return github_com_mwitkow_go_proto_validators.FieldError("ImportType", fmt.Errorf(`importType能为空`))
+		return github_com_mwitkow_go_proto_validators.FieldError("ImportType", fmt.Errorf(`importType不能为空`))
 	}
 	if this.Url == "" {
 		return github_com_mwitkow_go_proto_validators.FieldError("Url", fmt.Errorf(`URL不能为空`))
@@ -538,6 +538,9 @@ func (this *ImportAssetResponse) Validate() error {
 	return nil
 }
 func (this *ImportReviewRequest) Validate() error {
+	if !(this.ImportId > 0) {
+		return github_com_mwitkow_go_proto_validators.FieldError("ImportId", fmt.Errorf(`导入记录ID不能为空`))
+	}
 	return nil
 }
 func (this *ImportReviewResponse) Validate() error {
@@ -549,6 +552,9 @@ func (this *ImportReviewResponse) Validate() error {
 	return nil
 }
 func (this *ImportDetailRequest) Validate() error {
+	if !(this.ImportId > 0) {
+		return github_com_mwitkow_go_proto_validators.FieldError("ImportId", fmt.Errorf(`导入记录ID不能为空`))
+	}
 	if this.Paging != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Paging); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Paging", err)

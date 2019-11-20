@@ -1344,7 +1344,7 @@
                 "validator.field": [
                   {
                     "name": "human_error",
-                    "value": "importType能为空"
+                    "value": "importType不能为空"
                   },
                   {
                     "name": "string_not_empty",
@@ -1533,7 +1533,19 @@
               "longType": "int32",
               "fullType": "int32",
               "ismap": false,
-              "defaultValue": ""
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "int_gt",
+                    "value": 0
+                  },
+                  {
+                    "name": "human_error",
+                    "value": "导入记录ID不能为空"
+                  }
+                ]
+              }
             },
             {
               "name": "bk_obj_id",
@@ -2047,7 +2059,19 @@
               "longType": "int32",
               "fullType": "int32",
               "ismap": false,
-              "defaultValue": ""
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "int_gt",
+                    "value": 0
+                  },
+                  {
+                    "name": "human_error",
+                    "value": "导入记录ID不能为空"
+                  }
+                ]
+              }
             },
             {
               "name": "import_status",
@@ -2282,7 +2306,7 @@
             },
             {
               "name": "status",
-              "description": "TopologyObject instance = 1;\n状态码",
+              "description": "TopologyObject instance = 1;\r\n状态码",
               "label": "",
               "type": "ResponseStatus",
               "longType": "common.ResponseStatus",
@@ -10344,7 +10368,7 @@
             },
             {
               "name": "GetLog",
-              "description": "获取作业任务详细执行过程\n\noption (google.api.http) = {\n           get: \"/v1/task/{task_id}/logs\"\n       };",
+              "description": "获取作业任务详细执行过程\n\noption (google.api.http) = {\r\n           get: \"/v1/task/{task_id}/logs\"\r\n       };",
               "requestType": "GetLogRequest",
               "requestLongType": "GetLogRequest",
               "requestFullType": "task.GetLogRequest",
@@ -11310,7 +11334,7 @@
             },
             {
               "name": "Delete",
-              "description": "删除作业模板\n\noption (google.api.http) = {\n           post: \"/v1/template/delete/{template_id}\"\n       };",
+              "description": "删除作业模板\n\noption (google.api.http) = {\r\n           post: \"/v1/template/delete/{template_id}\"\r\n       };",
               "requestType": "DeleteRequest",
               "requestLongType": "DeleteRequest",
               "requestFullType": "template.DeleteRequest",
