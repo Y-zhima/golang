@@ -739,12 +739,12 @@
           "description": "节点层次",
           "values": [
             {
-              "name": "COUNTRY_CENTER",
+              "name": "NATION_CENTER",
               "number": "0",
               "description": "0-全国中心"
             },
             {
-              "name": "AREA_CENTER",
+              "name": "REGION_CENTER",
               "number": "1",
               "description": "1-区域中心"
             },
@@ -759,7 +759,7 @@
               "description": "3-地市边缘"
             },
             {
-              "name": "REGION_EDGE",
+              "name": "COUNTY_EDGE",
               "number": "4",
               "description": "4-区县边缘"
             }

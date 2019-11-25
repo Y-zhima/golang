@@ -4316,13 +4316,13 @@
           <tbody>
             
             <row>
-              <entry>COUNTRY_CENTER</entry>
+              <entry>NATION_CENTER</entry>
               <entry>0</entry>
               <entry><para>0-全国中心</para></entry>
             </row>
             
             <row>
-              <entry>AREA_CENTER</entry>
+              <entry>REGION_CENTER</entry>
               <entry>1</entry>
               <entry><para>1-区域中心</para></entry>
             </row>
@@ -4340,7 +4340,7 @@
             </row>
             
             <row>
-              <entry>REGION_EDGE</entry>
+              <entry>COUNTY_EDGE</entry>
               <entry>4</entry>
               <entry><para>4-区县边缘</para></entry>
             </row>

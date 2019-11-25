@@ -778,18 +778,18 @@
         "parameters": [
           {
             "name": "level",
-            "description": "指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘.\n\n - COUNTRY_CENTER: 0-全国中心\n - AREA_CENTER: 1-区域中心\n - PROVINCE_EDGE: 2-省边缘\n - CITY_EDGE: 3-地市边缘\n - REGION_EDGE: 4-区县边缘",
+            "description": "指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘.\n\n - NATION_CENTER: 0-全国中心\n - REGION_CENTER: 1-区域中心\n - PROVINCE_EDGE: 2-省边缘\n - CITY_EDGE: 3-地市边缘\n - COUNTY_EDGE: 4-区县边缘",
             "in": "query",
             "required": false,
             "type": "string",
             "enum": [
-              "COUNTRY_CENTER",
-              "AREA_CENTER",
+              "NATION_CENTER",
+              "REGION_CENTER",
               "PROVINCE_EDGE",
               "CITY_EDGE",
-              "REGION_EDGE"
+              "COUNTY_EDGE"
             ],
-            "default": "COUNTRY_CENTER"
+            "default": "NATION_CENTER"
           },
           {
             "name": "paging.total_page",
@@ -1578,14 +1578,14 @@
     "cmdbNodeLevel": {
       "type": "string",
       "enum": [
-        "COUNTRY_CENTER",
-        "AREA_CENTER",
+        "NATION_CENTER",
+        "REGION_CENTER",
         "PROVINCE_EDGE",
         "CITY_EDGE",
-        "REGION_EDGE"
+        "COUNTY_EDGE"
       ],
-      "default": "COUNTRY_CENTER",
-      "description": "- COUNTRY_CENTER: 0-全国中心\n - AREA_CENTER: 1-区域中心\n - PROVINCE_EDGE: 2-省边缘\n - CITY_EDGE: 3-地市边缘\n - REGION_EDGE: 4-区县边缘",
+      "default": "NATION_CENTER",
+      "description": "- NATION_CENTER: 0-全国中心\n - REGION_CENTER: 1-区域中心\n - PROVINCE_EDGE: 2-省边缘\n - CITY_EDGE: 3-地市边缘\n - COUNTY_EDGE: 4-区县边缘",
       "title": "节点层次"
     },
     "cmdbRoomObject": {

@@ -1875,11 +1875,11 @@ VIP对象
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| COUNTRY_CENTER | 0 | 0-全国中心 |
-| AREA_CENTER | 1 | 1-区域中心 |
+| NATION_CENTER | 0 | 0-全国中心 |
+| REGION_CENTER | 1 | 1-区域中心 |
 | PROVINCE_EDGE | 2 | 2-省边缘 |
 | CITY_EDGE | 3 | 3-地市边缘 |
-| REGION_EDGE | 4 | 4-区县边缘 |
+| COUNTY_EDGE | 4 | 4-区县边缘 |
 
 
 
