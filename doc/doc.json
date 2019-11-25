@@ -733,6 +733,39 @@
           ]
         },
         {
+          "name": "NodeLevel",
+          "longName": "NodeLevel",
+          "fullName": "cmdb.NodeLevel",
+          "description": "节点层次",
+          "values": [
+            {
+              "name": "COUNTRY_CENTER",
+              "number": "0",
+              "description": "0-全国中心"
+            },
+            {
+              "name": "AREA_CENTER",
+              "number": "1",
+              "description": "1-区域中心"
+            },
+            {
+              "name": "PROVINCE_EDGE",
+              "number": "2",
+              "description": "2-省边缘"
+            },
+            {
+              "name": "CITY_EDGE",
+              "number": "3",
+              "description": "3-地市边缘"
+            },
+            {
+              "name": "REGION_EDGE",
+              "number": "4",
+              "description": "4-区县边缘"
+            }
+          ]
+        },
+        {
           "name": "ServerInstallState",
           "longName": "ServerInstallState",
           "fullName": "cmdb.ServerInstallState",
@@ -2581,6 +2614,37 @@
           ]
         },
         {
+          "name": "LevelHostsObject",
+          "longName": "LevelHostsObject",
+          "fullName": "cmdb.LevelHostsObject",
+          "description": "level下的主机ip列表",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "level",
+              "description": "lake节点level",
+              "label": "",
+              "type": "NodeLevel",
+              "longType": "NodeLevel",
+              "fullType": "cmdb.NodeLevel",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "values",
+              "description": "对应的ip列表",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
           "name": "ModuleObject",
           "longName": "ModuleObject",
           "fullName": "cmdb.ModuleObject",
@@ -3208,6 +3272,78 @@
               "type": "LakeObject",
               "longType": "LakeObject",
               "fullType": "cmdb.LakeObject",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "SearchLevelHostRequest",
+          "longName": "SearchLevelHostRequest",
+          "fullName": "cmdb.SearchLevelHostRequest",
+          "description": "按level查询lake节点下主机列表请求",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "level",
+              "description": "指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘",
+              "label": "",
+              "type": "NodeLevel",
+              "longType": "NodeLevel",
+              "fullType": "cmdb.NodeLevel",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "paging",
+              "description": "分页信息",
+              "label": "",
+              "type": "Paging",
+              "longType": "common.Paging",
+              "fullType": "common.Paging",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "SearchLevelHostResponse",
+          "longName": "SearchLevelHostResponse",
+          "fullName": "cmdb.SearchLevelHostResponse",
+          "description": "按level查询lake节点下主机列表响应",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "result",
+              "description": "level下的主机ip列表",
+              "label": "repeated",
+              "type": "LevelHostsObject",
+              "longType": "LevelHostsObject",
+              "fullType": "cmdb.LevelHostsObject",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "paging",
+              "description": "分页信息",
+              "label": "",
+              "type": "Paging",
+              "longType": "common.Paging",
+              "fullType": "common.Paging",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "status",
+              "description": "返回的请求状态",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
               "ismap": false,
               "defaultValue": ""
             }
@@ -4262,6 +4398,28 @@
                     {
                       "method": "GET",
                       "pattern": "/v1/cmdb/importDetail"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "SearchLevelHost",
+              "description": "按level查询lake节点下主机列表",
+              "requestType": "SearchLevelHostRequest",
+              "requestLongType": "SearchLevelHostRequest",
+              "requestFullType": "cmdb.SearchLevelHostRequest",
+              "requestStreaming": false,
+              "responseType": "SearchLevelHostResponse",
+              "responseLongType": "SearchLevelHostResponse",
+              "responseFullType": "cmdb.SearchLevelHostResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/cmdb/searchLevelHost"
                     }
                   ]
                 }
@@ -11344,7 +11502,7 @@
             },
             {
               "name": "Delete",
-              "description": "删除作业模板\n\noption (google.api.http) = {\r\n           post: \"/v1/template/delete/{template_id}\"\r\n       };",
+              "description": "删除作业模板\n\noption (google.api.http) = {\n           post: \"/v1/template/delete/{template_id}\"\n       };",
               "requestType": "DeleteRequest",
               "requestLongType": "DeleteRequest",
               "requestFullType": "template.DeleteRequest",

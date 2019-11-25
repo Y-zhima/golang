@@ -702,15 +702,15 @@ message ImportHistoryResponse {
 // 节点层次
 enum NodeLevel {
     // 0-全国中心
-    COUNTRY = 0;
+    COUNTRY_CENTER = 0;
     // 1-区域中心
-    AREA = 1;
+    AREA_CENTER = 1;
     // 2-省边缘
-    PROVINCE = 2;
+    PROVINCE_EDGE = 2;
     // 3-地市边缘
-    CITY = 3;
+    CITY_EDGE = 3;
     // 4-区县边缘
-    REGION = 4;
+    REGION_EDGE = 4;
 }
 
 //// LAKE节点服务状态

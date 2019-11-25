@@ -425,6 +425,10 @@
                 </li>
               
                 <li>
+                  <a href="#cmdb.LevelHostsObject"><span class="badge">M</span>LevelHostsObject</a>
+                </li>
+              
+                <li>
                   <a href="#cmdb.ModuleObject"><span class="badge">M</span>ModuleObject</a>
                 </li>
               
@@ -478,6 +482,14 @@
               
                 <li>
                   <a href="#cmdb.SearchLakeResponse"><span class="badge">M</span>SearchLakeResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#cmdb.SearchLevelHostRequest"><span class="badge">M</span>SearchLevelHostRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#cmdb.SearchLevelHostResponse"><span class="badge">M</span>SearchLevelHostResponse</a>
                 </li>
               
                 <li>
@@ -547,6 +559,10 @@
               
                 <li>
                   <a href="#cmdb.InstType"><span class="badge">E</span>InstType</a>
+                </li>
+              
+                <li>
+                  <a href="#cmdb.NodeLevel"><span class="badge">E</span>NodeLevel</a>
                 </li>
               
                 <li>
@@ -3666,6 +3682,37 @@
 
         
       
+        <h3 id="cmdb.LevelHostsObject">LevelHostsObject</h3>
+        <p>level下的主机ip列表</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>level</td>
+                  <td><a href="#cmdb.NodeLevel">NodeLevel</a></td>
+                  <td></td>
+                  <td><p>lake节点level </p></td>
+                </tr>
+              
+                <tr>
+                  <td>values</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>对应的ip列表 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="cmdb.ModuleObject">ModuleObject</h3>
         <p>模块</p>
 
@@ -4221,6 +4268,75 @@
                   <td><a href="#cmdb.LakeObject">LakeObject</a></td>
                   <td>repeated</td>
                   <td><p>主机信息 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="cmdb.SearchLevelHostRequest">SearchLevelHostRequest</h3>
+        <p>按level查询lake节点下主机列表请求</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>level</td>
+                  <td><a href="#cmdb.NodeLevel">NodeLevel</a></td>
+                  <td></td>
+                  <td><p>指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>paging</td>
+                  <td><a href="#common.Paging">common.Paging</a></td>
+                  <td></td>
+                  <td><p>分页信息 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="cmdb.SearchLevelHostResponse">SearchLevelHostResponse</h3>
+        <p>按level查询lake节点下主机列表响应</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>result</td>
+                  <td><a href="#cmdb.LevelHostsObject">LevelHostsObject</a></td>
+                  <td>repeated</td>
+                  <td><p>level下的主机ip列表 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>paging</td>
+                  <td><a href="#common.Paging">common.Paging</a></td>
+                  <td></td>
+                  <td><p>分页信息 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#common.ResponseStatus">common.ResponseStatus</a></td>
+                  <td></td>
+                  <td><p>返回的请求状态 </p></td>
                 </tr>
               
             </tbody>
@@ -5033,6 +5149,47 @@
           </tbody>
         </table>
       
+        <h3 id="cmdb.NodeLevel">NodeLevel</h3>
+        <p>节点层次</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>COUNTRY_CENTER</td>
+                <td>0</td>
+                <td><p>0-全国中心</p></td>
+              </tr>
+            
+              <tr>
+                <td>AREA_CENTER</td>
+                <td>1</td>
+                <td><p>1-区域中心</p></td>
+              </tr>
+            
+              <tr>
+                <td>PROVINCE_EDGE</td>
+                <td>2</td>
+                <td><p>2-省边缘</p></td>
+              </tr>
+            
+              <tr>
+                <td>CITY_EDGE</td>
+                <td>3</td>
+                <td><p>3-地市边缘</p></td>
+              </tr>
+            
+              <tr>
+                <td>REGION_EDGE</td>
+                <td>4</td>
+                <td><p>4-区县边缘</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
         <h3 id="cmdb.ServerInstallState">ServerInstallState</h3>
         <p>装机状态</p>
         <table class="enum-table">
@@ -5222,6 +5379,13 @@
                 <td><p>查看导入的实体信息列表</p></td>
               </tr>
             
+              <tr>
+                <td>SearchLevelHost</td>
+                <td><a href="#cmdb.SearchLevelHostRequest">SearchLevelHostRequest</a></td>
+                <td><a href="#cmdb.SearchLevelHostResponse">SearchLevelHostResponse</a></td>
+                <td><p>按level查询lake节点下主机列表</p></td>
+              </tr>
+            
           </tbody>
         </table>
 
@@ -5406,6 +5570,16 @@
                 <td>ImportDetail</td>
                 <td>GET</td>
                 <td>/v1/cmdb/importDetail</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>SearchLevelHost</td>
+                <td>GET</td>
+                <td>/v1/cmdb/searchLevelHost</td>
                 <td></td>
               </tr>
               
