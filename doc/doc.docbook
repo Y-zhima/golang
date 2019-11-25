@@ -2493,12 +2493,12 @@
       
     </section>
     
-    <section id="cmdb.LevelHostsObject">
-      <title>LevelHostsObject</title>
+    <section id="cmdb.LevelHost">
+      <title>LevelHost</title>
       <para>level下的主机ip列表</para>
       
       <table frame="all">
-        <title><classname>LevelHostsObject</classname> Fields</title>
+        <title><classname>LevelHost</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -3306,8 +3306,8 @@
           <tbody>
             
             <row>
-              <entry>level_hosts</entry>
-              <entry><link linkend="cmdb.LevelHostsObject">LevelHostsObject</link></entry>
+              <entry>result</entry>
+              <entry><link linkend="cmdb.LevelHost">LevelHost</link></entry>
               <entry>repeated</entry>
               <entry><para>level下的主机ip列表</para></entry>
             </row>

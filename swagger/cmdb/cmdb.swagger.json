@@ -1547,7 +1547,7 @@
       },
       "title": "LAKE节点对象"
     },
-    "cmdbLevelHostsObject": {
+    "cmdbLevelHost": {
       "type": "object",
       "properties": {
         "level": {
@@ -1802,10 +1802,10 @@
     "cmdbSearchLevelHostResponse": {
       "type": "object",
       "properties": {
-        "level_hosts": {
+        "result": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/cmdbLevelHostsObject"
+            "$ref": "#/definitions/cmdbLevelHost"
           },
           "title": "level下的主机ip列表"
         },

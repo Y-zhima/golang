@@ -585,10 +585,10 @@ func (this *SearchLevelHostRequest) Validate() error {
 	return nil
 }
 func (this *SearchLevelHostResponse) Validate() error {
-	for _, item := range this.LevelHosts {
+	for _, item := range this.Result {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("LevelHosts", err)
+				return github_com_mwitkow_go_proto_validators.FieldError("Result", err)
 			}
 		}
 	}
@@ -604,6 +604,6 @@ func (this *SearchLevelHostResponse) Validate() error {
 	}
 	return nil
 }
-func (this *LevelHostsObject) Validate() error {
+func (this *LevelHost) Validate() error {
 	return nil
 }

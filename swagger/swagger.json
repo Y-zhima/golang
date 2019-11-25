@@ -3009,7 +3009,7 @@
         }
       }
     },
-    "cmdbLevelHostsObject": {
+    "cmdbLevelHost": {
       "type": "object",
       "title": "level下的主机ip列表",
       "properties": {
@@ -3265,16 +3265,16 @@
       "type": "object",
       "title": "按level查询lake节点下主机列表响应",
       "properties": {
-        "level_hosts": {
-          "type": "array",
-          "title": "level下的主机ip列表",
-          "items": {
-            "$ref": "#/definitions/cmdbLevelHostsObject"
-          }
-        },
         "paging": {
           "title": "分页信息",
           "$ref": "#/definitions/commonPaging"
+        },
+        "result": {
+          "type": "array",
+          "title": "level下的主机ip列表",
+          "items": {
+            "$ref": "#/definitions/cmdbLevelHost"
+          }
         },
         "status": {
           "title": "返回的请求状态",

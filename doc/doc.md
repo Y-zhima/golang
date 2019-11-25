@@ -72,7 +72,7 @@
     - [LakeAreaObject](#cmdb.LakeAreaObject)
     - [LakeHost](#cmdb.LakeHost)
     - [LakeObject](#cmdb.LakeObject)
-    - [LevelHostsObject](#cmdb.LevelHostsObject)
+    - [LevelHost](#cmdb.LevelHost)
     - [ModuleObject](#cmdb.ModuleObject)
     - [RoomObject](#cmdb.RoomObject)
     - [RoomTopologyRequest](#cmdb.RoomTopologyRequest)
@@ -1279,9 +1279,9 @@ LAKE节点对象
 
 
 
-<a name="cmdb.LevelHostsObject"></a>
+<a name="cmdb.LevelHost"></a>
 
-### LevelHostsObject
+### LevelHost
 level下的主机ip列表
 
 
@@ -1559,7 +1559,7 @@ level下的主机ip列表
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| level_hosts | [LevelHostsObject](#cmdb.LevelHostsObject) | repeated | level下的主机ip列表 |
+| result | [LevelHost](#cmdb.LevelHost) | repeated | level下的主机ip列表 |
 | paging | [common.Paging](#common.Paging) |  | 分页信息 |
 | status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
 

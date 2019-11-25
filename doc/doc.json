@@ -2614,9 +2614,9 @@
           ]
         },
         {
-          "name": "LevelHostsObject",
-          "longName": "LevelHostsObject",
-          "fullName": "cmdb.LevelHostsObject",
+          "name": "LevelHost",
+          "longName": "LevelHost",
+          "fullName": "cmdb.LevelHost",
           "description": "level下的主机ip列表",
           "hasExtensions": false,
           "hasFields": true,
@@ -3318,12 +3318,12 @@
           "extensions": [],
           "fields": [
             {
-              "name": "level_hosts",
+              "name": "result",
               "description": "level下的主机ip列表",
               "label": "repeated",
-              "type": "LevelHostsObject",
-              "longType": "LevelHostsObject",
-              "fullType": "cmdb.LevelHostsObject",
+              "type": "LevelHost",
+              "longType": "LevelHost",
+              "fullType": "cmdb.LevelHost",
               "ismap": false,
               "defaultValue": ""
             },
