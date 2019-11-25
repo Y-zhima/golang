@@ -2493,6 +2493,48 @@
       
     </section>
     
+    <section id="cmdb.LevelHost">
+      <title>LevelHost</title>
+      <para>level下的主机ip列表</para>
+      
+      <table frame="all">
+        <title><classname>LevelHost</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>level</entry>
+              <entry><link linkend="cmdb.LakeNodeLevel">LakeNodeLevel</link></entry>
+              <entry></entry>
+              <entry><para>lake节点level</para></entry>
+            </row>
+            
+            <row>
+              <entry>values</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry>repeated</entry>
+              <entry><para>对应的ip列表</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
     <section id="cmdb.ModuleObject">
       <title>ModuleObject</title>
       <para>模块</para>
@@ -3191,6 +3233,97 @@
               <entry><link linkend="cmdb.LakeObject">LakeObject</link></entry>
               <entry>repeated</entry>
               <entry><para>主机信息</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="cmdb.SearchLevelHostRequest">
+      <title>SearchLevelHostRequest</title>
+      <para>按level查询lake节点下主机列表请求</para>
+      
+      <table frame="all">
+        <title><classname>SearchLevelHostRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>level</entry>
+              <entry><link linkend="cmdb.LakeNodeLevel">LakeNodeLevel</link></entry>
+              <entry></entry>
+              <entry><para>指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘</para></entry>
+            </row>
+            
+            <row>
+              <entry>paging</entry>
+              <entry><link linkend="common.Paging">common.Paging</link></entry>
+              <entry></entry>
+              <entry><para>分页信息</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="cmdb.SearchLevelHostResponse">
+      <title>SearchLevelHostResponse</title>
+      <para>按level查询lake节点下主机列表响应</para>
+      
+      <table frame="all">
+        <title><classname>SearchLevelHostResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>result</entry>
+              <entry><link linkend="cmdb.LevelHost">LevelHost</link></entry>
+              <entry>repeated</entry>
+              <entry><para>level下的主机ip列表</para></entry>
+            </row>
+            
+            <row>
+              <entry>paging</entry>
+              <entry><link linkend="common.Paging">common.Paging</link></entry>
+              <entry></entry>
+              <entry><para>分页信息</para></entry>
+            </row>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>返回的请求状态</para></entry>
             </row>
             
           </tbody>
@@ -4164,6 +4297,59 @@
       </table>
     </section>
     
+    <section id="cmdb.LakeNodeLevel">
+      <title>LakeNodeLevel</title>
+      <para>节点层次</para>
+      <table frame="all">
+        <title><classname>LakeNodeLevel</classname> Values</title>
+        <tgroup cols="3">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Name</entry>
+              <entry>Number</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>NATION_CENTER</entry>
+              <entry>0</entry>
+              <entry><para>0-全国中心</para></entry>
+            </row>
+            
+            <row>
+              <entry>REGION_CENTER</entry>
+              <entry>1</entry>
+              <entry><para>1-区域中心</para></entry>
+            </row>
+            
+            <row>
+              <entry>PROVINCE_EDGE</entry>
+              <entry>2</entry>
+              <entry><para>2-省边缘</para></entry>
+            </row>
+            
+            <row>
+              <entry>CITY_EDGE</entry>
+              <entry>3</entry>
+              <entry><para>3-地市边缘</para></entry>
+            </row>
+            
+            <row>
+              <entry>COUNTY_EDGE</entry>
+              <entry>4</entry>
+              <entry><para>4-区县边缘</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    
     <section id="cmdb.ServerInstallState">
       <title>ServerInstallState</title>
       <para>装机状态</para>
@@ -4387,6 +4573,13 @@
               <entry><link linkend="cmdb.ImportDetailRequest">ImportDetailRequest</link></entry>
               <entry><link linkend="cmdb.ImportDetailResponse">ImportDetailResponse</link></entry>
               <entry><para>查看导入的实体信息列表</para></entry>
+            </row>
+            
+            <row>
+              <entry>SearchLevelHost</entry>
+              <entry><link linkend="cmdb.SearchLevelHostRequest">SearchLevelHostRequest</link></entry>
+              <entry><link linkend="cmdb.SearchLevelHostResponse">SearchLevelHostResponse</link></entry>
+              <entry><para>按level查询lake节点下主机列表</para></entry>
             </row>
             
           </tbody>

@@ -72,6 +72,7 @@
     - [LakeAreaObject](#cmdb.LakeAreaObject)
     - [LakeHost](#cmdb.LakeHost)
     - [LakeObject](#cmdb.LakeObject)
+    - [LevelHost](#cmdb.LevelHost)
     - [ModuleObject](#cmdb.ModuleObject)
     - [RoomObject](#cmdb.RoomObject)
     - [RoomTopologyRequest](#cmdb.RoomTopologyRequest)
@@ -86,6 +87,8 @@
     - [SearchLakeHostResponse](#cmdb.SearchLakeHostResponse)
     - [SearchLakeRequest](#cmdb.SearchLakeRequest)
     - [SearchLakeResponse](#cmdb.SearchLakeResponse)
+    - [SearchLevelHostRequest](#cmdb.SearchLevelHostRequest)
+    - [SearchLevelHostResponse](#cmdb.SearchLevelHostResponse)
     - [SearchMoudleRequest](#cmdb.SearchMoudleRequest)
     - [SearchMoudleResponse](#cmdb.SearchMoudleResponse)
     - [Server](#cmdb.Server)
@@ -104,6 +107,7 @@
     - [ImportStatus](#cmdb.ImportStatus)
     - [ImportType](#cmdb.ImportType)
     - [InstType](#cmdb.InstType)
+    - [LakeNodeLevel](#cmdb.LakeNodeLevel)
     - [ServerInstallState](#cmdb.ServerInstallState)
     - [ServerPowerState](#cmdb.ServerPowerState)
   
@@ -1275,6 +1279,22 @@ LAKE节点对象
 
 
 
+<a name="cmdb.LevelHost"></a>
+
+### LevelHost
+level下的主机ip列表
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| level | [LakeNodeLevel](#cmdb.LakeNodeLevel) |  | lake节点level |
+| values | [string](#string) | repeated | 对应的ip列表 |
+
+
+
+
+
+
 <a name="cmdb.ModuleObject"></a>
 
 ### ModuleObject
@@ -1509,6 +1529,39 @@ LAKE节点对象
 | ----- | ---- | ----- | ----------- |
 | status | [common.ResponseStatus](#common.ResponseStatus) |  | 状态码 |
 | lake | [LakeObject](#cmdb.LakeObject) | repeated | 主机信息 |
+
+
+
+
+
+
+<a name="cmdb.SearchLevelHostRequest"></a>
+
+### SearchLevelHostRequest
+按level查询lake节点下主机列表请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| level | [LakeNodeLevel](#cmdb.LakeNodeLevel) |  | 指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘 |
+| paging | [common.Paging](#common.Paging) |  | 分页信息 |
+
+
+
+
+
+
+<a name="cmdb.SearchLevelHostResponse"></a>
+
+### SearchLevelHostResponse
+按level查询lake节点下主机列表响应
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| result | [LevelHost](#cmdb.LevelHost) | repeated | level下的主机ip列表 |
+| paging | [common.Paging](#common.Paging) |  | 分页信息 |
+| status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
 
 
 
@@ -1815,6 +1868,21 @@ VIP对象
 
 
 
+<a name="cmdb.LakeNodeLevel"></a>
+
+### LakeNodeLevel
+节点层次
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| NATION_CENTER | 0 | 0-全国中心 |
+| REGION_CENTER | 1 | 1-区域中心 |
+| PROVINCE_EDGE | 2 | 2-省边缘 |
+| CITY_EDGE | 3 | 3-地市边缘 |
+| COUNTY_EDGE | 4 | 4-区县边缘 |
+
+
+
 <a name="cmdb.ServerInstallState"></a>
 
 ### ServerInstallState
@@ -1869,6 +1937,7 @@ VIP对象
 | ImportAsset | [ImportAssetRequest](#cmdb.ImportAssetRequest) | [ImportAssetResponse](#cmdb.ImportAssetResponse) | 导入实体资产 |
 | ImportReview | [ImportReviewRequest](#cmdb.ImportReviewRequest) | [ImportReviewResponse](#cmdb.ImportReviewResponse) | 导入交维表审批结果 |
 | ImportDetail | [ImportDetailRequest](#cmdb.ImportDetailRequest) | [ImportDetailResponse](#cmdb.ImportDetailResponse) | 查看导入的实体信息列表 |
+| SearchLevelHost | [SearchLevelHostRequest](#cmdb.SearchLevelHostRequest) | [SearchLevelHostResponse](#cmdb.SearchLevelHostResponse) | 按level查询lake节点下主机列表 |
 
  
 

@@ -155,6 +155,13 @@ service Cmdb {
             get: "/v1/cmdb/importDetail"
         };
     }
+
+    // 按level查询lake节点下主机列表
+    rpc SearchLevelHost (SearchLevelHostRequest) returns (SearchLevelHostResponse) {
+        option (google.api.http) = {
+            get: "/v1/cmdb/searchLevelHost"
+        };
+    }
 }
 
 
@@ -692,20 +699,20 @@ message ImportHistoryResponse {
     common.ResponseStatus status = 3;
 }
 
-//// 节点层次
-//enum NodeLevel {
-//    // 0-全国中心
-//    COUNTRY = 0;
-//    // 1-区域中心
-//    AREA = 1;
-//    // 2-省边缘
-//    PROVINCE = 2;
-//    // 3-地市边缘
-//    CITY = 3;
-//    // 4-区县边缘
-//    REGION = 4;
-//}
-//
+// 节点层次
+enum LakeNodeLevel {
+    // 0-全国中心
+    NATION_CENTER = 0;
+    // 1-区域中心
+    REGION_CENTER = 1;
+    // 2-省边缘
+    PROVINCE_EDGE = 2;
+    // 3-地市边缘
+    CITY_EDGE = 3;
+    // 4-区县边缘
+    COUNTY_EDGE = 4;
+}
+
 //// LAKE节点服务状态
 //enum ServiceState {
 //    // 0-不可用
@@ -995,4 +1002,30 @@ message ImportDetailResponse {
     common.Paging paging = 2;
     // 返回的请求状态
     common.ResponseStatus status = 3;
+}
+
+// 按level查询lake节点下主机列表请求
+message SearchLevelHostRequest {
+    // 指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘
+    LakeNodeLevel level = 1;
+    // 分页信息
+    common.Paging paging = 2;
+}
+
+// 按level查询lake节点下主机列表响应
+message SearchLevelHostResponse {
+    // level下的主机ip列表
+    repeated LevelHost result = 1;
+    // 分页信息
+    common.Paging paging = 2;
+    // 返回的请求状态
+    common.ResponseStatus status = 3;
+}
+
+// level下的主机ip列表
+message LevelHost {
+    // lake节点level
+    LakeNodeLevel level = 1;
+    // 对应的ip列表
+    repeated string values = 2;
 }

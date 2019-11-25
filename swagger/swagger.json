@@ -838,6 +838,67 @@
         }
       }
     },
+    "/v1/cmdb/searchLevelHost": {
+      "get": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "按level查询lake节点下主机列表",
+        "operationId": "SearchLevelHost",
+        "parameters": [
+          {
+            "enum": [
+              "NATION_CENTER",
+              "REGION_CENTER",
+              "PROVINCE_EDGE",
+              "CITY_EDGE",
+              "COUNTY_EDGE"
+            ],
+            "type": "string",
+            "default": "NATION_CENTER",
+            "description": "指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘.\n\n - NATION_CENTER: 0-全国中心\n - REGION_CENTER: 1-区域中心\n - PROVINCE_EDGE: 2-省边缘\n - CITY_EDGE: 3-地市边缘\n - COUNTY_EDGE: 4-区县边缘",
+            "name": "level",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总页数.",
+            "name": "paging.total_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "当前页数.",
+            "name": "paging.page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "每页显示的记录条数.",
+            "name": "paging.per_page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "总记录数.",
+            "name": "paging.total_record",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbSearchLevelHostResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/cmdb/searchModule": {
       "get": {
         "tags": [
@@ -2876,6 +2937,19 @@
         }
       }
     },
+    "cmdbLakeNodeLevel": {
+      "description": "- NATION_CENTER: 0-全国中心\n - REGION_CENTER: 1-区域中心\n - PROVINCE_EDGE: 2-省边缘\n - CITY_EDGE: 3-地市边缘\n - COUNTY_EDGE: 4-区县边缘",
+      "type": "string",
+      "title": "节点层次",
+      "default": "NATION_CENTER",
+      "enum": [
+        "NATION_CENTER",
+        "REGION_CENTER",
+        "PROVINCE_EDGE",
+        "CITY_EDGE",
+        "COUNTY_EDGE"
+      ]
+    },
     "cmdbLakeObject": {
       "type": "object",
       "title": "LAKE节点对象",
@@ -2931,6 +3005,23 @@
           "title": "节点VIP",
           "items": {
             "$ref": "#/definitions/cmdbVipObject"
+          }
+        }
+      }
+    },
+    "cmdbLevelHost": {
+      "type": "object",
+      "title": "level下的主机ip列表",
+      "properties": {
+        "level": {
+          "title": "lake节点level",
+          "$ref": "#/definitions/cmdbLakeNodeLevel"
+        },
+        "values": {
+          "type": "array",
+          "title": "对应的ip列表",
+          "items": {
+            "type": "string"
           }
         }
       }
@@ -3166,6 +3257,27 @@
         },
         "status": {
           "title": "状态码",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbSearchLevelHostResponse": {
+      "type": "object",
+      "title": "按level查询lake节点下主机列表响应",
+      "properties": {
+        "paging": {
+          "title": "分页信息",
+          "$ref": "#/definitions/commonPaging"
+        },
+        "result": {
+          "type": "array",
+          "title": "level下的主机ip列表",
+          "items": {
+            "$ref": "#/definitions/cmdbLevelHost"
+          }
+        },
+        "status": {
+          "title": "返回的请求状态",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
