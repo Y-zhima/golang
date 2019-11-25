@@ -1475,6 +1475,19 @@
       },
       "title": "lake下的主机列表"
     },
+    "cmdbLakeNodeLevel": {
+      "type": "string",
+      "enum": [
+        "NATION_CENTER",
+        "REGION_CENTER",
+        "PROVINCE_EDGE",
+        "CITY_EDGE",
+        "COUNTY_EDGE"
+      ],
+      "default": "NATION_CENTER",
+      "description": "- NATION_CENTER: 0-全国中心\n - REGION_CENTER: 1-区域中心\n - PROVINCE_EDGE: 2-省边缘\n - CITY_EDGE: 3-地市边缘\n - COUNTY_EDGE: 4-区县边缘",
+      "title": "节点层次"
+    },
     "cmdbLakeObject": {
       "type": "object",
       "properties": {
@@ -1538,7 +1551,7 @@
       "type": "object",
       "properties": {
         "level": {
-          "$ref": "#/definitions/cmdbNodeLevel",
+          "$ref": "#/definitions/cmdbLakeNodeLevel",
           "title": "lake节点level"
         },
         "values": {
@@ -1574,19 +1587,6 @@
         }
       },
       "title": "模块"
-    },
-    "cmdbNodeLevel": {
-      "type": "string",
-      "enum": [
-        "NATION_CENTER",
-        "REGION_CENTER",
-        "PROVINCE_EDGE",
-        "CITY_EDGE",
-        "COUNTY_EDGE"
-      ],
-      "default": "NATION_CENTER",
-      "description": "- NATION_CENTER: 0-全国中心\n - REGION_CENTER: 1-区域中心\n - PROVINCE_EDGE: 2-省边缘\n - CITY_EDGE: 3-地市边缘\n - COUNTY_EDGE: 4-区县边缘",
-      "title": "节点层次"
     },
     "cmdbRoomObject": {
       "type": "object",
@@ -1802,7 +1802,7 @@
     "cmdbSearchLevelHostResponse": {
       "type": "object",
       "properties": {
-        "result": {
+        "level_hosts": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/cmdbLevelHostsObject"

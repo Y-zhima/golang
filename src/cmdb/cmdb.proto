@@ -700,7 +700,7 @@ message ImportHistoryResponse {
 }
 
 // 节点层次
-enum NodeLevel {
+enum LakeNodeLevel {
     // 0-全国中心
     NATION_CENTER = 0;
     // 1-区域中心
@@ -1007,7 +1007,7 @@ message ImportDetailResponse {
 // 按level查询lake节点下主机列表请求
 message SearchLevelHostRequest {
     // 指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘
-    NodeLevel level = 1;
+    LakeNodeLevel level = 1;
     // 分页信息
     common.Paging paging = 2;
 }
@@ -1015,7 +1015,7 @@ message SearchLevelHostRequest {
 // 按level查询lake节点下主机列表响应
 message SearchLevelHostResponse {
     // level下的主机ip列表
-    repeated LevelHostsObject result = 1;
+    repeated LevelHostsObject level_hosts = 1;
     // 分页信息
     common.Paging paging = 2;
     // 返回的请求状态
@@ -1025,7 +1025,7 @@ message SearchLevelHostResponse {
 // level下的主机ip列表
 message LevelHostsObject {
     // lake节点level
-    NodeLevel level = 1;
+    LakeNodeLevel level = 1;
     // 对应的ip列表
     repeated string values = 2;
 }

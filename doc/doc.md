@@ -107,7 +107,7 @@
     - [ImportStatus](#cmdb.ImportStatus)
     - [ImportType](#cmdb.ImportType)
     - [InstType](#cmdb.InstType)
-    - [NodeLevel](#cmdb.NodeLevel)
+    - [LakeNodeLevel](#cmdb.LakeNodeLevel)
     - [ServerInstallState](#cmdb.ServerInstallState)
     - [ServerPowerState](#cmdb.ServerPowerState)
   
@@ -1287,7 +1287,7 @@ level下的主机ip列表
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| level | [NodeLevel](#cmdb.NodeLevel) |  | lake节点level |
+| level | [LakeNodeLevel](#cmdb.LakeNodeLevel) |  | lake节点level |
 | values | [string](#string) | repeated | 对应的ip列表 |
 
 
@@ -1543,7 +1543,7 @@ level下的主机ip列表
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| level | [NodeLevel](#cmdb.NodeLevel) |  | 指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘 |
+| level | [LakeNodeLevel](#cmdb.LakeNodeLevel) |  | 指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘 |
 | paging | [common.Paging](#common.Paging) |  | 分页信息 |
 
 
@@ -1559,7 +1559,7 @@ level下的主机ip列表
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| result | [LevelHostsObject](#cmdb.LevelHostsObject) | repeated | level下的主机ip列表 |
+| level_hosts | [LevelHostsObject](#cmdb.LevelHostsObject) | repeated | level下的主机ip列表 |
 | paging | [common.Paging](#common.Paging) |  | 分页信息 |
 | status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
 
@@ -1868,9 +1868,9 @@ VIP对象
 
 
 
-<a name="cmdb.NodeLevel"></a>
+<a name="cmdb.LakeNodeLevel"></a>
 
-### NodeLevel
+### LakeNodeLevel
 节点层次
 
 | Name | Number | Description |

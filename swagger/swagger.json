@@ -2937,6 +2937,19 @@
         }
       }
     },
+    "cmdbLakeNodeLevel": {
+      "description": "- NATION_CENTER: 0-全国中心\n - REGION_CENTER: 1-区域中心\n - PROVINCE_EDGE: 2-省边缘\n - CITY_EDGE: 3-地市边缘\n - COUNTY_EDGE: 4-区县边缘",
+      "type": "string",
+      "title": "节点层次",
+      "default": "NATION_CENTER",
+      "enum": [
+        "NATION_CENTER",
+        "REGION_CENTER",
+        "PROVINCE_EDGE",
+        "CITY_EDGE",
+        "COUNTY_EDGE"
+      ]
+    },
     "cmdbLakeObject": {
       "type": "object",
       "title": "LAKE节点对象",
@@ -3002,7 +3015,7 @@
       "properties": {
         "level": {
           "title": "lake节点level",
-          "$ref": "#/definitions/cmdbNodeLevel"
+          "$ref": "#/definitions/cmdbLakeNodeLevel"
         },
         "values": {
           "type": "array",
@@ -3036,19 +3049,6 @@
           "title": "父节点id"
         }
       }
-    },
-    "cmdbNodeLevel": {
-      "description": "- NATION_CENTER: 0-全国中心\n - REGION_CENTER: 1-区域中心\n - PROVINCE_EDGE: 2-省边缘\n - CITY_EDGE: 3-地市边缘\n - COUNTY_EDGE: 4-区县边缘",
-      "type": "string",
-      "title": "节点层次",
-      "default": "NATION_CENTER",
-      "enum": [
-        "NATION_CENTER",
-        "REGION_CENTER",
-        "PROVINCE_EDGE",
-        "CITY_EDGE",
-        "COUNTY_EDGE"
-      ]
     },
     "cmdbRoomObject": {
       "type": "object",
@@ -3265,16 +3265,16 @@
       "type": "object",
       "title": "按level查询lake节点下主机列表响应",
       "properties": {
-        "paging": {
-          "title": "分页信息",
-          "$ref": "#/definitions/commonPaging"
-        },
-        "result": {
+        "level_hosts": {
           "type": "array",
           "title": "level下的主机ip列表",
           "items": {
             "$ref": "#/definitions/cmdbLevelHostsObject"
           }
+        },
+        "paging": {
+          "title": "分页信息",
+          "$ref": "#/definitions/commonPaging"
         },
         "status": {
           "title": "返回的请求状态",

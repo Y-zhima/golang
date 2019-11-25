@@ -2516,7 +2516,7 @@
             
             <row>
               <entry>level</entry>
-              <entry><link linkend="cmdb.NodeLevel">NodeLevel</link></entry>
+              <entry><link linkend="cmdb.LakeNodeLevel">LakeNodeLevel</link></entry>
               <entry></entry>
               <entry><para>lake节点level</para></entry>
             </row>
@@ -3265,7 +3265,7 @@
             
             <row>
               <entry>level</entry>
-              <entry><link linkend="cmdb.NodeLevel">NodeLevel</link></entry>
+              <entry><link linkend="cmdb.LakeNodeLevel">LakeNodeLevel</link></entry>
               <entry></entry>
               <entry><para>指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘</para></entry>
             </row>
@@ -3306,7 +3306,7 @@
           <tbody>
             
             <row>
-              <entry>result</entry>
+              <entry>level_hosts</entry>
               <entry><link linkend="cmdb.LevelHostsObject">LevelHostsObject</link></entry>
               <entry>repeated</entry>
               <entry><para>level下的主机ip列表</para></entry>
@@ -4297,11 +4297,11 @@
       </table>
     </section>
     
-    <section id="cmdb.NodeLevel">
-      <title>NodeLevel</title>
+    <section id="cmdb.LakeNodeLevel">
+      <title>LakeNodeLevel</title>
       <para>节点层次</para>
       <table frame="all">
-        <title><classname>NodeLevel</classname> Values</title>
+        <title><classname>LakeNodeLevel</classname> Values</title>
         <tgroup cols="3">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>

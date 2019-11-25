@@ -733,9 +733,9 @@
           ]
         },
         {
-          "name": "NodeLevel",
-          "longName": "NodeLevel",
-          "fullName": "cmdb.NodeLevel",
+          "name": "LakeNodeLevel",
+          "longName": "LakeNodeLevel",
+          "fullName": "cmdb.LakeNodeLevel",
           "description": "节点层次",
           "values": [
             {
@@ -2626,9 +2626,9 @@
               "name": "level",
               "description": "lake节点level",
               "label": "",
-              "type": "NodeLevel",
-              "longType": "NodeLevel",
-              "fullType": "cmdb.NodeLevel",
+              "type": "LakeNodeLevel",
+              "longType": "LakeNodeLevel",
+              "fullType": "cmdb.LakeNodeLevel",
               "ismap": false,
               "defaultValue": ""
             },
@@ -3290,9 +3290,9 @@
               "name": "level",
               "description": "指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘",
               "label": "",
-              "type": "NodeLevel",
-              "longType": "NodeLevel",
-              "fullType": "cmdb.NodeLevel",
+              "type": "LakeNodeLevel",
+              "longType": "LakeNodeLevel",
+              "fullType": "cmdb.LakeNodeLevel",
               "ismap": false,
               "defaultValue": ""
             },
@@ -3318,7 +3318,7 @@
           "extensions": [],
           "fields": [
             {
-              "name": "result",
+              "name": "level_hosts",
               "description": "level下的主机ip列表",
               "label": "repeated",
               "type": "LevelHostsObject",
