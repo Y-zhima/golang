@@ -997,6 +997,33 @@
         }
       }
     },
+    "/v1/cmdb/updateHostState": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "修改主机上下线状态",
+        "operationId": "UpdateHostState",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateHostStateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateHostStateRequest"
+            }
+          }
+        }
+      }
+    },
     "/v1/cmdb/updateInst": {
       "post": {
         "tags": [
@@ -1019,6 +1046,33 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/cmdbUpdateInstResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/updateLakeState": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "修改lake节点上下线状态",
+        "operationId": "UpdateLakeConState",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateLakeStateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateLakeStateRequest"
             }
           }
         }
@@ -3511,6 +3565,30 @@
         }
       }
     },
+    "cmdbUpdateHostStateRequest": {
+      "type": "object",
+      "title": "修改主机上下线状态的请求体",
+      "properties": {
+        "ipv4": {
+          "type": "array",
+          "title": "ipv4,可传多个",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ipv6": {
+          "type": "array",
+          "title": "ipv6,可传多个",
+          "items": {
+            "type": "string"
+          }
+        },
+        "state": {
+          "title": "主机上下线状态",
+          "$ref": "#/definitions/cmdbstate"
+        }
+      }
+    },
     "cmdbUpdateInstRequest": {
       "type": "object",
       "title": "实体 host，lake，vip的更新请求",
@@ -3537,6 +3615,23 @@
         "status": {
           "title": "返回的请求状态",
           "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbUpdateLakeStateRequest": {
+      "type": "object",
+      "title": "修改lake节点上下线状态的请求体",
+      "properties": {
+        "construct_state": {
+          "title": "lake节点的节点建设状态",
+          "$ref": "#/definitions/cmdbstate"
+        },
+        "node_code": {
+          "type": "array",
+          "title": "lake节点的节点编码列表",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -3581,6 +3676,16 @@
           "title": "区域名"
         }
       }
+    },
+    "cmdbstate": {
+      "description": "- OFFLINE: 0-下线\n - ONLINE: 1-上线",
+      "type": "string",
+      "title": "上下线状态:0-下线 1-上线",
+      "default": "OFFLINE",
+      "enum": [
+        "OFFLINE",
+        "ONLINE"
+      ]
     },
     "commonPaging": {
       "type": "object",

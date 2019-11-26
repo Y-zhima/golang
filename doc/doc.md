@@ -98,8 +98,12 @@
     - [ServerRoomObject](#cmdb.ServerRoomObject)
     - [SetObject](#cmdb.SetObject)
     - [TopologyObject](#cmdb.TopologyObject)
+    - [UpdateHostStateRequest](#cmdb.UpdateHostStateRequest)
+    - [UpdateHostStateResponse](#cmdb.UpdateHostStateResponse)
     - [UpdateInstRequest](#cmdb.UpdateInstRequest)
     - [UpdateInstResponse](#cmdb.UpdateInstResponse)
+    - [UpdateLakeStateRequest](#cmdb.UpdateLakeStateRequest)
+    - [UpdateLakeStateResponse](#cmdb.UpdateLakeStateResponse)
     - [VipObject](#cmdb.VipObject)
     - [ZoneObject](#cmdb.ZoneObject)
   
@@ -110,6 +114,7 @@
     - [LakeNodeLevel](#cmdb.LakeNodeLevel)
     - [ServerInstallState](#cmdb.ServerInstallState)
     - [ServerPowerState](#cmdb.ServerPowerState)
+    - [state](#cmdb.state)
   
   
     - [Cmdb](#cmdb.Cmdb)
@@ -1734,6 +1739,39 @@ level下的主机ip列表
 
 
 
+<a name="cmdb.UpdateHostStateRequest"></a>
+
+### UpdateHostStateRequest
+修改主机上下线状态的请求体
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ipv4 | [string](#string) | repeated | ipv4,可传多个 |
+| ipv6 | [string](#string) | repeated | ipv6,可传多个 |
+| state | [state](#cmdb.state) |  | 主机上下线状态 |
+
+
+
+
+
+
+<a name="cmdb.UpdateHostStateResponse"></a>
+
+### UpdateHostStateResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
+| state | [state](#cmdb.state) |  | 主机上下线状态 |
+
+
+
+
+
+
 <a name="cmdb.UpdateInstRequest"></a>
 
 ### UpdateInstRequest
@@ -1760,6 +1798,38 @@ level下的主机ip列表
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
+
+
+
+
+
+
+<a name="cmdb.UpdateLakeStateRequest"></a>
+
+### UpdateLakeStateRequest
+修改lake节点上下线状态的请求体
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| node_code | [string](#string) | repeated | lake节点的节点编码列表 |
+| construct_state | [state](#cmdb.state) |  | lake节点的节点建设状态 |
+
+
+
+
+
+
+<a name="cmdb.UpdateLakeStateResponse"></a>
+
+### UpdateLakeStateResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
+| construct_state | [state](#cmdb.state) |  | lake节点的节点建设状态 |
 
 
 
@@ -1908,6 +1978,18 @@ VIP对象
 | ON | 2 | 上电 |
 
 
+
+<a name="cmdb.state"></a>
+
+### state
+上下线状态:0-下线 1-上线
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OFFLINE | 0 | 0-下线 |
+| ONLINE | 1 | 1-上线 |
+
+
  
 
  
@@ -1938,6 +2020,8 @@ VIP对象
 | ImportReview | [ImportReviewRequest](#cmdb.ImportReviewRequest) | [ImportReviewResponse](#cmdb.ImportReviewResponse) | 导入交维表审批结果 |
 | ImportDetail | [ImportDetailRequest](#cmdb.ImportDetailRequest) | [ImportDetailResponse](#cmdb.ImportDetailResponse) | 查看导入的实体信息列表 |
 | SearchLevelHost | [SearchLevelHostRequest](#cmdb.SearchLevelHostRequest) | [SearchLevelHostResponse](#cmdb.SearchLevelHostResponse) | 按level查询lake节点下主机列表 |
+| UpdateLakeConState | [UpdateLakeStateRequest](#cmdb.UpdateLakeStateRequest) | [UpdateLakeStateRequest](#cmdb.UpdateLakeStateRequest) | 修改lake节点上下线状态 |
+| UpdateHostState | [UpdateHostStateRequest](#cmdb.UpdateHostStateRequest) | [UpdateHostStateRequest](#cmdb.UpdateHostStateRequest) | 修改主机上下线状态 |
 
  
 

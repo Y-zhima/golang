@@ -3865,6 +3865,97 @@
       
     </section>
     
+    <section id="cmdb.UpdateHostStateRequest">
+      <title>UpdateHostStateRequest</title>
+      <para>修改主机上下线状态的请求体</para>
+      
+      <table frame="all">
+        <title><classname>UpdateHostStateRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>ipv4</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry>repeated</entry>
+              <entry><para>ipv4,可传多个</para></entry>
+            </row>
+            
+            <row>
+              <entry>ipv6</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry>repeated</entry>
+              <entry><para>ipv6,可传多个</para></entry>
+            </row>
+            
+            <row>
+              <entry>state</entry>
+              <entry><link linkend="cmdb.state">state</link></entry>
+              <entry></entry>
+              <entry><para>主机上下线状态</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="cmdb.UpdateHostStateResponse">
+      <title>UpdateHostStateResponse</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>UpdateHostStateResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>返回的请求状态</para></entry>
+            </row>
+            
+            <row>
+              <entry>state</entry>
+              <entry><link linkend="cmdb.state">state</link></entry>
+              <entry></entry>
+              <entry><para>主机上下线状态</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
     <section id="cmdb.UpdateInstRequest">
       <title>UpdateInstRequest</title>
       <para>实体 host，lake，vip的更新请求</para>
@@ -3940,6 +4031,90 @@
               <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
               <entry></entry>
               <entry><para>返回的请求状态</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="cmdb.UpdateLakeStateRequest">
+      <title>UpdateLakeStateRequest</title>
+      <para>修改lake节点上下线状态的请求体</para>
+      
+      <table frame="all">
+        <title><classname>UpdateLakeStateRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>node_code</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry>repeated</entry>
+              <entry><para>lake节点的节点编码列表</para></entry>
+            </row>
+            
+            <row>
+              <entry>construct_state</entry>
+              <entry><link linkend="cmdb.state">state</link></entry>
+              <entry></entry>
+              <entry><para>lake节点的节点建设状态</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="cmdb.UpdateLakeStateResponse">
+      <title>UpdateLakeStateResponse</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>UpdateLakeStateResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>返回的请求状态</para></entry>
+            </row>
+            
+            <row>
+              <entry>construct_state</entry>
+              <entry><link linkend="cmdb.state">state</link></entry>
+              <entry></entry>
+              <entry><para>lake节点的节点建设状态</para></entry>
             </row>
             
           </tbody>
@@ -4432,6 +4607,41 @@
       </table>
     </section>
     
+    <section id="cmdb.state">
+      <title>state</title>
+      <para>上下线状态:0-下线 1-上线</para>
+      <table frame="all">
+        <title><classname>state</classname> Values</title>
+        <tgroup cols="3">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Name</entry>
+              <entry>Number</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>OFFLINE</entry>
+              <entry>0</entry>
+              <entry><para>0-下线</para></entry>
+            </row>
+            
+            <row>
+              <entry>ONLINE</entry>
+              <entry>1</entry>
+              <entry><para>1-上线</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    
 
     
 
@@ -4580,6 +4790,20 @@
               <entry><link linkend="cmdb.SearchLevelHostRequest">SearchLevelHostRequest</link></entry>
               <entry><link linkend="cmdb.SearchLevelHostResponse">SearchLevelHostResponse</link></entry>
               <entry><para>按level查询lake节点下主机列表</para></entry>
+            </row>
+            
+            <row>
+              <entry>UpdateLakeConState</entry>
+              <entry><link linkend="cmdb.UpdateLakeStateRequest">UpdateLakeStateRequest</link></entry>
+              <entry><link linkend="cmdb.UpdateLakeStateRequest">UpdateLakeStateRequest</link></entry>
+              <entry><para>修改lake节点上下线状态</para></entry>
+            </row>
+            
+            <row>
+              <entry>UpdateHostState</entry>
+              <entry><link linkend="cmdb.UpdateHostStateRequest">UpdateHostStateRequest</link></entry>
+              <entry><link linkend="cmdb.UpdateHostStateRequest">UpdateHostStateRequest</link></entry>
+              <entry><para>修改主机上下线状态</para></entry>
             </row>
             
           </tbody>

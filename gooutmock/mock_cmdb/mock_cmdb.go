@@ -315,6 +315,26 @@ func (mr *MockCmdbClientMockRecorder) SearchLakeHost(arg0, arg1 interface{}, arg
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SearchLakeHost", reflect.TypeOf((*MockCmdbClient)(nil).SearchLakeHost), varargs...)
 }
 
+// SearchLevelHost mocks base method
+func (m *MockCmdbClient) SearchLevelHost(arg0 context.Context, arg1 *cmdb.SearchLevelHostRequest, arg2 ...grpc.CallOption) (*cmdb.SearchLevelHostResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "SearchLevelHost", varargs...)
+	ret0, _ := ret[0].(*cmdb.SearchLevelHostResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// SearchLevelHost indicates an expected call of SearchLevelHost
+func (mr *MockCmdbClientMockRecorder) SearchLevelHost(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SearchLevelHost", reflect.TypeOf((*MockCmdbClient)(nil).SearchLevelHost), varargs...)
+}
+
 // SearchModule mocks base method
 func (m *MockCmdbClient) SearchModule(arg0 context.Context, arg1 *cmdb.SearchMoudleRequest, arg2 ...grpc.CallOption) (*cmdb.SearchMoudleResponse, error) {
 	m.ctrl.T.Helper()
@@ -355,6 +375,26 @@ func (mr *MockCmdbClientMockRecorder) ServerList(arg0, arg1 interface{}, arg2 ..
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ServerList", reflect.TypeOf((*MockCmdbClient)(nil).ServerList), varargs...)
 }
 
+// UpdateHostState mocks base method
+func (m *MockCmdbClient) UpdateHostState(arg0 context.Context, arg1 *cmdb.UpdateHostStateRequest, arg2 ...grpc.CallOption) (*cmdb.UpdateHostStateRequest, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "UpdateHostState", varargs...)
+	ret0, _ := ret[0].(*cmdb.UpdateHostStateRequest)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// UpdateHostState indicates an expected call of UpdateHostState
+func (mr *MockCmdbClientMockRecorder) UpdateHostState(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpdateHostState", reflect.TypeOf((*MockCmdbClient)(nil).UpdateHostState), varargs...)
+}
+
 // UpdateInst mocks base method
 func (m *MockCmdbClient) UpdateInst(arg0 context.Context, arg1 *cmdb.UpdateInstRequest, arg2 ...grpc.CallOption) (*cmdb.UpdateInstResponse, error) {
 	m.ctrl.T.Helper()
@@ -373,4 +413,24 @@ func (mr *MockCmdbClientMockRecorder) UpdateInst(arg0, arg1 interface{}, arg2 ..
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{arg0, arg1}, arg2...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpdateInst", reflect.TypeOf((*MockCmdbClient)(nil).UpdateInst), varargs...)
+}
+
+// UpdateLakeConState mocks base method
+func (m *MockCmdbClient) UpdateLakeConState(arg0 context.Context, arg1 *cmdb.UpdateLakeStateRequest, arg2 ...grpc.CallOption) (*cmdb.UpdateLakeStateRequest, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "UpdateLakeConState", varargs...)
+	ret0, _ := ret[0].(*cmdb.UpdateLakeStateRequest)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// UpdateLakeConState indicates an expected call of UpdateLakeConState
+func (mr *MockCmdbClientMockRecorder) UpdateLakeConState(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpdateLakeConState", reflect.TypeOf((*MockCmdbClient)(nil).UpdateLakeConState), varargs...)
 }
