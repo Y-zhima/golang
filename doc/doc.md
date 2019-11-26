@@ -113,9 +113,9 @@
     - [ImportType](#cmdb.ImportType)
     - [InstType](#cmdb.InstType)
     - [LakeNodeLevel](#cmdb.LakeNodeLevel)
+    - [OnlineState](#cmdb.OnlineState)
     - [ServerInstallState](#cmdb.ServerInstallState)
     - [ServerPowerState](#cmdb.ServerPowerState)
-    - [state](#cmdb.state)
   
   
     - [Cmdb](#cmdb.Cmdb)
@@ -1766,7 +1766,7 @@ level下的主机ip列表
 | ----- | ---- | ----- | ----------- |
 | ipv4 | [string](#string) | repeated | ipv4,可传多个 |
 | ipv6 | [string](#string) | repeated | ipv6,可传多个 |
-| state | [state](#cmdb.state) |  | 主机上下线状态 |
+| state | [OnlineState](#cmdb.OnlineState) |  | 主机上下线状态 |
 
 
 
@@ -1829,7 +1829,7 @@ level下的主机ip列表
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | node_code | [string](#string) | repeated | lake节点的节点编码列表 |
-| construct_state | [state](#cmdb.state) |  | lake节点的节点建设状态 |
+| construct_state | [OnlineState](#cmdb.OnlineState) |  | lake节点的节点建设状态 |
 
 
 
@@ -1969,6 +1969,19 @@ VIP对象
 
 
 
+<a name="cmdb.OnlineState"></a>
+
+### OnlineState
+上下线状态:0-未定义 1-下线 2-上线
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNDEFINEDSTATE | 0 | 0-未定义 |
+| OFFLINE | 1 | 1-下线 |
+| ONLINE | 2 | 2-上线 |
+
+
+
 <a name="cmdb.ServerInstallState"></a>
 
 ### ServerInstallState
@@ -1992,19 +2005,6 @@ VIP对象
 | UNKNOWN | 0 | 未知状态 |
 | OFF | 1 | 下电 |
 | ON | 2 | 上电 |
-
-
-
-<a name="cmdb.state"></a>
-
-### state
-上下线状态:0-未定义 1-下线 2-上线
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| UNDEFINEDSTATE | 0 | 0-未定义 |
-| OFFLINE | 1 | 1-下线 |
-| ONLINE | 2 | 2-上线 |
 
 
  
@@ -2037,7 +2037,7 @@ VIP对象
 | ImportReview | [ImportReviewRequest](#cmdb.ImportReviewRequest) | [ImportReviewResponse](#cmdb.ImportReviewResponse) | 导入交维表审批结果 |
 | ImportDetail | [ImportDetailRequest](#cmdb.ImportDetailRequest) | [ImportDetailResponse](#cmdb.ImportDetailResponse) | 查看导入的实体信息列表 |
 | SearchLevelHost | [SearchLevelHostRequest](#cmdb.SearchLevelHostRequest) | [SearchLevelHostResponse](#cmdb.SearchLevelHostResponse) | 按level查询lake节点下主机列表 |
-| UpdateLakeConState | [UpdateLakeStateRequest](#cmdb.UpdateLakeStateRequest) | [UpdateLakeStateRequest](#cmdb.UpdateLakeStateRequest) | 修改lake节点上下线状态 |
+| UpdateLakeState | [UpdateLakeStateRequest](#cmdb.UpdateLakeStateRequest) | [UpdateLakeStateRequest](#cmdb.UpdateLakeStateRequest) | 修改lake节点上下线状态 |
 | UpdateHostState | [UpdateHostStateRequest](#cmdb.UpdateHostStateRequest) | [UpdateHostStateRequest](#cmdb.UpdateHostStateRequest) | 修改主机上下线状态 |
 
  

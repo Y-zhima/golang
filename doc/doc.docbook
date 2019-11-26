@@ -3944,7 +3944,7 @@
             
             <row>
               <entry>state</entry>
-              <entry><link linkend="cmdb.state">state</link></entry>
+              <entry><link linkend="cmdb.OnlineState">OnlineState</link></entry>
               <entry></entry>
               <entry><para>主机上下线状态</para></entry>
             </row>
@@ -4105,7 +4105,7 @@
             
             <row>
               <entry>construct_state</entry>
-              <entry><link linkend="cmdb.state">state</link></entry>
+              <entry><link linkend="cmdb.OnlineState">OnlineState</link></entry>
               <entry></entry>
               <entry><para>lake节点的节点建设状态</para></entry>
             </row>
@@ -4559,6 +4559,47 @@
       </table>
     </section>
     
+    <section id="cmdb.OnlineState">
+      <title>OnlineState</title>
+      <para>上下线状态:0-未定义 1-下线 2-上线</para>
+      <table frame="all">
+        <title><classname>OnlineState</classname> Values</title>
+        <tgroup cols="3">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Name</entry>
+              <entry>Number</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>UNDEFINEDSTATE</entry>
+              <entry>0</entry>
+              <entry><para>0-未定义</para></entry>
+            </row>
+            
+            <row>
+              <entry>OFFLINE</entry>
+              <entry>1</entry>
+              <entry><para>1-下线</para></entry>
+            </row>
+            
+            <row>
+              <entry>ONLINE</entry>
+              <entry>2</entry>
+              <entry><para>2-上线</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    
     <section id="cmdb.ServerInstallState">
       <title>ServerInstallState</title>
       <para>装机状态</para>
@@ -4634,47 +4675,6 @@
               <entry>ON</entry>
               <entry>2</entry>
               <entry><para>上电</para></entry>
-            </row>
-            
-          </tbody>
-        </tgroup>
-      </table>
-    </section>
-    
-    <section id="cmdb.state">
-      <title>state</title>
-      <para>上下线状态:0-未定义 1-下线 2-上线</para>
-      <table frame="all">
-        <title><classname>state</classname> Values</title>
-        <tgroup cols="3">
-          <colspec colwidth="*"/>
-          <colspec colwidth="*"/>
-          <colspec colwidth="3*"/>
-          <thead>
-            <row>
-              <entry>Name</entry>
-              <entry>Number</entry>
-              <entry>Description</entry>
-            </row>
-          </thead>
-          <tbody>
-            
-            <row>
-              <entry>UNDEFINEDSTATE</entry>
-              <entry>0</entry>
-              <entry><para>0-未定义</para></entry>
-            </row>
-            
-            <row>
-              <entry>OFFLINE</entry>
-              <entry>1</entry>
-              <entry><para>1-下线</para></entry>
-            </row>
-            
-            <row>
-              <entry>ONLINE</entry>
-              <entry>2</entry>
-              <entry><para>2-上线</para></entry>
             </row>
             
           </tbody>
@@ -4833,7 +4833,7 @@
             </row>
             
             <row>
-              <entry>UpdateLakeConState</entry>
+              <entry>UpdateLakeState</entry>
               <entry><link linkend="cmdb.UpdateLakeStateRequest">UpdateLakeStateRequest</link></entry>
               <entry><link linkend="cmdb.UpdateLakeStateRequest">UpdateLakeStateRequest</link></entry>
               <entry><para>修改lake节点上下线状态</para></entry>

@@ -415,22 +415,22 @@ func (mr *MockCmdbClientMockRecorder) UpdateInst(arg0, arg1 interface{}, arg2 ..
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpdateInst", reflect.TypeOf((*MockCmdbClient)(nil).UpdateInst), varargs...)
 }
 
-// UpdateLakeConState mocks base method
-func (m *MockCmdbClient) UpdateLakeConState(arg0 context.Context, arg1 *cmdb.UpdateLakeStateRequest, arg2 ...grpc.CallOption) (*cmdb.UpdateLakeStateRequest, error) {
+// UpdateLakeState mocks base method
+func (m *MockCmdbClient) UpdateLakeState(arg0 context.Context, arg1 *cmdb.UpdateLakeStateRequest, arg2 ...grpc.CallOption) (*cmdb.UpdateLakeStateRequest, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{arg0, arg1}
 	for _, a := range arg2 {
 		varargs = append(varargs, a)
 	}
-	ret := m.ctrl.Call(m, "UpdateLakeConState", varargs...)
+	ret := m.ctrl.Call(m, "UpdateLakeState", varargs...)
 	ret0, _ := ret[0].(*cmdb.UpdateLakeStateRequest)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
-// UpdateLakeConState indicates an expected call of UpdateLakeConState
-func (mr *MockCmdbClientMockRecorder) UpdateLakeConState(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+// UpdateLakeState indicates an expected call of UpdateLakeState
+func (mr *MockCmdbClientMockRecorder) UpdateLakeState(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{arg0, arg1}, arg2...)
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpdateLakeConState", reflect.TypeOf((*MockCmdbClient)(nil).UpdateLakeConState), varargs...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpdateLakeState", reflect.TypeOf((*MockCmdbClient)(nil).UpdateLakeState), varargs...)
 }

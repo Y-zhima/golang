@@ -1065,7 +1065,7 @@
           "Cmdb"
         ],
         "summary": "修改lake节点上下线状态",
-        "operationId": "UpdateLakeConState",
+        "operationId": "UpdateLakeState",
         "parameters": [
           {
             "name": "body",
@@ -3109,6 +3109,17 @@
         }
       }
     },
+    "cmdbOnlineState": {
+      "description": "- UNDEFINEDSTATE: 0-未定义\n - OFFLINE: 1-下线\n - ONLINE: 2-上线",
+      "type": "string",
+      "title": "上下线状态:0-未定义 1-下线 2-上线",
+      "default": "UNDEFINEDSTATE",
+      "enum": [
+        "UNDEFINEDSTATE",
+        "OFFLINE",
+        "ONLINE"
+      ]
+    },
     "cmdbRoomObject": {
       "type": "object",
       "title": "机房对象",
@@ -3590,7 +3601,7 @@
         },
         "state": {
           "title": "主机上下线状态",
-          "$ref": "#/definitions/cmdbstate"
+          "$ref": "#/definitions/cmdbOnlineState"
         }
       }
     },
@@ -3629,7 +3640,7 @@
       "properties": {
         "construct_state": {
           "title": "lake节点的节点建设状态",
-          "$ref": "#/definitions/cmdbstate"
+          "$ref": "#/definitions/cmdbOnlineState"
         },
         "node_code": {
           "type": "array",
@@ -3681,17 +3692,6 @@
           "title": "区域名"
         }
       }
-    },
-    "cmdbstate": {
-      "description": "- UNDEFINEDSTATE: 0-未定义\n - OFFLINE: 1-下线\n - ONLINE: 2-上线",
-      "type": "string",
-      "title": "上下线状态:0-未定义 1-下线 2-上线",
-      "default": "UNDEFINEDSTATE",
-      "enum": [
-        "UNDEFINEDSTATE",
-        "OFFLINE",
-        "ONLINE"
-      ]
     },
     "commonPaging": {
       "type": "object",

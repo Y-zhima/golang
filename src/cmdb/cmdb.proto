@@ -164,7 +164,7 @@ service Cmdb {
     }
 
     // 修改lake节点上下线状态
-    rpc UpdateLakeConState (UpdateLakeStateRequest) returns (UpdateLakeStateRequest) {
+    rpc UpdateLakeState (UpdateLakeStateRequest) returns (UpdateLakeStateRequest) {
         option (google.api.http) = {
             post: "/v1/cmdb/updateLakeState"
             body: "*"
@@ -1049,7 +1049,7 @@ message LevelHost {
 }
 
 // 上下线状态:0-未定义 1-下线 2-上线
-enum state {
+enum OnlineState {
     // 0-未定义
     UNDEFINEDSTATE = 0;
     // 1-下线
@@ -1063,7 +1063,7 @@ message UpdateLakeStateRequest {
     // lake节点的节点编码列表
     repeated string node_code = 1;
     // lake节点的节点建设状态
-    state construct_state = 2;
+    OnlineState construct_state = 2;
 }
 
 message UpdateLakeStateResponse {
@@ -1078,7 +1078,7 @@ message UpdateHostStateRequest {
     // ipv6,可传多个
     repeated string ipv6 = 2;
     // 主机上下线状态
-    state state = 3;
+    OnlineState state = 3;
 }
 
 message UpdateHostStateResponse {

@@ -586,15 +586,15 @@
                 </li>
               
                 <li>
+                  <a href="#cmdb.OnlineState"><span class="badge">E</span>OnlineState</a>
+                </li>
+              
+                <li>
                   <a href="#cmdb.ServerInstallState"><span class="badge">E</span>ServerInstallState</a>
                 </li>
               
                 <li>
                   <a href="#cmdb.ServerPowerState"><span class="badge">E</span>ServerPowerState</a>
-                </li>
-              
-                <li>
-                  <a href="#cmdb.state"><span class="badge">E</span>state</a>
                 </li>
               
               
@@ -4889,7 +4889,7 @@
               
                 <tr>
                   <td>state</td>
-                  <td><a href="#cmdb.state">state</a></td>
+                  <td><a href="#cmdb.OnlineState">OnlineState</a></td>
                   <td></td>
                   <td><p>主机上下线状态 </p></td>
                 </tr>
@@ -5006,7 +5006,7 @@
               
                 <tr>
                   <td>construct_state</td>
-                  <td><a href="#cmdb.state">state</a></td>
+                  <td><a href="#cmdb.OnlineState">OnlineState</a></td>
                   <td></td>
                   <td><p>lake节点的节点建设状态 </p></td>
                 </tr>
@@ -5368,6 +5368,35 @@
           </tbody>
         </table>
       
+        <h3 id="cmdb.OnlineState">OnlineState</h3>
+        <p>上下线状态:0-未定义 1-下线 2-上线</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>UNDEFINEDSTATE</td>
+                <td>0</td>
+                <td><p>0-未定义</p></td>
+              </tr>
+            
+              <tr>
+                <td>OFFLINE</td>
+                <td>1</td>
+                <td><p>1-下线</p></td>
+              </tr>
+            
+              <tr>
+                <td>ONLINE</td>
+                <td>2</td>
+                <td><p>2-上线</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
         <h3 id="cmdb.ServerInstallState">ServerInstallState</h3>
         <p>装机状态</p>
         <table class="enum-table">
@@ -5421,35 +5450,6 @@
                 <td>ON</td>
                 <td>2</td>
                 <td><p>上电</p></td>
-              </tr>
-            
-          </tbody>
-        </table>
-      
-        <h3 id="cmdb.state">state</h3>
-        <p>上下线状态:0-未定义 1-下线 2-上线</p>
-        <table class="enum-table">
-          <thead>
-            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
-          </thead>
-          <tbody>
-            
-              <tr>
-                <td>UNDEFINEDSTATE</td>
-                <td>0</td>
-                <td><p>0-未定义</p></td>
-              </tr>
-            
-              <tr>
-                <td>OFFLINE</td>
-                <td>1</td>
-                <td><p>1-下线</p></td>
-              </tr>
-            
-              <tr>
-                <td>ONLINE</td>
-                <td>2</td>
-                <td><p>2-上线</p></td>
               </tr>
             
           </tbody>
@@ -5594,7 +5594,7 @@
               </tr>
             
               <tr>
-                <td>UpdateLakeConState</td>
+                <td>UpdateLakeState</td>
                 <td><a href="#cmdb.UpdateLakeStateRequest">UpdateLakeStateRequest</a></td>
                 <td><a href="#cmdb.UpdateLakeStateRequest">UpdateLakeStateRequest</a></td>
                 <td><p>修改lake节点上下线状态</p></td>
@@ -5808,7 +5808,7 @@
               
               
               <tr>
-                <td>UpdateLakeConState</td>
+                <td>UpdateLakeState</td>
                 <td>POST</td>
                 <td>/v1/cmdb/updateLakeState</td>
                 <td>*</td>
