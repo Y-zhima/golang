@@ -3984,13 +3984,6 @@
               <entry><para>返回的请求状态</para></entry>
             </row>
             
-            <row>
-              <entry>state</entry>
-              <entry><link linkend="cmdb.state">state</link></entry>
-              <entry></entry>
-              <entry><para>主机上下线状态</para></entry>
-            </row>
-            
           </tbody>
         </tgroup>
       </table>
@@ -4150,13 +4143,6 @@
               <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
               <entry></entry>
               <entry><para>返回的请求状态</para></entry>
-            </row>
-            
-            <row>
-              <entry>construct_state</entry>
-              <entry><link linkend="cmdb.state">state</link></entry>
-              <entry></entry>
-              <entry><para>lake节点的节点建设状态</para></entry>
             </row>
             
           </tbody>

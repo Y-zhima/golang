@@ -1069,8 +1069,6 @@ message UpdateLakeStateRequest {
 message UpdateLakeStateResponse {
     // 返回的请求状态
     common.ResponseStatus status = 1;
-    // lake节点的节点建设状态
-    state construct_state = 2;
 }
 
 // 修改主机上下线状态的请求体
@@ -1086,7 +1084,5 @@ message UpdateHostStateRequest {
 message UpdateHostStateResponse {
     // 返回的请求状态
     common.ResponseStatus status = 1;
-    // 主机上下线状态
-    state state = 2;
 }
 

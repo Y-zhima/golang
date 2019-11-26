@@ -1782,7 +1782,6 @@ level下的主机ip列表
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
-| state | [state](#cmdb.state) |  | 主机上下线状态 |
 
 
 
@@ -1846,7 +1845,6 @@ level下的主机ip列表
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
-| construct_state | [state](#cmdb.state) |  | lake节点的节点建设状态 |
 
 
 

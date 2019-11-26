@@ -3978,16 +3978,6 @@
               "fullType": "common.ResponseStatus",
               "ismap": false,
               "defaultValue": ""
-            },
-            {
-              "name": "state",
-              "description": "主机上下线状态",
-              "label": "",
-              "type": "state",
-              "longType": "state",
-              "fullType": "cmdb.state",
-              "ismap": false,
-              "defaultValue": ""
             }
           ]
         },
@@ -4100,16 +4090,6 @@
               "type": "ResponseStatus",
               "longType": "common.ResponseStatus",
               "fullType": "common.ResponseStatus",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "construct_state",
-              "description": "lake节点的节点建设状态",
-              "label": "",
-              "type": "state",
-              "longType": "state",
-              "fullType": "cmdb.state",
               "ismap": false,
               "defaultValue": ""
             }
