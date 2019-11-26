@@ -848,6 +848,7 @@
         "parameters": [
           {
             "enum": [
+              "ALL",
               "NATION_CENTER",
               "REGION_CENTER",
               "PROVINCE_EDGE",
@@ -855,7 +856,7 @@
               "COUNTY_EDGE"
             ],
             "type": "string",
-            "default": "NATION_CENTER",
+            "default": "ALL",
             "description": "指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘.\n\n - NATION_CENTER: 0-全国中心\n - REGION_CENTER: 1-区域中心\n - PROVINCE_EDGE: 2-省边缘\n - CITY_EDGE: 3-地市边缘\n - COUNTY_EDGE: 4-区县边缘",
             "name": "level",
             "in": "query"
@@ -886,6 +887,13 @@
             "format": "int32",
             "description": "总记录数.",
             "name": "paging.total_record",
+            "in": "query"
+          },
+          {
+            "type": "boolean",
+            "format": "boolean",
+            "description": "默认返回主机的ipv4地址，可以选择返回ipv6地址.",
+            "name": "ipv6",
             "in": "query"
           }
         ],
@@ -2995,8 +3003,9 @@
       "description": "- NATION_CENTER: 0-全国中心\n - REGION_CENTER: 1-区域中心\n - PROVINCE_EDGE: 2-省边缘\n - CITY_EDGE: 3-地市边缘\n - COUNTY_EDGE: 4-区县边缘",
       "type": "string",
       "title": "节点层次",
-      "default": "NATION_CENTER",
+      "default": "ALL",
       "enum": [
+        "ALL",
         "NATION_CENTER",
         "REGION_CENTER",
         "PROVINCE_EDGE",
@@ -3067,10 +3076,6 @@
       "type": "object",
       "title": "level下的主机ip列表",
       "properties": {
-        "level": {
-          "title": "lake节点level",
-          "$ref": "#/definitions/cmdbLakeNodeLevel"
-        },
         "values": {
           "type": "array",
           "title": "对应的ip列表",
@@ -3324,9 +3329,9 @@
           "$ref": "#/definitions/commonPaging"
         },
         "result": {
-          "type": "array",
-          "title": "level下的主机ip列表",
-          "items": {
+          "type": "object",
+          "title": "LakeNodeLevel 下的主机ip列表",
+          "additionalProperties": {
             "$ref": "#/definitions/cmdbLevelHost"
           }
         },

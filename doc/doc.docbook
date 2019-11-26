@@ -2515,13 +2515,6 @@
           <tbody>
             
             <row>
-              <entry>level</entry>
-              <entry><link linkend="cmdb.LakeNodeLevel">LakeNodeLevel</link></entry>
-              <entry></entry>
-              <entry><para>lake节点level</para></entry>
-            </row>
-            
-            <row>
               <entry>values</entry>
               <entry><link linkend="string">string</link></entry>
               <entry>repeated</entry>
@@ -3277,6 +3270,13 @@
               <entry><para>分页信息</para></entry>
             </row>
             
+            <row>
+              <entry>ipv6</entry>
+              <entry><link linkend="bool">bool</link></entry>
+              <entry></entry>
+              <entry><para>默认返回主机的ipv4地址，可以选择返回ipv6地址</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>
@@ -3307,9 +3307,9 @@
             
             <row>
               <entry>result</entry>
-              <entry><link linkend="cmdb.LevelHost">LevelHost</link></entry>
+              <entry><link linkend="cmdb.SearchLevelHostResponse.ResultEntry">SearchLevelHostResponse.ResultEntry</link></entry>
               <entry>repeated</entry>
-              <entry><para>level下的主机ip列表</para></entry>
+              <entry><para>LakeNodeLevel 下的主机ip列表</para></entry>
             </row>
             
             <row>
@@ -3324,6 +3324,48 @@
               <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
               <entry></entry>
               <entry><para>返回的请求状态</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="cmdb.SearchLevelHostResponse.ResultEntry">
+      <title>SearchLevelHostResponse.ResultEntry</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>SearchLevelHostResponse.ResultEntry</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>key</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+            <row>
+              <entry>value</entry>
+              <entry><link linkend="cmdb.LevelHost">LevelHost</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
             </row>
             
           </tbody>
@@ -4491,32 +4533,38 @@
           <tbody>
             
             <row>
-              <entry>NATION_CENTER</entry>
+              <entry>ALL</entry>
               <entry>0</entry>
+              <entry><para></para></entry>
+            </row>
+            
+            <row>
+              <entry>NATION_CENTER</entry>
+              <entry>1</entry>
               <entry><para>0-全国中心</para></entry>
             </row>
             
             <row>
               <entry>REGION_CENTER</entry>
-              <entry>1</entry>
+              <entry>2</entry>
               <entry><para>1-区域中心</para></entry>
             </row>
             
             <row>
               <entry>PROVINCE_EDGE</entry>
-              <entry>2</entry>
+              <entry>3</entry>
               <entry><para>2-省边缘</para></entry>
             </row>
             
             <row>
               <entry>CITY_EDGE</entry>
-              <entry>3</entry>
+              <entry>4</entry>
               <entry><para>3-地市边缘</para></entry>
             </row>
             
             <row>
               <entry>COUNTY_EDGE</entry>
-              <entry>4</entry>
+              <entry>5</entry>
               <entry><para>4-区县边缘</para></entry>
             </row>
             

@@ -739,28 +739,33 @@
           "description": "节点层次",
           "values": [
             {
-              "name": "NATION_CENTER",
+              "name": "ALL",
               "number": "0",
+              "description": ""
+            },
+            {
+              "name": "NATION_CENTER",
+              "number": "1",
               "description": "0-全国中心"
             },
             {
               "name": "REGION_CENTER",
-              "number": "1",
+              "number": "2",
               "description": "1-区域中心"
             },
             {
               "name": "PROVINCE_EDGE",
-              "number": "2",
+              "number": "3",
               "description": "2-省边缘"
             },
             {
               "name": "CITY_EDGE",
-              "number": "3",
+              "number": "4",
               "description": "3-地市边缘"
             },
             {
               "name": "COUNTY_EDGE",
-              "number": "4",
+              "number": "5",
               "description": "4-区县边缘"
             }
           ]
@@ -2646,16 +2651,6 @@
           "extensions": [],
           "fields": [
             {
-              "name": "level",
-              "description": "lake节点level",
-              "label": "",
-              "type": "LakeNodeLevel",
-              "longType": "LakeNodeLevel",
-              "fullType": "cmdb.LakeNodeLevel",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
               "name": "values",
               "description": "对应的ip列表",
               "label": "repeated",
@@ -3328,6 +3323,16 @@
               "fullType": "common.Paging",
               "ismap": false,
               "defaultValue": ""
+            },
+            {
+              "name": "ipv6",
+              "description": "默认返回主机的ipv4地址，可以选择返回ipv6地址",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "defaultValue": ""
             }
           ]
         },
@@ -3342,12 +3347,12 @@
           "fields": [
             {
               "name": "result",
-              "description": "level下的主机ip列表",
+              "description": "LakeNodeLevel 下的主机ip列表",
               "label": "repeated",
-              "type": "LevelHost",
-              "longType": "LevelHost",
-              "fullType": "cmdb.LevelHost",
-              "ismap": false,
+              "type": "ResultEntry",
+              "longType": "SearchLevelHostResponse.ResultEntry",
+              "fullType": "cmdb.SearchLevelHostResponse.ResultEntry",
+              "ismap": true,
               "defaultValue": ""
             },
             {
@@ -3367,6 +3372,37 @@
               "type": "ResponseStatus",
               "longType": "common.ResponseStatus",
               "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ResultEntry",
+          "longName": "SearchLevelHostResponse.ResultEntry",
+          "fullName": "cmdb.SearchLevelHostResponse.ResultEntry",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "key",
+              "description": "",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "value",
+              "description": "",
+              "label": "",
+              "type": "LevelHost",
+              "longType": "LevelHost",
+              "fullType": "cmdb.LevelHost",
               "ismap": false,
               "defaultValue": ""
             }

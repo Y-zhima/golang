@@ -783,13 +783,14 @@
             "required": false,
             "type": "string",
             "enum": [
+              "ALL",
               "NATION_CENTER",
               "REGION_CENTER",
               "PROVINCE_EDGE",
               "CITY_EDGE",
               "COUNTY_EDGE"
             ],
-            "default": "NATION_CENTER"
+            "default": "ALL"
           },
           {
             "name": "paging.total_page",
@@ -822,6 +823,14 @@
             "required": false,
             "type": "integer",
             "format": "int32"
+          },
+          {
+            "name": "ipv6",
+            "description": "默认返回主机的ipv4地址，可以选择返回ipv6地址.",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "format": "boolean"
           }
         ],
         "tags": [
@@ -1532,13 +1541,14 @@
     "cmdbLakeNodeLevel": {
       "type": "string",
       "enum": [
+        "ALL",
         "NATION_CENTER",
         "REGION_CENTER",
         "PROVINCE_EDGE",
         "CITY_EDGE",
         "COUNTY_EDGE"
       ],
-      "default": "NATION_CENTER",
+      "default": "ALL",
       "description": "- NATION_CENTER: 0-全国中心\n - REGION_CENTER: 1-区域中心\n - PROVINCE_EDGE: 2-省边缘\n - CITY_EDGE: 3-地市边缘\n - COUNTY_EDGE: 4-区县边缘",
       "title": "节点层次"
     },
@@ -1604,10 +1614,6 @@
     "cmdbLevelHost": {
       "type": "object",
       "properties": {
-        "level": {
-          "$ref": "#/definitions/cmdbLakeNodeLevel",
-          "title": "lake节点level"
-        },
         "values": {
           "type": "array",
           "items": {
@@ -1857,11 +1863,11 @@
       "type": "object",
       "properties": {
         "result": {
-          "type": "array",
-          "items": {
+          "type": "object",
+          "additionalProperties": {
             "$ref": "#/definitions/cmdbLevelHost"
           },
-          "title": "level下的主机ip列表"
+          "title": "LakeNodeLevel 下的主机ip列表"
         },
         "paging": {
           "$ref": "#/definitions/commonPaging",
