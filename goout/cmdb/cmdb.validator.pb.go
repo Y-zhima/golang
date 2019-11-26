@@ -5,14 +5,14 @@ package cmdb
 
 import (
 	fmt "fmt"
-	_ "git.fogcdn.top/axe/protos/goout/common"
+	math "math"
 	proto "github.com/golang/protobuf/proto"
-	_ "github.com/golang/protobuf/ptypes/timestamp"
+	_ "git.fogcdn.top/axe/protos/goout/common"
+	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "github.com/mwitkow/go-proto-validators"
+	_ "github.com/golang/protobuf/ptypes/timestamp"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
-	_ "google.golang.org/genproto/googleapis/api/annotations"
-	math "math"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -585,13 +585,7 @@ func (this *SearchLevelHostRequest) Validate() error {
 	return nil
 }
 func (this *SearchLevelHostResponse) Validate() error {
-	for _, item := range this.Result {
-		if item != nil {
-			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Result", err)
-			}
-		}
-	}
+	// Validation of proto3 map<> fields is unsupported.
 	if this.Paging != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Paging); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Paging", err)

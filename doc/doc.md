@@ -89,6 +89,7 @@
     - [SearchLakeResponse](#cmdb.SearchLakeResponse)
     - [SearchLevelHostRequest](#cmdb.SearchLevelHostRequest)
     - [SearchLevelHostResponse](#cmdb.SearchLevelHostResponse)
+    - [SearchLevelHostResponse.ResultEntry](#cmdb.SearchLevelHostResponse.ResultEntry)
     - [SearchMoudleRequest](#cmdb.SearchMoudleRequest)
     - [SearchMoudleResponse](#cmdb.SearchMoudleResponse)
     - [Server](#cmdb.Server)
@@ -1287,7 +1288,6 @@ level下的主机ip列表
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| level | [LakeNodeLevel](#cmdb.LakeNodeLevel) |  | lake节点level |
 | values | [string](#string) | repeated | 对应的ip列表 |
 
 
@@ -1545,6 +1545,7 @@ level下的主机ip列表
 | ----- | ---- | ----- | ----------- |
 | level | [LakeNodeLevel](#cmdb.LakeNodeLevel) |  | 指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘 |
 | paging | [common.Paging](#common.Paging) |  | 分页信息 |
+| ipv6 | [bool](#bool) |  | 默认返回主机的ipv4地址，可以选择返回ipv6地址 |
 
 
 
@@ -1559,9 +1560,25 @@ level下的主机ip列表
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| result | [LevelHost](#cmdb.LevelHost) | repeated | level下的主机ip列表 |
+| result | [SearchLevelHostResponse.ResultEntry](#cmdb.SearchLevelHostResponse.ResultEntry) | repeated | LakeNodeLevel 下的主机ip列表 |
 | paging | [common.Paging](#common.Paging) |  | 分页信息 |
 | status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
+
+
+
+
+
+
+<a name="cmdb.SearchLevelHostResponse.ResultEntry"></a>
+
+### SearchLevelHostResponse.ResultEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [LevelHost](#cmdb.LevelHost) |  |  |
 
 
 
@@ -1875,11 +1892,12 @@ VIP对象
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| NATION_CENTER | 0 | 0-全国中心 |
-| REGION_CENTER | 1 | 1-区域中心 |
-| PROVINCE_EDGE | 2 | 2-省边缘 |
-| CITY_EDGE | 3 | 3-地市边缘 |
-| COUNTY_EDGE | 4 | 4-区县边缘 |
+| ALL | 0 |  |
+| NATION_CENTER | 1 | 0-全国中心 |
+| REGION_CENTER | 2 | 1-区域中心 |
+| PROVINCE_EDGE | 3 | 2-省边缘 |
+| CITY_EDGE | 4 | 3-地市边缘 |
+| COUNTY_EDGE | 5 | 4-区县边缘 |
 
 
 
