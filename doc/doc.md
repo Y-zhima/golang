@@ -2038,8 +2038,8 @@ VIP对象
 | ImportReview | [ImportReviewRequest](#cmdb.ImportReviewRequest) | [ImportReviewResponse](#cmdb.ImportReviewResponse) | 导入交维表审批结果 |
 | ImportDetail | [ImportDetailRequest](#cmdb.ImportDetailRequest) | [ImportDetailResponse](#cmdb.ImportDetailResponse) | 查看导入的实体信息列表 |
 | SearchLevelHost | [SearchLevelHostRequest](#cmdb.SearchLevelHostRequest) | [SearchLevelHostResponse](#cmdb.SearchLevelHostResponse) | 按level查询lake节点下主机列表 |
-| UpdateLakeState | [UpdateLakeStateRequest](#cmdb.UpdateLakeStateRequest) | [UpdateLakeStateRequest](#cmdb.UpdateLakeStateRequest) | 修改lake节点上下线状态 |
-| UpdateHostState | [UpdateHostStateRequest](#cmdb.UpdateHostStateRequest) | [UpdateHostStateRequest](#cmdb.UpdateHostStateRequest) | 修改主机上下线状态 |
+| UpdateLakeState | [UpdateLakeStateRequest](#cmdb.UpdateLakeStateRequest) | [UpdateLakeStateResponse](#cmdb.UpdateLakeStateResponse) | 修改lake节点上下线状态 |
+| UpdateHostState | [UpdateHostStateRequest](#cmdb.UpdateHostStateRequest) | [UpdateHostStateResponse](#cmdb.UpdateHostStateResponse) | 修改主机上下线状态 |
 
  
 

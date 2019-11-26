@@ -1026,7 +1026,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/cmdbUpdateHostStateRequest"
+              "$ref": "#/definitions/cmdbUpdateHostStateResponse"
             }
           }
         }
@@ -1080,7 +1080,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/cmdbUpdateLakeStateRequest"
+              "$ref": "#/definitions/cmdbUpdateLakeStateResponse"
             }
           }
         }
@@ -3609,6 +3609,15 @@
         }
       }
     },
+    "cmdbUpdateHostStateResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
     "cmdbUpdateInstRequest": {
       "type": "object",
       "title": "实体 host，lake，vip的更新请求",
@@ -3652,6 +3661,15 @@
           "items": {
             "type": "string"
           }
+        }
+      }
+    },
+    "cmdbUpdateLakeStateResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
         }
       }
     },

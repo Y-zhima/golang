@@ -4615,9 +4615,9 @@
               "requestLongType": "UpdateLakeStateRequest",
               "requestFullType": "cmdb.UpdateLakeStateRequest",
               "requestStreaming": false,
-              "responseType": "UpdateLakeStateRequest",
-              "responseLongType": "UpdateLakeStateRequest",
-              "responseFullType": "cmdb.UpdateLakeStateRequest",
+              "responseType": "UpdateLakeStateResponse",
+              "responseLongType": "UpdateLakeStateResponse",
+              "responseFullType": "cmdb.UpdateLakeStateResponse",
               "responseStreaming": false,
               "options": {
                 "google.api.http": {
@@ -4638,9 +4638,9 @@
               "requestLongType": "UpdateHostStateRequest",
               "requestFullType": "cmdb.UpdateHostStateRequest",
               "requestStreaming": false,
-              "responseType": "UpdateHostStateRequest",
-              "responseLongType": "UpdateHostStateRequest",
-              "responseFullType": "cmdb.UpdateHostStateRequest",
+              "responseType": "UpdateHostStateResponse",
+              "responseLongType": "UpdateHostStateResponse",
+              "responseFullType": "cmdb.UpdateHostStateResponse",
               "responseStreaming": false,
               "options": {
                 "google.api.http": {

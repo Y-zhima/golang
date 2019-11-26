@@ -164,7 +164,7 @@ service Cmdb {
     }
 
     // 修改lake节点上下线状态
-    rpc UpdateLakeState (UpdateLakeStateRequest) returns (UpdateLakeStateRequest) {
+    rpc UpdateLakeState (UpdateLakeStateRequest) returns (UpdateLakeStateResponse) {
         option (google.api.http) = {
             post: "/v1/cmdb/updateLakeState"
             body: "*"
@@ -172,7 +172,7 @@ service Cmdb {
     }
 
     // 修改主机上下线状态
-    rpc UpdateHostState (UpdateHostStateRequest) returns (UpdateHostStateRequest) {
+    rpc UpdateHostState (UpdateHostStateRequest) returns (UpdateHostStateResponse) {
         option (google.api.http) = {
             post: "/v1/cmdb/updateHostState"
             body: "*"
