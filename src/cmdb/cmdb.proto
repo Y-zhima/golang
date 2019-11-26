@@ -1035,7 +1035,7 @@ message SearchLevelHostRequest {
 // 按level查询lake节点下主机列表响应
 message SearchLevelHostResponse {
     // LakeNodeLevel 下的主机ip列表
-    map<int32, LevelHost> result = 1;
+    map<string, LevelHost> result = 1;
     // 分页信息
     common.Paging paging = 2;
     // 返回的请求状态
@@ -1044,8 +1044,10 @@ message SearchLevelHostResponse {
 
 // level下的主机ip列表
 message LevelHost {
+    // LakeNodeLevel 节点层级
+    LakeNodeLevel level = 1;
     // 对应的ip列表
-    repeated string values = 1;
+    repeated string values = 2;
 }
 
 // 上下线状态:0-未定义 1-下线 2-上线

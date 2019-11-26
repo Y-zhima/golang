@@ -1293,6 +1293,7 @@ level下的主机ip列表
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| level | [LakeNodeLevel](#cmdb.LakeNodeLevel) |  | LakeNodeLevel 节点层级 |
 | values | [string](#string) | repeated | 对应的ip列表 |
 
 
@@ -1582,7 +1583,7 @@ level下的主机ip列表
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| key | [int32](#int32) |  |  |
+| key | [string](#string) |  |  |
 | value | [LevelHost](#cmdb.LevelHost) |  |  |
 
 

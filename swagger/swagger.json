@@ -3076,6 +3076,10 @@
       "type": "object",
       "title": "level下的主机ip列表",
       "properties": {
+        "level": {
+          "title": "LakeNodeLevel 节点层级",
+          "$ref": "#/definitions/cmdbLakeNodeLevel"
+        },
         "values": {
           "type": "array",
           "title": "对应的ip列表",

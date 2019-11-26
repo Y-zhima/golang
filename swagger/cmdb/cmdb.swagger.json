@@ -1614,6 +1614,10 @@
     "cmdbLevelHost": {
       "type": "object",
       "properties": {
+        "level": {
+          "$ref": "#/definitions/cmdbLakeNodeLevel",
+          "title": "LakeNodeLevel 节点层级"
+        },
         "values": {
           "type": "array",
           "items": {
