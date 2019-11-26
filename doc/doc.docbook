@@ -4215,6 +4215,13 @@
               <entry><para>vip的ipv4地址</para></entry>
             </row>
             
+            <row>
+              <entry>state</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>vip的state</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>
