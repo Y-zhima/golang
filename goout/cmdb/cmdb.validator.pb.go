@@ -601,3 +601,25 @@ func (this *SearchLevelHostResponse) Validate() error {
 func (this *LevelHost) Validate() error {
 	return nil
 }
+func (this *UpdateLakeStateRequest) Validate() error {
+	return nil
+}
+func (this *UpdateLakeStateResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}
+func (this *UpdateHostStateRequest) Validate() error {
+	return nil
+}
+func (this *UpdateHostStateResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}

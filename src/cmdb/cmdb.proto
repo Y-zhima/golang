@@ -162,8 +162,23 @@ service Cmdb {
             get: "/v1/cmdb/searchLevelHost"
         };
     }
-}
 
+    // 修改lake节点上下线状态
+    rpc UpdateLakeState (UpdateLakeStateRequest) returns (UpdateLakeStateRequest) {
+        option (google.api.http) = {
+            post: "/v1/cmdb/updateLakeState"
+            body: "*"
+        };
+    }
+
+    // 修改主机上下线状态
+    rpc UpdateHostState (UpdateHostStateRequest) returns (UpdateHostStateRequest) {
+        option (google.api.http) = {
+            post: "/v1/cmdb/updateHostState"
+            body: "*"
+        };
+    }
+}
 
 // 实体 host，lake，vip的查询请求
 message SearchInstRequest {
@@ -966,7 +981,8 @@ message ImportReviewRequest {
     };
 
     // 导入记录id
-    int32 import_id = 1 [(validator.field) = {int_gt: 0, human_error: "导入记录ID不能为空"}];
+    int32 import_id = 1 [(validator.field) = {int_gt: 0, human_error: "导入记录ID不能为空"
+                        }];
     // 指定审批结果，只处理通过，不通过和撤销
     ImportStatus import_status = 2;
     // 操作描述
@@ -988,7 +1004,8 @@ message ImportDetailRequest {
     };
 
     // 导入记录id
-    int32 import_id = 1 [(validator.field) = {int_gt: 0, human_error: "导入记录ID不能为空"}];
+    int32 import_id = 1 [(validator.field) = {int_gt: 0, human_error: "导入记录ID不能为空"
+                        }];
     // 指定查看实体类型
     string bk_obj_id = 2;
     // 分页信息
@@ -1032,3 +1049,42 @@ message LevelHost {
     // 对应的ip列表
     repeated string values = 2;
 }
+
+// 上下线状态:0-未定义 1-下线 2-上线
+enum OnlineState {
+    // 0-未定义
+    UNDEFINEDSTATE = 0;
+    // 1-下线
+    OFFLINE = 1;
+    // 2-上线
+    ONLINE = 2;
+}
+
+// 修改lake节点上下线状态的请求体
+message UpdateLakeStateRequest {
+    // lake节点的节点编码列表
+    repeated string node_code = 1;
+    // lake节点的节点建设状态
+    OnlineState construct_state = 2;
+}
+
+message UpdateLakeStateResponse {
+    // 返回的请求状态
+    common.ResponseStatus status = 1;
+}
+
+// 修改主机上下线状态的请求体
+message UpdateHostStateRequest {
+    // ipv4,可传多个
+    repeated string ipv4 = 1;
+    // ipv6,可传多个
+    repeated string ipv6 = 2;
+    // 主机上下线状态
+    OnlineState state = 3;
+}
+
+message UpdateHostStateResponse {
+    // 返回的请求状态
+    common.ResponseStatus status = 1;
+}
+

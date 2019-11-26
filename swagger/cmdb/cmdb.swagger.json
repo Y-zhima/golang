@@ -944,6 +944,33 @@
         ]
       }
     },
+    "/v1/cmdb/updateHostState": {
+      "post": {
+        "summary": "修改主机上下线状态",
+        "operationId": "UpdateHostState",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateHostStateRequest"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateHostStateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Cmdb"
+        ]
+      }
+    },
     "/v1/cmdb/updateInst": {
       "post": {
         "summary": "实体的更新,包括 host，lake，vip列表",
@@ -963,6 +990,33 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/cmdbUpdateInstRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Cmdb"
+        ]
+      }
+    },
+    "/v1/cmdb/updateLakeState": {
+      "post": {
+        "summary": "修改lake节点上下线状态",
+        "operationId": "UpdateLakeState",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateLakeStateRequest"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateLakeStateRequest"
             }
           }
         ],
@@ -1441,7 +1495,7 @@
         },
         "status": {
           "$ref": "#/definitions/commonResponseStatus",
-          "title": "TopologyObject instance = 1;\n状态码"
+          "title": "TopologyObject instance = 1;\r\n状态码"
         }
       },
       "title": "拓扑实例请求返回"
@@ -1597,6 +1651,17 @@
         }
       },
       "title": "模块"
+    },
+    "cmdbOnlineState": {
+      "type": "string",
+      "enum": [
+        "UNDEFINEDSTATE",
+        "OFFLINE",
+        "ONLINE"
+      ],
+      "default": "UNDEFINEDSTATE",
+      "description": "- UNDEFINEDSTATE: 0-未定义\n - OFFLINE: 1-下线\n - ONLINE: 2-上线",
+      "title": "上下线状态:0-未定义 1-下线 2-上线"
     },
     "cmdbRoomObject": {
       "type": "object",
@@ -2045,6 +2110,30 @@
       },
       "title": "业务拓扑对象"
     },
+    "cmdbUpdateHostStateRequest": {
+      "type": "object",
+      "properties": {
+        "ipv4": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "ipv4,可传多个"
+        },
+        "ipv6": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "ipv6,可传多个"
+        },
+        "state": {
+          "$ref": "#/definitions/cmdbOnlineState",
+          "title": "主机上下线状态"
+        }
+      },
+      "title": "修改主机上下线状态的请求体"
+    },
     "cmdbUpdateInstRequest": {
       "type": "object",
       "properties": {
@@ -2073,6 +2162,23 @@
         }
       },
       "title": "实体 host，lake，vip的更新返回"
+    },
+    "cmdbUpdateLakeStateRequest": {
+      "type": "object",
+      "properties": {
+        "node_code": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "lake节点的节点编码列表"
+        },
+        "construct_state": {
+          "$ref": "#/definitions/cmdbOnlineState",
+          "title": "lake节点的节点建设状态"
+        }
+      },
+      "title": "修改lake节点上下线状态的请求体"
     },
     "cmdbVipObject": {
       "type": "object",

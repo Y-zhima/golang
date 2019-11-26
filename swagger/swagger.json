@@ -1005,6 +1005,33 @@
         }
       }
     },
+    "/v1/cmdb/updateHostState": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "修改主机上下线状态",
+        "operationId": "UpdateHostState",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateHostStateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateHostStateRequest"
+            }
+          }
+        }
+      }
+    },
     "/v1/cmdb/updateInst": {
       "post": {
         "tags": [
@@ -1027,6 +1054,33 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/cmdbUpdateInstResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/updateLakeState": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "修改lake节点上下线状态",
+        "operationId": "UpdateLakeState",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateLakeStateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateLakeStateRequest"
             }
           }
         }
@@ -1154,7 +1208,7 @@
           "Playbook"
         ],
         "summary": "创建playbook项目",
-        "operationId": "Create",
+        "operationId": "CreateMixin14",
         "parameters": [
           {
             "name": "body",
@@ -1181,7 +1235,7 @@
           "Playbook"
         ],
         "summary": "筛选playbook项目",
-        "operationId": "Filter",
+        "operationId": "FilterMixin14",
         "parameters": [
           {
             "type": "integer",
@@ -1234,7 +1288,7 @@
           "Playbook"
         ],
         "summary": "获取playbook项目",
-        "operationId": "Get",
+        "operationId": "GetMixin14",
         "parameters": [
           {
             "type": "integer",
@@ -1261,7 +1315,7 @@
           "Playbook"
         ],
         "summary": "更新playbook项目",
-        "operationId": "Update",
+        "operationId": "UpdateMixin14",
         "parameters": [
           {
             "type": "integer",
@@ -1296,7 +1350,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin10",
+        "operationId": "CreateMixin9",
         "parameters": [
           {
             "name": "body",
@@ -1323,7 +1377,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin10",
+        "operationId": "FilterMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -1397,7 +1451,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin10",
+        "operationId": "GetMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -1459,7 +1513,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "UpdateMixin10",
+        "operationId": "Update",
         "parameters": [
           {
             "type": "integer",
@@ -1521,7 +1575,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "CreateMixin13",
+        "operationId": "Create",
         "parameters": [
           {
             "name": "body",
@@ -1602,7 +1656,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "FilterMixin13",
+        "operationId": "Filter",
         "parameters": [
           {
             "type": "integer",
@@ -1669,7 +1723,7 @@
           "Task"
         ],
         "summary": "获取作业任务",
-        "operationId": "GetMixin13",
+        "operationId": "Get",
         "parameters": [
           {
             "type": "string",
@@ -1831,7 +1885,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin14",
+        "operationId": "CreateMixin11",
         "parameters": [
           {
             "name": "body",
@@ -1858,7 +1912,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin14",
+        "operationId": "FilterMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -1917,7 +1971,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin14",
+        "operationId": "GetMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -1944,7 +1998,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin14",
+        "operationId": "UpdateMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -2902,7 +2956,7 @@
           }
         },
         "status": {
-          "title": "TopologyObject instance = 1;\n状态码",
+          "title": "TopologyObject instance = 1;\r\n状态码",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
@@ -3058,6 +3112,17 @@
           "title": "父节点id"
         }
       }
+    },
+    "cmdbOnlineState": {
+      "description": "- UNDEFINEDSTATE: 0-未定义\n - OFFLINE: 1-下线\n - ONLINE: 2-上线",
+      "type": "string",
+      "title": "上下线状态:0-未定义 1-下线 2-上线",
+      "default": "UNDEFINEDSTATE",
+      "enum": [
+        "UNDEFINEDSTATE",
+        "OFFLINE",
+        "ONLINE"
+      ]
     },
     "cmdbRoomObject": {
       "type": "object",
@@ -3520,6 +3585,30 @@
         }
       }
     },
+    "cmdbUpdateHostStateRequest": {
+      "type": "object",
+      "title": "修改主机上下线状态的请求体",
+      "properties": {
+        "ipv4": {
+          "type": "array",
+          "title": "ipv4,可传多个",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ipv6": {
+          "type": "array",
+          "title": "ipv6,可传多个",
+          "items": {
+            "type": "string"
+          }
+        },
+        "state": {
+          "title": "主机上下线状态",
+          "$ref": "#/definitions/cmdbOnlineState"
+        }
+      }
+    },
     "cmdbUpdateInstRequest": {
       "type": "object",
       "title": "实体 host，lake，vip的更新请求",
@@ -3546,6 +3635,23 @@
         "status": {
           "title": "返回的请求状态",
           "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "cmdbUpdateLakeStateRequest": {
+      "type": "object",
+      "title": "修改lake节点上下线状态的请求体",
+      "properties": {
+        "construct_state": {
+          "title": "lake节点的节点建设状态",
+          "$ref": "#/definitions/cmdbOnlineState"
+        },
+        "node_code": {
+          "type": "array",
+          "title": "lake节点的节点编码列表",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
