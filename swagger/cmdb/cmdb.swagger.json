@@ -2221,6 +2221,10 @@
         "vip_ipv4": {
           "type": "string",
           "title": "vip的ipv4地址"
+        },
+        "state": {
+          "type": "string",
+          "title": "vip的state"
         }
       },
       "title": "VIP对象"

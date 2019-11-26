@@ -4163,6 +4163,16 @@
               "fullType": "string",
               "ismap": false,
               "defaultValue": ""
+            },
+            {
+              "name": "state",
+              "description": "vip的state",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
             }
           ]
         },

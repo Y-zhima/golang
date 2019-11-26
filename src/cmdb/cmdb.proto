@@ -789,6 +789,8 @@ message VipObject {
     string vip_ipv6 = 4;
     // vip的ipv4地址
     string vip_ipv4 = 5;
+    // vip的state
+    string state = 6;
 }
 
 // 机房对象
