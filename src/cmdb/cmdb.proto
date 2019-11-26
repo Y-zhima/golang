@@ -1027,6 +1027,8 @@ message SearchLevelHostResponse {
 
 // level下的主机ip列表
 message LevelHost {
+    // LakeNodeLevel 节点层级
+    LakeNodeLevel level = 1;
     // 对应的ip列表
-    repeated string values = 1;
+    repeated string values = 2;
 }

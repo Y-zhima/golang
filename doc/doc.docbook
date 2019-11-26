@@ -2515,6 +2515,13 @@
           <tbody>
             
             <row>
+              <entry>level</entry>
+              <entry><link linkend="cmdb.LakeNodeLevel">LakeNodeLevel</link></entry>
+              <entry></entry>
+              <entry><para>LakeNodeLevel 节点层级</para></entry>
+            </row>
+            
+            <row>
               <entry>values</entry>
               <entry><link linkend="string">string</link></entry>
               <entry>repeated</entry>

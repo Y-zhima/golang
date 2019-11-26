@@ -1288,6 +1288,7 @@ level下的主机ip列表
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| level | [LakeNodeLevel](#cmdb.LakeNodeLevel) |  | LakeNodeLevel 节点层级 |
 | values | [string](#string) | repeated | 对应的ip列表 |
 
 

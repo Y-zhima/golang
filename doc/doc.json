@@ -2628,6 +2628,16 @@
           "extensions": [],
           "fields": [
             {
+              "name": "level",
+              "description": "LakeNodeLevel 节点层级",
+              "label": "",
+              "type": "LakeNodeLevel",
+              "longType": "LakeNodeLevel",
+              "fullType": "cmdb.LakeNodeLevel",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
               "name": "values",
               "description": "对应的ip列表",
               "label": "repeated",
