@@ -376,14 +376,14 @@ func (mr *MockCmdbClientMockRecorder) ServerList(arg0, arg1 interface{}, arg2 ..
 }
 
 // UpdateHostState mocks base method
-func (m *MockCmdbClient) UpdateHostState(arg0 context.Context, arg1 *cmdb.UpdateHostStateRequest, arg2 ...grpc.CallOption) (*cmdb.UpdateHostStateRequest, error) {
+func (m *MockCmdbClient) UpdateHostState(arg0 context.Context, arg1 *cmdb.UpdateHostStateRequest, arg2 ...grpc.CallOption) (*cmdb.UpdateHostStateResponse, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{arg0, arg1}
 	for _, a := range arg2 {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "UpdateHostState", varargs...)
-	ret0, _ := ret[0].(*cmdb.UpdateHostStateRequest)
+	ret0, _ := ret[0].(*cmdb.UpdateHostStateResponse)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
@@ -416,14 +416,14 @@ func (mr *MockCmdbClientMockRecorder) UpdateInst(arg0, arg1 interface{}, arg2 ..
 }
 
 // UpdateLakeState mocks base method
-func (m *MockCmdbClient) UpdateLakeState(arg0 context.Context, arg1 *cmdb.UpdateLakeStateRequest, arg2 ...grpc.CallOption) (*cmdb.UpdateLakeStateRequest, error) {
+func (m *MockCmdbClient) UpdateLakeState(arg0 context.Context, arg1 *cmdb.UpdateLakeStateRequest, arg2 ...grpc.CallOption) (*cmdb.UpdateLakeStateResponse, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{arg0, arg1}
 	for _, a := range arg2 {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "UpdateLakeState", varargs...)
-	ret0, _ := ret[0].(*cmdb.UpdateLakeStateRequest)
+	ret0, _ := ret[0].(*cmdb.UpdateLakeStateResponse)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }

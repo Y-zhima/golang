@@ -4842,14 +4842,14 @@
             <row>
               <entry>UpdateLakeState</entry>
               <entry><link linkend="cmdb.UpdateLakeStateRequest">UpdateLakeStateRequest</link></entry>
-              <entry><link linkend="cmdb.UpdateLakeStateRequest">UpdateLakeStateRequest</link></entry>
+              <entry><link linkend="cmdb.UpdateLakeStateResponse">UpdateLakeStateResponse</link></entry>
               <entry><para>修改lake节点上下线状态</para></entry>
             </row>
             
             <row>
               <entry>UpdateHostState</entry>
               <entry><link linkend="cmdb.UpdateHostStateRequest">UpdateHostStateRequest</link></entry>
-              <entry><link linkend="cmdb.UpdateHostStateRequest">UpdateHostStateRequest</link></entry>
+              <entry><link linkend="cmdb.UpdateHostStateResponse">UpdateHostStateResponse</link></entry>
               <entry><para>修改主机上下线状态</para></entry>
             </row>
             

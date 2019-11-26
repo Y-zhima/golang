@@ -952,7 +952,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/cmdbUpdateHostStateRequest"
+              "$ref": "#/definitions/cmdbUpdateHostStateResponse"
             }
           }
         },
@@ -1006,7 +1006,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/cmdbUpdateLakeStateRequest"
+              "$ref": "#/definitions/cmdbUpdateLakeStateResponse"
             }
           }
         },
@@ -2134,6 +2134,15 @@
       },
       "title": "修改主机上下线状态的请求体"
     },
+    "cmdbUpdateHostStateResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        }
+      }
+    },
     "cmdbUpdateInstRequest": {
       "type": "object",
       "properties": {
@@ -2179,6 +2188,15 @@
         }
       },
       "title": "修改lake节点上下线状态的请求体"
+    },
+    "cmdbUpdateLakeStateResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        }
+      }
     },
     "cmdbVipObject": {
       "type": "object",
