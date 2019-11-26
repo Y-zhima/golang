@@ -5400,7 +5400,7 @@
         </table>
       
         <h3 id="cmdb.state">state</h3>
-        <p>上下线状态:0-下线 1-上线</p>
+        <p>上下线状态:0-未定义 1-下线 2-上线</p>
         <table class="enum-table">
           <thead>
             <tr><td>Name</td><td>Number</td><td>Description</td></tr>
@@ -5408,15 +5408,21 @@
           <tbody>
             
               <tr>
-                <td>OFFLINE</td>
+                <td>UNDEFINEDSTATE</td>
                 <td>0</td>
-                <td><p>0-下线</p></td>
+                <td><p>0-未定义</p></td>
+              </tr>
+            
+              <tr>
+                <td>OFFLINE</td>
+                <td>1</td>
+                <td><p>1-下线</p></td>
               </tr>
             
               <tr>
                 <td>ONLINE</td>
-                <td>1</td>
-                <td><p>1-上线</p></td>
+                <td>2</td>
+                <td><p>2-上线</p></td>
               </tr>
             
           </tbody>

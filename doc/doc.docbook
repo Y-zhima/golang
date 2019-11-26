@@ -4609,7 +4609,7 @@
     
     <section id="cmdb.state">
       <title>state</title>
-      <para>上下线状态:0-下线 1-上线</para>
+      <para>上下线状态:0-未定义 1-下线 2-上线</para>
       <table frame="all">
         <title><classname>state</classname> Values</title>
         <tgroup cols="3">
@@ -4626,15 +4626,21 @@
           <tbody>
             
             <row>
-              <entry>OFFLINE</entry>
+              <entry>UNDEFINEDSTATE</entry>
               <entry>0</entry>
-              <entry><para>0-下线</para></entry>
+              <entry><para>0-未定义</para></entry>
+            </row>
+            
+            <row>
+              <entry>OFFLINE</entry>
+              <entry>1</entry>
+              <entry><para>1-下线</para></entry>
             </row>
             
             <row>
               <entry>ONLINE</entry>
-              <entry>1</entry>
-              <entry><para>1-上线</para></entry>
+              <entry>2</entry>
+              <entry><para>2-上线</para></entry>
             </row>
             
           </tbody>

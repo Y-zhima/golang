@@ -1982,12 +1982,13 @@ VIP对象
 <a name="cmdb.state"></a>
 
 ### state
-上下线状态:0-下线 1-上线
+上下线状态:0-未定义 1-下线 2-上线
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| OFFLINE | 0 | 0-下线 |
-| ONLINE | 1 | 1-上线 |
+| UNDEFINEDSTATE | 0 | 0-未定义 |
+| OFFLINE | 1 | 1-下线 |
+| ONLINE | 2 | 2-上线 |
 
 
  

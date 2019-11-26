@@ -815,17 +815,22 @@
           "name": "state",
           "longName": "state",
           "fullName": "cmdb.state",
-          "description": "上下线状态:0-下线 1-上线",
+          "description": "上下线状态:0-未定义 1-下线 2-上线",
           "values": [
             {
-              "name": "OFFLINE",
+              "name": "UNDEFINEDSTATE",
               "number": "0",
-              "description": "0-下线"
+              "description": "0-未定义"
+            },
+            {
+              "name": "OFFLINE",
+              "number": "1",
+              "description": "1-下线"
             },
             {
               "name": "ONLINE",
-              "number": "1",
-              "description": "1-上线"
+              "number": "2",
+              "description": "2-上线"
             }
           ]
         }

@@ -1047,12 +1047,14 @@ message LevelHost {
     repeated string values = 2;
 }
 
-// 上下线状态:0-下线 1-上线
+// 上下线状态:0-未定义 1-下线 2-上线
 enum state {
-    // 0-下线
-    OFFLINE = 0;
-    // 1-上线
-    ONLINE = 1;
+    // 0-未定义
+    UNDEFINEDSTATE = 0;
+    // 1-下线
+    OFFLINE = 1;
+    // 2-上线
+    ONLINE = 2;
 }
 
 // 修改lake节点上下线状态的请求体

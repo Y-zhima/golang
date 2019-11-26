@@ -2204,12 +2204,13 @@
     "cmdbstate": {
       "type": "string",
       "enum": [
+        "UNDEFINEDSTATE",
         "OFFLINE",
         "ONLINE"
       ],
-      "default": "OFFLINE",
-      "description": "- OFFLINE: 0-下线\n - ONLINE: 1-上线",
-      "title": "上下线状态:0-下线 1-上线"
+      "default": "UNDEFINEDSTATE",
+      "description": "- UNDEFINEDSTATE: 0-未定义\n - OFFLINE: 1-下线\n - ONLINE: 2-上线",
+      "title": "上下线状态:0-未定义 1-下线 2-上线"
     },
     "commonPaging": {
       "type": "object",
