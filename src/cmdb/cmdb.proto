@@ -1018,7 +1018,7 @@ message SearchLevelHostRequest {
 // 按level查询lake节点下主机列表响应
 message SearchLevelHostResponse {
     // LakeNodeLevel 下的主机ip列表
-    map<int32, LevelHost> result = 1;
+    map<string, LevelHost> result = 1;
     // 分页信息
     common.Paging paging = 2;
     // 返回的请求状态

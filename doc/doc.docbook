@@ -3363,7 +3363,7 @@
             
             <row>
               <entry>key</entry>
-              <entry><link linkend="int32">int32</link></entry>
+              <entry><link linkend="string">string</link></entry>
               <entry></entry>
               <entry><para></para></entry>
             </row>
