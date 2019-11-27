@@ -1,6 +1,5 @@
 syntax = "proto3";
 
-option go_package = "git.fogcdn.top/axe/protos/goout/ironic";
 option java_multiple_files = true;
 option java_package = "com.ffcs.xmrdc.ironic.biz.ironicCom";
 option java_outer_classname = "ironicComProto";
@@ -48,24 +47,30 @@ message TimeScope {
 }
 
 //调用方编码
-enum AppKey{
-    UNDEFINED = 0;
+enum AppKey {
+    //无定义
+    UNDEFINED_0 = 0;
     //裸金属应用
-    IRONICAPP = 1000010000;
+    IRONIC_APP = 1000010000;
     //CMDB平台
-    CMDB =2000020000;
+    CMDB = 2000020000;
 }
 //服务编码
-enum SvcCode{
-     SVCCODEDEFAULT = 0;
+enum SvcCode {
+    //无定义
+    UNDEFINED_1 = 0;
     //创建裸金属节点
-    CREATENODES = 1010010001;
+    CREATE_NODES = 1010010001;
     //查询裸金属状态
-    QRYNODEINFO = 1010010002;
+    QRY_NODE_INFO = 1010010002;
     //安装裸金属系统
-    INSTALLNODESYS = 1010010003;
+    INSTALL_NODE_SYS = 1010010003;
     //操作裸金属实例电源
-    OPERNODEPOWER = 1010010004;
+    OPER_NODE_POWER = 1010010004;
+    //重新安装裸金属系统
+    RE_INSTALL_NODE_SYS = 1010010005;
+    //健康监测
+    QRY_HEART_BEAT = 1010010006;
 }
 
 // 控制对象(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)
@@ -73,7 +78,7 @@ message TcpContReq {
     // 服务编码
     SvcCode svcCode = 1;
     // 能力编码
-    string apiCode = 2 ;
+    string apiCode = 2;
     // 调用方编码
     AppKey appKey = 3;
     // 提供方编码
@@ -89,20 +94,22 @@ message TcpContReq {
 }
 
 // 控制对象(每个服务通用的控制信息，当服务端反馈应答时，信息填写如下)
-message TcpContRes {
+message TcpContRsp {
 
     // 交易流水号
     string transactionID = 1;
     // 应答时间
-    google.protobuf.Timestamp reqTime = 2;
+    google.protobuf.Timestamp rspTime = 2;
     // 签名字符串
     string sign = 3;
 }
 
 //响应码
-enum ResultCode{
-    //成功
-    SUCCESS = 0;
+enum ResultCode {
+    //没有定义
+    UNDEFINED_3 = 0;
     //失败
-    FAIL = 1;
+    FAIL =1;
+    //成功
+    SUCCESS = 2;
 }

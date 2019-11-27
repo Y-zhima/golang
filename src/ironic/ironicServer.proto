@@ -1,6 +1,5 @@
 syntax = "proto3";
 
-option go_package = "git.fogcdn.top/axe/protos/goout/ironic";
 option java_multiple_files = true;
 option java_package = "com.ffcs.xmrdc.ironic.biz.ironicServer";
 option java_outer_classname = "ironicServerProto";
@@ -11,13 +10,17 @@ import "ironic/ironicCom.proto";
 
 service IronicServer{
     // 裸金属节点状态查询
-    rpc qryNodeInfo (QryNodeInfoRootReq) returns (QryNodeInfoRootRes) {}
+    rpc qryNodeInfo (QryNodeInfoRootReq) returns (QryNodeInfoRootRsp) {}
     // 创建裸金属节点
-    rpc createNodes (CreateNodesRootReq) returns (CreateNodesRootRes) {}
+    rpc createNodes (CreateNodesRootReq) returns (CreateNodesRootRsp) {}
     // 安装裸金属系统
-    rpc installNodeSys (InstallNodeSysRootReq) returns (InstallNodeSysRootRes) {}
+    rpc installNodeSys (InstallNodeSysRootReq) returns (InstallNodeSysRootRsp) {}
+    // 重装裸金属系统
+    rpc reInstallNodeSys (ReInstallNodeSysRootReq) returns (ReInstallNodeSysRootRsp) {}
     // 操作裸金属实例电源
-    rpc operNodePower (OperNodePowerRootReq) returns (OperNodePowerRootRes) {}
+    rpc operNodePower (OperNodePowerRootReq) returns (OperNodePowerRootRsp) {}
+    // 健康监测
+    rpc qryHeartbeat (QryHeartbeatRootReq) returns (QryHeartbeatRootRsp) {}
 }
 //--------------- 裸金属节点状态查询---------------//
 message QryNodeInfoRootReq{
@@ -39,15 +42,15 @@ message QryNodeInfoRootReq{
         repeated string  nodeIds =1;
     }
 }
-message QryNodeInfoRootRes{
-    ContractRootRes contractRootRes =1;
+message QryNodeInfoRootRsp{
+    ContractRootRsp contractRootRsp =1;
     // 响应信息
-    message ContractRootRes{
-        ironicCom.TcpContRes tcpCont = 1;
-        SvcContRes svcCont =2;
+    message ContractRootRsp{
+        ironicCom.TcpContRsp tcpCont = 1;
+        SvcContRsp svcCont =2;
     }
 
-    message SvcContRes {
+    message SvcContRsp {
         // 响应码
         ironicCom.ResultCode resultCode =1;
         // 响应消息描述
@@ -92,17 +95,21 @@ message QryNodeInfoRootRes{
 
     //电源状态
     enum PowerStatus{
-        // 未知
-        UNKNOWN = 0;
+        //没有定义
+        UNDEFINED_1 = 0;
         // 开机
         POWERON = 1;
         // 关机
         POWEROFF =2;
+        // 未知
+        UNKNOWN = 3;
     }
     //裸金属节点状态
     enum Status{
-        // 未知
-        NULL = 0;
+        //没有定义
+        UNDEFINED_2 = 0;
+        //未知
+        NULL = 1400;
         // 已创建 :刚创建完节点后的状态，节点创建、验证成功，可进行装系统
         CREATED = 1300;
         // 部署中 :正在执行装机任务
@@ -145,17 +152,17 @@ message InstallNodeSysRootReq{
         string imageCheckSum = 3;
     }
 }
-message InstallNodeSysRootRes{
-    ContractRootRes contractRootRes =1;
+message InstallNodeSysRootRsp{
+    ContractRootRsp contractRootRsp =1;
 
     // 响应信息
-    message ContractRootRes{
-        ironicCom.TcpContRes tcpCont = 1;
-        SvcContRes svcCont =2;
+    message ContractRootRsp{
+        ironicCom.TcpContRsp tcpCont = 1;
+        SvcContRsp svcCont =2;
     }
 
 
-    message SvcContRes {
+    message SvcContRsp {
         // 响应码
         ironicCom.ResultCode resultCode =1;
         // 响应消息描述
@@ -211,14 +218,14 @@ message OperNodePowerRootReq{
         string nodeId = 1;
     }
 }
-message OperNodePowerRootRes{
-    ContractRootRes contractRootRes =1;
-    message ContractRootRes{
-        ironicCom.TcpContRes tcpCont = 1;
-        SvcContRes svcCont = 2;
+message OperNodePowerRootRsp{
+    ContractRootRsp contractRootRsp =1;
+    message ContractRootRsp{
+        ironicCom.TcpContRsp tcpCont = 1;
+        SvcContRsp svcCont = 2;
     }
 
-    message SvcContRes{
+    message SvcContRsp{
         // 响应码
         ironicCom.ResultCode resultCode = 1;
         // 响应消息描述
@@ -286,15 +293,15 @@ message CreateNodesRootReq{
     }
 }
 
-message CreateNodesRootRes{
-    ContractRootRes contractRootRes =1;
+message CreateNodesRootRsp{
+    ContractRootRsp contractRootRsp =1;
 
-    message ContractRootRes{
-        ironicCom.TcpContRes tcpCont = 1;
-        SvcContRes svcCont =2;
+    message ContractRootRsp{
+        ironicCom.TcpContRsp tcpCont = 1;
+        SvcContRsp svcCont =2;
     }
 
-    message SvcContRes{
+    message SvcContRsp{
         // 响应码
         ironicCom.ResultCode resultCode =1;
         // 响应消息描述
@@ -325,3 +332,140 @@ message CreateNodesRootRes{
 }
 
 //--------------- 创建裸金属节点结束---------------//
+
+//--------------- 重新安装裸金属节点开始-----------//
+message ReInstallNodeSysRootReq{
+    ContractRootReq contractRootReq =1;
+    // 请求信息
+    message ContractRootReq{
+        ironicCom.TcpContReq tcpCont = 1;
+        SvcContReq svcCont =2;
+    }
+
+    // 安装裸金属系统请求
+    message SvcContReq{
+        InstallNodeSysReq  requestObject = 1;
+    }
+
+    // 安装裸金属系统请求对象
+    message InstallNodeSysReq{
+        // 安装裸金属系统信息
+        repeated NodeInstallInfo nodeInstallInfos =1;
+    }
+
+    // 安装裸金属系统信息
+    message NodeInstallInfo{
+        // 裸金属节点id
+        string nodeId = 1;
+        // 安装镜像地址(一般为http url)
+        string imageAddr = 2;
+        // 镜像MD5校验码
+        string imageCheckSum = 3;
+    }
+}
+message ReInstallNodeSysRootRsp{
+    ContractRootRsp contractRootRsp =1;
+
+    // 响应信息
+    message ContractRootRsp{
+        ironicCom.TcpContRsp tcpCont = 1;
+        SvcContRsp svcCont =2;
+    }
+
+
+    message SvcContRsp {
+        // 响应码
+        ironicCom.ResultCode resultCode =1;
+        // 响应消息描述
+        string resultMsg =2;
+        // 响应对象
+        InstallNodeInfoRsp resultObject =3;
+    }
+
+    //创建节点请求对象
+    message InstallNodeInfoRsp{
+        // 节点
+        repeated ReNodeInfoRsp nodeInfoRsps = 1;
+        // 分页信息
+        ironicCom.PageInfo pageInfo  = 2;
+    }
+
+    // 节点信息
+    message ReNodeInfoRsp {
+        // 旧裸金属节点id
+        string oldNodeId = 1;
+        // 新裸金属节点id
+        string newNodeId = 2;
+        // 初始化id
+        int64  initId = 3;
+        // 创建节点响应码
+        ironicCom.ResultCode  installResultCode = 4;
+        // 创建节点响应消息
+        string installResultMsg = 5;
+    }
+
+}
+//--------------- 重新安装裸金属节点结束-----------//
+//--------------- 健康监测---------------//
+message QryHeartbeatRootReq{
+    ContractRootReq contractRootReq =1;
+    // 请求信息
+    message ContractRootReq{
+        ironicCom.TcpContReq tcpCont = 1;
+        SvcContReq svcCont =2;
+    }
+    message SvcContReq{
+    	QryHeartbeatReq  requestObject = 1;
+    }
+    message QryHeartbeatReq{
+        // 安装裸金属系统信息
+        string req= 1;
+    }
+}
+message QryHeartbeatRootRsp{
+    ContractRootRsp contractRootRsp =1;
+    // 响应信息
+    message ContractRootRsp{
+        ironicCom.TcpContRsp tcpCont = 1;
+        SvcContRsp svcCont =2;
+    }
+
+    message SvcContRsp {
+        // 响应码
+        ironicCom.ResultCode resultCode =1;
+        // 响应消息描述
+        string resultMsg =2;
+        // 响应对象
+        QryHeartbeatRsp resultObject =3;
+    }
+
+    // 健康监测应答对象
+    message QryHeartbeatRsp{
+        // 应用信息
+        repeated  ClusterInstance clusterInstances =1;
+    }
+
+    // 节点信息
+    message ClusterInstance{
+        // 应用ip
+        string ipAddress=1;
+        //应用名，集群名
+        string clusterName=2;
+        //运行状态
+        AppStatus appStatus=3;
+        //信息
+        string message=4;
+    }
+
+    enum AppStatus{
+         //没有定义
+         UNDEFINED = 0;
+         //活动中
+         STOPPED = 1;
+         //未知
+         ACTIVE =2;
+         //已停止
+         UNKNOWN =3;
+    }
+}
+//--------------- 健康监测结束---------------//
