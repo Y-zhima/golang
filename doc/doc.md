@@ -1865,7 +1865,8 @@ VIP对象
 | biz_type | [string](#string) |  | vip类型 |
 | vip_ipv6 | [string](#string) |  | vip的ipv6地址 |
 | vip_ipv4 | [string](#string) |  | vip的ipv4地址 |
-| state | [string](#string) |  | vip的state |
+| ipv4_state | [string](#string) |  | ipv4的状态 |
+| ipv6_state | [string](#string) |  | ipv6的状态 |
 
 
 

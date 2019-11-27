@@ -4216,10 +4216,17 @@
             </row>
             
             <row>
-              <entry>state</entry>
+              <entry>ipv4_state</entry>
               <entry><link linkend="string">string</link></entry>
               <entry></entry>
-              <entry><para>vip的state</para></entry>
+              <entry><para>ipv4的状态</para></entry>
+            </row>
+            
+            <row>
+              <entry>ipv6_state</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>ipv6的状态</para></entry>
             </row>
             
           </tbody>
