@@ -701,17 +701,21 @@ message ImportHistoryResponse {
 
 // 节点层次
 enum LakeNodeLevel {
+    //
+    ALL = 0;
     // 0-全国中心
-    NATION_CENTER = 0;
+    NATION_CENTER = 1;
     // 1-区域中心
-    REGION_CENTER = 1;
+    REGION_CENTER = 2;
     // 2-省边缘
-    PROVINCE_EDGE = 2;
+    PROVINCE_EDGE = 3;
     // 3-地市边缘
-    CITY_EDGE = 3;
+    CITY_EDGE = 4;
     // 4-区县边缘
-    COUNTY_EDGE = 4;
+    COUNTY_EDGE = 5;
 }
+
+
 
 //// LAKE节点服务状态
 //enum ServiceState {
