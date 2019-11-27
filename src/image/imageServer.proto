@@ -1,0 +1,149 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.ffcs.xmrdc.ironic.mirror.grpc.imageServer";
+option java_outer_classname = "imageServerProto";
+
+package ironicServer;
+
+import "image/imageCom.proto";
+
+service ImageServer{
+    // 查询镜像列表
+    rpc qryImages (QryImageInfoRequest) returns (QryImageInfoResponse) {}
+    // 健康监测
+    rpc qryHeartbeat (QryHeartbeatRequest) returns (QryHeartbeatResponse) {}
+}
+
+//系统类型
+enum ImageType{
+    UNDEFINED_0 = 0;
+    CENTOS = 1;
+    UBUNTU = 2;
+    OPENSUSE = 3;
+}
+//镜像格式
+enum ImageFormat{
+    UNDEFINED_1 = 0;
+    ISO = 1;
+    QCOW2 = 2;
+}
+
+//--------------- 查询镜像列表---------------//
+message QryImageInfoRequest{
+    //镜像名称
+    string imageName = 1;
+    //系统类型，使用枚举，比如常用的CentOS\Ubuntu\openSUSE等
+    ImageType imageType = 2;
+    //系统大版本号，比如CentOS的7.4,7.5,7.6等
+    string version  = 3;
+    //系统的小版本号，例如CentOS7.4下的1708
+    string subVersion  = 4;
+    //镜像的格式，使用枚举，例如iso，qcow2等
+    ImageFormat format = 5;
+    // 镜像附加属性
+    repeated ImageAttrInfo imageAttrs = 6;
+    //若没有入参，则默认查询阈值为第一页10条记录
+    imageCom.PageInfo pageInfo = 7;
+}
+message ImageAttrInfo{
+    //属性、标签名称：例如docker
+    string attrName = 1;
+    //属性、标签的附加信息类型，例如可以说明是version表示版本号
+    string attrAddType = 2;
+    //属性、标签附加的值,例docker的版本CE或者EE
+    string attrAddValue  = 3;
+}
+
+message QryImageInfoResponse{
+    // 响应码
+    imageCom.ResultCode resultCode = 1;
+    // 响应消息描述
+    string resultMsg = 2;
+    // 响应对象
+    QryImageInfoRsp resultObject = 3;
+
+    // 查询镜像应答对象
+    message QryImageInfoRsp{
+        // 节点
+        repeated  ImageInfoRsp imageInfoRsps = 1;
+        imageCom.PageInfo pageInfo = 2;
+    }
+    // 镜像信息
+    message ImageInfoRsp{
+        // 镜像标识
+        int64 imageId = 1;
+        //镜像名称
+        string imageName = 2;
+        //系统类型，使用枚举，比如常用的CentOS\Ubuntu\openSUSE等
+        ImageType imageType = 3;
+        //系统大版本号，比如CentOS的7.4,7.5,7.6等
+        string version  = 4;
+        //系统的小版本号，例如CentOS7.4下的1708
+        string subVersion  = 5;
+        //镜像的格式，使用枚举，例如iso，qcow2等
+        ImageFormat format = 6;
+        // 镜像md5完整性校验码
+        string checkSum = 7;
+        // 镜像存储在ceph或者其他后端存储的路径或者访问地址
+        string uri = 8;
+        // 镜像附加信息
+        string remark = 9;
+        // 镜像附加属性
+        repeated ImageAttrInfo imageAttrs = 10;
+    }
+}
+
+//--------------- 镜像查询查询结束 ---------------//
+
+//--------------- 健康监测---------------//
+message QryHeartbeatRequest{
+    //请求类型，一般入参heartbeat
+    ReqType reqType = 1;
+    //镜像格式
+    enum ReqType{
+        UNDEFINED = 0;
+        //健康检测
+        HEARTBEAT = 1;
+    }
+}
+
+message QryHeartbeatResponse{
+
+    // 响应码
+    imageCom.ResultCode resultCode =1;
+    // 响应消息描述
+    string resultMsg =2;
+    // 响应对象
+    QryHeartbeatRsp resultObject =3;
+
+    // 健康监测应答对象
+    message QryHeartbeatRsp{
+        // 应用信息
+        repeated  ClusterInstance clusterInstances =1;
+    }
+
+    // 节点信息
+    message ClusterInstance{
+        // 应用ip
+        string ipAddress=1;
+        //应用名，集群名
+        string clusterName=2;
+        //运行状态
+        AppStatus appStatus=3;
+        //信息
+        string message=4;
+    }
+
+    enum AppStatus{
+        //未知
+        UNDEFINED = 0;
+         // 活动中
+        STOPPED = 1;
+         //未知
+        ACTIVE =2;
+         // 已停止
+        UNKNOWN = 3;
+    }
+}
+//--------------- 健康监测结束---------------//

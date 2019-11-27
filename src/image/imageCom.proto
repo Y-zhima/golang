@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.ffcs.xmrdc.ironic.mirror.grpc.imageCom";
+option java_outer_classname = "imageComProto";
+
+package imageCom;
+
+import "google/protobuf/timestamp.proto";
+
+// 分页信息(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)
+message PageInfo {
+
+    // 当前页
+    int32 pageIndex = 1;
+    // 每页数量
+    int32 pageSize = 2;
+    // 总页数
+    int32 pageCount = 3;
+    // 总记录数
+    int32 rowCount = 4;
+}
+
+// 时间范围信息(用于指定时间范围。如按受理开始时间、受理结束时间查询订单列表。按某个具体时间查询，不使用此对象。)
+message TimeScope {
+
+    // 起始时间
+    google.protobuf.Timestamp beginDate = 1;
+    // 结束时间
+    google.protobuf.Timestamp endDate = 2;
+}
+
+//响应码
+enum ResultCode {
+    //未定义
+    UNDEFINED = 0;
+    //失败
+    FAIL = 1;
+    //成功
+    SUCCESS = 2;
+}
