@@ -423,23 +423,270 @@
             "type": "string"
           },
           {
-            "name": "host.bk_host_id",
-            "description": "主机ID.",
+            "name": "host.bk_host_outerip",
+            "description": "外网IP.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.operator",
+            "description": "主要维护人.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.bk_bak_operator",
+            "description": "备份维护人.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.bk_asset_id",
+            "description": "固资编号.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.bk_sn",
+            "description": "设备SN.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.bk_comment",
+            "description": "备注.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.bk_service_term",
+            "description": "质保年限.",
             "in": "query",
             "required": false,
             "type": "integer",
             "format": "int32"
           },
           {
-            "name": "host.state",
-            "description": "主机状态,有上线和下线两种.",
+            "name": "host.bk_sla",
+            "description": "SLA级别.",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
+            "name": "host.bk_state_name",
+            "description": "所在国家.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.bk_province_name",
+            "description": "所在省份.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.bk_isp_name",
+            "description": "所属运营商.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.bk_host_name",
+            "description": "主机名称.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.bk_os_type",
+            "description": "操作系统类型.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.bk_os_name",
+            "description": "操作系统名称.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.bk_os_version",
+            "description": "操作系统版本.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.bk_os_bit",
+            "description": "操作系统位数.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.bk_cpu",
+            "description": "CPU逻辑核心数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "host.bk_cpu_mhz",
+            "description": "CPU频率.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "host.bk_cpu_module",
+            "description": "CPU型号.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.bk_mem",
+            "description": "内存容量.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "host.bk_disk",
+            "description": "磁盘容量.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "host.bk_mac",
+            "description": "内网MAC地址.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.bk_outer_mac",
+            "description": "外网MAC.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.create_time",
+            "description": "录入时间.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.import_from",
+            "description": "录入方式.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.cn2ip",
+            "description": "CN2IP.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.bond_type",
+            "description": "Bond类型.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.wan_gate",
+            "description": "wan_gate.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.cn2_gate",
+            "description": "cn2_gate.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.nic_speed",
+            "description": "网卡带宽.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "host.ssh_port",
+            "description": "ssh端口.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "host.cn2ip_mask",
+            "description": "cn2ip掩码数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "host.hostip_mask",
+            "description": "设备ip掩码数.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "host.function_code",
+            "description": "设备功能代码.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.state",
+            "description": "主机状态.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "host.service_bandwidth",
+            "description": "服务能力.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
             "name": "host.ipv6",
-            "description": "ipv6的地址.",
+            "description": "ipv6地址.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -456,32 +703,8 @@
             "collectionFormat": "multi"
           },
           {
-            "name": "host.bk_mem",
-            "description": "内存.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "host.bk_disk",
-            "description": "硬盘(总量).",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "host.nic_speed",
-            "description": "网卡带宽.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "host.service_bandwidth",
-            "description": "服务能力.",
+            "name": "host.bk_host_id",
+            "description": "主机ID.",
             "in": "query",
             "required": false,
             "type": "integer",
@@ -1024,6 +1247,33 @@
           "Cmdb"
         ]
       }
+    },
+    "/v1/cmdb/updateVipState": {
+      "post": {
+        "summary": "VIP的状态更新",
+        "operationId": "UpdateVipState",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateVipStateResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateVipStateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Cmdb"
+        ]
+      }
     }
   },
   "definitions": {
@@ -1155,18 +1405,163 @@
           "type": "string",
           "title": "内网IP"
         },
-        "bk_host_id": {
+        "bk_host_outerip": {
+          "type": "string",
+          "title": "外网IP"
+        },
+        "operator": {
+          "type": "string",
+          "title": "主要维护人"
+        },
+        "bk_bak_operator": {
+          "type": "string",
+          "title": "备份维护人"
+        },
+        "bk_asset_id": {
+          "type": "string",
+          "title": "固资编号"
+        },
+        "bk_sn": {
+          "type": "string",
+          "title": "设备SN"
+        },
+        "bk_comment": {
+          "type": "string",
+          "title": "备注"
+        },
+        "bk_service_term": {
           "type": "integer",
           "format": "int32",
-          "title": "主机ID"
+          "title": "质保年限"
+        },
+        "bk_sla": {
+          "type": "string",
+          "title": "SLA级别"
+        },
+        "bk_state_name": {
+          "type": "string",
+          "title": "所在国家"
+        },
+        "bk_province_name": {
+          "type": "string",
+          "title": "所在省份"
+        },
+        "bk_isp_name": {
+          "type": "string",
+          "title": "所属运营商"
+        },
+        "bk_host_name": {
+          "type": "string",
+          "title": "主机名称"
+        },
+        "bk_os_type": {
+          "type": "string",
+          "title": "操作系统类型"
+        },
+        "bk_os_name": {
+          "type": "string",
+          "title": "操作系统名称"
+        },
+        "bk_os_version": {
+          "type": "string",
+          "title": "操作系统版本"
+        },
+        "bk_os_bit": {
+          "type": "string",
+          "title": "操作系统位数"
+        },
+        "bk_cpu": {
+          "type": "integer",
+          "format": "int32",
+          "title": "CPU逻辑核心数"
+        },
+        "bk_cpu_mhz": {
+          "type": "integer",
+          "format": "int32",
+          "title": "CPU频率"
+        },
+        "bk_cpu_module": {
+          "type": "string",
+          "title": "CPU型号"
+        },
+        "bk_mem": {
+          "type": "integer",
+          "format": "int32",
+          "title": "内存容量"
+        },
+        "bk_disk": {
+          "type": "integer",
+          "format": "int32",
+          "title": "磁盘容量"
+        },
+        "bk_mac": {
+          "type": "string",
+          "title": "内网MAC地址"
+        },
+        "bk_outer_mac": {
+          "type": "string",
+          "title": "外网MAC"
+        },
+        "create_time": {
+          "type": "string",
+          "title": "录入时间"
+        },
+        "import_from": {
+          "type": "string",
+          "title": "录入方式"
+        },
+        "cn2ip": {
+          "type": "string",
+          "title": "CN2IP"
+        },
+        "bond_type": {
+          "type": "string",
+          "title": "Bond类型"
+        },
+        "wan_gate": {
+          "type": "string",
+          "title": "wan_gate"
+        },
+        "cn2_gate": {
+          "type": "string",
+          "title": "cn2_gate"
+        },
+        "nic_speed": {
+          "type": "integer",
+          "format": "int32",
+          "title": "网卡带宽"
+        },
+        "ssh_port": {
+          "type": "integer",
+          "format": "int32",
+          "title": "ssh端口"
+        },
+        "cn2ip_mask": {
+          "type": "integer",
+          "format": "int32",
+          "title": "cn2ip掩码数"
+        },
+        "hostip_mask": {
+          "type": "integer",
+          "format": "int32",
+          "title": "设备ip掩码数"
+        },
+        "function_code": {
+          "type": "string",
+          "title": "设备功能代码"
         },
         "state": {
           "type": "string",
-          "title": "主机状态,有上线和下线两种"
+          "title": "主机状态"
+        },
+        "service_bandwidth": {
+          "type": "integer",
+          "format": "int32",
+          "title": "服务能力"
         },
         "ipv6": {
           "type": "string",
-          "title": "ipv6的地址"
+          "title": "ipv6地址"
         },
         "module_name": {
           "type": "array",
@@ -1175,25 +1570,10 @@
           },
           "title": "设备角色(模块名)"
         },
-        "bk_mem": {
+        "bk_host_id": {
           "type": "integer",
           "format": "int32",
-          "title": "内存"
-        },
-        "bk_disk": {
-          "type": "integer",
-          "format": "int32",
-          "title": "硬盘(总量)"
-        },
-        "nic_speed": {
-          "type": "integer",
-          "format": "int32",
-          "title": "网卡带宽"
-        },
-        "service_bandwidth": {
-          "type": "integer",
-          "format": "int32",
-          "title": "服务能力"
+          "title": "主机ID"
         }
       },
       "title": "主机"
@@ -2198,6 +2578,34 @@
         }
       }
     },
+    "cmdbUpdateVipStateRequest": {
+      "type": "object",
+      "properties": {
+        "ip": {
+          "type": "string",
+          "title": "ip地址"
+        },
+        "state": {
+          "$ref": "#/definitions/cmdbVipState",
+          "title": "状态"
+        },
+        "ipv6": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "默认接收ipv4地址，可以选择ipv6地址"
+        }
+      },
+      "title": "修改VIP可用状态的请求体"
+    },
+    "cmdbUpdateVipStateResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        }
+      }
+    },
     "cmdbVipObject": {
       "type": "object",
       "properties": {
@@ -2232,6 +2640,15 @@
         }
       },
       "title": "VIP对象"
+    },
+    "cmdbVipState": {
+      "type": "string",
+      "enum": [
+        "UNAVAILABLE",
+        "AVAILABLE"
+      ],
+      "default": "UNAVAILABLE",
+      "title": "- UNAVAILABLE: 0-不可用\n - AVAILABLE: 1-可用"
     },
     "cmdbZoneObject": {
       "type": "object",

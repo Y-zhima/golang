@@ -5,14 +5,14 @@ package cmdb
 
 import (
 	fmt "fmt"
-	math "math"
+	_ "git.fogcdn.top/axe/protos/goout/common"
 	proto "github.com/golang/protobuf/proto"
 	_ "github.com/golang/protobuf/ptypes/timestamp"
-	_ "git.fogcdn.top/axe/protos/goout/common"
-	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "github.com/mwitkow/go-proto-validators"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
+	_ "google.golang.org/genproto/googleapis/api/annotations"
+	math "math"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -616,6 +616,17 @@ func (this *UpdateHostStateRequest) Validate() error {
 	return nil
 }
 func (this *UpdateHostStateResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}
+func (this *UpdateVipStateRequest) Validate() error {
+	return nil
+}
+func (this *UpdateVipStateResponse) Validate() error {
 	if this.Status != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
