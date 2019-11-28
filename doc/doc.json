@@ -838,6 +838,24 @@
               "description": "上电"
             }
           ]
+        },
+        {
+          "name": "VipState",
+          "longName": "VipState",
+          "fullName": "cmdb.VipState",
+          "description": "",
+          "values": [
+            {
+              "name": "UNAVAILABLE",
+              "number": "0",
+              "description": "0-不可用"
+            },
+            {
+              "name": "AVAILABLE",
+              "number": "1",
+              "description": "1-可用"
+            }
+          ]
         }
       ],
       "extensions": [],
@@ -1302,18 +1320,8 @@
               "defaultValue": ""
             },
             {
-              "name": "bk_host_id",
-              "description": "主机ID",
-              "label": "",
-              "type": "int32",
-              "longType": "int32",
-              "fullType": "int32",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "state",
-              "description": "主机状态,有上线和下线两种",
+              "name": "bk_host_outerip",
+              "description": "外网IP",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -1322,8 +1330,358 @@
               "defaultValue": ""
             },
             {
+              "name": "operator",
+              "description": "主要维护人",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_bak_operator",
+              "description": "备份维护人",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_asset_id",
+              "description": "固资编号",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_sn",
+              "description": "设备SN",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_comment",
+              "description": "备注",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_service_term",
+              "description": "质保年限",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_sla",
+              "description": "SLA级别",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_state_name",
+              "description": "所在国家",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_province_name",
+              "description": "所在省份",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_isp_name",
+              "description": "所属运营商",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_host_name",
+              "description": "主机名称",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_os_type",
+              "description": "操作系统类型",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_os_name",
+              "description": "操作系统名称",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_os_version",
+              "description": "操作系统版本",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_os_bit",
+              "description": "操作系统位数",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_cpu",
+              "description": "CPU逻辑核心数",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_cpu_mhz",
+              "description": "CPU频率",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_cpu_module",
+              "description": "CPU型号",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_mem",
+              "description": "内存容量",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_disk",
+              "description": "磁盘容量",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_mac",
+              "description": "内网MAC地址",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_outer_mac",
+              "description": "外网MAC",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "create_time",
+              "description": "录入时间",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "import_from",
+              "description": "录入方式",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "cn2ip",
+              "description": "CN2IP",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bond_type",
+              "description": "Bond类型",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "wan_gate",
+              "description": "wan_gate",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "cn2_gate",
+              "description": "cn2_gate",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "nic_speed",
+              "description": "网卡带宽",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ssh_port",
+              "description": "ssh端口",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "cn2ip_mask",
+              "description": "cn2ip掩码数",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "hostip_mask",
+              "description": "设备ip掩码数",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "function_code",
+              "description": "设备功能代码",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "state",
+              "description": "主机状态",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "service_bandwidth",
+              "description": "服务能力",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
               "name": "ipv6",
-              "description": "ipv6的地址",
+              "description": "ipv6地址",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -1342,38 +1700,8 @@
               "defaultValue": ""
             },
             {
-              "name": "bk_mem",
-              "description": "内存",
-              "label": "",
-              "type": "int32",
-              "longType": "int32",
-              "fullType": "int32",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "bk_disk",
-              "description": "硬盘(总量)",
-              "label": "",
-              "type": "int32",
-              "longType": "int32",
-              "fullType": "int32",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "nic_speed",
-              "description": "网卡带宽",
-              "label": "",
-              "type": "int32",
-              "longType": "int32",
-              "fullType": "int32",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "service_bandwidth",
-              "description": "服务能力",
+              "name": "bk_host_id",
+              "description": "主机ID",
               "label": "",
               "type": "int32",
               "longType": "int32",
@@ -4106,6 +4434,68 @@
           ]
         },
         {
+          "name": "UpdateVipStateRequest",
+          "longName": "UpdateVipStateRequest",
+          "fullName": "cmdb.UpdateVipStateRequest",
+          "description": "修改VIP可用状态的请求体",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "ip",
+              "description": "ip地址",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "state",
+              "description": "状态",
+              "label": "",
+              "type": "VipState",
+              "longType": "VipState",
+              "fullType": "cmdb.VipState",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ipv6",
+              "description": "默认接收ipv4地址，可以选择ipv6地址",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "UpdateVipStateResponse",
+          "longName": "UpdateVipStateResponse",
+          "fullName": "cmdb.UpdateVipStateResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "返回的请求状态",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
           "name": "VipObject",
           "longName": "VipObject",
           "fullName": "cmdb.VipObject",
@@ -4668,6 +5058,29 @@
                     {
                       "method": "POST",
                       "pattern": "/v1/cmdb/updateHostState",
+                      "body": "*"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "UpdateVipState",
+              "description": "VIP的状态更新",
+              "requestType": "UpdateVipStateRequest",
+              "requestLongType": "UpdateVipStateRequest",
+              "requestFullType": "cmdb.UpdateVipStateRequest",
+              "requestStreaming": false,
+              "responseType": "UpdateVipStateResponse",
+              "responseLongType": "UpdateVipStateResponse",
+              "responseFullType": "cmdb.UpdateVipStateResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "POST",
+                      "pattern": "/v1/cmdb/updateVipState",
                       "body": "*"
                     }
                   ]
@@ -5297,6 +5710,710 @@
       ]
     },
     {
+      "name": "image/imageCom.proto",
+      "description": "",
+      "package": "imageCom",
+      "hasEnums": true,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [
+        {
+          "name": "ResultCode",
+          "longName": "ResultCode",
+          "fullName": "imageCom.ResultCode",
+          "description": "响应码",
+          "values": [
+            {
+              "name": "UNDEFINED",
+              "number": "0",
+              "description": "未定义"
+            },
+            {
+              "name": "FAIL",
+              "number": "1",
+              "description": "失败"
+            },
+            {
+              "name": "SUCCESS",
+              "number": "2",
+              "description": "成功"
+            }
+          ]
+        }
+      ],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "PageInfo",
+          "longName": "PageInfo",
+          "fullName": "imageCom.PageInfo",
+          "description": "分页信息(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "pageIndex",
+              "description": "当前页",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "pageSize",
+              "description": "每页数量",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "pageCount",
+              "description": "总页数",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "rowCount",
+              "description": "总记录数",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "TimeScope",
+          "longName": "TimeScope",
+          "fullName": "imageCom.TimeScope",
+          "description": "时间范围信息(用于指定时间范围。如按受理开始时间、受理结束时间查询订单列表。按某个具体时间查询，不使用此对象。)",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "beginDate",
+              "description": "起始时间",
+              "label": "",
+              "type": "Timestamp",
+              "longType": "google.protobuf.Timestamp",
+              "fullType": "google.protobuf.Timestamp",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "endDate",
+              "description": "结束时间",
+              "label": "",
+              "type": "Timestamp",
+              "longType": "google.protobuf.Timestamp",
+              "fullType": "google.protobuf.Timestamp",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "image/imageServer.proto",
+      "description": "",
+      "package": "ironicServer",
+      "hasEnums": true,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": true,
+      "enums": [
+        {
+          "name": "ImageFormat",
+          "longName": "ImageFormat",
+          "fullName": "ironicServer.ImageFormat",
+          "description": "镜像格式",
+          "values": [
+            {
+              "name": "UNDEFINED_1",
+              "number": "0",
+              "description": ""
+            },
+            {
+              "name": "ISO",
+              "number": "1",
+              "description": ""
+            },
+            {
+              "name": "QCOW2",
+              "number": "2",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "ImageType",
+          "longName": "ImageType",
+          "fullName": "ironicServer.ImageType",
+          "description": "系统类型",
+          "values": [
+            {
+              "name": "UNDEFINED_0",
+              "number": "0",
+              "description": ""
+            },
+            {
+              "name": "CENTOS",
+              "number": "1",
+              "description": ""
+            },
+            {
+              "name": "UBUNTU",
+              "number": "2",
+              "description": ""
+            },
+            {
+              "name": "OPENSUSE",
+              "number": "3",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "ReqType",
+          "longName": "QryHeartbeatRequest.ReqType",
+          "fullName": "ironicServer.QryHeartbeatRequest.ReqType",
+          "description": "镜像格式",
+          "values": [
+            {
+              "name": "UNDEFINED",
+              "number": "0",
+              "description": ""
+            },
+            {
+              "name": "HEARTBEAT",
+              "number": "1",
+              "description": "健康检测"
+            }
+          ]
+        },
+        {
+          "name": "AppStatus",
+          "longName": "QryHeartbeatResponse.AppStatus",
+          "fullName": "ironicServer.QryHeartbeatResponse.AppStatus",
+          "description": "",
+          "values": [
+            {
+              "name": "UNDEFINED",
+              "number": "0",
+              "description": "未知"
+            },
+            {
+              "name": "STOPPED",
+              "number": "1",
+              "description": "活动中"
+            },
+            {
+              "name": "ACTIVE",
+              "number": "2",
+              "description": "未知"
+            },
+            {
+              "name": "UNKNOWN",
+              "number": "3",
+              "description": "已停止"
+            }
+          ]
+        }
+      ],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "ImageAttrInfo",
+          "longName": "ImageAttrInfo",
+          "fullName": "ironicServer.ImageAttrInfo",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "attrName",
+              "description": "属性、标签名称：例如docker",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "attrAddType",
+              "description": "属性、标签的附加信息类型，例如可以说明是version表示版本号",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "attrAddValue",
+              "description": "属性、标签附加的值,例docker的版本CE或者EE",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "QryHeartbeatRequest",
+          "longName": "QryHeartbeatRequest",
+          "fullName": "ironicServer.QryHeartbeatRequest",
+          "description": "--------------- 健康监测---------------//",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "reqType",
+              "description": "请求类型，一般入参heartbeat",
+              "label": "",
+              "type": "ReqType",
+              "longType": "QryHeartbeatRequest.ReqType",
+              "fullType": "ironicServer.QryHeartbeatRequest.ReqType",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "QryHeartbeatResponse",
+          "longName": "QryHeartbeatResponse",
+          "fullName": "ironicServer.QryHeartbeatResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "resultCode",
+              "description": "响应码",
+              "label": "",
+              "type": "ResultCode",
+              "longType": "imageCom.ResultCode",
+              "fullType": "imageCom.ResultCode",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "resultMsg",
+              "description": "响应消息描述",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "resultObject",
+              "description": "响应对象",
+              "label": "",
+              "type": "QryHeartbeatRsp",
+              "longType": "QryHeartbeatResponse.QryHeartbeatRsp",
+              "fullType": "ironicServer.QryHeartbeatResponse.QryHeartbeatRsp",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ClusterInstance",
+          "longName": "QryHeartbeatResponse.ClusterInstance",
+          "fullName": "ironicServer.QryHeartbeatResponse.ClusterInstance",
+          "description": "节点信息",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "ipAddress",
+              "description": "应用ip",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "clusterName",
+              "description": "应用名，集群名",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "appStatus",
+              "description": "运行状态",
+              "label": "",
+              "type": "AppStatus",
+              "longType": "QryHeartbeatResponse.AppStatus",
+              "fullType": "ironicServer.QryHeartbeatResponse.AppStatus",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "message",
+              "description": "信息",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "QryHeartbeatRsp",
+          "longName": "QryHeartbeatResponse.QryHeartbeatRsp",
+          "fullName": "ironicServer.QryHeartbeatResponse.QryHeartbeatRsp",
+          "description": "健康监测应答对象",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "clusterInstances",
+              "description": "应用信息",
+              "label": "repeated",
+              "type": "ClusterInstance",
+              "longType": "QryHeartbeatResponse.ClusterInstance",
+              "fullType": "ironicServer.QryHeartbeatResponse.ClusterInstance",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "QryImageInfoRequest",
+          "longName": "QryImageInfoRequest",
+          "fullName": "ironicServer.QryImageInfoRequest",
+          "description": "--------------- 查询镜像列表---------------//",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "imageName",
+              "description": "镜像名称",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "imageType",
+              "description": "系统类型，使用枚举，比如常用的CentOS\\Ubuntu\\openSUSE等",
+              "label": "",
+              "type": "ImageType",
+              "longType": "ImageType",
+              "fullType": "ironicServer.ImageType",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "version",
+              "description": "系统大版本号，比如CentOS的7.4,7.5,7.6等",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "subVersion",
+              "description": "系统的小版本号，例如CentOS7.4下的1708",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "format",
+              "description": "镜像的格式，使用枚举，例如iso，qcow2等",
+              "label": "",
+              "type": "ImageFormat",
+              "longType": "ImageFormat",
+              "fullType": "ironicServer.ImageFormat",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "imageAttrs",
+              "description": "镜像附加属性",
+              "label": "repeated",
+              "type": "ImageAttrInfo",
+              "longType": "ImageAttrInfo",
+              "fullType": "ironicServer.ImageAttrInfo",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "pageInfo",
+              "description": "若没有入参，则默认查询阈值为第一页10条记录",
+              "label": "",
+              "type": "PageInfo",
+              "longType": "imageCom.PageInfo",
+              "fullType": "imageCom.PageInfo",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "QryImageInfoResponse",
+          "longName": "QryImageInfoResponse",
+          "fullName": "ironicServer.QryImageInfoResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "resultCode",
+              "description": "响应码",
+              "label": "",
+              "type": "ResultCode",
+              "longType": "imageCom.ResultCode",
+              "fullType": "imageCom.ResultCode",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "resultMsg",
+              "description": "响应消息描述",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "resultObject",
+              "description": "响应对象",
+              "label": "",
+              "type": "QryImageInfoRsp",
+              "longType": "QryImageInfoResponse.QryImageInfoRsp",
+              "fullType": "ironicServer.QryImageInfoResponse.QryImageInfoRsp",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ImageInfoRsp",
+          "longName": "QryImageInfoResponse.ImageInfoRsp",
+          "fullName": "ironicServer.QryImageInfoResponse.ImageInfoRsp",
+          "description": "镜像信息",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "imageId",
+              "description": "镜像标识",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "imageName",
+              "description": "镜像名称",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "imageType",
+              "description": "系统类型，使用枚举，比如常用的CentOS\\Ubuntu\\openSUSE等",
+              "label": "",
+              "type": "ImageType",
+              "longType": "ImageType",
+              "fullType": "ironicServer.ImageType",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "version",
+              "description": "系统大版本号，比如CentOS的7.4,7.5,7.6等",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "subVersion",
+              "description": "系统的小版本号，例如CentOS7.4下的1708",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "format",
+              "description": "镜像的格式，使用枚举，例如iso，qcow2等",
+              "label": "",
+              "type": "ImageFormat",
+              "longType": "ImageFormat",
+              "fullType": "ironicServer.ImageFormat",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "checkSum",
+              "description": "镜像md5完整性校验码",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "uri",
+              "description": "镜像存储在ceph或者其他后端存储的路径或者访问地址",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "remark",
+              "description": "镜像附加信息",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "imageAttrs",
+              "description": "镜像附加属性",
+              "label": "repeated",
+              "type": "ImageAttrInfo",
+              "longType": "ImageAttrInfo",
+              "fullType": "ironicServer.ImageAttrInfo",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "QryImageInfoRsp",
+          "longName": "QryImageInfoResponse.QryImageInfoRsp",
+          "fullName": "ironicServer.QryImageInfoResponse.QryImageInfoRsp",
+          "description": "查询镜像应答对象",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "imageInfoRsps",
+              "description": "节点",
+              "label": "repeated",
+              "type": "ImageInfoRsp",
+              "longType": "QryImageInfoResponse.ImageInfoRsp",
+              "fullType": "ironicServer.QryImageInfoResponse.ImageInfoRsp",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "pageInfo",
+              "description": "",
+              "label": "",
+              "type": "PageInfo",
+              "longType": "imageCom.PageInfo",
+              "fullType": "imageCom.PageInfo",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": [
+        {
+          "name": "ImageServer",
+          "longName": "ImageServer",
+          "fullName": "ironicServer.ImageServer",
+          "description": "",
+          "methods": [
+            {
+              "name": "qryImages",
+              "description": "查询镜像列表",
+              "requestType": "QryImageInfoRequest",
+              "requestLongType": "QryImageInfoRequest",
+              "requestFullType": "ironicServer.QryImageInfoRequest",
+              "requestStreaming": false,
+              "responseType": "QryImageInfoResponse",
+              "responseLongType": "QryImageInfoResponse",
+              "responseFullType": "ironicServer.QryImageInfoResponse",
+              "responseStreaming": false
+            },
+            {
+              "name": "qryHeartbeat",
+              "description": "健康监测",
+              "requestType": "QryHeartbeatRequest",
+              "requestLongType": "QryHeartbeatRequest",
+              "requestFullType": "ironicServer.QryHeartbeatRequest",
+              "requestStreaming": false,
+              "responseType": "QryHeartbeatResponse",
+              "responseLongType": "QryHeartbeatResponse",
+              "responseFullType": "ironicServer.QryHeartbeatResponse",
+              "responseStreaming": false
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "ironic/ironicCom.proto",
       "description": "",
       "package": "ironicCom",
@@ -5312,12 +6429,12 @@
           "description": "调用方编码",
           "values": [
             {
-              "name": "UNDEFINED",
+              "name": "UNDEFINED_0",
               "number": "0",
-              "description": ""
+              "description": "无定义"
             },
             {
-              "name": "IRONICAPP",
+              "name": "IRONIC_APP",
               "number": "1000010000",
               "description": "裸金属应用"
             },
@@ -5335,14 +6452,19 @@
           "description": "响应码",
           "values": [
             {
-              "name": "SUCCESS",
+              "name": "UNDEFINED_3",
               "number": "0",
-              "description": "成功"
+              "description": "没有定义"
             },
             {
               "name": "FAIL",
               "number": "1",
               "description": "失败"
+            },
+            {
+              "name": "SUCCESS",
+              "number": "2",
+              "description": "成功"
             }
           ]
         },
@@ -5353,29 +6475,39 @@
           "description": "服务编码",
           "values": [
             {
-              "name": "SVCCODEDEFAULT",
+              "name": "UNDEFINED_1",
               "number": "0",
-              "description": ""
+              "description": "无定义"
             },
             {
-              "name": "CREATENODES",
+              "name": "CREATE_NODES",
               "number": "1010010001",
               "description": "创建裸金属节点"
             },
             {
-              "name": "QRYNODEINFO",
+              "name": "QRY_NODE_INFO",
               "number": "1010010002",
               "description": "查询裸金属状态"
             },
             {
-              "name": "INSTALLNODESYS",
+              "name": "INSTALL_NODE_SYS",
               "number": "1010010003",
               "description": "安装裸金属系统"
             },
             {
-              "name": "OPERNODEPOWER",
+              "name": "OPER_NODE_POWER",
               "number": "1010010004",
               "description": "操作裸金属实例电源"
+            },
+            {
+              "name": "RE_INSTALL_NODE_SYS",
+              "number": "1010010005",
+              "description": "重新安装裸金属系统"
+            },
+            {
+              "name": "QRY_HEART_BEAT",
+              "number": "1010010006",
+              "description": "健康监测"
             }
           ]
         }
@@ -5586,9 +6718,9 @@
           ]
         },
         {
-          "name": "TcpContRes",
-          "longName": "TcpContRes",
-          "fullName": "ironicCom.TcpContRes",
+          "name": "TcpContRsp",
+          "longName": "TcpContRsp",
+          "fullName": "ironicCom.TcpContRsp",
           "description": "控制对象(每个服务通用的控制信息，当服务端反馈应答时，信息填写如下)",
           "hasExtensions": false,
           "hasFields": true,
@@ -5605,7 +6737,7 @@
               "defaultValue": ""
             },
             {
-              "name": "reqTime",
+              "name": "rspTime",
               "description": "应答时间",
               "label": "",
               "type": "Timestamp",
@@ -5670,15 +6802,43 @@
       "hasServices": true,
       "enums": [
         {
+          "name": "AppStatus",
+          "longName": "QryHeartbeatRootRsp.AppStatus",
+          "fullName": "ironicServer.QryHeartbeatRootRsp.AppStatus",
+          "description": "",
+          "values": [
+            {
+              "name": "UNDEFINED",
+              "number": "0",
+              "description": "没有定义"
+            },
+            {
+              "name": "STOPPED",
+              "number": "1",
+              "description": "活动中"
+            },
+            {
+              "name": "ACTIVE",
+              "number": "2",
+              "description": "未知"
+            },
+            {
+              "name": "UNKNOWN",
+              "number": "3",
+              "description": "已停止"
+            }
+          ]
+        },
+        {
           "name": "PowerStatus",
-          "longName": "QryNodeInfoRootRes.PowerStatus",
-          "fullName": "ironicServer.QryNodeInfoRootRes.PowerStatus",
+          "longName": "QryNodeInfoRootRsp.PowerStatus",
+          "fullName": "ironicServer.QryNodeInfoRootRsp.PowerStatus",
           "description": "电源状态",
           "values": [
             {
-              "name": "UNKNOWN",
+              "name": "UNDEFINED_1",
               "number": "0",
-              "description": "未知"
+              "description": "没有定义"
             },
             {
               "name": "POWERON",
@@ -5689,18 +6849,28 @@
               "name": "POWEROFF",
               "number": "2",
               "description": "关机"
+            },
+            {
+              "name": "UNKNOWN",
+              "number": "3",
+              "description": "未知"
             }
           ]
         },
         {
           "name": "Status",
-          "longName": "QryNodeInfoRootRes.Status",
-          "fullName": "ironicServer.QryNodeInfoRootRes.Status",
+          "longName": "QryNodeInfoRootRsp.Status",
+          "fullName": "ironicServer.QryNodeInfoRootRsp.Status",
           "description": "裸金属节点状态",
           "values": [
             {
-              "name": "NULL",
+              "name": "UNDEFINED_2",
               "number": "0",
+              "description": "没有定义"
+            },
+            {
+              "name": "NULL",
+              "number": "1400",
               "description": "未知"
             },
             {
@@ -5924,30 +7094,30 @@
           ]
         },
         {
-          "name": "CreateNodesRootRes",
-          "longName": "CreateNodesRootRes",
-          "fullName": "ironicServer.CreateNodesRootRes",
+          "name": "CreateNodesRootRsp",
+          "longName": "CreateNodesRootRsp",
+          "fullName": "ironicServer.CreateNodesRootRsp",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
           "extensions": [],
           "fields": [
             {
-              "name": "contractRootRes",
+              "name": "contractRootRsp",
               "description": "",
               "label": "",
-              "type": "ContractRootRes",
-              "longType": "CreateNodesRootRes.ContractRootRes",
-              "fullType": "ironicServer.CreateNodesRootRes.ContractRootRes",
+              "type": "ContractRootRsp",
+              "longType": "CreateNodesRootRsp.ContractRootRsp",
+              "fullType": "ironicServer.CreateNodesRootRsp.ContractRootRsp",
               "ismap": false,
               "defaultValue": ""
             }
           ]
         },
         {
-          "name": "ContractRootRes",
-          "longName": "CreateNodesRootRes.ContractRootRes",
-          "fullName": "ironicServer.CreateNodesRootRes.ContractRootRes",
+          "name": "ContractRootRsp",
+          "longName": "CreateNodesRootRsp.ContractRootRsp",
+          "fullName": "ironicServer.CreateNodesRootRsp.ContractRootRsp",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -5957,9 +7127,9 @@
               "name": "tcpCont",
               "description": "",
               "label": "",
-              "type": "TcpContRes",
-              "longType": "ironicCom.TcpContRes",
-              "fullType": "ironicCom.TcpContRes",
+              "type": "TcpContRsp",
+              "longType": "ironicCom.TcpContRsp",
+              "fullType": "ironicCom.TcpContRsp",
               "ismap": false,
               "defaultValue": ""
             },
@@ -5967,9 +7137,9 @@
               "name": "svcCont",
               "description": "",
               "label": "",
-              "type": "SvcContRes",
-              "longType": "CreateNodesRootRes.SvcContRes",
-              "fullType": "ironicServer.CreateNodesRootRes.SvcContRes",
+              "type": "SvcContRsp",
+              "longType": "CreateNodesRootRsp.SvcContRsp",
+              "fullType": "ironicServer.CreateNodesRootRsp.SvcContRsp",
               "ismap": false,
               "defaultValue": ""
             }
@@ -5977,8 +7147,8 @@
         },
         {
           "name": "CreateNodeInfoRsp",
-          "longName": "CreateNodesRootRes.CreateNodeInfoRsp",
-          "fullName": "ironicServer.CreateNodesRootRes.CreateNodeInfoRsp",
+          "longName": "CreateNodesRootRsp.CreateNodeInfoRsp",
+          "fullName": "ironicServer.CreateNodesRootRsp.CreateNodeInfoRsp",
           "description": "创建节点请求对象",
           "hasExtensions": false,
           "hasFields": true,
@@ -5989,8 +7159,8 @@
               "description": "节点",
               "label": "repeated",
               "type": "NodeInfoRsp",
-              "longType": "CreateNodesRootRes.NodeInfoRsp",
-              "fullType": "ironicServer.CreateNodesRootRes.NodeInfoRsp",
+              "longType": "CreateNodesRootRsp.NodeInfoRsp",
+              "fullType": "ironicServer.CreateNodesRootRsp.NodeInfoRsp",
               "ismap": false,
               "defaultValue": ""
             },
@@ -6008,8 +7178,8 @@
         },
         {
           "name": "NodeInfoRsp",
-          "longName": "CreateNodesRootRes.NodeInfoRsp",
-          "fullName": "ironicServer.CreateNodesRootRes.NodeInfoRsp",
+          "longName": "CreateNodesRootRsp.NodeInfoRsp",
+          "fullName": "ironicServer.CreateNodesRootRsp.NodeInfoRsp",
           "description": "节点信息",
           "hasExtensions": false,
           "hasFields": true,
@@ -6058,9 +7228,9 @@
           ]
         },
         {
-          "name": "SvcContRes",
-          "longName": "CreateNodesRootRes.SvcContRes",
-          "fullName": "ironicServer.CreateNodesRootRes.SvcContRes",
+          "name": "SvcContRsp",
+          "longName": "CreateNodesRootRsp.SvcContRsp",
+          "fullName": "ironicServer.CreateNodesRootRsp.SvcContRsp",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -6091,8 +7261,8 @@
               "description": "响应对象",
               "label": "",
               "type": "CreateNodeInfoRsp",
-              "longType": "CreateNodesRootRes.CreateNodeInfoRsp",
-              "fullType": "ironicServer.CreateNodesRootRes.CreateNodeInfoRsp",
+              "longType": "CreateNodesRootRsp.CreateNodeInfoRsp",
+              "fullType": "ironicServer.CreateNodesRootRsp.CreateNodeInfoRsp",
               "ismap": false,
               "defaultValue": ""
             }
@@ -6234,30 +7404,30 @@
           ]
         },
         {
-          "name": "InstallNodeSysRootRes",
-          "longName": "InstallNodeSysRootRes",
-          "fullName": "ironicServer.InstallNodeSysRootRes",
+          "name": "InstallNodeSysRootRsp",
+          "longName": "InstallNodeSysRootRsp",
+          "fullName": "ironicServer.InstallNodeSysRootRsp",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
           "extensions": [],
           "fields": [
             {
-              "name": "contractRootRes",
+              "name": "contractRootRsp",
               "description": "",
               "label": "",
-              "type": "ContractRootRes",
-              "longType": "InstallNodeSysRootRes.ContractRootRes",
-              "fullType": "ironicServer.InstallNodeSysRootRes.ContractRootRes",
+              "type": "ContractRootRsp",
+              "longType": "InstallNodeSysRootRsp.ContractRootRsp",
+              "fullType": "ironicServer.InstallNodeSysRootRsp.ContractRootRsp",
               "ismap": false,
               "defaultValue": ""
             }
           ]
         },
         {
-          "name": "ContractRootRes",
-          "longName": "InstallNodeSysRootRes.ContractRootRes",
-          "fullName": "ironicServer.InstallNodeSysRootRes.ContractRootRes",
+          "name": "ContractRootRsp",
+          "longName": "InstallNodeSysRootRsp.ContractRootRsp",
+          "fullName": "ironicServer.InstallNodeSysRootRsp.ContractRootRsp",
           "description": "响应信息",
           "hasExtensions": false,
           "hasFields": true,
@@ -6267,9 +7437,9 @@
               "name": "tcpCont",
               "description": "",
               "label": "",
-              "type": "TcpContRes",
-              "longType": "ironicCom.TcpContRes",
-              "fullType": "ironicCom.TcpContRes",
+              "type": "TcpContRsp",
+              "longType": "ironicCom.TcpContRsp",
+              "fullType": "ironicCom.TcpContRsp",
               "ismap": false,
               "defaultValue": ""
             },
@@ -6277,9 +7447,9 @@
               "name": "svcCont",
               "description": "",
               "label": "",
-              "type": "SvcContRes",
-              "longType": "InstallNodeSysRootRes.SvcContRes",
-              "fullType": "ironicServer.InstallNodeSysRootRes.SvcContRes",
+              "type": "SvcContRsp",
+              "longType": "InstallNodeSysRootRsp.SvcContRsp",
+              "fullType": "ironicServer.InstallNodeSysRootRsp.SvcContRsp",
               "ismap": false,
               "defaultValue": ""
             }
@@ -6287,8 +7457,8 @@
         },
         {
           "name": "InstallNodeInfoRsp",
-          "longName": "InstallNodeSysRootRes.InstallNodeInfoRsp",
-          "fullName": "ironicServer.InstallNodeSysRootRes.InstallNodeInfoRsp",
+          "longName": "InstallNodeSysRootRsp.InstallNodeInfoRsp",
+          "fullName": "ironicServer.InstallNodeSysRootRsp.InstallNodeInfoRsp",
           "description": "创建节点请求对象",
           "hasExtensions": false,
           "hasFields": true,
@@ -6299,8 +7469,8 @@
               "description": "节点",
               "label": "repeated",
               "type": "NodeInfoRsp",
-              "longType": "InstallNodeSysRootRes.NodeInfoRsp",
-              "fullType": "ironicServer.InstallNodeSysRootRes.NodeInfoRsp",
+              "longType": "InstallNodeSysRootRsp.NodeInfoRsp",
+              "fullType": "ironicServer.InstallNodeSysRootRsp.NodeInfoRsp",
               "ismap": false,
               "defaultValue": ""
             },
@@ -6318,8 +7488,8 @@
         },
         {
           "name": "NodeInfoRsp",
-          "longName": "InstallNodeSysRootRes.NodeInfoRsp",
-          "fullName": "ironicServer.InstallNodeSysRootRes.NodeInfoRsp",
+          "longName": "InstallNodeSysRootRsp.NodeInfoRsp",
+          "fullName": "ironicServer.InstallNodeSysRootRsp.NodeInfoRsp",
           "description": "节点信息",
           "hasExtensions": false,
           "hasFields": true,
@@ -6368,9 +7538,9 @@
           ]
         },
         {
-          "name": "SvcContRes",
-          "longName": "InstallNodeSysRootRes.SvcContRes",
-          "fullName": "ironicServer.InstallNodeSysRootRes.SvcContRes",
+          "name": "SvcContRsp",
+          "longName": "InstallNodeSysRootRsp.SvcContRsp",
+          "fullName": "ironicServer.InstallNodeSysRootRsp.SvcContRsp",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -6401,8 +7571,8 @@
               "description": "响应对象",
               "label": "",
               "type": "InstallNodeInfoRsp",
-              "longType": "InstallNodeSysRootRes.InstallNodeInfoRsp",
-              "fullType": "ironicServer.InstallNodeSysRootRes.InstallNodeInfoRsp",
+              "longType": "InstallNodeSysRootRsp.InstallNodeInfoRsp",
+              "fullType": "ironicServer.InstallNodeSysRootRsp.InstallNodeInfoRsp",
               "ismap": false,
               "defaultValue": ""
             }
@@ -6524,30 +7694,30 @@
           ]
         },
         {
-          "name": "OperNodePowerRootRes",
-          "longName": "OperNodePowerRootRes",
-          "fullName": "ironicServer.OperNodePowerRootRes",
+          "name": "OperNodePowerRootRsp",
+          "longName": "OperNodePowerRootRsp",
+          "fullName": "ironicServer.OperNodePowerRootRsp",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
           "extensions": [],
           "fields": [
             {
-              "name": "contractRootRes",
+              "name": "contractRootRsp",
               "description": "",
               "label": "",
-              "type": "ContractRootRes",
-              "longType": "OperNodePowerRootRes.ContractRootRes",
-              "fullType": "ironicServer.OperNodePowerRootRes.ContractRootRes",
+              "type": "ContractRootRsp",
+              "longType": "OperNodePowerRootRsp.ContractRootRsp",
+              "fullType": "ironicServer.OperNodePowerRootRsp.ContractRootRsp",
               "ismap": false,
               "defaultValue": ""
             }
           ]
         },
         {
-          "name": "ContractRootRes",
-          "longName": "OperNodePowerRootRes.ContractRootRes",
-          "fullName": "ironicServer.OperNodePowerRootRes.ContractRootRes",
+          "name": "ContractRootRsp",
+          "longName": "OperNodePowerRootRsp.ContractRootRsp",
+          "fullName": "ironicServer.OperNodePowerRootRsp.ContractRootRsp",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -6557,9 +7727,9 @@
               "name": "tcpCont",
               "description": "",
               "label": "",
-              "type": "TcpContRes",
-              "longType": "ironicCom.TcpContRes",
-              "fullType": "ironicCom.TcpContRes",
+              "type": "TcpContRsp",
+              "longType": "ironicCom.TcpContRsp",
+              "fullType": "ironicCom.TcpContRsp",
               "ismap": false,
               "defaultValue": ""
             },
@@ -6567,9 +7737,9 @@
               "name": "svcCont",
               "description": "",
               "label": "",
-              "type": "SvcContRes",
-              "longType": "OperNodePowerRootRes.SvcContRes",
-              "fullType": "ironicServer.OperNodePowerRootRes.SvcContRes",
+              "type": "SvcContRsp",
+              "longType": "OperNodePowerRootRsp.SvcContRsp",
+              "fullType": "ironicServer.OperNodePowerRootRsp.SvcContRsp",
               "ismap": false,
               "defaultValue": ""
             }
@@ -6577,8 +7747,8 @@
         },
         {
           "name": "NodePowerRsp",
-          "longName": "OperNodePowerRootRes.NodePowerRsp",
-          "fullName": "ironicServer.OperNodePowerRootRes.NodePowerRsp",
+          "longName": "OperNodePowerRootRsp.NodePowerRsp",
+          "fullName": "ironicServer.OperNodePowerRootRsp.NodePowerRsp",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -6618,8 +7788,8 @@
         },
         {
           "name": "OperNodePowerRsp",
-          "longName": "OperNodePowerRootRes.OperNodePowerRsp",
-          "fullName": "ironicServer.OperNodePowerRootRes.OperNodePowerRsp",
+          "longName": "OperNodePowerRootRsp.OperNodePowerRsp",
+          "fullName": "ironicServer.OperNodePowerRootRsp.OperNodePowerRsp",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -6630,17 +7800,17 @@
               "description": "电源操作应答",
               "label": "repeated",
               "type": "NodePowerRsp",
-              "longType": "OperNodePowerRootRes.NodePowerRsp",
-              "fullType": "ironicServer.OperNodePowerRootRes.NodePowerRsp",
+              "longType": "OperNodePowerRootRsp.NodePowerRsp",
+              "fullType": "ironicServer.OperNodePowerRootRsp.NodePowerRsp",
               "ismap": false,
               "defaultValue": ""
             }
           ]
         },
         {
-          "name": "SvcContRes",
-          "longName": "OperNodePowerRootRes.SvcContRes",
-          "fullName": "ironicServer.OperNodePowerRootRes.SvcContRes",
+          "name": "SvcContRsp",
+          "longName": "OperNodePowerRootRsp.SvcContRsp",
+          "fullName": "ironicServer.OperNodePowerRootRsp.SvcContRsp",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -6671,8 +7841,267 @@
               "description": "响应对象",
               "label": "",
               "type": "OperNodePowerRsp",
-              "longType": "OperNodePowerRootRes.OperNodePowerRsp",
-              "fullType": "ironicServer.OperNodePowerRootRes.OperNodePowerRsp",
+              "longType": "OperNodePowerRootRsp.OperNodePowerRsp",
+              "fullType": "ironicServer.OperNodePowerRootRsp.OperNodePowerRsp",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "QryHeartbeatRootReq",
+          "longName": "QryHeartbeatRootReq",
+          "fullName": "ironicServer.QryHeartbeatRootReq",
+          "description": "--------------- 重新安装裸金属节点结束-----------//\r\n--------------- 健康监测---------------//",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "contractRootReq",
+              "description": "",
+              "label": "",
+              "type": "ContractRootReq",
+              "longType": "QryHeartbeatRootReq.ContractRootReq",
+              "fullType": "ironicServer.QryHeartbeatRootReq.ContractRootReq",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ContractRootReq",
+          "longName": "QryHeartbeatRootReq.ContractRootReq",
+          "fullName": "ironicServer.QryHeartbeatRootReq.ContractRootReq",
+          "description": "请求信息",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "tcpCont",
+              "description": "",
+              "label": "",
+              "type": "TcpContReq",
+              "longType": "ironicCom.TcpContReq",
+              "fullType": "ironicCom.TcpContReq",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "svcCont",
+              "description": "",
+              "label": "",
+              "type": "SvcContReq",
+              "longType": "QryHeartbeatRootReq.SvcContReq",
+              "fullType": "ironicServer.QryHeartbeatRootReq.SvcContReq",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "QryHeartbeatReq",
+          "longName": "QryHeartbeatRootReq.QryHeartbeatReq",
+          "fullName": "ironicServer.QryHeartbeatRootReq.QryHeartbeatReq",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "req",
+              "description": "安装裸金属系统信息",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "SvcContReq",
+          "longName": "QryHeartbeatRootReq.SvcContReq",
+          "fullName": "ironicServer.QryHeartbeatRootReq.SvcContReq",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "requestObject",
+              "description": "",
+              "label": "",
+              "type": "QryHeartbeatReq",
+              "longType": "QryHeartbeatRootReq.QryHeartbeatReq",
+              "fullType": "ironicServer.QryHeartbeatRootReq.QryHeartbeatReq",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "QryHeartbeatRootRsp",
+          "longName": "QryHeartbeatRootRsp",
+          "fullName": "ironicServer.QryHeartbeatRootRsp",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "contractRootRsp",
+              "description": "",
+              "label": "",
+              "type": "ContractRootRsp",
+              "longType": "QryHeartbeatRootRsp.ContractRootRsp",
+              "fullType": "ironicServer.QryHeartbeatRootRsp.ContractRootRsp",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ClusterInstance",
+          "longName": "QryHeartbeatRootRsp.ClusterInstance",
+          "fullName": "ironicServer.QryHeartbeatRootRsp.ClusterInstance",
+          "description": "节点信息",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "ipAddress",
+              "description": "应用ip",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "clusterName",
+              "description": "应用名，集群名",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "appStatus",
+              "description": "运行状态",
+              "label": "",
+              "type": "AppStatus",
+              "longType": "QryHeartbeatRootRsp.AppStatus",
+              "fullType": "ironicServer.QryHeartbeatRootRsp.AppStatus",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "message",
+              "description": "信息",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ContractRootRsp",
+          "longName": "QryHeartbeatRootRsp.ContractRootRsp",
+          "fullName": "ironicServer.QryHeartbeatRootRsp.ContractRootRsp",
+          "description": "响应信息",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "tcpCont",
+              "description": "",
+              "label": "",
+              "type": "TcpContRsp",
+              "longType": "ironicCom.TcpContRsp",
+              "fullType": "ironicCom.TcpContRsp",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "svcCont",
+              "description": "",
+              "label": "",
+              "type": "SvcContRsp",
+              "longType": "QryHeartbeatRootRsp.SvcContRsp",
+              "fullType": "ironicServer.QryHeartbeatRootRsp.SvcContRsp",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "QryHeartbeatRsp",
+          "longName": "QryHeartbeatRootRsp.QryHeartbeatRsp",
+          "fullName": "ironicServer.QryHeartbeatRootRsp.QryHeartbeatRsp",
+          "description": "健康监测应答对象",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "clusterInstances",
+              "description": "应用信息",
+              "label": "repeated",
+              "type": "ClusterInstance",
+              "longType": "QryHeartbeatRootRsp.ClusterInstance",
+              "fullType": "ironicServer.QryHeartbeatRootRsp.ClusterInstance",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "SvcContRsp",
+          "longName": "QryHeartbeatRootRsp.SvcContRsp",
+          "fullName": "ironicServer.QryHeartbeatRootRsp.SvcContRsp",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "resultCode",
+              "description": "响应码",
+              "label": "",
+              "type": "ResultCode",
+              "longType": "ironicCom.ResultCode",
+              "fullType": "ironicCom.ResultCode",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "resultMsg",
+              "description": "响应消息描述",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "resultObject",
+              "description": "响应对象",
+              "label": "",
+              "type": "QryHeartbeatRsp",
+              "longType": "QryHeartbeatRootRsp.QryHeartbeatRsp",
+              "fullType": "ironicServer.QryHeartbeatRootRsp.QryHeartbeatRsp",
               "ismap": false,
               "defaultValue": ""
             }
@@ -6773,30 +8202,30 @@
           ]
         },
         {
-          "name": "QryNodeInfoRootRes",
-          "longName": "QryNodeInfoRootRes",
-          "fullName": "ironicServer.QryNodeInfoRootRes",
+          "name": "QryNodeInfoRootRsp",
+          "longName": "QryNodeInfoRootRsp",
+          "fullName": "ironicServer.QryNodeInfoRootRsp",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
           "extensions": [],
           "fields": [
             {
-              "name": "contractRootRes",
+              "name": "contractRootRsp",
               "description": "",
               "label": "",
-              "type": "ContractRootRes",
-              "longType": "QryNodeInfoRootRes.ContractRootRes",
-              "fullType": "ironicServer.QryNodeInfoRootRes.ContractRootRes",
+              "type": "ContractRootRsp",
+              "longType": "QryNodeInfoRootRsp.ContractRootRsp",
+              "fullType": "ironicServer.QryNodeInfoRootRsp.ContractRootRsp",
               "ismap": false,
               "defaultValue": ""
             }
           ]
         },
         {
-          "name": "ContractRootRes",
-          "longName": "QryNodeInfoRootRes.ContractRootRes",
-          "fullName": "ironicServer.QryNodeInfoRootRes.ContractRootRes",
+          "name": "ContractRootRsp",
+          "longName": "QryNodeInfoRootRsp.ContractRootRsp",
+          "fullName": "ironicServer.QryNodeInfoRootRsp.ContractRootRsp",
           "description": "响应信息",
           "hasExtensions": false,
           "hasFields": true,
@@ -6806,9 +8235,9 @@
               "name": "tcpCont",
               "description": "",
               "label": "",
-              "type": "TcpContRes",
-              "longType": "ironicCom.TcpContRes",
-              "fullType": "ironicCom.TcpContRes",
+              "type": "TcpContRsp",
+              "longType": "ironicCom.TcpContRsp",
+              "fullType": "ironicCom.TcpContRsp",
               "ismap": false,
               "defaultValue": ""
             },
@@ -6816,9 +8245,9 @@
               "name": "svcCont",
               "description": "",
               "label": "",
-              "type": "SvcContRes",
-              "longType": "QryNodeInfoRootRes.SvcContRes",
-              "fullType": "ironicServer.QryNodeInfoRootRes.SvcContRes",
+              "type": "SvcContRsp",
+              "longType": "QryNodeInfoRootRsp.SvcContRsp",
+              "fullType": "ironicServer.QryNodeInfoRootRsp.SvcContRsp",
               "ismap": false,
               "defaultValue": ""
             }
@@ -6826,8 +8255,8 @@
         },
         {
           "name": "NodeInfo",
-          "longName": "QryNodeInfoRootRes.NodeInfo",
-          "fullName": "ironicServer.QryNodeInfoRootRes.NodeInfo",
+          "longName": "QryNodeInfoRootRsp.NodeInfo",
+          "fullName": "ironicServer.QryNodeInfoRootRsp.NodeInfo",
           "description": "节点信息",
           "hasExtensions": false,
           "hasFields": true,
@@ -6848,8 +8277,8 @@
               "description": "当前状态",
               "label": "",
               "type": "Status",
-              "longType": "QryNodeInfoRootRes.Status",
-              "fullType": "ironicServer.QryNodeInfoRootRes.Status",
+              "longType": "QryNodeInfoRootRsp.Status",
+              "fullType": "ironicServer.QryNodeInfoRootRsp.Status",
               "ismap": false,
               "defaultValue": ""
             },
@@ -6938,8 +8367,8 @@
               "description": "电源状态",
               "label": "",
               "type": "PowerStatus",
-              "longType": "QryNodeInfoRootRes.PowerStatus",
-              "fullType": "ironicServer.QryNodeInfoRootRes.PowerStatus",
+              "longType": "QryNodeInfoRootRsp.PowerStatus",
+              "fullType": "ironicServer.QryNodeInfoRootRsp.PowerStatus",
               "ismap": false,
               "defaultValue": ""
             }
@@ -6947,8 +8376,8 @@
         },
         {
           "name": "QryNodeInfoRsp",
-          "longName": "QryNodeInfoRootRes.QryNodeInfoRsp",
-          "fullName": "ironicServer.QryNodeInfoRootRes.QryNodeInfoRsp",
+          "longName": "QryNodeInfoRootRsp.QryNodeInfoRsp",
+          "fullName": "ironicServer.QryNodeInfoRootRsp.QryNodeInfoRsp",
           "description": "查询节点应答对象",
           "hasExtensions": false,
           "hasFields": true,
@@ -6959,17 +8388,17 @@
               "description": "节点",
               "label": "repeated",
               "type": "NodeInfo",
-              "longType": "QryNodeInfoRootRes.NodeInfo",
-              "fullType": "ironicServer.QryNodeInfoRootRes.NodeInfo",
+              "longType": "QryNodeInfoRootRsp.NodeInfo",
+              "fullType": "ironicServer.QryNodeInfoRootRsp.NodeInfo",
               "ismap": false,
               "defaultValue": ""
             }
           ]
         },
         {
-          "name": "SvcContRes",
-          "longName": "QryNodeInfoRootRes.SvcContRes",
-          "fullName": "ironicServer.QryNodeInfoRootRes.SvcContRes",
+          "name": "SvcContRsp",
+          "longName": "QryNodeInfoRootRsp.SvcContRsp",
+          "fullName": "ironicServer.QryNodeInfoRootRsp.SvcContRsp",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -7000,8 +8429,328 @@
               "description": "响应对象",
               "label": "",
               "type": "QryNodeInfoRsp",
-              "longType": "QryNodeInfoRootRes.QryNodeInfoRsp",
-              "fullType": "ironicServer.QryNodeInfoRootRes.QryNodeInfoRsp",
+              "longType": "QryNodeInfoRootRsp.QryNodeInfoRsp",
+              "fullType": "ironicServer.QryNodeInfoRootRsp.QryNodeInfoRsp",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ReInstallNodeSysRootReq",
+          "longName": "ReInstallNodeSysRootReq",
+          "fullName": "ironicServer.ReInstallNodeSysRootReq",
+          "description": "--------------- 重新安装裸金属节点开始-----------//",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "contractRootReq",
+              "description": "",
+              "label": "",
+              "type": "ContractRootReq",
+              "longType": "ReInstallNodeSysRootReq.ContractRootReq",
+              "fullType": "ironicServer.ReInstallNodeSysRootReq.ContractRootReq",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ContractRootReq",
+          "longName": "ReInstallNodeSysRootReq.ContractRootReq",
+          "fullName": "ironicServer.ReInstallNodeSysRootReq.ContractRootReq",
+          "description": "请求信息",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "tcpCont",
+              "description": "",
+              "label": "",
+              "type": "TcpContReq",
+              "longType": "ironicCom.TcpContReq",
+              "fullType": "ironicCom.TcpContReq",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "svcCont",
+              "description": "",
+              "label": "",
+              "type": "SvcContReq",
+              "longType": "ReInstallNodeSysRootReq.SvcContReq",
+              "fullType": "ironicServer.ReInstallNodeSysRootReq.SvcContReq",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "InstallNodeSysReq",
+          "longName": "ReInstallNodeSysRootReq.InstallNodeSysReq",
+          "fullName": "ironicServer.ReInstallNodeSysRootReq.InstallNodeSysReq",
+          "description": "安装裸金属系统请求对象",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "nodeInstallInfos",
+              "description": "安装裸金属系统信息",
+              "label": "repeated",
+              "type": "NodeInstallInfo",
+              "longType": "ReInstallNodeSysRootReq.NodeInstallInfo",
+              "fullType": "ironicServer.ReInstallNodeSysRootReq.NodeInstallInfo",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "NodeInstallInfo",
+          "longName": "ReInstallNodeSysRootReq.NodeInstallInfo",
+          "fullName": "ironicServer.ReInstallNodeSysRootReq.NodeInstallInfo",
+          "description": "安装裸金属系统信息",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "nodeId",
+              "description": "裸金属节点id",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "imageAddr",
+              "description": "安装镜像地址(一般为http url)",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "imageCheckSum",
+              "description": "镜像MD5校验码",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "SvcContReq",
+          "longName": "ReInstallNodeSysRootReq.SvcContReq",
+          "fullName": "ironicServer.ReInstallNodeSysRootReq.SvcContReq",
+          "description": "安装裸金属系统请求",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "requestObject",
+              "description": "",
+              "label": "",
+              "type": "InstallNodeSysReq",
+              "longType": "ReInstallNodeSysRootReq.InstallNodeSysReq",
+              "fullType": "ironicServer.ReInstallNodeSysRootReq.InstallNodeSysReq",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ReInstallNodeSysRootRsp",
+          "longName": "ReInstallNodeSysRootRsp",
+          "fullName": "ironicServer.ReInstallNodeSysRootRsp",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "contractRootRsp",
+              "description": "",
+              "label": "",
+              "type": "ContractRootRsp",
+              "longType": "ReInstallNodeSysRootRsp.ContractRootRsp",
+              "fullType": "ironicServer.ReInstallNodeSysRootRsp.ContractRootRsp",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ContractRootRsp",
+          "longName": "ReInstallNodeSysRootRsp.ContractRootRsp",
+          "fullName": "ironicServer.ReInstallNodeSysRootRsp.ContractRootRsp",
+          "description": "响应信息",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "tcpCont",
+              "description": "",
+              "label": "",
+              "type": "TcpContRsp",
+              "longType": "ironicCom.TcpContRsp",
+              "fullType": "ironicCom.TcpContRsp",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "svcCont",
+              "description": "",
+              "label": "",
+              "type": "SvcContRsp",
+              "longType": "ReInstallNodeSysRootRsp.SvcContRsp",
+              "fullType": "ironicServer.ReInstallNodeSysRootRsp.SvcContRsp",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "InstallNodeInfoRsp",
+          "longName": "ReInstallNodeSysRootRsp.InstallNodeInfoRsp",
+          "fullName": "ironicServer.ReInstallNodeSysRootRsp.InstallNodeInfoRsp",
+          "description": "创建节点请求对象",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "nodeInfoRsps",
+              "description": "节点",
+              "label": "repeated",
+              "type": "ReNodeInfoRsp",
+              "longType": "ReInstallNodeSysRootRsp.ReNodeInfoRsp",
+              "fullType": "ironicServer.ReInstallNodeSysRootRsp.ReNodeInfoRsp",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "pageInfo",
+              "description": "分页信息",
+              "label": "",
+              "type": "PageInfo",
+              "longType": "ironicCom.PageInfo",
+              "fullType": "ironicCom.PageInfo",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ReNodeInfoRsp",
+          "longName": "ReInstallNodeSysRootRsp.ReNodeInfoRsp",
+          "fullName": "ironicServer.ReInstallNodeSysRootRsp.ReNodeInfoRsp",
+          "description": "节点信息",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "oldNodeId",
+              "description": "旧裸金属节点id",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "newNodeId",
+              "description": "新裸金属节点id",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "initId",
+              "description": "初始化id",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "installResultCode",
+              "description": "创建节点响应码",
+              "label": "",
+              "type": "ResultCode",
+              "longType": "ironicCom.ResultCode",
+              "fullType": "ironicCom.ResultCode",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "installResultMsg",
+              "description": "创建节点响应消息",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "SvcContRsp",
+          "longName": "ReInstallNodeSysRootRsp.SvcContRsp",
+          "fullName": "ironicServer.ReInstallNodeSysRootRsp.SvcContRsp",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "resultCode",
+              "description": "响应码",
+              "label": "",
+              "type": "ResultCode",
+              "longType": "ironicCom.ResultCode",
+              "fullType": "ironicCom.ResultCode",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "resultMsg",
+              "description": "响应消息描述",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "resultObject",
+              "description": "响应对象",
+              "label": "",
+              "type": "InstallNodeInfoRsp",
+              "longType": "ReInstallNodeSysRootRsp.InstallNodeInfoRsp",
+              "fullType": "ironicServer.ReInstallNodeSysRootRsp.InstallNodeInfoRsp",
               "ismap": false,
               "defaultValue": ""
             }
@@ -7022,9 +8771,9 @@
               "requestLongType": "QryNodeInfoRootReq",
               "requestFullType": "ironicServer.QryNodeInfoRootReq",
               "requestStreaming": false,
-              "responseType": "QryNodeInfoRootRes",
-              "responseLongType": "QryNodeInfoRootRes",
-              "responseFullType": "ironicServer.QryNodeInfoRootRes",
+              "responseType": "QryNodeInfoRootRsp",
+              "responseLongType": "QryNodeInfoRootRsp",
+              "responseFullType": "ironicServer.QryNodeInfoRootRsp",
               "responseStreaming": false
             },
             {
@@ -7034,9 +8783,9 @@
               "requestLongType": "CreateNodesRootReq",
               "requestFullType": "ironicServer.CreateNodesRootReq",
               "requestStreaming": false,
-              "responseType": "CreateNodesRootRes",
-              "responseLongType": "CreateNodesRootRes",
-              "responseFullType": "ironicServer.CreateNodesRootRes",
+              "responseType": "CreateNodesRootRsp",
+              "responseLongType": "CreateNodesRootRsp",
+              "responseFullType": "ironicServer.CreateNodesRootRsp",
               "responseStreaming": false
             },
             {
@@ -7046,9 +8795,21 @@
               "requestLongType": "InstallNodeSysRootReq",
               "requestFullType": "ironicServer.InstallNodeSysRootReq",
               "requestStreaming": false,
-              "responseType": "InstallNodeSysRootRes",
-              "responseLongType": "InstallNodeSysRootRes",
-              "responseFullType": "ironicServer.InstallNodeSysRootRes",
+              "responseType": "InstallNodeSysRootRsp",
+              "responseLongType": "InstallNodeSysRootRsp",
+              "responseFullType": "ironicServer.InstallNodeSysRootRsp",
+              "responseStreaming": false
+            },
+            {
+              "name": "reInstallNodeSys",
+              "description": "重装裸金属系统",
+              "requestType": "ReInstallNodeSysRootReq",
+              "requestLongType": "ReInstallNodeSysRootReq",
+              "requestFullType": "ironicServer.ReInstallNodeSysRootReq",
+              "requestStreaming": false,
+              "responseType": "ReInstallNodeSysRootRsp",
+              "responseLongType": "ReInstallNodeSysRootRsp",
+              "responseFullType": "ironicServer.ReInstallNodeSysRootRsp",
               "responseStreaming": false
             },
             {
@@ -7058,9 +8819,21 @@
               "requestLongType": "OperNodePowerRootReq",
               "requestFullType": "ironicServer.OperNodePowerRootReq",
               "requestStreaming": false,
-              "responseType": "OperNodePowerRootRes",
-              "responseLongType": "OperNodePowerRootRes",
-              "responseFullType": "ironicServer.OperNodePowerRootRes",
+              "responseType": "OperNodePowerRootRsp",
+              "responseLongType": "OperNodePowerRootRsp",
+              "responseFullType": "ironicServer.OperNodePowerRootRsp",
+              "responseStreaming": false
+            },
+            {
+              "name": "qryHeartbeat",
+              "description": "健康监测",
+              "requestType": "QryHeartbeatRootReq",
+              "requestLongType": "QryHeartbeatRootReq",
+              "requestFullType": "ironicServer.QryHeartbeatRootReq",
+              "requestStreaming": false,
+              "responseType": "QryHeartbeatRootRsp",
+              "responseLongType": "QryHeartbeatRootRsp",
+              "responseFullType": "ironicServer.QryHeartbeatRootRsp",
               "responseStreaming": false
             }
           ]

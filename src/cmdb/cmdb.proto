@@ -178,6 +178,14 @@ service Cmdb {
             body: "*"
         };
     }
+
+    // VIP的状态更新
+    rpc UpdateVipState (UpdateVipStateRequest) returns (UpdateVipStateResponse) {
+        option (google.api.http) = {
+        post: "/v1/cmdb/updateVipState"
+        body: "*"
+    };
+    }
 }
 
 // 实体 host，lake，vip的查询请求
@@ -1153,3 +1161,24 @@ message UpdateHostStateResponse {
     common.ResponseStatus status = 1;
 }
 
+enum VipState {
+    // 0-不可用
+    UNAVAILABLE = 0;
+    // 1-可用
+    AVAILABLE = 1;
+}
+
+// 修改VIP可用状态的请求体
+message UpdateVipStateRequest {
+    // ip地址
+    string ip = 1;
+    // 状态
+    VipState state = 2;
+    // 默认接收ipv4地址，可以选择ipv6地址
+    bool ipv6 = 3;
+}
+
+message UpdateVipStateResponse {
+    // 返回的请求状态
+    common.ResponseStatus status = 1;
+}
