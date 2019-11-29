@@ -1464,6 +1464,7 @@ level下的主机ip列表
 | set | [SetObject](#cmdb.SetObject) |  | 集群对象 |
 | biz | [BizObject](#cmdb.BizObject) |  | 业务对象 |
 | zone | [ZoneObject](#cmdb.ZoneObject) |  | 区域对象 |
+| conditions | [string](#string) |  | 查询条件 |
 
 
 
@@ -4497,8 +4498,8 @@ playbook入口文件实例
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | sub_task_id | [int64](#int64) |  | 子任务实例ID |
-| start_time | [string](#string) |  | 执行开始时间 |
-| end_time | [string](#string) |  | 执行结束时间 |
+| start_time | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | 执行开始时间 |
+| end_time | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | 执行结束时间 |
 | result | [SubTaskResult](#subtask.SubTaskResult) |  | 子任务执行结果 |
 | execute_count | [int32](#int32) |  | 总共执行多少主机 |
 | fail_count | [int32](#int32) |  | 执行失败多少台主机 |

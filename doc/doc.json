@@ -2695,7 +2695,7 @@
             },
             {
               "name": "status",
-              "description": "TopologyObject instance = 1;\n状态码",
+              "description": "TopologyObject instance = 1;\r\n状态码",
               "label": "",
               "type": "ResponseStatus",
               "longType": "common.ResponseStatus",
@@ -3249,6 +3249,16 @@
               "type": "ZoneObject",
               "longType": "ZoneObject",
               "fullType": "cmdb.ZoneObject",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "conditions",
+              "description": "查询条件",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "defaultValue": ""
             }
@@ -10738,9 +10748,9 @@
               "name": "start_time",
               "description": "执行开始时间",
               "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
+              "type": "Timestamp",
+              "longType": "google.protobuf.Timestamp",
+              "fullType": "google.protobuf.Timestamp",
               "ismap": false,
               "defaultValue": ""
             },
@@ -10748,9 +10758,9 @@
               "name": "end_time",
               "description": "执行结束时间",
               "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
+              "type": "Timestamp",
+              "longType": "google.protobuf.Timestamp",
+              "fullType": "google.protobuf.Timestamp",
               "ismap": false,
               "defaultValue": ""
             },
@@ -10854,7 +10864,19 @@
               "longType": "int64",
               "fullType": "int64",
               "ismap": false,
-              "defaultValue": ""
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "int_gt",
+                    "value": 0
+                  },
+                  {
+                    "name": "human_error",
+                    "value": "导入记录ID不能为空"
+                  }
+                ]
+              }
             },
             {
               "name": "cmdb_search_request",
@@ -10864,7 +10886,19 @@
               "longType": "cmdb.ChooseHostRequest",
               "fullType": "cmdb.ChooseHostRequest",
               "ismap": false,
-              "defaultValue": ""
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "msg_exists",
+                    "value": true
+                  },
+                  {
+                    "name": "human_error",
+                    "value": "cmdb的搜索条件不能为空"
+                  }
+                ]
+              }
             },
             {
               "name": "template_id",
@@ -10926,7 +10960,19 @@
               "longType": "int64",
               "fullType": "int64",
               "ismap": false,
-              "defaultValue": ""
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "int_gt",
+                    "value": 0
+                  },
+                  {
+                    "name": "human_error",
+                    "value": "导入记录ID不能为空"
+                  }
+                ]
+              }
             },
             {
               "name": "cmdb_search_request",
@@ -10936,7 +10982,19 @@
               "longType": "cmdb.ChooseServerCompareRequest",
               "fullType": "cmdb.ChooseServerCompareRequest",
               "ismap": false,
-              "defaultValue": ""
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "msg_exists",
+                    "value": true
+                  },
+                  {
+                    "name": "human_error",
+                    "value": "cmdb的搜索条件不能为空"
+                  }
+                ]
+              }
             }
           ]
         },
@@ -10988,7 +11046,19 @@
               "longType": "int64",
               "fullType": "int64",
               "ismap": false,
-              "defaultValue": ""
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "int_gt",
+                    "value": 0
+                  },
+                  {
+                    "name": "human_error",
+                    "value": "导入记录ID不能为空"
+                  }
+                ]
+              }
             },
             {
               "name": "task_type",
@@ -11018,7 +11088,19 @@
               "longType": "cmdb.ChooseServerRequest",
               "fullType": "cmdb.ChooseServerRequest",
               "ismap": false,
-              "defaultValue": ""
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "msg_exists",
+                    "value": true
+                  },
+                  {
+                    "name": "human_error",
+                    "value": "cmdb的搜索条件不能为空"
+                  }
+                ]
+              }
             },
             {
               "name": "image_file_url",
@@ -11620,7 +11702,19 @@
               "longType": "cmdb.ChooseServerRequest",
               "fullType": "cmdb.ChooseServerRequest",
               "ismap": false,
-              "defaultValue": ""
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "human_error",
+                    "value": "cmdb的搜索条件不能为空"
+                  },
+                  {
+                    "name": "repeated_count_min",
+                    "value": 1
+                  }
+                ]
+              }
             }
           ]
         },
@@ -11692,8 +11786,8 @@
                     "value": "cmdb的搜索条件不能为空"
                   },
                   {
-                    "name": "string_not_empty",
-                    "value": true
+                    "name": "repeated_count_min",
+                    "value": 1
                   }
                 ]
               }
@@ -11850,7 +11944,19 @@
               "longType": "cmdb.ChooseServerRequest",
               "fullType": "cmdb.ChooseServerRequest",
               "ismap": false,
-              "defaultValue": ""
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "human_error",
+                    "value": "cmdb的搜索条件不能为空"
+                  },
+                  {
+                    "name": "repeated_count_min",
+                    "value": 1
+                  }
+                ]
+              }
             }
           ]
         },
@@ -12150,7 +12256,19 @@
               "longType": "cmdb.ChooseServerRequest",
               "fullType": "cmdb.ChooseServerRequest",
               "ismap": false,
-              "defaultValue": ""
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "human_error",
+                    "value": "cmdb的搜索条件不能为空"
+                  },
+                  {
+                    "name": "repeated_count_min",
+                    "value": 1
+                  }
+                ]
+              }
             },
             {
               "name": "image_file_url",
@@ -12274,7 +12392,19 @@
               "longType": "cmdb.ChooseServerRequest",
               "fullType": "cmdb.ChooseServerRequest",
               "ismap": false,
-              "defaultValue": ""
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "human_error",
+                    "value": "cmdb的搜索条件不能为空"
+                  },
+                  {
+                    "name": "repeated_count_min",
+                    "value": 1
+                  }
+                ]
+              }
             }
           ]
         },
@@ -12558,7 +12688,7 @@
             },
             {
               "name": "GetLog",
-              "description": "获取作业任务详细执行过程\n\noption (google.api.http) = {\n           get: \"/v1/task/{task_id}/logs\"\n       };",
+              "description": "获取作业任务详细执行过程\n\noption (google.api.http) = {\r\n           get: \"/v1/task/{task_id}/logs\"\r\n       };",
               "requestType": "GetLogRequest",
               "requestLongType": "GetLogRequest",
               "requestFullType": "task.GetLogRequest",
@@ -13524,7 +13654,7 @@
             },
             {
               "name": "Delete",
-              "description": "删除作业模板\n\noption (google.api.http) = {\n           post: \"/v1/template/delete/{template_id}\"\n       };",
+              "description": "删除作业模板\n\noption (google.api.http) = {\r\n           post: \"/v1/template/delete/{template_id}\"\r\n       };",
               "requestType": "DeleteRequest",
               "requestLongType": "DeleteRequest",
               "requestFullType": "template.DeleteRequest",

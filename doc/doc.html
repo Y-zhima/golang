@@ -4344,6 +4344,13 @@
                   <td><p>区域对象 </p></td>
                 </tr>
               
+                <tr>
+                  <td>conditions</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>查询条件 </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -11827,14 +11834,14 @@
               
                 <tr>
                   <td>start_time</td>
-                  <td><a href="#string">string</a></td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
                   <td></td>
                   <td><p>执行开始时间 </p></td>
                 </tr>
               
                 <tr>
                   <td>end_time</td>
-                  <td><a href="#string">string</a></td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
                   <td></td>
                   <td><p>执行结束时间 </p></td>
                 </tr>
@@ -11947,6 +11954,48 @@
           </table>
 
           
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>task_id</td>
+                  <td>
+                    <ul>
+                    
+                      <li>int_gt: 0</li>
+                    
+                      <li>human_error: 导入记录ID不能为空</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>cmdb_search_request</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                      <li>human_error: cmdb的搜索条件不能为空</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
 
         
       
@@ -12008,6 +12057,48 @@
             </tbody>
           </table>
 
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>task_id</td>
+                  <td>
+                    <ul>
+                    
+                      <li>int_gt: 0</li>
+                    
+                      <li>human_error: 导入记录ID不能为空</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>cmdb_search_request</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                      <li>human_error: cmdb的搜索条件不能为空</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
           
 
         
@@ -12098,6 +12189,48 @@
             </tbody>
           </table>
 
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>task_id</td>
+                  <td>
+                    <ul>
+                    
+                      <li>int_gt: 0</li>
+                    
+                      <li>human_error: 导入记录ID不能为空</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>cmdb_search_request</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                      <li>human_error: cmdb的搜索条件不能为空</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
           
 
         
@@ -12707,6 +12840,35 @@
           </table>
 
           
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>cmdb_search_request</td>
+                  <td>
+                    <ul>
+                    
+                      <li>human_error: cmdb的搜索条件不能为空</li>
+                    
+                      <li>repeated_count_min: 1</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
 
         
       
@@ -12829,7 +12991,7 @@
                     
                       <li>human_error: cmdb的搜索条件不能为空</li>
                     
-                      <li>string_not_empty: true</li>
+                      <li>repeated_count_min: 1</li>
                     
                     </ul>
                   </td>
@@ -12948,6 +13110,35 @@
             </tbody>
           </table>
 
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>cmdb_search_request</td>
+                  <td>
+                    <ul>
+                    
+                      <li>human_error: cmdb的搜索条件不能为空</li>
+                    
+                      <li>repeated_count_min: 1</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
           
 
         
@@ -13273,6 +13464,35 @@
           </table>
 
           
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>cmdb_search_request</td>
+                  <td>
+                    <ul>
+                    
+                      <li>human_error: cmdb的搜索条件不能为空</li>
+                    
+                      <li>repeated_count_min: 1</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
 
         
       
@@ -13375,6 +13595,35 @@
             </tbody>
           </table>
 
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>cmdb_search_request</td>
+                  <td>
+                    <ul>
+                    
+                      <li>human_error: cmdb的搜索条件不能为空</li>
+                    
+                      <li>repeated_count_min: 1</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
           
 
         

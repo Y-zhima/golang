@@ -7,23 +7,28 @@ option java_package = "top.fogcdn.axe.protos.subtask";
 
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
-
+import "github.com/mwitkow/go-proto-validators/validator.proto";
 import "common/api.proto";
 import "cmdb/cmdb.proto";
+import "google/protobuf/timestamp.proto";
 
 // 子任务实例
 service SubTask {
     // 创建作业子任务
-    rpc Create (CreateRequest) returns (CreateResponse) {}
+    rpc Create (CreateRequest) returns (CreateResponse) {
+    }
 
     // 完成作业子任务
-    rpc Complete(CompleteRequest) returns(CompleteResponse) {}
+    rpc Complete (CompleteRequest) returns (CompleteResponse) {
+    }
 
     // 创建裸金属子任务
-    rpc CreateServer (CreateServerRequest) returns (CreateServerResponse) {}
+    rpc CreateServer (CreateServerRequest) returns (CreateServerResponse) {
+    }
 
     // 交维表导入后巡检子任务
-    rpc CreateServerCompare (CreateServerCompareRequest) returns (CreateServerCompareResponse) {}
+    rpc CreateServerCompare (CreateServerCompareRequest) returns (CreateServerCompareResponse) {
+    }
 
     // 获取作业任务SubTask具体日志
     rpc GetLog (GetLogRequest) returns (GetLogResponse) {
@@ -35,9 +40,11 @@ service SubTask {
 
 // 创建子任务实例请求
 message CreateRequest {
-    int64 task_id = 1;
+    int64 task_id = 1 [(validator.field) = {int_gt: 0, human_error: "导入记录ID不能为空"
+                      }];
     // cmdb的搜索条件
-    cmdb.ChooseHostRequest cmdb_search_request = 2;
+    cmdb.ChooseHostRequest cmdb_search_request = 2 [(validator.field) = {msg_exists : true, human_error: "cmdb的搜索条件不能为空"
+                                                   }];
     // 模板ID
     int32 template_id = 3;
 }
@@ -53,9 +60,11 @@ message CreateResponse {
 // 交维表导入后巡检子任务请求
 message CreateServerCompareRequest {
     // 任务实例ID
-    int64 task_id = 1;
+    int64 task_id = 1 [(validator.field) = {int_gt: 0, human_error: "导入记录ID不能为空"
+                      }];
     // cmdb的搜索条件
-    cmdb.ChooseServerCompareRequest cmdb_search_request = 2;
+    cmdb.ChooseServerCompareRequest cmdb_search_request = 2 [(validator.field) = {msg_exists : true, human_error: "cmdb的搜索条件不能为空"
+                                                            }];
 }
 
 // 交维表导入后巡检子任务请求返回
@@ -83,13 +92,15 @@ enum ServerTaskType {
 // 裸金属子任务实例请求
 message CreateServerRequest {
     // 任务实例ID
-    int64 task_id = 1;
+    int64 task_id = 1 [(validator.field) = {int_gt: 0, human_error: "导入记录ID不能为空"
+                      }];
     // 裸金属任务类型
     ServerTaskType task_type = 2;
     // 裸金属电源状态
     cmdb.ServerPowerState power_state = 3;
     // cmdb的搜索条件
-    cmdb.ChooseServerRequest cmdb_search_request = 4;
+    cmdb.ChooseServerRequest cmdb_search_request = 4 [(validator.field) = {msg_exists : true, human_error: "cmdb的搜索条件不能为空"
+                                                     }];
     // 安装镜像文件的URL
     string image_file_url = 5;
     // 安装镜像文件的MD5
@@ -104,7 +115,6 @@ message CreateServerResponse {
     common.ResponseStatus status = 2;
 }
 
-
 // 子任务执行结果
 enum SubTaskResult {
     // 失败
@@ -118,9 +128,9 @@ message CompleteRequest {
     // 子任务实例ID
     int64 sub_task_id = 1;
     // 执行开始时间
-    string start_time = 2;
+    google.protobuf.Timestamp start_time = 2;
     // 执行结束时间
-    string end_time = 3;
+    google.protobuf.Timestamp end_time = 3;
     // 子任务执行结果
     SubTaskResult result = 4;
     // 总共执行多少主机
@@ -141,7 +151,7 @@ message CompleteResponse {
     common.ResponseStatus status = 1;
 }
 
-message GetLogRequest{
+message GetLogRequest {
     // 作业子任务ID
     int64 sub_task_id = 1;
 }

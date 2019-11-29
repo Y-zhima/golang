@@ -3004,6 +3004,13 @@
               <entry><para>区域对象</para></entry>
             </row>
             
+            <row>
+              <entry>conditions</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>查询条件</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>
@@ -11636,14 +11643,14 @@
             
             <row>
               <entry>start_time</entry>
-              <entry><link linkend="string">string</link></entry>
+              <entry><link linkend="google.protobuf.Timestamp">google.protobuf.Timestamp</link></entry>
               <entry></entry>
               <entry><para>执行开始时间</para></entry>
             </row>
             
             <row>
               <entry>end_time</entry>
-              <entry><link linkend="string">string</link></entry>
+              <entry><link linkend="google.protobuf.Timestamp">google.protobuf.Timestamp</link></entry>
               <entry></entry>
               <entry><para>执行结束时间</para></entry>
             </row>
