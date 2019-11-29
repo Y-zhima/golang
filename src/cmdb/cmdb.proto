@@ -477,6 +477,9 @@ message SearchHostRequest {
     BizObject biz = 5;
     // 区域对象
     ZoneObject zone = 6;
+    // 查询条件
+    string conditions = 7;
+
 }
 
 // 查找主机请求返回
