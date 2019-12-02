@@ -22,7 +22,7 @@ var _ = math.Inf
 
 func (this *CreateRequest) Validate() error {
 	if !(this.TaskId > 0) {
-		return github_com_mwitkow_go_proto_validators.FieldError("TaskId", fmt.Errorf(`导入记录ID不能为空`))
+		return github_com_mwitkow_go_proto_validators.FieldError("TaskId", fmt.Errorf(`任务ID不能为空`))
 	}
 	if nil == this.CmdbSearchRequest {
 		return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", fmt.Errorf("message must exist"))
@@ -44,7 +44,7 @@ func (this *CreateResponse) Validate() error {
 }
 func (this *CreateServerCompareRequest) Validate() error {
 	if !(this.TaskId > 0) {
-		return github_com_mwitkow_go_proto_validators.FieldError("TaskId", fmt.Errorf(`导入记录ID不能为空`))
+		return github_com_mwitkow_go_proto_validators.FieldError("TaskId", fmt.Errorf(`任务ID不能为空`))
 	}
 	if nil == this.CmdbSearchRequest {
 		return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", fmt.Errorf("message must exist"))
@@ -66,7 +66,7 @@ func (this *CreateServerCompareResponse) Validate() error {
 }
 func (this *CreateServerRequest) Validate() error {
 	if !(this.TaskId > 0) {
-		return github_com_mwitkow_go_proto_validators.FieldError("TaskId", fmt.Errorf(`导入记录ID不能为空`))
+		return github_com_mwitkow_go_proto_validators.FieldError("TaskId", fmt.Errorf(`任务ID不能为空`))
 	}
 	if nil == this.CmdbSearchRequest {
 		return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", fmt.Errorf("message must exist"))
