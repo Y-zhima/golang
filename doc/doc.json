@@ -9849,8 +9849,8 @@
                     "value": "cmdb的搜索条件不能为空"
                   },
                   {
-                    "name": "string_not_empty",
-                    "value": true
+                    "name": "repeated_count_min",
+                    "value": 1
                   }
                 ]
               }
@@ -10748,9 +10748,9 @@
               "name": "start_time",
               "description": "执行开始时间",
               "label": "",
-              "type": "Timestamp",
-              "longType": "google.protobuf.Timestamp",
-              "fullType": "google.protobuf.Timestamp",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "defaultValue": ""
             },
@@ -10758,9 +10758,9 @@
               "name": "end_time",
               "description": "执行结束时间",
               "label": "",
-              "type": "Timestamp",
-              "longType": "google.protobuf.Timestamp",
-              "fullType": "google.protobuf.Timestamp",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "defaultValue": ""
             },

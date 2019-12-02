@@ -10,7 +10,6 @@ import "protoc-gen-swagger/options/annotations.proto";
 import "github.com/mwitkow/go-proto-validators/validator.proto";
 import "common/api.proto";
 import "cmdb/cmdb.proto";
-import "google/protobuf/timestamp.proto";
 
 // 子任务实例
 service SubTask {
@@ -128,9 +127,9 @@ message CompleteRequest {
     // 子任务实例ID
     int64 sub_task_id = 1;
     // 执行开始时间
-    google.protobuf.Timestamp start_time = 2;
+    string start_time = 2;
     // 执行结束时间
-    google.protobuf.Timestamp end_time = 3;
+    string end_time = 3;
     // 子任务执行结果
     SubTaskResult result = 4;
     // 总共执行多少主机

@@ -11,7 +11,6 @@ import (
 	_ "github.com/mwitkow/go-proto-validators"
 	_ "git.fogcdn.top/axe/protos/goout/common"
 	_ "git.fogcdn.top/axe/protos/goout/cmdb"
-	_ "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
@@ -88,16 +87,6 @@ func (this *CreateServerResponse) Validate() error {
 	return nil
 }
 func (this *CompleteRequest) Validate() error {
-	if this.StartTime != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.StartTime); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("StartTime", err)
-		}
-	}
-	if this.EndTime != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.EndTime); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("EndTime", err)
-		}
-	}
 	return nil
 }
 func (this *CompleteResponse) Validate() error {
