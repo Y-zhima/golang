@@ -14,20 +14,16 @@ import "cmdb/cmdb.proto";
 // 子任务实例
 service SubTask {
     // 创建作业子任务
-    rpc Create (CreateRequest) returns (CreateResponse) {
-    }
+    rpc Create (CreateRequest) returns (CreateResponse) {}
 
     // 完成作业子任务
-    rpc Complete (CompleteRequest) returns (CompleteResponse) {
-    }
+    rpc Complete(CompleteRequest) returns(CompleteResponse) {}
 
     // 创建裸金属子任务
-    rpc CreateServer (CreateServerRequest) returns (CreateServerResponse) {
-    }
+    rpc CreateServer (CreateServerRequest) returns (CreateServerResponse) {}
 
     // 交维表导入后巡检子任务
-    rpc CreateServerCompare (CreateServerCompareRequest) returns (CreateServerCompareResponse) {
-    }
+    rpc CreateServerCompare (CreateServerCompareRequest) returns (CreateServerCompareResponse) {}
 
     // 获取作业任务SubTask具体日志
     rpc GetLog (GetLogRequest) returns (GetLogResponse) {
@@ -113,6 +109,7 @@ message CreateServerResponse {
     // 返回的请求状态
     common.ResponseStatus status = 2;
 }
+
 
 // 子任务执行结果
 enum SubTaskResult {

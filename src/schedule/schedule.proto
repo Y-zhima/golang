@@ -42,11 +42,11 @@ service Schedule {
         };
     }
     // 删除定时任务
-    //    rpc Delete (DeleteRequest) returns (DeleteResponse) {
-    //        option (google.api.http) = {
-    //            post: "/v1/schedule/delete/{schedule_id}"
-    //        };
-    //    }
+//    rpc Delete (DeleteRequest) returns (DeleteResponse) {
+//        option (google.api.http) = {
+//            post: "/v1/schedule/delete/{schedule_id}"
+//        };
+//    }
 
     // 切换状态
     rpc SwitchStatus (SwitchStatusRequest) returns (SwitchStatusResponse) {
@@ -105,20 +105,15 @@ message ScheduleObject {
 // 创建定时任务的请求内容体
 message CreateScheduleObject {
     // 模板ID
-    int32 template_id = 1 [(validator.field) = {int_gt: 0, human_error: "模板ID不能为空"
-                          }];
+    int32 template_id = 1 [(validator.field) = {int_gt: 0, human_error: "模板ID不能为空"}];
     // 定时任务名
-    string name = 2 [(validator.field) = {string_not_empty: true, human_error: "定时任务名不能为空"
-                    }];
+    string name = 2 [(validator.field) = {string_not_empty: true, human_error: "定时任务名不能为空"}];
     // 定时任务开始时间
-    string start_time = 3 [(validator.field) = {string_not_empty: true, human_error: "开始时间不能为空"
-                          }];
+    string start_time = 3 [(validator.field) = {string_not_empty: true, human_error: "开始时间不能为空"}];
     // 定时任务结束时间
-    string end_time = 4 [(validator.field) = {string_not_empty: true, human_error: "结束时间不能为空"
-                        }];
+    string end_time = 4 [(validator.field) = {string_not_empty: true, human_error: "结束时间不能为空"}];
     // 定时任务表达式
-    string cron_expression = 5 [(validator.field) = {string_not_empty: true, human_error: "定时任务表达式不能为空"
-                               }];
+    string cron_expression = 5 [(validator.field) = {string_not_empty: true, human_error: "定时任务表达式不能为空"}];
     // 任务类型
     TaskType task_type = 6;
 }
@@ -139,11 +134,9 @@ message CreateRequest {
         }
     };
     // 创建定时任务的请求内容体
-    repeated CreateScheduleObject schedules = 1 [(validator.field) = {repeated_count_min : 1, human_error: "任务内容不能为空"
-                                                }];
+    repeated CreateScheduleObject schedules = 1 [(validator.field) = {repeated_count_min : 1, human_error: "任务内容不能为空"}];
     // cmdb的搜索条件
-    repeated cmdb.ChooseHostRequest cmdb_search_request = 2 [(validator.field) = {repeated_count_min : 1, human_error: "cmdb的搜索条件不能为空"
-                                                            }];
+    repeated cmdb.ChooseHostRequest cmdb_search_request = 2 [(validator.field) = {string_not_empty: true, human_error: "cmdb的搜索条件不能为空"}];
     // 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
     string extra_var = 3;
 }
@@ -205,20 +198,15 @@ message UpdateRequest {
         }
     };
     // 定时任务ID
-    int32 schedule_id = 1 [(validator.field) = {int_gt: 0, human_error: "定时任务ID不能为空"
-                          }];
+    int32 schedule_id = 1 [(validator.field) = {int_gt: 0, human_error: "定时任务ID不能为空"}];
     // 定时任务名字
-    string name = 3 [(validator.field) = {string_not_empty: true, human_error: "定时任务名不能为空"
-                    }];
+    string name = 3 [(validator.field) = {string_not_empty: true, human_error: "定时任务名不能为空"}];
     // 定时任务开启时间
-    string start_time = 4 [(validator.field) = {string_not_empty: true, human_error: "开始时间不能为空"
-                          }];
+    string start_time = 4 [(validator.field) = {string_not_empty: true, human_error: "开始时间不能为空"}];
     // 定时任务结束时间
-    string end_time = 5 [(validator.field) = {string_not_empty: true, human_error: "结束时间不能为空"
-                        }];
+    string end_time = 5 [(validator.field) = {string_not_empty: true, human_error: "结束时间不能为空"}];
     // 定时任务表达式
-    string cron_expression = 6 [(validator.field) = {string_not_empty: true, human_error: "定时任务表达式不能为空"
-                               }];
+    string cron_expression = 6 [(validator.field) = {string_not_empty: true, human_error: "定时任务表达式不能为空"}];
 }
 
 // 更新请求返回
