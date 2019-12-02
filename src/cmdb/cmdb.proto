@@ -307,6 +307,22 @@ message InstanceTopologyResponse {
     common.ResponseStatus status = 2;
 }
 
+// 主机域信息
+message HostCloudInfo {
+    // 域ID
+    string id = 1;
+    // 对象类型
+    string bk_obj_id = 2;
+    // 对象图标
+    string bk_obj_icon = 3;
+    // 实体ID
+    int32 bk_inst_id = 4;
+    // 对象名称
+    string bk_obj_name = 5;
+    // 实体名称
+    string bk_inst_name = 6;
+}
+
 // 主机
 message HostObject {
     // 内网IP
@@ -384,12 +400,15 @@ message HostObject {
     // 服务能力
     int32 service_bandwidth = 37;
     // ipv6地址
-    string ipv6 = 38; 
+    string ipv6 = 38;
     // 设备角色(模块名)
     repeated string module_name = 39;
     // 主机ID
     int32 bk_host_id = 40;
+    // 主机域信息
+    repeated HostCloudInfo bk_cloud_id = 41;
 }
+
 
 // 模块
 message ModuleObject {
