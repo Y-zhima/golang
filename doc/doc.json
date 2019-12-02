@@ -1250,6 +1250,77 @@
           ]
         },
         {
+          "name": "HostCloudInfo",
+          "longName": "HostCloudInfo",
+          "fullName": "cmdb.HostCloudInfo",
+          "description": "主机域信息",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "域ID",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_obj_id",
+              "description": "对象类型",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_obj_icon",
+              "description": "对象图标",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_inst_id",
+              "description": "实体ID",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_obj_name",
+              "description": "对象名称",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_inst_name",
+              "description": "实体名称",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
           "name": "HostInfoObject",
           "longName": "HostInfoObject",
           "fullName": "cmdb.HostInfoObject",
@@ -1706,6 +1777,16 @@
               "type": "int32",
               "longType": "int32",
               "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_cloud_id",
+              "description": "主机域信息",
+              "label": "repeated",
+              "type": "HostCloudInfo",
+              "longType": "HostCloudInfo",
+              "fullType": "cmdb.HostCloudInfo",
               "ismap": false,
               "defaultValue": ""
             }

@@ -44,6 +44,7 @@
     - [ChooseServerRequest](#cmdb.ChooseServerRequest)
     - [CommonObject](#cmdb.CommonObject)
     - [CreateAssociationRequest](#cmdb.CreateAssociationRequest)
+    - [HostCloudInfo](#cmdb.HostCloudInfo)
     - [HostInfoObject](#cmdb.HostInfoObject)
     - [HostObject](#cmdb.HostObject)
     - [ImportAssetRequest](#cmdb.ImportAssetRequest)
@@ -848,6 +849,26 @@ cmdb事件请求返回
 
 
 
+<a name="cmdb.HostCloudInfo"></a>
+
+### HostCloudInfo
+主机域信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | 域ID |
+| bk_obj_id | [string](#string) |  | 对象类型 |
+| bk_obj_icon | [string](#string) |  | 对象图标 |
+| bk_inst_id | [int32](#int32) |  | 实体ID |
+| bk_obj_name | [string](#string) |  | 对象名称 |
+| bk_inst_name | [string](#string) |  | 实体名称 |
+
+
+
+
+
+
 <a name="cmdb.HostInfoObject"></a>
 
 ### HostInfoObject
@@ -914,6 +935,7 @@ cmdb事件请求返回
 | ipv6 | [string](#string) |  | ipv6地址 |
 | module_name | [string](#string) | repeated | 设备角色(模块名) |
 | bk_host_id | [int32](#int32) |  | 主机ID |
+| bk_cloud_id | [HostCloudInfo](#cmdb.HostCloudInfo) | repeated | 主机域信息 |
 
 
 

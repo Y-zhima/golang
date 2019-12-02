@@ -313,6 +313,10 @@
                 </li>
               
                 <li>
+                  <a href="#cmdb.HostCloudInfo"><span class="badge">M</span>HostCloudInfo</a>
+                </li>
+              
+                <li>
                   <a href="#cmdb.HostInfoObject"><span class="badge">M</span>HostInfoObject</a>
                 </li>
               
@@ -2461,6 +2465,65 @@
 
         
       
+        <h3 id="cmdb.HostCloudInfo">HostCloudInfo</h3>
+        <p>主机域信息</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>域ID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>bk_obj_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>对象类型 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>bk_obj_icon</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>对象图标 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>bk_inst_id</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>实体ID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>bk_obj_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>对象名称 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>bk_inst_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>实体名称 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="cmdb.HostInfoObject">HostInfoObject</h3>
         <p>主机内容信息</p>
 
@@ -2794,6 +2857,13 @@
                   <td><a href="#int32">int32</a></td>
                   <td></td>
                   <td><p>主机ID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>bk_cloud_id</td>
+                  <td><a href="#cmdb.HostCloudInfo">HostCloudInfo</a></td>
+                  <td>repeated</td>
+                  <td><p>主机域信息 </p></td>
                 </tr>
               
             </tbody>

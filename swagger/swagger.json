@@ -2961,6 +2961,37 @@
         }
       }
     },
+    "cmdbHostCloudInfo": {
+      "type": "object",
+      "title": "主机域信息",
+      "properties": {
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "实体ID"
+        },
+        "bk_inst_name": {
+          "type": "string",
+          "title": "实体名称"
+        },
+        "bk_obj_icon": {
+          "type": "string",
+          "title": "对象图标"
+        },
+        "bk_obj_id": {
+          "type": "string",
+          "title": "对象类型"
+        },
+        "bk_obj_name": {
+          "type": "string",
+          "title": "对象名称"
+        },
+        "id": {
+          "type": "string",
+          "title": "域ID"
+        }
+      }
+    },
     "cmdbHostInfoObject": {
       "type": "object",
       "title": "主机内容信息",
@@ -3003,6 +3034,13 @@
         "bk_bak_operator": {
           "type": "string",
           "title": "备份维护人"
+        },
+        "bk_cloud_id": {
+          "type": "array",
+          "title": "主机域信息",
+          "items": {
+            "$ref": "#/definitions/cmdbHostCloudInfo"
+          }
         },
         "bk_comment": {
           "type": "string",

@@ -1374,6 +1374,37 @@
       },
       "title": "选择主机请求"
     },
+    "cmdbHostCloudInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "域ID"
+        },
+        "bk_obj_id": {
+          "type": "string",
+          "title": "对象类型"
+        },
+        "bk_obj_icon": {
+          "type": "string",
+          "title": "对象图标"
+        },
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "实体ID"
+        },
+        "bk_obj_name": {
+          "type": "string",
+          "title": "对象名称"
+        },
+        "bk_inst_name": {
+          "type": "string",
+          "title": "实体名称"
+        }
+      },
+      "title": "主机域信息"
+    },
     "cmdbHostInfoObject": {
       "type": "object",
       "properties": {
@@ -1581,6 +1612,13 @@
           "type": "integer",
           "format": "int32",
           "title": "主机ID"
+        },
+        "bk_cloud_id": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbHostCloudInfo"
+          },
+          "title": "主机域信息"
         }
       },
       "title": "主机"
