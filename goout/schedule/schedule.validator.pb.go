@@ -7,12 +7,12 @@ import (
 	fmt "fmt"
 	math "math"
 	proto "github.com/golang/protobuf/proto"
+	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "github.com/mwitkow/go-proto-validators"
 	_ "git.fogcdn.top/axe/protos/goout/common"
 	_ "git.fogcdn.top/axe/protos/goout/cmdb"
 	_ "git.fogcdn.top/axe/protos/goout/template"
-	_ "google.golang.org/genproto/googleapis/api/annotations"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
@@ -60,6 +60,9 @@ func (this *CreateRequest) Validate() error {
 				return github_com_mwitkow_go_proto_validators.FieldError("Schedules", err)
 			}
 		}
+	}
+	if len(this.CmdbSearchRequest) < 1 {
+		return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", fmt.Errorf(`cmdb的搜索条件不能为空`))
 	}
 	for _, item := range this.CmdbSearchRequest {
 		if item != nil {

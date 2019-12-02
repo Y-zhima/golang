@@ -103,7 +103,8 @@ service Task {
 // 调用裸金属应用检查裸金属状态请求体
 message CheckServerStateRequest {
     // 机房及对应物理机
-    repeated cmdb.ChooseServerRequest cmdb_search_request = 1;
+    repeated cmdb.ChooseServerRequest cmdb_search_request = 1 [(validator.field) = {repeated_count_min: 1, human_error: "cmdb的搜索条件不能为空"
+                                                              }];
 }
 
 // 调用裸金属应用检查裸金属状态返回体
@@ -117,7 +118,8 @@ message ServerPowerControlRequest {
     // 电源开关操作
     cmdb.ServerPowerState state = 1;
     // 机房及对应物理机
-    repeated cmdb.ChooseServerRequest cmdb_search_request = 2;
+    repeated cmdb.ChooseServerRequest cmdb_search_request = 2 [(validator.field) = {repeated_count_min: 1, human_error: "cmdb的搜索条件不能为空"
+                                                              }];
 }
 
 // 调用裸金属应用执行开关机操作返回体
@@ -129,7 +131,8 @@ message ServerPowerControlResponse {
 // 调用裸金属创建操作请求体
 message CreateServerRequest {
     // 机房及对应物理机
-    repeated cmdb.ChooseServerRequest cmdb_search_request = 1;
+    repeated cmdb.ChooseServerRequest cmdb_search_request = 1 [(validator.field) = {repeated_count_min: 1, human_error: "cmdb的搜索条件不能为空"
+                                                              }];
 }
 
 // 调用裸金属创建操作返回体
@@ -141,7 +144,8 @@ message CreateServerResponse {
 // 调用裸金属安装操作请求体
 message InstallServerRequest {
     // 机房及对应物理机
-    repeated cmdb.ChooseServerRequest cmdb_search_request = 1;
+    repeated cmdb.ChooseServerRequest cmdb_search_request = 1 [(validator.field) = {repeated_count_min: 1, human_error: "cmdb的搜索条件不能为空"
+                                                              }];
     // 安装镜像文件的URL
     string image_file_url = 2;
     // 安装镜像文件的MD5
@@ -223,7 +227,7 @@ message CreateRequest {
     int32 template_id = 1 [(validator.field) = {int_gt: 0, human_error: "模板ID不能为空"
                           }];
     // cmdb的搜索条件
-    repeated cmdb.ChooseHostRequest cmdb_search_request = 2 [(validator.field) = {string_not_empty: true, human_error: "cmdb的搜索条件不能为空"
+    repeated cmdb.ChooseHostRequest cmdb_search_request = 2 [(validator.field) = {repeated_count_min: 1, human_error: "cmdb的搜索条件不能为空"
                                                             }];
     // 任务类型
     schedule.TaskType task_type = 3;

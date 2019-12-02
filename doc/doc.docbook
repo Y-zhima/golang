@@ -3004,6 +3004,13 @@
               <entry><para>区域对象</para></entry>
             </row>
             
+            <row>
+              <entry>conditions</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>查询条件</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>

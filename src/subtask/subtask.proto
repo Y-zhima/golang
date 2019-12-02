@@ -7,7 +7,7 @@ option java_package = "top.fogcdn.axe.protos.subtask";
 
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
-
+import "github.com/mwitkow/go-proto-validators/validator.proto";
 import "common/api.proto";
 import "cmdb/cmdb.proto";
 
@@ -35,9 +35,11 @@ service SubTask {
 
 // 创建子任务实例请求
 message CreateRequest {
-    int64 task_id = 1;
+    int64 task_id = 1 [(validator.field) = {int_gt: 0, human_error: "任务ID不能为空"
+                      }];
     // cmdb的搜索条件
-    cmdb.ChooseHostRequest cmdb_search_request = 2;
+    cmdb.ChooseHostRequest cmdb_search_request = 2 [(validator.field) = {msg_exists : true, human_error: "cmdb的搜索条件不能为空"
+                                                   }];
     // 模板ID
     int32 template_id = 3;
 }
@@ -53,9 +55,11 @@ message CreateResponse {
 // 交维表导入后巡检子任务请求
 message CreateServerCompareRequest {
     // 任务实例ID
-    int64 task_id = 1;
+    int64 task_id = 1 [(validator.field) = {int_gt: 0, human_error: "任务ID不能为空"
+                      }];
     // cmdb的搜索条件
-    cmdb.ChooseServerCompareRequest cmdb_search_request = 2;
+    cmdb.ChooseServerCompareRequest cmdb_search_request = 2 [(validator.field) = {msg_exists : true, human_error: "cmdb的搜索条件不能为空"
+                                                            }];
 }
 
 // 交维表导入后巡检子任务请求返回
@@ -83,13 +87,15 @@ enum ServerTaskType {
 // 裸金属子任务实例请求
 message CreateServerRequest {
     // 任务实例ID
-    int64 task_id = 1;
+    int64 task_id = 1 [(validator.field) = {int_gt: 0, human_error: "任务ID不能为空"
+                      }];
     // 裸金属任务类型
     ServerTaskType task_type = 2;
     // 裸金属电源状态
     cmdb.ServerPowerState power_state = 3;
     // cmdb的搜索条件
-    cmdb.ChooseServerRequest cmdb_search_request = 4;
+    cmdb.ChooseServerRequest cmdb_search_request = 4 [(validator.field) = {msg_exists : true, human_error: "cmdb的搜索条件不能为空"
+                                                     }];
     // 安装镜像文件的URL
     string image_file_url = 5;
     // 安装镜像文件的MD5
@@ -141,7 +147,7 @@ message CompleteResponse {
     common.ResponseStatus status = 1;
 }
 
-message GetLogRequest{
+message GetLogRequest {
     // 作业子任务ID
     int64 sub_task_id = 1;
 }

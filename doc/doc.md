@@ -1464,6 +1464,7 @@ level下的主机ip列表
 | set | [SetObject](#cmdb.SetObject) |  | 集群对象 |
 | biz | [BizObject](#cmdb.BizObject) |  | 业务对象 |
 | zone | [ZoneObject](#cmdb.ZoneObject) |  | 区域对象 |
+| conditions | [string](#string) |  | 查询条件 |
 
 
 
