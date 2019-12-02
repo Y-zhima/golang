@@ -12379,7 +12379,19 @@
               "longType": "cmdb.ChooseHostRequest",
               "fullType": "cmdb.ChooseHostRequest",
               "ismap": false,
-              "defaultValue": ""
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "msg_exists",
+                    "value": true
+                  },
+                  {
+                    "name": "human_error",
+                    "value": "cmdb的主机搜索条件不能为空"
+                  }
+                ]
+              }
             }
           ]
         },

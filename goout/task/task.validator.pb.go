@@ -95,6 +95,9 @@ func (this *InstallServerRequest) Validate() error {
 			}
 		}
 	}
+	if nil == this.CmdbHostSearchRequest {
+		return github_com_mwitkow_go_proto_validators.FieldError("CmdbHostSearchRequest", fmt.Errorf("message must exist"))
+	}
 	if this.CmdbHostSearchRequest != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbHostSearchRequest); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("CmdbHostSearchRequest", err)
