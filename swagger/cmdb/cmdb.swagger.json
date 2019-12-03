@@ -2631,7 +2631,7 @@
           "title": "ip地址"
         },
         "state": {
-          "$ref": "#/definitions/cmdbVipState",
+          "$ref": "#/definitions/cmdbOnlineState",
           "title": "状态"
         },
         "ipv6": {
@@ -2685,15 +2685,6 @@
         }
       },
       "title": "VIP对象"
-    },
-    "cmdbVipState": {
-      "type": "string",
-      "enum": [
-        "UNAVAILABLE",
-        "AVAILABLE"
-      ],
-      "default": "UNAVAILABLE",
-      "title": "- UNAVAILABLE: 0-不可用\n - AVAILABLE: 1-可用"
     },
     "cmdbZoneObject": {
       "type": "object",
