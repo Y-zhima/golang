@@ -119,7 +119,6 @@
     - [OnlineState](#cmdb.OnlineState)
     - [ServerInstallState](#cmdb.ServerInstallState)
     - [ServerPowerState](#cmdb.ServerPowerState)
-    - [VipState](#cmdb.VipState)
   
   
     - [Cmdb](#cmdb.Cmdb)
@@ -1967,7 +1966,7 @@ level下的主机ip列表
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | ip | [string](#string) |  | ip地址 |
-| state | [VipState](#cmdb.VipState) |  | 状态 |
+| state | [OnlineState](#cmdb.OnlineState) |  | 状态 |
 | ipv6 | [bool](#bool) |  | 默认接收ipv4地址，可以选择ipv6地址 |
 
 
@@ -2146,18 +2145,6 @@ VIP对象
 | UNKNOWN | 0 | 未知状态 |
 | OFF | 1 | 下电 |
 | ON | 2 | 上电 |
-
-
-
-<a name="cmdb.VipState"></a>
-
-### VipState
-
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| UNAVAILABLE | 0 | 0-不可用 |
-| AVAILABLE | 1 | 1-可用 |
 
 
  
@@ -5159,7 +5146,6 @@ agent上报kafka日志结构体
 | cmdb_search_request | [cmdb.ChooseServerRequest](#cmdb.ChooseServerRequest) | repeated | 机房及对应物理机 |
 | image_file_url | [string](#string) |  | 安装镜像文件的URL |
 | image_file_md5 | [string](#string) |  | 安装镜像文件的MD5 |
-| cmdb_host_search_request | [cmdb.ChooseHostRequest](#cmdb.ChooseHostRequest) |  | 主机查询条件 |
 
 
 

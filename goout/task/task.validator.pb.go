@@ -7,12 +7,12 @@ import (
 	fmt "fmt"
 	math "math"
 	proto "github.com/golang/protobuf/proto"
+	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 	_ "github.com/mwitkow/go-proto-validators"
 	_ "git.fogcdn.top/axe/protos/goout/common"
 	_ "git.fogcdn.top/axe/protos/goout/schedule"
 	_ "git.fogcdn.top/axe/protos/goout/cmdb"
-	_ "google.golang.org/genproto/googleapis/api/annotations"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
@@ -93,14 +93,6 @@ func (this *InstallServerRequest) Validate() error {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
 				return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
 			}
-		}
-	}
-	if nil == this.CmdbHostSearchRequest {
-		return github_com_mwitkow_go_proto_validators.FieldError("CmdbHostSearchRequest", fmt.Errorf("message must exist"))
-	}
-	if this.CmdbHostSearchRequest != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbHostSearchRequest); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("CmdbHostSearchRequest", err)
 		}
 	}
 	return nil

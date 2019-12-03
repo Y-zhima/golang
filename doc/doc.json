@@ -838,24 +838,6 @@
               "description": "上电"
             }
           ]
-        },
-        {
-          "name": "VipState",
-          "longName": "VipState",
-          "fullName": "cmdb.VipState",
-          "description": "",
-          "values": [
-            {
-              "name": "UNAVAILABLE",
-              "number": "0",
-              "description": "0-不可用"
-            },
-            {
-              "name": "AVAILABLE",
-              "number": "1",
-              "description": "1-可用"
-            }
-          ]
         }
       ],
       "extensions": [],
@@ -4547,9 +4529,9 @@
               "name": "state",
               "description": "状态",
               "label": "",
-              "type": "VipState",
-              "longType": "VipState",
-              "fullType": "cmdb.VipState",
+              "type": "OnlineState",
+              "longType": "OnlineState",
+              "fullType": "cmdb.OnlineState",
               "ismap": false,
               "defaultValue": ""
             },
@@ -12370,28 +12352,6 @@
               "fullType": "string",
               "ismap": false,
               "defaultValue": ""
-            },
-            {
-              "name": "cmdb_host_search_request",
-              "description": "主机查询条件",
-              "label": "",
-              "type": "ChooseHostRequest",
-              "longType": "cmdb.ChooseHostRequest",
-              "fullType": "cmdb.ChooseHostRequest",
-              "ismap": false,
-              "defaultValue": "",
-              "options": {
-                "validator.field": [
-                  {
-                    "name": "msg_exists",
-                    "value": true
-                  },
-                  {
-                    "name": "human_error",
-                    "value": "cmdb的主机搜索条件不能为空"
-                  }
-                ]
-              }
             }
           ]
         },
