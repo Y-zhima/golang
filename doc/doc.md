@@ -5146,7 +5146,6 @@ agent上报kafka日志结构体
 | cmdb_search_request | [cmdb.ChooseServerRequest](#cmdb.ChooseServerRequest) | repeated | 机房及对应物理机 |
 | image_file_url | [string](#string) |  | 安装镜像文件的URL |
 | image_file_md5 | [string](#string) |  | 安装镜像文件的MD5 |
-| cmdb_host_search_request | [cmdb.ChooseHostRequest](#cmdb.ChooseHostRequest) |  | 主机查询条件 |
 
 
 

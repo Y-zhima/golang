@@ -700,10 +700,6 @@
         "image_file_md5": {
           "type": "string",
           "title": "安装镜像文件的MD5"
-        },
-        "cmdb_host_search_request": {
-          "$ref": "#/definitions/cmdbChooseHostRequest",
-          "title": "主机查询条件"
         }
       },
       "title": "调用裸金属安装操作请求体"

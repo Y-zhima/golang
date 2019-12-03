@@ -13456,13 +13456,6 @@
               <entry><para>安装镜像文件的MD5</para></entry>
             </row>
             
-            <row>
-              <entry>cmdb_host_search_request</entry>
-              <entry><link linkend="cmdb.ChooseHostRequest">cmdb.ChooseHostRequest</link></entry>
-              <entry></entry>
-              <entry><para>主机查询条件</para></entry>
-            </row>
-            
           </tbody>
         </tgroup>
       </table>

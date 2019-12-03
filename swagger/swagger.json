@@ -6058,10 +6058,6 @@
       "type": "object",
       "title": "调用裸金属安装操作请求体",
       "properties": {
-        "cmdb_host_search_request": {
-          "title": "主机查询条件",
-          "$ref": "#/definitions/cmdbChooseHostRequest"
-        },
         "cmdb_search_request": {
           "type": "array",
           "title": "机房及对应物理机",

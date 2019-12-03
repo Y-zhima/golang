@@ -12352,16 +12352,6 @@
               "fullType": "string",
               "ismap": false,
               "defaultValue": ""
-            },
-            {
-              "name": "cmdb_host_search_request",
-              "description": "主机查询条件",
-              "label": "",
-              "type": "ChooseHostRequest",
-              "longType": "cmdb.ChooseHostRequest",
-              "fullType": "cmdb.ChooseHostRequest",
-              "ismap": false,
-              "defaultValue": ""
             }
           ]
         },
