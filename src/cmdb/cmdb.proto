@@ -1183,19 +1183,21 @@ message UpdateHostStateResponse {
     common.ResponseStatus status = 1;
 }
 
-enum VipState {
-    // 0-不可用
-    UNAVAILABLE = 0;
-    // 1-可用
-    AVAILABLE = 1;
-}
+//enum VipState {
+//    // 0-未定义
+//    UNDEFINEDSTATE = 0;
+//    // 1-不可用
+//    UNAVAILABLE = 1;
+//    // 2-可用
+//    AVAILABLE = 2;
+//}
 
 // 修改VIP可用状态的请求体
 message UpdateVipStateRequest {
     // ip地址
     string ip = 1;
     // 状态
-    VipState state = 2;
+    OnlineState state = 2;
     // 默认接收ipv4地址，可以选择ipv6地址
     bool ipv6 = 3;
 }

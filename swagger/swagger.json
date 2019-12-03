@@ -4239,7 +4239,7 @@
         },
         "state": {
           "title": "状态",
-          "$ref": "#/definitions/cmdbVipState"
+          "$ref": "#/definitions/cmdbOnlineState"
         }
       }
     },
@@ -4286,15 +4286,6 @@
           "title": "vip的ipv6地址"
         }
       }
-    },
-    "cmdbVipState": {
-      "type": "string",
-      "title": "- UNAVAILABLE: 0-不可用\n - AVAILABLE: 1-可用",
-      "default": "UNAVAILABLE",
-      "enum": [
-        "UNAVAILABLE",
-        "AVAILABLE"
-      ]
     },
     "cmdbZoneObject": {
       "type": "object",
