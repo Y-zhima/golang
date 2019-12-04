@@ -164,19 +164,19 @@
   
 
 - [image/common.proto](#image/common.proto)
-    - [PageInfo](#image.PageInfo)
+    - [Paging](#image.Paging)
     - [ResponseStatus](#image.ResponseStatus)
     - [TimeScope](#image.TimeScope)
   
-    - [ResultCode](#image.ResultCode)
+    - [StatusCode](#image.StatusCode)
   
   
   
 
-- [image/server.proto](#image/server.proto)
+- [image/image.proto](#image/image.proto)
     - [ClusterInstance](#image.ClusterInstance)
-    - [HeatlthRequest](#image.HeatlthRequest)
-    - [HeatlthResponse](#image.HeatlthResponse)
+    - [HealthRequest](#image.HealthRequest)
+    - [HealthResponse](#image.HealthResponse)
     - [ImageAttr](#image.ImageAttr)
     - [ImageObject](#image.ImageObject)
     - [QueryRequest](#image.QueryRequest)
@@ -2485,18 +2485,18 @@ The greeting service definition.
 
 
 
-<a name="image.PageInfo"></a>
+<a name="image.Paging"></a>
 
-### PageInfo
+### Paging
 分页信息(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| page_index | [int32](#int32) |  | 当前页 |
-| page_size | [int32](#int32) |  | 每页数量 |
-| page_count | [int32](#int32) |  | 总页数 |
-| row_count | [int32](#int32) |  | 总记录数 |
+| total_page | [int32](#int32) |  | 总页数 |
+| page | [int32](#int32) |  | 当前页数 |
+| per_page | [int32](#int32) |  | 每页显示的记录条数 |
+| total_record | [int32](#int32) |  | 总记录数 |
 
 
 
@@ -2511,7 +2511,7 @@ The greeting service definition.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResultCode](#image.ResultCode) |  | 状态码 |
+| code | [StatusCode](#image.StatusCode) |  | 状态码 |
 | message | [string](#string) |  | 信息 |
 
 
@@ -2537,16 +2537,16 @@ The greeting service definition.
  
 
 
-<a name="image.ResultCode"></a>
+<a name="image.StatusCode"></a>
 
-### ResultCode
-响应码
+### StatusCode
+请求返回状态码
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| RESULT_CODE_UNDEFINED | 0 | 0-未定义 |
-| RESULT_CODE_FAIL | 1 | 失败 |
-| RESULT_CODE_SUCCESS | 2 | 成功 |
+| SUCCESS | 0 | 成功 |
+| INVALID_ARGUMENT | 400 | 参数错误 |
+| ACCESS_DENIED | 403 | 访问拒绝 |
 
 
  
@@ -2557,10 +2557,10 @@ The greeting service definition.
 
 
 
-<a name="image/server.proto"></a>
+<a name="image/image.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## image/server.proto
+## image/image.proto
 
 
 
@@ -2582,9 +2582,9 @@ The greeting service definition.
 
 
 
-<a name="image.HeatlthRequest"></a>
+<a name="image.HealthRequest"></a>
 
-### HeatlthRequest
+### HealthRequest
 --------------- 健康监测---------------//
 
 不需要请求体
@@ -2594,9 +2594,9 @@ The greeting service definition.
 
 
 
-<a name="image.HeatlthResponse"></a>
+<a name="image.HealthResponse"></a>
 
-### HeatlthResponse
+### HealthResponse
 
 
 
@@ -2665,7 +2665,7 @@ The greeting service definition.
 | sub_version | [string](#string) |  | 系统的小版本号，例如CentOS7.4下的1708 |
 | format | [ImageFormat](#image.ImageFormat) |  | 镜像的格式，使用枚举，例如iso，qcow2等 |
 | image_attrs | [ImageAttr](#image.ImageAttr) | repeated | 镜像附加属性 |
-| page_info | [PageInfo](#image.PageInfo) |  | 若没有入参，则默认查询阈值为第一页10条记录 |
+| paging | [Paging](#image.Paging) |  | 若没有入参，则默认查询阈值为第一页10条记录 |
 
 
 
@@ -2682,7 +2682,7 @@ The greeting service definition.
 | ----- | ---- | ----- | ----------- |
 | status | [ResponseStatus](#image.ResponseStatus) |  | 响应码 |
 | images | [ImageObject](#image.ImageObject) | repeated | 响应对象 |
-| page_info | [PageInfo](#image.PageInfo) |  |  |
+| paging | [Paging](#image.Paging) |  |  |
 
 
 
@@ -2744,7 +2744,7 @@ The greeting service definition.
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | Query | [QueryRequest](#image.QueryRequest) | [QueryResponse](#image.QueryResponse) | 查询镜像列表 |
-| Heatlth | [HeatlthRequest](#image.HeatlthRequest) | [HeatlthResponse](#image.HeatlthResponse) | 健康监测 |
+| Health | [HealthRequest](#image.HealthRequest) | [HealthResponse](#image.HealthResponse) | 健康监测 |
 
  
 

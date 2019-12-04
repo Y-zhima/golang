@@ -728,7 +728,7 @@
             <ul>
               
                 <li>
-                  <a href="#image.PageInfo"><span class="badge">M</span>PageInfo</a>
+                  <a href="#image.Paging"><span class="badge">M</span>Paging</a>
                 </li>
               
                 <li>
@@ -741,7 +741,7 @@
               
               
                 <li>
-                  <a href="#image.ResultCode"><span class="badge">E</span>ResultCode</a>
+                  <a href="#image.StatusCode"><span class="badge">E</span>StatusCode</a>
                 </li>
               
               
@@ -751,7 +751,7 @@
         
           
           <li>
-            <a href="#image%2fserver.proto">image/server.proto</a>
+            <a href="#image%2fimage.proto">image/image.proto</a>
             <ul>
               
                 <li>
@@ -759,11 +759,11 @@
                 </li>
               
                 <li>
-                  <a href="#image.HeatlthRequest"><span class="badge">M</span>HeatlthRequest</a>
+                  <a href="#image.HealthRequest"><span class="badge">M</span>HealthRequest</a>
                 </li>
               
                 <li>
-                  <a href="#image.HeatlthResponse"><span class="badge">M</span>HeatlthResponse</a>
+                  <a href="#image.HealthResponse"><span class="badge">M</span>HealthResponse</a>
                 </li>
               
                 <li>
@@ -7032,7 +7032,7 @@
       <p></p>
 
       
-        <h3 id="image.PageInfo">PageInfo</h3>
+        <h3 id="image.Paging">Paging</h3>
         <p>分页信息(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)</p>
 
         
@@ -7043,28 +7043,28 @@
             <tbody>
               
                 <tr>
-                  <td>page_index</td>
-                  <td><a href="#int32">int32</a></td>
-                  <td></td>
-                  <td><p>当前页 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>page_size</td>
-                  <td><a href="#int32">int32</a></td>
-                  <td></td>
-                  <td><p>每页数量 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>page_count</td>
+                  <td>total_page</td>
                   <td><a href="#int32">int32</a></td>
                   <td></td>
                   <td><p>总页数 </p></td>
                 </tr>
               
                 <tr>
-                  <td>row_count</td>
+                  <td>page</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>当前页数 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>per_page</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>每页显示的记录条数 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>total_record</td>
                   <td><a href="#int32">int32</a></td>
                   <td></td>
                   <td><p>总记录数 </p></td>
@@ -7089,7 +7089,7 @@
               
                 <tr>
                   <td>code</td>
-                  <td><a href="#image.ResultCode">ResultCode</a></td>
+                  <td><a href="#image.StatusCode">StatusCode</a></td>
                   <td></td>
                   <td><p>状态码 </p></td>
                 </tr>
@@ -7141,8 +7141,8 @@
       
 
       
-        <h3 id="image.ResultCode">ResultCode</h3>
-        <p>响应码</p>
+        <h3 id="image.StatusCode">StatusCode</h3>
+        <p>请求返回状态码</p>
         <table class="enum-table">
           <thead>
             <tr><td>Name</td><td>Number</td><td>Description</td></tr>
@@ -7150,21 +7150,21 @@
           <tbody>
             
               <tr>
-                <td>RESULT_CODE_UNDEFINED</td>
+                <td>SUCCESS</td>
                 <td>0</td>
-                <td><p>0-未定义</p></td>
-              </tr>
-            
-              <tr>
-                <td>RESULT_CODE_FAIL</td>
-                <td>1</td>
-                <td><p>失败</p></td>
-              </tr>
-            
-              <tr>
-                <td>RESULT_CODE_SUCCESS</td>
-                <td>2</td>
                 <td><p>成功</p></td>
+              </tr>
+            
+              <tr>
+                <td>INVALID_ARGUMENT</td>
+                <td>400</td>
+                <td><p>参数错误</p></td>
+              </tr>
+            
+              <tr>
+                <td>ACCESS_DENIED</td>
+                <td>403</td>
+                <td><p>访问拒绝</p></td>
               </tr>
             
           </tbody>
@@ -7177,7 +7177,7 @@
     
       
       <div class="file-heading">
-        <h2 id="image/server.proto">image/server.proto</h2><a href="#title">Top</a>
+        <h2 id="image/image.proto">image/image.proto</h2><a href="#title">Top</a>
       </div>
       <p></p>
 
@@ -7227,14 +7227,14 @@
 
         
       
-        <h3 id="image.HeatlthRequest">HeatlthRequest</h3>
+        <h3 id="image.HealthRequest">HealthRequest</h3>
         <p>--------------- 健康监测---------------//</p><p>不需要请求体</p>
 
         
 
         
       
-        <h3 id="image.HeatlthResponse">HeatlthResponse</h3>
+        <h3 id="image.HealthResponse">HealthResponse</h3>
         <p></p>
 
         
@@ -7443,8 +7443,8 @@
                 </tr>
               
                 <tr>
-                  <td>page_info</td>
-                  <td><a href="#image.PageInfo">PageInfo</a></td>
+                  <td>paging</td>
+                  <td><a href="#image.Paging">Paging</a></td>
                   <td></td>
                   <td><p>若没有入参，则默认查询阈值为第一页10条记录 </p></td>
                 </tr>
@@ -7481,8 +7481,8 @@
                 </tr>
               
                 <tr>
-                  <td>page_info</td>
-                  <td><a href="#image.PageInfo">PageInfo</a></td>
+                  <td>paging</td>
+                  <td><a href="#image.Paging">Paging</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -7615,9 +7615,9 @@
               </tr>
             
               <tr>
-                <td>Heatlth</td>
-                <td><a href="#image.HeatlthRequest">HeatlthRequest</a></td>
-                <td><a href="#image.HeatlthResponse">HeatlthResponse</a></td>
+                <td>Health</td>
+                <td><a href="#image.HealthRequest">HealthRequest</a></td>
+                <td><a href="#image.HealthResponse">HealthResponse</a></td>
                 <td><p>健康监测</p></td>
               </tr>
             

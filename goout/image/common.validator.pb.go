@@ -16,7 +16,7 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-func (this *PageInfo) Validate() error {
+func (this *Paging) Validate() error {
 	return nil
 }
 func (this *TimeScope) Validate() error {

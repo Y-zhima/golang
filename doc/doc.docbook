@@ -5984,12 +5984,12 @@
     <title>image/common.proto</title>
     <para></para>
     
-    <section id="image.PageInfo">
-      <title>PageInfo</title>
+    <section id="image.Paging">
+      <title>Paging</title>
       <para>分页信息(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)</para>
       
       <table frame="all">
-        <title><classname>PageInfo</classname> Fields</title>
+        <title><classname>Paging</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -6006,28 +6006,28 @@
           <tbody>
             
             <row>
-              <entry>page_index</entry>
-              <entry><link linkend="int32">int32</link></entry>
-              <entry></entry>
-              <entry><para>当前页</para></entry>
-            </row>
-            
-            <row>
-              <entry>page_size</entry>
-              <entry><link linkend="int32">int32</link></entry>
-              <entry></entry>
-              <entry><para>每页数量</para></entry>
-            </row>
-            
-            <row>
-              <entry>page_count</entry>
+              <entry>total_page</entry>
               <entry><link linkend="int32">int32</link></entry>
               <entry></entry>
               <entry><para>总页数</para></entry>
             </row>
             
             <row>
-              <entry>row_count</entry>
+              <entry>page</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>当前页数</para></entry>
+            </row>
+            
+            <row>
+              <entry>per_page</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>每页显示的记录条数</para></entry>
+            </row>
+            
+            <row>
+              <entry>total_record</entry>
               <entry><link linkend="int32">int32</link></entry>
               <entry></entry>
               <entry><para>总记录数</para></entry>
@@ -6063,7 +6063,7 @@
             
             <row>
               <entry>code</entry>
-              <entry><link linkend="image.ResultCode">ResultCode</link></entry>
+              <entry><link linkend="image.StatusCode">StatusCode</link></entry>
               <entry></entry>
               <entry><para>状态码</para></entry>
             </row>
@@ -6125,11 +6125,11 @@
     </section>
     
     
-    <section id="image.ResultCode">
-      <title>ResultCode</title>
-      <para>响应码</para>
+    <section id="image.StatusCode">
+      <title>StatusCode</title>
+      <para>请求返回状态码</para>
       <table frame="all">
-        <title><classname>ResultCode</classname> Values</title>
+        <title><classname>StatusCode</classname> Values</title>
         <tgroup cols="3">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -6144,21 +6144,21 @@
           <tbody>
             
             <row>
-              <entry>RESULT_CODE_UNDEFINED</entry>
+              <entry>SUCCESS</entry>
               <entry>0</entry>
-              <entry><para>0-未定义</para></entry>
-            </row>
-            
-            <row>
-              <entry>RESULT_CODE_FAIL</entry>
-              <entry>1</entry>
-              <entry><para>失败</para></entry>
-            </row>
-            
-            <row>
-              <entry>RESULT_CODE_SUCCESS</entry>
-              <entry>2</entry>
               <entry><para>成功</para></entry>
+            </row>
+            
+            <row>
+              <entry>INVALID_ARGUMENT</entry>
+              <entry>400</entry>
+              <entry><para>参数错误</para></entry>
+            </row>
+            
+            <row>
+              <entry>ACCESS_DENIED</entry>
+              <entry>403</entry>
+              <entry><para>访问拒绝</para></entry>
             </row>
             
           </tbody>
@@ -6173,7 +6173,7 @@
   </section>
   
   <section>
-    <title>image/server.proto</title>
+    <title>image/image.proto</title>
     <para></para>
     
     <section id="image.ClusterInstance">
@@ -6232,19 +6232,19 @@
       
     </section>
     
-    <section id="image.HeatlthRequest">
-      <title>HeatlthRequest</title>
+    <section id="image.HealthRequest">
+      <title>HealthRequest</title>
       <para>--------------- 健康监测---------------//</para><para>不需要请求体</para>
       
       
     </section>
     
-    <section id="image.HeatlthResponse">
-      <title>HeatlthResponse</title>
+    <section id="image.HealthResponse">
+      <title>HealthResponse</title>
       <para></para>
       
       <table frame="all">
-        <title><classname>HeatlthResponse</classname> Fields</title>
+        <title><classname>HealthResponse</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -6492,8 +6492,8 @@
             </row>
             
             <row>
-              <entry>page_info</entry>
-              <entry><link linkend="image.PageInfo">PageInfo</link></entry>
+              <entry>paging</entry>
+              <entry><link linkend="image.Paging">Paging</link></entry>
               <entry></entry>
               <entry><para>若没有入参，则默认查询阈值为第一页10条记录</para></entry>
             </row>
@@ -6541,8 +6541,8 @@
             </row>
             
             <row>
-              <entry>page_info</entry>
-              <entry><link linkend="image.PageInfo">PageInfo</link></entry>
+              <entry>paging</entry>
+              <entry><link linkend="image.Paging">Paging</link></entry>
               <entry></entry>
               <entry><para></para></entry>
             </row>
@@ -6722,9 +6722,9 @@
             </row>
             
             <row>
-              <entry>Heatlth</entry>
-              <entry><link linkend="image.HeatlthRequest">HeatlthRequest</link></entry>
-              <entry><link linkend="image.HeatlthResponse">HeatlthResponse</link></entry>
+              <entry>Health</entry>
+              <entry><link linkend="image.HealthRequest">HealthRequest</link></entry>
+              <entry><link linkend="image.HealthResponse">HealthResponse</link></entry>
               <entry><para>健康监测</para></entry>
             </row>
             

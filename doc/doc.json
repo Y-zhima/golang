@@ -5792,25 +5792,25 @@
       "hasServices": false,
       "enums": [
         {
-          "name": "ResultCode",
-          "longName": "ResultCode",
-          "fullName": "image.ResultCode",
-          "description": "响应码",
+          "name": "StatusCode",
+          "longName": "StatusCode",
+          "fullName": "image.StatusCode",
+          "description": "请求返回状态码",
           "values": [
             {
-              "name": "RESULT_CODE_UNDEFINED",
+              "name": "SUCCESS",
               "number": "0",
-              "description": "0-未定义"
-            },
-            {
-              "name": "RESULT_CODE_FAIL",
-              "number": "1",
-              "description": "失败"
-            },
-            {
-              "name": "RESULT_CODE_SUCCESS",
-              "number": "2",
               "description": "成功"
+            },
+            {
+              "name": "INVALID_ARGUMENT",
+              "number": "400",
+              "description": "参数错误"
+            },
+            {
+              "name": "ACCESS_DENIED",
+              "number": "403",
+              "description": "访问拒绝"
             }
           ]
         }
@@ -5818,36 +5818,16 @@
       "extensions": [],
       "messages": [
         {
-          "name": "PageInfo",
-          "longName": "PageInfo",
-          "fullName": "image.PageInfo",
+          "name": "Paging",
+          "longName": "Paging",
+          "fullName": "image.Paging",
           "description": "分页信息(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)",
           "hasExtensions": false,
           "hasFields": true,
           "extensions": [],
           "fields": [
             {
-              "name": "page_index",
-              "description": "当前页",
-              "label": "",
-              "type": "int32",
-              "longType": "int32",
-              "fullType": "int32",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "page_size",
-              "description": "每页数量",
-              "label": "",
-              "type": "int32",
-              "longType": "int32",
-              "fullType": "int32",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "page_count",
+              "name": "total_page",
               "description": "总页数",
               "label": "",
               "type": "int32",
@@ -5857,7 +5837,27 @@
               "defaultValue": ""
             },
             {
-              "name": "row_count",
+              "name": "page",
+              "description": "当前页数",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "per_page",
+              "description": "每页显示的记录条数",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "total_record",
               "description": "总记录数",
               "label": "",
               "type": "int32",
@@ -5881,9 +5881,9 @@
               "name": "code",
               "description": "状态码",
               "label": "",
-              "type": "ResultCode",
-              "longType": "ResultCode",
-              "fullType": "image.ResultCode",
+              "type": "StatusCode",
+              "longType": "StatusCode",
+              "fullType": "image.StatusCode",
               "ismap": false,
               "defaultValue": ""
             },
@@ -5934,7 +5934,7 @@
       "services": []
     },
     {
-      "name": "image/server.proto",
+      "name": "image/image.proto",
       "description": "",
       "package": "image",
       "hasEnums": true,
@@ -6076,9 +6076,9 @@
           ]
         },
         {
-          "name": "HeatlthRequest",
-          "longName": "HeatlthRequest",
-          "fullName": "image.HeatlthRequest",
+          "name": "HealthRequest",
+          "longName": "HealthRequest",
+          "fullName": "image.HealthRequest",
           "description": "--------------- 健康监测---------------//\n\n不需要请求体",
           "hasExtensions": false,
           "hasFields": false,
@@ -6086,9 +6086,9 @@
           "fields": []
         },
         {
-          "name": "HeatlthResponse",
-          "longName": "HeatlthResponse",
-          "fullName": "image.HeatlthResponse",
+          "name": "HealthResponse",
+          "longName": "HealthResponse",
+          "fullName": "image.HealthResponse",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -6338,12 +6338,12 @@
               "defaultValue": ""
             },
             {
-              "name": "page_info",
+              "name": "paging",
               "description": "若没有入参，则默认查询阈值为第一页10条记录",
               "label": "",
-              "type": "PageInfo",
-              "longType": "PageInfo",
-              "fullType": "image.PageInfo",
+              "type": "Paging",
+              "longType": "Paging",
+              "fullType": "image.Paging",
               "ismap": false,
               "defaultValue": ""
             }
@@ -6379,12 +6379,12 @@
               "defaultValue": ""
             },
             {
-              "name": "page_info",
+              "name": "paging",
               "description": "",
               "label": "",
-              "type": "PageInfo",
-              "longType": "PageInfo",
-              "fullType": "image.PageInfo",
+              "type": "Paging",
+              "longType": "Paging",
+              "fullType": "image.Paging",
               "ismap": false,
               "defaultValue": ""
             }
@@ -6411,15 +6411,15 @@
               "responseStreaming": false
             },
             {
-              "name": "Heatlth",
+              "name": "Health",
               "description": "健康监测",
-              "requestType": "HeatlthRequest",
-              "requestLongType": "HeatlthRequest",
-              "requestFullType": "image.HeatlthRequest",
+              "requestType": "HealthRequest",
+              "requestLongType": "HealthRequest",
+              "requestFullType": "image.HealthRequest",
               "requestStreaming": false,
-              "responseType": "HeatlthResponse",
-              "responseLongType": "HeatlthResponse",
-              "responseFullType": "image.HeatlthResponse",
+              "responseType": "HealthResponse",
+              "responseLongType": "HealthResponse",
+              "responseFullType": "image.HealthResponse",
               "responseStreaming": false
             }
           ]
