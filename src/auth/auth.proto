@@ -40,6 +40,18 @@ service Auth {
             get: "/v1/auth/getUserInfo"
         };
     }
+    // 对外提供资源列表的接口
+    rpc GetResourceList (GetResourceListRequest) returns (GetResourceListResponse) {
+        option (google.api.http) = {
+            get: "/v1/auth/getResourceList"
+        };
+    }
+    // 对外提供动作列表的接口
+    rpc GetActionList (GetActionListRequest) returns (GetActionListResponse) {
+        option (google.api.http) = {
+            get: "/v1/auth/getActionList"
+        };
+    }
 }
 
 
@@ -108,6 +120,55 @@ message UserInfo {
 message GetUserInfoResponse {
     // 响应消息
     UserInfo info = 1;
+    // 响应状态
+    common.ResponseStatus status = 2;
+}
+
+message ResourceActionItem {
+    // ID
+    int64 id = 1;
+    // 名称
+    string name = 2;
+    // 说明
+    string note = 3;
+    // 表达式
+    string expr = 4;
+    // 父节点ID
+    int64 parent_id = 5;
+    // 资源类型
+    string resource_type = 6;   
+}
+
+message ResourceActionData {
+	repeated ResourceActionItem list = 1;
+}
+
+message GetResourceListRequest {
+    // 服务ID
+    string service_id = 1;
+    // 工作区ID
+    string workspace_id = 2;
+    // 服务类型
+    string service_type = 3;
+}
+
+message GetResourceListResponse {
+    // 响应信息
+    ResourceActionData data = 1;
+    // 响应状态
+    common.ResponseStatus status = 2;
+}
+
+message GetActionListRequest {
+    // 服务ID
+    string service_id = 1;
+    // 工作区ID
+    string workspace_id = 2;
+}
+
+message GetActionListResponse {
+    // 响应信息
+    ResourceActionData data = 1;
     // 响应状态
     common.ResponseStatus status = 2;
 }
