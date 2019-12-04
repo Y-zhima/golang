@@ -1433,7 +1433,7 @@
           "Playbook"
         ],
         "summary": "创建playbook项目",
-        "operationId": "CreateMixin14",
+        "operationId": "Create",
         "parameters": [
           {
             "name": "body",
@@ -1460,7 +1460,7 @@
           "Playbook"
         ],
         "summary": "筛选playbook项目",
-        "operationId": "FilterMixin14",
+        "operationId": "Filter",
         "parameters": [
           {
             "type": "integer",
@@ -1513,7 +1513,7 @@
           "Playbook"
         ],
         "summary": "获取playbook项目",
-        "operationId": "GetMixin14",
+        "operationId": "Get",
         "parameters": [
           {
             "type": "integer",
@@ -1540,7 +1540,7 @@
           "Playbook"
         ],
         "summary": "更新playbook项目",
-        "operationId": "UpdateMixin14",
+        "operationId": "Update",
         "parameters": [
           {
             "type": "integer",
@@ -1575,7 +1575,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin9",
+        "operationId": "CreateMixin12",
         "parameters": [
           {
             "name": "body",
@@ -1602,7 +1602,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin9",
+        "operationId": "FilterMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -1676,7 +1676,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin9",
+        "operationId": "GetMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -1738,7 +1738,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "Update",
+        "operationId": "UpdateMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -1800,7 +1800,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "Create",
+        "operationId": "CreateMixin15",
         "parameters": [
           {
             "name": "body",
@@ -1881,7 +1881,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "Filter",
+        "operationId": "FilterMixin15",
         "parameters": [
           {
             "type": "integer",
@@ -1948,7 +1948,7 @@
           "Task"
         ],
         "summary": "获取作业任务",
-        "operationId": "Get",
+        "operationId": "GetMixin15",
         "parameters": [
           {
             "type": "string",
@@ -2110,7 +2110,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin11",
+        "operationId": "CreateMixin16",
         "parameters": [
           {
             "name": "body",
@@ -2137,7 +2137,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin11",
+        "operationId": "FilterMixin16",
         "parameters": [
           {
             "type": "integer",
@@ -2196,7 +2196,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin11",
+        "operationId": "GetMixin16",
         "parameters": [
           {
             "type": "integer",
@@ -2223,7 +2223,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin11",
+        "operationId": "UpdateMixin16",
         "parameters": [
           {
             "type": "integer",
@@ -2413,62 +2413,6 @@
         }
       }
     },
-    "QryHeartbeatRequestReqType": {
-      "description": "- HEARTBEAT: 健康检测",
-      "type": "string",
-      "title": "镜像格式",
-      "default": "UNDEFINED",
-      "enum": [
-        "UNDEFINED",
-        "HEARTBEAT"
-      ]
-    },
-    "QryHeartbeatResponseAppStatus": {
-      "type": "string",
-      "title": "- UNDEFINED: 未知\n - STOPPED: 活动中\n - ACTIVE: 未知\n - UNKNOWN: 已停止",
-      "default": "UNDEFINED",
-      "enum": [
-        "UNDEFINED",
-        "STOPPED",
-        "ACTIVE",
-        "UNKNOWN"
-      ]
-    },
-    "QryHeartbeatResponseClusterInstance": {
-      "type": "object",
-      "title": "节点信息",
-      "properties": {
-        "appStatus": {
-          "title": "运行状态",
-          "$ref": "#/definitions/QryHeartbeatResponseAppStatus"
-        },
-        "clusterName": {
-          "type": "string",
-          "title": "应用名，集群名"
-        },
-        "ipAddress": {
-          "type": "string",
-          "title": "应用ip"
-        },
-        "message": {
-          "type": "string",
-          "title": "信息"
-        }
-      }
-    },
-    "QryHeartbeatResponseQryHeartbeatRsp": {
-      "type": "object",
-      "title": "健康监测应答对象",
-      "properties": {
-        "clusterInstances": {
-          "type": "array",
-          "title": "应用信息",
-          "items": {
-            "$ref": "#/definitions/QryHeartbeatResponseClusterInstance"
-          }
-        }
-      }
-    },
     "QryHeartbeatRootReqQryHeartbeatReq": {
       "type": "object",
       "properties": {
@@ -2521,72 +2465,6 @@
           "items": {
             "$ref": "#/definitions/QryHeartbeatRootRspClusterInstance"
           }
-        }
-      }
-    },
-    "QryImageInfoResponseImageInfoRsp": {
-      "type": "object",
-      "title": "镜像信息",
-      "properties": {
-        "checkSum": {
-          "type": "string",
-          "title": "镜像md5完整性校验码"
-        },
-        "format": {
-          "title": "镜像的格式，使用枚举，例如iso，qcow2等",
-          "$ref": "#/definitions/ironicServerImageFormat"
-        },
-        "imageAttrs": {
-          "type": "array",
-          "title": "镜像附加属性",
-          "items": {
-            "$ref": "#/definitions/ironicServerImageAttrInfo"
-          }
-        },
-        "imageId": {
-          "type": "string",
-          "format": "int64",
-          "title": "镜像标识"
-        },
-        "imageName": {
-          "type": "string",
-          "title": "镜像名称"
-        },
-        "imageType": {
-          "title": "系统类型，使用枚举，比如常用的CentOS\\Ubuntu\\openSUSE等",
-          "$ref": "#/definitions/ironicServerImageType"
-        },
-        "remark": {
-          "type": "string",
-          "title": "镜像附加信息"
-        },
-        "subVersion": {
-          "type": "string",
-          "title": "系统的小版本号，例如CentOS7.4下的1708"
-        },
-        "uri": {
-          "type": "string",
-          "title": "镜像存储在ceph或者其他后端存储的路径或者访问地址"
-        },
-        "version": {
-          "type": "string",
-          "title": "系统大版本号，比如CentOS的7.4,7.5,7.6等"
-        }
-      }
-    },
-    "QryImageInfoResponseQryImageInfoRsp": {
-      "type": "object",
-      "title": "查询镜像应答对象",
-      "properties": {
-        "imageInfoRsps": {
-          "type": "array",
-          "title": "节点",
-          "items": {
-            "$ref": "#/definitions/QryImageInfoResponseImageInfoRsp"
-          }
-        },
-        "pageInfo": {
-          "$ref": "#/definitions/imageComPageInfo"
         }
       }
     },
@@ -3507,7 +3385,7 @@
           }
         },
         "status": {
-          "title": "TopologyObject instance = 1;\r\n状态码",
+          "title": "TopologyObject instance = 1;\n状态码",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
@@ -4483,41 +4361,210 @@
         }
       }
     },
-    "imageComPageInfo": {
+    "imageAppStatus": {
+      "type": "string",
+      "title": "- APP_STATUS_UNDEFINED: 未知\n - APP_STATUS_STOPPED: 活动中\n - APP_STATUS_ACTIVE: 未知\n - APP_STATUS_UNKNOWN: 已停止",
+      "default": "APP_STATUS_UNDEFINED",
+      "enum": [
+        "APP_STATUS_UNDEFINED",
+        "APP_STATUS_STOPPED",
+        "APP_STATUS_ACTIVE",
+        "APP_STATUS_UNKNOWN"
+      ]
+    },
+    "imageClusterInstance": {
+      "type": "object",
+      "title": "节点信息",
+      "properties": {
+        "app_status": {
+          "title": "运行状态",
+          "$ref": "#/definitions/imageAppStatus"
+        },
+        "cluster_name": {
+          "type": "string",
+          "title": "应用名，集群名"
+        },
+        "ip_address": {
+          "type": "string",
+          "title": "应用ip"
+        },
+        "message": {
+          "type": "string",
+          "title": "信息"
+        }
+      }
+    },
+    "imageHeatlthResponse": {
+      "type": "object",
+      "properties": {
+        "cluster_instances": {
+          "type": "array",
+          "title": "响应对象",
+          "items": {
+            "$ref": "#/definitions/imageClusterInstance"
+          }
+        },
+        "status": {
+          "title": "响应码",
+          "$ref": "#/definitions/imageResponseStatus"
+        }
+      }
+    },
+    "imageImageAttr": {
+      "type": "object",
+      "properties": {
+        "attr_add_type": {
+          "type": "string",
+          "title": "属性、标签的附加信息类型，例如可以说明是version表示版本号"
+        },
+        "attr_add_value": {
+          "type": "string",
+          "title": "属性、标签附加的值,例docker的版本CE或者EE"
+        },
+        "attr_name": {
+          "type": "string",
+          "title": "属性、标签名称：例如docker"
+        }
+      }
+    },
+    "imageImageFormat": {
+      "type": "string",
+      "title": "镜像格式",
+      "default": "IMAGE_FORMAT_UNDEFINED",
+      "enum": [
+        "IMAGE_FORMAT_UNDEFINED",
+        "IMAGE_FORMAT_ISO",
+        "IMAGE_FORMAT_QCOW2"
+      ]
+    },
+    "imageImageObject": {
+      "type": "object",
+      "properties": {
+        "check_sum": {
+          "type": "string",
+          "title": "镜像md5完整性校验码"
+        },
+        "format": {
+          "title": "镜像的格式，使用枚举，例如iso，qcow2等",
+          "$ref": "#/definitions/imageImageFormat"
+        },
+        "image_attrs": {
+          "type": "array",
+          "title": "镜像附加属性",
+          "items": {
+            "$ref": "#/definitions/imageImageAttr"
+          }
+        },
+        "image_id": {
+          "type": "string",
+          "format": "int64",
+          "title": "镜像标识"
+        },
+        "image_name": {
+          "type": "string",
+          "title": "镜像名称"
+        },
+        "image_type": {
+          "title": "系统类型，使用枚举，比如常用的CentOS\\Ubuntu\\openSUSE等",
+          "$ref": "#/definitions/imageImageType"
+        },
+        "remark": {
+          "type": "string",
+          "title": "镜像附加信息"
+        },
+        "sub_version": {
+          "type": "string",
+          "title": "系统的小版本号，例如CentOS7.4下的1708"
+        },
+        "uri": {
+          "type": "string",
+          "title": "镜像存储在ceph或者其他后端存储的路径或者访问地址"
+        },
+        "version": {
+          "type": "string",
+          "title": "系统大版本号，比如CentOS的7.4,7.5,7.6等"
+        }
+      }
+    },
+    "imageImageType": {
+      "type": "string",
+      "title": "系统类型",
+      "default": "IMAGE_TYPE_UNDEFINED",
+      "enum": [
+        "IMAGE_TYPE_UNDEFINED",
+        "IMAGE_TYPE_CENTOS",
+        "IMAGE_TYPE_UBUNTU",
+        "IMAGE_TYPE_OPENSUSE"
+      ]
+    },
+    "imagePageInfo": {
       "type": "object",
       "title": "分页信息(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)",
       "properties": {
-        "pageCount": {
+        "page_count": {
           "type": "integer",
           "format": "int32",
           "title": "总页数"
         },
-        "pageIndex": {
+        "page_index": {
           "type": "integer",
           "format": "int32",
           "title": "当前页"
         },
-        "pageSize": {
+        "page_size": {
           "type": "integer",
           "format": "int32",
           "title": "每页数量"
         },
-        "rowCount": {
+        "row_count": {
           "type": "integer",
           "format": "int32",
           "title": "总记录数"
         }
       }
     },
-    "imageComResultCode": {
-      "description": "- UNDEFINED: 未定义\n - FAIL: 失败\n - SUCCESS: 成功",
+    "imageQueryResponse": {
+      "type": "object",
+      "properties": {
+        "images": {
+          "type": "array",
+          "title": "响应对象",
+          "items": {
+            "$ref": "#/definitions/imageImageObject"
+          }
+        },
+        "page_info": {
+          "$ref": "#/definitions/imagePageInfo"
+        },
+        "status": {
+          "title": "响应码",
+          "$ref": "#/definitions/imageResponseStatus"
+        }
+      }
+    },
+    "imageResponseStatus": {
+      "type": "object",
+      "title": "请求返回状态",
+      "properties": {
+        "code": {
+          "title": "状态码",
+          "$ref": "#/definitions/imageResultCode"
+        },
+        "message": {
+          "type": "string",
+          "title": "信息"
+        }
+      }
+    },
+    "imageResultCode": {
+      "description": "- RESULT_CODE_UNDEFINED: 0-未定义\n - RESULT_CODE_FAIL: 失败\n - RESULT_CODE_SUCCESS: 成功",
       "type": "string",
       "title": "响应码",
-      "default": "UNDEFINED",
+      "default": "RESULT_CODE_UNDEFINED",
       "enum": [
-        "UNDEFINED",
-        "FAIL",
-        "SUCCESS"
+        "RESULT_CODE_UNDEFINED",
+        "RESULT_CODE_FAIL",
+        "RESULT_CODE_SUCCESS"
       ]
     },
     "ironicComAppKey": {
@@ -4721,44 +4768,6 @@
         }
       }
     },
-    "ironicServerImageAttrInfo": {
-      "type": "object",
-      "properties": {
-        "attrAddType": {
-          "type": "string",
-          "title": "属性、标签的附加信息类型，例如可以说明是version表示版本号"
-        },
-        "attrAddValue": {
-          "type": "string",
-          "title": "属性、标签附加的值,例docker的版本CE或者EE"
-        },
-        "attrName": {
-          "type": "string",
-          "title": "属性、标签名称：例如docker"
-        }
-      }
-    },
-    "ironicServerImageFormat": {
-      "type": "string",
-      "title": "镜像格式",
-      "default": "UNDEFINED_1",
-      "enum": [
-        "UNDEFINED_1",
-        "ISO",
-        "QCOW2"
-      ]
-    },
-    "ironicServerImageType": {
-      "type": "string",
-      "title": "系统类型",
-      "default": "UNDEFINED_0",
-      "enum": [
-        "UNDEFINED_0",
-        "CENTOS",
-        "UBUNTU",
-        "OPENSUSE"
-      ]
-    },
     "ironicServerInstallNodeSysRootReqContractRootReq": {
       "type": "object",
       "title": "请求信息",
@@ -4944,23 +4953,6 @@
         }
       }
     },
-    "ironicServerQryHeartbeatResponse": {
-      "type": "object",
-      "properties": {
-        "resultCode": {
-          "title": "响应码",
-          "$ref": "#/definitions/imageComResultCode"
-        },
-        "resultMsg": {
-          "type": "string",
-          "title": "响应消息描述"
-        },
-        "resultObject": {
-          "title": "响应对象",
-          "$ref": "#/definitions/QryHeartbeatResponseQryHeartbeatRsp"
-        }
-      }
-    },
     "ironicServerQryHeartbeatRootReqContractRootReq": {
       "type": "object",
       "title": "请求信息",
@@ -5015,23 +5007,6 @@
         "resultObject": {
           "title": "响应对象",
           "$ref": "#/definitions/QryHeartbeatRootRspQryHeartbeatRsp"
-        }
-      }
-    },
-    "ironicServerQryImageInfoResponse": {
-      "type": "object",
-      "properties": {
-        "resultCode": {
-          "title": "响应码",
-          "$ref": "#/definitions/imageComResultCode"
-        },
-        "resultMsg": {
-          "type": "string",
-          "title": "响应消息描述"
-        },
-        "resultObject": {
-          "title": "响应对象",
-          "$ref": "#/definitions/QryImageInfoResponseQryImageInfoRsp"
         }
       }
     },
