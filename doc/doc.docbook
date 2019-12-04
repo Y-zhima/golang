@@ -5981,10 +5981,10 @@
   </section>
   
   <section>
-    <title>image/imageCom.proto</title>
+    <title>image/common.proto</title>
     <para></para>
     
-    <section id="imageCom.PageInfo">
+    <section id="image.PageInfo">
       <title>PageInfo</title>
       <para>分页信息(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)</para>
       
@@ -6006,28 +6006,28 @@
           <tbody>
             
             <row>
-              <entry>pageIndex</entry>
+              <entry>page_index</entry>
               <entry><link linkend="int32">int32</link></entry>
               <entry></entry>
               <entry><para>当前页</para></entry>
             </row>
             
             <row>
-              <entry>pageSize</entry>
+              <entry>page_size</entry>
               <entry><link linkend="int32">int32</link></entry>
               <entry></entry>
               <entry><para>每页数量</para></entry>
             </row>
             
             <row>
-              <entry>pageCount</entry>
+              <entry>page_count</entry>
               <entry><link linkend="int32">int32</link></entry>
               <entry></entry>
               <entry><para>总页数</para></entry>
             </row>
             
             <row>
-              <entry>rowCount</entry>
+              <entry>row_count</entry>
               <entry><link linkend="int32">int32</link></entry>
               <entry></entry>
               <entry><para>总记录数</para></entry>
@@ -6040,7 +6040,49 @@
       
     </section>
     
-    <section id="imageCom.TimeScope">
+    <section id="image.ResponseStatus">
+      <title>ResponseStatus</title>
+      <para>请求返回状态</para>
+      
+      <table frame="all">
+        <title><classname>ResponseStatus</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>code</entry>
+              <entry><link linkend="image.ResultCode">ResultCode</link></entry>
+              <entry></entry>
+              <entry><para>状态码</para></entry>
+            </row>
+            
+            <row>
+              <entry>message</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>信息</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="image.TimeScope">
       <title>TimeScope</title>
       <para>时间范围信息(用于指定时间范围。如按受理开始时间、受理结束时间查询订单列表。按某个具体时间查询，不使用此对象。)</para>
       
@@ -6062,14 +6104,14 @@
           <tbody>
             
             <row>
-              <entry>beginDate</entry>
+              <entry>begin_date</entry>
               <entry><link linkend="google.protobuf.Timestamp">google.protobuf.Timestamp</link></entry>
               <entry></entry>
               <entry><para>起始时间</para></entry>
             </row>
             
             <row>
-              <entry>endDate</entry>
+              <entry>end_date</entry>
               <entry><link linkend="google.protobuf.Timestamp">google.protobuf.Timestamp</link></entry>
               <entry></entry>
               <entry><para>结束时间</para></entry>
@@ -6083,7 +6125,7 @@
     </section>
     
     
-    <section id="imageCom.ResultCode">
+    <section id="image.ResultCode">
       <title>ResultCode</title>
       <para>响应码</para>
       <table frame="all">
@@ -6102,19 +6144,19 @@
           <tbody>
             
             <row>
-              <entry>UNDEFINED</entry>
+              <entry>RESULT_CODE_UNDEFINED</entry>
               <entry>0</entry>
-              <entry><para>未定义</para></entry>
+              <entry><para>0-未定义</para></entry>
             </row>
             
             <row>
-              <entry>FAIL</entry>
+              <entry>RESULT_CODE_FAIL</entry>
               <entry>1</entry>
               <entry><para>失败</para></entry>
             </row>
             
             <row>
-              <entry>SUCCESS</entry>
+              <entry>RESULT_CODE_SUCCESS</entry>
               <entry>2</entry>
               <entry><para>成功</para></entry>
             </row>
@@ -6131,148 +6173,15 @@
   </section>
   
   <section>
-    <title>image/imageServer.proto</title>
+    <title>image/server.proto</title>
     <para></para>
     
-    <section id="ironicServer.ImageAttrInfo">
-      <title>ImageAttrInfo</title>
-      <para></para>
-      
-      <table frame="all">
-        <title><classname>ImageAttrInfo</classname> Fields</title>
-        <tgroup cols="4">
-          <colspec colwidth="*"/>
-          <colspec colwidth="*"/>
-          <colspec colwidth="0.5*"/>
-          <colspec colwidth="3*"/>
-          <thead>
-            <row>
-              <entry>Field</entry>
-              <entry>Type</entry>
-              <entry>Label</entry>
-              <entry>Description</entry>
-            </row>
-          </thead>
-          <tbody>
-            
-            <row>
-              <entry>attrName</entry>
-              <entry><link linkend="string">string</link></entry>
-              <entry></entry>
-              <entry><para>属性、标签名称：例如docker</para></entry>
-            </row>
-            
-            <row>
-              <entry>attrAddType</entry>
-              <entry><link linkend="string">string</link></entry>
-              <entry></entry>
-              <entry><para>属性、标签的附加信息类型，例如可以说明是version表示版本号</para></entry>
-            </row>
-            
-            <row>
-              <entry>attrAddValue</entry>
-              <entry><link linkend="string">string</link></entry>
-              <entry></entry>
-              <entry><para>属性、标签附加的值,例docker的版本CE或者EE</para></entry>
-            </row>
-            
-          </tbody>
-        </tgroup>
-      </table>
-      
-      
-    </section>
-    
-    <section id="ironicServer.QryHeartbeatRequest">
-      <title>QryHeartbeatRequest</title>
-      <para>--------------- 健康监测---------------//</para>
-      
-      <table frame="all">
-        <title><classname>QryHeartbeatRequest</classname> Fields</title>
-        <tgroup cols="4">
-          <colspec colwidth="*"/>
-          <colspec colwidth="*"/>
-          <colspec colwidth="0.5*"/>
-          <colspec colwidth="3*"/>
-          <thead>
-            <row>
-              <entry>Field</entry>
-              <entry>Type</entry>
-              <entry>Label</entry>
-              <entry>Description</entry>
-            </row>
-          </thead>
-          <tbody>
-            
-            <row>
-              <entry>reqType</entry>
-              <entry><link linkend="ironicServer.QryHeartbeatRequest.ReqType">QryHeartbeatRequest.ReqType</link></entry>
-              <entry></entry>
-              <entry><para>请求类型，一般入参heartbeat</para></entry>
-            </row>
-            
-          </tbody>
-        </tgroup>
-      </table>
-      
-      
-    </section>
-    
-    <section id="ironicServer.QryHeartbeatResponse">
-      <title>QryHeartbeatResponse</title>
-      <para></para>
-      
-      <table frame="all">
-        <title><classname>QryHeartbeatResponse</classname> Fields</title>
-        <tgroup cols="4">
-          <colspec colwidth="*"/>
-          <colspec colwidth="*"/>
-          <colspec colwidth="0.5*"/>
-          <colspec colwidth="3*"/>
-          <thead>
-            <row>
-              <entry>Field</entry>
-              <entry>Type</entry>
-              <entry>Label</entry>
-              <entry>Description</entry>
-            </row>
-          </thead>
-          <tbody>
-            
-            <row>
-              <entry>resultCode</entry>
-              <entry><link linkend="imageCom.ResultCode">imageCom.ResultCode</link></entry>
-              <entry></entry>
-              <entry><para>响应码</para></entry>
-            </row>
-            
-            <row>
-              <entry>resultMsg</entry>
-              <entry><link linkend="string">string</link></entry>
-              <entry></entry>
-              <entry><para>响应消息描述</para></entry>
-            </row>
-            
-            <row>
-              <entry>resultObject</entry>
-              <entry><link linkend="ironicServer.QryHeartbeatResponse.QryHeartbeatRsp">QryHeartbeatResponse.QryHeartbeatRsp</link></entry>
-              <entry></entry>
-              <entry><para>响应对象</para></entry>
-            </row>
-            
-          </tbody>
-        </tgroup>
-      </table>
-      
-      
-    </section>
-    
-    <section id="ironicServer.QryHeartbeatResponse.ClusterInstance">
-      <title>QryHeartbeatResponse.ClusterInstance</title>
+    <section id="image.ClusterInstance">
+      <title>ClusterInstance</title>
       <para>节点信息</para>
       
       <table frame="all">
-        <title><classname>QryHeartbeatResponse.ClusterInstance</classname> Fields</title>
+        <title><classname>ClusterInstance</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -6289,22 +6198,22 @@
           <tbody>
             
             <row>
-              <entry>ipAddress</entry>
+              <entry>ip_address</entry>
               <entry><link linkend="string">string</link></entry>
               <entry></entry>
               <entry><para>应用ip</para></entry>
             </row>
             
             <row>
-              <entry>clusterName</entry>
+              <entry>cluster_name</entry>
               <entry><link linkend="string">string</link></entry>
               <entry></entry>
               <entry><para>应用名，集群名</para></entry>
             </row>
             
             <row>
-              <entry>appStatus</entry>
-              <entry><link linkend="ironicServer.QryHeartbeatResponse.AppStatus">QryHeartbeatResponse.AppStatus</link></entry>
+              <entry>app_status</entry>
+              <entry><link linkend="image.AppStatus">AppStatus</link></entry>
               <entry></entry>
               <entry><para>运行状态</para></entry>
             </row>
@@ -6323,124 +6232,19 @@
       
     </section>
     
-    <section id="ironicServer.QryHeartbeatResponse.QryHeartbeatRsp">
-      <title>QryHeartbeatResponse.QryHeartbeatRsp</title>
-      <para>健康监测应答对象</para>
-      
-      <table frame="all">
-        <title><classname>QryHeartbeatResponse.QryHeartbeatRsp</classname> Fields</title>
-        <tgroup cols="4">
-          <colspec colwidth="*"/>
-          <colspec colwidth="*"/>
-          <colspec colwidth="0.5*"/>
-          <colspec colwidth="3*"/>
-          <thead>
-            <row>
-              <entry>Field</entry>
-              <entry>Type</entry>
-              <entry>Label</entry>
-              <entry>Description</entry>
-            </row>
-          </thead>
-          <tbody>
-            
-            <row>
-              <entry>clusterInstances</entry>
-              <entry><link linkend="ironicServer.QryHeartbeatResponse.ClusterInstance">QryHeartbeatResponse.ClusterInstance</link></entry>
-              <entry>repeated</entry>
-              <entry><para>应用信息</para></entry>
-            </row>
-            
-          </tbody>
-        </tgroup>
-      </table>
+    <section id="image.HeatlthRequest">
+      <title>HeatlthRequest</title>
+      <para>--------------- 健康监测---------------//</para><para>不需要请求体</para>
       
       
     </section>
     
-    <section id="ironicServer.QryImageInfoRequest">
-      <title>QryImageInfoRequest</title>
-      <para>--------------- 查询镜像列表---------------//</para>
-      
-      <table frame="all">
-        <title><classname>QryImageInfoRequest</classname> Fields</title>
-        <tgroup cols="4">
-          <colspec colwidth="*"/>
-          <colspec colwidth="*"/>
-          <colspec colwidth="0.5*"/>
-          <colspec colwidth="3*"/>
-          <thead>
-            <row>
-              <entry>Field</entry>
-              <entry>Type</entry>
-              <entry>Label</entry>
-              <entry>Description</entry>
-            </row>
-          </thead>
-          <tbody>
-            
-            <row>
-              <entry>imageName</entry>
-              <entry><link linkend="string">string</link></entry>
-              <entry></entry>
-              <entry><para>镜像名称</para></entry>
-            </row>
-            
-            <row>
-              <entry>imageType</entry>
-              <entry><link linkend="ironicServer.ImageType">ImageType</link></entry>
-              <entry></entry>
-              <entry><para>系统类型，使用枚举，比如常用的CentOS\Ubuntu\openSUSE等</para></entry>
-            </row>
-            
-            <row>
-              <entry>version</entry>
-              <entry><link linkend="string">string</link></entry>
-              <entry></entry>
-              <entry><para>系统大版本号，比如CentOS的7.4,7.5,7.6等</para></entry>
-            </row>
-            
-            <row>
-              <entry>subVersion</entry>
-              <entry><link linkend="string">string</link></entry>
-              <entry></entry>
-              <entry><para>系统的小版本号，例如CentOS7.4下的1708</para></entry>
-            </row>
-            
-            <row>
-              <entry>format</entry>
-              <entry><link linkend="ironicServer.ImageFormat">ImageFormat</link></entry>
-              <entry></entry>
-              <entry><para>镜像的格式，使用枚举，例如iso，qcow2等</para></entry>
-            </row>
-            
-            <row>
-              <entry>imageAttrs</entry>
-              <entry><link linkend="ironicServer.ImageAttrInfo">ImageAttrInfo</link></entry>
-              <entry>repeated</entry>
-              <entry><para>镜像附加属性</para></entry>
-            </row>
-            
-            <row>
-              <entry>pageInfo</entry>
-              <entry><link linkend="imageCom.PageInfo">imageCom.PageInfo</link></entry>
-              <entry></entry>
-              <entry><para>若没有入参，则默认查询阈值为第一页10条记录</para></entry>
-            </row>
-            
-          </tbody>
-        </tgroup>
-      </table>
-      
-      
-    </section>
-    
-    <section id="ironicServer.QryImageInfoResponse">
-      <title>QryImageInfoResponse</title>
+    <section id="image.HeatlthResponse">
+      <title>HeatlthResponse</title>
       <para></para>
       
       <table frame="all">
-        <title><classname>QryImageInfoResponse</classname> Fields</title>
+        <title><classname>HeatlthResponse</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -6457,23 +6261,16 @@
           <tbody>
             
             <row>
-              <entry>resultCode</entry>
-              <entry><link linkend="imageCom.ResultCode">imageCom.ResultCode</link></entry>
+              <entry>status</entry>
+              <entry><link linkend="image.ResponseStatus">ResponseStatus</link></entry>
               <entry></entry>
               <entry><para>响应码</para></entry>
             </row>
             
             <row>
-              <entry>resultMsg</entry>
-              <entry><link linkend="string">string</link></entry>
-              <entry></entry>
-              <entry><para>响应消息描述</para></entry>
-            </row>
-            
-            <row>
-              <entry>resultObject</entry>
-              <entry><link linkend="ironicServer.QryImageInfoResponse.QryImageInfoRsp">QryImageInfoResponse.QryImageInfoRsp</link></entry>
-              <entry></entry>
+              <entry>cluster_instances</entry>
+              <entry><link linkend="image.ClusterInstance">ClusterInstance</link></entry>
+              <entry>repeated</entry>
               <entry><para>响应对象</para></entry>
             </row>
             
@@ -6484,12 +6281,12 @@
       
     </section>
     
-    <section id="ironicServer.QryImageInfoResponse.ImageInfoRsp">
-      <title>QryImageInfoResponse.ImageInfoRsp</title>
-      <para>镜像信息</para>
+    <section id="image.ImageAttr">
+      <title>ImageAttr</title>
+      <para></para>
       
       <table frame="all">
-        <title><classname>QryImageInfoResponse.ImageInfoRsp</classname> Fields</title>
+        <title><classname>ImageAttr</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -6506,22 +6303,71 @@
           <tbody>
             
             <row>
-              <entry>imageId</entry>
+              <entry>attr_name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>属性、标签名称：例如docker</para></entry>
+            </row>
+            
+            <row>
+              <entry>attr_add_type</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>属性、标签的附加信息类型，例如可以说明是version表示版本号</para></entry>
+            </row>
+            
+            <row>
+              <entry>attr_add_value</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>属性、标签附加的值,例docker的版本CE或者EE</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="image.ImageObject">
+      <title>ImageObject</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>ImageObject</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>image_id</entry>
               <entry><link linkend="int64">int64</link></entry>
               <entry></entry>
               <entry><para>镜像标识</para></entry>
             </row>
             
             <row>
-              <entry>imageName</entry>
+              <entry>image_name</entry>
               <entry><link linkend="string">string</link></entry>
               <entry></entry>
               <entry><para>镜像名称</para></entry>
             </row>
             
             <row>
-              <entry>imageType</entry>
-              <entry><link linkend="ironicServer.ImageType">ImageType</link></entry>
+              <entry>image_type</entry>
+              <entry><link linkend="image.ImageType">ImageType</link></entry>
               <entry></entry>
               <entry><para>系统类型，使用枚举，比如常用的CentOS\Ubuntu\openSUSE等</para></entry>
             </row>
@@ -6534,7 +6380,7 @@
             </row>
             
             <row>
-              <entry>subVersion</entry>
+              <entry>sub_version</entry>
               <entry><link linkend="string">string</link></entry>
               <entry></entry>
               <entry><para>系统的小版本号，例如CentOS7.4下的1708</para></entry>
@@ -6542,13 +6388,13 @@
             
             <row>
               <entry>format</entry>
-              <entry><link linkend="ironicServer.ImageFormat">ImageFormat</link></entry>
+              <entry><link linkend="image.ImageFormat">ImageFormat</link></entry>
               <entry></entry>
               <entry><para>镜像的格式，使用枚举，例如iso，qcow2等</para></entry>
             </row>
             
             <row>
-              <entry>checkSum</entry>
+              <entry>check_sum</entry>
               <entry><link linkend="string">string</link></entry>
               <entry></entry>
               <entry><para>镜像md5完整性校验码</para></entry>
@@ -6569,8 +6415,8 @@
             </row>
             
             <row>
-              <entry>imageAttrs</entry>
-              <entry><link linkend="ironicServer.ImageAttrInfo">ImageAttrInfo</link></entry>
+              <entry>image_attrs</entry>
+              <entry><link linkend="image.ImageAttr">ImageAttr</link></entry>
               <entry>repeated</entry>
               <entry><para>镜像附加属性</para></entry>
             </row>
@@ -6582,12 +6428,12 @@
       
     </section>
     
-    <section id="ironicServer.QryImageInfoResponse.QryImageInfoRsp">
-      <title>QryImageInfoResponse.QryImageInfoRsp</title>
-      <para>查询镜像应答对象</para>
+    <section id="image.QueryRequest">
+      <title>QueryRequest</title>
+      <para>--------------- 查询镜像列表---------------//</para>
       
       <table frame="all">
-        <title><classname>QryImageInfoResponse.QryImageInfoRsp</classname> Fields</title>
+        <title><classname>QueryRequest</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -6604,15 +6450,99 @@
           <tbody>
             
             <row>
-              <entry>imageInfoRsps</entry>
-              <entry><link linkend="ironicServer.QryImageInfoResponse.ImageInfoRsp">QryImageInfoResponse.ImageInfoRsp</link></entry>
-              <entry>repeated</entry>
-              <entry><para>节点</para></entry>
+              <entry>image_name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>镜像名称</para></entry>
             </row>
             
             <row>
-              <entry>pageInfo</entry>
-              <entry><link linkend="imageCom.PageInfo">imageCom.PageInfo</link></entry>
+              <entry>image_type</entry>
+              <entry><link linkend="image.ImageType">ImageType</link></entry>
+              <entry></entry>
+              <entry><para>系统类型，使用枚举，比如常用的CentOS\Ubuntu\openSUSE等</para></entry>
+            </row>
+            
+            <row>
+              <entry>version</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>系统大版本号，比如CentOS的7.4,7.5,7.6等</para></entry>
+            </row>
+            
+            <row>
+              <entry>sub_version</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>系统的小版本号，例如CentOS7.4下的1708</para></entry>
+            </row>
+            
+            <row>
+              <entry>format</entry>
+              <entry><link linkend="image.ImageFormat">ImageFormat</link></entry>
+              <entry></entry>
+              <entry><para>镜像的格式，使用枚举，例如iso，qcow2等</para></entry>
+            </row>
+            
+            <row>
+              <entry>image_attrs</entry>
+              <entry><link linkend="image.ImageAttr">ImageAttr</link></entry>
+              <entry>repeated</entry>
+              <entry><para>镜像附加属性</para></entry>
+            </row>
+            
+            <row>
+              <entry>page_info</entry>
+              <entry><link linkend="image.PageInfo">PageInfo</link></entry>
+              <entry></entry>
+              <entry><para>若没有入参，则默认查询阈值为第一页10条记录</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="image.QueryResponse">
+      <title>QueryResponse</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>QueryResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="image.ResponseStatus">ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>响应码</para></entry>
+            </row>
+            
+            <row>
+              <entry>images</entry>
+              <entry><link linkend="image.ImageObject">ImageObject</link></entry>
+              <entry>repeated</entry>
+              <entry><para>响应对象</para></entry>
+            </row>
+            
+            <row>
+              <entry>page_info</entry>
+              <entry><link linkend="image.PageInfo">PageInfo</link></entry>
               <entry></entry>
               <entry><para></para></entry>
             </row>
@@ -6625,7 +6555,54 @@
     </section>
     
     
-    <section id="ironicServer.ImageFormat">
+    <section id="image.AppStatus">
+      <title>AppStatus</title>
+      <para></para>
+      <table frame="all">
+        <title><classname>AppStatus</classname> Values</title>
+        <tgroup cols="3">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Name</entry>
+              <entry>Number</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>APP_STATUS_UNDEFINED</entry>
+              <entry>0</entry>
+              <entry><para>未知</para></entry>
+            </row>
+            
+            <row>
+              <entry>APP_STATUS_STOPPED</entry>
+              <entry>1</entry>
+              <entry><para>活动中</para></entry>
+            </row>
+            
+            <row>
+              <entry>APP_STATUS_ACTIVE</entry>
+              <entry>2</entry>
+              <entry><para>未知</para></entry>
+            </row>
+            
+            <row>
+              <entry>APP_STATUS_UNKNOWN</entry>
+              <entry>3</entry>
+              <entry><para>已停止</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    
+    <section id="image.ImageFormat">
       <title>ImageFormat</title>
       <para>镜像格式</para>
       <table frame="all">
@@ -6644,19 +6621,19 @@
           <tbody>
             
             <row>
-              <entry>UNDEFINED_1</entry>
+              <entry>IMAGE_FORMAT_UNDEFINED</entry>
               <entry>0</entry>
               <entry><para></para></entry>
             </row>
             
             <row>
-              <entry>ISO</entry>
+              <entry>IMAGE_FORMAT_ISO</entry>
               <entry>1</entry>
               <entry><para></para></entry>
             </row>
             
             <row>
-              <entry>QCOW2</entry>
+              <entry>IMAGE_FORMAT_QCOW2</entry>
               <entry>2</entry>
               <entry><para></para></entry>
             </row>
@@ -6666,7 +6643,7 @@
       </table>
     </section>
     
-    <section id="ironicServer.ImageType">
+    <section id="image.ImageType">
       <title>ImageType</title>
       <para>系统类型</para>
       <table frame="all">
@@ -6685,109 +6662,27 @@
           <tbody>
             
             <row>
-              <entry>UNDEFINED_0</entry>
+              <entry>IMAGE_TYPE_UNDEFINED</entry>
               <entry>0</entry>
               <entry><para></para></entry>
             </row>
             
             <row>
-              <entry>CENTOS</entry>
+              <entry>IMAGE_TYPE_CENTOS</entry>
               <entry>1</entry>
               <entry><para></para></entry>
             </row>
             
             <row>
-              <entry>UBUNTU</entry>
+              <entry>IMAGE_TYPE_UBUNTU</entry>
               <entry>2</entry>
               <entry><para></para></entry>
             </row>
             
             <row>
-              <entry>OPENSUSE</entry>
+              <entry>IMAGE_TYPE_OPENSUSE</entry>
               <entry>3</entry>
               <entry><para></para></entry>
-            </row>
-            
-          </tbody>
-        </tgroup>
-      </table>
-    </section>
-    
-    <section id="ironicServer.QryHeartbeatRequest.ReqType">
-      <title>QryHeartbeatRequest.ReqType</title>
-      <para>镜像格式</para>
-      <table frame="all">
-        <title><classname>QryHeartbeatRequest.ReqType</classname> Values</title>
-        <tgroup cols="3">
-          <colspec colwidth="*"/>
-          <colspec colwidth="*"/>
-          <colspec colwidth="3*"/>
-          <thead>
-            <row>
-              <entry>Name</entry>
-              <entry>Number</entry>
-              <entry>Description</entry>
-            </row>
-          </thead>
-          <tbody>
-            
-            <row>
-              <entry>UNDEFINED</entry>
-              <entry>0</entry>
-              <entry><para></para></entry>
-            </row>
-            
-            <row>
-              <entry>HEARTBEAT</entry>
-              <entry>1</entry>
-              <entry><para>健康检测</para></entry>
-            </row>
-            
-          </tbody>
-        </tgroup>
-      </table>
-    </section>
-    
-    <section id="ironicServer.QryHeartbeatResponse.AppStatus">
-      <title>QryHeartbeatResponse.AppStatus</title>
-      <para></para>
-      <table frame="all">
-        <title><classname>QryHeartbeatResponse.AppStatus</classname> Values</title>
-        <tgroup cols="3">
-          <colspec colwidth="*"/>
-          <colspec colwidth="*"/>
-          <colspec colwidth="3*"/>
-          <thead>
-            <row>
-              <entry>Name</entry>
-              <entry>Number</entry>
-              <entry>Description</entry>
-            </row>
-          </thead>
-          <tbody>
-            
-            <row>
-              <entry>UNDEFINED</entry>
-              <entry>0</entry>
-              <entry><para>未知</para></entry>
-            </row>
-            
-            <row>
-              <entry>STOPPED</entry>
-              <entry>1</entry>
-              <entry><para>活动中</para></entry>
-            </row>
-            
-            <row>
-              <entry>ACTIVE</entry>
-              <entry>2</entry>
-              <entry><para>未知</para></entry>
-            </row>
-            
-            <row>
-              <entry>UNKNOWN</entry>
-              <entry>3</entry>
-              <entry><para>已停止</para></entry>
             </row>
             
           </tbody>
@@ -6799,11 +6694,11 @@
     
 
     
-    <section id="ironicServer.ImageServer">
-      <title>ImageServer</title>
+    <section id="image.Image">
+      <title>Image</title>
       <para></para>
       <table frame="all">
-        <title><classname>ImageServer</classname> Methods</title>
+        <title><classname>Image</classname> Methods</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -6820,16 +6715,16 @@
           <tbody>
             
             <row>
-              <entry>qryImages</entry>
-              <entry><link linkend="ironicServer.QryImageInfoRequest">QryImageInfoRequest</link></entry>
-              <entry><link linkend="ironicServer.QryImageInfoResponse">QryImageInfoResponse</link></entry>
+              <entry>Query</entry>
+              <entry><link linkend="image.QueryRequest">QueryRequest</link></entry>
+              <entry><link linkend="image.QueryResponse">QueryResponse</link></entry>
               <entry><para>查询镜像列表</para></entry>
             </row>
             
             <row>
-              <entry>qryHeartbeat</entry>
-              <entry><link linkend="ironicServer.QryHeartbeatRequest">QryHeartbeatRequest</link></entry>
-              <entry><link linkend="ironicServer.QryHeartbeatResponse">QryHeartbeatResponse</link></entry>
+              <entry>Heatlth</entry>
+              <entry><link linkend="image.HeatlthRequest">HeatlthRequest</link></entry>
+              <entry><link linkend="image.HeatlthResponse">HeatlthResponse</link></entry>
               <entry><para>健康监测</para></entry>
             </row>
             

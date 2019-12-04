@@ -163,33 +163,31 @@
     - [Greeter](#greeter.Greeter)
   
 
-- [image/imageCom.proto](#image/imageCom.proto)
-    - [PageInfo](#imageCom.PageInfo)
-    - [TimeScope](#imageCom.TimeScope)
+- [image/common.proto](#image/common.proto)
+    - [PageInfo](#image.PageInfo)
+    - [ResponseStatus](#image.ResponseStatus)
+    - [TimeScope](#image.TimeScope)
   
-    - [ResultCode](#imageCom.ResultCode)
+    - [ResultCode](#image.ResultCode)
   
   
   
 
-- [image/imageServer.proto](#image/imageServer.proto)
-    - [ImageAttrInfo](#ironicServer.ImageAttrInfo)
-    - [QryHeartbeatRequest](#ironicServer.QryHeartbeatRequest)
-    - [QryHeartbeatResponse](#ironicServer.QryHeartbeatResponse)
-    - [QryHeartbeatResponse.ClusterInstance](#ironicServer.QryHeartbeatResponse.ClusterInstance)
-    - [QryHeartbeatResponse.QryHeartbeatRsp](#ironicServer.QryHeartbeatResponse.QryHeartbeatRsp)
-    - [QryImageInfoRequest](#ironicServer.QryImageInfoRequest)
-    - [QryImageInfoResponse](#ironicServer.QryImageInfoResponse)
-    - [QryImageInfoResponse.ImageInfoRsp](#ironicServer.QryImageInfoResponse.ImageInfoRsp)
-    - [QryImageInfoResponse.QryImageInfoRsp](#ironicServer.QryImageInfoResponse.QryImageInfoRsp)
+- [image/server.proto](#image/server.proto)
+    - [ClusterInstance](#image.ClusterInstance)
+    - [HeatlthRequest](#image.HeatlthRequest)
+    - [HeatlthResponse](#image.HeatlthResponse)
+    - [ImageAttr](#image.ImageAttr)
+    - [ImageObject](#image.ImageObject)
+    - [QueryRequest](#image.QueryRequest)
+    - [QueryResponse](#image.QueryResponse)
   
-    - [ImageFormat](#ironicServer.ImageFormat)
-    - [ImageType](#ironicServer.ImageType)
-    - [QryHeartbeatRequest.ReqType](#ironicServer.QryHeartbeatRequest.ReqType)
-    - [QryHeartbeatResponse.AppStatus](#ironicServer.QryHeartbeatResponse.AppStatus)
+    - [AppStatus](#image.AppStatus)
+    - [ImageFormat](#image.ImageFormat)
+    - [ImageType](#image.ImageType)
   
   
-    - [ImageServer](#ironicServer.ImageServer)
+    - [Image](#image.Image)
   
 
 - [ironic/ironicCom.proto](#ironic/ironicCom.proto)
@@ -2480,14 +2478,14 @@ The greeting service definition.
 
 
 
-<a name="image/imageCom.proto"></a>
+<a name="image/common.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## image/imageCom.proto
+## image/common.proto
 
 
 
-<a name="imageCom.PageInfo"></a>
+<a name="image.PageInfo"></a>
 
 ### PageInfo
 分页信息(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)
@@ -2495,121 +2493,25 @@ The greeting service definition.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| pageIndex | [int32](#int32) |  | 当前页 |
-| pageSize | [int32](#int32) |  | 每页数量 |
-| pageCount | [int32](#int32) |  | 总页数 |
-| rowCount | [int32](#int32) |  | 总记录数 |
+| page_index | [int32](#int32) |  | 当前页 |
+| page_size | [int32](#int32) |  | 每页数量 |
+| page_count | [int32](#int32) |  | 总页数 |
+| row_count | [int32](#int32) |  | 总记录数 |
 
 
 
 
 
 
-<a name="imageCom.TimeScope"></a>
+<a name="image.ResponseStatus"></a>
 
-### TimeScope
-时间范围信息(用于指定时间范围。如按受理开始时间、受理结束时间查询订单列表。按某个具体时间查询，不使用此对象。)
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| beginDate | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | 起始时间 |
-| endDate | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | 结束时间 |
-
-
-
-
-
- 
-
-
-<a name="imageCom.ResultCode"></a>
-
-### ResultCode
-响应码
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| UNDEFINED | 0 | 未定义 |
-| FAIL | 1 | 失败 |
-| SUCCESS | 2 | 成功 |
-
-
- 
-
- 
-
- 
-
-
-
-<a name="image/imageServer.proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## image/imageServer.proto
-
-
-
-<a name="ironicServer.ImageAttrInfo"></a>
-
-### ImageAttrInfo
-
+### ResponseStatus
+请求返回状态
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| attrName | [string](#string) |  | 属性、标签名称：例如docker |
-| attrAddType | [string](#string) |  | 属性、标签的附加信息类型，例如可以说明是version表示版本号 |
-| attrAddValue | [string](#string) |  | 属性、标签附加的值,例docker的版本CE或者EE |
-
-
-
-
-
-
-<a name="ironicServer.QryHeartbeatRequest"></a>
-
-### QryHeartbeatRequest
---------------- 健康监测---------------//
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| reqType | [QryHeartbeatRequest.ReqType](#ironicServer.QryHeartbeatRequest.ReqType) |  | 请求类型，一般入参heartbeat |
-
-
-
-
-
-
-<a name="ironicServer.QryHeartbeatResponse"></a>
-
-### QryHeartbeatResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| resultCode | [imageCom.ResultCode](#imageCom.ResultCode) |  | 响应码 |
-| resultMsg | [string](#string) |  | 响应消息描述 |
-| resultObject | [QryHeartbeatResponse.QryHeartbeatRsp](#ironicServer.QryHeartbeatResponse.QryHeartbeatRsp) |  | 响应对象 |
-
-
-
-
-
-
-<a name="ironicServer.QryHeartbeatResponse.ClusterInstance"></a>
-
-### QryHeartbeatResponse.ClusterInstance
-节点信息
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| ipAddress | [string](#string) |  | 应用ip |
-| clusterName | [string](#string) |  | 应用名，集群名 |
-| appStatus | [QryHeartbeatResponse.AppStatus](#ironicServer.QryHeartbeatResponse.AppStatus) |  | 运行状态 |
+| code | [ResultCode](#image.ResultCode) |  | 状态码 |
 | message | [string](#string) |  | 信息 |
 
 
@@ -2617,93 +2519,16 @@ The greeting service definition.
 
 
 
-<a name="ironicServer.QryHeartbeatResponse.QryHeartbeatRsp"></a>
+<a name="image.TimeScope"></a>
 
-### QryHeartbeatResponse.QryHeartbeatRsp
-健康监测应答对象
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| clusterInstances | [QryHeartbeatResponse.ClusterInstance](#ironicServer.QryHeartbeatResponse.ClusterInstance) | repeated | 应用信息 |
-
-
-
-
-
-
-<a name="ironicServer.QryImageInfoRequest"></a>
-
-### QryImageInfoRequest
---------------- 查询镜像列表---------------//
+### TimeScope
+时间范围信息(用于指定时间范围。如按受理开始时间、受理结束时间查询订单列表。按某个具体时间查询，不使用此对象。)
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| imageName | [string](#string) |  | 镜像名称 |
-| imageType | [ImageType](#ironicServer.ImageType) |  | 系统类型，使用枚举，比如常用的CentOS\Ubuntu\openSUSE等 |
-| version | [string](#string) |  | 系统大版本号，比如CentOS的7.4,7.5,7.6等 |
-| subVersion | [string](#string) |  | 系统的小版本号，例如CentOS7.4下的1708 |
-| format | [ImageFormat](#ironicServer.ImageFormat) |  | 镜像的格式，使用枚举，例如iso，qcow2等 |
-| imageAttrs | [ImageAttrInfo](#ironicServer.ImageAttrInfo) | repeated | 镜像附加属性 |
-| pageInfo | [imageCom.PageInfo](#imageCom.PageInfo) |  | 若没有入参，则默认查询阈值为第一页10条记录 |
-
-
-
-
-
-
-<a name="ironicServer.QryImageInfoResponse"></a>
-
-### QryImageInfoResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| resultCode | [imageCom.ResultCode](#imageCom.ResultCode) |  | 响应码 |
-| resultMsg | [string](#string) |  | 响应消息描述 |
-| resultObject | [QryImageInfoResponse.QryImageInfoRsp](#ironicServer.QryImageInfoResponse.QryImageInfoRsp) |  | 响应对象 |
-
-
-
-
-
-
-<a name="ironicServer.QryImageInfoResponse.ImageInfoRsp"></a>
-
-### QryImageInfoResponse.ImageInfoRsp
-镜像信息
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| imageId | [int64](#int64) |  | 镜像标识 |
-| imageName | [string](#string) |  | 镜像名称 |
-| imageType | [ImageType](#ironicServer.ImageType) |  | 系统类型，使用枚举，比如常用的CentOS\Ubuntu\openSUSE等 |
-| version | [string](#string) |  | 系统大版本号，比如CentOS的7.4,7.5,7.6等 |
-| subVersion | [string](#string) |  | 系统的小版本号，例如CentOS7.4下的1708 |
-| format | [ImageFormat](#ironicServer.ImageFormat) |  | 镜像的格式，使用枚举，例如iso，qcow2等 |
-| checkSum | [string](#string) |  | 镜像md5完整性校验码 |
-| uri | [string](#string) |  | 镜像存储在ceph或者其他后端存储的路径或者访问地址 |
-| remark | [string](#string) |  | 镜像附加信息 |
-| imageAttrs | [ImageAttrInfo](#ironicServer.ImageAttrInfo) | repeated | 镜像附加属性 |
-
-
-
-
-
-
-<a name="ironicServer.QryImageInfoResponse.QryImageInfoRsp"></a>
-
-### QryImageInfoResponse.QryImageInfoRsp
-查询镜像应答对象
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| imageInfoRsps | [QryImageInfoResponse.ImageInfoRsp](#ironicServer.QryImageInfoResponse.ImageInfoRsp) | repeated | 节点 |
-| pageInfo | [imageCom.PageInfo](#imageCom.PageInfo) |  |  |
+| begin_date | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | 起始时间 |
+| end_date | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | 结束时间 |
 
 
 
@@ -2712,56 +2537,198 @@ The greeting service definition.
  
 
 
-<a name="ironicServer.ImageFormat"></a>
+<a name="image.ResultCode"></a>
+
+### ResultCode
+响应码
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| RESULT_CODE_UNDEFINED | 0 | 0-未定义 |
+| RESULT_CODE_FAIL | 1 | 失败 |
+| RESULT_CODE_SUCCESS | 2 | 成功 |
+
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="image/server.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## image/server.proto
+
+
+
+<a name="image.ClusterInstance"></a>
+
+### ClusterInstance
+节点信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ip_address | [string](#string) |  | 应用ip |
+| cluster_name | [string](#string) |  | 应用名，集群名 |
+| app_status | [AppStatus](#image.AppStatus) |  | 运行状态 |
+| message | [string](#string) |  | 信息 |
+
+
+
+
+
+
+<a name="image.HeatlthRequest"></a>
+
+### HeatlthRequest
+--------------- 健康监测---------------//
+
+不需要请求体
+
+
+
+
+
+
+<a name="image.HeatlthResponse"></a>
+
+### HeatlthResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [ResponseStatus](#image.ResponseStatus) |  | 响应码 |
+| cluster_instances | [ClusterInstance](#image.ClusterInstance) | repeated | 响应对象 |
+
+
+
+
+
+
+<a name="image.ImageAttr"></a>
+
+### ImageAttr
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| attr_name | [string](#string) |  | 属性、标签名称：例如docker |
+| attr_add_type | [string](#string) |  | 属性、标签的附加信息类型，例如可以说明是version表示版本号 |
+| attr_add_value | [string](#string) |  | 属性、标签附加的值,例docker的版本CE或者EE |
+
+
+
+
+
+
+<a name="image.ImageObject"></a>
+
+### ImageObject
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| image_id | [int64](#int64) |  | 镜像标识 |
+| image_name | [string](#string) |  | 镜像名称 |
+| image_type | [ImageType](#image.ImageType) |  | 系统类型，使用枚举，比如常用的CentOS\Ubuntu\openSUSE等 |
+| version | [string](#string) |  | 系统大版本号，比如CentOS的7.4,7.5,7.6等 |
+| sub_version | [string](#string) |  | 系统的小版本号，例如CentOS7.4下的1708 |
+| format | [ImageFormat](#image.ImageFormat) |  | 镜像的格式，使用枚举，例如iso，qcow2等 |
+| check_sum | [string](#string) |  | 镜像md5完整性校验码 |
+| uri | [string](#string) |  | 镜像存储在ceph或者其他后端存储的路径或者访问地址 |
+| remark | [string](#string) |  | 镜像附加信息 |
+| image_attrs | [ImageAttr](#image.ImageAttr) | repeated | 镜像附加属性 |
+
+
+
+
+
+
+<a name="image.QueryRequest"></a>
+
+### QueryRequest
+--------------- 查询镜像列表---------------//
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| image_name | [string](#string) |  | 镜像名称 |
+| image_type | [ImageType](#image.ImageType) |  | 系统类型，使用枚举，比如常用的CentOS\Ubuntu\openSUSE等 |
+| version | [string](#string) |  | 系统大版本号，比如CentOS的7.4,7.5,7.6等 |
+| sub_version | [string](#string) |  | 系统的小版本号，例如CentOS7.4下的1708 |
+| format | [ImageFormat](#image.ImageFormat) |  | 镜像的格式，使用枚举，例如iso，qcow2等 |
+| image_attrs | [ImageAttr](#image.ImageAttr) | repeated | 镜像附加属性 |
+| page_info | [PageInfo](#image.PageInfo) |  | 若没有入参，则默认查询阈值为第一页10条记录 |
+
+
+
+
+
+
+<a name="image.QueryResponse"></a>
+
+### QueryResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [ResponseStatus](#image.ResponseStatus) |  | 响应码 |
+| images | [ImageObject](#image.ImageObject) | repeated | 响应对象 |
+| page_info | [PageInfo](#image.PageInfo) |  |  |
+
+
+
+
+
+ 
+
+
+<a name="image.AppStatus"></a>
+
+### AppStatus
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| APP_STATUS_UNDEFINED | 0 | 未知 |
+| APP_STATUS_STOPPED | 1 | 活动中 |
+| APP_STATUS_ACTIVE | 2 | 未知 |
+| APP_STATUS_UNKNOWN | 3 | 已停止 |
+
+
+
+<a name="image.ImageFormat"></a>
 
 ### ImageFormat
 镜像格式
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| UNDEFINED_1 | 0 |  |
-| ISO | 1 |  |
-| QCOW2 | 2 |  |
+| IMAGE_FORMAT_UNDEFINED | 0 |  |
+| IMAGE_FORMAT_ISO | 1 |  |
+| IMAGE_FORMAT_QCOW2 | 2 |  |
 
 
 
-<a name="ironicServer.ImageType"></a>
+<a name="image.ImageType"></a>
 
 ### ImageType
 系统类型
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| UNDEFINED_0 | 0 |  |
-| CENTOS | 1 |  |
-| UBUNTU | 2 |  |
-| OPENSUSE | 3 |  |
-
-
-
-<a name="ironicServer.QryHeartbeatRequest.ReqType"></a>
-
-### QryHeartbeatRequest.ReqType
-镜像格式
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| UNDEFINED | 0 |  |
-| HEARTBEAT | 1 | 健康检测 |
-
-
-
-<a name="ironicServer.QryHeartbeatResponse.AppStatus"></a>
-
-### QryHeartbeatResponse.AppStatus
-
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| UNDEFINED | 0 | 未知 |
-| STOPPED | 1 | 活动中 |
-| ACTIVE | 2 | 未知 |
-| UNKNOWN | 3 | 已停止 |
+| IMAGE_TYPE_UNDEFINED | 0 |  |
+| IMAGE_TYPE_CENTOS | 1 |  |
+| IMAGE_TYPE_UBUNTU | 2 |  |
+| IMAGE_TYPE_OPENSUSE | 3 |  |
 
 
  
@@ -2769,15 +2736,15 @@ The greeting service definition.
  
 
 
-<a name="ironicServer.ImageServer"></a>
+<a name="image.Image"></a>
 
-### ImageServer
+### Image
 
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| qryImages | [QryImageInfoRequest](#ironicServer.QryImageInfoRequest) | [QryImageInfoResponse](#ironicServer.QryImageInfoResponse) | 查询镜像列表 |
-| qryHeartbeat | [QryHeartbeatRequest](#ironicServer.QryHeartbeatRequest) | [QryHeartbeatResponse](#ironicServer.QryHeartbeatResponse) | 健康监测 |
+| Query | [QueryRequest](#image.QueryRequest) | [QueryResponse](#image.QueryResponse) | 查询镜像列表 |
+| Heatlth | [HeatlthRequest](#image.HeatlthRequest) | [HeatlthResponse](#image.HeatlthResponse) | 健康监测 |
 
  
 
