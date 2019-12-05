@@ -1030,6 +1030,76 @@
       
     </section>
     
+    <section id="cmdb.HostCloudInfo">
+      <title>HostCloudInfo</title>
+      <para>主机域信息</para>
+      
+      <table frame="all">
+        <title><classname>HostCloudInfo</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>id</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>域ID</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_obj_id</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>对象类型</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_obj_icon</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>对象图标</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_inst_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>实体ID</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_obj_name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>对象名称</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_inst_name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>实体名称</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
     <section id="cmdb.HostInfoObject">
       <title>HostInfoObject</title>
       <para>主机内容信息</para>
@@ -1115,45 +1185,206 @@
             </row>
             
             <row>
-              <entry>bk_host_id</entry>
+              <entry>bk_host_outerip</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>外网IP</para></entry>
+            </row>
+            
+            <row>
+              <entry>operator</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>主要维护人</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_bak_operator</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>备份维护人</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_asset_id</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>固资编号</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_sn</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>设备SN</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_comment</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>备注</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_service_term</entry>
               <entry><link linkend="int32">int32</link></entry>
               <entry></entry>
-              <entry><para>主机ID</para></entry>
+              <entry><para>质保年限</para></entry>
             </row>
             
             <row>
-              <entry>state</entry>
+              <entry>bk_sla</entry>
               <entry><link linkend="string">string</link></entry>
               <entry></entry>
-              <entry><para>主机状态,有上线和下线两种</para></entry>
+              <entry><para>SLA级别</para></entry>
             </row>
             
             <row>
-              <entry>ipv6</entry>
+              <entry>bk_state_name</entry>
               <entry><link linkend="string">string</link></entry>
               <entry></entry>
-              <entry><para>ipv6的地址</para></entry>
+              <entry><para>所在国家</para></entry>
             </row>
             
             <row>
-              <entry>module_name</entry>
+              <entry>bk_province_name</entry>
               <entry><link linkend="string">string</link></entry>
-              <entry>repeated</entry>
-              <entry><para>设备角色(模块名)</para></entry>
+              <entry></entry>
+              <entry><para>所在省份</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_isp_name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>所属运营商</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_host_name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>主机名称</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_os_type</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>操作系统类型</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_os_name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>操作系统名称</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_os_version</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>操作系统版本</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_os_bit</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>操作系统位数</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_cpu</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>CPU逻辑核心数</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_cpu_mhz</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>CPU频率</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_cpu_module</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>CPU型号</para></entry>
             </row>
             
             <row>
               <entry>bk_mem</entry>
               <entry><link linkend="int32">int32</link></entry>
               <entry></entry>
-              <entry><para>内存</para></entry>
+              <entry><para>内存容量</para></entry>
             </row>
             
             <row>
               <entry>bk_disk</entry>
               <entry><link linkend="int32">int32</link></entry>
               <entry></entry>
-              <entry><para>硬盘(总量)</para></entry>
+              <entry><para>磁盘容量</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_mac</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>内网MAC地址</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_outer_mac</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>外网MAC</para></entry>
+            </row>
+            
+            <row>
+              <entry>create_time</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>录入时间</para></entry>
+            </row>
+            
+            <row>
+              <entry>import_from</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>录入方式</para></entry>
+            </row>
+            
+            <row>
+              <entry>cn2ip</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>CN2IP</para></entry>
+            </row>
+            
+            <row>
+              <entry>bond_type</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>Bond类型</para></entry>
+            </row>
+            
+            <row>
+              <entry>wan_gate</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>wan_gate</para></entry>
+            </row>
+            
+            <row>
+              <entry>cn2_gate</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>cn2_gate</para></entry>
             </row>
             
             <row>
@@ -1164,10 +1395,73 @@
             </row>
             
             <row>
+              <entry>ssh_port</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>ssh端口</para></entry>
+            </row>
+            
+            <row>
+              <entry>cn2ip_mask</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>cn2ip掩码数</para></entry>
+            </row>
+            
+            <row>
+              <entry>hostip_mask</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>设备ip掩码数</para></entry>
+            </row>
+            
+            <row>
+              <entry>function_code</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>设备功能代码</para></entry>
+            </row>
+            
+            <row>
+              <entry>state</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>主机状态</para></entry>
+            </row>
+            
+            <row>
               <entry>service_bandwidth</entry>
               <entry><link linkend="int32">int32</link></entry>
               <entry></entry>
               <entry><para>服务能力</para></entry>
+            </row>
+            
+            <row>
+              <entry>ipv6</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>ipv6地址</para></entry>
+            </row>
+            
+            <row>
+              <entry>module_name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry>repeated</entry>
+              <entry><para>设备角色(模块名)</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_host_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>主机ID</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_cloud_id</entry>
+              <entry><link linkend="cmdb.HostCloudInfo">HostCloudInfo</link></entry>
+              <entry>repeated</entry>
+              <entry><para>主机域信息</para></entry>
             </row>
             
           </tbody>
@@ -2787,6 +3081,13 @@
               <entry><para>区域对象</para></entry>
             </row>
             
+            <row>
+              <entry>conditions</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>查询条件</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>
@@ -4159,6 +4460,90 @@
       
     </section>
     
+    <section id="cmdb.UpdateVipStateRequest">
+      <title>UpdateVipStateRequest</title>
+      <para>修改VIP可用状态的请求体</para>
+      
+      <table frame="all">
+        <title><classname>UpdateVipStateRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>ip</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>ip地址</para></entry>
+            </row>
+            
+            <row>
+              <entry>state</entry>
+              <entry><link linkend="cmdb.OnlineState">OnlineState</link></entry>
+              <entry></entry>
+              <entry><para>状态</para></entry>
+            </row>
+            
+            <row>
+              <entry>ipv6</entry>
+              <entry><link linkend="bool">bool</link></entry>
+              <entry></entry>
+              <entry><para>默认接收ipv4地址，可以选择ipv6地址</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="cmdb.UpdateVipStateResponse">
+      <title>UpdateVipStateResponse</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>UpdateVipStateResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>返回的请求状态</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
     <section id="cmdb.VipObject">
       <title>VipObject</title>
       <para>VIP对象</para>
@@ -4216,10 +4601,17 @@
             </row>
             
             <row>
-              <entry>state</entry>
+              <entry>ipv4_state</entry>
               <entry><link linkend="string">string</link></entry>
               <entry></entry>
-              <entry><para>vip的state</para></entry>
+              <entry><para>ipv4的状态</para></entry>
+            </row>
+            
+            <row>
+              <entry>ipv6_state</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>ipv6的状态</para></entry>
             </row>
             
           </tbody>
@@ -4858,6 +5250,13 @@
               <entry><link linkend="cmdb.UpdateHostStateRequest">UpdateHostStateRequest</link></entry>
               <entry><link linkend="cmdb.UpdateHostStateResponse">UpdateHostStateResponse</link></entry>
               <entry><para>修改主机上下线状态</para></entry>
+            </row>
+            
+            <row>
+              <entry>UpdateVipState</entry>
+              <entry><link linkend="cmdb.UpdateVipStateRequest">UpdateVipStateRequest</link></entry>
+              <entry><link linkend="cmdb.UpdateVipStateResponse">UpdateVipStateResponse</link></entry>
+              <entry><para>VIP的状态更新</para></entry>
             </row>
             
           </tbody>
@@ -5582,6 +5981,761 @@
   </section>
   
   <section>
+    <title>image/common.proto</title>
+    <para></para>
+    
+    <section id="image.Paging">
+      <title>Paging</title>
+      <para>分页信息(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)</para>
+      
+      <table frame="all">
+        <title><classname>Paging</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>total_page</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>总页数</para></entry>
+            </row>
+            
+            <row>
+              <entry>page</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>当前页数</para></entry>
+            </row>
+            
+            <row>
+              <entry>per_page</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>每页显示的记录条数</para></entry>
+            </row>
+            
+            <row>
+              <entry>total_record</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>总记录数</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="image.ResponseStatus">
+      <title>ResponseStatus</title>
+      <para>请求返回状态</para>
+      
+      <table frame="all">
+        <title><classname>ResponseStatus</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>code</entry>
+              <entry><link linkend="image.StatusCode">StatusCode</link></entry>
+              <entry></entry>
+              <entry><para>状态码</para></entry>
+            </row>
+            
+            <row>
+              <entry>message</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>信息</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="image.TimeScope">
+      <title>TimeScope</title>
+      <para>时间范围信息(用于指定时间范围。如按受理开始时间、受理结束时间查询订单列表。按某个具体时间查询，不使用此对象。)</para>
+      
+      <table frame="all">
+        <title><classname>TimeScope</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>begin_date</entry>
+              <entry><link linkend="google.protobuf.Timestamp">google.protobuf.Timestamp</link></entry>
+              <entry></entry>
+              <entry><para>起始时间</para></entry>
+            </row>
+            
+            <row>
+              <entry>end_date</entry>
+              <entry><link linkend="google.protobuf.Timestamp">google.protobuf.Timestamp</link></entry>
+              <entry></entry>
+              <entry><para>结束时间</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    
+    <section id="image.StatusCode">
+      <title>StatusCode</title>
+      <para>请求返回状态码</para>
+      <table frame="all">
+        <title><classname>StatusCode</classname> Values</title>
+        <tgroup cols="3">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Name</entry>
+              <entry>Number</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>SUCCESS</entry>
+              <entry>0</entry>
+              <entry><para>成功</para></entry>
+            </row>
+            
+            <row>
+              <entry>INVALID_ARGUMENT</entry>
+              <entry>400</entry>
+              <entry><para>参数错误</para></entry>
+            </row>
+            
+            <row>
+              <entry>ACCESS_DENIED</entry>
+              <entry>403</entry>
+              <entry><para>访问拒绝</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    
+
+    
+
+    
+  </section>
+  
+  <section>
+    <title>image/image.proto</title>
+    <para></para>
+    
+    <section id="image.ClusterInstance">
+      <title>ClusterInstance</title>
+      <para>节点信息</para>
+      
+      <table frame="all">
+        <title><classname>ClusterInstance</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>ip_address</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>应用ip</para></entry>
+            </row>
+            
+            <row>
+              <entry>cluster_name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>应用名，集群名</para></entry>
+            </row>
+            
+            <row>
+              <entry>app_status</entry>
+              <entry><link linkend="image.AppStatus">AppStatus</link></entry>
+              <entry></entry>
+              <entry><para>运行状态</para></entry>
+            </row>
+            
+            <row>
+              <entry>message</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>信息</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="image.HealthRequest">
+      <title>HealthRequest</title>
+      <para>--------------- 健康监测---------------//</para><para>不需要请求体</para>
+      
+      
+    </section>
+    
+    <section id="image.HealthResponse">
+      <title>HealthResponse</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>HealthResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="image.ResponseStatus">ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>响应码</para></entry>
+            </row>
+            
+            <row>
+              <entry>cluster_instances</entry>
+              <entry><link linkend="image.ClusterInstance">ClusterInstance</link></entry>
+              <entry>repeated</entry>
+              <entry><para>响应对象</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="image.ImageAttr">
+      <title>ImageAttr</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>ImageAttr</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>attr_name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>属性、标签名称：例如docker</para></entry>
+            </row>
+            
+            <row>
+              <entry>attr_add_type</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>属性、标签的附加信息类型，例如可以说明是version表示版本号</para></entry>
+            </row>
+            
+            <row>
+              <entry>attr_add_value</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>属性、标签附加的值,例docker的版本CE或者EE</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="image.ImageObject">
+      <title>ImageObject</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>ImageObject</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>image_id</entry>
+              <entry><link linkend="int64">int64</link></entry>
+              <entry></entry>
+              <entry><para>镜像标识</para></entry>
+            </row>
+            
+            <row>
+              <entry>image_name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>镜像名称</para></entry>
+            </row>
+            
+            <row>
+              <entry>image_type</entry>
+              <entry><link linkend="image.ImageType">ImageType</link></entry>
+              <entry></entry>
+              <entry><para>系统类型，使用枚举，比如常用的CentOS\Ubuntu\openSUSE等</para></entry>
+            </row>
+            
+            <row>
+              <entry>version</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>系统大版本号，比如CentOS的7.4,7.5,7.6等</para></entry>
+            </row>
+            
+            <row>
+              <entry>sub_version</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>系统的小版本号，例如CentOS7.4下的1708</para></entry>
+            </row>
+            
+            <row>
+              <entry>format</entry>
+              <entry><link linkend="image.ImageFormat">ImageFormat</link></entry>
+              <entry></entry>
+              <entry><para>镜像的格式，使用枚举，例如iso，qcow2等</para></entry>
+            </row>
+            
+            <row>
+              <entry>check_sum</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>镜像md5完整性校验码</para></entry>
+            </row>
+            
+            <row>
+              <entry>uri</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>镜像存储在ceph或者其他后端存储的路径或者访问地址</para></entry>
+            </row>
+            
+            <row>
+              <entry>remark</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>镜像附加信息</para></entry>
+            </row>
+            
+            <row>
+              <entry>image_attrs</entry>
+              <entry><link linkend="image.ImageAttr">ImageAttr</link></entry>
+              <entry>repeated</entry>
+              <entry><para>镜像附加属性</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="image.QueryRequest">
+      <title>QueryRequest</title>
+      <para>--------------- 查询镜像列表---------------//</para>
+      
+      <table frame="all">
+        <title><classname>QueryRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>image_name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>镜像名称</para></entry>
+            </row>
+            
+            <row>
+              <entry>image_type</entry>
+              <entry><link linkend="image.ImageType">ImageType</link></entry>
+              <entry></entry>
+              <entry><para>系统类型，使用枚举，比如常用的CentOS\Ubuntu\openSUSE等</para></entry>
+            </row>
+            
+            <row>
+              <entry>version</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>系统大版本号，比如CentOS的7.4,7.5,7.6等</para></entry>
+            </row>
+            
+            <row>
+              <entry>sub_version</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>系统的小版本号，例如CentOS7.4下的1708</para></entry>
+            </row>
+            
+            <row>
+              <entry>format</entry>
+              <entry><link linkend="image.ImageFormat">ImageFormat</link></entry>
+              <entry></entry>
+              <entry><para>镜像的格式，使用枚举，例如iso，qcow2等</para></entry>
+            </row>
+            
+            <row>
+              <entry>image_attrs</entry>
+              <entry><link linkend="image.ImageAttr">ImageAttr</link></entry>
+              <entry>repeated</entry>
+              <entry><para>镜像附加属性</para></entry>
+            </row>
+            
+            <row>
+              <entry>paging</entry>
+              <entry><link linkend="image.Paging">Paging</link></entry>
+              <entry></entry>
+              <entry><para>若没有入参，则默认查询阈值为第一页10条记录</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="image.QueryResponse">
+      <title>QueryResponse</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>QueryResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="image.ResponseStatus">ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>响应码</para></entry>
+            </row>
+            
+            <row>
+              <entry>images</entry>
+              <entry><link linkend="image.ImageObject">ImageObject</link></entry>
+              <entry>repeated</entry>
+              <entry><para>响应对象</para></entry>
+            </row>
+            
+            <row>
+              <entry>paging</entry>
+              <entry><link linkend="image.Paging">Paging</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    
+    <section id="image.AppStatus">
+      <title>AppStatus</title>
+      <para></para>
+      <table frame="all">
+        <title><classname>AppStatus</classname> Values</title>
+        <tgroup cols="3">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Name</entry>
+              <entry>Number</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>APP_STATUS_UNDEFINED</entry>
+              <entry>0</entry>
+              <entry><para>未知</para></entry>
+            </row>
+            
+            <row>
+              <entry>APP_STATUS_STOPPED</entry>
+              <entry>1</entry>
+              <entry><para>活动中</para></entry>
+            </row>
+            
+            <row>
+              <entry>APP_STATUS_ACTIVE</entry>
+              <entry>2</entry>
+              <entry><para>未知</para></entry>
+            </row>
+            
+            <row>
+              <entry>APP_STATUS_UNKNOWN</entry>
+              <entry>3</entry>
+              <entry><para>已停止</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    
+    <section id="image.ImageFormat">
+      <title>ImageFormat</title>
+      <para>镜像格式</para>
+      <table frame="all">
+        <title><classname>ImageFormat</classname> Values</title>
+        <tgroup cols="3">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Name</entry>
+              <entry>Number</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>IMAGE_FORMAT_UNDEFINED</entry>
+              <entry>0</entry>
+              <entry><para></para></entry>
+            </row>
+            
+            <row>
+              <entry>IMAGE_FORMAT_ISO</entry>
+              <entry>1</entry>
+              <entry><para></para></entry>
+            </row>
+            
+            <row>
+              <entry>IMAGE_FORMAT_QCOW2</entry>
+              <entry>2</entry>
+              <entry><para></para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    
+    <section id="image.ImageType">
+      <title>ImageType</title>
+      <para>系统类型</para>
+      <table frame="all">
+        <title><classname>ImageType</classname> Values</title>
+        <tgroup cols="3">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Name</entry>
+              <entry>Number</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>IMAGE_TYPE_UNDEFINED</entry>
+              <entry>0</entry>
+              <entry><para></para></entry>
+            </row>
+            
+            <row>
+              <entry>IMAGE_TYPE_CENTOS</entry>
+              <entry>1</entry>
+              <entry><para></para></entry>
+            </row>
+            
+            <row>
+              <entry>IMAGE_TYPE_UBUNTU</entry>
+              <entry>2</entry>
+              <entry><para></para></entry>
+            </row>
+            
+            <row>
+              <entry>IMAGE_TYPE_OPENSUSE</entry>
+              <entry>3</entry>
+              <entry><para></para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    
+
+    
+
+    
+    <section id="image.Image">
+      <title>Image</title>
+      <para></para>
+      <table frame="all">
+        <title><classname>Image</classname> Methods</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Method Name</entry>
+              <entry>Request Type</entry>
+              <entry>Response Type</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>Query</entry>
+              <entry><link linkend="image.QueryRequest">QueryRequest</link></entry>
+              <entry><link linkend="image.QueryResponse">QueryResponse</link></entry>
+              <entry><para>查询镜像列表</para></entry>
+            </row>
+            
+            <row>
+              <entry>Health</entry>
+              <entry><link linkend="image.HealthRequest">HealthRequest</link></entry>
+              <entry><link linkend="image.HealthResponse">HealthResponse</link></entry>
+              <entry><para>健康监测</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    
+  </section>
+  
+  <section>
     <title>ironic/ironicCom.proto</title>
     <para></para>
     
@@ -5788,12 +6942,12 @@
       
     </section>
     
-    <section id="ironicCom.TcpContRes">
-      <title>TcpContRes</title>
+    <section id="ironicCom.TcpContRsp">
+      <title>TcpContRsp</title>
       <para>控制对象(每个服务通用的控制信息，当服务端反馈应答时，信息填写如下)</para>
       
       <table frame="all">
-        <title><classname>TcpContRes</classname> Fields</title>
+        <title><classname>TcpContRsp</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -5817,7 +6971,7 @@
             </row>
             
             <row>
-              <entry>reqTime</entry>
+              <entry>rspTime</entry>
               <entry><link linkend="google.protobuf.Timestamp">google.protobuf.Timestamp</link></entry>
               <entry></entry>
               <entry><para>应答时间</para></entry>
@@ -5899,13 +7053,13 @@
           <tbody>
             
             <row>
-              <entry>UNDEFINED</entry>
+              <entry>UNDEFINED_0</entry>
               <entry>0</entry>
-              <entry><para></para></entry>
+              <entry><para>无定义</para></entry>
             </row>
             
             <row>
-              <entry>IRONICAPP</entry>
+              <entry>IRONIC_APP</entry>
               <entry>1000010000</entry>
               <entry><para>裸金属应用</para></entry>
             </row>
@@ -5940,15 +7094,21 @@
           <tbody>
             
             <row>
-              <entry>SUCCESS</entry>
+              <entry>UNDEFINED_3</entry>
               <entry>0</entry>
-              <entry><para>成功</para></entry>
+              <entry><para>没有定义</para></entry>
             </row>
             
             <row>
               <entry>FAIL</entry>
               <entry>1</entry>
               <entry><para>失败</para></entry>
+            </row>
+            
+            <row>
+              <entry>SUCCESS</entry>
+              <entry>2</entry>
+              <entry><para>成功</para></entry>
             </row>
             
           </tbody>
@@ -5975,33 +7135,45 @@
           <tbody>
             
             <row>
-              <entry>SVCCODEDEFAULT</entry>
+              <entry>UNDEFINED_1</entry>
               <entry>0</entry>
-              <entry><para></para></entry>
+              <entry><para>无定义</para></entry>
             </row>
             
             <row>
-              <entry>CREATENODES</entry>
+              <entry>CREATE_NODES</entry>
               <entry>1010010001</entry>
               <entry><para>创建裸金属节点</para></entry>
             </row>
             
             <row>
-              <entry>QRYNODEINFO</entry>
+              <entry>QRY_NODE_INFO</entry>
               <entry>1010010002</entry>
               <entry><para>查询裸金属状态</para></entry>
             </row>
             
             <row>
-              <entry>INSTALLNODESYS</entry>
+              <entry>INSTALL_NODE_SYS</entry>
               <entry>1010010003</entry>
               <entry><para>安装裸金属系统</para></entry>
             </row>
             
             <row>
-              <entry>OPERNODEPOWER</entry>
+              <entry>OPER_NODE_POWER</entry>
               <entry>1010010004</entry>
               <entry><para>操作裸金属实例电源</para></entry>
+            </row>
+            
+            <row>
+              <entry>RE_INSTALL_NODE_SYS</entry>
+              <entry>1010010005</entry>
+              <entry><para>重新安装裸金属系统</para></entry>
+            </row>
+            
+            <row>
+              <entry>QRY_HEART_BEAT</entry>
+              <entry>1010010006</entry>
+              <entry><para>健康监测</para></entry>
             </row>
             
           </tbody>
@@ -6257,12 +7429,12 @@
       
     </section>
     
-    <section id="ironicServer.CreateNodesRootRes">
-      <title>CreateNodesRootRes</title>
+    <section id="ironicServer.CreateNodesRootRsp">
+      <title>CreateNodesRootRsp</title>
       <para></para>
       
       <table frame="all">
-        <title><classname>CreateNodesRootRes</classname> Fields</title>
+        <title><classname>CreateNodesRootRsp</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -6279,8 +7451,8 @@
           <tbody>
             
             <row>
-              <entry>contractRootRes</entry>
-              <entry><link linkend="ironicServer.CreateNodesRootRes.ContractRootRes">CreateNodesRootRes.ContractRootRes</link></entry>
+              <entry>contractRootRsp</entry>
+              <entry><link linkend="ironicServer.CreateNodesRootRsp.ContractRootRsp">CreateNodesRootRsp.ContractRootRsp</link></entry>
               <entry></entry>
               <entry><para></para></entry>
             </row>
@@ -6292,12 +7464,12 @@
       
     </section>
     
-    <section id="ironicServer.CreateNodesRootRes.ContractRootRes">
-      <title>CreateNodesRootRes.ContractRootRes</title>
+    <section id="ironicServer.CreateNodesRootRsp.ContractRootRsp">
+      <title>CreateNodesRootRsp.ContractRootRsp</title>
       <para></para>
       
       <table frame="all">
-        <title><classname>CreateNodesRootRes.ContractRootRes</classname> Fields</title>
+        <title><classname>CreateNodesRootRsp.ContractRootRsp</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -6315,14 +7487,14 @@
             
             <row>
               <entry>tcpCont</entry>
-              <entry><link linkend="ironicCom.TcpContRes">ironicCom.TcpContRes</link></entry>
+              <entry><link linkend="ironicCom.TcpContRsp">ironicCom.TcpContRsp</link></entry>
               <entry></entry>
               <entry><para></para></entry>
             </row>
             
             <row>
               <entry>svcCont</entry>
-              <entry><link linkend="ironicServer.CreateNodesRootRes.SvcContRes">CreateNodesRootRes.SvcContRes</link></entry>
+              <entry><link linkend="ironicServer.CreateNodesRootRsp.SvcContRsp">CreateNodesRootRsp.SvcContRsp</link></entry>
               <entry></entry>
               <entry><para></para></entry>
             </row>
@@ -6334,12 +7506,12 @@
       
     </section>
     
-    <section id="ironicServer.CreateNodesRootRes.CreateNodeInfoRsp">
-      <title>CreateNodesRootRes.CreateNodeInfoRsp</title>
+    <section id="ironicServer.CreateNodesRootRsp.CreateNodeInfoRsp">
+      <title>CreateNodesRootRsp.CreateNodeInfoRsp</title>
       <para>创建节点请求对象</para>
       
       <table frame="all">
-        <title><classname>CreateNodesRootRes.CreateNodeInfoRsp</classname> Fields</title>
+        <title><classname>CreateNodesRootRsp.CreateNodeInfoRsp</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -6357,7 +7529,7 @@
             
             <row>
               <entry>nodeInfoRsps</entry>
-              <entry><link linkend="ironicServer.CreateNodesRootRes.NodeInfoRsp">CreateNodesRootRes.NodeInfoRsp</link></entry>
+              <entry><link linkend="ironicServer.CreateNodesRootRsp.NodeInfoRsp">CreateNodesRootRsp.NodeInfoRsp</link></entry>
               <entry>repeated</entry>
               <entry><para>节点</para></entry>
             </row>
@@ -6376,12 +7548,12 @@
       
     </section>
     
-    <section id="ironicServer.CreateNodesRootRes.NodeInfoRsp">
-      <title>CreateNodesRootRes.NodeInfoRsp</title>
+    <section id="ironicServer.CreateNodesRootRsp.NodeInfoRsp">
+      <title>CreateNodesRootRsp.NodeInfoRsp</title>
       <para>节点信息</para>
       
       <table frame="all">
-        <title><classname>CreateNodesRootRes.NodeInfoRsp</classname> Fields</title>
+        <title><classname>CreateNodesRootRsp.NodeInfoRsp</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -6432,12 +7604,12 @@
       
     </section>
     
-    <section id="ironicServer.CreateNodesRootRes.SvcContRes">
-      <title>CreateNodesRootRes.SvcContRes</title>
+    <section id="ironicServer.CreateNodesRootRsp.SvcContRsp">
+      <title>CreateNodesRootRsp.SvcContRsp</title>
       <para></para>
       
       <table frame="all">
-        <title><classname>CreateNodesRootRes.SvcContRes</classname> Fields</title>
+        <title><classname>CreateNodesRootRsp.SvcContRsp</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -6469,7 +7641,7 @@
             
             <row>
               <entry>resultObject</entry>
-              <entry><link linkend="ironicServer.CreateNodesRootRes.CreateNodeInfoRsp">CreateNodesRootRes.CreateNodeInfoRsp</link></entry>
+              <entry><link linkend="ironicServer.CreateNodesRootRsp.CreateNodeInfoRsp">CreateNodesRootRsp.CreateNodeInfoRsp</link></entry>
               <entry></entry>
               <entry><para>响应对象</para></entry>
             </row>
@@ -6677,12 +7849,12 @@
       
     </section>
     
-    <section id="ironicServer.InstallNodeSysRootRes">
-      <title>InstallNodeSysRootRes</title>
+    <section id="ironicServer.InstallNodeSysRootRsp">
+      <title>InstallNodeSysRootRsp</title>
       <para></para>
       
       <table frame="all">
-        <title><classname>InstallNodeSysRootRes</classname> Fields</title>
+        <title><classname>InstallNodeSysRootRsp</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -6699,8 +7871,8 @@
           <tbody>
             
             <row>
-              <entry>contractRootRes</entry>
-              <entry><link linkend="ironicServer.InstallNodeSysRootRes.ContractRootRes">InstallNodeSysRootRes.ContractRootRes</link></entry>
+              <entry>contractRootRsp</entry>
+              <entry><link linkend="ironicServer.InstallNodeSysRootRsp.ContractRootRsp">InstallNodeSysRootRsp.ContractRootRsp</link></entry>
               <entry></entry>
               <entry><para></para></entry>
             </row>
@@ -6712,12 +7884,12 @@
       
     </section>
     
-    <section id="ironicServer.InstallNodeSysRootRes.ContractRootRes">
-      <title>InstallNodeSysRootRes.ContractRootRes</title>
+    <section id="ironicServer.InstallNodeSysRootRsp.ContractRootRsp">
+      <title>InstallNodeSysRootRsp.ContractRootRsp</title>
       <para>响应信息</para>
       
       <table frame="all">
-        <title><classname>InstallNodeSysRootRes.ContractRootRes</classname> Fields</title>
+        <title><classname>InstallNodeSysRootRsp.ContractRootRsp</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -6735,14 +7907,14 @@
             
             <row>
               <entry>tcpCont</entry>
-              <entry><link linkend="ironicCom.TcpContRes">ironicCom.TcpContRes</link></entry>
+              <entry><link linkend="ironicCom.TcpContRsp">ironicCom.TcpContRsp</link></entry>
               <entry></entry>
               <entry><para></para></entry>
             </row>
             
             <row>
               <entry>svcCont</entry>
-              <entry><link linkend="ironicServer.InstallNodeSysRootRes.SvcContRes">InstallNodeSysRootRes.SvcContRes</link></entry>
+              <entry><link linkend="ironicServer.InstallNodeSysRootRsp.SvcContRsp">InstallNodeSysRootRsp.SvcContRsp</link></entry>
               <entry></entry>
               <entry><para></para></entry>
             </row>
@@ -6754,12 +7926,12 @@
       
     </section>
     
-    <section id="ironicServer.InstallNodeSysRootRes.InstallNodeInfoRsp">
-      <title>InstallNodeSysRootRes.InstallNodeInfoRsp</title>
+    <section id="ironicServer.InstallNodeSysRootRsp.InstallNodeInfoRsp">
+      <title>InstallNodeSysRootRsp.InstallNodeInfoRsp</title>
       <para>创建节点请求对象</para>
       
       <table frame="all">
-        <title><classname>InstallNodeSysRootRes.InstallNodeInfoRsp</classname> Fields</title>
+        <title><classname>InstallNodeSysRootRsp.InstallNodeInfoRsp</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -6777,7 +7949,7 @@
             
             <row>
               <entry>nodeInfoRsps</entry>
-              <entry><link linkend="ironicServer.InstallNodeSysRootRes.NodeInfoRsp">InstallNodeSysRootRes.NodeInfoRsp</link></entry>
+              <entry><link linkend="ironicServer.InstallNodeSysRootRsp.NodeInfoRsp">InstallNodeSysRootRsp.NodeInfoRsp</link></entry>
               <entry>repeated</entry>
               <entry><para>节点</para></entry>
             </row>
@@ -6796,12 +7968,12 @@
       
     </section>
     
-    <section id="ironicServer.InstallNodeSysRootRes.NodeInfoRsp">
-      <title>InstallNodeSysRootRes.NodeInfoRsp</title>
+    <section id="ironicServer.InstallNodeSysRootRsp.NodeInfoRsp">
+      <title>InstallNodeSysRootRsp.NodeInfoRsp</title>
       <para>节点信息</para>
       
       <table frame="all">
-        <title><classname>InstallNodeSysRootRes.NodeInfoRsp</classname> Fields</title>
+        <title><classname>InstallNodeSysRootRsp.NodeInfoRsp</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -6852,12 +8024,12 @@
       
     </section>
     
-    <section id="ironicServer.InstallNodeSysRootRes.SvcContRes">
-      <title>InstallNodeSysRootRes.SvcContRes</title>
+    <section id="ironicServer.InstallNodeSysRootRsp.SvcContRsp">
+      <title>InstallNodeSysRootRsp.SvcContRsp</title>
       <para></para>
       
       <table frame="all">
-        <title><classname>InstallNodeSysRootRes.SvcContRes</classname> Fields</title>
+        <title><classname>InstallNodeSysRootRsp.SvcContRsp</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -6889,7 +8061,7 @@
             
             <row>
               <entry>resultObject</entry>
-              <entry><link linkend="ironicServer.InstallNodeSysRootRes.InstallNodeInfoRsp">InstallNodeSysRootRes.InstallNodeInfoRsp</link></entry>
+              <entry><link linkend="ironicServer.InstallNodeSysRootRsp.InstallNodeInfoRsp">InstallNodeSysRootRsp.InstallNodeInfoRsp</link></entry>
               <entry></entry>
               <entry><para>响应对象</para></entry>
             </row>
@@ -7083,12 +8255,12 @@
       
     </section>
     
-    <section id="ironicServer.OperNodePowerRootRes">
-      <title>OperNodePowerRootRes</title>
+    <section id="ironicServer.OperNodePowerRootRsp">
+      <title>OperNodePowerRootRsp</title>
       <para></para>
       
       <table frame="all">
-        <title><classname>OperNodePowerRootRes</classname> Fields</title>
+        <title><classname>OperNodePowerRootRsp</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -7105,8 +8277,8 @@
           <tbody>
             
             <row>
-              <entry>contractRootRes</entry>
-              <entry><link linkend="ironicServer.OperNodePowerRootRes.ContractRootRes">OperNodePowerRootRes.ContractRootRes</link></entry>
+              <entry>contractRootRsp</entry>
+              <entry><link linkend="ironicServer.OperNodePowerRootRsp.ContractRootRsp">OperNodePowerRootRsp.ContractRootRsp</link></entry>
               <entry></entry>
               <entry><para></para></entry>
             </row>
@@ -7118,12 +8290,12 @@
       
     </section>
     
-    <section id="ironicServer.OperNodePowerRootRes.ContractRootRes">
-      <title>OperNodePowerRootRes.ContractRootRes</title>
+    <section id="ironicServer.OperNodePowerRootRsp.ContractRootRsp">
+      <title>OperNodePowerRootRsp.ContractRootRsp</title>
       <para></para>
       
       <table frame="all">
-        <title><classname>OperNodePowerRootRes.ContractRootRes</classname> Fields</title>
+        <title><classname>OperNodePowerRootRsp.ContractRootRsp</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -7141,14 +8313,14 @@
             
             <row>
               <entry>tcpCont</entry>
-              <entry><link linkend="ironicCom.TcpContRes">ironicCom.TcpContRes</link></entry>
+              <entry><link linkend="ironicCom.TcpContRsp">ironicCom.TcpContRsp</link></entry>
               <entry></entry>
               <entry><para></para></entry>
             </row>
             
             <row>
               <entry>svcCont</entry>
-              <entry><link linkend="ironicServer.OperNodePowerRootRes.SvcContRes">OperNodePowerRootRes.SvcContRes</link></entry>
+              <entry><link linkend="ironicServer.OperNodePowerRootRsp.SvcContRsp">OperNodePowerRootRsp.SvcContRsp</link></entry>
               <entry></entry>
               <entry><para></para></entry>
             </row>
@@ -7160,12 +8332,12 @@
       
     </section>
     
-    <section id="ironicServer.OperNodePowerRootRes.NodePowerRsp">
-      <title>OperNodePowerRootRes.NodePowerRsp</title>
+    <section id="ironicServer.OperNodePowerRootRsp.NodePowerRsp">
+      <title>OperNodePowerRootRsp.NodePowerRsp</title>
       <para></para>
       
       <table frame="all">
-        <title><classname>OperNodePowerRootRes.NodePowerRsp</classname> Fields</title>
+        <title><classname>OperNodePowerRootRsp.NodePowerRsp</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -7209,12 +8381,12 @@
       
     </section>
     
-    <section id="ironicServer.OperNodePowerRootRes.OperNodePowerRsp">
-      <title>OperNodePowerRootRes.OperNodePowerRsp</title>
+    <section id="ironicServer.OperNodePowerRootRsp.OperNodePowerRsp">
+      <title>OperNodePowerRootRsp.OperNodePowerRsp</title>
       <para></para>
       
       <table frame="all">
-        <title><classname>OperNodePowerRootRes.OperNodePowerRsp</classname> Fields</title>
+        <title><classname>OperNodePowerRootRsp.OperNodePowerRsp</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -7232,7 +8404,7 @@
             
             <row>
               <entry>nodePowerRsps</entry>
-              <entry><link linkend="ironicServer.OperNodePowerRootRes.NodePowerRsp">OperNodePowerRootRes.NodePowerRsp</link></entry>
+              <entry><link linkend="ironicServer.OperNodePowerRootRsp.NodePowerRsp">OperNodePowerRootRsp.NodePowerRsp</link></entry>
               <entry>repeated</entry>
               <entry><para>电源操作应答</para></entry>
             </row>
@@ -7244,12 +8416,12 @@
       
     </section>
     
-    <section id="ironicServer.OperNodePowerRootRes.SvcContRes">
-      <title>OperNodePowerRootRes.SvcContRes</title>
+    <section id="ironicServer.OperNodePowerRootRsp.SvcContRsp">
+      <title>OperNodePowerRootRsp.SvcContRsp</title>
       <para></para>
       
       <table frame="all">
-        <title><classname>OperNodePowerRootRes.SvcContRes</classname> Fields</title>
+        <title><classname>OperNodePowerRootRsp.SvcContRsp</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -7281,7 +8453,371 @@
             
             <row>
               <entry>resultObject</entry>
-              <entry><link linkend="ironicServer.OperNodePowerRootRes.OperNodePowerRsp">OperNodePowerRootRes.OperNodePowerRsp</link></entry>
+              <entry><link linkend="ironicServer.OperNodePowerRootRsp.OperNodePowerRsp">OperNodePowerRootRsp.OperNodePowerRsp</link></entry>
+              <entry></entry>
+              <entry><para>响应对象</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="ironicServer.QryHeartbeatRootReq">
+      <title>QryHeartbeatRootReq</title>
+      <para>--------------- 重新安装裸金属节点结束-----------//</para><para>--------------- 健康监测---------------//</para>
+      
+      <table frame="all">
+        <title><classname>QryHeartbeatRootReq</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>contractRootReq</entry>
+              <entry><link linkend="ironicServer.QryHeartbeatRootReq.ContractRootReq">QryHeartbeatRootReq.ContractRootReq</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="ironicServer.QryHeartbeatRootReq.ContractRootReq">
+      <title>QryHeartbeatRootReq.ContractRootReq</title>
+      <para>请求信息</para>
+      
+      <table frame="all">
+        <title><classname>QryHeartbeatRootReq.ContractRootReq</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>tcpCont</entry>
+              <entry><link linkend="ironicCom.TcpContReq">ironicCom.TcpContReq</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+            <row>
+              <entry>svcCont</entry>
+              <entry><link linkend="ironicServer.QryHeartbeatRootReq.SvcContReq">QryHeartbeatRootReq.SvcContReq</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="ironicServer.QryHeartbeatRootReq.QryHeartbeatReq">
+      <title>QryHeartbeatRootReq.QryHeartbeatReq</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>QryHeartbeatRootReq.QryHeartbeatReq</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>req</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>安装裸金属系统信息</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="ironicServer.QryHeartbeatRootReq.SvcContReq">
+      <title>QryHeartbeatRootReq.SvcContReq</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>QryHeartbeatRootReq.SvcContReq</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>requestObject</entry>
+              <entry><link linkend="ironicServer.QryHeartbeatRootReq.QryHeartbeatReq">QryHeartbeatRootReq.QryHeartbeatReq</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="ironicServer.QryHeartbeatRootRsp">
+      <title>QryHeartbeatRootRsp</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>QryHeartbeatRootRsp</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>contractRootRsp</entry>
+              <entry><link linkend="ironicServer.QryHeartbeatRootRsp.ContractRootRsp">QryHeartbeatRootRsp.ContractRootRsp</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="ironicServer.QryHeartbeatRootRsp.ClusterInstance">
+      <title>QryHeartbeatRootRsp.ClusterInstance</title>
+      <para>节点信息</para>
+      
+      <table frame="all">
+        <title><classname>QryHeartbeatRootRsp.ClusterInstance</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>ipAddress</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>应用ip</para></entry>
+            </row>
+            
+            <row>
+              <entry>clusterName</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>应用名，集群名</para></entry>
+            </row>
+            
+            <row>
+              <entry>appStatus</entry>
+              <entry><link linkend="ironicServer.QryHeartbeatRootRsp.AppStatus">QryHeartbeatRootRsp.AppStatus</link></entry>
+              <entry></entry>
+              <entry><para>运行状态</para></entry>
+            </row>
+            
+            <row>
+              <entry>message</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>信息</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="ironicServer.QryHeartbeatRootRsp.ContractRootRsp">
+      <title>QryHeartbeatRootRsp.ContractRootRsp</title>
+      <para>响应信息</para>
+      
+      <table frame="all">
+        <title><classname>QryHeartbeatRootRsp.ContractRootRsp</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>tcpCont</entry>
+              <entry><link linkend="ironicCom.TcpContRsp">ironicCom.TcpContRsp</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+            <row>
+              <entry>svcCont</entry>
+              <entry><link linkend="ironicServer.QryHeartbeatRootRsp.SvcContRsp">QryHeartbeatRootRsp.SvcContRsp</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="ironicServer.QryHeartbeatRootRsp.QryHeartbeatRsp">
+      <title>QryHeartbeatRootRsp.QryHeartbeatRsp</title>
+      <para>健康监测应答对象</para>
+      
+      <table frame="all">
+        <title><classname>QryHeartbeatRootRsp.QryHeartbeatRsp</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>clusterInstances</entry>
+              <entry><link linkend="ironicServer.QryHeartbeatRootRsp.ClusterInstance">QryHeartbeatRootRsp.ClusterInstance</link></entry>
+              <entry>repeated</entry>
+              <entry><para>应用信息</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="ironicServer.QryHeartbeatRootRsp.SvcContRsp">
+      <title>QryHeartbeatRootRsp.SvcContRsp</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>QryHeartbeatRootRsp.SvcContRsp</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>resultCode</entry>
+              <entry><link linkend="ironicCom.ResultCode">ironicCom.ResultCode</link></entry>
+              <entry></entry>
+              <entry><para>响应码</para></entry>
+            </row>
+            
+            <row>
+              <entry>resultMsg</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>响应消息描述</para></entry>
+            </row>
+            
+            <row>
+              <entry>resultObject</entry>
+              <entry><link linkend="ironicServer.QryHeartbeatRootRsp.QryHeartbeatRsp">QryHeartbeatRootRsp.QryHeartbeatRsp</link></entry>
               <entry></entry>
               <entry><para>响应对象</para></entry>
             </row>
@@ -7440,12 +8976,12 @@
       
     </section>
     
-    <section id="ironicServer.QryNodeInfoRootRes">
-      <title>QryNodeInfoRootRes</title>
+    <section id="ironicServer.QryNodeInfoRootRsp">
+      <title>QryNodeInfoRootRsp</title>
       <para></para>
       
       <table frame="all">
-        <title><classname>QryNodeInfoRootRes</classname> Fields</title>
+        <title><classname>QryNodeInfoRootRsp</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -7462,8 +8998,8 @@
           <tbody>
             
             <row>
-              <entry>contractRootRes</entry>
-              <entry><link linkend="ironicServer.QryNodeInfoRootRes.ContractRootRes">QryNodeInfoRootRes.ContractRootRes</link></entry>
+              <entry>contractRootRsp</entry>
+              <entry><link linkend="ironicServer.QryNodeInfoRootRsp.ContractRootRsp">QryNodeInfoRootRsp.ContractRootRsp</link></entry>
               <entry></entry>
               <entry><para></para></entry>
             </row>
@@ -7475,12 +9011,12 @@
       
     </section>
     
-    <section id="ironicServer.QryNodeInfoRootRes.ContractRootRes">
-      <title>QryNodeInfoRootRes.ContractRootRes</title>
+    <section id="ironicServer.QryNodeInfoRootRsp.ContractRootRsp">
+      <title>QryNodeInfoRootRsp.ContractRootRsp</title>
       <para>响应信息</para>
       
       <table frame="all">
-        <title><classname>QryNodeInfoRootRes.ContractRootRes</classname> Fields</title>
+        <title><classname>QryNodeInfoRootRsp.ContractRootRsp</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -7498,14 +9034,14 @@
             
             <row>
               <entry>tcpCont</entry>
-              <entry><link linkend="ironicCom.TcpContRes">ironicCom.TcpContRes</link></entry>
+              <entry><link linkend="ironicCom.TcpContRsp">ironicCom.TcpContRsp</link></entry>
               <entry></entry>
               <entry><para></para></entry>
             </row>
             
             <row>
               <entry>svcCont</entry>
-              <entry><link linkend="ironicServer.QryNodeInfoRootRes.SvcContRes">QryNodeInfoRootRes.SvcContRes</link></entry>
+              <entry><link linkend="ironicServer.QryNodeInfoRootRsp.SvcContRsp">QryNodeInfoRootRsp.SvcContRsp</link></entry>
               <entry></entry>
               <entry><para></para></entry>
             </row>
@@ -7517,12 +9053,12 @@
       
     </section>
     
-    <section id="ironicServer.QryNodeInfoRootRes.NodeInfo">
-      <title>QryNodeInfoRootRes.NodeInfo</title>
+    <section id="ironicServer.QryNodeInfoRootRsp.NodeInfo">
+      <title>QryNodeInfoRootRsp.NodeInfo</title>
       <para>节点信息</para>
       
       <table frame="all">
-        <title><classname>QryNodeInfoRootRes.NodeInfo</classname> Fields</title>
+        <title><classname>QryNodeInfoRootRsp.NodeInfo</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -7547,7 +9083,7 @@
             
             <row>
               <entry>status</entry>
-              <entry><link linkend="ironicServer.QryNodeInfoRootRes.Status">QryNodeInfoRootRes.Status</link></entry>
+              <entry><link linkend="ironicServer.QryNodeInfoRootRsp.Status">QryNodeInfoRootRsp.Status</link></entry>
               <entry></entry>
               <entry><para>当前状态</para></entry>
             </row>
@@ -7610,7 +9146,7 @@
             
             <row>
               <entry>powerStatus</entry>
-              <entry><link linkend="ironicServer.QryNodeInfoRootRes.PowerStatus">QryNodeInfoRootRes.PowerStatus</link></entry>
+              <entry><link linkend="ironicServer.QryNodeInfoRootRsp.PowerStatus">QryNodeInfoRootRsp.PowerStatus</link></entry>
               <entry></entry>
               <entry><para>电源状态</para></entry>
             </row>
@@ -7622,12 +9158,12 @@
       
     </section>
     
-    <section id="ironicServer.QryNodeInfoRootRes.QryNodeInfoRsp">
-      <title>QryNodeInfoRootRes.QryNodeInfoRsp</title>
+    <section id="ironicServer.QryNodeInfoRootRsp.QryNodeInfoRsp">
+      <title>QryNodeInfoRootRsp.QryNodeInfoRsp</title>
       <para>查询节点应答对象</para>
       
       <table frame="all">
-        <title><classname>QryNodeInfoRootRes.QryNodeInfoRsp</classname> Fields</title>
+        <title><classname>QryNodeInfoRootRsp.QryNodeInfoRsp</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -7645,7 +9181,7 @@
             
             <row>
               <entry>nodeInfos</entry>
-              <entry><link linkend="ironicServer.QryNodeInfoRootRes.NodeInfo">QryNodeInfoRootRes.NodeInfo</link></entry>
+              <entry><link linkend="ironicServer.QryNodeInfoRootRsp.NodeInfo">QryNodeInfoRootRsp.NodeInfo</link></entry>
               <entry>repeated</entry>
               <entry><para>节点</para></entry>
             </row>
@@ -7657,12 +9193,12 @@
       
     </section>
     
-    <section id="ironicServer.QryNodeInfoRootRes.SvcContRes">
-      <title>QryNodeInfoRootRes.SvcContRes</title>
+    <section id="ironicServer.QryNodeInfoRootRsp.SvcContRsp">
+      <title>QryNodeInfoRootRsp.SvcContRsp</title>
       <para></para>
       
       <table frame="all">
-        <title><classname>QryNodeInfoRootRes.SvcContRes</classname> Fields</title>
+        <title><classname>QryNodeInfoRootRsp.SvcContRsp</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -7694,7 +9230,434 @@
             
             <row>
               <entry>resultObject</entry>
-              <entry><link linkend="ironicServer.QryNodeInfoRootRes.QryNodeInfoRsp">QryNodeInfoRootRes.QryNodeInfoRsp</link></entry>
+              <entry><link linkend="ironicServer.QryNodeInfoRootRsp.QryNodeInfoRsp">QryNodeInfoRootRsp.QryNodeInfoRsp</link></entry>
+              <entry></entry>
+              <entry><para>响应对象</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="ironicServer.ReInstallNodeSysRootReq">
+      <title>ReInstallNodeSysRootReq</title>
+      <para>--------------- 重新安装裸金属节点开始-----------//</para>
+      
+      <table frame="all">
+        <title><classname>ReInstallNodeSysRootReq</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>contractRootReq</entry>
+              <entry><link linkend="ironicServer.ReInstallNodeSysRootReq.ContractRootReq">ReInstallNodeSysRootReq.ContractRootReq</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="ironicServer.ReInstallNodeSysRootReq.ContractRootReq">
+      <title>ReInstallNodeSysRootReq.ContractRootReq</title>
+      <para>请求信息</para>
+      
+      <table frame="all">
+        <title><classname>ReInstallNodeSysRootReq.ContractRootReq</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>tcpCont</entry>
+              <entry><link linkend="ironicCom.TcpContReq">ironicCom.TcpContReq</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+            <row>
+              <entry>svcCont</entry>
+              <entry><link linkend="ironicServer.ReInstallNodeSysRootReq.SvcContReq">ReInstallNodeSysRootReq.SvcContReq</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="ironicServer.ReInstallNodeSysRootReq.InstallNodeSysReq">
+      <title>ReInstallNodeSysRootReq.InstallNodeSysReq</title>
+      <para>安装裸金属系统请求对象</para>
+      
+      <table frame="all">
+        <title><classname>ReInstallNodeSysRootReq.InstallNodeSysReq</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>nodeInstallInfos</entry>
+              <entry><link linkend="ironicServer.ReInstallNodeSysRootReq.NodeInstallInfo">ReInstallNodeSysRootReq.NodeInstallInfo</link></entry>
+              <entry>repeated</entry>
+              <entry><para>安装裸金属系统信息</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="ironicServer.ReInstallNodeSysRootReq.NodeInstallInfo">
+      <title>ReInstallNodeSysRootReq.NodeInstallInfo</title>
+      <para>安装裸金属系统信息</para>
+      
+      <table frame="all">
+        <title><classname>ReInstallNodeSysRootReq.NodeInstallInfo</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>nodeId</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>裸金属节点id</para></entry>
+            </row>
+            
+            <row>
+              <entry>imageAddr</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>安装镜像地址(一般为http url)</para></entry>
+            </row>
+            
+            <row>
+              <entry>imageCheckSum</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>镜像MD5校验码</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="ironicServer.ReInstallNodeSysRootReq.SvcContReq">
+      <title>ReInstallNodeSysRootReq.SvcContReq</title>
+      <para>安装裸金属系统请求</para>
+      
+      <table frame="all">
+        <title><classname>ReInstallNodeSysRootReq.SvcContReq</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>requestObject</entry>
+              <entry><link linkend="ironicServer.ReInstallNodeSysRootReq.InstallNodeSysReq">ReInstallNodeSysRootReq.InstallNodeSysReq</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="ironicServer.ReInstallNodeSysRootRsp">
+      <title>ReInstallNodeSysRootRsp</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>ReInstallNodeSysRootRsp</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>contractRootRsp</entry>
+              <entry><link linkend="ironicServer.ReInstallNodeSysRootRsp.ContractRootRsp">ReInstallNodeSysRootRsp.ContractRootRsp</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="ironicServer.ReInstallNodeSysRootRsp.ContractRootRsp">
+      <title>ReInstallNodeSysRootRsp.ContractRootRsp</title>
+      <para>响应信息</para>
+      
+      <table frame="all">
+        <title><classname>ReInstallNodeSysRootRsp.ContractRootRsp</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>tcpCont</entry>
+              <entry><link linkend="ironicCom.TcpContRsp">ironicCom.TcpContRsp</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+            <row>
+              <entry>svcCont</entry>
+              <entry><link linkend="ironicServer.ReInstallNodeSysRootRsp.SvcContRsp">ReInstallNodeSysRootRsp.SvcContRsp</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="ironicServer.ReInstallNodeSysRootRsp.InstallNodeInfoRsp">
+      <title>ReInstallNodeSysRootRsp.InstallNodeInfoRsp</title>
+      <para>创建节点请求对象</para>
+      
+      <table frame="all">
+        <title><classname>ReInstallNodeSysRootRsp.InstallNodeInfoRsp</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>nodeInfoRsps</entry>
+              <entry><link linkend="ironicServer.ReInstallNodeSysRootRsp.ReNodeInfoRsp">ReInstallNodeSysRootRsp.ReNodeInfoRsp</link></entry>
+              <entry>repeated</entry>
+              <entry><para>节点</para></entry>
+            </row>
+            
+            <row>
+              <entry>pageInfo</entry>
+              <entry><link linkend="ironicCom.PageInfo">ironicCom.PageInfo</link></entry>
+              <entry></entry>
+              <entry><para>分页信息</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="ironicServer.ReInstallNodeSysRootRsp.ReNodeInfoRsp">
+      <title>ReInstallNodeSysRootRsp.ReNodeInfoRsp</title>
+      <para>节点信息</para>
+      
+      <table frame="all">
+        <title><classname>ReInstallNodeSysRootRsp.ReNodeInfoRsp</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>oldNodeId</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>旧裸金属节点id</para></entry>
+            </row>
+            
+            <row>
+              <entry>newNodeId</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>新裸金属节点id</para></entry>
+            </row>
+            
+            <row>
+              <entry>initId</entry>
+              <entry><link linkend="int64">int64</link></entry>
+              <entry></entry>
+              <entry><para>初始化id</para></entry>
+            </row>
+            
+            <row>
+              <entry>installResultCode</entry>
+              <entry><link linkend="ironicCom.ResultCode">ironicCom.ResultCode</link></entry>
+              <entry></entry>
+              <entry><para>创建节点响应码</para></entry>
+            </row>
+            
+            <row>
+              <entry>installResultMsg</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>创建节点响应消息</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="ironicServer.ReInstallNodeSysRootRsp.SvcContRsp">
+      <title>ReInstallNodeSysRootRsp.SvcContRsp</title>
+      <para></para>
+      
+      <table frame="all">
+        <title><classname>ReInstallNodeSysRootRsp.SvcContRsp</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>resultCode</entry>
+              <entry><link linkend="ironicCom.ResultCode">ironicCom.ResultCode</link></entry>
+              <entry></entry>
+              <entry><para>响应码</para></entry>
+            </row>
+            
+            <row>
+              <entry>resultMsg</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>响应消息描述</para></entry>
+            </row>
+            
+            <row>
+              <entry>resultObject</entry>
+              <entry><link linkend="ironicServer.ReInstallNodeSysRootRsp.InstallNodeInfoRsp">ReInstallNodeSysRootRsp.InstallNodeInfoRsp</link></entry>
               <entry></entry>
               <entry><para>响应对象</para></entry>
             </row>
@@ -7707,11 +9670,11 @@
     </section>
     
     
-    <section id="ironicServer.QryNodeInfoRootRes.PowerStatus">
-      <title>QryNodeInfoRootRes.PowerStatus</title>
-      <para>电源状态</para>
+    <section id="ironicServer.QryHeartbeatRootRsp.AppStatus">
+      <title>QryHeartbeatRootRsp.AppStatus</title>
+      <para></para>
       <table frame="all">
-        <title><classname>QryNodeInfoRootRes.PowerStatus</classname> Values</title>
+        <title><classname>QryHeartbeatRootRsp.AppStatus</classname> Values</title>
         <tgroup cols="3">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -7726,9 +9689,56 @@
           <tbody>
             
             <row>
-              <entry>UNKNOWN</entry>
+              <entry>UNDEFINED</entry>
               <entry>0</entry>
+              <entry><para>没有定义</para></entry>
+            </row>
+            
+            <row>
+              <entry>STOPPED</entry>
+              <entry>1</entry>
+              <entry><para>活动中</para></entry>
+            </row>
+            
+            <row>
+              <entry>ACTIVE</entry>
+              <entry>2</entry>
               <entry><para>未知</para></entry>
+            </row>
+            
+            <row>
+              <entry>UNKNOWN</entry>
+              <entry>3</entry>
+              <entry><para>已停止</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    
+    <section id="ironicServer.QryNodeInfoRootRsp.PowerStatus">
+      <title>QryNodeInfoRootRsp.PowerStatus</title>
+      <para>电源状态</para>
+      <table frame="all">
+        <title><classname>QryNodeInfoRootRsp.PowerStatus</classname> Values</title>
+        <tgroup cols="3">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Name</entry>
+              <entry>Number</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>UNDEFINED_1</entry>
+              <entry>0</entry>
+              <entry><para>没有定义</para></entry>
             </row>
             
             <row>
@@ -7743,16 +9753,22 @@
               <entry><para>关机</para></entry>
             </row>
             
+            <row>
+              <entry>UNKNOWN</entry>
+              <entry>3</entry>
+              <entry><para>未知</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>
     </section>
     
-    <section id="ironicServer.QryNodeInfoRootRes.Status">
-      <title>QryNodeInfoRootRes.Status</title>
+    <section id="ironicServer.QryNodeInfoRootRsp.Status">
+      <title>QryNodeInfoRootRsp.Status</title>
       <para>裸金属节点状态</para>
       <table frame="all">
-        <title><classname>QryNodeInfoRootRes.Status</classname> Values</title>
+        <title><classname>QryNodeInfoRootRsp.Status</classname> Values</title>
         <tgroup cols="3">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -7767,8 +9783,14 @@
           <tbody>
             
             <row>
-              <entry>NULL</entry>
+              <entry>UNDEFINED_2</entry>
               <entry>0</entry>
+              <entry><para>没有定义</para></entry>
+            </row>
+            
+            <row>
+              <entry>NULL</entry>
+              <entry>1400</entry>
               <entry><para>未知</para></entry>
             </row>
             
@@ -7828,29 +9850,43 @@
             <row>
               <entry>qryNodeInfo</entry>
               <entry><link linkend="ironicServer.QryNodeInfoRootReq">QryNodeInfoRootReq</link></entry>
-              <entry><link linkend="ironicServer.QryNodeInfoRootRes">QryNodeInfoRootRes</link></entry>
+              <entry><link linkend="ironicServer.QryNodeInfoRootRsp">QryNodeInfoRootRsp</link></entry>
               <entry><para>裸金属节点状态查询</para></entry>
             </row>
             
             <row>
               <entry>createNodes</entry>
               <entry><link linkend="ironicServer.CreateNodesRootReq">CreateNodesRootReq</link></entry>
-              <entry><link linkend="ironicServer.CreateNodesRootRes">CreateNodesRootRes</link></entry>
+              <entry><link linkend="ironicServer.CreateNodesRootRsp">CreateNodesRootRsp</link></entry>
               <entry><para>创建裸金属节点</para></entry>
             </row>
             
             <row>
               <entry>installNodeSys</entry>
               <entry><link linkend="ironicServer.InstallNodeSysRootReq">InstallNodeSysRootReq</link></entry>
-              <entry><link linkend="ironicServer.InstallNodeSysRootRes">InstallNodeSysRootRes</link></entry>
+              <entry><link linkend="ironicServer.InstallNodeSysRootRsp">InstallNodeSysRootRsp</link></entry>
               <entry><para>安装裸金属系统</para></entry>
+            </row>
+            
+            <row>
+              <entry>reInstallNodeSys</entry>
+              <entry><link linkend="ironicServer.ReInstallNodeSysRootReq">ReInstallNodeSysRootReq</link></entry>
+              <entry><link linkend="ironicServer.ReInstallNodeSysRootRsp">ReInstallNodeSysRootRsp</link></entry>
+              <entry><para>重装裸金属系统</para></entry>
             </row>
             
             <row>
               <entry>operNodePower</entry>
               <entry><link linkend="ironicServer.OperNodePowerRootReq">OperNodePowerRootReq</link></entry>
-              <entry><link linkend="ironicServer.OperNodePowerRootRes">OperNodePowerRootRes</link></entry>
+              <entry><link linkend="ironicServer.OperNodePowerRootRsp">OperNodePowerRootRsp</link></entry>
               <entry><para>操作裸金属实例电源</para></entry>
+            </row>
+            
+            <row>
+              <entry>qryHeartbeat</entry>
+              <entry><link linkend="ironicServer.QryHeartbeatRootReq">QryHeartbeatRootReq</link></entry>
+              <entry><link linkend="ironicServer.QryHeartbeatRootRsp">QryHeartbeatRootRsp</link></entry>
+              <entry><para>健康监测</para></entry>
             </row>
             
           </tbody>
@@ -11313,13 +13349,6 @@
               <entry><link linkend="string">string</link></entry>
               <entry></entry>
               <entry><para>安装镜像文件的MD5</para></entry>
-            </row>
-            
-            <row>
-              <entry>cmdb_host_search_request</entry>
-              <entry><link linkend="cmdb.ChooseHostRequest">cmdb.ChooseHostRequest</link></entry>
-              <entry></entry>
-              <entry><para>主机查询条件</para></entry>
             </row>
             
           </tbody>

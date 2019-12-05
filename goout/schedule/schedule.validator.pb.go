@@ -61,6 +61,9 @@ func (this *CreateRequest) Validate() error {
 			}
 		}
 	}
+	if len(this.CmdbSearchRequest) < 1 {
+		return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", fmt.Errorf(`cmdb的搜索条件不能为空`))
+	}
 	for _, item := range this.CmdbSearchRequest {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {

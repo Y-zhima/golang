@@ -178,6 +178,14 @@ service Cmdb {
             body: "*"
         };
     }
+
+    // VIP的状态更新
+    rpc UpdateVipState (UpdateVipStateRequest) returns (UpdateVipStateResponse) {
+        option (google.api.http) = {
+        post: "/v1/cmdb/updateVipState"
+        body: "*"
+    };
+    }
 }
 
 // 实体 host，lake，vip的查询请求
@@ -299,28 +307,108 @@ message InstanceTopologyResponse {
     common.ResponseStatus status = 2;
 }
 
+// 主机域信息
+message HostCloudInfo {
+    // 域ID
+    string id = 1;
+    // 对象类型
+    string bk_obj_id = 2;
+    // 对象图标
+    string bk_obj_icon = 3;
+    // 实体ID
+    int32 bk_inst_id = 4;
+    // 对象名称
+    string bk_obj_name = 5;
+    // 实体名称
+    string bk_inst_name = 6;
+}
+
 // 主机
 message HostObject {
     // 内网IP
     string bk_host_innerip = 1;
-    // 主机ID
-    int32 bk_host_id = 2;
-    // 主机状态,有上线和下线两种
-    string state = 3;
-    // ipv6的地址
-    string ipv6 = 4;
-    // 设备角色(模块名)
-    repeated string module_name = 5;
-    // 内存
-    int32 bk_mem = 6;
-    // 硬盘(总量)
-    int32 bk_disk = 7;
+    // 外网IP
+    string bk_host_outerip = 2;
+    // 主要维护人
+    string operator = 3;
+    // 备份维护人
+    string bk_bak_operator = 4;
+    // 固资编号
+    string bk_asset_id = 5;
+    // 设备SN
+    string bk_sn = 6;
+    // 备注
+    string bk_comment = 7;
+    // 质保年限
+    int32 bk_service_term = 8;
+    // SLA级别
+    string bk_sla = 9;
+    // 所在国家
+    string bk_state_name = 10;
+    // 所在省份
+    string bk_province_name = 11;
+    // 所属运营商
+    string bk_isp_name = 12;
+    // 主机名称
+    string bk_host_name = 13;
+    // 操作系统类型
+    string bk_os_type = 14;
+    // 操作系统名称
+    string bk_os_name = 15;
+    // 操作系统版本
+    string bk_os_version = 16;
+    // 操作系统位数
+    string bk_os_bit = 17;
+    // CPU逻辑核心数
+    int32 bk_cpu = 18;
+    // CPU频率
+    int32 bk_cpu_mhz = 19;
+    // CPU型号
+    string bk_cpu_module = 20;
+    // 内存容量
+    int32 bk_mem = 21;
+    // 磁盘容量
+    int32 bk_disk = 22;
+    // 内网MAC地址
+    string bk_mac = 23;
+    // 外网MAC
+    string bk_outer_mac = 24;
+    // 录入时间
+    string create_time = 25;
+    // 录入方式
+    string import_from = 26;
+    // CN2IP
+    string cn2ip = 27;
+    // Bond类型
+    string bond_type = 28;
+    // wan_gate
+    string wan_gate = 29;
+    // cn2_gate
+    string cn2_gate = 30;
     // 网卡带宽
-    int32 nic_speed = 8;
+    int32 nic_speed = 31;
+    // ssh端口
+    int32 ssh_port = 32;
+    // cn2ip掩码数
+    int32 cn2ip_mask = 33;
+    // 设备ip掩码数
+    int32 hostip_mask = 34;
+    // 设备功能代码
+    string function_code = 35;
+    // 主机状态
+    string state = 36;
     // 服务能力
-    int32 service_bandwidth = 9;
-
+    int32 service_bandwidth = 37;
+    // ipv6地址
+    string ipv6 = 38;
+    // 设备角色(模块名)
+    repeated string module_name = 39;
+    // 主机ID
+    int32 bk_host_id = 40;
+    // 主机域信息
+    repeated HostCloudInfo bk_cloud_id = 41;
 }
+
 
 // 模块
 message ModuleObject {
@@ -408,6 +496,9 @@ message SearchHostRequest {
     BizObject biz = 5;
     // 区域对象
     ZoneObject zone = 6;
+    // 查询条件
+    string conditions = 7;
+
 }
 
 // 查找主机请求返回
@@ -789,8 +880,10 @@ message VipObject {
     string vip_ipv6 = 4;
     // vip的ipv4地址
     string vip_ipv4 = 5;
-    // vip的state
-    string state = 6;
+    // ipv4的状态
+    string ipv4_state = 6;
+    // ipv6的状态
+    string ipv6_state = 7;
 }
 
 // 机房对象
@@ -1090,3 +1183,26 @@ message UpdateHostStateResponse {
     common.ResponseStatus status = 1;
 }
 
+//enum VipState {
+//    // 0-未定义
+//    UNDEFINEDSTATE = 0;
+//    // 1-不可用
+//    UNAVAILABLE = 1;
+//    // 2-可用
+//    AVAILABLE = 2;
+//}
+
+// 修改VIP可用状态的请求体
+message UpdateVipStateRequest {
+    // ip地址
+    string ip = 1;
+    // 状态
+    OnlineState state = 2;
+    // 默认接收ipv4地址，可以选择ipv6地址
+    bool ipv6 = 3;
+}
+
+message UpdateVipStateResponse {
+    // 返回的请求状态
+    common.ResponseStatus status = 1;
+}

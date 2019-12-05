@@ -22,6 +22,9 @@ var _ = fmt.Errorf
 var _ = math.Inf
 
 func (this *CheckServerStateRequest) Validate() error {
+	if len(this.CmdbSearchRequest) < 1 {
+		return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", fmt.Errorf(`cmdb的搜索条件不能为空`))
+	}
 	for _, item := range this.CmdbSearchRequest {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
@@ -40,6 +43,9 @@ func (this *CheckServerStateResponse) Validate() error {
 	return nil
 }
 func (this *ServerPowerControlRequest) Validate() error {
+	if len(this.CmdbSearchRequest) < 1 {
+		return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", fmt.Errorf(`cmdb的搜索条件不能为空`))
+	}
 	for _, item := range this.CmdbSearchRequest {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
@@ -58,6 +64,9 @@ func (this *ServerPowerControlResponse) Validate() error {
 	return nil
 }
 func (this *CreateServerRequest) Validate() error {
+	if len(this.CmdbSearchRequest) < 1 {
+		return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", fmt.Errorf(`cmdb的搜索条件不能为空`))
+	}
 	for _, item := range this.CmdbSearchRequest {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
@@ -76,16 +85,14 @@ func (this *CreateServerResponse) Validate() error {
 	return nil
 }
 func (this *InstallServerRequest) Validate() error {
+	if len(this.CmdbSearchRequest) < 1 {
+		return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", fmt.Errorf(`cmdb的搜索条件不能为空`))
+	}
 	for _, item := range this.CmdbSearchRequest {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
 				return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
 			}
-		}
-	}
-	if this.CmdbHostSearchRequest != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbHostSearchRequest); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("CmdbHostSearchRequest", err)
 		}
 	}
 	return nil
@@ -127,6 +134,9 @@ func (this *TaskObject) Validate() error {
 func (this *CreateRequest) Validate() error {
 	if !(this.TemplateId > 0) {
 		return github_com_mwitkow_go_proto_validators.FieldError("TemplateId", fmt.Errorf(`模板ID不能为空`))
+	}
+	if len(this.CmdbSearchRequest) < 1 {
+		return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", fmt.Errorf(`cmdb的搜索条件不能为空`))
 	}
 	for _, item := range this.CmdbSearchRequest {
 		if item != nil {

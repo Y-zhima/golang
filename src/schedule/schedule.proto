@@ -136,7 +136,7 @@ message CreateRequest {
     // 创建定时任务的请求内容体
     repeated CreateScheduleObject schedules = 1 [(validator.field) = {repeated_count_min : 1, human_error: "任务内容不能为空"}];
     // cmdb的搜索条件
-    repeated cmdb.ChooseHostRequest cmdb_search_request = 2 [(validator.field) = {string_not_empty: true, human_error: "cmdb的搜索条件不能为空"}];
+    repeated cmdb.ChooseHostRequest cmdb_search_request = 2 [(validator.field) = {repeated_count_min : 1, human_error: "cmdb的搜索条件不能为空"}];
     // 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
     string extra_var = 3;
 }

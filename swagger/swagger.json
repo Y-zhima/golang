@@ -15,7 +15,7 @@
     "title": "AXE运维API",
     "version": "1.0.0"
   },
-  "host": "192.168.0.129:9001",
+  "host": "axe-develop.fogcdn.top:8969",
   "paths": {
     "/v1/auth/callback": {
       "get": {
@@ -520,21 +520,234 @@
             "in": "query"
           },
           {
-            "type": "integer",
-            "format": "int32",
-            "description": "主机ID.",
-            "name": "host.bk_host_id",
+            "type": "string",
+            "description": "外网IP.",
+            "name": "host.bk_host_outerip",
             "in": "query"
           },
           {
             "type": "string",
-            "description": "主机状态,有上线和下线两种.",
+            "description": "主要维护人.",
+            "name": "host.operator",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "备份维护人.",
+            "name": "host.bk_bak_operator",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "固资编号.",
+            "name": "host.bk_asset_id",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "设备SN.",
+            "name": "host.bk_sn",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "备注.",
+            "name": "host.bk_comment",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "质保年限.",
+            "name": "host.bk_service_term",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "SLA级别.",
+            "name": "host.bk_sla",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "所在国家.",
+            "name": "host.bk_state_name",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "所在省份.",
+            "name": "host.bk_province_name",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "所属运营商.",
+            "name": "host.bk_isp_name",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "主机名称.",
+            "name": "host.bk_host_name",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "操作系统类型.",
+            "name": "host.bk_os_type",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "操作系统名称.",
+            "name": "host.bk_os_name",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "操作系统版本.",
+            "name": "host.bk_os_version",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "操作系统位数.",
+            "name": "host.bk_os_bit",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "CPU逻辑核心数.",
+            "name": "host.bk_cpu",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "CPU频率.",
+            "name": "host.bk_cpu_mhz",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "CPU型号.",
+            "name": "host.bk_cpu_module",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "内存容量.",
+            "name": "host.bk_mem",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "磁盘容量.",
+            "name": "host.bk_disk",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "内网MAC地址.",
+            "name": "host.bk_mac",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "外网MAC.",
+            "name": "host.bk_outer_mac",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "录入时间.",
+            "name": "host.create_time",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "录入方式.",
+            "name": "host.import_from",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "CN2IP.",
+            "name": "host.cn2ip",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "Bond类型.",
+            "name": "host.bond_type",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "wan_gate.",
+            "name": "host.wan_gate",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "cn2_gate.",
+            "name": "host.cn2_gate",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "网卡带宽.",
+            "name": "host.nic_speed",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "ssh端口.",
+            "name": "host.ssh_port",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "cn2ip掩码数.",
+            "name": "host.cn2ip_mask",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int32",
+            "description": "设备ip掩码数.",
+            "name": "host.hostip_mask",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "设备功能代码.",
+            "name": "host.function_code",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "主机状态.",
             "name": "host.state",
             "in": "query"
           },
           {
+            "type": "integer",
+            "format": "int32",
+            "description": "服务能力.",
+            "name": "host.service_bandwidth",
+            "in": "query"
+          },
+          {
             "type": "string",
-            "description": "ipv6的地址.",
+            "description": "ipv6地址.",
             "name": "host.ipv6",
             "in": "query"
           },
@@ -551,29 +764,8 @@
           {
             "type": "integer",
             "format": "int32",
-            "description": "内存.",
-            "name": "host.bk_mem",
-            "in": "query"
-          },
-          {
-            "type": "integer",
-            "format": "int32",
-            "description": "硬盘(总量).",
-            "name": "host.bk_disk",
-            "in": "query"
-          },
-          {
-            "type": "integer",
-            "format": "int32",
-            "description": "网卡带宽.",
-            "name": "host.nic_speed",
-            "in": "query"
-          },
-          {
-            "type": "integer",
-            "format": "int32",
-            "description": "服务能力.",
-            "name": "host.service_bandwidth",
+            "description": "主机ID.",
+            "name": "host.bk_host_id",
             "in": "query"
           },
           {
@@ -652,6 +844,12 @@
             "format": "int32",
             "description": "区域ID.",
             "name": "zone.bk_inst_id",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "查询条件.",
+            "name": "conditions",
             "in": "query"
           }
         ],
@@ -1086,6 +1284,33 @@
         }
       }
     },
+    "/v1/cmdb/updateVipState": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "VIP的状态更新",
+        "operationId": "UpdateVipState",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateVipStateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateVipStateResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/file/downloadTemplate": {
       "get": {
         "tags": [
@@ -1208,7 +1433,7 @@
           "Playbook"
         ],
         "summary": "创建playbook项目",
-        "operationId": "CreateMixin14",
+        "operationId": "Create",
         "parameters": [
           {
             "name": "body",
@@ -1235,7 +1460,7 @@
           "Playbook"
         ],
         "summary": "筛选playbook项目",
-        "operationId": "FilterMixin14",
+        "operationId": "Filter",
         "parameters": [
           {
             "type": "integer",
@@ -1288,7 +1513,7 @@
           "Playbook"
         ],
         "summary": "获取playbook项目",
-        "operationId": "GetMixin14",
+        "operationId": "Get",
         "parameters": [
           {
             "type": "integer",
@@ -1315,7 +1540,7 @@
           "Playbook"
         ],
         "summary": "更新playbook项目",
-        "operationId": "UpdateMixin14",
+        "operationId": "Update",
         "parameters": [
           {
             "type": "integer",
@@ -1350,7 +1575,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin9",
+        "operationId": "CreateMixin12",
         "parameters": [
           {
             "name": "body",
@@ -1377,7 +1602,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin9",
+        "operationId": "FilterMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -1451,7 +1676,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin9",
+        "operationId": "GetMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -1513,7 +1738,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "Update",
+        "operationId": "UpdateMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -1575,7 +1800,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "Create",
+        "operationId": "CreateMixin15",
         "parameters": [
           {
             "name": "body",
@@ -1656,7 +1881,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "Filter",
+        "operationId": "FilterMixin15",
         "parameters": [
           {
             "type": "integer",
@@ -1723,7 +1948,7 @@
           "Task"
         ],
         "summary": "获取作业任务",
-        "operationId": "Get",
+        "operationId": "GetMixin15",
         "parameters": [
           {
             "type": "string",
@@ -1885,7 +2110,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin11",
+        "operationId": "CreateMixin16",
         "parameters": [
           {
             "name": "body",
@@ -1912,7 +2137,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin11",
+        "operationId": "FilterMixin16",
         "parameters": [
           {
             "type": "integer",
@@ -1971,7 +2196,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin11",
+        "operationId": "GetMixin16",
         "parameters": [
           {
             "type": "integer",
@@ -1998,7 +2223,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin11",
+        "operationId": "UpdateMixin16",
         "parameters": [
           {
             "type": "integer",
@@ -2121,7 +2346,7 @@
         }
       }
     },
-    "CreateNodesRootResCreateNodeInfoRsp": {
+    "CreateNodesRootRspCreateNodeInfoRsp": {
       "type": "object",
       "title": "创建节点请求对象",
       "properties": {
@@ -2129,55 +2354,7 @@
           "type": "array",
           "title": "节点",
           "items": {
-            "$ref": "#/definitions/ironicServerCreateNodesRootResNodeInfoRsp"
-          }
-        },
-        "pageInfo": {
-          "title": "分页信息",
-          "$ref": "#/definitions/ironicComPageInfo"
-        }
-      }
-    },
-    "InstallNodeSysRootReqInstallNodeSysReq": {
-      "type": "object",
-      "title": "安装裸金属系统请求对象",
-      "properties": {
-        "nodeInstallInfos": {
-          "type": "array",
-          "title": "安装裸金属系统信息",
-          "items": {
-            "$ref": "#/definitions/InstallNodeSysRootReqNodeInstallInfo"
-          }
-        }
-      }
-    },
-    "InstallNodeSysRootReqNodeInstallInfo": {
-      "type": "object",
-      "title": "安装裸金属系统信息",
-      "properties": {
-        "imageAddr": {
-          "type": "string",
-          "title": "安装镜像地址(一般为http url)"
-        },
-        "imageCheckSum": {
-          "type": "string",
-          "title": "镜像MD5校验码"
-        },
-        "nodeId": {
-          "type": "string",
-          "title": "裸金属节点id"
-        }
-      }
-    },
-    "InstallNodeSysRootResInstallNodeInfoRsp": {
-      "type": "object",
-      "title": "创建节点请求对象",
-      "properties": {
-        "nodeInfoRsps": {
-          "type": "array",
-          "title": "节点",
-          "items": {
-            "$ref": "#/definitions/ironicServerInstallNodeSysRootResNodeInfoRsp"
+            "$ref": "#/definitions/ironicServerCreateNodesRootRspNodeInfoRsp"
           }
         },
         "pageInfo": {
@@ -2207,7 +2384,7 @@
         }
       }
     },
-    "OperNodePowerRootResNodePowerRsp": {
+    "OperNodePowerRootRspNodePowerRsp": {
       "type": "object",
       "properties": {
         "nodeId": {
@@ -2224,14 +2401,69 @@
         }
       }
     },
-    "OperNodePowerRootResOperNodePowerRsp": {
+    "OperNodePowerRootRspOperNodePowerRsp": {
       "type": "object",
       "properties": {
         "nodePowerRsps": {
           "type": "array",
           "title": "电源操作应答",
           "items": {
-            "$ref": "#/definitions/OperNodePowerRootResNodePowerRsp"
+            "$ref": "#/definitions/OperNodePowerRootRspNodePowerRsp"
+          }
+        }
+      }
+    },
+    "QryHeartbeatRootReqQryHeartbeatReq": {
+      "type": "object",
+      "properties": {
+        "req": {
+          "type": "string",
+          "title": "安装裸金属系统信息"
+        }
+      }
+    },
+    "QryHeartbeatRootRspAppStatus": {
+      "type": "string",
+      "title": "- UNDEFINED: 没有定义\n - STOPPED: 活动中\n - ACTIVE: 未知\n - UNKNOWN: 已停止",
+      "default": "UNDEFINED",
+      "enum": [
+        "UNDEFINED",
+        "STOPPED",
+        "ACTIVE",
+        "UNKNOWN"
+      ]
+    },
+    "QryHeartbeatRootRspClusterInstance": {
+      "type": "object",
+      "title": "节点信息",
+      "properties": {
+        "appStatus": {
+          "title": "运行状态",
+          "$ref": "#/definitions/QryHeartbeatRootRspAppStatus"
+        },
+        "clusterName": {
+          "type": "string",
+          "title": "应用名，集群名"
+        },
+        "ipAddress": {
+          "type": "string",
+          "title": "应用ip"
+        },
+        "message": {
+          "type": "string",
+          "title": "信息"
+        }
+      }
+    },
+    "QryHeartbeatRootRspQryHeartbeatRsp": {
+      "type": "object",
+      "title": "健康监测应答对象",
+      "properties": {
+        "clusterInstances": {
+          "type": "array",
+          "title": "应用信息",
+          "items": {
+            "$ref": "#/definitions/QryHeartbeatRootRspClusterInstance"
           }
         }
       }
@@ -2249,7 +2481,7 @@
         }
       }
     },
-    "QryNodeInfoRootResNodeInfo": {
+    "QryNodeInfoRootRspNodeInfo": {
       "type": "object",
       "title": "节点信息",
       "properties": {
@@ -2275,7 +2507,7 @@
         },
         "powerStatus": {
           "title": "电源状态",
-          "$ref": "#/definitions/QryNodeInfoRootResPowerStatus"
+          "$ref": "#/definitions/QryNodeInfoRootRspPowerStatus"
         },
         "qryResultCode": {
           "title": "查询节点响应码",
@@ -2291,7 +2523,7 @@
         },
         "status": {
           "title": "当前状态",
-          "$ref": "#/definitions/QryNodeInfoRootResStatus"
+          "$ref": "#/definitions/QryNodeInfoRootRspStatus"
         },
         "userName": {
           "type": "string",
@@ -2299,18 +2531,19 @@
         }
       }
     },
-    "QryNodeInfoRootResPowerStatus": {
-      "description": "- UNKNOWN: 未知\n - POWERON: 开机\n - POWEROFF: 关机",
+    "QryNodeInfoRootRspPowerStatus": {
+      "description": "- UNDEFINED_1: 没有定义\n - POWERON: 开机\n - POWEROFF: 关机\n - UNKNOWN: 未知",
       "type": "string",
       "title": "电源状态",
-      "default": "UNKNOWN",
+      "default": "UNDEFINED_1",
       "enum": [
-        "UNKNOWN",
+        "UNDEFINED_1",
         "POWERON",
-        "POWEROFF"
+        "POWEROFF",
+        "UNKNOWN"
       ]
     },
-    "QryNodeInfoRootResQryNodeInfoRsp": {
+    "QryNodeInfoRootRspQryNodeInfoRsp": {
       "type": "object",
       "title": "查询节点应答对象",
       "properties": {
@@ -2318,23 +2551,51 @@
           "type": "array",
           "title": "节点",
           "items": {
-            "$ref": "#/definitions/QryNodeInfoRootResNodeInfo"
+            "$ref": "#/definitions/QryNodeInfoRootRspNodeInfo"
           }
         }
       }
     },
-    "QryNodeInfoRootResStatus": {
-      "description": "- NULL: 未知\n - CREATED: 已创建 :刚创建完节点后的状态，节点创建、验证成功，可进行装系统\n - DEPLOYING: 部署中 :正在执行装机任务\n - DEPLOYFAILED: 部署失败 : 执行装机异常\n - ACTIVE: 活动 ： 已经安装完系统活动中",
+    "QryNodeInfoRootRspStatus": {
+      "description": "- UNDEFINED_2: 没有定义\n - NULL: 未知\n - CREATED: 已创建 :刚创建完节点后的状态，节点创建、验证成功，可进行装系统\n - DEPLOYING: 部署中 :正在执行装机任务\n - DEPLOYFAILED: 部署失败 : 执行装机异常\n - ACTIVE: 活动 ： 已经安装完系统活动中",
       "type": "string",
       "title": "裸金属节点状态",
-      "default": "NULL",
+      "default": "UNDEFINED_2",
       "enum": [
+        "UNDEFINED_2",
         "NULL",
         "CREATED",
         "DEPLOYING",
         "DEPLOYFAILED",
         "ACTIVE"
       ]
+    },
+    "ReInstallNodeSysRootRspReNodeInfoRsp": {
+      "type": "object",
+      "title": "节点信息",
+      "properties": {
+        "initId": {
+          "type": "string",
+          "format": "int64",
+          "title": "初始化id"
+        },
+        "installResultCode": {
+          "title": "创建节点响应码",
+          "$ref": "#/definitions/ironicComResultCode"
+        },
+        "installResultMsg": {
+          "type": "string",
+          "title": "创建节点响应消息"
+        },
+        "newNodeId": {
+          "type": "string",
+          "title": "新裸金属节点id"
+        },
+        "oldNodeId": {
+          "type": "string",
+          "title": "旧裸金属节点id"
+        }
+      }
     },
     "authCallbackResponse": {
       "type": "object",
@@ -2578,6 +2839,37 @@
         }
       }
     },
+    "cmdbHostCloudInfo": {
+      "type": "object",
+      "title": "主机域信息",
+      "properties": {
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "实体ID"
+        },
+        "bk_inst_name": {
+          "type": "string",
+          "title": "实体名称"
+        },
+        "bk_obj_icon": {
+          "type": "string",
+          "title": "对象图标"
+        },
+        "bk_obj_id": {
+          "type": "string",
+          "title": "对象类型"
+        },
+        "bk_obj_name": {
+          "type": "string",
+          "title": "对象名称"
+        },
+        "id": {
+          "type": "string",
+          "title": "域ID"
+        }
+      }
+    },
     "cmdbHostInfoObject": {
       "type": "object",
       "title": "主机内容信息",
@@ -2613,10 +2905,43 @@
       "type": "object",
       "title": "主机",
       "properties": {
+        "bk_asset_id": {
+          "type": "string",
+          "title": "固资编号"
+        },
+        "bk_bak_operator": {
+          "type": "string",
+          "title": "备份维护人"
+        },
+        "bk_cloud_id": {
+          "type": "array",
+          "title": "主机域信息",
+          "items": {
+            "$ref": "#/definitions/cmdbHostCloudInfo"
+          }
+        },
+        "bk_comment": {
+          "type": "string",
+          "title": "备注"
+        },
+        "bk_cpu": {
+          "type": "integer",
+          "format": "int32",
+          "title": "CPU逻辑核心数"
+        },
+        "bk_cpu_mhz": {
+          "type": "integer",
+          "format": "int32",
+          "title": "CPU频率"
+        },
+        "bk_cpu_module": {
+          "type": "string",
+          "title": "CPU型号"
+        },
         "bk_disk": {
           "type": "integer",
           "format": "int32",
-          "title": "硬盘(总量)"
+          "title": "磁盘容量"
         },
         "bk_host_id": {
           "type": "integer",
@@ -2627,14 +2952,105 @@
           "type": "string",
           "title": "内网IP"
         },
+        "bk_host_name": {
+          "type": "string",
+          "title": "主机名称"
+        },
+        "bk_host_outerip": {
+          "type": "string",
+          "title": "外网IP"
+        },
+        "bk_isp_name": {
+          "type": "string",
+          "title": "所属运营商"
+        },
+        "bk_mac": {
+          "type": "string",
+          "title": "内网MAC地址"
+        },
         "bk_mem": {
           "type": "integer",
           "format": "int32",
-          "title": "内存"
+          "title": "内存容量"
+        },
+        "bk_os_bit": {
+          "type": "string",
+          "title": "操作系统位数"
+        },
+        "bk_os_name": {
+          "type": "string",
+          "title": "操作系统名称"
+        },
+        "bk_os_type": {
+          "type": "string",
+          "title": "操作系统类型"
+        },
+        "bk_os_version": {
+          "type": "string",
+          "title": "操作系统版本"
+        },
+        "bk_outer_mac": {
+          "type": "string",
+          "title": "外网MAC"
+        },
+        "bk_province_name": {
+          "type": "string",
+          "title": "所在省份"
+        },
+        "bk_service_term": {
+          "type": "integer",
+          "format": "int32",
+          "title": "质保年限"
+        },
+        "bk_sla": {
+          "type": "string",
+          "title": "SLA级别"
+        },
+        "bk_sn": {
+          "type": "string",
+          "title": "设备SN"
+        },
+        "bk_state_name": {
+          "type": "string",
+          "title": "所在国家"
+        },
+        "bond_type": {
+          "type": "string",
+          "title": "Bond类型"
+        },
+        "cn2_gate": {
+          "type": "string",
+          "title": "cn2_gate"
+        },
+        "cn2ip": {
+          "type": "string",
+          "title": "CN2IP"
+        },
+        "cn2ip_mask": {
+          "type": "integer",
+          "format": "int32",
+          "title": "cn2ip掩码数"
+        },
+        "create_time": {
+          "type": "string",
+          "title": "录入时间"
+        },
+        "function_code": {
+          "type": "string",
+          "title": "设备功能代码"
+        },
+        "hostip_mask": {
+          "type": "integer",
+          "format": "int32",
+          "title": "设备ip掩码数"
+        },
+        "import_from": {
+          "type": "string",
+          "title": "录入方式"
         },
         "ipv6": {
           "type": "string",
-          "title": "ipv6的地址"
+          "title": "ipv6地址"
         },
         "module_name": {
           "type": "array",
@@ -2648,14 +3064,27 @@
           "format": "int32",
           "title": "网卡带宽"
         },
+        "operator": {
+          "type": "string",
+          "title": "主要维护人"
+        },
         "service_bandwidth": {
           "type": "integer",
           "format": "int32",
           "title": "服务能力"
         },
+        "ssh_port": {
+          "type": "integer",
+          "format": "int32",
+          "title": "ssh端口"
+        },
         "state": {
           "type": "string",
-          "title": "主机状态,有上线和下线两种"
+          "title": "主机状态"
+        },
+        "wan_gate": {
+          "type": "string",
+          "title": "wan_gate"
         }
       }
     },
@@ -2956,7 +3385,7 @@
           }
         },
         "status": {
-          "title": "TopologyObject instance = 1;\r\n状态码",
+          "title": "TopologyObject instance = 1;\n状态码",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
@@ -3673,6 +4102,34 @@
         }
       }
     },
+    "cmdbUpdateVipStateRequest": {
+      "type": "object",
+      "title": "修改VIP可用状态的请求体",
+      "properties": {
+        "ip": {
+          "type": "string",
+          "title": "ip地址"
+        },
+        "ipv6": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "默认接收ipv4地址，可以选择ipv6地址"
+        },
+        "state": {
+          "title": "状态",
+          "$ref": "#/definitions/cmdbOnlineState"
+        }
+      }
+    },
+    "cmdbUpdateVipStateResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
     "cmdbVipObject": {
       "type": "object",
       "title": "VIP对象",
@@ -3690,9 +4147,13 @@
           "type": "string",
           "title": "ip的ipv4地址"
         },
-        "state": {
+        "ipv4_state": {
           "type": "string",
-          "title": "vip的state"
+          "title": "ipv4的状态"
+        },
+        "ipv6_state": {
+          "type": "string",
+          "title": "ipv6的状态"
         },
         "vip_ipv4": {
           "type": "string",
@@ -3900,14 +4361,220 @@
         }
       }
     },
+    "imageAppStatus": {
+      "type": "string",
+      "title": "- APP_STATUS_UNDEFINED: 未知\n - APP_STATUS_STOPPED: 活动中\n - APP_STATUS_ACTIVE: 未知\n - APP_STATUS_UNKNOWN: 已停止",
+      "default": "APP_STATUS_UNDEFINED",
+      "enum": [
+        "APP_STATUS_UNDEFINED",
+        "APP_STATUS_STOPPED",
+        "APP_STATUS_ACTIVE",
+        "APP_STATUS_UNKNOWN"
+      ]
+    },
+    "imageClusterInstance": {
+      "type": "object",
+      "title": "节点信息",
+      "properties": {
+        "app_status": {
+          "title": "运行状态",
+          "$ref": "#/definitions/imageAppStatus"
+        },
+        "cluster_name": {
+          "type": "string",
+          "title": "应用名，集群名"
+        },
+        "ip_address": {
+          "type": "string",
+          "title": "应用ip"
+        },
+        "message": {
+          "type": "string",
+          "title": "信息"
+        }
+      }
+    },
+    "imageHealthResponse": {
+      "type": "object",
+      "properties": {
+        "cluster_instances": {
+          "type": "array",
+          "title": "响应对象",
+          "items": {
+            "$ref": "#/definitions/imageClusterInstance"
+          }
+        },
+        "status": {
+          "title": "响应码",
+          "$ref": "#/definitions/imageResponseStatus"
+        }
+      }
+    },
+    "imageImageAttr": {
+      "type": "object",
+      "properties": {
+        "attr_add_type": {
+          "type": "string",
+          "title": "属性、标签的附加信息类型，例如可以说明是version表示版本号"
+        },
+        "attr_add_value": {
+          "type": "string",
+          "title": "属性、标签附加的值,例docker的版本CE或者EE"
+        },
+        "attr_name": {
+          "type": "string",
+          "title": "属性、标签名称：例如docker"
+        }
+      }
+    },
+    "imageImageFormat": {
+      "type": "string",
+      "title": "镜像格式",
+      "default": "IMAGE_FORMAT_UNDEFINED",
+      "enum": [
+        "IMAGE_FORMAT_UNDEFINED",
+        "IMAGE_FORMAT_ISO",
+        "IMAGE_FORMAT_QCOW2"
+      ]
+    },
+    "imageImageObject": {
+      "type": "object",
+      "properties": {
+        "check_sum": {
+          "type": "string",
+          "title": "镜像md5完整性校验码"
+        },
+        "format": {
+          "title": "镜像的格式，使用枚举，例如iso，qcow2等",
+          "$ref": "#/definitions/imageImageFormat"
+        },
+        "image_attrs": {
+          "type": "array",
+          "title": "镜像附加属性",
+          "items": {
+            "$ref": "#/definitions/imageImageAttr"
+          }
+        },
+        "image_id": {
+          "type": "string",
+          "format": "int64",
+          "title": "镜像标识"
+        },
+        "image_name": {
+          "type": "string",
+          "title": "镜像名称"
+        },
+        "image_type": {
+          "title": "系统类型，使用枚举，比如常用的CentOS\\Ubuntu\\openSUSE等",
+          "$ref": "#/definitions/imageImageType"
+        },
+        "remark": {
+          "type": "string",
+          "title": "镜像附加信息"
+        },
+        "sub_version": {
+          "type": "string",
+          "title": "系统的小版本号，例如CentOS7.4下的1708"
+        },
+        "uri": {
+          "type": "string",
+          "title": "镜像存储在ceph或者其他后端存储的路径或者访问地址"
+        },
+        "version": {
+          "type": "string",
+          "title": "系统大版本号，比如CentOS的7.4,7.5,7.6等"
+        }
+      }
+    },
+    "imageImageType": {
+      "type": "string",
+      "title": "系统类型",
+      "default": "IMAGE_TYPE_UNDEFINED",
+      "enum": [
+        "IMAGE_TYPE_UNDEFINED",
+        "IMAGE_TYPE_CENTOS",
+        "IMAGE_TYPE_UBUNTU",
+        "IMAGE_TYPE_OPENSUSE"
+      ]
+    },
+    "imagePaging": {
+      "type": "object",
+      "title": "分页信息(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "title": "当前页数"
+        },
+        "per_page": {
+          "type": "integer",
+          "format": "int32",
+          "title": "每页显示的记录条数"
+        },
+        "total_page": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总页数"
+        },
+        "total_record": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总记录数"
+        }
+      }
+    },
+    "imageQueryResponse": {
+      "type": "object",
+      "properties": {
+        "images": {
+          "type": "array",
+          "title": "响应对象",
+          "items": {
+            "$ref": "#/definitions/imageImageObject"
+          }
+        },
+        "paging": {
+          "$ref": "#/definitions/imagePaging"
+        },
+        "status": {
+          "title": "响应码",
+          "$ref": "#/definitions/imageResponseStatus"
+        }
+      }
+    },
+    "imageResponseStatus": {
+      "type": "object",
+      "title": "请求返回状态",
+      "properties": {
+        "code": {
+          "title": "状态码",
+          "$ref": "#/definitions/imageStatusCode"
+        },
+        "message": {
+          "type": "string",
+          "title": "信息"
+        }
+      }
+    },
+    "imageStatusCode": {
+      "description": "- SUCCESS: 成功\n - INVALID_ARGUMENT: 参数错误\n - ACCESS_DENIED: 访问拒绝",
+      "type": "string",
+      "title": "请求返回状态码",
+      "default": "SUCCESS",
+      "enum": [
+        "SUCCESS",
+        "INVALID_ARGUMENT",
+        "ACCESS_DENIED"
+      ]
+    },
     "ironicComAppKey": {
-      "description": "- IRONICAPP: 裸金属应用\n - CMDB: CMDB平台",
+      "description": "- UNDEFINED_0: 无定义\n - IRONIC_APP: 裸金属应用\n - CMDB: CMDB平台",
       "type": "string",
       "title": "调用方编码",
-      "default": "UNDEFINED",
+      "default": "UNDEFINED_0",
       "enum": [
-        "UNDEFINED",
-        "IRONICAPP",
+        "UNDEFINED_0",
+        "IRONIC_APP",
         "CMDB"
       ]
     },
@@ -3938,26 +4605,29 @@
       }
     },
     "ironicComResultCode": {
-      "description": "- SUCCESS: 成功\n - FAIL: 失败",
+      "description": "- UNDEFINED_3: 没有定义\n - FAIL: 失败\n - SUCCESS: 成功",
       "type": "string",
       "title": "响应码",
-      "default": "SUCCESS",
+      "default": "UNDEFINED_3",
       "enum": [
-        "SUCCESS",
-        "FAIL"
+        "UNDEFINED_3",
+        "FAIL",
+        "SUCCESS"
       ]
     },
     "ironicComSvcCode": {
-      "description": "- CREATENODES: 创建裸金属节点\n - QRYNODEINFO: 查询裸金属状态\n - INSTALLNODESYS: 安装裸金属系统\n - OPERNODEPOWER: 操作裸金属实例电源",
+      "description": "- UNDEFINED_1: 无定义\n - CREATE_NODES: 创建裸金属节点\n - QRY_NODE_INFO: 查询裸金属状态\n - INSTALL_NODE_SYS: 安装裸金属系统\n - OPER_NODE_POWER: 操作裸金属实例电源\n - RE_INSTALL_NODE_SYS: 重新安装裸金属系统\n - QRY_HEART_BEAT: 健康监测",
       "type": "string",
       "title": "服务编码",
-      "default": "SVCCODEDEFAULT",
+      "default": "UNDEFINED_1",
       "enum": [
-        "SVCCODEDEFAULT",
-        "CREATENODES",
-        "QRYNODEINFO",
-        "INSTALLNODESYS",
-        "OPERNODEPOWER"
+        "UNDEFINED_1",
+        "CREATE_NODES",
+        "QRY_NODE_INFO",
+        "INSTALL_NODE_SYS",
+        "OPER_NODE_POWER",
+        "RE_INSTALL_NODE_SYS",
+        "QRY_HEART_BEAT"
       ]
     },
     "ironicComTcpContReq": {
@@ -3999,11 +4669,11 @@
         }
       }
     },
-    "ironicComTcpContRes": {
+    "ironicComTcpContRsp": {
       "type": "object",
       "title": "控制对象(每个服务通用的控制信息，当服务端反馈应答时，信息填写如下)",
       "properties": {
-        "reqTime": {
+        "rspTime": {
           "type": "string",
           "format": "date-time",
           "title": "应答时间"
@@ -4039,26 +4709,26 @@
         }
       }
     },
-    "ironicServerCreateNodesRootRes": {
+    "ironicServerCreateNodesRootRsp": {
       "type": "object",
       "properties": {
-        "contractRootRes": {
-          "$ref": "#/definitions/ironicServerCreateNodesRootResContractRootRes"
+        "contractRootRsp": {
+          "$ref": "#/definitions/ironicServerCreateNodesRootRspContractRootRsp"
         }
       }
     },
-    "ironicServerCreateNodesRootResContractRootRes": {
+    "ironicServerCreateNodesRootRspContractRootRsp": {
       "type": "object",
       "properties": {
         "svcCont": {
-          "$ref": "#/definitions/ironicServerCreateNodesRootResSvcContRes"
+          "$ref": "#/definitions/ironicServerCreateNodesRootRspSvcContRsp"
         },
         "tcpCont": {
-          "$ref": "#/definitions/ironicComTcpContRes"
+          "$ref": "#/definitions/ironicComTcpContRsp"
         }
       }
     },
-    "ironicServerCreateNodesRootResNodeInfoRsp": {
+    "ironicServerCreateNodesRootRspNodeInfoRsp": {
       "type": "object",
       "title": "节点信息",
       "properties": {
@@ -4081,7 +4751,7 @@
         }
       }
     },
-    "ironicServerCreateNodesRootResSvcContRes": {
+    "ironicServerCreateNodesRootRspSvcContRsp": {
       "type": "object",
       "properties": {
         "resultCode": {
@@ -4094,7 +4764,7 @@
         },
         "resultObject": {
           "title": "响应对象",
-          "$ref": "#/definitions/CreateNodesRootResCreateNodeInfoRsp"
+          "$ref": "#/definitions/CreateNodesRootRspCreateNodeInfoRsp"
         }
       }
     },
@@ -4110,36 +4780,84 @@
         }
       }
     },
+    "ironicServerInstallNodeSysRootReqInstallNodeSysReq": {
+      "type": "object",
+      "title": "安装裸金属系统请求对象",
+      "properties": {
+        "nodeInstallInfos": {
+          "type": "array",
+          "title": "安装裸金属系统信息",
+          "items": {
+            "$ref": "#/definitions/ironicServerInstallNodeSysRootReqNodeInstallInfo"
+          }
+        }
+      }
+    },
+    "ironicServerInstallNodeSysRootReqNodeInstallInfo": {
+      "type": "object",
+      "title": "安装裸金属系统信息",
+      "properties": {
+        "imageAddr": {
+          "type": "string",
+          "title": "安装镜像地址(一般为http url)"
+        },
+        "imageCheckSum": {
+          "type": "string",
+          "title": "镜像MD5校验码"
+        },
+        "nodeId": {
+          "type": "string",
+          "title": "裸金属节点id"
+        }
+      }
+    },
     "ironicServerInstallNodeSysRootReqSvcContReq": {
       "type": "object",
       "title": "安装裸金属系统请求",
       "properties": {
         "requestObject": {
-          "$ref": "#/definitions/InstallNodeSysRootReqInstallNodeSysReq"
+          "$ref": "#/definitions/ironicServerInstallNodeSysRootReqInstallNodeSysReq"
         }
       }
     },
-    "ironicServerInstallNodeSysRootRes": {
+    "ironicServerInstallNodeSysRootRsp": {
       "type": "object",
       "properties": {
-        "contractRootRes": {
-          "$ref": "#/definitions/ironicServerInstallNodeSysRootResContractRootRes"
+        "contractRootRsp": {
+          "$ref": "#/definitions/ironicServerInstallNodeSysRootRspContractRootRsp"
         }
       }
     },
-    "ironicServerInstallNodeSysRootResContractRootRes": {
+    "ironicServerInstallNodeSysRootRspContractRootRsp": {
       "type": "object",
       "title": "响应信息",
       "properties": {
         "svcCont": {
-          "$ref": "#/definitions/ironicServerInstallNodeSysRootResSvcContRes"
+          "$ref": "#/definitions/ironicServerInstallNodeSysRootRspSvcContRsp"
         },
         "tcpCont": {
-          "$ref": "#/definitions/ironicComTcpContRes"
+          "$ref": "#/definitions/ironicComTcpContRsp"
         }
       }
     },
-    "ironicServerInstallNodeSysRootResNodeInfoRsp": {
+    "ironicServerInstallNodeSysRootRspInstallNodeInfoRsp": {
+      "type": "object",
+      "title": "创建节点请求对象",
+      "properties": {
+        "nodeInfoRsps": {
+          "type": "array",
+          "title": "节点",
+          "items": {
+            "$ref": "#/definitions/ironicServerInstallNodeSysRootRspNodeInfoRsp"
+          }
+        },
+        "pageInfo": {
+          "title": "分页信息",
+          "$ref": "#/definitions/ironicComPageInfo"
+        }
+      }
+    },
+    "ironicServerInstallNodeSysRootRspNodeInfoRsp": {
       "type": "object",
       "title": "节点信息",
       "properties": {
@@ -4162,7 +4880,7 @@
         }
       }
     },
-    "ironicServerInstallNodeSysRootResSvcContRes": {
+    "ironicServerInstallNodeSysRootRspSvcContRsp": {
       "type": "object",
       "properties": {
         "resultCode": {
@@ -4175,7 +4893,7 @@
         },
         "resultObject": {
           "title": "响应对象",
-          "$ref": "#/definitions/InstallNodeSysRootResInstallNodeInfoRsp"
+          "$ref": "#/definitions/ironicServerInstallNodeSysRootRspInstallNodeInfoRsp"
         }
       }
     },
@@ -4199,26 +4917,26 @@
         }
       }
     },
-    "ironicServerOperNodePowerRootRes": {
+    "ironicServerOperNodePowerRootRsp": {
       "type": "object",
       "properties": {
-        "contractRootRes": {
-          "$ref": "#/definitions/ironicServerOperNodePowerRootResContractRootRes"
+        "contractRootRsp": {
+          "$ref": "#/definitions/ironicServerOperNodePowerRootRspContractRootRsp"
         }
       }
     },
-    "ironicServerOperNodePowerRootResContractRootRes": {
+    "ironicServerOperNodePowerRootRspContractRootRsp": {
       "type": "object",
       "properties": {
         "svcCont": {
-          "$ref": "#/definitions/ironicServerOperNodePowerRootResSvcContRes"
+          "$ref": "#/definitions/ironicServerOperNodePowerRootRspSvcContRsp"
         },
         "tcpCont": {
-          "$ref": "#/definitions/ironicComTcpContRes"
+          "$ref": "#/definitions/ironicComTcpContRsp"
         }
       }
     },
-    "ironicServerOperNodePowerRootResSvcContRes": {
+    "ironicServerOperNodePowerRootRspSvcContRsp": {
       "type": "object",
       "properties": {
         "resultCode": {
@@ -4231,7 +4949,64 @@
         },
         "resultObject": {
           "title": "响应对象",
-          "$ref": "#/definitions/OperNodePowerRootResOperNodePowerRsp"
+          "$ref": "#/definitions/OperNodePowerRootRspOperNodePowerRsp"
+        }
+      }
+    },
+    "ironicServerQryHeartbeatRootReqContractRootReq": {
+      "type": "object",
+      "title": "请求信息",
+      "properties": {
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerQryHeartbeatRootReqSvcContReq"
+        },
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContReq"
+        }
+      }
+    },
+    "ironicServerQryHeartbeatRootReqSvcContReq": {
+      "type": "object",
+      "properties": {
+        "requestObject": {
+          "$ref": "#/definitions/QryHeartbeatRootReqQryHeartbeatReq"
+        }
+      }
+    },
+    "ironicServerQryHeartbeatRootRsp": {
+      "type": "object",
+      "properties": {
+        "contractRootRsp": {
+          "$ref": "#/definitions/ironicServerQryHeartbeatRootRspContractRootRsp"
+        }
+      }
+    },
+    "ironicServerQryHeartbeatRootRspContractRootRsp": {
+      "type": "object",
+      "title": "响应信息",
+      "properties": {
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerQryHeartbeatRootRspSvcContRsp"
+        },
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContRsp"
+        }
+      }
+    },
+    "ironicServerQryHeartbeatRootRspSvcContRsp": {
+      "type": "object",
+      "properties": {
+        "resultCode": {
+          "title": "响应码",
+          "$ref": "#/definitions/ironicComResultCode"
+        },
+        "resultMsg": {
+          "type": "string",
+          "title": "响应消息描述"
+        },
+        "resultObject": {
+          "title": "响应对象",
+          "$ref": "#/definitions/QryHeartbeatRootRspQryHeartbeatRsp"
         }
       }
     },
@@ -4256,27 +5031,27 @@
         }
       }
     },
-    "ironicServerQryNodeInfoRootRes": {
+    "ironicServerQryNodeInfoRootRsp": {
       "type": "object",
       "properties": {
-        "contractRootRes": {
-          "$ref": "#/definitions/ironicServerQryNodeInfoRootResContractRootRes"
+        "contractRootRsp": {
+          "$ref": "#/definitions/ironicServerQryNodeInfoRootRspContractRootRsp"
         }
       }
     },
-    "ironicServerQryNodeInfoRootResContractRootRes": {
+    "ironicServerQryNodeInfoRootRspContractRootRsp": {
       "type": "object",
       "title": "响应信息",
       "properties": {
         "svcCont": {
-          "$ref": "#/definitions/ironicServerQryNodeInfoRootResSvcContRes"
+          "$ref": "#/definitions/ironicServerQryNodeInfoRootRspSvcContRsp"
         },
         "tcpCont": {
-          "$ref": "#/definitions/ironicComTcpContRes"
+          "$ref": "#/definitions/ironicComTcpContRsp"
         }
       }
     },
-    "ironicServerQryNodeInfoRootResSvcContRes": {
+    "ironicServerQryNodeInfoRootRspSvcContRsp": {
       "type": "object",
       "properties": {
         "resultCode": {
@@ -4289,7 +5064,113 @@
         },
         "resultObject": {
           "title": "响应对象",
-          "$ref": "#/definitions/QryNodeInfoRootResQryNodeInfoRsp"
+          "$ref": "#/definitions/QryNodeInfoRootRspQryNodeInfoRsp"
+        }
+      }
+    },
+    "ironicServerReInstallNodeSysRootReqContractRootReq": {
+      "type": "object",
+      "title": "请求信息",
+      "properties": {
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerReInstallNodeSysRootReqSvcContReq"
+        },
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContReq"
+        }
+      }
+    },
+    "ironicServerReInstallNodeSysRootReqInstallNodeSysReq": {
+      "type": "object",
+      "title": "安装裸金属系统请求对象",
+      "properties": {
+        "nodeInstallInfos": {
+          "type": "array",
+          "title": "安装裸金属系统信息",
+          "items": {
+            "$ref": "#/definitions/ironicServerReInstallNodeSysRootReqNodeInstallInfo"
+          }
+        }
+      }
+    },
+    "ironicServerReInstallNodeSysRootReqNodeInstallInfo": {
+      "type": "object",
+      "title": "安装裸金属系统信息",
+      "properties": {
+        "imageAddr": {
+          "type": "string",
+          "title": "安装镜像地址(一般为http url)"
+        },
+        "imageCheckSum": {
+          "type": "string",
+          "title": "镜像MD5校验码"
+        },
+        "nodeId": {
+          "type": "string",
+          "title": "裸金属节点id"
+        }
+      }
+    },
+    "ironicServerReInstallNodeSysRootReqSvcContReq": {
+      "type": "object",
+      "title": "安装裸金属系统请求",
+      "properties": {
+        "requestObject": {
+          "$ref": "#/definitions/ironicServerReInstallNodeSysRootReqInstallNodeSysReq"
+        }
+      }
+    },
+    "ironicServerReInstallNodeSysRootRsp": {
+      "type": "object",
+      "properties": {
+        "contractRootRsp": {
+          "$ref": "#/definitions/ironicServerReInstallNodeSysRootRspContractRootRsp"
+        }
+      }
+    },
+    "ironicServerReInstallNodeSysRootRspContractRootRsp": {
+      "type": "object",
+      "title": "响应信息",
+      "properties": {
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerReInstallNodeSysRootRspSvcContRsp"
+        },
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContRsp"
+        }
+      }
+    },
+    "ironicServerReInstallNodeSysRootRspInstallNodeInfoRsp": {
+      "type": "object",
+      "title": "创建节点请求对象",
+      "properties": {
+        "nodeInfoRsps": {
+          "type": "array",
+          "title": "节点",
+          "items": {
+            "$ref": "#/definitions/ReInstallNodeSysRootRspReNodeInfoRsp"
+          }
+        },
+        "pageInfo": {
+          "title": "分页信息",
+          "$ref": "#/definitions/ironicComPageInfo"
+        }
+      }
+    },
+    "ironicServerReInstallNodeSysRootRspSvcContRsp": {
+      "type": "object",
+      "properties": {
+        "resultCode": {
+          "title": "响应码",
+          "$ref": "#/definitions/ironicComResultCode"
+        },
+        "resultMsg": {
+          "type": "string",
+          "title": "响应消息描述"
+        },
+        "resultObject": {
+          "title": "响应对象",
+          "$ref": "#/definitions/ironicServerReInstallNodeSysRootRspInstallNodeInfoRsp"
         }
       }
     },
@@ -5152,10 +6033,6 @@
       "type": "object",
       "title": "调用裸金属安装操作请求体",
       "properties": {
-        "cmdb_host_search_request": {
-          "title": "主机查询条件",
-          "$ref": "#/definitions/cmdbChooseHostRequest"
-        },
         "cmdb_search_request": {
           "type": "array",
           "title": "机房及对应物理机",

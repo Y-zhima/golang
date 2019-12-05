@@ -1,0 +1,226 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "image/image.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {},
+  "definitions": {
+    "imageAppStatus": {
+      "type": "string",
+      "enum": [
+        "APP_STATUS_UNDEFINED",
+        "APP_STATUS_STOPPED",
+        "APP_STATUS_ACTIVE",
+        "APP_STATUS_UNKNOWN"
+      ],
+      "default": "APP_STATUS_UNDEFINED",
+      "title": "- APP_STATUS_UNDEFINED: 未知\n - APP_STATUS_STOPPED: 活动中\n - APP_STATUS_ACTIVE: 未知\n - APP_STATUS_UNKNOWN: 已停止"
+    },
+    "imageClusterInstance": {
+      "type": "object",
+      "properties": {
+        "ip_address": {
+          "type": "string",
+          "title": "应用ip"
+        },
+        "cluster_name": {
+          "type": "string",
+          "title": "应用名，集群名"
+        },
+        "app_status": {
+          "$ref": "#/definitions/imageAppStatus",
+          "title": "运行状态"
+        },
+        "message": {
+          "type": "string",
+          "title": "信息"
+        }
+      },
+      "title": "节点信息"
+    },
+    "imageHealthResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/imageResponseStatus",
+          "title": "响应码"
+        },
+        "cluster_instances": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/imageClusterInstance"
+          },
+          "title": "响应对象"
+        }
+      }
+    },
+    "imageImageAttr": {
+      "type": "object",
+      "properties": {
+        "attr_name": {
+          "type": "string",
+          "title": "属性、标签名称：例如docker"
+        },
+        "attr_add_type": {
+          "type": "string",
+          "title": "属性、标签的附加信息类型，例如可以说明是version表示版本号"
+        },
+        "attr_add_value": {
+          "type": "string",
+          "title": "属性、标签附加的值,例docker的版本CE或者EE"
+        }
+      }
+    },
+    "imageImageFormat": {
+      "type": "string",
+      "enum": [
+        "IMAGE_FORMAT_UNDEFINED",
+        "IMAGE_FORMAT_ISO",
+        "IMAGE_FORMAT_QCOW2"
+      ],
+      "default": "IMAGE_FORMAT_UNDEFINED",
+      "title": "镜像格式"
+    },
+    "imageImageObject": {
+      "type": "object",
+      "properties": {
+        "image_id": {
+          "type": "string",
+          "format": "int64",
+          "title": "镜像标识"
+        },
+        "image_name": {
+          "type": "string",
+          "title": "镜像名称"
+        },
+        "image_type": {
+          "$ref": "#/definitions/imageImageType",
+          "title": "系统类型，使用枚举，比如常用的CentOS\\Ubuntu\\openSUSE等"
+        },
+        "version": {
+          "type": "string",
+          "title": "系统大版本号，比如CentOS的7.4,7.5,7.6等"
+        },
+        "sub_version": {
+          "type": "string",
+          "title": "系统的小版本号，例如CentOS7.4下的1708"
+        },
+        "format": {
+          "$ref": "#/definitions/imageImageFormat",
+          "title": "镜像的格式，使用枚举，例如iso，qcow2等"
+        },
+        "check_sum": {
+          "type": "string",
+          "title": "镜像md5完整性校验码"
+        },
+        "uri": {
+          "type": "string",
+          "title": "镜像存储在ceph或者其他后端存储的路径或者访问地址"
+        },
+        "remark": {
+          "type": "string",
+          "title": "镜像附加信息"
+        },
+        "image_attrs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/imageImageAttr"
+          },
+          "title": "镜像附加属性"
+        }
+      }
+    },
+    "imageImageType": {
+      "type": "string",
+      "enum": [
+        "IMAGE_TYPE_UNDEFINED",
+        "IMAGE_TYPE_CENTOS",
+        "IMAGE_TYPE_UBUNTU",
+        "IMAGE_TYPE_OPENSUSE"
+      ],
+      "default": "IMAGE_TYPE_UNDEFINED",
+      "title": "系统类型"
+    },
+    "imagePaging": {
+      "type": "object",
+      "properties": {
+        "total_page": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总页数"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "title": "当前页数"
+        },
+        "per_page": {
+          "type": "integer",
+          "format": "int32",
+          "title": "每页显示的记录条数"
+        },
+        "total_record": {
+          "type": "integer",
+          "format": "int32",
+          "title": "总记录数"
+        }
+      },
+      "title": "分页信息(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)"
+    },
+    "imageQueryResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/imageResponseStatus",
+          "title": "响应码"
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/imageImageObject"
+          },
+          "title": "响应对象"
+        },
+        "paging": {
+          "$ref": "#/definitions/imagePaging"
+        }
+      }
+    },
+    "imageResponseStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/imageStatusCode",
+          "title": "状态码"
+        },
+        "message": {
+          "type": "string",
+          "title": "信息"
+        }
+      },
+      "title": "请求返回状态"
+    },
+    "imageStatusCode": {
+      "type": "string",
+      "enum": [
+        "SUCCESS",
+        "INVALID_ARGUMENT",
+        "ACCESS_DENIED"
+      ],
+      "default": "SUCCESS",
+      "description": "- SUCCESS: 成功\n - INVALID_ARGUMENT: 参数错误\n - ACCESS_DENIED: 访问拒绝",
+      "title": "请求返回状态码"
+    }
+  }
+}

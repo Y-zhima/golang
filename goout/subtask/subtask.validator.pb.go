@@ -9,6 +9,7 @@ import (
 	_ "git.fogcdn.top/axe/protos/goout/common"
 	proto "github.com/golang/protobuf/proto"
 	_ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
+	_ "github.com/mwitkow/go-proto-validators"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	math "math"
@@ -20,6 +21,12 @@ var _ = fmt.Errorf
 var _ = math.Inf
 
 func (this *CreateRequest) Validate() error {
+	if !(this.TaskId > 0) {
+		return github_com_mwitkow_go_proto_validators.FieldError("TaskId", fmt.Errorf(`任务ID不能为空`))
+	}
+	if nil == this.CmdbSearchRequest {
+		return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", fmt.Errorf("message must exist"))
+	}
 	if this.CmdbSearchRequest != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbSearchRequest); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
@@ -36,6 +43,12 @@ func (this *CreateResponse) Validate() error {
 	return nil
 }
 func (this *CreateServerCompareRequest) Validate() error {
+	if !(this.TaskId > 0) {
+		return github_com_mwitkow_go_proto_validators.FieldError("TaskId", fmt.Errorf(`任务ID不能为空`))
+	}
+	if nil == this.CmdbSearchRequest {
+		return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", fmt.Errorf("message must exist"))
+	}
 	if this.CmdbSearchRequest != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbSearchRequest); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)
@@ -52,6 +65,12 @@ func (this *CreateServerCompareResponse) Validate() error {
 	return nil
 }
 func (this *CreateServerRequest) Validate() error {
+	if !(this.TaskId > 0) {
+		return github_com_mwitkow_go_proto_validators.FieldError("TaskId", fmt.Errorf(`任务ID不能为空`))
+	}
+	if nil == this.CmdbSearchRequest {
+		return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", fmt.Errorf("message must exist"))
+	}
 	if this.CmdbSearchRequest != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.CmdbSearchRequest); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("CmdbSearchRequest", err)

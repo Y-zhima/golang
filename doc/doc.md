@@ -44,6 +44,7 @@
     - [ChooseServerRequest](#cmdb.ChooseServerRequest)
     - [CommonObject](#cmdb.CommonObject)
     - [CreateAssociationRequest](#cmdb.CreateAssociationRequest)
+    - [HostCloudInfo](#cmdb.HostCloudInfo)
     - [HostInfoObject](#cmdb.HostInfoObject)
     - [HostObject](#cmdb.HostObject)
     - [ImportAssetRequest](#cmdb.ImportAssetRequest)
@@ -105,6 +106,8 @@
     - [UpdateInstResponse](#cmdb.UpdateInstResponse)
     - [UpdateLakeStateRequest](#cmdb.UpdateLakeStateRequest)
     - [UpdateLakeStateResponse](#cmdb.UpdateLakeStateResponse)
+    - [UpdateVipStateRequest](#cmdb.UpdateVipStateRequest)
+    - [UpdateVipStateResponse](#cmdb.UpdateVipStateResponse)
     - [VipObject](#cmdb.VipObject)
     - [ZoneObject](#cmdb.ZoneObject)
   
@@ -160,11 +163,38 @@
     - [Greeter](#greeter.Greeter)
   
 
+- [image/common.proto](#image/common.proto)
+    - [Paging](#image.Paging)
+    - [ResponseStatus](#image.ResponseStatus)
+    - [TimeScope](#image.TimeScope)
+  
+    - [StatusCode](#image.StatusCode)
+  
+  
+  
+
+- [image/image.proto](#image/image.proto)
+    - [ClusterInstance](#image.ClusterInstance)
+    - [HealthRequest](#image.HealthRequest)
+    - [HealthResponse](#image.HealthResponse)
+    - [ImageAttr](#image.ImageAttr)
+    - [ImageObject](#image.ImageObject)
+    - [QueryRequest](#image.QueryRequest)
+    - [QueryResponse](#image.QueryResponse)
+  
+    - [AppStatus](#image.AppStatus)
+    - [ImageFormat](#image.ImageFormat)
+    - [ImageType](#image.ImageType)
+  
+  
+    - [Image](#image.Image)
+  
+
 - [ironic/ironicCom.proto](#ironic/ironicCom.proto)
     - [PageInfo](#ironicCom.PageInfo)
     - [ScopeInfo](#ironicCom.ScopeInfo)
     - [TcpContReq](#ironicCom.TcpContReq)
-    - [TcpContRes](#ironicCom.TcpContRes)
+    - [TcpContRsp](#ironicCom.TcpContRsp)
     - [TimeScope](#ironicCom.TimeScope)
   
     - [AppKey](#ironicCom.AppKey)
@@ -180,43 +210,63 @@
     - [CreateNodesRootReq.CreateNodeInfoReq](#ironicServer.CreateNodesRootReq.CreateNodeInfoReq)
     - [CreateNodesRootReq.NodeInfoReq](#ironicServer.CreateNodesRootReq.NodeInfoReq)
     - [CreateNodesRootReq.SvcContReq](#ironicServer.CreateNodesRootReq.SvcContReq)
-    - [CreateNodesRootRes](#ironicServer.CreateNodesRootRes)
-    - [CreateNodesRootRes.ContractRootRes](#ironicServer.CreateNodesRootRes.ContractRootRes)
-    - [CreateNodesRootRes.CreateNodeInfoRsp](#ironicServer.CreateNodesRootRes.CreateNodeInfoRsp)
-    - [CreateNodesRootRes.NodeInfoRsp](#ironicServer.CreateNodesRootRes.NodeInfoRsp)
-    - [CreateNodesRootRes.SvcContRes](#ironicServer.CreateNodesRootRes.SvcContRes)
+    - [CreateNodesRootRsp](#ironicServer.CreateNodesRootRsp)
+    - [CreateNodesRootRsp.ContractRootRsp](#ironicServer.CreateNodesRootRsp.ContractRootRsp)
+    - [CreateNodesRootRsp.CreateNodeInfoRsp](#ironicServer.CreateNodesRootRsp.CreateNodeInfoRsp)
+    - [CreateNodesRootRsp.NodeInfoRsp](#ironicServer.CreateNodesRootRsp.NodeInfoRsp)
+    - [CreateNodesRootRsp.SvcContRsp](#ironicServer.CreateNodesRootRsp.SvcContRsp)
     - [InstallNodeSysRootReq](#ironicServer.InstallNodeSysRootReq)
     - [InstallNodeSysRootReq.ContractRootReq](#ironicServer.InstallNodeSysRootReq.ContractRootReq)
     - [InstallNodeSysRootReq.InstallNodeSysReq](#ironicServer.InstallNodeSysRootReq.InstallNodeSysReq)
     - [InstallNodeSysRootReq.NodeInstallInfo](#ironicServer.InstallNodeSysRootReq.NodeInstallInfo)
     - [InstallNodeSysRootReq.SvcContReq](#ironicServer.InstallNodeSysRootReq.SvcContReq)
-    - [InstallNodeSysRootRes](#ironicServer.InstallNodeSysRootRes)
-    - [InstallNodeSysRootRes.ContractRootRes](#ironicServer.InstallNodeSysRootRes.ContractRootRes)
-    - [InstallNodeSysRootRes.InstallNodeInfoRsp](#ironicServer.InstallNodeSysRootRes.InstallNodeInfoRsp)
-    - [InstallNodeSysRootRes.NodeInfoRsp](#ironicServer.InstallNodeSysRootRes.NodeInfoRsp)
-    - [InstallNodeSysRootRes.SvcContRes](#ironicServer.InstallNodeSysRootRes.SvcContRes)
+    - [InstallNodeSysRootRsp](#ironicServer.InstallNodeSysRootRsp)
+    - [InstallNodeSysRootRsp.ContractRootRsp](#ironicServer.InstallNodeSysRootRsp.ContractRootRsp)
+    - [InstallNodeSysRootRsp.InstallNodeInfoRsp](#ironicServer.InstallNodeSysRootRsp.InstallNodeInfoRsp)
+    - [InstallNodeSysRootRsp.NodeInfoRsp](#ironicServer.InstallNodeSysRootRsp.NodeInfoRsp)
+    - [InstallNodeSysRootRsp.SvcContRsp](#ironicServer.InstallNodeSysRootRsp.SvcContRsp)
     - [OperNodePowerRootReq](#ironicServer.OperNodePowerRootReq)
     - [OperNodePowerRootReq.ContractRootReq](#ironicServer.OperNodePowerRootReq.ContractRootReq)
     - [OperNodePowerRootReq.NodePowerOper](#ironicServer.OperNodePowerRootReq.NodePowerOper)
     - [OperNodePowerRootReq.OperNodePowerReq](#ironicServer.OperNodePowerRootReq.OperNodePowerReq)
     - [OperNodePowerRootReq.SvcContReq](#ironicServer.OperNodePowerRootReq.SvcContReq)
-    - [OperNodePowerRootRes](#ironicServer.OperNodePowerRootRes)
-    - [OperNodePowerRootRes.ContractRootRes](#ironicServer.OperNodePowerRootRes.ContractRootRes)
-    - [OperNodePowerRootRes.NodePowerRsp](#ironicServer.OperNodePowerRootRes.NodePowerRsp)
-    - [OperNodePowerRootRes.OperNodePowerRsp](#ironicServer.OperNodePowerRootRes.OperNodePowerRsp)
-    - [OperNodePowerRootRes.SvcContRes](#ironicServer.OperNodePowerRootRes.SvcContRes)
+    - [OperNodePowerRootRsp](#ironicServer.OperNodePowerRootRsp)
+    - [OperNodePowerRootRsp.ContractRootRsp](#ironicServer.OperNodePowerRootRsp.ContractRootRsp)
+    - [OperNodePowerRootRsp.NodePowerRsp](#ironicServer.OperNodePowerRootRsp.NodePowerRsp)
+    - [OperNodePowerRootRsp.OperNodePowerRsp](#ironicServer.OperNodePowerRootRsp.OperNodePowerRsp)
+    - [OperNodePowerRootRsp.SvcContRsp](#ironicServer.OperNodePowerRootRsp.SvcContRsp)
+    - [QryHeartbeatRootReq](#ironicServer.QryHeartbeatRootReq)
+    - [QryHeartbeatRootReq.ContractRootReq](#ironicServer.QryHeartbeatRootReq.ContractRootReq)
+    - [QryHeartbeatRootReq.QryHeartbeatReq](#ironicServer.QryHeartbeatRootReq.QryHeartbeatReq)
+    - [QryHeartbeatRootReq.SvcContReq](#ironicServer.QryHeartbeatRootReq.SvcContReq)
+    - [QryHeartbeatRootRsp](#ironicServer.QryHeartbeatRootRsp)
+    - [QryHeartbeatRootRsp.ClusterInstance](#ironicServer.QryHeartbeatRootRsp.ClusterInstance)
+    - [QryHeartbeatRootRsp.ContractRootRsp](#ironicServer.QryHeartbeatRootRsp.ContractRootRsp)
+    - [QryHeartbeatRootRsp.QryHeartbeatRsp](#ironicServer.QryHeartbeatRootRsp.QryHeartbeatRsp)
+    - [QryHeartbeatRootRsp.SvcContRsp](#ironicServer.QryHeartbeatRootRsp.SvcContRsp)
     - [QryNodeInfoRootReq](#ironicServer.QryNodeInfoRootReq)
     - [QryNodeInfoRootReq.ContractRootReq](#ironicServer.QryNodeInfoRootReq.ContractRootReq)
     - [QryNodeInfoRootReq.QryNodeInfoReq](#ironicServer.QryNodeInfoRootReq.QryNodeInfoReq)
     - [QryNodeInfoRootReq.SvcContReq](#ironicServer.QryNodeInfoRootReq.SvcContReq)
-    - [QryNodeInfoRootRes](#ironicServer.QryNodeInfoRootRes)
-    - [QryNodeInfoRootRes.ContractRootRes](#ironicServer.QryNodeInfoRootRes.ContractRootRes)
-    - [QryNodeInfoRootRes.NodeInfo](#ironicServer.QryNodeInfoRootRes.NodeInfo)
-    - [QryNodeInfoRootRes.QryNodeInfoRsp](#ironicServer.QryNodeInfoRootRes.QryNodeInfoRsp)
-    - [QryNodeInfoRootRes.SvcContRes](#ironicServer.QryNodeInfoRootRes.SvcContRes)
+    - [QryNodeInfoRootRsp](#ironicServer.QryNodeInfoRootRsp)
+    - [QryNodeInfoRootRsp.ContractRootRsp](#ironicServer.QryNodeInfoRootRsp.ContractRootRsp)
+    - [QryNodeInfoRootRsp.NodeInfo](#ironicServer.QryNodeInfoRootRsp.NodeInfo)
+    - [QryNodeInfoRootRsp.QryNodeInfoRsp](#ironicServer.QryNodeInfoRootRsp.QryNodeInfoRsp)
+    - [QryNodeInfoRootRsp.SvcContRsp](#ironicServer.QryNodeInfoRootRsp.SvcContRsp)
+    - [ReInstallNodeSysRootReq](#ironicServer.ReInstallNodeSysRootReq)
+    - [ReInstallNodeSysRootReq.ContractRootReq](#ironicServer.ReInstallNodeSysRootReq.ContractRootReq)
+    - [ReInstallNodeSysRootReq.InstallNodeSysReq](#ironicServer.ReInstallNodeSysRootReq.InstallNodeSysReq)
+    - [ReInstallNodeSysRootReq.NodeInstallInfo](#ironicServer.ReInstallNodeSysRootReq.NodeInstallInfo)
+    - [ReInstallNodeSysRootReq.SvcContReq](#ironicServer.ReInstallNodeSysRootReq.SvcContReq)
+    - [ReInstallNodeSysRootRsp](#ironicServer.ReInstallNodeSysRootRsp)
+    - [ReInstallNodeSysRootRsp.ContractRootRsp](#ironicServer.ReInstallNodeSysRootRsp.ContractRootRsp)
+    - [ReInstallNodeSysRootRsp.InstallNodeInfoRsp](#ironicServer.ReInstallNodeSysRootRsp.InstallNodeInfoRsp)
+    - [ReInstallNodeSysRootRsp.ReNodeInfoRsp](#ironicServer.ReInstallNodeSysRootRsp.ReNodeInfoRsp)
+    - [ReInstallNodeSysRootRsp.SvcContRsp](#ironicServer.ReInstallNodeSysRootRsp.SvcContRsp)
   
-    - [QryNodeInfoRootRes.PowerStatus](#ironicServer.QryNodeInfoRootRes.PowerStatus)
-    - [QryNodeInfoRootRes.Status](#ironicServer.QryNodeInfoRootRes.Status)
+    - [QryHeartbeatRootRsp.AppStatus](#ironicServer.QryHeartbeatRootRsp.AppStatus)
+    - [QryNodeInfoRootRsp.PowerStatus](#ironicServer.QryNodeInfoRootRsp.PowerStatus)
+    - [QryNodeInfoRootRsp.Status](#ironicServer.QryNodeInfoRootRsp.Status)
   
   
     - [IronicServer](#ironicServer.IronicServer)
@@ -796,6 +846,26 @@ cmdb事件请求返回
 
 
 
+<a name="cmdb.HostCloudInfo"></a>
+
+### HostCloudInfo
+主机域信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | 域ID |
+| bk_obj_id | [string](#string) |  | 对象类型 |
+| bk_obj_icon | [string](#string) |  | 对象图标 |
+| bk_inst_id | [int32](#int32) |  | 实体ID |
+| bk_obj_name | [string](#string) |  | 对象名称 |
+| bk_inst_name | [string](#string) |  | 实体名称 |
+
+
+
+
+
+
 <a name="cmdb.HostInfoObject"></a>
 
 ### HostInfoObject
@@ -823,14 +893,46 @@ cmdb事件请求返回
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | bk_host_innerip | [string](#string) |  | 内网IP |
-| bk_host_id | [int32](#int32) |  | 主机ID |
-| state | [string](#string) |  | 主机状态,有上线和下线两种 |
-| ipv6 | [string](#string) |  | ipv6的地址 |
-| module_name | [string](#string) | repeated | 设备角色(模块名) |
-| bk_mem | [int32](#int32) |  | 内存 |
-| bk_disk | [int32](#int32) |  | 硬盘(总量) |
+| bk_host_outerip | [string](#string) |  | 外网IP |
+| operator | [string](#string) |  | 主要维护人 |
+| bk_bak_operator | [string](#string) |  | 备份维护人 |
+| bk_asset_id | [string](#string) |  | 固资编号 |
+| bk_sn | [string](#string) |  | 设备SN |
+| bk_comment | [string](#string) |  | 备注 |
+| bk_service_term | [int32](#int32) |  | 质保年限 |
+| bk_sla | [string](#string) |  | SLA级别 |
+| bk_state_name | [string](#string) |  | 所在国家 |
+| bk_province_name | [string](#string) |  | 所在省份 |
+| bk_isp_name | [string](#string) |  | 所属运营商 |
+| bk_host_name | [string](#string) |  | 主机名称 |
+| bk_os_type | [string](#string) |  | 操作系统类型 |
+| bk_os_name | [string](#string) |  | 操作系统名称 |
+| bk_os_version | [string](#string) |  | 操作系统版本 |
+| bk_os_bit | [string](#string) |  | 操作系统位数 |
+| bk_cpu | [int32](#int32) |  | CPU逻辑核心数 |
+| bk_cpu_mhz | [int32](#int32) |  | CPU频率 |
+| bk_cpu_module | [string](#string) |  | CPU型号 |
+| bk_mem | [int32](#int32) |  | 内存容量 |
+| bk_disk | [int32](#int32) |  | 磁盘容量 |
+| bk_mac | [string](#string) |  | 内网MAC地址 |
+| bk_outer_mac | [string](#string) |  | 外网MAC |
+| create_time | [string](#string) |  | 录入时间 |
+| import_from | [string](#string) |  | 录入方式 |
+| cn2ip | [string](#string) |  | CN2IP |
+| bond_type | [string](#string) |  | Bond类型 |
+| wan_gate | [string](#string) |  | wan_gate |
+| cn2_gate | [string](#string) |  | cn2_gate |
 | nic_speed | [int32](#int32) |  | 网卡带宽 |
+| ssh_port | [int32](#int32) |  | ssh端口 |
+| cn2ip_mask | [int32](#int32) |  | cn2ip掩码数 |
+| hostip_mask | [int32](#int32) |  | 设备ip掩码数 |
+| function_code | [string](#string) |  | 设备功能代码 |
+| state | [string](#string) |  | 主机状态 |
 | service_bandwidth | [int32](#int32) |  | 服务能力 |
+| ipv6 | [string](#string) |  | ipv6地址 |
+| module_name | [string](#string) | repeated | 设备角色(模块名) |
+| bk_host_id | [int32](#int32) |  | 主机ID |
+| bk_cloud_id | [HostCloudInfo](#cmdb.HostCloudInfo) | repeated | 主机域信息 |
 
 
 
@@ -1381,6 +1483,7 @@ level下的主机ip列表
 | set | [SetObject](#cmdb.SetObject) |  | 集群对象 |
 | biz | [BizObject](#cmdb.BizObject) |  | 业务对象 |
 | zone | [ZoneObject](#cmdb.ZoneObject) |  | 区域对象 |
+| conditions | [string](#string) |  | 查询条件 |
 
 
 
@@ -1852,6 +1955,38 @@ level下的主机ip列表
 
 
 
+<a name="cmdb.UpdateVipStateRequest"></a>
+
+### UpdateVipStateRequest
+修改VIP可用状态的请求体
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ip | [string](#string) |  | ip地址 |
+| state | [OnlineState](#cmdb.OnlineState) |  | 状态 |
+| ipv6 | [bool](#bool) |  | 默认接收ipv4地址，可以选择ipv6地址 |
+
+
+
+
+
+
+<a name="cmdb.UpdateVipStateResponse"></a>
+
+### UpdateVipStateResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [common.ResponseStatus](#common.ResponseStatus) |  | 返回的请求状态 |
+
+
+
+
+
+
 <a name="cmdb.VipObject"></a>
 
 ### VipObject
@@ -1865,7 +2000,8 @@ VIP对象
 | biz_type | [string](#string) |  | vip类型 |
 | vip_ipv6 | [string](#string) |  | vip的ipv6地址 |
 | vip_ipv4 | [string](#string) |  | vip的ipv4地址 |
-| state | [string](#string) |  | vip的state |
+| ipv4_state | [string](#string) |  | ipv4的状态 |
+| ipv6_state | [string](#string) |  | ipv6的状态 |
 
 
 
@@ -2041,6 +2177,7 @@ VIP对象
 | SearchLevelHost | [SearchLevelHostRequest](#cmdb.SearchLevelHostRequest) | [SearchLevelHostResponse](#cmdb.SearchLevelHostResponse) | 按level查询lake节点下主机列表 |
 | UpdateLakeState | [UpdateLakeStateRequest](#cmdb.UpdateLakeStateRequest) | [UpdateLakeStateResponse](#cmdb.UpdateLakeStateResponse) | 修改lake节点上下线状态 |
 | UpdateHostState | [UpdateHostStateRequest](#cmdb.UpdateHostStateRequest) | [UpdateHostStateResponse](#cmdb.UpdateHostStateResponse) | 修改主机上下线状态 |
+| UpdateVipState | [UpdateVipStateRequest](#cmdb.UpdateVipStateRequest) | [UpdateVipStateResponse](#cmdb.UpdateVipStateResponse) | VIP的状态更新 |
 
  
 
@@ -2341,6 +2478,278 @@ The greeting service definition.
 
 
 
+<a name="image/common.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## image/common.proto
+
+
+
+<a name="image.Paging"></a>
+
+### Paging
+分页信息(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| total_page | [int32](#int32) |  | 总页数 |
+| page | [int32](#int32) |  | 当前页数 |
+| per_page | [int32](#int32) |  | 每页显示的记录条数 |
+| total_record | [int32](#int32) |  | 总记录数 |
+
+
+
+
+
+
+<a name="image.ResponseStatus"></a>
+
+### ResponseStatus
+请求返回状态
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [StatusCode](#image.StatusCode) |  | 状态码 |
+| message | [string](#string) |  | 信息 |
+
+
+
+
+
+
+<a name="image.TimeScope"></a>
+
+### TimeScope
+时间范围信息(用于指定时间范围。如按受理开始时间、受理结束时间查询订单列表。按某个具体时间查询，不使用此对象。)
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| begin_date | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | 起始时间 |
+| end_date | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | 结束时间 |
+
+
+
+
+
+ 
+
+
+<a name="image.StatusCode"></a>
+
+### StatusCode
+请求返回状态码
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| SUCCESS | 0 | 成功 |
+| INVALID_ARGUMENT | 400 | 参数错误 |
+| ACCESS_DENIED | 403 | 访问拒绝 |
+
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="image/image.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## image/image.proto
+
+
+
+<a name="image.ClusterInstance"></a>
+
+### ClusterInstance
+节点信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ip_address | [string](#string) |  | 应用ip |
+| cluster_name | [string](#string) |  | 应用名，集群名 |
+| app_status | [AppStatus](#image.AppStatus) |  | 运行状态 |
+| message | [string](#string) |  | 信息 |
+
+
+
+
+
+
+<a name="image.HealthRequest"></a>
+
+### HealthRequest
+--------------- 健康监测---------------//
+
+不需要请求体
+
+
+
+
+
+
+<a name="image.HealthResponse"></a>
+
+### HealthResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [ResponseStatus](#image.ResponseStatus) |  | 响应码 |
+| cluster_instances | [ClusterInstance](#image.ClusterInstance) | repeated | 响应对象 |
+
+
+
+
+
+
+<a name="image.ImageAttr"></a>
+
+### ImageAttr
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| attr_name | [string](#string) |  | 属性、标签名称：例如docker |
+| attr_add_type | [string](#string) |  | 属性、标签的附加信息类型，例如可以说明是version表示版本号 |
+| attr_add_value | [string](#string) |  | 属性、标签附加的值,例docker的版本CE或者EE |
+
+
+
+
+
+
+<a name="image.ImageObject"></a>
+
+### ImageObject
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| image_id | [int64](#int64) |  | 镜像标识 |
+| image_name | [string](#string) |  | 镜像名称 |
+| image_type | [ImageType](#image.ImageType) |  | 系统类型，使用枚举，比如常用的CentOS\Ubuntu\openSUSE等 |
+| version | [string](#string) |  | 系统大版本号，比如CentOS的7.4,7.5,7.6等 |
+| sub_version | [string](#string) |  | 系统的小版本号，例如CentOS7.4下的1708 |
+| format | [ImageFormat](#image.ImageFormat) |  | 镜像的格式，使用枚举，例如iso，qcow2等 |
+| check_sum | [string](#string) |  | 镜像md5完整性校验码 |
+| uri | [string](#string) |  | 镜像存储在ceph或者其他后端存储的路径或者访问地址 |
+| remark | [string](#string) |  | 镜像附加信息 |
+| image_attrs | [ImageAttr](#image.ImageAttr) | repeated | 镜像附加属性 |
+
+
+
+
+
+
+<a name="image.QueryRequest"></a>
+
+### QueryRequest
+--------------- 查询镜像列表---------------//
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| image_name | [string](#string) |  | 镜像名称 |
+| image_type | [ImageType](#image.ImageType) |  | 系统类型，使用枚举，比如常用的CentOS\Ubuntu\openSUSE等 |
+| version | [string](#string) |  | 系统大版本号，比如CentOS的7.4,7.5,7.6等 |
+| sub_version | [string](#string) |  | 系统的小版本号，例如CentOS7.4下的1708 |
+| format | [ImageFormat](#image.ImageFormat) |  | 镜像的格式，使用枚举，例如iso，qcow2等 |
+| image_attrs | [ImageAttr](#image.ImageAttr) | repeated | 镜像附加属性 |
+| paging | [Paging](#image.Paging) |  | 若没有入参，则默认查询阈值为第一页10条记录 |
+
+
+
+
+
+
+<a name="image.QueryResponse"></a>
+
+### QueryResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [ResponseStatus](#image.ResponseStatus) |  | 响应码 |
+| images | [ImageObject](#image.ImageObject) | repeated | 响应对象 |
+| paging | [Paging](#image.Paging) |  |  |
+
+
+
+
+
+ 
+
+
+<a name="image.AppStatus"></a>
+
+### AppStatus
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| APP_STATUS_UNDEFINED | 0 | 未知 |
+| APP_STATUS_STOPPED | 1 | 活动中 |
+| APP_STATUS_ACTIVE | 2 | 未知 |
+| APP_STATUS_UNKNOWN | 3 | 已停止 |
+
+
+
+<a name="image.ImageFormat"></a>
+
+### ImageFormat
+镜像格式
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| IMAGE_FORMAT_UNDEFINED | 0 |  |
+| IMAGE_FORMAT_ISO | 1 |  |
+| IMAGE_FORMAT_QCOW2 | 2 |  |
+
+
+
+<a name="image.ImageType"></a>
+
+### ImageType
+系统类型
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| IMAGE_TYPE_UNDEFINED | 0 |  |
+| IMAGE_TYPE_CENTOS | 1 |  |
+| IMAGE_TYPE_UBUNTU | 2 |  |
+| IMAGE_TYPE_OPENSUSE | 3 |  |
+
+
+ 
+
+ 
+
+
+<a name="image.Image"></a>
+
+### Image
+
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| Query | [QueryRequest](#image.QueryRequest) | [QueryResponse](#image.QueryResponse) | 查询镜像列表 |
+| Health | [HealthRequest](#image.HealthRequest) | [HealthResponse](#image.HealthResponse) | 健康监测 |
+
+ 
+
+
+
 <a name="ironic/ironicCom.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -2407,16 +2816,16 @@ The greeting service definition.
 
 
 
-<a name="ironicCom.TcpContRes"></a>
+<a name="ironicCom.TcpContRsp"></a>
 
-### TcpContRes
+### TcpContRsp
 控制对象(每个服务通用的控制信息，当服务端反馈应答时，信息填写如下)
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | transactionID | [string](#string) |  | 交易流水号 |
-| reqTime | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | 应答时间 |
+| rspTime | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | 应答时间 |
 | sign | [string](#string) |  | 签名字符串 |
 
 
@@ -2449,8 +2858,8 @@ The greeting service definition.
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| UNDEFINED | 0 |  |
-| IRONICAPP | 1000010000 | 裸金属应用 |
+| UNDEFINED_0 | 0 | 无定义 |
+| IRONIC_APP | 1000010000 | 裸金属应用 |
 | CMDB | 2000020000 | CMDB平台 |
 
 
@@ -2462,8 +2871,9 @@ The greeting service definition.
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| SUCCESS | 0 | 成功 |
+| UNDEFINED_3 | 0 | 没有定义 |
 | FAIL | 1 | 失败 |
+| SUCCESS | 2 | 成功 |
 
 
 
@@ -2474,11 +2884,13 @@ The greeting service definition.
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| SVCCODEDEFAULT | 0 |  |
-| CREATENODES | 1010010001 | 创建裸金属节点 |
-| QRYNODEINFO | 1010010002 | 查询裸金属状态 |
-| INSTALLNODESYS | 1010010003 | 安装裸金属系统 |
-| OPERNODEPOWER | 1010010004 | 操作裸金属实例电源 |
+| UNDEFINED_1 | 0 | 无定义 |
+| CREATE_NODES | 1010010001 | 创建裸金属节点 |
+| QRY_NODE_INFO | 1010010002 | 查询裸金属状态 |
+| INSTALL_NODE_SYS | 1010010003 | 安装裸金属系统 |
+| OPER_NODE_POWER | 1010010004 | 操作裸金属实例电源 |
+| RE_INSTALL_NODE_SYS | 1010010005 | 重新安装裸金属系统 |
+| QRY_HEART_BEAT | 1010010006 | 健康监测 |
 
 
  
@@ -2580,46 +2992,46 @@ The greeting service definition.
 
 
 
-<a name="ironicServer.CreateNodesRootRes"></a>
+<a name="ironicServer.CreateNodesRootRsp"></a>
 
-### CreateNodesRootRes
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| contractRootRes | [CreateNodesRootRes.ContractRootRes](#ironicServer.CreateNodesRootRes.ContractRootRes) |  |  |
-
-
-
-
-
-
-<a name="ironicServer.CreateNodesRootRes.ContractRootRes"></a>
-
-### CreateNodesRootRes.ContractRootRes
+### CreateNodesRootRsp
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| tcpCont | [ironicCom.TcpContRes](#ironicCom.TcpContRes) |  |  |
-| svcCont | [CreateNodesRootRes.SvcContRes](#ironicServer.CreateNodesRootRes.SvcContRes) |  |  |
+| contractRootRsp | [CreateNodesRootRsp.ContractRootRsp](#ironicServer.CreateNodesRootRsp.ContractRootRsp) |  |  |
 
 
 
 
 
 
-<a name="ironicServer.CreateNodesRootRes.CreateNodeInfoRsp"></a>
+<a name="ironicServer.CreateNodesRootRsp.ContractRootRsp"></a>
 
-### CreateNodesRootRes.CreateNodeInfoRsp
+### CreateNodesRootRsp.ContractRootRsp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| tcpCont | [ironicCom.TcpContRsp](#ironicCom.TcpContRsp) |  |  |
+| svcCont | [CreateNodesRootRsp.SvcContRsp](#ironicServer.CreateNodesRootRsp.SvcContRsp) |  |  |
+
+
+
+
+
+
+<a name="ironicServer.CreateNodesRootRsp.CreateNodeInfoRsp"></a>
+
+### CreateNodesRootRsp.CreateNodeInfoRsp
 创建节点请求对象
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| nodeInfoRsps | [CreateNodesRootRes.NodeInfoRsp](#ironicServer.CreateNodesRootRes.NodeInfoRsp) | repeated | 节点 |
+| nodeInfoRsps | [CreateNodesRootRsp.NodeInfoRsp](#ironicServer.CreateNodesRootRsp.NodeInfoRsp) | repeated | 节点 |
 | pageInfo | [ironicCom.PageInfo](#ironicCom.PageInfo) |  | 分页信息 |
 
 
@@ -2627,9 +3039,9 @@ The greeting service definition.
 
 
 
-<a name="ironicServer.CreateNodesRootRes.NodeInfoRsp"></a>
+<a name="ironicServer.CreateNodesRootRsp.NodeInfoRsp"></a>
 
-### CreateNodesRootRes.NodeInfoRsp
+### CreateNodesRootRsp.NodeInfoRsp
 节点信息
 
 
@@ -2645,9 +3057,9 @@ The greeting service definition.
 
 
 
-<a name="ironicServer.CreateNodesRootRes.SvcContRes"></a>
+<a name="ironicServer.CreateNodesRootRsp.SvcContRsp"></a>
 
-### CreateNodesRootRes.SvcContRes
+### CreateNodesRootRsp.SvcContRsp
 
 
 
@@ -2655,7 +3067,7 @@ The greeting service definition.
 | ----- | ---- | ----- | ----------- |
 | resultCode | [ironicCom.ResultCode](#ironicCom.ResultCode) |  | 响应码 |
 | resultMsg | [string](#string) |  | 响应消息描述 |
-| resultObject | [CreateNodesRootRes.CreateNodeInfoRsp](#ironicServer.CreateNodesRootRes.CreateNodeInfoRsp) |  | 响应对象 |
+| resultObject | [CreateNodesRootRsp.CreateNodeInfoRsp](#ironicServer.CreateNodesRootRsp.CreateNodeInfoRsp) |  | 响应对象 |
 
 
 
@@ -2740,46 +3152,46 @@ The greeting service definition.
 
 
 
-<a name="ironicServer.InstallNodeSysRootRes"></a>
+<a name="ironicServer.InstallNodeSysRootRsp"></a>
 
-### InstallNodeSysRootRes
+### InstallNodeSysRootRsp
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| contractRootRes | [InstallNodeSysRootRes.ContractRootRes](#ironicServer.InstallNodeSysRootRes.ContractRootRes) |  |  |
+| contractRootRsp | [InstallNodeSysRootRsp.ContractRootRsp](#ironicServer.InstallNodeSysRootRsp.ContractRootRsp) |  |  |
 
 
 
 
 
 
-<a name="ironicServer.InstallNodeSysRootRes.ContractRootRes"></a>
+<a name="ironicServer.InstallNodeSysRootRsp.ContractRootRsp"></a>
 
-### InstallNodeSysRootRes.ContractRootRes
+### InstallNodeSysRootRsp.ContractRootRsp
 响应信息
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| tcpCont | [ironicCom.TcpContRes](#ironicCom.TcpContRes) |  |  |
-| svcCont | [InstallNodeSysRootRes.SvcContRes](#ironicServer.InstallNodeSysRootRes.SvcContRes) |  |  |
+| tcpCont | [ironicCom.TcpContRsp](#ironicCom.TcpContRsp) |  |  |
+| svcCont | [InstallNodeSysRootRsp.SvcContRsp](#ironicServer.InstallNodeSysRootRsp.SvcContRsp) |  |  |
 
 
 
 
 
 
-<a name="ironicServer.InstallNodeSysRootRes.InstallNodeInfoRsp"></a>
+<a name="ironicServer.InstallNodeSysRootRsp.InstallNodeInfoRsp"></a>
 
-### InstallNodeSysRootRes.InstallNodeInfoRsp
+### InstallNodeSysRootRsp.InstallNodeInfoRsp
 创建节点请求对象
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| nodeInfoRsps | [InstallNodeSysRootRes.NodeInfoRsp](#ironicServer.InstallNodeSysRootRes.NodeInfoRsp) | repeated | 节点 |
+| nodeInfoRsps | [InstallNodeSysRootRsp.NodeInfoRsp](#ironicServer.InstallNodeSysRootRsp.NodeInfoRsp) | repeated | 节点 |
 | pageInfo | [ironicCom.PageInfo](#ironicCom.PageInfo) |  | 分页信息 |
 
 
@@ -2787,9 +3199,9 @@ The greeting service definition.
 
 
 
-<a name="ironicServer.InstallNodeSysRootRes.NodeInfoRsp"></a>
+<a name="ironicServer.InstallNodeSysRootRsp.NodeInfoRsp"></a>
 
-### InstallNodeSysRootRes.NodeInfoRsp
+### InstallNodeSysRootRsp.NodeInfoRsp
 节点信息
 
 
@@ -2805,9 +3217,9 @@ The greeting service definition.
 
 
 
-<a name="ironicServer.InstallNodeSysRootRes.SvcContRes"></a>
+<a name="ironicServer.InstallNodeSysRootRsp.SvcContRsp"></a>
 
-### InstallNodeSysRootRes.SvcContRes
+### InstallNodeSysRootRsp.SvcContRsp
 
 
 
@@ -2815,7 +3227,7 @@ The greeting service definition.
 | ----- | ---- | ----- | ----------- |
 | resultCode | [ironicCom.ResultCode](#ironicCom.ResultCode) |  | 响应码 |
 | resultMsg | [string](#string) |  | 响应消息描述 |
-| resultObject | [InstallNodeSysRootRes.InstallNodeInfoRsp](#ironicServer.InstallNodeSysRootRes.InstallNodeInfoRsp) |  | 响应对象 |
+| resultObject | [InstallNodeSysRootRsp.InstallNodeInfoRsp](#ironicServer.InstallNodeSysRootRsp.InstallNodeInfoRsp) |  | 响应对象 |
 
 
 
@@ -2898,40 +3310,40 @@ The greeting service definition.
 
 
 
-<a name="ironicServer.OperNodePowerRootRes"></a>
+<a name="ironicServer.OperNodePowerRootRsp"></a>
 
-### OperNodePowerRootRes
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| contractRootRes | [OperNodePowerRootRes.ContractRootRes](#ironicServer.OperNodePowerRootRes.ContractRootRes) |  |  |
-
-
-
-
-
-
-<a name="ironicServer.OperNodePowerRootRes.ContractRootRes"></a>
-
-### OperNodePowerRootRes.ContractRootRes
+### OperNodePowerRootRsp
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| tcpCont | [ironicCom.TcpContRes](#ironicCom.TcpContRes) |  |  |
-| svcCont | [OperNodePowerRootRes.SvcContRes](#ironicServer.OperNodePowerRootRes.SvcContRes) |  |  |
+| contractRootRsp | [OperNodePowerRootRsp.ContractRootRsp](#ironicServer.OperNodePowerRootRsp.ContractRootRsp) |  |  |
 
 
 
 
 
 
-<a name="ironicServer.OperNodePowerRootRes.NodePowerRsp"></a>
+<a name="ironicServer.OperNodePowerRootRsp.ContractRootRsp"></a>
 
-### OperNodePowerRootRes.NodePowerRsp
+### OperNodePowerRootRsp.ContractRootRsp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| tcpCont | [ironicCom.TcpContRsp](#ironicCom.TcpContRsp) |  |  |
+| svcCont | [OperNodePowerRootRsp.SvcContRsp](#ironicServer.OperNodePowerRootRsp.SvcContRsp) |  |  |
+
+
+
+
+
+
+<a name="ironicServer.OperNodePowerRootRsp.NodePowerRsp"></a>
+
+### OperNodePowerRootRsp.NodePowerRsp
 
 
 
@@ -2946,24 +3358,24 @@ The greeting service definition.
 
 
 
-<a name="ironicServer.OperNodePowerRootRes.OperNodePowerRsp"></a>
+<a name="ironicServer.OperNodePowerRootRsp.OperNodePowerRsp"></a>
 
-### OperNodePowerRootRes.OperNodePowerRsp
+### OperNodePowerRootRsp.OperNodePowerRsp
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| nodePowerRsps | [OperNodePowerRootRes.NodePowerRsp](#ironicServer.OperNodePowerRootRes.NodePowerRsp) | repeated | 电源操作应答 |
+| nodePowerRsps | [OperNodePowerRootRsp.NodePowerRsp](#ironicServer.OperNodePowerRootRsp.NodePowerRsp) | repeated | 电源操作应答 |
 
 
 
 
 
 
-<a name="ironicServer.OperNodePowerRootRes.SvcContRes"></a>
+<a name="ironicServer.OperNodePowerRootRsp.SvcContRsp"></a>
 
-### OperNodePowerRootRes.SvcContRes
+### OperNodePowerRootRsp.SvcContRsp
 
 
 
@@ -2971,7 +3383,150 @@ The greeting service definition.
 | ----- | ---- | ----- | ----------- |
 | resultCode | [ironicCom.ResultCode](#ironicCom.ResultCode) |  | 响应码 |
 | resultMsg | [string](#string) |  | 响应消息描述 |
-| resultObject | [OperNodePowerRootRes.OperNodePowerRsp](#ironicServer.OperNodePowerRootRes.OperNodePowerRsp) |  | 响应对象 |
+| resultObject | [OperNodePowerRootRsp.OperNodePowerRsp](#ironicServer.OperNodePowerRootRsp.OperNodePowerRsp) |  | 响应对象 |
+
+
+
+
+
+
+<a name="ironicServer.QryHeartbeatRootReq"></a>
+
+### QryHeartbeatRootReq
+--------------- 重新安装裸金属节点结束-----------//
+--------------- 健康监测---------------//
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| contractRootReq | [QryHeartbeatRootReq.ContractRootReq](#ironicServer.QryHeartbeatRootReq.ContractRootReq) |  |  |
+
+
+
+
+
+
+<a name="ironicServer.QryHeartbeatRootReq.ContractRootReq"></a>
+
+### QryHeartbeatRootReq.ContractRootReq
+请求信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| tcpCont | [ironicCom.TcpContReq](#ironicCom.TcpContReq) |  |  |
+| svcCont | [QryHeartbeatRootReq.SvcContReq](#ironicServer.QryHeartbeatRootReq.SvcContReq) |  |  |
+
+
+
+
+
+
+<a name="ironicServer.QryHeartbeatRootReq.QryHeartbeatReq"></a>
+
+### QryHeartbeatRootReq.QryHeartbeatReq
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| req | [string](#string) |  | 安装裸金属系统信息 |
+
+
+
+
+
+
+<a name="ironicServer.QryHeartbeatRootReq.SvcContReq"></a>
+
+### QryHeartbeatRootReq.SvcContReq
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| requestObject | [QryHeartbeatRootReq.QryHeartbeatReq](#ironicServer.QryHeartbeatRootReq.QryHeartbeatReq) |  |  |
+
+
+
+
+
+
+<a name="ironicServer.QryHeartbeatRootRsp"></a>
+
+### QryHeartbeatRootRsp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| contractRootRsp | [QryHeartbeatRootRsp.ContractRootRsp](#ironicServer.QryHeartbeatRootRsp.ContractRootRsp) |  |  |
+
+
+
+
+
+
+<a name="ironicServer.QryHeartbeatRootRsp.ClusterInstance"></a>
+
+### QryHeartbeatRootRsp.ClusterInstance
+节点信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ipAddress | [string](#string) |  | 应用ip |
+| clusterName | [string](#string) |  | 应用名，集群名 |
+| appStatus | [QryHeartbeatRootRsp.AppStatus](#ironicServer.QryHeartbeatRootRsp.AppStatus) |  | 运行状态 |
+| message | [string](#string) |  | 信息 |
+
+
+
+
+
+
+<a name="ironicServer.QryHeartbeatRootRsp.ContractRootRsp"></a>
+
+### QryHeartbeatRootRsp.ContractRootRsp
+响应信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| tcpCont | [ironicCom.TcpContRsp](#ironicCom.TcpContRsp) |  |  |
+| svcCont | [QryHeartbeatRootRsp.SvcContRsp](#ironicServer.QryHeartbeatRootRsp.SvcContRsp) |  |  |
+
+
+
+
+
+
+<a name="ironicServer.QryHeartbeatRootRsp.QryHeartbeatRsp"></a>
+
+### QryHeartbeatRootRsp.QryHeartbeatRsp
+健康监测应答对象
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| clusterInstances | [QryHeartbeatRootRsp.ClusterInstance](#ironicServer.QryHeartbeatRootRsp.ClusterInstance) | repeated | 应用信息 |
+
+
+
+
+
+
+<a name="ironicServer.QryHeartbeatRootRsp.SvcContRsp"></a>
+
+### QryHeartbeatRootRsp.SvcContRsp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| resultCode | [ironicCom.ResultCode](#ironicCom.ResultCode) |  | 响应码 |
+| resultMsg | [string](#string) |  | 响应消息描述 |
+| resultObject | [QryHeartbeatRootRsp.QryHeartbeatRsp](#ironicServer.QryHeartbeatRootRsp.QryHeartbeatRsp) |  | 响应对象 |
 
 
 
@@ -3039,47 +3594,47 @@ The greeting service definition.
 
 
 
-<a name="ironicServer.QryNodeInfoRootRes"></a>
+<a name="ironicServer.QryNodeInfoRootRsp"></a>
 
-### QryNodeInfoRootRes
+### QryNodeInfoRootRsp
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| contractRootRes | [QryNodeInfoRootRes.ContractRootRes](#ironicServer.QryNodeInfoRootRes.ContractRootRes) |  |  |
+| contractRootRsp | [QryNodeInfoRootRsp.ContractRootRsp](#ironicServer.QryNodeInfoRootRsp.ContractRootRsp) |  |  |
 
 
 
 
 
 
-<a name="ironicServer.QryNodeInfoRootRes.ContractRootRes"></a>
+<a name="ironicServer.QryNodeInfoRootRsp.ContractRootRsp"></a>
 
-### QryNodeInfoRootRes.ContractRootRes
+### QryNodeInfoRootRsp.ContractRootRsp
 响应信息
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| tcpCont | [ironicCom.TcpContRes](#ironicCom.TcpContRes) |  |  |
-| svcCont | [QryNodeInfoRootRes.SvcContRes](#ironicServer.QryNodeInfoRootRes.SvcContRes) |  |  |
+| tcpCont | [ironicCom.TcpContRsp](#ironicCom.TcpContRsp) |  |  |
+| svcCont | [QryNodeInfoRootRsp.SvcContRsp](#ironicServer.QryNodeInfoRootRsp.SvcContRsp) |  |  |
 
 
 
 
 
 
-<a name="ironicServer.QryNodeInfoRootRes.NodeInfo"></a>
+<a name="ironicServer.QryNodeInfoRootRsp.NodeInfo"></a>
 
-### QryNodeInfoRootRes.NodeInfo
+### QryNodeInfoRootRsp.NodeInfo
 节点信息
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | nodeId | [string](#string) |  | 裸金属节点id |
-| status | [QryNodeInfoRootRes.Status](#ironicServer.QryNodeInfoRootRes.Status) |  | 当前状态 |
+| status | [QryNodeInfoRootRsp.Status](#ironicServer.QryNodeInfoRootRsp.Status) |  | 当前状态 |
 | ip | [string](#string) |  | ipmi的IP地址 |
 | userName | [string](#string) |  | ipmi用户名 |
 | password | [string](#string) |  | Ipmi密码 |
@@ -3088,31 +3643,31 @@ The greeting service definition.
 | serverAddr | [string](#string) |  | 所属区域裸金属组件服务地址 |
 | qryResultCode | [ironicCom.ResultCode](#ironicCom.ResultCode) |  | 查询节点响应码 |
 | qryResultMsg | [string](#string) |  | 查询节点响应消息 |
-| powerStatus | [QryNodeInfoRootRes.PowerStatus](#ironicServer.QryNodeInfoRootRes.PowerStatus) |  | 电源状态 |
+| powerStatus | [QryNodeInfoRootRsp.PowerStatus](#ironicServer.QryNodeInfoRootRsp.PowerStatus) |  | 电源状态 |
 
 
 
 
 
 
-<a name="ironicServer.QryNodeInfoRootRes.QryNodeInfoRsp"></a>
+<a name="ironicServer.QryNodeInfoRootRsp.QryNodeInfoRsp"></a>
 
-### QryNodeInfoRootRes.QryNodeInfoRsp
+### QryNodeInfoRootRsp.QryNodeInfoRsp
 查询节点应答对象
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| nodeInfos | [QryNodeInfoRootRes.NodeInfo](#ironicServer.QryNodeInfoRootRes.NodeInfo) | repeated | 节点 |
+| nodeInfos | [QryNodeInfoRootRsp.NodeInfo](#ironicServer.QryNodeInfoRootRsp.NodeInfo) | repeated | 节点 |
 
 
 
 
 
 
-<a name="ironicServer.QryNodeInfoRootRes.SvcContRes"></a>
+<a name="ironicServer.QryNodeInfoRootRsp.SvcContRsp"></a>
 
-### QryNodeInfoRootRes.SvcContRes
+### QryNodeInfoRootRsp.SvcContRsp
 
 
 
@@ -3120,7 +3675,168 @@ The greeting service definition.
 | ----- | ---- | ----- | ----------- |
 | resultCode | [ironicCom.ResultCode](#ironicCom.ResultCode) |  | 响应码 |
 | resultMsg | [string](#string) |  | 响应消息描述 |
-| resultObject | [QryNodeInfoRootRes.QryNodeInfoRsp](#ironicServer.QryNodeInfoRootRes.QryNodeInfoRsp) |  | 响应对象 |
+| resultObject | [QryNodeInfoRootRsp.QryNodeInfoRsp](#ironicServer.QryNodeInfoRootRsp.QryNodeInfoRsp) |  | 响应对象 |
+
+
+
+
+
+
+<a name="ironicServer.ReInstallNodeSysRootReq"></a>
+
+### ReInstallNodeSysRootReq
+--------------- 重新安装裸金属节点开始-----------//
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| contractRootReq | [ReInstallNodeSysRootReq.ContractRootReq](#ironicServer.ReInstallNodeSysRootReq.ContractRootReq) |  |  |
+
+
+
+
+
+
+<a name="ironicServer.ReInstallNodeSysRootReq.ContractRootReq"></a>
+
+### ReInstallNodeSysRootReq.ContractRootReq
+请求信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| tcpCont | [ironicCom.TcpContReq](#ironicCom.TcpContReq) |  |  |
+| svcCont | [ReInstallNodeSysRootReq.SvcContReq](#ironicServer.ReInstallNodeSysRootReq.SvcContReq) |  |  |
+
+
+
+
+
+
+<a name="ironicServer.ReInstallNodeSysRootReq.InstallNodeSysReq"></a>
+
+### ReInstallNodeSysRootReq.InstallNodeSysReq
+安装裸金属系统请求对象
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| nodeInstallInfos | [ReInstallNodeSysRootReq.NodeInstallInfo](#ironicServer.ReInstallNodeSysRootReq.NodeInstallInfo) | repeated | 安装裸金属系统信息 |
+
+
+
+
+
+
+<a name="ironicServer.ReInstallNodeSysRootReq.NodeInstallInfo"></a>
+
+### ReInstallNodeSysRootReq.NodeInstallInfo
+安装裸金属系统信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| nodeId | [string](#string) |  | 裸金属节点id |
+| imageAddr | [string](#string) |  | 安装镜像地址(一般为http url) |
+| imageCheckSum | [string](#string) |  | 镜像MD5校验码 |
+
+
+
+
+
+
+<a name="ironicServer.ReInstallNodeSysRootReq.SvcContReq"></a>
+
+### ReInstallNodeSysRootReq.SvcContReq
+安装裸金属系统请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| requestObject | [ReInstallNodeSysRootReq.InstallNodeSysReq](#ironicServer.ReInstallNodeSysRootReq.InstallNodeSysReq) |  |  |
+
+
+
+
+
+
+<a name="ironicServer.ReInstallNodeSysRootRsp"></a>
+
+### ReInstallNodeSysRootRsp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| contractRootRsp | [ReInstallNodeSysRootRsp.ContractRootRsp](#ironicServer.ReInstallNodeSysRootRsp.ContractRootRsp) |  |  |
+
+
+
+
+
+
+<a name="ironicServer.ReInstallNodeSysRootRsp.ContractRootRsp"></a>
+
+### ReInstallNodeSysRootRsp.ContractRootRsp
+响应信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| tcpCont | [ironicCom.TcpContRsp](#ironicCom.TcpContRsp) |  |  |
+| svcCont | [ReInstallNodeSysRootRsp.SvcContRsp](#ironicServer.ReInstallNodeSysRootRsp.SvcContRsp) |  |  |
+
+
+
+
+
+
+<a name="ironicServer.ReInstallNodeSysRootRsp.InstallNodeInfoRsp"></a>
+
+### ReInstallNodeSysRootRsp.InstallNodeInfoRsp
+创建节点请求对象
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| nodeInfoRsps | [ReInstallNodeSysRootRsp.ReNodeInfoRsp](#ironicServer.ReInstallNodeSysRootRsp.ReNodeInfoRsp) | repeated | 节点 |
+| pageInfo | [ironicCom.PageInfo](#ironicCom.PageInfo) |  | 分页信息 |
+
+
+
+
+
+
+<a name="ironicServer.ReInstallNodeSysRootRsp.ReNodeInfoRsp"></a>
+
+### ReInstallNodeSysRootRsp.ReNodeInfoRsp
+节点信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| oldNodeId | [string](#string) |  | 旧裸金属节点id |
+| newNodeId | [string](#string) |  | 新裸金属节点id |
+| initId | [int64](#int64) |  | 初始化id |
+| installResultCode | [ironicCom.ResultCode](#ironicCom.ResultCode) |  | 创建节点响应码 |
+| installResultMsg | [string](#string) |  | 创建节点响应消息 |
+
+
+
+
+
+
+<a name="ironicServer.ReInstallNodeSysRootRsp.SvcContRsp"></a>
+
+### ReInstallNodeSysRootRsp.SvcContRsp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| resultCode | [ironicCom.ResultCode](#ironicCom.ResultCode) |  | 响应码 |
+| resultMsg | [string](#string) |  | 响应消息描述 |
+| resultObject | [ReInstallNodeSysRootRsp.InstallNodeInfoRsp](#ironicServer.ReInstallNodeSysRootRsp.InstallNodeInfoRsp) |  | 响应对象 |
 
 
 
@@ -3129,27 +3845,43 @@ The greeting service definition.
  
 
 
-<a name="ironicServer.QryNodeInfoRootRes.PowerStatus"></a>
+<a name="ironicServer.QryHeartbeatRootRsp.AppStatus"></a>
 
-### QryNodeInfoRootRes.PowerStatus
+### QryHeartbeatRootRsp.AppStatus
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNDEFINED | 0 | 没有定义 |
+| STOPPED | 1 | 活动中 |
+| ACTIVE | 2 | 未知 |
+| UNKNOWN | 3 | 已停止 |
+
+
+
+<a name="ironicServer.QryNodeInfoRootRsp.PowerStatus"></a>
+
+### QryNodeInfoRootRsp.PowerStatus
 电源状态
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| UNKNOWN | 0 | 未知 |
+| UNDEFINED_1 | 0 | 没有定义 |
 | POWERON | 1 | 开机 |
 | POWEROFF | 2 | 关机 |
+| UNKNOWN | 3 | 未知 |
 
 
 
-<a name="ironicServer.QryNodeInfoRootRes.Status"></a>
+<a name="ironicServer.QryNodeInfoRootRsp.Status"></a>
 
-### QryNodeInfoRootRes.Status
+### QryNodeInfoRootRsp.Status
 裸金属节点状态
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| NULL | 0 | 未知 |
+| UNDEFINED_2 | 0 | 没有定义 |
+| NULL | 1400 | 未知 |
 | CREATED | 1300 | 已创建 :刚创建完节点后的状态，节点创建、验证成功，可进行装系统 |
 | DEPLOYING | 1200 | 部署中 :正在执行装机任务 |
 | DEPLOYFAILED | 1100 | 部署失败 : 执行装机异常 |
@@ -3168,10 +3900,12 @@ The greeting service definition.
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| qryNodeInfo | [QryNodeInfoRootReq](#ironicServer.QryNodeInfoRootReq) | [QryNodeInfoRootRes](#ironicServer.QryNodeInfoRootRes) | 裸金属节点状态查询 |
-| createNodes | [CreateNodesRootReq](#ironicServer.CreateNodesRootReq) | [CreateNodesRootRes](#ironicServer.CreateNodesRootRes) | 创建裸金属节点 |
-| installNodeSys | [InstallNodeSysRootReq](#ironicServer.InstallNodeSysRootReq) | [InstallNodeSysRootRes](#ironicServer.InstallNodeSysRootRes) | 安装裸金属系统 |
-| operNodePower | [OperNodePowerRootReq](#ironicServer.OperNodePowerRootReq) | [OperNodePowerRootRes](#ironicServer.OperNodePowerRootRes) | 操作裸金属实例电源 |
+| qryNodeInfo | [QryNodeInfoRootReq](#ironicServer.QryNodeInfoRootReq) | [QryNodeInfoRootRsp](#ironicServer.QryNodeInfoRootRsp) | 裸金属节点状态查询 |
+| createNodes | [CreateNodesRootReq](#ironicServer.CreateNodesRootReq) | [CreateNodesRootRsp](#ironicServer.CreateNodesRootRsp) | 创建裸金属节点 |
+| installNodeSys | [InstallNodeSysRootReq](#ironicServer.InstallNodeSysRootReq) | [InstallNodeSysRootRsp](#ironicServer.InstallNodeSysRootRsp) | 安装裸金属系统 |
+| reInstallNodeSys | [ReInstallNodeSysRootReq](#ironicServer.ReInstallNodeSysRootReq) | [ReInstallNodeSysRootRsp](#ironicServer.ReInstallNodeSysRootRsp) | 重装裸金属系统 |
+| operNodePower | [OperNodePowerRootReq](#ironicServer.OperNodePowerRootReq) | [OperNodePowerRootRsp](#ironicServer.OperNodePowerRootRsp) | 操作裸金属实例电源 |
+| qryHeartbeat | [QryHeartbeatRootReq](#ironicServer.QryHeartbeatRootReq) | [QryHeartbeatRootRsp](#ironicServer.QryHeartbeatRootRsp) | 健康监测 |
 
  
 
@@ -4379,7 +5113,6 @@ agent上报kafka日志结构体
 | cmdb_search_request | [cmdb.ChooseServerRequest](#cmdb.ChooseServerRequest) | repeated | 机房及对应物理机 |
 | image_file_url | [string](#string) |  | 安装镜像文件的URL |
 | image_file_md5 | [string](#string) |  | 安装镜像文件的MD5 |
-| cmdb_host_search_request | [cmdb.ChooseHostRequest](#cmdb.ChooseHostRequest) |  | 主机查询条件 |
 
 
 

@@ -36,14 +36,14 @@ func (m *MockIronicServerClient) EXPECT() *MockIronicServerClientMockRecorder {
 }
 
 // CreateNodes mocks base method
-func (m *MockIronicServerClient) CreateNodes(arg0 context.Context, arg1 *ironic.CreateNodesRootReq, arg2 ...grpc.CallOption) (*ironic.CreateNodesRootRes, error) {
+func (m *MockIronicServerClient) CreateNodes(arg0 context.Context, arg1 *ironic.CreateNodesRootReq, arg2 ...grpc.CallOption) (*ironic.CreateNodesRootRsp, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{arg0, arg1}
 	for _, a := range arg2 {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "CreateNodes", varargs...)
-	ret0, _ := ret[0].(*ironic.CreateNodesRootRes)
+	ret0, _ := ret[0].(*ironic.CreateNodesRootRsp)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
@@ -56,14 +56,14 @@ func (mr *MockIronicServerClientMockRecorder) CreateNodes(arg0, arg1 interface{}
 }
 
 // InstallNodeSys mocks base method
-func (m *MockIronicServerClient) InstallNodeSys(arg0 context.Context, arg1 *ironic.InstallNodeSysRootReq, arg2 ...grpc.CallOption) (*ironic.InstallNodeSysRootRes, error) {
+func (m *MockIronicServerClient) InstallNodeSys(arg0 context.Context, arg1 *ironic.InstallNodeSysRootReq, arg2 ...grpc.CallOption) (*ironic.InstallNodeSysRootRsp, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{arg0, arg1}
 	for _, a := range arg2 {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "InstallNodeSys", varargs...)
-	ret0, _ := ret[0].(*ironic.InstallNodeSysRootRes)
+	ret0, _ := ret[0].(*ironic.InstallNodeSysRootRsp)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
@@ -76,14 +76,14 @@ func (mr *MockIronicServerClientMockRecorder) InstallNodeSys(arg0, arg1 interfac
 }
 
 // OperNodePower mocks base method
-func (m *MockIronicServerClient) OperNodePower(arg0 context.Context, arg1 *ironic.OperNodePowerRootReq, arg2 ...grpc.CallOption) (*ironic.OperNodePowerRootRes, error) {
+func (m *MockIronicServerClient) OperNodePower(arg0 context.Context, arg1 *ironic.OperNodePowerRootReq, arg2 ...grpc.CallOption) (*ironic.OperNodePowerRootRsp, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{arg0, arg1}
 	for _, a := range arg2 {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "OperNodePower", varargs...)
-	ret0, _ := ret[0].(*ironic.OperNodePowerRootRes)
+	ret0, _ := ret[0].(*ironic.OperNodePowerRootRsp)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
@@ -95,15 +95,35 @@ func (mr *MockIronicServerClientMockRecorder) OperNodePower(arg0, arg1 interface
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "OperNodePower", reflect.TypeOf((*MockIronicServerClient)(nil).OperNodePower), varargs...)
 }
 
+// QryHeartbeat mocks base method
+func (m *MockIronicServerClient) QryHeartbeat(arg0 context.Context, arg1 *ironic.QryHeartbeatRootReq, arg2 ...grpc.CallOption) (*ironic.QryHeartbeatRootRsp, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "QryHeartbeat", varargs...)
+	ret0, _ := ret[0].(*ironic.QryHeartbeatRootRsp)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// QryHeartbeat indicates an expected call of QryHeartbeat
+func (mr *MockIronicServerClientMockRecorder) QryHeartbeat(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "QryHeartbeat", reflect.TypeOf((*MockIronicServerClient)(nil).QryHeartbeat), varargs...)
+}
+
 // QryNodeInfo mocks base method
-func (m *MockIronicServerClient) QryNodeInfo(arg0 context.Context, arg1 *ironic.QryNodeInfoRootReq, arg2 ...grpc.CallOption) (*ironic.QryNodeInfoRootRes, error) {
+func (m *MockIronicServerClient) QryNodeInfo(arg0 context.Context, arg1 *ironic.QryNodeInfoRootReq, arg2 ...grpc.CallOption) (*ironic.QryNodeInfoRootRsp, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{arg0, arg1}
 	for _, a := range arg2 {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "QryNodeInfo", varargs...)
-	ret0, _ := ret[0].(*ironic.QryNodeInfoRootRes)
+	ret0, _ := ret[0].(*ironic.QryNodeInfoRootRsp)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
@@ -113,4 +133,24 @@ func (mr *MockIronicServerClientMockRecorder) QryNodeInfo(arg0, arg1 interface{}
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{arg0, arg1}, arg2...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "QryNodeInfo", reflect.TypeOf((*MockIronicServerClient)(nil).QryNodeInfo), varargs...)
+}
+
+// ReInstallNodeSys mocks base method
+func (m *MockIronicServerClient) ReInstallNodeSys(arg0 context.Context, arg1 *ironic.ReInstallNodeSysRootReq, arg2 ...grpc.CallOption) (*ironic.ReInstallNodeSysRootRsp, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ReInstallNodeSys", varargs...)
+	ret0, _ := ret[0].(*ironic.ReInstallNodeSysRootRsp)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// ReInstallNodeSys indicates an expected call of ReInstallNodeSys
+func (mr *MockIronicServerClientMockRecorder) ReInstallNodeSys(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ReInstallNodeSys", reflect.TypeOf((*MockIronicServerClient)(nil).ReInstallNodeSys), varargs...)
 }

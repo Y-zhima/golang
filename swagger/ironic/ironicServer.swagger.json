@@ -73,61 +73,13 @@
       },
       "title": "节点信息"
     },
-    "CreateNodesRootResCreateNodeInfoRsp": {
+    "CreateNodesRootRspCreateNodeInfoRsp": {
       "type": "object",
       "properties": {
         "nodeInfoRsps": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ironicServerCreateNodesRootResNodeInfoRsp"
-          },
-          "title": "节点"
-        },
-        "pageInfo": {
-          "$ref": "#/definitions/ironicComPageInfo",
-          "title": "分页信息"
-        }
-      },
-      "title": "创建节点请求对象"
-    },
-    "InstallNodeSysRootReqInstallNodeSysReq": {
-      "type": "object",
-      "properties": {
-        "nodeInstallInfos": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/InstallNodeSysRootReqNodeInstallInfo"
-          },
-          "title": "安装裸金属系统信息"
-        }
-      },
-      "title": "安装裸金属系统请求对象"
-    },
-    "InstallNodeSysRootReqNodeInstallInfo": {
-      "type": "object",
-      "properties": {
-        "nodeId": {
-          "type": "string",
-          "title": "裸金属节点id"
-        },
-        "imageAddr": {
-          "type": "string",
-          "title": "安装镜像地址(一般为http url)"
-        },
-        "imageCheckSum": {
-          "type": "string",
-          "title": "镜像MD5校验码"
-        }
-      },
-      "title": "安装裸金属系统信息"
-    },
-    "InstallNodeSysRootResInstallNodeInfoRsp": {
-      "type": "object",
-      "properties": {
-        "nodeInfoRsps": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ironicServerInstallNodeSysRootResNodeInfoRsp"
+            "$ref": "#/definitions/ironicServerCreateNodesRootRspNodeInfoRsp"
           },
           "title": "节点"
         },
@@ -159,7 +111,7 @@
         }
       }
     },
-    "OperNodePowerRootResNodePowerRsp": {
+    "OperNodePowerRootRspNodePowerRsp": {
       "type": "object",
       "properties": {
         "nodeId": {
@@ -176,17 +128,72 @@
         }
       }
     },
-    "OperNodePowerRootResOperNodePowerRsp": {
+    "OperNodePowerRootRspOperNodePowerRsp": {
       "type": "object",
       "properties": {
         "nodePowerRsps": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/OperNodePowerRootResNodePowerRsp"
+            "$ref": "#/definitions/OperNodePowerRootRspNodePowerRsp"
           },
           "title": "电源操作应答"
         }
       }
+    },
+    "QryHeartbeatRootReqQryHeartbeatReq": {
+      "type": "object",
+      "properties": {
+        "req": {
+          "type": "string",
+          "title": "安装裸金属系统信息"
+        }
+      }
+    },
+    "QryHeartbeatRootRspAppStatus": {
+      "type": "string",
+      "enum": [
+        "UNDEFINED",
+        "STOPPED",
+        "ACTIVE",
+        "UNKNOWN"
+      ],
+      "default": "UNDEFINED",
+      "title": "- UNDEFINED: 没有定义\n - STOPPED: 活动中\n - ACTIVE: 未知\n - UNKNOWN: 已停止"
+    },
+    "QryHeartbeatRootRspClusterInstance": {
+      "type": "object",
+      "properties": {
+        "ipAddress": {
+          "type": "string",
+          "title": "应用ip"
+        },
+        "clusterName": {
+          "type": "string",
+          "title": "应用名，集群名"
+        },
+        "appStatus": {
+          "$ref": "#/definitions/QryHeartbeatRootRspAppStatus",
+          "title": "运行状态"
+        },
+        "message": {
+          "type": "string",
+          "title": "信息"
+        }
+      },
+      "title": "节点信息"
+    },
+    "QryHeartbeatRootRspQryHeartbeatRsp": {
+      "type": "object",
+      "properties": {
+        "clusterInstances": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QryHeartbeatRootRspClusterInstance"
+          },
+          "title": "应用信息"
+        }
+      },
+      "title": "健康监测应答对象"
     },
     "QryNodeInfoRootReqQryNodeInfoReq": {
       "type": "object",
@@ -201,7 +208,7 @@
       },
       "title": "查询节点信息请求对象"
     },
-    "QryNodeInfoRootResNodeInfo": {
+    "QryNodeInfoRootRspNodeInfo": {
       "type": "object",
       "properties": {
         "nodeId": {
@@ -209,7 +216,7 @@
           "title": "裸金属节点id"
         },
         "status": {
-          "$ref": "#/definitions/QryNodeInfoRootResStatus",
+          "$ref": "#/definitions/QryNodeInfoRootRspStatus",
           "title": "当前状态"
         },
         "ip": {
@@ -245,58 +252,87 @@
           "title": "查询节点响应消息"
         },
         "powerStatus": {
-          "$ref": "#/definitions/QryNodeInfoRootResPowerStatus",
+          "$ref": "#/definitions/QryNodeInfoRootRspPowerStatus",
           "title": "电源状态"
         }
       },
       "title": "节点信息"
     },
-    "QryNodeInfoRootResPowerStatus": {
+    "QryNodeInfoRootRspPowerStatus": {
       "type": "string",
       "enum": [
-        "UNKNOWN",
+        "UNDEFINED_1",
         "POWERON",
-        "POWEROFF"
+        "POWEROFF",
+        "UNKNOWN"
       ],
-      "default": "UNKNOWN",
-      "description": "- UNKNOWN: 未知\n - POWERON: 开机\n - POWEROFF: 关机",
+      "default": "UNDEFINED_1",
+      "description": "- UNDEFINED_1: 没有定义\n - POWERON: 开机\n - POWEROFF: 关机\n - UNKNOWN: 未知",
       "title": "电源状态"
     },
-    "QryNodeInfoRootResQryNodeInfoRsp": {
+    "QryNodeInfoRootRspQryNodeInfoRsp": {
       "type": "object",
       "properties": {
         "nodeInfos": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/QryNodeInfoRootResNodeInfo"
+            "$ref": "#/definitions/QryNodeInfoRootRspNodeInfo"
           },
           "title": "节点"
         }
       },
       "title": "查询节点应答对象"
     },
-    "QryNodeInfoRootResStatus": {
+    "QryNodeInfoRootRspStatus": {
       "type": "string",
       "enum": [
+        "UNDEFINED_2",
         "NULL",
         "CREATED",
         "DEPLOYING",
         "DEPLOYFAILED",
         "ACTIVE"
       ],
-      "default": "NULL",
-      "description": "- NULL: 未知\n - CREATED: 已创建 :刚创建完节点后的状态，节点创建、验证成功，可进行装系统\n - DEPLOYING: 部署中 :正在执行装机任务\n - DEPLOYFAILED: 部署失败 : 执行装机异常\n - ACTIVE: 活动 ： 已经安装完系统活动中",
+      "default": "UNDEFINED_2",
+      "description": "- UNDEFINED_2: 没有定义\n - NULL: 未知\n - CREATED: 已创建 :刚创建完节点后的状态，节点创建、验证成功，可进行装系统\n - DEPLOYING: 部署中 :正在执行装机任务\n - DEPLOYFAILED: 部署失败 : 执行装机异常\n - ACTIVE: 活动 ： 已经安装完系统活动中",
       "title": "裸金属节点状态"
+    },
+    "ReInstallNodeSysRootRspReNodeInfoRsp": {
+      "type": "object",
+      "properties": {
+        "oldNodeId": {
+          "type": "string",
+          "title": "旧裸金属节点id"
+        },
+        "newNodeId": {
+          "type": "string",
+          "title": "新裸金属节点id"
+        },
+        "initId": {
+          "type": "string",
+          "format": "int64",
+          "title": "初始化id"
+        },
+        "installResultCode": {
+          "$ref": "#/definitions/ironicComResultCode",
+          "title": "创建节点响应码"
+        },
+        "installResultMsg": {
+          "type": "string",
+          "title": "创建节点响应消息"
+        }
+      },
+      "title": "节点信息"
     },
     "ironicComAppKey": {
       "type": "string",
       "enum": [
-        "UNDEFINED",
-        "IRONICAPP",
+        "UNDEFINED_0",
+        "IRONIC_APP",
         "CMDB"
       ],
-      "default": "UNDEFINED",
-      "description": "- IRONICAPP: 裸金属应用\n - CMDB: CMDB平台",
+      "default": "UNDEFINED_0",
+      "description": "- UNDEFINED_0: 无定义\n - IRONIC_APP: 裸金属应用\n - CMDB: CMDB平台",
       "title": "调用方编码"
     },
     "ironicComPageInfo": {
@@ -328,24 +364,27 @@
     "ironicComResultCode": {
       "type": "string",
       "enum": [
-        "SUCCESS",
-        "FAIL"
+        "UNDEFINED_3",
+        "FAIL",
+        "SUCCESS"
       ],
-      "default": "SUCCESS",
-      "description": "- SUCCESS: 成功\n - FAIL: 失败",
+      "default": "UNDEFINED_3",
+      "description": "- UNDEFINED_3: 没有定义\n - FAIL: 失败\n - SUCCESS: 成功",
       "title": "响应码"
     },
     "ironicComSvcCode": {
       "type": "string",
       "enum": [
-        "SVCCODEDEFAULT",
-        "CREATENODES",
-        "QRYNODEINFO",
-        "INSTALLNODESYS",
-        "OPERNODEPOWER"
+        "UNDEFINED_1",
+        "CREATE_NODES",
+        "QRY_NODE_INFO",
+        "INSTALL_NODE_SYS",
+        "OPER_NODE_POWER",
+        "RE_INSTALL_NODE_SYS",
+        "QRY_HEART_BEAT"
       ],
-      "default": "SVCCODEDEFAULT",
-      "description": "- CREATENODES: 创建裸金属节点\n - QRYNODEINFO: 查询裸金属状态\n - INSTALLNODESYS: 安装裸金属系统\n - OPERNODEPOWER: 操作裸金属实例电源",
+      "default": "UNDEFINED_1",
+      "description": "- UNDEFINED_1: 无定义\n - CREATE_NODES: 创建裸金属节点\n - QRY_NODE_INFO: 查询裸金属状态\n - INSTALL_NODE_SYS: 安装裸金属系统\n - OPER_NODE_POWER: 操作裸金属实例电源\n - RE_INSTALL_NODE_SYS: 重新安装裸金属系统\n - QRY_HEART_BEAT: 健康监测",
       "title": "服务编码"
     },
     "ironicComTcpContReq": {
@@ -387,14 +426,14 @@
       },
       "title": "控制对象(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)"
     },
-    "ironicComTcpContRes": {
+    "ironicComTcpContRsp": {
       "type": "object",
       "properties": {
         "transactionID": {
           "type": "string",
           "title": "交易流水号"
         },
-        "reqTime": {
+        "rspTime": {
           "type": "string",
           "format": "date-time",
           "title": "应答时间"
@@ -427,26 +466,26 @@
         }
       }
     },
-    "ironicServerCreateNodesRootRes": {
+    "ironicServerCreateNodesRootRsp": {
       "type": "object",
       "properties": {
-        "contractRootRes": {
-          "$ref": "#/definitions/ironicServerCreateNodesRootResContractRootRes"
+        "contractRootRsp": {
+          "$ref": "#/definitions/ironicServerCreateNodesRootRspContractRootRsp"
         }
       }
     },
-    "ironicServerCreateNodesRootResContractRootRes": {
+    "ironicServerCreateNodesRootRspContractRootRsp": {
       "type": "object",
       "properties": {
         "tcpCont": {
-          "$ref": "#/definitions/ironicComTcpContRes"
+          "$ref": "#/definitions/ironicComTcpContRsp"
         },
         "svcCont": {
-          "$ref": "#/definitions/ironicServerCreateNodesRootResSvcContRes"
+          "$ref": "#/definitions/ironicServerCreateNodesRootRspSvcContRsp"
         }
       }
     },
-    "ironicServerCreateNodesRootResNodeInfoRsp": {
+    "ironicServerCreateNodesRootRspNodeInfoRsp": {
       "type": "object",
       "properties": {
         "nodeId": {
@@ -469,7 +508,7 @@
       },
       "title": "节点信息"
     },
-    "ironicServerCreateNodesRootResSvcContRes": {
+    "ironicServerCreateNodesRootRspSvcContRsp": {
       "type": "object",
       "properties": {
         "resultCode": {
@@ -481,7 +520,7 @@
           "title": "响应消息描述"
         },
         "resultObject": {
-          "$ref": "#/definitions/CreateNodesRootResCreateNodeInfoRsp",
+          "$ref": "#/definitions/CreateNodesRootRspCreateNodeInfoRsp",
           "title": "响应对象"
         }
       }
@@ -498,36 +537,84 @@
       },
       "title": "请求信息"
     },
+    "ironicServerInstallNodeSysRootReqInstallNodeSysReq": {
+      "type": "object",
+      "properties": {
+        "nodeInstallInfos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ironicServerInstallNodeSysRootReqNodeInstallInfo"
+          },
+          "title": "安装裸金属系统信息"
+        }
+      },
+      "title": "安装裸金属系统请求对象"
+    },
+    "ironicServerInstallNodeSysRootReqNodeInstallInfo": {
+      "type": "object",
+      "properties": {
+        "nodeId": {
+          "type": "string",
+          "title": "裸金属节点id"
+        },
+        "imageAddr": {
+          "type": "string",
+          "title": "安装镜像地址(一般为http url)"
+        },
+        "imageCheckSum": {
+          "type": "string",
+          "title": "镜像MD5校验码"
+        }
+      },
+      "title": "安装裸金属系统信息"
+    },
     "ironicServerInstallNodeSysRootReqSvcContReq": {
       "type": "object",
       "properties": {
         "requestObject": {
-          "$ref": "#/definitions/InstallNodeSysRootReqInstallNodeSysReq"
+          "$ref": "#/definitions/ironicServerInstallNodeSysRootReqInstallNodeSysReq"
         }
       },
       "title": "安装裸金属系统请求"
     },
-    "ironicServerInstallNodeSysRootRes": {
+    "ironicServerInstallNodeSysRootRsp": {
       "type": "object",
       "properties": {
-        "contractRootRes": {
-          "$ref": "#/definitions/ironicServerInstallNodeSysRootResContractRootRes"
+        "contractRootRsp": {
+          "$ref": "#/definitions/ironicServerInstallNodeSysRootRspContractRootRsp"
         }
       }
     },
-    "ironicServerInstallNodeSysRootResContractRootRes": {
+    "ironicServerInstallNodeSysRootRspContractRootRsp": {
       "type": "object",
       "properties": {
         "tcpCont": {
-          "$ref": "#/definitions/ironicComTcpContRes"
+          "$ref": "#/definitions/ironicComTcpContRsp"
         },
         "svcCont": {
-          "$ref": "#/definitions/ironicServerInstallNodeSysRootResSvcContRes"
+          "$ref": "#/definitions/ironicServerInstallNodeSysRootRspSvcContRsp"
         }
       },
       "title": "响应信息"
     },
-    "ironicServerInstallNodeSysRootResNodeInfoRsp": {
+    "ironicServerInstallNodeSysRootRspInstallNodeInfoRsp": {
+      "type": "object",
+      "properties": {
+        "nodeInfoRsps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ironicServerInstallNodeSysRootRspNodeInfoRsp"
+          },
+          "title": "节点"
+        },
+        "pageInfo": {
+          "$ref": "#/definitions/ironicComPageInfo",
+          "title": "分页信息"
+        }
+      },
+      "title": "创建节点请求对象"
+    },
+    "ironicServerInstallNodeSysRootRspNodeInfoRsp": {
       "type": "object",
       "properties": {
         "nodeId": {
@@ -550,7 +637,7 @@
       },
       "title": "节点信息"
     },
-    "ironicServerInstallNodeSysRootResSvcContRes": {
+    "ironicServerInstallNodeSysRootRspSvcContRsp": {
       "type": "object",
       "properties": {
         "resultCode": {
@@ -562,7 +649,7 @@
           "title": "响应消息描述"
         },
         "resultObject": {
-          "$ref": "#/definitions/InstallNodeSysRootResInstallNodeInfoRsp",
+          "$ref": "#/definitions/ironicServerInstallNodeSysRootRspInstallNodeInfoRsp",
           "title": "响应对象"
         }
       }
@@ -587,26 +674,26 @@
         }
       }
     },
-    "ironicServerOperNodePowerRootRes": {
+    "ironicServerOperNodePowerRootRsp": {
       "type": "object",
       "properties": {
-        "contractRootRes": {
-          "$ref": "#/definitions/ironicServerOperNodePowerRootResContractRootRes"
+        "contractRootRsp": {
+          "$ref": "#/definitions/ironicServerOperNodePowerRootRspContractRootRsp"
         }
       }
     },
-    "ironicServerOperNodePowerRootResContractRootRes": {
+    "ironicServerOperNodePowerRootRspContractRootRsp": {
       "type": "object",
       "properties": {
         "tcpCont": {
-          "$ref": "#/definitions/ironicComTcpContRes"
+          "$ref": "#/definitions/ironicComTcpContRsp"
         },
         "svcCont": {
-          "$ref": "#/definitions/ironicServerOperNodePowerRootResSvcContRes"
+          "$ref": "#/definitions/ironicServerOperNodePowerRootRspSvcContRsp"
         }
       }
     },
-    "ironicServerOperNodePowerRootResSvcContRes": {
+    "ironicServerOperNodePowerRootRspSvcContRsp": {
       "type": "object",
       "properties": {
         "resultCode": {
@@ -618,7 +705,64 @@
           "title": "响应消息描述"
         },
         "resultObject": {
-          "$ref": "#/definitions/OperNodePowerRootResOperNodePowerRsp",
+          "$ref": "#/definitions/OperNodePowerRootRspOperNodePowerRsp",
+          "title": "响应对象"
+        }
+      }
+    },
+    "ironicServerQryHeartbeatRootReqContractRootReq": {
+      "type": "object",
+      "properties": {
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContReq"
+        },
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerQryHeartbeatRootReqSvcContReq"
+        }
+      },
+      "title": "请求信息"
+    },
+    "ironicServerQryHeartbeatRootReqSvcContReq": {
+      "type": "object",
+      "properties": {
+        "requestObject": {
+          "$ref": "#/definitions/QryHeartbeatRootReqQryHeartbeatReq"
+        }
+      }
+    },
+    "ironicServerQryHeartbeatRootRsp": {
+      "type": "object",
+      "properties": {
+        "contractRootRsp": {
+          "$ref": "#/definitions/ironicServerQryHeartbeatRootRspContractRootRsp"
+        }
+      }
+    },
+    "ironicServerQryHeartbeatRootRspContractRootRsp": {
+      "type": "object",
+      "properties": {
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContRsp"
+        },
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerQryHeartbeatRootRspSvcContRsp"
+        }
+      },
+      "title": "响应信息"
+    },
+    "ironicServerQryHeartbeatRootRspSvcContRsp": {
+      "type": "object",
+      "properties": {
+        "resultCode": {
+          "$ref": "#/definitions/ironicComResultCode",
+          "title": "响应码"
+        },
+        "resultMsg": {
+          "type": "string",
+          "title": "响应消息描述"
+        },
+        "resultObject": {
+          "$ref": "#/definitions/QryHeartbeatRootRspQryHeartbeatRsp",
           "title": "响应对象"
         }
       }
@@ -644,27 +788,27 @@
         }
       }
     },
-    "ironicServerQryNodeInfoRootRes": {
+    "ironicServerQryNodeInfoRootRsp": {
       "type": "object",
       "properties": {
-        "contractRootRes": {
-          "$ref": "#/definitions/ironicServerQryNodeInfoRootResContractRootRes"
+        "contractRootRsp": {
+          "$ref": "#/definitions/ironicServerQryNodeInfoRootRspContractRootRsp"
         }
       }
     },
-    "ironicServerQryNodeInfoRootResContractRootRes": {
+    "ironicServerQryNodeInfoRootRspContractRootRsp": {
       "type": "object",
       "properties": {
         "tcpCont": {
-          "$ref": "#/definitions/ironicComTcpContRes"
+          "$ref": "#/definitions/ironicComTcpContRsp"
         },
         "svcCont": {
-          "$ref": "#/definitions/ironicServerQryNodeInfoRootResSvcContRes"
+          "$ref": "#/definitions/ironicServerQryNodeInfoRootRspSvcContRsp"
         }
       },
       "title": "响应信息"
     },
-    "ironicServerQryNodeInfoRootResSvcContRes": {
+    "ironicServerQryNodeInfoRootRspSvcContRsp": {
       "type": "object",
       "properties": {
         "resultCode": {
@@ -676,7 +820,113 @@
           "title": "响应消息描述"
         },
         "resultObject": {
-          "$ref": "#/definitions/QryNodeInfoRootResQryNodeInfoRsp",
+          "$ref": "#/definitions/QryNodeInfoRootRspQryNodeInfoRsp",
+          "title": "响应对象"
+        }
+      }
+    },
+    "ironicServerReInstallNodeSysRootReqContractRootReq": {
+      "type": "object",
+      "properties": {
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContReq"
+        },
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerReInstallNodeSysRootReqSvcContReq"
+        }
+      },
+      "title": "请求信息"
+    },
+    "ironicServerReInstallNodeSysRootReqInstallNodeSysReq": {
+      "type": "object",
+      "properties": {
+        "nodeInstallInfos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ironicServerReInstallNodeSysRootReqNodeInstallInfo"
+          },
+          "title": "安装裸金属系统信息"
+        }
+      },
+      "title": "安装裸金属系统请求对象"
+    },
+    "ironicServerReInstallNodeSysRootReqNodeInstallInfo": {
+      "type": "object",
+      "properties": {
+        "nodeId": {
+          "type": "string",
+          "title": "裸金属节点id"
+        },
+        "imageAddr": {
+          "type": "string",
+          "title": "安装镜像地址(一般为http url)"
+        },
+        "imageCheckSum": {
+          "type": "string",
+          "title": "镜像MD5校验码"
+        }
+      },
+      "title": "安装裸金属系统信息"
+    },
+    "ironicServerReInstallNodeSysRootReqSvcContReq": {
+      "type": "object",
+      "properties": {
+        "requestObject": {
+          "$ref": "#/definitions/ironicServerReInstallNodeSysRootReqInstallNodeSysReq"
+        }
+      },
+      "title": "安装裸金属系统请求"
+    },
+    "ironicServerReInstallNodeSysRootRsp": {
+      "type": "object",
+      "properties": {
+        "contractRootRsp": {
+          "$ref": "#/definitions/ironicServerReInstallNodeSysRootRspContractRootRsp"
+        }
+      }
+    },
+    "ironicServerReInstallNodeSysRootRspContractRootRsp": {
+      "type": "object",
+      "properties": {
+        "tcpCont": {
+          "$ref": "#/definitions/ironicComTcpContRsp"
+        },
+        "svcCont": {
+          "$ref": "#/definitions/ironicServerReInstallNodeSysRootRspSvcContRsp"
+        }
+      },
+      "title": "响应信息"
+    },
+    "ironicServerReInstallNodeSysRootRspInstallNodeInfoRsp": {
+      "type": "object",
+      "properties": {
+        "nodeInfoRsps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ReInstallNodeSysRootRspReNodeInfoRsp"
+          },
+          "title": "节点"
+        },
+        "pageInfo": {
+          "$ref": "#/definitions/ironicComPageInfo",
+          "title": "分页信息"
+        }
+      },
+      "title": "创建节点请求对象"
+    },
+    "ironicServerReInstallNodeSysRootRspSvcContRsp": {
+      "type": "object",
+      "properties": {
+        "resultCode": {
+          "$ref": "#/definitions/ironicComResultCode",
+          "title": "响应码"
+        },
+        "resultMsg": {
+          "type": "string",
+          "title": "响应消息描述"
+        },
+        "resultObject": {
+          "$ref": "#/definitions/ironicServerReInstallNodeSysRootRspInstallNodeInfoRsp",
           "title": "响应对象"
         }
       }

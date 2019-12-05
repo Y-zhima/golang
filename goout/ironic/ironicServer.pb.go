@@ -25,75 +25,118 @@ var _ = math.Inf
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 //电源状态
-type QryNodeInfoRootRes_PowerStatus int32
+type QryNodeInfoRootRsp_PowerStatus int32
 
 const (
-	// 未知
-	QryNodeInfoRootRes_UNKNOWN QryNodeInfoRootRes_PowerStatus = 0
+	//没有定义
+	QryNodeInfoRootRsp_UNDEFINED_1 QryNodeInfoRootRsp_PowerStatus = 0
 	// 开机
-	QryNodeInfoRootRes_POWERON QryNodeInfoRootRes_PowerStatus = 1
+	QryNodeInfoRootRsp_POWERON QryNodeInfoRootRsp_PowerStatus = 1
 	// 关机
-	QryNodeInfoRootRes_POWEROFF QryNodeInfoRootRes_PowerStatus = 2
+	QryNodeInfoRootRsp_POWEROFF QryNodeInfoRootRsp_PowerStatus = 2
+	// 未知
+	QryNodeInfoRootRsp_UNKNOWN QryNodeInfoRootRsp_PowerStatus = 3
 )
 
-var QryNodeInfoRootRes_PowerStatus_name = map[int32]string{
-	0: "UNKNOWN",
+var QryNodeInfoRootRsp_PowerStatus_name = map[int32]string{
+	0: "UNDEFINED_1",
 	1: "POWERON",
 	2: "POWEROFF",
+	3: "UNKNOWN",
 }
 
-var QryNodeInfoRootRes_PowerStatus_value = map[string]int32{
-	"UNKNOWN":  0,
-	"POWERON":  1,
-	"POWEROFF": 2,
+var QryNodeInfoRootRsp_PowerStatus_value = map[string]int32{
+	"UNDEFINED_1": 0,
+	"POWERON":     1,
+	"POWEROFF":    2,
+	"UNKNOWN":     3,
 }
 
-func (x QryNodeInfoRootRes_PowerStatus) String() string {
-	return proto.EnumName(QryNodeInfoRootRes_PowerStatus_name, int32(x))
+func (x QryNodeInfoRootRsp_PowerStatus) String() string {
+	return proto.EnumName(QryNodeInfoRootRsp_PowerStatus_name, int32(x))
 }
 
-func (QryNodeInfoRootRes_PowerStatus) EnumDescriptor() ([]byte, []int) {
+func (QryNodeInfoRootRsp_PowerStatus) EnumDescriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{1, 0}
 }
 
 //裸金属节点状态
-type QryNodeInfoRootRes_Status int32
+type QryNodeInfoRootRsp_Status int32
 
 const (
-	// 未知
-	QryNodeInfoRootRes_NULL QryNodeInfoRootRes_Status = 0
+	//没有定义
+	QryNodeInfoRootRsp_UNDEFINED_2 QryNodeInfoRootRsp_Status = 0
+	//未知
+	QryNodeInfoRootRsp_NULL QryNodeInfoRootRsp_Status = 1400
 	// 已创建 :刚创建完节点后的状态，节点创建、验证成功，可进行装系统
-	QryNodeInfoRootRes_CREATED QryNodeInfoRootRes_Status = 1300
+	QryNodeInfoRootRsp_CREATED QryNodeInfoRootRsp_Status = 1300
 	// 部署中 :正在执行装机任务
-	QryNodeInfoRootRes_DEPLOYING QryNodeInfoRootRes_Status = 1200
+	QryNodeInfoRootRsp_DEPLOYING QryNodeInfoRootRsp_Status = 1200
 	// 部署失败 : 执行装机异常
-	QryNodeInfoRootRes_DEPLOYFAILED QryNodeInfoRootRes_Status = 1100
+	QryNodeInfoRootRsp_DEPLOYFAILED QryNodeInfoRootRsp_Status = 1100
 	// 活动 ： 已经安装完系统活动中
-	QryNodeInfoRootRes_ACTIVE QryNodeInfoRootRes_Status = 1000
+	QryNodeInfoRootRsp_ACTIVE QryNodeInfoRootRsp_Status = 1000
 )
 
-var QryNodeInfoRootRes_Status_name = map[int32]string{
-	0:    "NULL",
+var QryNodeInfoRootRsp_Status_name = map[int32]string{
+	0:    "UNDEFINED_2",
+	1400: "NULL",
 	1300: "CREATED",
 	1200: "DEPLOYING",
 	1100: "DEPLOYFAILED",
 	1000: "ACTIVE",
 }
 
-var QryNodeInfoRootRes_Status_value = map[string]int32{
-	"NULL":         0,
+var QryNodeInfoRootRsp_Status_value = map[string]int32{
+	"UNDEFINED_2":  0,
+	"NULL":         1400,
 	"CREATED":      1300,
 	"DEPLOYING":    1200,
 	"DEPLOYFAILED": 1100,
 	"ACTIVE":       1000,
 }
 
-func (x QryNodeInfoRootRes_Status) String() string {
-	return proto.EnumName(QryNodeInfoRootRes_Status_name, int32(x))
+func (x QryNodeInfoRootRsp_Status) String() string {
+	return proto.EnumName(QryNodeInfoRootRsp_Status_name, int32(x))
 }
 
-func (QryNodeInfoRootRes_Status) EnumDescriptor() ([]byte, []int) {
+func (QryNodeInfoRootRsp_Status) EnumDescriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{1, 1}
+}
+
+type QryHeartbeatRootRsp_AppStatus int32
+
+const (
+	//没有定义
+	QryHeartbeatRootRsp_UNDEFINED QryHeartbeatRootRsp_AppStatus = 0
+	//活动中
+	QryHeartbeatRootRsp_STOPPED QryHeartbeatRootRsp_AppStatus = 1
+	//未知
+	QryHeartbeatRootRsp_ACTIVE QryHeartbeatRootRsp_AppStatus = 2
+	//已停止
+	QryHeartbeatRootRsp_UNKNOWN QryHeartbeatRootRsp_AppStatus = 3
+)
+
+var QryHeartbeatRootRsp_AppStatus_name = map[int32]string{
+	0: "UNDEFINED",
+	1: "STOPPED",
+	2: "ACTIVE",
+	3: "UNKNOWN",
+}
+
+var QryHeartbeatRootRsp_AppStatus_value = map[string]int32{
+	"UNDEFINED": 0,
+	"STOPPED":   1,
+	"ACTIVE":    2,
+	"UNKNOWN":   3,
+}
+
+func (x QryHeartbeatRootRsp_AppStatus) String() string {
+	return proto.EnumName(QryHeartbeatRootRsp_AppStatus_name, int32(x))
+}
+
+func (QryHeartbeatRootRsp_AppStatus) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_1cc74eed2bde0fdf, []int{11, 0}
 }
 
 //--------------- 裸金属节点状态查询---------------//
@@ -265,145 +308,145 @@ func (m *QryNodeInfoRootReq_QryNodeInfoReq) GetNodeIds() []string {
 	return nil
 }
 
-type QryNodeInfoRootRes struct {
-	ContractRootRes      *QryNodeInfoRootRes_ContractRootRes `protobuf:"bytes,1,opt,name=contractRootRes,proto3" json:"contractRootRes,omitempty"`
+type QryNodeInfoRootRsp struct {
+	ContractRootRsp      *QryNodeInfoRootRsp_ContractRootRsp `protobuf:"bytes,1,opt,name=contractRootRsp,proto3" json:"contractRootRsp,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                            `json:"-"`
 	XXX_unrecognized     []byte                              `json:"-"`
 	XXX_sizecache        int32                               `json:"-"`
 }
 
-func (m *QryNodeInfoRootRes) Reset()         { *m = QryNodeInfoRootRes{} }
-func (m *QryNodeInfoRootRes) String() string { return proto.CompactTextString(m) }
-func (*QryNodeInfoRootRes) ProtoMessage()    {}
-func (*QryNodeInfoRootRes) Descriptor() ([]byte, []int) {
+func (m *QryNodeInfoRootRsp) Reset()         { *m = QryNodeInfoRootRsp{} }
+func (m *QryNodeInfoRootRsp) String() string { return proto.CompactTextString(m) }
+func (*QryNodeInfoRootRsp) ProtoMessage()    {}
+func (*QryNodeInfoRootRsp) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{1}
 }
 
-func (m *QryNodeInfoRootRes) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_QryNodeInfoRootRes.Unmarshal(m, b)
+func (m *QryNodeInfoRootRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_QryNodeInfoRootRsp.Unmarshal(m, b)
 }
-func (m *QryNodeInfoRootRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_QryNodeInfoRootRes.Marshal(b, m, deterministic)
+func (m *QryNodeInfoRootRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_QryNodeInfoRootRsp.Marshal(b, m, deterministic)
 }
-func (m *QryNodeInfoRootRes) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_QryNodeInfoRootRes.Merge(m, src)
+func (m *QryNodeInfoRootRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QryNodeInfoRootRsp.Merge(m, src)
 }
-func (m *QryNodeInfoRootRes) XXX_Size() int {
-	return xxx_messageInfo_QryNodeInfoRootRes.Size(m)
+func (m *QryNodeInfoRootRsp) XXX_Size() int {
+	return xxx_messageInfo_QryNodeInfoRootRsp.Size(m)
 }
-func (m *QryNodeInfoRootRes) XXX_DiscardUnknown() {
-	xxx_messageInfo_QryNodeInfoRootRes.DiscardUnknown(m)
+func (m *QryNodeInfoRootRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_QryNodeInfoRootRsp.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_QryNodeInfoRootRes proto.InternalMessageInfo
+var xxx_messageInfo_QryNodeInfoRootRsp proto.InternalMessageInfo
 
-func (m *QryNodeInfoRootRes) GetContractRootRes() *QryNodeInfoRootRes_ContractRootRes {
+func (m *QryNodeInfoRootRsp) GetContractRootRsp() *QryNodeInfoRootRsp_ContractRootRsp {
 	if m != nil {
-		return m.ContractRootRes
+		return m.ContractRootRsp
 	}
 	return nil
 }
 
 // 响应信息
-type QryNodeInfoRootRes_ContractRootRes struct {
-	TcpCont              *TcpContRes                    `protobuf:"bytes,1,opt,name=tcpCont,proto3" json:"tcpCont,omitempty"`
-	SvcCont              *QryNodeInfoRootRes_SvcContRes `protobuf:"bytes,2,opt,name=svcCont,proto3" json:"svcCont,omitempty"`
+type QryNodeInfoRootRsp_ContractRootRsp struct {
+	TcpCont              *TcpContRsp                    `protobuf:"bytes,1,opt,name=tcpCont,proto3" json:"tcpCont,omitempty"`
+	SvcCont              *QryNodeInfoRootRsp_SvcContRsp `protobuf:"bytes,2,opt,name=svcCont,proto3" json:"svcCont,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                       `json:"-"`
 	XXX_unrecognized     []byte                         `json:"-"`
 	XXX_sizecache        int32                          `json:"-"`
 }
 
-func (m *QryNodeInfoRootRes_ContractRootRes) Reset()         { *m = QryNodeInfoRootRes_ContractRootRes{} }
-func (m *QryNodeInfoRootRes_ContractRootRes) String() string { return proto.CompactTextString(m) }
-func (*QryNodeInfoRootRes_ContractRootRes) ProtoMessage()    {}
-func (*QryNodeInfoRootRes_ContractRootRes) Descriptor() ([]byte, []int) {
+func (m *QryNodeInfoRootRsp_ContractRootRsp) Reset()         { *m = QryNodeInfoRootRsp_ContractRootRsp{} }
+func (m *QryNodeInfoRootRsp_ContractRootRsp) String() string { return proto.CompactTextString(m) }
+func (*QryNodeInfoRootRsp_ContractRootRsp) ProtoMessage()    {}
+func (*QryNodeInfoRootRsp_ContractRootRsp) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{1, 0}
 }
 
-func (m *QryNodeInfoRootRes_ContractRootRes) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_QryNodeInfoRootRes_ContractRootRes.Unmarshal(m, b)
+func (m *QryNodeInfoRootRsp_ContractRootRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_QryNodeInfoRootRsp_ContractRootRsp.Unmarshal(m, b)
 }
-func (m *QryNodeInfoRootRes_ContractRootRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_QryNodeInfoRootRes_ContractRootRes.Marshal(b, m, deterministic)
+func (m *QryNodeInfoRootRsp_ContractRootRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_QryNodeInfoRootRsp_ContractRootRsp.Marshal(b, m, deterministic)
 }
-func (m *QryNodeInfoRootRes_ContractRootRes) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_QryNodeInfoRootRes_ContractRootRes.Merge(m, src)
+func (m *QryNodeInfoRootRsp_ContractRootRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QryNodeInfoRootRsp_ContractRootRsp.Merge(m, src)
 }
-func (m *QryNodeInfoRootRes_ContractRootRes) XXX_Size() int {
-	return xxx_messageInfo_QryNodeInfoRootRes_ContractRootRes.Size(m)
+func (m *QryNodeInfoRootRsp_ContractRootRsp) XXX_Size() int {
+	return xxx_messageInfo_QryNodeInfoRootRsp_ContractRootRsp.Size(m)
 }
-func (m *QryNodeInfoRootRes_ContractRootRes) XXX_DiscardUnknown() {
-	xxx_messageInfo_QryNodeInfoRootRes_ContractRootRes.DiscardUnknown(m)
+func (m *QryNodeInfoRootRsp_ContractRootRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_QryNodeInfoRootRsp_ContractRootRsp.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_QryNodeInfoRootRes_ContractRootRes proto.InternalMessageInfo
+var xxx_messageInfo_QryNodeInfoRootRsp_ContractRootRsp proto.InternalMessageInfo
 
-func (m *QryNodeInfoRootRes_ContractRootRes) GetTcpCont() *TcpContRes {
+func (m *QryNodeInfoRootRsp_ContractRootRsp) GetTcpCont() *TcpContRsp {
 	if m != nil {
 		return m.TcpCont
 	}
 	return nil
 }
 
-func (m *QryNodeInfoRootRes_ContractRootRes) GetSvcCont() *QryNodeInfoRootRes_SvcContRes {
+func (m *QryNodeInfoRootRsp_ContractRootRsp) GetSvcCont() *QryNodeInfoRootRsp_SvcContRsp {
 	if m != nil {
 		return m.SvcCont
 	}
 	return nil
 }
 
-type QryNodeInfoRootRes_SvcContRes struct {
+type QryNodeInfoRootRsp_SvcContRsp struct {
 	// 响应码
 	ResultCode ResultCode `protobuf:"varint,1,opt,name=resultCode,proto3,enum=ironicCom.ResultCode" json:"resultCode,omitempty"`
 	// 响应消息描述
 	ResultMsg string `protobuf:"bytes,2,opt,name=resultMsg,proto3" json:"resultMsg,omitempty"`
 	// 响应对象
-	ResultObject         *QryNodeInfoRootRes_QryNodeInfoRsp `protobuf:"bytes,3,opt,name=resultObject,proto3" json:"resultObject,omitempty"`
+	ResultObject         *QryNodeInfoRootRsp_QryNodeInfoRsp `protobuf:"bytes,3,opt,name=resultObject,proto3" json:"resultObject,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                           `json:"-"`
 	XXX_unrecognized     []byte                             `json:"-"`
 	XXX_sizecache        int32                              `json:"-"`
 }
 
-func (m *QryNodeInfoRootRes_SvcContRes) Reset()         { *m = QryNodeInfoRootRes_SvcContRes{} }
-func (m *QryNodeInfoRootRes_SvcContRes) String() string { return proto.CompactTextString(m) }
-func (*QryNodeInfoRootRes_SvcContRes) ProtoMessage()    {}
-func (*QryNodeInfoRootRes_SvcContRes) Descriptor() ([]byte, []int) {
+func (m *QryNodeInfoRootRsp_SvcContRsp) Reset()         { *m = QryNodeInfoRootRsp_SvcContRsp{} }
+func (m *QryNodeInfoRootRsp_SvcContRsp) String() string { return proto.CompactTextString(m) }
+func (*QryNodeInfoRootRsp_SvcContRsp) ProtoMessage()    {}
+func (*QryNodeInfoRootRsp_SvcContRsp) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{1, 1}
 }
 
-func (m *QryNodeInfoRootRes_SvcContRes) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_QryNodeInfoRootRes_SvcContRes.Unmarshal(m, b)
+func (m *QryNodeInfoRootRsp_SvcContRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_QryNodeInfoRootRsp_SvcContRsp.Unmarshal(m, b)
 }
-func (m *QryNodeInfoRootRes_SvcContRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_QryNodeInfoRootRes_SvcContRes.Marshal(b, m, deterministic)
+func (m *QryNodeInfoRootRsp_SvcContRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_QryNodeInfoRootRsp_SvcContRsp.Marshal(b, m, deterministic)
 }
-func (m *QryNodeInfoRootRes_SvcContRes) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_QryNodeInfoRootRes_SvcContRes.Merge(m, src)
+func (m *QryNodeInfoRootRsp_SvcContRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QryNodeInfoRootRsp_SvcContRsp.Merge(m, src)
 }
-func (m *QryNodeInfoRootRes_SvcContRes) XXX_Size() int {
-	return xxx_messageInfo_QryNodeInfoRootRes_SvcContRes.Size(m)
+func (m *QryNodeInfoRootRsp_SvcContRsp) XXX_Size() int {
+	return xxx_messageInfo_QryNodeInfoRootRsp_SvcContRsp.Size(m)
 }
-func (m *QryNodeInfoRootRes_SvcContRes) XXX_DiscardUnknown() {
-	xxx_messageInfo_QryNodeInfoRootRes_SvcContRes.DiscardUnknown(m)
+func (m *QryNodeInfoRootRsp_SvcContRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_QryNodeInfoRootRsp_SvcContRsp.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_QryNodeInfoRootRes_SvcContRes proto.InternalMessageInfo
+var xxx_messageInfo_QryNodeInfoRootRsp_SvcContRsp proto.InternalMessageInfo
 
-func (m *QryNodeInfoRootRes_SvcContRes) GetResultCode() ResultCode {
+func (m *QryNodeInfoRootRsp_SvcContRsp) GetResultCode() ResultCode {
 	if m != nil {
 		return m.ResultCode
 	}
-	return ResultCode_SUCCESS
+	return ResultCode_UNDEFINED_3
 }
 
-func (m *QryNodeInfoRootRes_SvcContRes) GetResultMsg() string {
+func (m *QryNodeInfoRootRsp_SvcContRsp) GetResultMsg() string {
 	if m != nil {
 		return m.ResultMsg
 	}
 	return ""
 }
 
-func (m *QryNodeInfoRootRes_SvcContRes) GetResultObject() *QryNodeInfoRootRes_QryNodeInfoRsp {
+func (m *QryNodeInfoRootRsp_SvcContRsp) GetResultObject() *QryNodeInfoRootRsp_QryNodeInfoRsp {
 	if m != nil {
 		return m.ResultObject
 	}
@@ -411,40 +454,40 @@ func (m *QryNodeInfoRootRes_SvcContRes) GetResultObject() *QryNodeInfoRootRes_Qr
 }
 
 // 查询节点应答对象
-type QryNodeInfoRootRes_QryNodeInfoRsp struct {
+type QryNodeInfoRootRsp_QryNodeInfoRsp struct {
 	// 节点
-	NodeInfos            []*QryNodeInfoRootRes_NodeInfo `protobuf:"bytes,1,rep,name=nodeInfos,proto3" json:"nodeInfos,omitempty"`
+	NodeInfos            []*QryNodeInfoRootRsp_NodeInfo `protobuf:"bytes,1,rep,name=nodeInfos,proto3" json:"nodeInfos,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                       `json:"-"`
 	XXX_unrecognized     []byte                         `json:"-"`
 	XXX_sizecache        int32                          `json:"-"`
 }
 
-func (m *QryNodeInfoRootRes_QryNodeInfoRsp) Reset()         { *m = QryNodeInfoRootRes_QryNodeInfoRsp{} }
-func (m *QryNodeInfoRootRes_QryNodeInfoRsp) String() string { return proto.CompactTextString(m) }
-func (*QryNodeInfoRootRes_QryNodeInfoRsp) ProtoMessage()    {}
-func (*QryNodeInfoRootRes_QryNodeInfoRsp) Descriptor() ([]byte, []int) {
+func (m *QryNodeInfoRootRsp_QryNodeInfoRsp) Reset()         { *m = QryNodeInfoRootRsp_QryNodeInfoRsp{} }
+func (m *QryNodeInfoRootRsp_QryNodeInfoRsp) String() string { return proto.CompactTextString(m) }
+func (*QryNodeInfoRootRsp_QryNodeInfoRsp) ProtoMessage()    {}
+func (*QryNodeInfoRootRsp_QryNodeInfoRsp) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{1, 2}
 }
 
-func (m *QryNodeInfoRootRes_QryNodeInfoRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_QryNodeInfoRootRes_QryNodeInfoRsp.Unmarshal(m, b)
+func (m *QryNodeInfoRootRsp_QryNodeInfoRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_QryNodeInfoRootRsp_QryNodeInfoRsp.Unmarshal(m, b)
 }
-func (m *QryNodeInfoRootRes_QryNodeInfoRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_QryNodeInfoRootRes_QryNodeInfoRsp.Marshal(b, m, deterministic)
+func (m *QryNodeInfoRootRsp_QryNodeInfoRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_QryNodeInfoRootRsp_QryNodeInfoRsp.Marshal(b, m, deterministic)
 }
-func (m *QryNodeInfoRootRes_QryNodeInfoRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_QryNodeInfoRootRes_QryNodeInfoRsp.Merge(m, src)
+func (m *QryNodeInfoRootRsp_QryNodeInfoRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QryNodeInfoRootRsp_QryNodeInfoRsp.Merge(m, src)
 }
-func (m *QryNodeInfoRootRes_QryNodeInfoRsp) XXX_Size() int {
-	return xxx_messageInfo_QryNodeInfoRootRes_QryNodeInfoRsp.Size(m)
+func (m *QryNodeInfoRootRsp_QryNodeInfoRsp) XXX_Size() int {
+	return xxx_messageInfo_QryNodeInfoRootRsp_QryNodeInfoRsp.Size(m)
 }
-func (m *QryNodeInfoRootRes_QryNodeInfoRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_QryNodeInfoRootRes_QryNodeInfoRsp.DiscardUnknown(m)
+func (m *QryNodeInfoRootRsp_QryNodeInfoRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_QryNodeInfoRootRsp_QryNodeInfoRsp.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_QryNodeInfoRootRes_QryNodeInfoRsp proto.InternalMessageInfo
+var xxx_messageInfo_QryNodeInfoRootRsp_QryNodeInfoRsp proto.InternalMessageInfo
 
-func (m *QryNodeInfoRootRes_QryNodeInfoRsp) GetNodeInfos() []*QryNodeInfoRootRes_NodeInfo {
+func (m *QryNodeInfoRootRsp_QryNodeInfoRsp) GetNodeInfos() []*QryNodeInfoRootRsp_NodeInfo {
 	if m != nil {
 		return m.NodeInfos
 	}
@@ -452,11 +495,11 @@ func (m *QryNodeInfoRootRes_QryNodeInfoRsp) GetNodeInfos() []*QryNodeInfoRootRes
 }
 
 // 节点信息
-type QryNodeInfoRootRes_NodeInfo struct {
+type QryNodeInfoRootRsp_NodeInfo struct {
 	// 裸金属节点id
 	NodeId string `protobuf:"bytes,1,opt,name=nodeId,proto3" json:"nodeId,omitempty"`
 	// 当前状态
-	Status QryNodeInfoRootRes_Status `protobuf:"varint,2,opt,name=status,proto3,enum=ironicServer.QryNodeInfoRootRes_Status" json:"status,omitempty"`
+	Status QryNodeInfoRootRsp_Status `protobuf:"varint,2,opt,name=status,proto3,enum=ironicServer.QryNodeInfoRootRsp_Status" json:"status,omitempty"`
 	// ipmi的IP地址
 	Ip string `protobuf:"bytes,3,opt,name=ip,proto3" json:"ip,omitempty"`
 	// ipmi用户名
@@ -474,112 +517,112 @@ type QryNodeInfoRootRes_NodeInfo struct {
 	// 查询节点响应消息
 	QryResultMsg string `protobuf:"bytes,10,opt,name=qryResultMsg,proto3" json:"qryResultMsg,omitempty"`
 	// 电源状态
-	PowerStatus          QryNodeInfoRootRes_PowerStatus `protobuf:"varint,11,opt,name=powerStatus,proto3,enum=ironicServer.QryNodeInfoRootRes_PowerStatus" json:"powerStatus,omitempty"`
+	PowerStatus          QryNodeInfoRootRsp_PowerStatus `protobuf:"varint,11,opt,name=powerStatus,proto3,enum=ironicServer.QryNodeInfoRootRsp_PowerStatus" json:"powerStatus,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                       `json:"-"`
 	XXX_unrecognized     []byte                         `json:"-"`
 	XXX_sizecache        int32                          `json:"-"`
 }
 
-func (m *QryNodeInfoRootRes_NodeInfo) Reset()         { *m = QryNodeInfoRootRes_NodeInfo{} }
-func (m *QryNodeInfoRootRes_NodeInfo) String() string { return proto.CompactTextString(m) }
-func (*QryNodeInfoRootRes_NodeInfo) ProtoMessage()    {}
-func (*QryNodeInfoRootRes_NodeInfo) Descriptor() ([]byte, []int) {
+func (m *QryNodeInfoRootRsp_NodeInfo) Reset()         { *m = QryNodeInfoRootRsp_NodeInfo{} }
+func (m *QryNodeInfoRootRsp_NodeInfo) String() string { return proto.CompactTextString(m) }
+func (*QryNodeInfoRootRsp_NodeInfo) ProtoMessage()    {}
+func (*QryNodeInfoRootRsp_NodeInfo) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{1, 3}
 }
 
-func (m *QryNodeInfoRootRes_NodeInfo) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_QryNodeInfoRootRes_NodeInfo.Unmarshal(m, b)
+func (m *QryNodeInfoRootRsp_NodeInfo) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_QryNodeInfoRootRsp_NodeInfo.Unmarshal(m, b)
 }
-func (m *QryNodeInfoRootRes_NodeInfo) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_QryNodeInfoRootRes_NodeInfo.Marshal(b, m, deterministic)
+func (m *QryNodeInfoRootRsp_NodeInfo) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_QryNodeInfoRootRsp_NodeInfo.Marshal(b, m, deterministic)
 }
-func (m *QryNodeInfoRootRes_NodeInfo) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_QryNodeInfoRootRes_NodeInfo.Merge(m, src)
+func (m *QryNodeInfoRootRsp_NodeInfo) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QryNodeInfoRootRsp_NodeInfo.Merge(m, src)
 }
-func (m *QryNodeInfoRootRes_NodeInfo) XXX_Size() int {
-	return xxx_messageInfo_QryNodeInfoRootRes_NodeInfo.Size(m)
+func (m *QryNodeInfoRootRsp_NodeInfo) XXX_Size() int {
+	return xxx_messageInfo_QryNodeInfoRootRsp_NodeInfo.Size(m)
 }
-func (m *QryNodeInfoRootRes_NodeInfo) XXX_DiscardUnknown() {
-	xxx_messageInfo_QryNodeInfoRootRes_NodeInfo.DiscardUnknown(m)
+func (m *QryNodeInfoRootRsp_NodeInfo) XXX_DiscardUnknown() {
+	xxx_messageInfo_QryNodeInfoRootRsp_NodeInfo.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_QryNodeInfoRootRes_NodeInfo proto.InternalMessageInfo
+var xxx_messageInfo_QryNodeInfoRootRsp_NodeInfo proto.InternalMessageInfo
 
-func (m *QryNodeInfoRootRes_NodeInfo) GetNodeId() string {
+func (m *QryNodeInfoRootRsp_NodeInfo) GetNodeId() string {
 	if m != nil {
 		return m.NodeId
 	}
 	return ""
 }
 
-func (m *QryNodeInfoRootRes_NodeInfo) GetStatus() QryNodeInfoRootRes_Status {
+func (m *QryNodeInfoRootRsp_NodeInfo) GetStatus() QryNodeInfoRootRsp_Status {
 	if m != nil {
 		return m.Status
 	}
-	return QryNodeInfoRootRes_NULL
+	return QryNodeInfoRootRsp_UNDEFINED_2
 }
 
-func (m *QryNodeInfoRootRes_NodeInfo) GetIp() string {
+func (m *QryNodeInfoRootRsp_NodeInfo) GetIp() string {
 	if m != nil {
 		return m.Ip
 	}
 	return ""
 }
 
-func (m *QryNodeInfoRootRes_NodeInfo) GetUserName() string {
+func (m *QryNodeInfoRootRsp_NodeInfo) GetUserName() string {
 	if m != nil {
 		return m.UserName
 	}
 	return ""
 }
 
-func (m *QryNodeInfoRootRes_NodeInfo) GetPassword() string {
+func (m *QryNodeInfoRootRsp_NodeInfo) GetPassword() string {
 	if m != nil {
 		return m.Password
 	}
 	return ""
 }
 
-func (m *QryNodeInfoRootRes_NodeInfo) GetMacAddr() string {
+func (m *QryNodeInfoRootRsp_NodeInfo) GetMacAddr() string {
 	if m != nil {
 		return m.MacAddr
 	}
 	return ""
 }
 
-func (m *QryNodeInfoRootRes_NodeInfo) GetImagerAddr() string {
+func (m *QryNodeInfoRootRsp_NodeInfo) GetImagerAddr() string {
 	if m != nil {
 		return m.ImagerAddr
 	}
 	return ""
 }
 
-func (m *QryNodeInfoRootRes_NodeInfo) GetServerAddr() string {
+func (m *QryNodeInfoRootRsp_NodeInfo) GetServerAddr() string {
 	if m != nil {
 		return m.ServerAddr
 	}
 	return ""
 }
 
-func (m *QryNodeInfoRootRes_NodeInfo) GetQryResultCode() ResultCode {
+func (m *QryNodeInfoRootRsp_NodeInfo) GetQryResultCode() ResultCode {
 	if m != nil {
 		return m.QryResultCode
 	}
-	return ResultCode_SUCCESS
+	return ResultCode_UNDEFINED_3
 }
 
-func (m *QryNodeInfoRootRes_NodeInfo) GetQryResultMsg() string {
+func (m *QryNodeInfoRootRsp_NodeInfo) GetQryResultMsg() string {
 	if m != nil {
 		return m.QryResultMsg
 	}
 	return ""
 }
 
-func (m *QryNodeInfoRootRes_NodeInfo) GetPowerStatus() QryNodeInfoRootRes_PowerStatus {
+func (m *QryNodeInfoRootRsp_NodeInfo) GetPowerStatus() QryNodeInfoRootRsp_PowerStatus {
 	if m != nil {
 		return m.PowerStatus
 	}
-	return QryNodeInfoRootRes_UNKNOWN
+	return QryNodeInfoRootRsp_UNDEFINED_1
 }
 
 //--------------- 安装裸金属系统 ---------------//
@@ -812,145 +855,145 @@ func (m *InstallNodeSysRootReq_NodeInstallInfo) GetImageCheckSum() string {
 	return ""
 }
 
-type InstallNodeSysRootRes struct {
-	ContractRootRes      *InstallNodeSysRootRes_ContractRootRes `protobuf:"bytes,1,opt,name=contractRootRes,proto3" json:"contractRootRes,omitempty"`
+type InstallNodeSysRootRsp struct {
+	ContractRootRsp      *InstallNodeSysRootRsp_ContractRootRsp `protobuf:"bytes,1,opt,name=contractRootRsp,proto3" json:"contractRootRsp,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                               `json:"-"`
 	XXX_unrecognized     []byte                                 `json:"-"`
 	XXX_sizecache        int32                                  `json:"-"`
 }
 
-func (m *InstallNodeSysRootRes) Reset()         { *m = InstallNodeSysRootRes{} }
-func (m *InstallNodeSysRootRes) String() string { return proto.CompactTextString(m) }
-func (*InstallNodeSysRootRes) ProtoMessage()    {}
-func (*InstallNodeSysRootRes) Descriptor() ([]byte, []int) {
+func (m *InstallNodeSysRootRsp) Reset()         { *m = InstallNodeSysRootRsp{} }
+func (m *InstallNodeSysRootRsp) String() string { return proto.CompactTextString(m) }
+func (*InstallNodeSysRootRsp) ProtoMessage()    {}
+func (*InstallNodeSysRootRsp) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{3}
 }
 
-func (m *InstallNodeSysRootRes) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_InstallNodeSysRootRes.Unmarshal(m, b)
+func (m *InstallNodeSysRootRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_InstallNodeSysRootRsp.Unmarshal(m, b)
 }
-func (m *InstallNodeSysRootRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_InstallNodeSysRootRes.Marshal(b, m, deterministic)
+func (m *InstallNodeSysRootRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_InstallNodeSysRootRsp.Marshal(b, m, deterministic)
 }
-func (m *InstallNodeSysRootRes) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_InstallNodeSysRootRes.Merge(m, src)
+func (m *InstallNodeSysRootRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InstallNodeSysRootRsp.Merge(m, src)
 }
-func (m *InstallNodeSysRootRes) XXX_Size() int {
-	return xxx_messageInfo_InstallNodeSysRootRes.Size(m)
+func (m *InstallNodeSysRootRsp) XXX_Size() int {
+	return xxx_messageInfo_InstallNodeSysRootRsp.Size(m)
 }
-func (m *InstallNodeSysRootRes) XXX_DiscardUnknown() {
-	xxx_messageInfo_InstallNodeSysRootRes.DiscardUnknown(m)
+func (m *InstallNodeSysRootRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_InstallNodeSysRootRsp.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_InstallNodeSysRootRes proto.InternalMessageInfo
+var xxx_messageInfo_InstallNodeSysRootRsp proto.InternalMessageInfo
 
-func (m *InstallNodeSysRootRes) GetContractRootRes() *InstallNodeSysRootRes_ContractRootRes {
+func (m *InstallNodeSysRootRsp) GetContractRootRsp() *InstallNodeSysRootRsp_ContractRootRsp {
 	if m != nil {
-		return m.ContractRootRes
+		return m.ContractRootRsp
 	}
 	return nil
 }
 
 // 响应信息
-type InstallNodeSysRootRes_ContractRootRes struct {
-	TcpCont              *TcpContRes                       `protobuf:"bytes,1,opt,name=tcpCont,proto3" json:"tcpCont,omitempty"`
-	SvcCont              *InstallNodeSysRootRes_SvcContRes `protobuf:"bytes,2,opt,name=svcCont,proto3" json:"svcCont,omitempty"`
+type InstallNodeSysRootRsp_ContractRootRsp struct {
+	TcpCont              *TcpContRsp                       `protobuf:"bytes,1,opt,name=tcpCont,proto3" json:"tcpCont,omitempty"`
+	SvcCont              *InstallNodeSysRootRsp_SvcContRsp `protobuf:"bytes,2,opt,name=svcCont,proto3" json:"svcCont,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                          `json:"-"`
 	XXX_unrecognized     []byte                            `json:"-"`
 	XXX_sizecache        int32                             `json:"-"`
 }
 
-func (m *InstallNodeSysRootRes_ContractRootRes) Reset()         { *m = InstallNodeSysRootRes_ContractRootRes{} }
-func (m *InstallNodeSysRootRes_ContractRootRes) String() string { return proto.CompactTextString(m) }
-func (*InstallNodeSysRootRes_ContractRootRes) ProtoMessage()    {}
-func (*InstallNodeSysRootRes_ContractRootRes) Descriptor() ([]byte, []int) {
+func (m *InstallNodeSysRootRsp_ContractRootRsp) Reset()         { *m = InstallNodeSysRootRsp_ContractRootRsp{} }
+func (m *InstallNodeSysRootRsp_ContractRootRsp) String() string { return proto.CompactTextString(m) }
+func (*InstallNodeSysRootRsp_ContractRootRsp) ProtoMessage()    {}
+func (*InstallNodeSysRootRsp_ContractRootRsp) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{3, 0}
 }
 
-func (m *InstallNodeSysRootRes_ContractRootRes) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_InstallNodeSysRootRes_ContractRootRes.Unmarshal(m, b)
+func (m *InstallNodeSysRootRsp_ContractRootRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_InstallNodeSysRootRsp_ContractRootRsp.Unmarshal(m, b)
 }
-func (m *InstallNodeSysRootRes_ContractRootRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_InstallNodeSysRootRes_ContractRootRes.Marshal(b, m, deterministic)
+func (m *InstallNodeSysRootRsp_ContractRootRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_InstallNodeSysRootRsp_ContractRootRsp.Marshal(b, m, deterministic)
 }
-func (m *InstallNodeSysRootRes_ContractRootRes) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_InstallNodeSysRootRes_ContractRootRes.Merge(m, src)
+func (m *InstallNodeSysRootRsp_ContractRootRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InstallNodeSysRootRsp_ContractRootRsp.Merge(m, src)
 }
-func (m *InstallNodeSysRootRes_ContractRootRes) XXX_Size() int {
-	return xxx_messageInfo_InstallNodeSysRootRes_ContractRootRes.Size(m)
+func (m *InstallNodeSysRootRsp_ContractRootRsp) XXX_Size() int {
+	return xxx_messageInfo_InstallNodeSysRootRsp_ContractRootRsp.Size(m)
 }
-func (m *InstallNodeSysRootRes_ContractRootRes) XXX_DiscardUnknown() {
-	xxx_messageInfo_InstallNodeSysRootRes_ContractRootRes.DiscardUnknown(m)
+func (m *InstallNodeSysRootRsp_ContractRootRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_InstallNodeSysRootRsp_ContractRootRsp.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_InstallNodeSysRootRes_ContractRootRes proto.InternalMessageInfo
+var xxx_messageInfo_InstallNodeSysRootRsp_ContractRootRsp proto.InternalMessageInfo
 
-func (m *InstallNodeSysRootRes_ContractRootRes) GetTcpCont() *TcpContRes {
+func (m *InstallNodeSysRootRsp_ContractRootRsp) GetTcpCont() *TcpContRsp {
 	if m != nil {
 		return m.TcpCont
 	}
 	return nil
 }
 
-func (m *InstallNodeSysRootRes_ContractRootRes) GetSvcCont() *InstallNodeSysRootRes_SvcContRes {
+func (m *InstallNodeSysRootRsp_ContractRootRsp) GetSvcCont() *InstallNodeSysRootRsp_SvcContRsp {
 	if m != nil {
 		return m.SvcCont
 	}
 	return nil
 }
 
-type InstallNodeSysRootRes_SvcContRes struct {
+type InstallNodeSysRootRsp_SvcContRsp struct {
 	// 响应码
 	ResultCode ResultCode `protobuf:"varint,1,opt,name=resultCode,proto3,enum=ironicCom.ResultCode" json:"resultCode,omitempty"`
 	// 响应消息描述
 	ResultMsg string `protobuf:"bytes,2,opt,name=resultMsg,proto3" json:"resultMsg,omitempty"`
 	// 响应对象
-	ResultObject         *InstallNodeSysRootRes_InstallNodeInfoRsp `protobuf:"bytes,3,opt,name=resultObject,proto3" json:"resultObject,omitempty"`
+	ResultObject         *InstallNodeSysRootRsp_InstallNodeInfoRsp `protobuf:"bytes,3,opt,name=resultObject,proto3" json:"resultObject,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                                  `json:"-"`
 	XXX_unrecognized     []byte                                    `json:"-"`
 	XXX_sizecache        int32                                     `json:"-"`
 }
 
-func (m *InstallNodeSysRootRes_SvcContRes) Reset()         { *m = InstallNodeSysRootRes_SvcContRes{} }
-func (m *InstallNodeSysRootRes_SvcContRes) String() string { return proto.CompactTextString(m) }
-func (*InstallNodeSysRootRes_SvcContRes) ProtoMessage()    {}
-func (*InstallNodeSysRootRes_SvcContRes) Descriptor() ([]byte, []int) {
+func (m *InstallNodeSysRootRsp_SvcContRsp) Reset()         { *m = InstallNodeSysRootRsp_SvcContRsp{} }
+func (m *InstallNodeSysRootRsp_SvcContRsp) String() string { return proto.CompactTextString(m) }
+func (*InstallNodeSysRootRsp_SvcContRsp) ProtoMessage()    {}
+func (*InstallNodeSysRootRsp_SvcContRsp) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{3, 1}
 }
 
-func (m *InstallNodeSysRootRes_SvcContRes) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_InstallNodeSysRootRes_SvcContRes.Unmarshal(m, b)
+func (m *InstallNodeSysRootRsp_SvcContRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_InstallNodeSysRootRsp_SvcContRsp.Unmarshal(m, b)
 }
-func (m *InstallNodeSysRootRes_SvcContRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_InstallNodeSysRootRes_SvcContRes.Marshal(b, m, deterministic)
+func (m *InstallNodeSysRootRsp_SvcContRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_InstallNodeSysRootRsp_SvcContRsp.Marshal(b, m, deterministic)
 }
-func (m *InstallNodeSysRootRes_SvcContRes) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_InstallNodeSysRootRes_SvcContRes.Merge(m, src)
+func (m *InstallNodeSysRootRsp_SvcContRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InstallNodeSysRootRsp_SvcContRsp.Merge(m, src)
 }
-func (m *InstallNodeSysRootRes_SvcContRes) XXX_Size() int {
-	return xxx_messageInfo_InstallNodeSysRootRes_SvcContRes.Size(m)
+func (m *InstallNodeSysRootRsp_SvcContRsp) XXX_Size() int {
+	return xxx_messageInfo_InstallNodeSysRootRsp_SvcContRsp.Size(m)
 }
-func (m *InstallNodeSysRootRes_SvcContRes) XXX_DiscardUnknown() {
-	xxx_messageInfo_InstallNodeSysRootRes_SvcContRes.DiscardUnknown(m)
+func (m *InstallNodeSysRootRsp_SvcContRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_InstallNodeSysRootRsp_SvcContRsp.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_InstallNodeSysRootRes_SvcContRes proto.InternalMessageInfo
+var xxx_messageInfo_InstallNodeSysRootRsp_SvcContRsp proto.InternalMessageInfo
 
-func (m *InstallNodeSysRootRes_SvcContRes) GetResultCode() ResultCode {
+func (m *InstallNodeSysRootRsp_SvcContRsp) GetResultCode() ResultCode {
 	if m != nil {
 		return m.ResultCode
 	}
-	return ResultCode_SUCCESS
+	return ResultCode_UNDEFINED_3
 }
 
-func (m *InstallNodeSysRootRes_SvcContRes) GetResultMsg() string {
+func (m *InstallNodeSysRootRsp_SvcContRsp) GetResultMsg() string {
 	if m != nil {
 		return m.ResultMsg
 	}
 	return ""
 }
 
-func (m *InstallNodeSysRootRes_SvcContRes) GetResultObject() *InstallNodeSysRootRes_InstallNodeInfoRsp {
+func (m *InstallNodeSysRootRsp_SvcContRsp) GetResultObject() *InstallNodeSysRootRsp_InstallNodeInfoRsp {
 	if m != nil {
 		return m.ResultObject
 	}
@@ -958,9 +1001,9 @@ func (m *InstallNodeSysRootRes_SvcContRes) GetResultObject() *InstallNodeSysRoot
 }
 
 //创建节点请求对象
-type InstallNodeSysRootRes_InstallNodeInfoRsp struct {
+type InstallNodeSysRootRsp_InstallNodeInfoRsp struct {
 	// 节点
-	NodeInfoRsps []*InstallNodeSysRootRes_NodeInfoRsp `protobuf:"bytes,1,rep,name=nodeInfoRsps,proto3" json:"nodeInfoRsps,omitempty"`
+	NodeInfoRsps []*InstallNodeSysRootRsp_NodeInfoRsp `protobuf:"bytes,1,rep,name=nodeInfoRsps,proto3" json:"nodeInfoRsps,omitempty"`
 	// 分页信息
 	PageInfo             *PageInfo `protobuf:"bytes,2,opt,name=pageInfo,proto3" json:"pageInfo,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
@@ -968,41 +1011,41 @@ type InstallNodeSysRootRes_InstallNodeInfoRsp struct {
 	XXX_sizecache        int32     `json:"-"`
 }
 
-func (m *InstallNodeSysRootRes_InstallNodeInfoRsp) Reset() {
-	*m = InstallNodeSysRootRes_InstallNodeInfoRsp{}
+func (m *InstallNodeSysRootRsp_InstallNodeInfoRsp) Reset() {
+	*m = InstallNodeSysRootRsp_InstallNodeInfoRsp{}
 }
-func (m *InstallNodeSysRootRes_InstallNodeInfoRsp) String() string { return proto.CompactTextString(m) }
-func (*InstallNodeSysRootRes_InstallNodeInfoRsp) ProtoMessage()    {}
-func (*InstallNodeSysRootRes_InstallNodeInfoRsp) Descriptor() ([]byte, []int) {
+func (m *InstallNodeSysRootRsp_InstallNodeInfoRsp) String() string { return proto.CompactTextString(m) }
+func (*InstallNodeSysRootRsp_InstallNodeInfoRsp) ProtoMessage()    {}
+func (*InstallNodeSysRootRsp_InstallNodeInfoRsp) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{3, 2}
 }
 
-func (m *InstallNodeSysRootRes_InstallNodeInfoRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_InstallNodeSysRootRes_InstallNodeInfoRsp.Unmarshal(m, b)
+func (m *InstallNodeSysRootRsp_InstallNodeInfoRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_InstallNodeSysRootRsp_InstallNodeInfoRsp.Unmarshal(m, b)
 }
-func (m *InstallNodeSysRootRes_InstallNodeInfoRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_InstallNodeSysRootRes_InstallNodeInfoRsp.Marshal(b, m, deterministic)
+func (m *InstallNodeSysRootRsp_InstallNodeInfoRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_InstallNodeSysRootRsp_InstallNodeInfoRsp.Marshal(b, m, deterministic)
 }
-func (m *InstallNodeSysRootRes_InstallNodeInfoRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_InstallNodeSysRootRes_InstallNodeInfoRsp.Merge(m, src)
+func (m *InstallNodeSysRootRsp_InstallNodeInfoRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InstallNodeSysRootRsp_InstallNodeInfoRsp.Merge(m, src)
 }
-func (m *InstallNodeSysRootRes_InstallNodeInfoRsp) XXX_Size() int {
-	return xxx_messageInfo_InstallNodeSysRootRes_InstallNodeInfoRsp.Size(m)
+func (m *InstallNodeSysRootRsp_InstallNodeInfoRsp) XXX_Size() int {
+	return xxx_messageInfo_InstallNodeSysRootRsp_InstallNodeInfoRsp.Size(m)
 }
-func (m *InstallNodeSysRootRes_InstallNodeInfoRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_InstallNodeSysRootRes_InstallNodeInfoRsp.DiscardUnknown(m)
+func (m *InstallNodeSysRootRsp_InstallNodeInfoRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_InstallNodeSysRootRsp_InstallNodeInfoRsp.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_InstallNodeSysRootRes_InstallNodeInfoRsp proto.InternalMessageInfo
+var xxx_messageInfo_InstallNodeSysRootRsp_InstallNodeInfoRsp proto.InternalMessageInfo
 
-func (m *InstallNodeSysRootRes_InstallNodeInfoRsp) GetNodeInfoRsps() []*InstallNodeSysRootRes_NodeInfoRsp {
+func (m *InstallNodeSysRootRsp_InstallNodeInfoRsp) GetNodeInfoRsps() []*InstallNodeSysRootRsp_NodeInfoRsp {
 	if m != nil {
 		return m.NodeInfoRsps
 	}
 	return nil
 }
 
-func (m *InstallNodeSysRootRes_InstallNodeInfoRsp) GetPageInfo() *PageInfo {
+func (m *InstallNodeSysRootRsp_InstallNodeInfoRsp) GetPageInfo() *PageInfo {
 	if m != nil {
 		return m.PageInfo
 	}
@@ -1010,7 +1053,7 @@ func (m *InstallNodeSysRootRes_InstallNodeInfoRsp) GetPageInfo() *PageInfo {
 }
 
 // 节点信息
-type InstallNodeSysRootRes_NodeInfoRsp struct {
+type InstallNodeSysRootRsp_NodeInfoRsp struct {
 	// 裸金属节点id
 	NodeId string `protobuf:"bytes,1,opt,name=nodeId,proto3" json:"nodeId,omitempty"`
 	// 初始化id
@@ -1024,53 +1067,53 @@ type InstallNodeSysRootRes_NodeInfoRsp struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *InstallNodeSysRootRes_NodeInfoRsp) Reset()         { *m = InstallNodeSysRootRes_NodeInfoRsp{} }
-func (m *InstallNodeSysRootRes_NodeInfoRsp) String() string { return proto.CompactTextString(m) }
-func (*InstallNodeSysRootRes_NodeInfoRsp) ProtoMessage()    {}
-func (*InstallNodeSysRootRes_NodeInfoRsp) Descriptor() ([]byte, []int) {
+func (m *InstallNodeSysRootRsp_NodeInfoRsp) Reset()         { *m = InstallNodeSysRootRsp_NodeInfoRsp{} }
+func (m *InstallNodeSysRootRsp_NodeInfoRsp) String() string { return proto.CompactTextString(m) }
+func (*InstallNodeSysRootRsp_NodeInfoRsp) ProtoMessage()    {}
+func (*InstallNodeSysRootRsp_NodeInfoRsp) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{3, 3}
 }
 
-func (m *InstallNodeSysRootRes_NodeInfoRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_InstallNodeSysRootRes_NodeInfoRsp.Unmarshal(m, b)
+func (m *InstallNodeSysRootRsp_NodeInfoRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_InstallNodeSysRootRsp_NodeInfoRsp.Unmarshal(m, b)
 }
-func (m *InstallNodeSysRootRes_NodeInfoRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_InstallNodeSysRootRes_NodeInfoRsp.Marshal(b, m, deterministic)
+func (m *InstallNodeSysRootRsp_NodeInfoRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_InstallNodeSysRootRsp_NodeInfoRsp.Marshal(b, m, deterministic)
 }
-func (m *InstallNodeSysRootRes_NodeInfoRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_InstallNodeSysRootRes_NodeInfoRsp.Merge(m, src)
+func (m *InstallNodeSysRootRsp_NodeInfoRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InstallNodeSysRootRsp_NodeInfoRsp.Merge(m, src)
 }
-func (m *InstallNodeSysRootRes_NodeInfoRsp) XXX_Size() int {
-	return xxx_messageInfo_InstallNodeSysRootRes_NodeInfoRsp.Size(m)
+func (m *InstallNodeSysRootRsp_NodeInfoRsp) XXX_Size() int {
+	return xxx_messageInfo_InstallNodeSysRootRsp_NodeInfoRsp.Size(m)
 }
-func (m *InstallNodeSysRootRes_NodeInfoRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_InstallNodeSysRootRes_NodeInfoRsp.DiscardUnknown(m)
+func (m *InstallNodeSysRootRsp_NodeInfoRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_InstallNodeSysRootRsp_NodeInfoRsp.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_InstallNodeSysRootRes_NodeInfoRsp proto.InternalMessageInfo
+var xxx_messageInfo_InstallNodeSysRootRsp_NodeInfoRsp proto.InternalMessageInfo
 
-func (m *InstallNodeSysRootRes_NodeInfoRsp) GetNodeId() string {
+func (m *InstallNodeSysRootRsp_NodeInfoRsp) GetNodeId() string {
 	if m != nil {
 		return m.NodeId
 	}
 	return ""
 }
 
-func (m *InstallNodeSysRootRes_NodeInfoRsp) GetInitId() int64 {
+func (m *InstallNodeSysRootRsp_NodeInfoRsp) GetInitId() int64 {
 	if m != nil {
 		return m.InitId
 	}
 	return 0
 }
 
-func (m *InstallNodeSysRootRes_NodeInfoRsp) GetInstallResultCode() ResultCode {
+func (m *InstallNodeSysRootRsp_NodeInfoRsp) GetInstallResultCode() ResultCode {
 	if m != nil {
 		return m.InstallResultCode
 	}
-	return ResultCode_SUCCESS
+	return ResultCode_UNDEFINED_3
 }
 
-func (m *InstallNodeSysRootRes_NodeInfoRsp) GetInstallResultMsg() string {
+func (m *InstallNodeSysRootRsp_NodeInfoRsp) GetInstallResultMsg() string {
 	if m != nil {
 		return m.InstallResultMsg
 	}
@@ -1284,191 +1327,191 @@ func (m *OperNodePowerRootReq_NodePowerOper) GetNodeId() string {
 	return ""
 }
 
-type OperNodePowerRootRes struct {
-	ContractRootRes      *OperNodePowerRootRes_ContractRootRes `protobuf:"bytes,1,opt,name=contractRootRes,proto3" json:"contractRootRes,omitempty"`
+type OperNodePowerRootRsp struct {
+	ContractRootRsp      *OperNodePowerRootRsp_ContractRootRsp `protobuf:"bytes,1,opt,name=contractRootRsp,proto3" json:"contractRootRsp,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                              `json:"-"`
 	XXX_unrecognized     []byte                                `json:"-"`
 	XXX_sizecache        int32                                 `json:"-"`
 }
 
-func (m *OperNodePowerRootRes) Reset()         { *m = OperNodePowerRootRes{} }
-func (m *OperNodePowerRootRes) String() string { return proto.CompactTextString(m) }
-func (*OperNodePowerRootRes) ProtoMessage()    {}
-func (*OperNodePowerRootRes) Descriptor() ([]byte, []int) {
+func (m *OperNodePowerRootRsp) Reset()         { *m = OperNodePowerRootRsp{} }
+func (m *OperNodePowerRootRsp) String() string { return proto.CompactTextString(m) }
+func (*OperNodePowerRootRsp) ProtoMessage()    {}
+func (*OperNodePowerRootRsp) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{5}
 }
 
-func (m *OperNodePowerRootRes) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_OperNodePowerRootRes.Unmarshal(m, b)
+func (m *OperNodePowerRootRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_OperNodePowerRootRsp.Unmarshal(m, b)
 }
-func (m *OperNodePowerRootRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_OperNodePowerRootRes.Marshal(b, m, deterministic)
+func (m *OperNodePowerRootRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_OperNodePowerRootRsp.Marshal(b, m, deterministic)
 }
-func (m *OperNodePowerRootRes) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_OperNodePowerRootRes.Merge(m, src)
+func (m *OperNodePowerRootRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_OperNodePowerRootRsp.Merge(m, src)
 }
-func (m *OperNodePowerRootRes) XXX_Size() int {
-	return xxx_messageInfo_OperNodePowerRootRes.Size(m)
+func (m *OperNodePowerRootRsp) XXX_Size() int {
+	return xxx_messageInfo_OperNodePowerRootRsp.Size(m)
 }
-func (m *OperNodePowerRootRes) XXX_DiscardUnknown() {
-	xxx_messageInfo_OperNodePowerRootRes.DiscardUnknown(m)
+func (m *OperNodePowerRootRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_OperNodePowerRootRsp.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_OperNodePowerRootRes proto.InternalMessageInfo
+var xxx_messageInfo_OperNodePowerRootRsp proto.InternalMessageInfo
 
-func (m *OperNodePowerRootRes) GetContractRootRes() *OperNodePowerRootRes_ContractRootRes {
+func (m *OperNodePowerRootRsp) GetContractRootRsp() *OperNodePowerRootRsp_ContractRootRsp {
 	if m != nil {
-		return m.ContractRootRes
+		return m.ContractRootRsp
 	}
 	return nil
 }
 
-type OperNodePowerRootRes_ContractRootRes struct {
-	TcpCont              *TcpContRes                      `protobuf:"bytes,1,opt,name=tcpCont,proto3" json:"tcpCont,omitempty"`
-	SvcCont              *OperNodePowerRootRes_SvcContRes `protobuf:"bytes,2,opt,name=svcCont,proto3" json:"svcCont,omitempty"`
+type OperNodePowerRootRsp_ContractRootRsp struct {
+	TcpCont              *TcpContRsp                      `protobuf:"bytes,1,opt,name=tcpCont,proto3" json:"tcpCont,omitempty"`
+	SvcCont              *OperNodePowerRootRsp_SvcContRsp `protobuf:"bytes,2,opt,name=svcCont,proto3" json:"svcCont,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                         `json:"-"`
 	XXX_unrecognized     []byte                           `json:"-"`
 	XXX_sizecache        int32                            `json:"-"`
 }
 
-func (m *OperNodePowerRootRes_ContractRootRes) Reset()         { *m = OperNodePowerRootRes_ContractRootRes{} }
-func (m *OperNodePowerRootRes_ContractRootRes) String() string { return proto.CompactTextString(m) }
-func (*OperNodePowerRootRes_ContractRootRes) ProtoMessage()    {}
-func (*OperNodePowerRootRes_ContractRootRes) Descriptor() ([]byte, []int) {
+func (m *OperNodePowerRootRsp_ContractRootRsp) Reset()         { *m = OperNodePowerRootRsp_ContractRootRsp{} }
+func (m *OperNodePowerRootRsp_ContractRootRsp) String() string { return proto.CompactTextString(m) }
+func (*OperNodePowerRootRsp_ContractRootRsp) ProtoMessage()    {}
+func (*OperNodePowerRootRsp_ContractRootRsp) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{5, 0}
 }
 
-func (m *OperNodePowerRootRes_ContractRootRes) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_OperNodePowerRootRes_ContractRootRes.Unmarshal(m, b)
+func (m *OperNodePowerRootRsp_ContractRootRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_OperNodePowerRootRsp_ContractRootRsp.Unmarshal(m, b)
 }
-func (m *OperNodePowerRootRes_ContractRootRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_OperNodePowerRootRes_ContractRootRes.Marshal(b, m, deterministic)
+func (m *OperNodePowerRootRsp_ContractRootRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_OperNodePowerRootRsp_ContractRootRsp.Marshal(b, m, deterministic)
 }
-func (m *OperNodePowerRootRes_ContractRootRes) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_OperNodePowerRootRes_ContractRootRes.Merge(m, src)
+func (m *OperNodePowerRootRsp_ContractRootRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_OperNodePowerRootRsp_ContractRootRsp.Merge(m, src)
 }
-func (m *OperNodePowerRootRes_ContractRootRes) XXX_Size() int {
-	return xxx_messageInfo_OperNodePowerRootRes_ContractRootRes.Size(m)
+func (m *OperNodePowerRootRsp_ContractRootRsp) XXX_Size() int {
+	return xxx_messageInfo_OperNodePowerRootRsp_ContractRootRsp.Size(m)
 }
-func (m *OperNodePowerRootRes_ContractRootRes) XXX_DiscardUnknown() {
-	xxx_messageInfo_OperNodePowerRootRes_ContractRootRes.DiscardUnknown(m)
+func (m *OperNodePowerRootRsp_ContractRootRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_OperNodePowerRootRsp_ContractRootRsp.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_OperNodePowerRootRes_ContractRootRes proto.InternalMessageInfo
+var xxx_messageInfo_OperNodePowerRootRsp_ContractRootRsp proto.InternalMessageInfo
 
-func (m *OperNodePowerRootRes_ContractRootRes) GetTcpCont() *TcpContRes {
+func (m *OperNodePowerRootRsp_ContractRootRsp) GetTcpCont() *TcpContRsp {
 	if m != nil {
 		return m.TcpCont
 	}
 	return nil
 }
 
-func (m *OperNodePowerRootRes_ContractRootRes) GetSvcCont() *OperNodePowerRootRes_SvcContRes {
+func (m *OperNodePowerRootRsp_ContractRootRsp) GetSvcCont() *OperNodePowerRootRsp_SvcContRsp {
 	if m != nil {
 		return m.SvcCont
 	}
 	return nil
 }
 
-type OperNodePowerRootRes_SvcContRes struct {
+type OperNodePowerRootRsp_SvcContRsp struct {
 	// 响应码
 	ResultCode ResultCode `protobuf:"varint,1,opt,name=resultCode,proto3,enum=ironicCom.ResultCode" json:"resultCode,omitempty"`
 	// 响应消息描述
 	ResultMsg string `protobuf:"bytes,2,opt,name=resultMsg,proto3" json:"resultMsg,omitempty"`
 	// 响应对象
-	ResultObject         *OperNodePowerRootRes_OperNodePowerRsp `protobuf:"bytes,3,opt,name=resultObject,proto3" json:"resultObject,omitempty"`
+	ResultObject         *OperNodePowerRootRsp_OperNodePowerRsp `protobuf:"bytes,3,opt,name=resultObject,proto3" json:"resultObject,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                               `json:"-"`
 	XXX_unrecognized     []byte                                 `json:"-"`
 	XXX_sizecache        int32                                  `json:"-"`
 }
 
-func (m *OperNodePowerRootRes_SvcContRes) Reset()         { *m = OperNodePowerRootRes_SvcContRes{} }
-func (m *OperNodePowerRootRes_SvcContRes) String() string { return proto.CompactTextString(m) }
-func (*OperNodePowerRootRes_SvcContRes) ProtoMessage()    {}
-func (*OperNodePowerRootRes_SvcContRes) Descriptor() ([]byte, []int) {
+func (m *OperNodePowerRootRsp_SvcContRsp) Reset()         { *m = OperNodePowerRootRsp_SvcContRsp{} }
+func (m *OperNodePowerRootRsp_SvcContRsp) String() string { return proto.CompactTextString(m) }
+func (*OperNodePowerRootRsp_SvcContRsp) ProtoMessage()    {}
+func (*OperNodePowerRootRsp_SvcContRsp) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{5, 1}
 }
 
-func (m *OperNodePowerRootRes_SvcContRes) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_OperNodePowerRootRes_SvcContRes.Unmarshal(m, b)
+func (m *OperNodePowerRootRsp_SvcContRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_OperNodePowerRootRsp_SvcContRsp.Unmarshal(m, b)
 }
-func (m *OperNodePowerRootRes_SvcContRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_OperNodePowerRootRes_SvcContRes.Marshal(b, m, deterministic)
+func (m *OperNodePowerRootRsp_SvcContRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_OperNodePowerRootRsp_SvcContRsp.Marshal(b, m, deterministic)
 }
-func (m *OperNodePowerRootRes_SvcContRes) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_OperNodePowerRootRes_SvcContRes.Merge(m, src)
+func (m *OperNodePowerRootRsp_SvcContRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_OperNodePowerRootRsp_SvcContRsp.Merge(m, src)
 }
-func (m *OperNodePowerRootRes_SvcContRes) XXX_Size() int {
-	return xxx_messageInfo_OperNodePowerRootRes_SvcContRes.Size(m)
+func (m *OperNodePowerRootRsp_SvcContRsp) XXX_Size() int {
+	return xxx_messageInfo_OperNodePowerRootRsp_SvcContRsp.Size(m)
 }
-func (m *OperNodePowerRootRes_SvcContRes) XXX_DiscardUnknown() {
-	xxx_messageInfo_OperNodePowerRootRes_SvcContRes.DiscardUnknown(m)
+func (m *OperNodePowerRootRsp_SvcContRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_OperNodePowerRootRsp_SvcContRsp.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_OperNodePowerRootRes_SvcContRes proto.InternalMessageInfo
+var xxx_messageInfo_OperNodePowerRootRsp_SvcContRsp proto.InternalMessageInfo
 
-func (m *OperNodePowerRootRes_SvcContRes) GetResultCode() ResultCode {
+func (m *OperNodePowerRootRsp_SvcContRsp) GetResultCode() ResultCode {
 	if m != nil {
 		return m.ResultCode
 	}
-	return ResultCode_SUCCESS
+	return ResultCode_UNDEFINED_3
 }
 
-func (m *OperNodePowerRootRes_SvcContRes) GetResultMsg() string {
+func (m *OperNodePowerRootRsp_SvcContRsp) GetResultMsg() string {
 	if m != nil {
 		return m.ResultMsg
 	}
 	return ""
 }
 
-func (m *OperNodePowerRootRes_SvcContRes) GetResultObject() *OperNodePowerRootRes_OperNodePowerRsp {
+func (m *OperNodePowerRootRsp_SvcContRsp) GetResultObject() *OperNodePowerRootRsp_OperNodePowerRsp {
 	if m != nil {
 		return m.ResultObject
 	}
 	return nil
 }
 
-type OperNodePowerRootRes_OperNodePowerRsp struct {
+type OperNodePowerRootRsp_OperNodePowerRsp struct {
 	// 电源操作应答
-	NodePowerRsps        []*OperNodePowerRootRes_NodePowerRsp `protobuf:"bytes,1,rep,name=nodePowerRsps,proto3" json:"nodePowerRsps,omitempty"`
+	NodePowerRsps        []*OperNodePowerRootRsp_NodePowerRsp `protobuf:"bytes,1,rep,name=nodePowerRsps,proto3" json:"nodePowerRsps,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                             `json:"-"`
 	XXX_unrecognized     []byte                               `json:"-"`
 	XXX_sizecache        int32                                `json:"-"`
 }
 
-func (m *OperNodePowerRootRes_OperNodePowerRsp) Reset()         { *m = OperNodePowerRootRes_OperNodePowerRsp{} }
-func (m *OperNodePowerRootRes_OperNodePowerRsp) String() string { return proto.CompactTextString(m) }
-func (*OperNodePowerRootRes_OperNodePowerRsp) ProtoMessage()    {}
-func (*OperNodePowerRootRes_OperNodePowerRsp) Descriptor() ([]byte, []int) {
+func (m *OperNodePowerRootRsp_OperNodePowerRsp) Reset()         { *m = OperNodePowerRootRsp_OperNodePowerRsp{} }
+func (m *OperNodePowerRootRsp_OperNodePowerRsp) String() string { return proto.CompactTextString(m) }
+func (*OperNodePowerRootRsp_OperNodePowerRsp) ProtoMessage()    {}
+func (*OperNodePowerRootRsp_OperNodePowerRsp) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{5, 2}
 }
 
-func (m *OperNodePowerRootRes_OperNodePowerRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_OperNodePowerRootRes_OperNodePowerRsp.Unmarshal(m, b)
+func (m *OperNodePowerRootRsp_OperNodePowerRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_OperNodePowerRootRsp_OperNodePowerRsp.Unmarshal(m, b)
 }
-func (m *OperNodePowerRootRes_OperNodePowerRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_OperNodePowerRootRes_OperNodePowerRsp.Marshal(b, m, deterministic)
+func (m *OperNodePowerRootRsp_OperNodePowerRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_OperNodePowerRootRsp_OperNodePowerRsp.Marshal(b, m, deterministic)
 }
-func (m *OperNodePowerRootRes_OperNodePowerRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_OperNodePowerRootRes_OperNodePowerRsp.Merge(m, src)
+func (m *OperNodePowerRootRsp_OperNodePowerRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_OperNodePowerRootRsp_OperNodePowerRsp.Merge(m, src)
 }
-func (m *OperNodePowerRootRes_OperNodePowerRsp) XXX_Size() int {
-	return xxx_messageInfo_OperNodePowerRootRes_OperNodePowerRsp.Size(m)
+func (m *OperNodePowerRootRsp_OperNodePowerRsp) XXX_Size() int {
+	return xxx_messageInfo_OperNodePowerRootRsp_OperNodePowerRsp.Size(m)
 }
-func (m *OperNodePowerRootRes_OperNodePowerRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_OperNodePowerRootRes_OperNodePowerRsp.DiscardUnknown(m)
+func (m *OperNodePowerRootRsp_OperNodePowerRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_OperNodePowerRootRsp_OperNodePowerRsp.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_OperNodePowerRootRes_OperNodePowerRsp proto.InternalMessageInfo
+var xxx_messageInfo_OperNodePowerRootRsp_OperNodePowerRsp proto.InternalMessageInfo
 
-func (m *OperNodePowerRootRes_OperNodePowerRsp) GetNodePowerRsps() []*OperNodePowerRootRes_NodePowerRsp {
+func (m *OperNodePowerRootRsp_OperNodePowerRsp) GetNodePowerRsps() []*OperNodePowerRootRsp_NodePowerRsp {
 	if m != nil {
 		return m.NodePowerRsps
 	}
 	return nil
 }
 
-type OperNodePowerRootRes_NodePowerRsp struct {
+type OperNodePowerRootRsp_NodePowerRsp struct {
 	// 裸金属节点id
 	NodeId string `protobuf:"bytes,1,opt,name=nodeId,proto3" json:"nodeId,omitempty"`
 	// 创建节点响应码
@@ -1480,46 +1523,46 @@ type OperNodePowerRootRes_NodePowerRsp struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *OperNodePowerRootRes_NodePowerRsp) Reset()         { *m = OperNodePowerRootRes_NodePowerRsp{} }
-func (m *OperNodePowerRootRes_NodePowerRsp) String() string { return proto.CompactTextString(m) }
-func (*OperNodePowerRootRes_NodePowerRsp) ProtoMessage()    {}
-func (*OperNodePowerRootRes_NodePowerRsp) Descriptor() ([]byte, []int) {
+func (m *OperNodePowerRootRsp_NodePowerRsp) Reset()         { *m = OperNodePowerRootRsp_NodePowerRsp{} }
+func (m *OperNodePowerRootRsp_NodePowerRsp) String() string { return proto.CompactTextString(m) }
+func (*OperNodePowerRootRsp_NodePowerRsp) ProtoMessage()    {}
+func (*OperNodePowerRootRsp_NodePowerRsp) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{5, 3}
 }
 
-func (m *OperNodePowerRootRes_NodePowerRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_OperNodePowerRootRes_NodePowerRsp.Unmarshal(m, b)
+func (m *OperNodePowerRootRsp_NodePowerRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_OperNodePowerRootRsp_NodePowerRsp.Unmarshal(m, b)
 }
-func (m *OperNodePowerRootRes_NodePowerRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_OperNodePowerRootRes_NodePowerRsp.Marshal(b, m, deterministic)
+func (m *OperNodePowerRootRsp_NodePowerRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_OperNodePowerRootRsp_NodePowerRsp.Marshal(b, m, deterministic)
 }
-func (m *OperNodePowerRootRes_NodePowerRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_OperNodePowerRootRes_NodePowerRsp.Merge(m, src)
+func (m *OperNodePowerRootRsp_NodePowerRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_OperNodePowerRootRsp_NodePowerRsp.Merge(m, src)
 }
-func (m *OperNodePowerRootRes_NodePowerRsp) XXX_Size() int {
-	return xxx_messageInfo_OperNodePowerRootRes_NodePowerRsp.Size(m)
+func (m *OperNodePowerRootRsp_NodePowerRsp) XXX_Size() int {
+	return xxx_messageInfo_OperNodePowerRootRsp_NodePowerRsp.Size(m)
 }
-func (m *OperNodePowerRootRes_NodePowerRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_OperNodePowerRootRes_NodePowerRsp.DiscardUnknown(m)
+func (m *OperNodePowerRootRsp_NodePowerRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_OperNodePowerRootRsp_NodePowerRsp.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_OperNodePowerRootRes_NodePowerRsp proto.InternalMessageInfo
+var xxx_messageInfo_OperNodePowerRootRsp_NodePowerRsp proto.InternalMessageInfo
 
-func (m *OperNodePowerRootRes_NodePowerRsp) GetNodeId() string {
+func (m *OperNodePowerRootRsp_NodePowerRsp) GetNodeId() string {
 	if m != nil {
 		return m.NodeId
 	}
 	return ""
 }
 
-func (m *OperNodePowerRootRes_NodePowerRsp) GetPowerResultCode() ResultCode {
+func (m *OperNodePowerRootRsp_NodePowerRsp) GetPowerResultCode() ResultCode {
 	if m != nil {
 		return m.PowerResultCode
 	}
-	return ResultCode_SUCCESS
+	return ResultCode_UNDEFINED_3
 }
 
-func (m *OperNodePowerRootRes_NodePowerRsp) GetPowerResultMsg() string {
+func (m *OperNodePowerRootRsp_NodePowerRsp) GetPowerResultMsg() string {
 	if m != nil {
 		return m.PowerResultMsg
 	}
@@ -1808,144 +1851,144 @@ func (m *CreateNodesRootReq_NodeInfoReq) GetPort() int64 {
 	return 0
 }
 
-type CreateNodesRootRes struct {
-	ContractRootRes      *CreateNodesRootRes_ContractRootRes `protobuf:"bytes,1,opt,name=contractRootRes,proto3" json:"contractRootRes,omitempty"`
+type CreateNodesRootRsp struct {
+	ContractRootRsp      *CreateNodesRootRsp_ContractRootRsp `protobuf:"bytes,1,opt,name=contractRootRsp,proto3" json:"contractRootRsp,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                            `json:"-"`
 	XXX_unrecognized     []byte                              `json:"-"`
 	XXX_sizecache        int32                               `json:"-"`
 }
 
-func (m *CreateNodesRootRes) Reset()         { *m = CreateNodesRootRes{} }
-func (m *CreateNodesRootRes) String() string { return proto.CompactTextString(m) }
-func (*CreateNodesRootRes) ProtoMessage()    {}
-func (*CreateNodesRootRes) Descriptor() ([]byte, []int) {
+func (m *CreateNodesRootRsp) Reset()         { *m = CreateNodesRootRsp{} }
+func (m *CreateNodesRootRsp) String() string { return proto.CompactTextString(m) }
+func (*CreateNodesRootRsp) ProtoMessage()    {}
+func (*CreateNodesRootRsp) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{7}
 }
 
-func (m *CreateNodesRootRes) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CreateNodesRootRes.Unmarshal(m, b)
+func (m *CreateNodesRootRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateNodesRootRsp.Unmarshal(m, b)
 }
-func (m *CreateNodesRootRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CreateNodesRootRes.Marshal(b, m, deterministic)
+func (m *CreateNodesRootRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateNodesRootRsp.Marshal(b, m, deterministic)
 }
-func (m *CreateNodesRootRes) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CreateNodesRootRes.Merge(m, src)
+func (m *CreateNodesRootRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateNodesRootRsp.Merge(m, src)
 }
-func (m *CreateNodesRootRes) XXX_Size() int {
-	return xxx_messageInfo_CreateNodesRootRes.Size(m)
+func (m *CreateNodesRootRsp) XXX_Size() int {
+	return xxx_messageInfo_CreateNodesRootRsp.Size(m)
 }
-func (m *CreateNodesRootRes) XXX_DiscardUnknown() {
-	xxx_messageInfo_CreateNodesRootRes.DiscardUnknown(m)
+func (m *CreateNodesRootRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateNodesRootRsp.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_CreateNodesRootRes proto.InternalMessageInfo
+var xxx_messageInfo_CreateNodesRootRsp proto.InternalMessageInfo
 
-func (m *CreateNodesRootRes) GetContractRootRes() *CreateNodesRootRes_ContractRootRes {
+func (m *CreateNodesRootRsp) GetContractRootRsp() *CreateNodesRootRsp_ContractRootRsp {
 	if m != nil {
-		return m.ContractRootRes
+		return m.ContractRootRsp
 	}
 	return nil
 }
 
-type CreateNodesRootRes_ContractRootRes struct {
-	TcpCont              *TcpContRes                    `protobuf:"bytes,1,opt,name=tcpCont,proto3" json:"tcpCont,omitempty"`
-	SvcCont              *CreateNodesRootRes_SvcContRes `protobuf:"bytes,2,opt,name=svcCont,proto3" json:"svcCont,omitempty"`
+type CreateNodesRootRsp_ContractRootRsp struct {
+	TcpCont              *TcpContRsp                    `protobuf:"bytes,1,opt,name=tcpCont,proto3" json:"tcpCont,omitempty"`
+	SvcCont              *CreateNodesRootRsp_SvcContRsp `protobuf:"bytes,2,opt,name=svcCont,proto3" json:"svcCont,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                       `json:"-"`
 	XXX_unrecognized     []byte                         `json:"-"`
 	XXX_sizecache        int32                          `json:"-"`
 }
 
-func (m *CreateNodesRootRes_ContractRootRes) Reset()         { *m = CreateNodesRootRes_ContractRootRes{} }
-func (m *CreateNodesRootRes_ContractRootRes) String() string { return proto.CompactTextString(m) }
-func (*CreateNodesRootRes_ContractRootRes) ProtoMessage()    {}
-func (*CreateNodesRootRes_ContractRootRes) Descriptor() ([]byte, []int) {
+func (m *CreateNodesRootRsp_ContractRootRsp) Reset()         { *m = CreateNodesRootRsp_ContractRootRsp{} }
+func (m *CreateNodesRootRsp_ContractRootRsp) String() string { return proto.CompactTextString(m) }
+func (*CreateNodesRootRsp_ContractRootRsp) ProtoMessage()    {}
+func (*CreateNodesRootRsp_ContractRootRsp) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{7, 0}
 }
 
-func (m *CreateNodesRootRes_ContractRootRes) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CreateNodesRootRes_ContractRootRes.Unmarshal(m, b)
+func (m *CreateNodesRootRsp_ContractRootRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateNodesRootRsp_ContractRootRsp.Unmarshal(m, b)
 }
-func (m *CreateNodesRootRes_ContractRootRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CreateNodesRootRes_ContractRootRes.Marshal(b, m, deterministic)
+func (m *CreateNodesRootRsp_ContractRootRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateNodesRootRsp_ContractRootRsp.Marshal(b, m, deterministic)
 }
-func (m *CreateNodesRootRes_ContractRootRes) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CreateNodesRootRes_ContractRootRes.Merge(m, src)
+func (m *CreateNodesRootRsp_ContractRootRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateNodesRootRsp_ContractRootRsp.Merge(m, src)
 }
-func (m *CreateNodesRootRes_ContractRootRes) XXX_Size() int {
-	return xxx_messageInfo_CreateNodesRootRes_ContractRootRes.Size(m)
+func (m *CreateNodesRootRsp_ContractRootRsp) XXX_Size() int {
+	return xxx_messageInfo_CreateNodesRootRsp_ContractRootRsp.Size(m)
 }
-func (m *CreateNodesRootRes_ContractRootRes) XXX_DiscardUnknown() {
-	xxx_messageInfo_CreateNodesRootRes_ContractRootRes.DiscardUnknown(m)
+func (m *CreateNodesRootRsp_ContractRootRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateNodesRootRsp_ContractRootRsp.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_CreateNodesRootRes_ContractRootRes proto.InternalMessageInfo
+var xxx_messageInfo_CreateNodesRootRsp_ContractRootRsp proto.InternalMessageInfo
 
-func (m *CreateNodesRootRes_ContractRootRes) GetTcpCont() *TcpContRes {
+func (m *CreateNodesRootRsp_ContractRootRsp) GetTcpCont() *TcpContRsp {
 	if m != nil {
 		return m.TcpCont
 	}
 	return nil
 }
 
-func (m *CreateNodesRootRes_ContractRootRes) GetSvcCont() *CreateNodesRootRes_SvcContRes {
+func (m *CreateNodesRootRsp_ContractRootRsp) GetSvcCont() *CreateNodesRootRsp_SvcContRsp {
 	if m != nil {
 		return m.SvcCont
 	}
 	return nil
 }
 
-type CreateNodesRootRes_SvcContRes struct {
+type CreateNodesRootRsp_SvcContRsp struct {
 	// 响应码
 	ResultCode ResultCode `protobuf:"varint,1,opt,name=resultCode,proto3,enum=ironicCom.ResultCode" json:"resultCode,omitempty"`
 	// 响应消息描述
 	ResultMsg string `protobuf:"bytes,2,opt,name=resultMsg,proto3" json:"resultMsg,omitempty"`
 	// 响应对象
-	ResultObject         *CreateNodesRootRes_CreateNodeInfoRsp `protobuf:"bytes,3,opt,name=resultObject,proto3" json:"resultObject,omitempty"`
+	ResultObject         *CreateNodesRootRsp_CreateNodeInfoRsp `protobuf:"bytes,3,opt,name=resultObject,proto3" json:"resultObject,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                              `json:"-"`
 	XXX_unrecognized     []byte                                `json:"-"`
 	XXX_sizecache        int32                                 `json:"-"`
 }
 
-func (m *CreateNodesRootRes_SvcContRes) Reset()         { *m = CreateNodesRootRes_SvcContRes{} }
-func (m *CreateNodesRootRes_SvcContRes) String() string { return proto.CompactTextString(m) }
-func (*CreateNodesRootRes_SvcContRes) ProtoMessage()    {}
-func (*CreateNodesRootRes_SvcContRes) Descriptor() ([]byte, []int) {
+func (m *CreateNodesRootRsp_SvcContRsp) Reset()         { *m = CreateNodesRootRsp_SvcContRsp{} }
+func (m *CreateNodesRootRsp_SvcContRsp) String() string { return proto.CompactTextString(m) }
+func (*CreateNodesRootRsp_SvcContRsp) ProtoMessage()    {}
+func (*CreateNodesRootRsp_SvcContRsp) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{7, 1}
 }
 
-func (m *CreateNodesRootRes_SvcContRes) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CreateNodesRootRes_SvcContRes.Unmarshal(m, b)
+func (m *CreateNodesRootRsp_SvcContRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateNodesRootRsp_SvcContRsp.Unmarshal(m, b)
 }
-func (m *CreateNodesRootRes_SvcContRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CreateNodesRootRes_SvcContRes.Marshal(b, m, deterministic)
+func (m *CreateNodesRootRsp_SvcContRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateNodesRootRsp_SvcContRsp.Marshal(b, m, deterministic)
 }
-func (m *CreateNodesRootRes_SvcContRes) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CreateNodesRootRes_SvcContRes.Merge(m, src)
+func (m *CreateNodesRootRsp_SvcContRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateNodesRootRsp_SvcContRsp.Merge(m, src)
 }
-func (m *CreateNodesRootRes_SvcContRes) XXX_Size() int {
-	return xxx_messageInfo_CreateNodesRootRes_SvcContRes.Size(m)
+func (m *CreateNodesRootRsp_SvcContRsp) XXX_Size() int {
+	return xxx_messageInfo_CreateNodesRootRsp_SvcContRsp.Size(m)
 }
-func (m *CreateNodesRootRes_SvcContRes) XXX_DiscardUnknown() {
-	xxx_messageInfo_CreateNodesRootRes_SvcContRes.DiscardUnknown(m)
+func (m *CreateNodesRootRsp_SvcContRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateNodesRootRsp_SvcContRsp.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_CreateNodesRootRes_SvcContRes proto.InternalMessageInfo
+var xxx_messageInfo_CreateNodesRootRsp_SvcContRsp proto.InternalMessageInfo
 
-func (m *CreateNodesRootRes_SvcContRes) GetResultCode() ResultCode {
+func (m *CreateNodesRootRsp_SvcContRsp) GetResultCode() ResultCode {
 	if m != nil {
 		return m.ResultCode
 	}
-	return ResultCode_SUCCESS
+	return ResultCode_UNDEFINED_3
 }
 
-func (m *CreateNodesRootRes_SvcContRes) GetResultMsg() string {
+func (m *CreateNodesRootRsp_SvcContRsp) GetResultMsg() string {
 	if m != nil {
 		return m.ResultMsg
 	}
 	return ""
 }
 
-func (m *CreateNodesRootRes_SvcContRes) GetResultObject() *CreateNodesRootRes_CreateNodeInfoRsp {
+func (m *CreateNodesRootRsp_SvcContRsp) GetResultObject() *CreateNodesRootRsp_CreateNodeInfoRsp {
 	if m != nil {
 		return m.ResultObject
 	}
@@ -1953,9 +1996,9 @@ func (m *CreateNodesRootRes_SvcContRes) GetResultObject() *CreateNodesRootRes_Cr
 }
 
 //创建节点请求对象
-type CreateNodesRootRes_CreateNodeInfoRsp struct {
+type CreateNodesRootRsp_CreateNodeInfoRsp struct {
 	// 节点
-	NodeInfoRsps []*CreateNodesRootRes_NodeInfoRsp `protobuf:"bytes,1,rep,name=nodeInfoRsps,proto3" json:"nodeInfoRsps,omitempty"`
+	NodeInfoRsps []*CreateNodesRootRsp_NodeInfoRsp `protobuf:"bytes,1,rep,name=nodeInfoRsps,proto3" json:"nodeInfoRsps,omitempty"`
 	// 分页信息
 	PageInfo             *PageInfo `protobuf:"bytes,2,opt,name=pageInfo,proto3" json:"pageInfo,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
@@ -1963,39 +2006,39 @@ type CreateNodesRootRes_CreateNodeInfoRsp struct {
 	XXX_sizecache        int32     `json:"-"`
 }
 
-func (m *CreateNodesRootRes_CreateNodeInfoRsp) Reset()         { *m = CreateNodesRootRes_CreateNodeInfoRsp{} }
-func (m *CreateNodesRootRes_CreateNodeInfoRsp) String() string { return proto.CompactTextString(m) }
-func (*CreateNodesRootRes_CreateNodeInfoRsp) ProtoMessage()    {}
-func (*CreateNodesRootRes_CreateNodeInfoRsp) Descriptor() ([]byte, []int) {
+func (m *CreateNodesRootRsp_CreateNodeInfoRsp) Reset()         { *m = CreateNodesRootRsp_CreateNodeInfoRsp{} }
+func (m *CreateNodesRootRsp_CreateNodeInfoRsp) String() string { return proto.CompactTextString(m) }
+func (*CreateNodesRootRsp_CreateNodeInfoRsp) ProtoMessage()    {}
+func (*CreateNodesRootRsp_CreateNodeInfoRsp) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{7, 2}
 }
 
-func (m *CreateNodesRootRes_CreateNodeInfoRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CreateNodesRootRes_CreateNodeInfoRsp.Unmarshal(m, b)
+func (m *CreateNodesRootRsp_CreateNodeInfoRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateNodesRootRsp_CreateNodeInfoRsp.Unmarshal(m, b)
 }
-func (m *CreateNodesRootRes_CreateNodeInfoRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CreateNodesRootRes_CreateNodeInfoRsp.Marshal(b, m, deterministic)
+func (m *CreateNodesRootRsp_CreateNodeInfoRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateNodesRootRsp_CreateNodeInfoRsp.Marshal(b, m, deterministic)
 }
-func (m *CreateNodesRootRes_CreateNodeInfoRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CreateNodesRootRes_CreateNodeInfoRsp.Merge(m, src)
+func (m *CreateNodesRootRsp_CreateNodeInfoRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateNodesRootRsp_CreateNodeInfoRsp.Merge(m, src)
 }
-func (m *CreateNodesRootRes_CreateNodeInfoRsp) XXX_Size() int {
-	return xxx_messageInfo_CreateNodesRootRes_CreateNodeInfoRsp.Size(m)
+func (m *CreateNodesRootRsp_CreateNodeInfoRsp) XXX_Size() int {
+	return xxx_messageInfo_CreateNodesRootRsp_CreateNodeInfoRsp.Size(m)
 }
-func (m *CreateNodesRootRes_CreateNodeInfoRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_CreateNodesRootRes_CreateNodeInfoRsp.DiscardUnknown(m)
+func (m *CreateNodesRootRsp_CreateNodeInfoRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateNodesRootRsp_CreateNodeInfoRsp.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_CreateNodesRootRes_CreateNodeInfoRsp proto.InternalMessageInfo
+var xxx_messageInfo_CreateNodesRootRsp_CreateNodeInfoRsp proto.InternalMessageInfo
 
-func (m *CreateNodesRootRes_CreateNodeInfoRsp) GetNodeInfoRsps() []*CreateNodesRootRes_NodeInfoRsp {
+func (m *CreateNodesRootRsp_CreateNodeInfoRsp) GetNodeInfoRsps() []*CreateNodesRootRsp_NodeInfoRsp {
 	if m != nil {
 		return m.NodeInfoRsps
 	}
 	return nil
 }
 
-func (m *CreateNodesRootRes_CreateNodeInfoRsp) GetPageInfo() *PageInfo {
+func (m *CreateNodesRootRsp_CreateNodeInfoRsp) GetPageInfo() *PageInfo {
 	if m != nil {
 		return m.PageInfo
 	}
@@ -2003,7 +2046,7 @@ func (m *CreateNodesRootRes_CreateNodeInfoRsp) GetPageInfo() *PageInfo {
 }
 
 // 节点信息
-type CreateNodesRootRes_NodeInfoRsp struct {
+type CreateNodesRootRsp_NodeInfoRsp struct {
 	// 裸金属节点id
 	NodeId string `protobuf:"bytes,1,opt,name=nodeId,proto3" json:"nodeId,omitempty"`
 	// 初始化id
@@ -2017,194 +2060,1177 @@ type CreateNodesRootRes_NodeInfoRsp struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateNodesRootRes_NodeInfoRsp) Reset()         { *m = CreateNodesRootRes_NodeInfoRsp{} }
-func (m *CreateNodesRootRes_NodeInfoRsp) String() string { return proto.CompactTextString(m) }
-func (*CreateNodesRootRes_NodeInfoRsp) ProtoMessage()    {}
-func (*CreateNodesRootRes_NodeInfoRsp) Descriptor() ([]byte, []int) {
+func (m *CreateNodesRootRsp_NodeInfoRsp) Reset()         { *m = CreateNodesRootRsp_NodeInfoRsp{} }
+func (m *CreateNodesRootRsp_NodeInfoRsp) String() string { return proto.CompactTextString(m) }
+func (*CreateNodesRootRsp_NodeInfoRsp) ProtoMessage()    {}
+func (*CreateNodesRootRsp_NodeInfoRsp) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1cc74eed2bde0fdf, []int{7, 3}
 }
 
-func (m *CreateNodesRootRes_NodeInfoRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CreateNodesRootRes_NodeInfoRsp.Unmarshal(m, b)
+func (m *CreateNodesRootRsp_NodeInfoRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateNodesRootRsp_NodeInfoRsp.Unmarshal(m, b)
 }
-func (m *CreateNodesRootRes_NodeInfoRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CreateNodesRootRes_NodeInfoRsp.Marshal(b, m, deterministic)
+func (m *CreateNodesRootRsp_NodeInfoRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateNodesRootRsp_NodeInfoRsp.Marshal(b, m, deterministic)
 }
-func (m *CreateNodesRootRes_NodeInfoRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CreateNodesRootRes_NodeInfoRsp.Merge(m, src)
+func (m *CreateNodesRootRsp_NodeInfoRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateNodesRootRsp_NodeInfoRsp.Merge(m, src)
 }
-func (m *CreateNodesRootRes_NodeInfoRsp) XXX_Size() int {
-	return xxx_messageInfo_CreateNodesRootRes_NodeInfoRsp.Size(m)
+func (m *CreateNodesRootRsp_NodeInfoRsp) XXX_Size() int {
+	return xxx_messageInfo_CreateNodesRootRsp_NodeInfoRsp.Size(m)
 }
-func (m *CreateNodesRootRes_NodeInfoRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_CreateNodesRootRes_NodeInfoRsp.DiscardUnknown(m)
+func (m *CreateNodesRootRsp_NodeInfoRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateNodesRootRsp_NodeInfoRsp.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_CreateNodesRootRes_NodeInfoRsp proto.InternalMessageInfo
+var xxx_messageInfo_CreateNodesRootRsp_NodeInfoRsp proto.InternalMessageInfo
 
-func (m *CreateNodesRootRes_NodeInfoRsp) GetNodeId() string {
+func (m *CreateNodesRootRsp_NodeInfoRsp) GetNodeId() string {
 	if m != nil {
 		return m.NodeId
 	}
 	return ""
 }
 
-func (m *CreateNodesRootRes_NodeInfoRsp) GetInitId() int64 {
+func (m *CreateNodesRootRsp_NodeInfoRsp) GetInitId() int64 {
 	if m != nil {
 		return m.InitId
 	}
 	return 0
 }
 
-func (m *CreateNodesRootRes_NodeInfoRsp) GetCreateResultCode() ResultCode {
+func (m *CreateNodesRootRsp_NodeInfoRsp) GetCreateResultCode() ResultCode {
 	if m != nil {
 		return m.CreateResultCode
 	}
-	return ResultCode_SUCCESS
+	return ResultCode_UNDEFINED_3
 }
 
-func (m *CreateNodesRootRes_NodeInfoRsp) GetCreateResultMsg() string {
+func (m *CreateNodesRootRsp_NodeInfoRsp) GetCreateResultMsg() string {
 	if m != nil {
 		return m.CreateResultMsg
 	}
 	return ""
 }
 
+//--------------- 重新安装裸金属节点开始-----------//
+type ReInstallNodeSysRootReq struct {
+	ContractRootReq      *ReInstallNodeSysRootReq_ContractRootReq `protobuf:"bytes,1,opt,name=contractRootReq,proto3" json:"contractRootReq,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                 `json:"-"`
+	XXX_unrecognized     []byte                                   `json:"-"`
+	XXX_sizecache        int32                                    `json:"-"`
+}
+
+func (m *ReInstallNodeSysRootReq) Reset()         { *m = ReInstallNodeSysRootReq{} }
+func (m *ReInstallNodeSysRootReq) String() string { return proto.CompactTextString(m) }
+func (*ReInstallNodeSysRootReq) ProtoMessage()    {}
+func (*ReInstallNodeSysRootReq) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1cc74eed2bde0fdf, []int{8}
+}
+
+func (m *ReInstallNodeSysRootReq) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReInstallNodeSysRootReq.Unmarshal(m, b)
+}
+func (m *ReInstallNodeSysRootReq) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReInstallNodeSysRootReq.Marshal(b, m, deterministic)
+}
+func (m *ReInstallNodeSysRootReq) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReInstallNodeSysRootReq.Merge(m, src)
+}
+func (m *ReInstallNodeSysRootReq) XXX_Size() int {
+	return xxx_messageInfo_ReInstallNodeSysRootReq.Size(m)
+}
+func (m *ReInstallNodeSysRootReq) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReInstallNodeSysRootReq.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReInstallNodeSysRootReq proto.InternalMessageInfo
+
+func (m *ReInstallNodeSysRootReq) GetContractRootReq() *ReInstallNodeSysRootReq_ContractRootReq {
+	if m != nil {
+		return m.ContractRootReq
+	}
+	return nil
+}
+
+// 请求信息
+type ReInstallNodeSysRootReq_ContractRootReq struct {
+	TcpCont              *TcpContReq                         `protobuf:"bytes,1,opt,name=tcpCont,proto3" json:"tcpCont,omitempty"`
+	SvcCont              *ReInstallNodeSysRootReq_SvcContReq `protobuf:"bytes,2,opt,name=svcCont,proto3" json:"svcCont,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                            `json:"-"`
+	XXX_unrecognized     []byte                              `json:"-"`
+	XXX_sizecache        int32                               `json:"-"`
+}
+
+func (m *ReInstallNodeSysRootReq_ContractRootReq) Reset() {
+	*m = ReInstallNodeSysRootReq_ContractRootReq{}
+}
+func (m *ReInstallNodeSysRootReq_ContractRootReq) String() string { return proto.CompactTextString(m) }
+func (*ReInstallNodeSysRootReq_ContractRootReq) ProtoMessage()    {}
+func (*ReInstallNodeSysRootReq_ContractRootReq) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1cc74eed2bde0fdf, []int{8, 0}
+}
+
+func (m *ReInstallNodeSysRootReq_ContractRootReq) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReInstallNodeSysRootReq_ContractRootReq.Unmarshal(m, b)
+}
+func (m *ReInstallNodeSysRootReq_ContractRootReq) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReInstallNodeSysRootReq_ContractRootReq.Marshal(b, m, deterministic)
+}
+func (m *ReInstallNodeSysRootReq_ContractRootReq) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReInstallNodeSysRootReq_ContractRootReq.Merge(m, src)
+}
+func (m *ReInstallNodeSysRootReq_ContractRootReq) XXX_Size() int {
+	return xxx_messageInfo_ReInstallNodeSysRootReq_ContractRootReq.Size(m)
+}
+func (m *ReInstallNodeSysRootReq_ContractRootReq) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReInstallNodeSysRootReq_ContractRootReq.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReInstallNodeSysRootReq_ContractRootReq proto.InternalMessageInfo
+
+func (m *ReInstallNodeSysRootReq_ContractRootReq) GetTcpCont() *TcpContReq {
+	if m != nil {
+		return m.TcpCont
+	}
+	return nil
+}
+
+func (m *ReInstallNodeSysRootReq_ContractRootReq) GetSvcCont() *ReInstallNodeSysRootReq_SvcContReq {
+	if m != nil {
+		return m.SvcCont
+	}
+	return nil
+}
+
+// 安装裸金属系统请求
+type ReInstallNodeSysRootReq_SvcContReq struct {
+	RequestObject        *ReInstallNodeSysRootReq_InstallNodeSysReq `protobuf:"bytes,1,opt,name=requestObject,proto3" json:"requestObject,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                   `json:"-"`
+	XXX_unrecognized     []byte                                     `json:"-"`
+	XXX_sizecache        int32                                      `json:"-"`
+}
+
+func (m *ReInstallNodeSysRootReq_SvcContReq) Reset()         { *m = ReInstallNodeSysRootReq_SvcContReq{} }
+func (m *ReInstallNodeSysRootReq_SvcContReq) String() string { return proto.CompactTextString(m) }
+func (*ReInstallNodeSysRootReq_SvcContReq) ProtoMessage()    {}
+func (*ReInstallNodeSysRootReq_SvcContReq) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1cc74eed2bde0fdf, []int{8, 1}
+}
+
+func (m *ReInstallNodeSysRootReq_SvcContReq) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReInstallNodeSysRootReq_SvcContReq.Unmarshal(m, b)
+}
+func (m *ReInstallNodeSysRootReq_SvcContReq) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReInstallNodeSysRootReq_SvcContReq.Marshal(b, m, deterministic)
+}
+func (m *ReInstallNodeSysRootReq_SvcContReq) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReInstallNodeSysRootReq_SvcContReq.Merge(m, src)
+}
+func (m *ReInstallNodeSysRootReq_SvcContReq) XXX_Size() int {
+	return xxx_messageInfo_ReInstallNodeSysRootReq_SvcContReq.Size(m)
+}
+func (m *ReInstallNodeSysRootReq_SvcContReq) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReInstallNodeSysRootReq_SvcContReq.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReInstallNodeSysRootReq_SvcContReq proto.InternalMessageInfo
+
+func (m *ReInstallNodeSysRootReq_SvcContReq) GetRequestObject() *ReInstallNodeSysRootReq_InstallNodeSysReq {
+	if m != nil {
+		return m.RequestObject
+	}
+	return nil
+}
+
+// 安装裸金属系统请求对象
+type ReInstallNodeSysRootReq_InstallNodeSysReq struct {
+	// 安装裸金属系统信息
+	NodeInstallInfos     []*ReInstallNodeSysRootReq_NodeInstallInfo `protobuf:"bytes,1,rep,name=nodeInstallInfos,proto3" json:"nodeInstallInfos,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                   `json:"-"`
+	XXX_unrecognized     []byte                                     `json:"-"`
+	XXX_sizecache        int32                                      `json:"-"`
+}
+
+func (m *ReInstallNodeSysRootReq_InstallNodeSysReq) Reset() {
+	*m = ReInstallNodeSysRootReq_InstallNodeSysReq{}
+}
+func (m *ReInstallNodeSysRootReq_InstallNodeSysReq) String() string { return proto.CompactTextString(m) }
+func (*ReInstallNodeSysRootReq_InstallNodeSysReq) ProtoMessage()    {}
+func (*ReInstallNodeSysRootReq_InstallNodeSysReq) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1cc74eed2bde0fdf, []int{8, 2}
+}
+
+func (m *ReInstallNodeSysRootReq_InstallNodeSysReq) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReInstallNodeSysRootReq_InstallNodeSysReq.Unmarshal(m, b)
+}
+func (m *ReInstallNodeSysRootReq_InstallNodeSysReq) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReInstallNodeSysRootReq_InstallNodeSysReq.Marshal(b, m, deterministic)
+}
+func (m *ReInstallNodeSysRootReq_InstallNodeSysReq) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReInstallNodeSysRootReq_InstallNodeSysReq.Merge(m, src)
+}
+func (m *ReInstallNodeSysRootReq_InstallNodeSysReq) XXX_Size() int {
+	return xxx_messageInfo_ReInstallNodeSysRootReq_InstallNodeSysReq.Size(m)
+}
+func (m *ReInstallNodeSysRootReq_InstallNodeSysReq) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReInstallNodeSysRootReq_InstallNodeSysReq.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReInstallNodeSysRootReq_InstallNodeSysReq proto.InternalMessageInfo
+
+func (m *ReInstallNodeSysRootReq_InstallNodeSysReq) GetNodeInstallInfos() []*ReInstallNodeSysRootReq_NodeInstallInfo {
+	if m != nil {
+		return m.NodeInstallInfos
+	}
+	return nil
+}
+
+// 安装裸金属系统信息
+type ReInstallNodeSysRootReq_NodeInstallInfo struct {
+	// 裸金属节点id
+	NodeId string `protobuf:"bytes,1,opt,name=nodeId,proto3" json:"nodeId,omitempty"`
+	// 安装镜像地址(一般为http url)
+	ImageAddr string `protobuf:"bytes,2,opt,name=imageAddr,proto3" json:"imageAddr,omitempty"`
+	// 镜像MD5校验码
+	ImageCheckSum        string   `protobuf:"bytes,3,opt,name=imageCheckSum,proto3" json:"imageCheckSum,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ReInstallNodeSysRootReq_NodeInstallInfo) Reset() {
+	*m = ReInstallNodeSysRootReq_NodeInstallInfo{}
+}
+func (m *ReInstallNodeSysRootReq_NodeInstallInfo) String() string { return proto.CompactTextString(m) }
+func (*ReInstallNodeSysRootReq_NodeInstallInfo) ProtoMessage()    {}
+func (*ReInstallNodeSysRootReq_NodeInstallInfo) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1cc74eed2bde0fdf, []int{8, 3}
+}
+
+func (m *ReInstallNodeSysRootReq_NodeInstallInfo) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReInstallNodeSysRootReq_NodeInstallInfo.Unmarshal(m, b)
+}
+func (m *ReInstallNodeSysRootReq_NodeInstallInfo) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReInstallNodeSysRootReq_NodeInstallInfo.Marshal(b, m, deterministic)
+}
+func (m *ReInstallNodeSysRootReq_NodeInstallInfo) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReInstallNodeSysRootReq_NodeInstallInfo.Merge(m, src)
+}
+func (m *ReInstallNodeSysRootReq_NodeInstallInfo) XXX_Size() int {
+	return xxx_messageInfo_ReInstallNodeSysRootReq_NodeInstallInfo.Size(m)
+}
+func (m *ReInstallNodeSysRootReq_NodeInstallInfo) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReInstallNodeSysRootReq_NodeInstallInfo.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReInstallNodeSysRootReq_NodeInstallInfo proto.InternalMessageInfo
+
+func (m *ReInstallNodeSysRootReq_NodeInstallInfo) GetNodeId() string {
+	if m != nil {
+		return m.NodeId
+	}
+	return ""
+}
+
+func (m *ReInstallNodeSysRootReq_NodeInstallInfo) GetImageAddr() string {
+	if m != nil {
+		return m.ImageAddr
+	}
+	return ""
+}
+
+func (m *ReInstallNodeSysRootReq_NodeInstallInfo) GetImageCheckSum() string {
+	if m != nil {
+		return m.ImageCheckSum
+	}
+	return ""
+}
+
+type ReInstallNodeSysRootRsp struct {
+	ContractRootRsp      *ReInstallNodeSysRootRsp_ContractRootRsp `protobuf:"bytes,1,opt,name=contractRootRsp,proto3" json:"contractRootRsp,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                 `json:"-"`
+	XXX_unrecognized     []byte                                   `json:"-"`
+	XXX_sizecache        int32                                    `json:"-"`
+}
+
+func (m *ReInstallNodeSysRootRsp) Reset()         { *m = ReInstallNodeSysRootRsp{} }
+func (m *ReInstallNodeSysRootRsp) String() string { return proto.CompactTextString(m) }
+func (*ReInstallNodeSysRootRsp) ProtoMessage()    {}
+func (*ReInstallNodeSysRootRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1cc74eed2bde0fdf, []int{9}
+}
+
+func (m *ReInstallNodeSysRootRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReInstallNodeSysRootRsp.Unmarshal(m, b)
+}
+func (m *ReInstallNodeSysRootRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReInstallNodeSysRootRsp.Marshal(b, m, deterministic)
+}
+func (m *ReInstallNodeSysRootRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReInstallNodeSysRootRsp.Merge(m, src)
+}
+func (m *ReInstallNodeSysRootRsp) XXX_Size() int {
+	return xxx_messageInfo_ReInstallNodeSysRootRsp.Size(m)
+}
+func (m *ReInstallNodeSysRootRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReInstallNodeSysRootRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReInstallNodeSysRootRsp proto.InternalMessageInfo
+
+func (m *ReInstallNodeSysRootRsp) GetContractRootRsp() *ReInstallNodeSysRootRsp_ContractRootRsp {
+	if m != nil {
+		return m.ContractRootRsp
+	}
+	return nil
+}
+
+// 响应信息
+type ReInstallNodeSysRootRsp_ContractRootRsp struct {
+	TcpCont              *TcpContRsp                         `protobuf:"bytes,1,opt,name=tcpCont,proto3" json:"tcpCont,omitempty"`
+	SvcCont              *ReInstallNodeSysRootRsp_SvcContRsp `protobuf:"bytes,2,opt,name=svcCont,proto3" json:"svcCont,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                            `json:"-"`
+	XXX_unrecognized     []byte                              `json:"-"`
+	XXX_sizecache        int32                               `json:"-"`
+}
+
+func (m *ReInstallNodeSysRootRsp_ContractRootRsp) Reset() {
+	*m = ReInstallNodeSysRootRsp_ContractRootRsp{}
+}
+func (m *ReInstallNodeSysRootRsp_ContractRootRsp) String() string { return proto.CompactTextString(m) }
+func (*ReInstallNodeSysRootRsp_ContractRootRsp) ProtoMessage()    {}
+func (*ReInstallNodeSysRootRsp_ContractRootRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1cc74eed2bde0fdf, []int{9, 0}
+}
+
+func (m *ReInstallNodeSysRootRsp_ContractRootRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReInstallNodeSysRootRsp_ContractRootRsp.Unmarshal(m, b)
+}
+func (m *ReInstallNodeSysRootRsp_ContractRootRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReInstallNodeSysRootRsp_ContractRootRsp.Marshal(b, m, deterministic)
+}
+func (m *ReInstallNodeSysRootRsp_ContractRootRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReInstallNodeSysRootRsp_ContractRootRsp.Merge(m, src)
+}
+func (m *ReInstallNodeSysRootRsp_ContractRootRsp) XXX_Size() int {
+	return xxx_messageInfo_ReInstallNodeSysRootRsp_ContractRootRsp.Size(m)
+}
+func (m *ReInstallNodeSysRootRsp_ContractRootRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReInstallNodeSysRootRsp_ContractRootRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReInstallNodeSysRootRsp_ContractRootRsp proto.InternalMessageInfo
+
+func (m *ReInstallNodeSysRootRsp_ContractRootRsp) GetTcpCont() *TcpContRsp {
+	if m != nil {
+		return m.TcpCont
+	}
+	return nil
+}
+
+func (m *ReInstallNodeSysRootRsp_ContractRootRsp) GetSvcCont() *ReInstallNodeSysRootRsp_SvcContRsp {
+	if m != nil {
+		return m.SvcCont
+	}
+	return nil
+}
+
+type ReInstallNodeSysRootRsp_SvcContRsp struct {
+	// 响应码
+	ResultCode ResultCode `protobuf:"varint,1,opt,name=resultCode,proto3,enum=ironicCom.ResultCode" json:"resultCode,omitempty"`
+	// 响应消息描述
+	ResultMsg string `protobuf:"bytes,2,opt,name=resultMsg,proto3" json:"resultMsg,omitempty"`
+	// 响应对象
+	ResultObject         *ReInstallNodeSysRootRsp_InstallNodeInfoRsp `protobuf:"bytes,3,opt,name=resultObject,proto3" json:"resultObject,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                    `json:"-"`
+	XXX_unrecognized     []byte                                      `json:"-"`
+	XXX_sizecache        int32                                       `json:"-"`
+}
+
+func (m *ReInstallNodeSysRootRsp_SvcContRsp) Reset()         { *m = ReInstallNodeSysRootRsp_SvcContRsp{} }
+func (m *ReInstallNodeSysRootRsp_SvcContRsp) String() string { return proto.CompactTextString(m) }
+func (*ReInstallNodeSysRootRsp_SvcContRsp) ProtoMessage()    {}
+func (*ReInstallNodeSysRootRsp_SvcContRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1cc74eed2bde0fdf, []int{9, 1}
+}
+
+func (m *ReInstallNodeSysRootRsp_SvcContRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReInstallNodeSysRootRsp_SvcContRsp.Unmarshal(m, b)
+}
+func (m *ReInstallNodeSysRootRsp_SvcContRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReInstallNodeSysRootRsp_SvcContRsp.Marshal(b, m, deterministic)
+}
+func (m *ReInstallNodeSysRootRsp_SvcContRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReInstallNodeSysRootRsp_SvcContRsp.Merge(m, src)
+}
+func (m *ReInstallNodeSysRootRsp_SvcContRsp) XXX_Size() int {
+	return xxx_messageInfo_ReInstallNodeSysRootRsp_SvcContRsp.Size(m)
+}
+func (m *ReInstallNodeSysRootRsp_SvcContRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReInstallNodeSysRootRsp_SvcContRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReInstallNodeSysRootRsp_SvcContRsp proto.InternalMessageInfo
+
+func (m *ReInstallNodeSysRootRsp_SvcContRsp) GetResultCode() ResultCode {
+	if m != nil {
+		return m.ResultCode
+	}
+	return ResultCode_UNDEFINED_3
+}
+
+func (m *ReInstallNodeSysRootRsp_SvcContRsp) GetResultMsg() string {
+	if m != nil {
+		return m.ResultMsg
+	}
+	return ""
+}
+
+func (m *ReInstallNodeSysRootRsp_SvcContRsp) GetResultObject() *ReInstallNodeSysRootRsp_InstallNodeInfoRsp {
+	if m != nil {
+		return m.ResultObject
+	}
+	return nil
+}
+
+//创建节点请求对象
+type ReInstallNodeSysRootRsp_InstallNodeInfoRsp struct {
+	// 节点
+	NodeInfoRsps []*ReInstallNodeSysRootRsp_ReNodeInfoRsp `protobuf:"bytes,1,rep,name=nodeInfoRsps,proto3" json:"nodeInfoRsps,omitempty"`
+	// 分页信息
+	PageInfo             *PageInfo `protobuf:"bytes,2,opt,name=pageInfo,proto3" json:"pageInfo,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `json:"-"`
+	XXX_sizecache        int32     `json:"-"`
+}
+
+func (m *ReInstallNodeSysRootRsp_InstallNodeInfoRsp) Reset() {
+	*m = ReInstallNodeSysRootRsp_InstallNodeInfoRsp{}
+}
+func (m *ReInstallNodeSysRootRsp_InstallNodeInfoRsp) String() string {
+	return proto.CompactTextString(m)
+}
+func (*ReInstallNodeSysRootRsp_InstallNodeInfoRsp) ProtoMessage() {}
+func (*ReInstallNodeSysRootRsp_InstallNodeInfoRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1cc74eed2bde0fdf, []int{9, 2}
+}
+
+func (m *ReInstallNodeSysRootRsp_InstallNodeInfoRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReInstallNodeSysRootRsp_InstallNodeInfoRsp.Unmarshal(m, b)
+}
+func (m *ReInstallNodeSysRootRsp_InstallNodeInfoRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReInstallNodeSysRootRsp_InstallNodeInfoRsp.Marshal(b, m, deterministic)
+}
+func (m *ReInstallNodeSysRootRsp_InstallNodeInfoRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReInstallNodeSysRootRsp_InstallNodeInfoRsp.Merge(m, src)
+}
+func (m *ReInstallNodeSysRootRsp_InstallNodeInfoRsp) XXX_Size() int {
+	return xxx_messageInfo_ReInstallNodeSysRootRsp_InstallNodeInfoRsp.Size(m)
+}
+func (m *ReInstallNodeSysRootRsp_InstallNodeInfoRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReInstallNodeSysRootRsp_InstallNodeInfoRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReInstallNodeSysRootRsp_InstallNodeInfoRsp proto.InternalMessageInfo
+
+func (m *ReInstallNodeSysRootRsp_InstallNodeInfoRsp) GetNodeInfoRsps() []*ReInstallNodeSysRootRsp_ReNodeInfoRsp {
+	if m != nil {
+		return m.NodeInfoRsps
+	}
+	return nil
+}
+
+func (m *ReInstallNodeSysRootRsp_InstallNodeInfoRsp) GetPageInfo() *PageInfo {
+	if m != nil {
+		return m.PageInfo
+	}
+	return nil
+}
+
+// 节点信息
+type ReInstallNodeSysRootRsp_ReNodeInfoRsp struct {
+	// 旧裸金属节点id
+	OldNodeId string `protobuf:"bytes,1,opt,name=oldNodeId,proto3" json:"oldNodeId,omitempty"`
+	// 新裸金属节点id
+	NewNodeId string `protobuf:"bytes,2,opt,name=newNodeId,proto3" json:"newNodeId,omitempty"`
+	// 初始化id
+	InitId int64 `protobuf:"varint,3,opt,name=initId,proto3" json:"initId,omitempty"`
+	// 创建节点响应码
+	InstallResultCode ResultCode `protobuf:"varint,4,opt,name=installResultCode,proto3,enum=ironicCom.ResultCode" json:"installResultCode,omitempty"`
+	// 创建节点响应消息
+	InstallResultMsg     string   `protobuf:"bytes,5,opt,name=installResultMsg,proto3" json:"installResultMsg,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ReInstallNodeSysRootRsp_ReNodeInfoRsp) Reset()         { *m = ReInstallNodeSysRootRsp_ReNodeInfoRsp{} }
+func (m *ReInstallNodeSysRootRsp_ReNodeInfoRsp) String() string { return proto.CompactTextString(m) }
+func (*ReInstallNodeSysRootRsp_ReNodeInfoRsp) ProtoMessage()    {}
+func (*ReInstallNodeSysRootRsp_ReNodeInfoRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1cc74eed2bde0fdf, []int{9, 3}
+}
+
+func (m *ReInstallNodeSysRootRsp_ReNodeInfoRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReInstallNodeSysRootRsp_ReNodeInfoRsp.Unmarshal(m, b)
+}
+func (m *ReInstallNodeSysRootRsp_ReNodeInfoRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReInstallNodeSysRootRsp_ReNodeInfoRsp.Marshal(b, m, deterministic)
+}
+func (m *ReInstallNodeSysRootRsp_ReNodeInfoRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReInstallNodeSysRootRsp_ReNodeInfoRsp.Merge(m, src)
+}
+func (m *ReInstallNodeSysRootRsp_ReNodeInfoRsp) XXX_Size() int {
+	return xxx_messageInfo_ReInstallNodeSysRootRsp_ReNodeInfoRsp.Size(m)
+}
+func (m *ReInstallNodeSysRootRsp_ReNodeInfoRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReInstallNodeSysRootRsp_ReNodeInfoRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReInstallNodeSysRootRsp_ReNodeInfoRsp proto.InternalMessageInfo
+
+func (m *ReInstallNodeSysRootRsp_ReNodeInfoRsp) GetOldNodeId() string {
+	if m != nil {
+		return m.OldNodeId
+	}
+	return ""
+}
+
+func (m *ReInstallNodeSysRootRsp_ReNodeInfoRsp) GetNewNodeId() string {
+	if m != nil {
+		return m.NewNodeId
+	}
+	return ""
+}
+
+func (m *ReInstallNodeSysRootRsp_ReNodeInfoRsp) GetInitId() int64 {
+	if m != nil {
+		return m.InitId
+	}
+	return 0
+}
+
+func (m *ReInstallNodeSysRootRsp_ReNodeInfoRsp) GetInstallResultCode() ResultCode {
+	if m != nil {
+		return m.InstallResultCode
+	}
+	return ResultCode_UNDEFINED_3
+}
+
+func (m *ReInstallNodeSysRootRsp_ReNodeInfoRsp) GetInstallResultMsg() string {
+	if m != nil {
+		return m.InstallResultMsg
+	}
+	return ""
+}
+
+//--------------- 重新安装裸金属节点结束-----------//
+//--------------- 健康监测---------------//
+type QryHeartbeatRootReq struct {
+	ContractRootReq      *QryHeartbeatRootReq_ContractRootReq `protobuf:"bytes,1,opt,name=contractRootReq,proto3" json:"contractRootReq,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                             `json:"-"`
+	XXX_unrecognized     []byte                               `json:"-"`
+	XXX_sizecache        int32                                `json:"-"`
+}
+
+func (m *QryHeartbeatRootReq) Reset()         { *m = QryHeartbeatRootReq{} }
+func (m *QryHeartbeatRootReq) String() string { return proto.CompactTextString(m) }
+func (*QryHeartbeatRootReq) ProtoMessage()    {}
+func (*QryHeartbeatRootReq) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1cc74eed2bde0fdf, []int{10}
+}
+
+func (m *QryHeartbeatRootReq) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_QryHeartbeatRootReq.Unmarshal(m, b)
+}
+func (m *QryHeartbeatRootReq) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_QryHeartbeatRootReq.Marshal(b, m, deterministic)
+}
+func (m *QryHeartbeatRootReq) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QryHeartbeatRootReq.Merge(m, src)
+}
+func (m *QryHeartbeatRootReq) XXX_Size() int {
+	return xxx_messageInfo_QryHeartbeatRootReq.Size(m)
+}
+func (m *QryHeartbeatRootReq) XXX_DiscardUnknown() {
+	xxx_messageInfo_QryHeartbeatRootReq.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QryHeartbeatRootReq proto.InternalMessageInfo
+
+func (m *QryHeartbeatRootReq) GetContractRootReq() *QryHeartbeatRootReq_ContractRootReq {
+	if m != nil {
+		return m.ContractRootReq
+	}
+	return nil
+}
+
+// 请求信息
+type QryHeartbeatRootReq_ContractRootReq struct {
+	TcpCont              *TcpContReq                     `protobuf:"bytes,1,opt,name=tcpCont,proto3" json:"tcpCont,omitempty"`
+	SvcCont              *QryHeartbeatRootReq_SvcContReq `protobuf:"bytes,2,opt,name=svcCont,proto3" json:"svcCont,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                        `json:"-"`
+	XXX_unrecognized     []byte                          `json:"-"`
+	XXX_sizecache        int32                           `json:"-"`
+}
+
+func (m *QryHeartbeatRootReq_ContractRootReq) Reset()         { *m = QryHeartbeatRootReq_ContractRootReq{} }
+func (m *QryHeartbeatRootReq_ContractRootReq) String() string { return proto.CompactTextString(m) }
+func (*QryHeartbeatRootReq_ContractRootReq) ProtoMessage()    {}
+func (*QryHeartbeatRootReq_ContractRootReq) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1cc74eed2bde0fdf, []int{10, 0}
+}
+
+func (m *QryHeartbeatRootReq_ContractRootReq) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_QryHeartbeatRootReq_ContractRootReq.Unmarshal(m, b)
+}
+func (m *QryHeartbeatRootReq_ContractRootReq) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_QryHeartbeatRootReq_ContractRootReq.Marshal(b, m, deterministic)
+}
+func (m *QryHeartbeatRootReq_ContractRootReq) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QryHeartbeatRootReq_ContractRootReq.Merge(m, src)
+}
+func (m *QryHeartbeatRootReq_ContractRootReq) XXX_Size() int {
+	return xxx_messageInfo_QryHeartbeatRootReq_ContractRootReq.Size(m)
+}
+func (m *QryHeartbeatRootReq_ContractRootReq) XXX_DiscardUnknown() {
+	xxx_messageInfo_QryHeartbeatRootReq_ContractRootReq.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QryHeartbeatRootReq_ContractRootReq proto.InternalMessageInfo
+
+func (m *QryHeartbeatRootReq_ContractRootReq) GetTcpCont() *TcpContReq {
+	if m != nil {
+		return m.TcpCont
+	}
+	return nil
+}
+
+func (m *QryHeartbeatRootReq_ContractRootReq) GetSvcCont() *QryHeartbeatRootReq_SvcContReq {
+	if m != nil {
+		return m.SvcCont
+	}
+	return nil
+}
+
+type QryHeartbeatRootReq_SvcContReq struct {
+	RequestObject        *QryHeartbeatRootReq_QryHeartbeatReq `protobuf:"bytes,1,opt,name=requestObject,proto3" json:"requestObject,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                             `json:"-"`
+	XXX_unrecognized     []byte                               `json:"-"`
+	XXX_sizecache        int32                                `json:"-"`
+}
+
+func (m *QryHeartbeatRootReq_SvcContReq) Reset()         { *m = QryHeartbeatRootReq_SvcContReq{} }
+func (m *QryHeartbeatRootReq_SvcContReq) String() string { return proto.CompactTextString(m) }
+func (*QryHeartbeatRootReq_SvcContReq) ProtoMessage()    {}
+func (*QryHeartbeatRootReq_SvcContReq) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1cc74eed2bde0fdf, []int{10, 1}
+}
+
+func (m *QryHeartbeatRootReq_SvcContReq) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_QryHeartbeatRootReq_SvcContReq.Unmarshal(m, b)
+}
+func (m *QryHeartbeatRootReq_SvcContReq) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_QryHeartbeatRootReq_SvcContReq.Marshal(b, m, deterministic)
+}
+func (m *QryHeartbeatRootReq_SvcContReq) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QryHeartbeatRootReq_SvcContReq.Merge(m, src)
+}
+func (m *QryHeartbeatRootReq_SvcContReq) XXX_Size() int {
+	return xxx_messageInfo_QryHeartbeatRootReq_SvcContReq.Size(m)
+}
+func (m *QryHeartbeatRootReq_SvcContReq) XXX_DiscardUnknown() {
+	xxx_messageInfo_QryHeartbeatRootReq_SvcContReq.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QryHeartbeatRootReq_SvcContReq proto.InternalMessageInfo
+
+func (m *QryHeartbeatRootReq_SvcContReq) GetRequestObject() *QryHeartbeatRootReq_QryHeartbeatReq {
+	if m != nil {
+		return m.RequestObject
+	}
+	return nil
+}
+
+type QryHeartbeatRootReq_QryHeartbeatReq struct {
+	// 安装裸金属系统信息
+	Req                  string   `protobuf:"bytes,1,opt,name=req,proto3" json:"req,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *QryHeartbeatRootReq_QryHeartbeatReq) Reset()         { *m = QryHeartbeatRootReq_QryHeartbeatReq{} }
+func (m *QryHeartbeatRootReq_QryHeartbeatReq) String() string { return proto.CompactTextString(m) }
+func (*QryHeartbeatRootReq_QryHeartbeatReq) ProtoMessage()    {}
+func (*QryHeartbeatRootReq_QryHeartbeatReq) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1cc74eed2bde0fdf, []int{10, 2}
+}
+
+func (m *QryHeartbeatRootReq_QryHeartbeatReq) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_QryHeartbeatRootReq_QryHeartbeatReq.Unmarshal(m, b)
+}
+func (m *QryHeartbeatRootReq_QryHeartbeatReq) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_QryHeartbeatRootReq_QryHeartbeatReq.Marshal(b, m, deterministic)
+}
+func (m *QryHeartbeatRootReq_QryHeartbeatReq) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QryHeartbeatRootReq_QryHeartbeatReq.Merge(m, src)
+}
+func (m *QryHeartbeatRootReq_QryHeartbeatReq) XXX_Size() int {
+	return xxx_messageInfo_QryHeartbeatRootReq_QryHeartbeatReq.Size(m)
+}
+func (m *QryHeartbeatRootReq_QryHeartbeatReq) XXX_DiscardUnknown() {
+	xxx_messageInfo_QryHeartbeatRootReq_QryHeartbeatReq.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QryHeartbeatRootReq_QryHeartbeatReq proto.InternalMessageInfo
+
+func (m *QryHeartbeatRootReq_QryHeartbeatReq) GetReq() string {
+	if m != nil {
+		return m.Req
+	}
+	return ""
+}
+
+type QryHeartbeatRootRsp struct {
+	ContractRootRsp      *QryHeartbeatRootRsp_ContractRootRsp `protobuf:"bytes,1,opt,name=contractRootRsp,proto3" json:"contractRootRsp,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                             `json:"-"`
+	XXX_unrecognized     []byte                               `json:"-"`
+	XXX_sizecache        int32                                `json:"-"`
+}
+
+func (m *QryHeartbeatRootRsp) Reset()         { *m = QryHeartbeatRootRsp{} }
+func (m *QryHeartbeatRootRsp) String() string { return proto.CompactTextString(m) }
+func (*QryHeartbeatRootRsp) ProtoMessage()    {}
+func (*QryHeartbeatRootRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1cc74eed2bde0fdf, []int{11}
+}
+
+func (m *QryHeartbeatRootRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_QryHeartbeatRootRsp.Unmarshal(m, b)
+}
+func (m *QryHeartbeatRootRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_QryHeartbeatRootRsp.Marshal(b, m, deterministic)
+}
+func (m *QryHeartbeatRootRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QryHeartbeatRootRsp.Merge(m, src)
+}
+func (m *QryHeartbeatRootRsp) XXX_Size() int {
+	return xxx_messageInfo_QryHeartbeatRootRsp.Size(m)
+}
+func (m *QryHeartbeatRootRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_QryHeartbeatRootRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QryHeartbeatRootRsp proto.InternalMessageInfo
+
+func (m *QryHeartbeatRootRsp) GetContractRootRsp() *QryHeartbeatRootRsp_ContractRootRsp {
+	if m != nil {
+		return m.ContractRootRsp
+	}
+	return nil
+}
+
+// 响应信息
+type QryHeartbeatRootRsp_ContractRootRsp struct {
+	TcpCont              *TcpContRsp                     `protobuf:"bytes,1,opt,name=tcpCont,proto3" json:"tcpCont,omitempty"`
+	SvcCont              *QryHeartbeatRootRsp_SvcContRsp `protobuf:"bytes,2,opt,name=svcCont,proto3" json:"svcCont,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                        `json:"-"`
+	XXX_unrecognized     []byte                          `json:"-"`
+	XXX_sizecache        int32                           `json:"-"`
+}
+
+func (m *QryHeartbeatRootRsp_ContractRootRsp) Reset()         { *m = QryHeartbeatRootRsp_ContractRootRsp{} }
+func (m *QryHeartbeatRootRsp_ContractRootRsp) String() string { return proto.CompactTextString(m) }
+func (*QryHeartbeatRootRsp_ContractRootRsp) ProtoMessage()    {}
+func (*QryHeartbeatRootRsp_ContractRootRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1cc74eed2bde0fdf, []int{11, 0}
+}
+
+func (m *QryHeartbeatRootRsp_ContractRootRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_QryHeartbeatRootRsp_ContractRootRsp.Unmarshal(m, b)
+}
+func (m *QryHeartbeatRootRsp_ContractRootRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_QryHeartbeatRootRsp_ContractRootRsp.Marshal(b, m, deterministic)
+}
+func (m *QryHeartbeatRootRsp_ContractRootRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QryHeartbeatRootRsp_ContractRootRsp.Merge(m, src)
+}
+func (m *QryHeartbeatRootRsp_ContractRootRsp) XXX_Size() int {
+	return xxx_messageInfo_QryHeartbeatRootRsp_ContractRootRsp.Size(m)
+}
+func (m *QryHeartbeatRootRsp_ContractRootRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_QryHeartbeatRootRsp_ContractRootRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QryHeartbeatRootRsp_ContractRootRsp proto.InternalMessageInfo
+
+func (m *QryHeartbeatRootRsp_ContractRootRsp) GetTcpCont() *TcpContRsp {
+	if m != nil {
+		return m.TcpCont
+	}
+	return nil
+}
+
+func (m *QryHeartbeatRootRsp_ContractRootRsp) GetSvcCont() *QryHeartbeatRootRsp_SvcContRsp {
+	if m != nil {
+		return m.SvcCont
+	}
+	return nil
+}
+
+type QryHeartbeatRootRsp_SvcContRsp struct {
+	// 响应码
+	ResultCode ResultCode `protobuf:"varint,1,opt,name=resultCode,proto3,enum=ironicCom.ResultCode" json:"resultCode,omitempty"`
+	// 响应消息描述
+	ResultMsg string `protobuf:"bytes,2,opt,name=resultMsg,proto3" json:"resultMsg,omitempty"`
+	// 响应对象
+	ResultObject         *QryHeartbeatRootRsp_QryHeartbeatRsp `protobuf:"bytes,3,opt,name=resultObject,proto3" json:"resultObject,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                             `json:"-"`
+	XXX_unrecognized     []byte                               `json:"-"`
+	XXX_sizecache        int32                                `json:"-"`
+}
+
+func (m *QryHeartbeatRootRsp_SvcContRsp) Reset()         { *m = QryHeartbeatRootRsp_SvcContRsp{} }
+func (m *QryHeartbeatRootRsp_SvcContRsp) String() string { return proto.CompactTextString(m) }
+func (*QryHeartbeatRootRsp_SvcContRsp) ProtoMessage()    {}
+func (*QryHeartbeatRootRsp_SvcContRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1cc74eed2bde0fdf, []int{11, 1}
+}
+
+func (m *QryHeartbeatRootRsp_SvcContRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_QryHeartbeatRootRsp_SvcContRsp.Unmarshal(m, b)
+}
+func (m *QryHeartbeatRootRsp_SvcContRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_QryHeartbeatRootRsp_SvcContRsp.Marshal(b, m, deterministic)
+}
+func (m *QryHeartbeatRootRsp_SvcContRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QryHeartbeatRootRsp_SvcContRsp.Merge(m, src)
+}
+func (m *QryHeartbeatRootRsp_SvcContRsp) XXX_Size() int {
+	return xxx_messageInfo_QryHeartbeatRootRsp_SvcContRsp.Size(m)
+}
+func (m *QryHeartbeatRootRsp_SvcContRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_QryHeartbeatRootRsp_SvcContRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QryHeartbeatRootRsp_SvcContRsp proto.InternalMessageInfo
+
+func (m *QryHeartbeatRootRsp_SvcContRsp) GetResultCode() ResultCode {
+	if m != nil {
+		return m.ResultCode
+	}
+	return ResultCode_UNDEFINED_3
+}
+
+func (m *QryHeartbeatRootRsp_SvcContRsp) GetResultMsg() string {
+	if m != nil {
+		return m.ResultMsg
+	}
+	return ""
+}
+
+func (m *QryHeartbeatRootRsp_SvcContRsp) GetResultObject() *QryHeartbeatRootRsp_QryHeartbeatRsp {
+	if m != nil {
+		return m.ResultObject
+	}
+	return nil
+}
+
+// 健康监测应答对象
+type QryHeartbeatRootRsp_QryHeartbeatRsp struct {
+	// 应用信息
+	ClusterInstances     []*QryHeartbeatRootRsp_ClusterInstance `protobuf:"bytes,1,rep,name=clusterInstances,proto3" json:"clusterInstances,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                               `json:"-"`
+	XXX_unrecognized     []byte                                 `json:"-"`
+	XXX_sizecache        int32                                  `json:"-"`
+}
+
+func (m *QryHeartbeatRootRsp_QryHeartbeatRsp) Reset()         { *m = QryHeartbeatRootRsp_QryHeartbeatRsp{} }
+func (m *QryHeartbeatRootRsp_QryHeartbeatRsp) String() string { return proto.CompactTextString(m) }
+func (*QryHeartbeatRootRsp_QryHeartbeatRsp) ProtoMessage()    {}
+func (*QryHeartbeatRootRsp_QryHeartbeatRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1cc74eed2bde0fdf, []int{11, 2}
+}
+
+func (m *QryHeartbeatRootRsp_QryHeartbeatRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_QryHeartbeatRootRsp_QryHeartbeatRsp.Unmarshal(m, b)
+}
+func (m *QryHeartbeatRootRsp_QryHeartbeatRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_QryHeartbeatRootRsp_QryHeartbeatRsp.Marshal(b, m, deterministic)
+}
+func (m *QryHeartbeatRootRsp_QryHeartbeatRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QryHeartbeatRootRsp_QryHeartbeatRsp.Merge(m, src)
+}
+func (m *QryHeartbeatRootRsp_QryHeartbeatRsp) XXX_Size() int {
+	return xxx_messageInfo_QryHeartbeatRootRsp_QryHeartbeatRsp.Size(m)
+}
+func (m *QryHeartbeatRootRsp_QryHeartbeatRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_QryHeartbeatRootRsp_QryHeartbeatRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QryHeartbeatRootRsp_QryHeartbeatRsp proto.InternalMessageInfo
+
+func (m *QryHeartbeatRootRsp_QryHeartbeatRsp) GetClusterInstances() []*QryHeartbeatRootRsp_ClusterInstance {
+	if m != nil {
+		return m.ClusterInstances
+	}
+	return nil
+}
+
+// 节点信息
+type QryHeartbeatRootRsp_ClusterInstance struct {
+	// 应用ip
+	IpAddress string `protobuf:"bytes,1,opt,name=ipAddress,proto3" json:"ipAddress,omitempty"`
+	//应用名，集群名
+	ClusterName string `protobuf:"bytes,2,opt,name=clusterName,proto3" json:"clusterName,omitempty"`
+	//运行状态
+	AppStatus QryHeartbeatRootRsp_AppStatus `protobuf:"varint,3,opt,name=appStatus,proto3,enum=ironicServer.QryHeartbeatRootRsp_AppStatus" json:"appStatus,omitempty"`
+	//信息
+	Message              string   `protobuf:"bytes,4,opt,name=message,proto3" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *QryHeartbeatRootRsp_ClusterInstance) Reset()         { *m = QryHeartbeatRootRsp_ClusterInstance{} }
+func (m *QryHeartbeatRootRsp_ClusterInstance) String() string { return proto.CompactTextString(m) }
+func (*QryHeartbeatRootRsp_ClusterInstance) ProtoMessage()    {}
+func (*QryHeartbeatRootRsp_ClusterInstance) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1cc74eed2bde0fdf, []int{11, 3}
+}
+
+func (m *QryHeartbeatRootRsp_ClusterInstance) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_QryHeartbeatRootRsp_ClusterInstance.Unmarshal(m, b)
+}
+func (m *QryHeartbeatRootRsp_ClusterInstance) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_QryHeartbeatRootRsp_ClusterInstance.Marshal(b, m, deterministic)
+}
+func (m *QryHeartbeatRootRsp_ClusterInstance) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QryHeartbeatRootRsp_ClusterInstance.Merge(m, src)
+}
+func (m *QryHeartbeatRootRsp_ClusterInstance) XXX_Size() int {
+	return xxx_messageInfo_QryHeartbeatRootRsp_ClusterInstance.Size(m)
+}
+func (m *QryHeartbeatRootRsp_ClusterInstance) XXX_DiscardUnknown() {
+	xxx_messageInfo_QryHeartbeatRootRsp_ClusterInstance.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QryHeartbeatRootRsp_ClusterInstance proto.InternalMessageInfo
+
+func (m *QryHeartbeatRootRsp_ClusterInstance) GetIpAddress() string {
+	if m != nil {
+		return m.IpAddress
+	}
+	return ""
+}
+
+func (m *QryHeartbeatRootRsp_ClusterInstance) GetClusterName() string {
+	if m != nil {
+		return m.ClusterName
+	}
+	return ""
+}
+
+func (m *QryHeartbeatRootRsp_ClusterInstance) GetAppStatus() QryHeartbeatRootRsp_AppStatus {
+	if m != nil {
+		return m.AppStatus
+	}
+	return QryHeartbeatRootRsp_UNDEFINED
+}
+
+func (m *QryHeartbeatRootRsp_ClusterInstance) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
 func init() {
-	proto.RegisterEnum("ironicServer.QryNodeInfoRootRes_PowerStatus", QryNodeInfoRootRes_PowerStatus_name, QryNodeInfoRootRes_PowerStatus_value)
-	proto.RegisterEnum("ironicServer.QryNodeInfoRootRes_Status", QryNodeInfoRootRes_Status_name, QryNodeInfoRootRes_Status_value)
+	proto.RegisterEnum("ironicServer.QryNodeInfoRootRsp_PowerStatus", QryNodeInfoRootRsp_PowerStatus_name, QryNodeInfoRootRsp_PowerStatus_value)
+	proto.RegisterEnum("ironicServer.QryNodeInfoRootRsp_Status", QryNodeInfoRootRsp_Status_name, QryNodeInfoRootRsp_Status_value)
+	proto.RegisterEnum("ironicServer.QryHeartbeatRootRsp_AppStatus", QryHeartbeatRootRsp_AppStatus_name, QryHeartbeatRootRsp_AppStatus_value)
 	proto.RegisterType((*QryNodeInfoRootReq)(nil), "ironicServer.QryNodeInfoRootReq")
 	proto.RegisterType((*QryNodeInfoRootReq_ContractRootReq)(nil), "ironicServer.QryNodeInfoRootReq.ContractRootReq")
 	proto.RegisterType((*QryNodeInfoRootReq_SvcContReq)(nil), "ironicServer.QryNodeInfoRootReq.SvcContReq")
 	proto.RegisterType((*QryNodeInfoRootReq_QryNodeInfoReq)(nil), "ironicServer.QryNodeInfoRootReq.QryNodeInfoReq")
-	proto.RegisterType((*QryNodeInfoRootRes)(nil), "ironicServer.QryNodeInfoRootRes")
-	proto.RegisterType((*QryNodeInfoRootRes_ContractRootRes)(nil), "ironicServer.QryNodeInfoRootRes.ContractRootRes")
-	proto.RegisterType((*QryNodeInfoRootRes_SvcContRes)(nil), "ironicServer.QryNodeInfoRootRes.SvcContRes")
-	proto.RegisterType((*QryNodeInfoRootRes_QryNodeInfoRsp)(nil), "ironicServer.QryNodeInfoRootRes.QryNodeInfoRsp")
-	proto.RegisterType((*QryNodeInfoRootRes_NodeInfo)(nil), "ironicServer.QryNodeInfoRootRes.NodeInfo")
+	proto.RegisterType((*QryNodeInfoRootRsp)(nil), "ironicServer.QryNodeInfoRootRsp")
+	proto.RegisterType((*QryNodeInfoRootRsp_ContractRootRsp)(nil), "ironicServer.QryNodeInfoRootRsp.ContractRootRsp")
+	proto.RegisterType((*QryNodeInfoRootRsp_SvcContRsp)(nil), "ironicServer.QryNodeInfoRootRsp.SvcContRsp")
+	proto.RegisterType((*QryNodeInfoRootRsp_QryNodeInfoRsp)(nil), "ironicServer.QryNodeInfoRootRsp.QryNodeInfoRsp")
+	proto.RegisterType((*QryNodeInfoRootRsp_NodeInfo)(nil), "ironicServer.QryNodeInfoRootRsp.NodeInfo")
 	proto.RegisterType((*InstallNodeSysRootReq)(nil), "ironicServer.InstallNodeSysRootReq")
 	proto.RegisterType((*InstallNodeSysRootReq_ContractRootReq)(nil), "ironicServer.InstallNodeSysRootReq.ContractRootReq")
 	proto.RegisterType((*InstallNodeSysRootReq_SvcContReq)(nil), "ironicServer.InstallNodeSysRootReq.SvcContReq")
 	proto.RegisterType((*InstallNodeSysRootReq_InstallNodeSysReq)(nil), "ironicServer.InstallNodeSysRootReq.InstallNodeSysReq")
 	proto.RegisterType((*InstallNodeSysRootReq_NodeInstallInfo)(nil), "ironicServer.InstallNodeSysRootReq.NodeInstallInfo")
-	proto.RegisterType((*InstallNodeSysRootRes)(nil), "ironicServer.InstallNodeSysRootRes")
-	proto.RegisterType((*InstallNodeSysRootRes_ContractRootRes)(nil), "ironicServer.InstallNodeSysRootRes.ContractRootRes")
-	proto.RegisterType((*InstallNodeSysRootRes_SvcContRes)(nil), "ironicServer.InstallNodeSysRootRes.SvcContRes")
-	proto.RegisterType((*InstallNodeSysRootRes_InstallNodeInfoRsp)(nil), "ironicServer.InstallNodeSysRootRes.InstallNodeInfoRsp")
-	proto.RegisterType((*InstallNodeSysRootRes_NodeInfoRsp)(nil), "ironicServer.InstallNodeSysRootRes.NodeInfoRsp")
+	proto.RegisterType((*InstallNodeSysRootRsp)(nil), "ironicServer.InstallNodeSysRootRsp")
+	proto.RegisterType((*InstallNodeSysRootRsp_ContractRootRsp)(nil), "ironicServer.InstallNodeSysRootRsp.ContractRootRsp")
+	proto.RegisterType((*InstallNodeSysRootRsp_SvcContRsp)(nil), "ironicServer.InstallNodeSysRootRsp.SvcContRsp")
+	proto.RegisterType((*InstallNodeSysRootRsp_InstallNodeInfoRsp)(nil), "ironicServer.InstallNodeSysRootRsp.InstallNodeInfoRsp")
+	proto.RegisterType((*InstallNodeSysRootRsp_NodeInfoRsp)(nil), "ironicServer.InstallNodeSysRootRsp.NodeInfoRsp")
 	proto.RegisterType((*OperNodePowerRootReq)(nil), "ironicServer.OperNodePowerRootReq")
 	proto.RegisterType((*OperNodePowerRootReq_ContractRootReq)(nil), "ironicServer.OperNodePowerRootReq.ContractRootReq")
 	proto.RegisterType((*OperNodePowerRootReq_SvcContReq)(nil), "ironicServer.OperNodePowerRootReq.SvcContReq")
 	proto.RegisterType((*OperNodePowerRootReq_OperNodePowerReq)(nil), "ironicServer.OperNodePowerRootReq.OperNodePowerReq")
 	proto.RegisterType((*OperNodePowerRootReq_NodePowerOper)(nil), "ironicServer.OperNodePowerRootReq.NodePowerOper")
-	proto.RegisterType((*OperNodePowerRootRes)(nil), "ironicServer.OperNodePowerRootRes")
-	proto.RegisterType((*OperNodePowerRootRes_ContractRootRes)(nil), "ironicServer.OperNodePowerRootRes.ContractRootRes")
-	proto.RegisterType((*OperNodePowerRootRes_SvcContRes)(nil), "ironicServer.OperNodePowerRootRes.SvcContRes")
-	proto.RegisterType((*OperNodePowerRootRes_OperNodePowerRsp)(nil), "ironicServer.OperNodePowerRootRes.OperNodePowerRsp")
-	proto.RegisterType((*OperNodePowerRootRes_NodePowerRsp)(nil), "ironicServer.OperNodePowerRootRes.NodePowerRsp")
+	proto.RegisterType((*OperNodePowerRootRsp)(nil), "ironicServer.OperNodePowerRootRsp")
+	proto.RegisterType((*OperNodePowerRootRsp_ContractRootRsp)(nil), "ironicServer.OperNodePowerRootRsp.ContractRootRsp")
+	proto.RegisterType((*OperNodePowerRootRsp_SvcContRsp)(nil), "ironicServer.OperNodePowerRootRsp.SvcContRsp")
+	proto.RegisterType((*OperNodePowerRootRsp_OperNodePowerRsp)(nil), "ironicServer.OperNodePowerRootRsp.OperNodePowerRsp")
+	proto.RegisterType((*OperNodePowerRootRsp_NodePowerRsp)(nil), "ironicServer.OperNodePowerRootRsp.NodePowerRsp")
 	proto.RegisterType((*CreateNodesRootReq)(nil), "ironicServer.CreateNodesRootReq")
 	proto.RegisterType((*CreateNodesRootReq_ContractRootReq)(nil), "ironicServer.CreateNodesRootReq.ContractRootReq")
 	proto.RegisterType((*CreateNodesRootReq_SvcContReq)(nil), "ironicServer.CreateNodesRootReq.SvcContReq")
 	proto.RegisterType((*CreateNodesRootReq_CreateNodeInfoReq)(nil), "ironicServer.CreateNodesRootReq.CreateNodeInfoReq")
 	proto.RegisterType((*CreateNodesRootReq_NodeInfoReq)(nil), "ironicServer.CreateNodesRootReq.NodeInfoReq")
-	proto.RegisterType((*CreateNodesRootRes)(nil), "ironicServer.CreateNodesRootRes")
-	proto.RegisterType((*CreateNodesRootRes_ContractRootRes)(nil), "ironicServer.CreateNodesRootRes.ContractRootRes")
-	proto.RegisterType((*CreateNodesRootRes_SvcContRes)(nil), "ironicServer.CreateNodesRootRes.SvcContRes")
-	proto.RegisterType((*CreateNodesRootRes_CreateNodeInfoRsp)(nil), "ironicServer.CreateNodesRootRes.CreateNodeInfoRsp")
-	proto.RegisterType((*CreateNodesRootRes_NodeInfoRsp)(nil), "ironicServer.CreateNodesRootRes.NodeInfoRsp")
+	proto.RegisterType((*CreateNodesRootRsp)(nil), "ironicServer.CreateNodesRootRsp")
+	proto.RegisterType((*CreateNodesRootRsp_ContractRootRsp)(nil), "ironicServer.CreateNodesRootRsp.ContractRootRsp")
+	proto.RegisterType((*CreateNodesRootRsp_SvcContRsp)(nil), "ironicServer.CreateNodesRootRsp.SvcContRsp")
+	proto.RegisterType((*CreateNodesRootRsp_CreateNodeInfoRsp)(nil), "ironicServer.CreateNodesRootRsp.CreateNodeInfoRsp")
+	proto.RegisterType((*CreateNodesRootRsp_NodeInfoRsp)(nil), "ironicServer.CreateNodesRootRsp.NodeInfoRsp")
+	proto.RegisterType((*ReInstallNodeSysRootReq)(nil), "ironicServer.ReInstallNodeSysRootReq")
+	proto.RegisterType((*ReInstallNodeSysRootReq_ContractRootReq)(nil), "ironicServer.ReInstallNodeSysRootReq.ContractRootReq")
+	proto.RegisterType((*ReInstallNodeSysRootReq_SvcContReq)(nil), "ironicServer.ReInstallNodeSysRootReq.SvcContReq")
+	proto.RegisterType((*ReInstallNodeSysRootReq_InstallNodeSysReq)(nil), "ironicServer.ReInstallNodeSysRootReq.InstallNodeSysReq")
+	proto.RegisterType((*ReInstallNodeSysRootReq_NodeInstallInfo)(nil), "ironicServer.ReInstallNodeSysRootReq.NodeInstallInfo")
+	proto.RegisterType((*ReInstallNodeSysRootRsp)(nil), "ironicServer.ReInstallNodeSysRootRsp")
+	proto.RegisterType((*ReInstallNodeSysRootRsp_ContractRootRsp)(nil), "ironicServer.ReInstallNodeSysRootRsp.ContractRootRsp")
+	proto.RegisterType((*ReInstallNodeSysRootRsp_SvcContRsp)(nil), "ironicServer.ReInstallNodeSysRootRsp.SvcContRsp")
+	proto.RegisterType((*ReInstallNodeSysRootRsp_InstallNodeInfoRsp)(nil), "ironicServer.ReInstallNodeSysRootRsp.InstallNodeInfoRsp")
+	proto.RegisterType((*ReInstallNodeSysRootRsp_ReNodeInfoRsp)(nil), "ironicServer.ReInstallNodeSysRootRsp.ReNodeInfoRsp")
+	proto.RegisterType((*QryHeartbeatRootReq)(nil), "ironicServer.QryHeartbeatRootReq")
+	proto.RegisterType((*QryHeartbeatRootReq_ContractRootReq)(nil), "ironicServer.QryHeartbeatRootReq.ContractRootReq")
+	proto.RegisterType((*QryHeartbeatRootReq_SvcContReq)(nil), "ironicServer.QryHeartbeatRootReq.SvcContReq")
+	proto.RegisterType((*QryHeartbeatRootReq_QryHeartbeatReq)(nil), "ironicServer.QryHeartbeatRootReq.QryHeartbeatReq")
+	proto.RegisterType((*QryHeartbeatRootRsp)(nil), "ironicServer.QryHeartbeatRootRsp")
+	proto.RegisterType((*QryHeartbeatRootRsp_ContractRootRsp)(nil), "ironicServer.QryHeartbeatRootRsp.ContractRootRsp")
+	proto.RegisterType((*QryHeartbeatRootRsp_SvcContRsp)(nil), "ironicServer.QryHeartbeatRootRsp.SvcContRsp")
+	proto.RegisterType((*QryHeartbeatRootRsp_QryHeartbeatRsp)(nil), "ironicServer.QryHeartbeatRootRsp.QryHeartbeatRsp")
+	proto.RegisterType((*QryHeartbeatRootRsp_ClusterInstance)(nil), "ironicServer.QryHeartbeatRootRsp.ClusterInstance")
 }
 
 func init() { proto.RegisterFile("ironic/ironicServer.proto", fileDescriptor_1cc74eed2bde0fdf) }
 
 var fileDescriptor_1cc74eed2bde0fdf = []byte{
-	// 1385 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x58, 0x4f, 0x8f, 0xdb, 0x44,
-	0x14, 0x5f, 0x27, 0xd9, 0xfc, 0x79, 0xc9, 0x66, 0xbd, 0x03, 0xad, 0x82, 0x55, 0x55, 0x95, 0x41,
-	0x6d, 0x29, 0x25, 0xa9, 0xb2, 0x2a, 0x17, 0x0e, 0x68, 0x9b, 0xa6, 0x25, 0x62, 0x49, 0x82, 0xb3,
-	0xdb, 0xed, 0x2e, 0x45, 0x28, 0xeb, 0x78, 0x83, 0x61, 0x63, 0x3b, 0x1e, 0xa7, 0xed, 0x72, 0xe4,
-	0x86, 0x5a, 0xc4, 0x01, 0xc4, 0x81, 0x8f, 0xc0, 0x01, 0x71, 0xaa, 0x04, 0x82, 0x6f, 0xc0, 0x09,
-	0x89, 0x53, 0xbf, 0x00, 0x57, 0xbe, 0x00, 0x42, 0x1e, 0xdb, 0xf1, 0x8c, 0x3d, 0x59, 0xbb, 0xed,
-	0x6a, 0xd5, 0xd3, 0xee, 0xfb, 0xcd, 0x7b, 0x6f, 0x5e, 0xde, 0x7b, 0xf3, 0x7b, 0x9e, 0x81, 0xd7,
-	0x74, 0xdb, 0x34, 0x74, 0xb5, 0xe1, 0xfd, 0x19, 0x68, 0xf6, 0x7d, 0xcd, 0xae, 0x5b, 0xb6, 0xe9,
-	0x98, 0xa8, 0x42, 0x63, 0xd2, 0x59, 0x46, 0xb1, 0x65, 0x4e, 0x3c, 0x2d, 0xf9, 0x9b, 0x2c, 0xa0,
-	0x8f, 0xec, 0xa3, 0xae, 0x39, 0xd2, 0x3a, 0xc6, 0x81, 0xa9, 0x98, 0xa6, 0xa3, 0x68, 0x53, 0xb4,
-	0x07, 0xab, 0xaa, 0x69, 0x38, 0xf6, 0x50, 0x75, 0x7c, 0xa8, 0x26, 0x5c, 0x10, 0x2e, 0x97, 0x9b,
-	0xd7, 0xea, 0xcc, 0x56, 0x71, 0xd3, 0x7a, 0x8b, 0xb5, 0x53, 0xa2, 0x8e, 0xa4, 0xaf, 0x05, 0x58,
-	0x8d, 0x28, 0xa1, 0x06, 0x14, 0x1c, 0xd5, 0x72, 0x51, 0x7f, 0x9f, 0x33, 0xf5, 0x30, 0xd2, 0x2d,
-	0x6f, 0xc5, 0x75, 0x16, 0x68, 0xa1, 0x36, 0x14, 0xf0, 0x7d, 0x95, 0x18, 0x64, 0x88, 0xc1, 0x5b,
-	0x89, 0x81, 0x0d, 0x3c, 0x7d, 0xe2, 0xc6, 0xb7, 0x95, 0x54, 0x80, 0x10, 0x46, 0xdb, 0xb0, 0x62,
-	0x6b, 0xd3, 0x99, 0x86, 0x9d, 0xde, 0xfe, 0xe7, 0x9a, 0x1a, 0xc4, 0xd2, 0x48, 0x74, 0x4d, 0x43,
-	0xda, 0x54, 0x61, 0xbd, 0x48, 0x57, 0xa0, 0xca, 0x2a, 0xa0, 0x1a, 0x14, 0x0c, 0x57, 0x1c, 0xe1,
-	0x9a, 0x70, 0x21, 0x7b, 0xb9, 0xa4, 0x04, 0xa2, 0xfc, 0x57, 0x91, 0x53, 0x0f, 0x1c, 0xaf, 0x07,
-	0x4e, 0x59, 0x0f, 0x1c, 0xa9, 0x07, 0x8e, 0xd6, 0x03, 0x73, 0xea, 0x81, 0x53, 0xd6, 0x03, 0xbf,
-	0x40, 0x3d, 0x70, 0x58, 0x0f, 0x1c, 0xd6, 0xe3, 0x89, 0x40, 0x15, 0x04, 0xa3, 0xeb, 0x00, 0xb6,
-	0x86, 0x67, 0x87, 0x4e, 0xcb, 0x1c, 0x69, 0x24, 0x92, 0x2a, 0x13, 0x89, 0x32, 0x5f, 0x54, 0x28,
-	0x45, 0x74, 0x0e, 0x4a, 0x9e, 0xf4, 0x21, 0x1e, 0x93, 0x70, 0x4a, 0x4a, 0x08, 0xa0, 0x01, 0x54,
-	0x3c, 0xc1, 0x2f, 0x72, 0x36, 0x55, 0x91, 0x31, 0x03, 0x61, 0x4b, 0x61, 0x9c, 0x48, 0xbb, 0x6c,
-	0x8d, 0xb1, 0x85, 0x6e, 0x43, 0xc9, 0xf0, 0x45, 0xaf, 0xca, 0xe5, 0xe6, 0x9b, 0x89, 0x7b, 0xcc,
-	0xe5, 0xd0, 0x56, 0x7a, 0x92, 0x85, 0x62, 0x80, 0xa3, 0xb3, 0x90, 0xf7, 0x5a, 0x85, 0x64, 0xa3,
-	0xa4, 0xf8, 0x12, 0x7a, 0x0f, 0xf2, 0xd8, 0x19, 0x3a, 0x33, 0x4c, 0x7e, 0x6f, 0xb5, 0x79, 0x29,
-	0x39, 0xfd, 0x44, 0x5d, 0xf1, 0xcd, 0x50, 0x15, 0x32, 0xba, 0x45, 0x72, 0x51, 0x52, 0x32, 0xba,
-	0x85, 0x24, 0x28, 0xce, 0xb0, 0x66, 0x77, 0x87, 0x13, 0xad, 0x96, 0x23, 0xe8, 0x5c, 0x76, 0xd7,
-	0xac, 0x21, 0xc6, 0x0f, 0x4c, 0x7b, 0x54, 0x5b, 0xf6, 0xd6, 0x02, 0xd9, 0x6d, 0xed, 0xc9, 0x50,
-	0xdd, 0x18, 0x8d, 0xec, 0x5a, 0x9e, 0x2c, 0x05, 0x22, 0x3a, 0x0f, 0xa0, 0x4f, 0x86, 0x63, 0xcd,
-	0x26, 0x8b, 0x05, 0xb2, 0x48, 0x21, 0xee, 0x3a, 0x26, 0xd1, 0x92, 0xf5, 0xa2, 0xb7, 0x1e, 0x22,
-	0xe8, 0x5d, 0x58, 0x99, 0xda, 0x47, 0x61, 0xc9, 0x6b, 0xa5, 0xe3, 0xfa, 0x81, 0xd5, 0x45, 0x32,
-	0x54, 0xe6, 0x80, 0xdb, 0x15, 0x40, 0xdc, 0x33, 0x18, 0xea, 0x42, 0xd9, 0x32, 0x1f, 0x68, 0xb6,
-	0x97, 0x99, 0x5a, 0x99, 0xb8, 0xbf, 0x9a, 0x98, 0xc8, 0x7e, 0x68, 0xa3, 0xd0, 0x0e, 0xe4, 0xeb,
-	0x50, 0xa6, 0xd6, 0x50, 0x19, 0x0a, 0xdb, 0xdd, 0x0f, 0xba, 0xbd, 0x9d, 0xae, 0xb8, 0xe4, 0x0a,
-	0xfd, 0xde, 0x4e, 0x5b, 0xe9, 0x75, 0x45, 0x01, 0x55, 0xa0, 0xe8, 0x09, 0xb7, 0x6e, 0x89, 0x19,
-	0xb9, 0x0f, 0x79, 0xdf, 0xa2, 0x08, 0xb9, 0xee, 0xf6, 0xe6, 0xa6, 0xb8, 0x84, 0x2a, 0x50, 0x68,
-	0x29, 0xed, 0x8d, 0xad, 0xf6, 0x4d, 0xf1, 0x7b, 0x40, 0x55, 0x28, 0xdd, 0x6c, 0xf7, 0x37, 0x7b,
-	0xbb, 0x9d, 0xee, 0x6d, 0xf1, 0x97, 0x12, 0x5a, 0x83, 0x8a, 0x27, 0xdf, 0xda, 0xe8, 0x6c, 0xb6,
-	0x6f, 0x8a, 0x7f, 0x16, 0x51, 0x19, 0xf2, 0x1b, 0xad, 0xad, 0xce, 0x9d, 0xb6, 0xf8, 0x4f, 0x41,
-	0xfe, 0x3b, 0x07, 0x67, 0x3a, 0x06, 0x76, 0x86, 0x87, 0x87, 0x6e, 0xf0, 0x83, 0x23, 0x1c, 0xf0,
-	0xee, 0x27, 0x8b, 0x78, 0x7e, 0x9d, 0xfd, 0xd9, 0x5c, 0xeb, 0x64, 0xaa, 0x7f, 0x7c, 0x12, 0x54,
-	0xff, 0x7e, 0x94, 0x5a, 0xea, 0x69, 0x62, 0xe3, 0xb1, 0xbd, 0xce, 0xb0, 0xfd, 0xc7, 0x7c, 0xb6,
-	0xbf, 0x9e, 0xc6, 0x7b, 0x04, 0x8d, 0x73, 0xbe, 0x03, 0x6b, 0x31, 0x1d, 0xf4, 0x29, 0x88, 0xde,
-	0xb1, 0x26, 0x0b, 0x34, 0x33, 0xa4, 0x4a, 0x77, 0x97, 0xb5, 0x55, 0x62, 0xce, 0xa4, 0x09, 0xac,
-	0x46, 0x94, 0x16, 0x12, 0xc6, 0x39, 0x28, 0x91, 0xb3, 0x47, 0x0e, 0x9b, 0xcf, 0x91, 0x73, 0x00,
-	0xbd, 0x01, 0x2b, 0x44, 0x68, 0x7d, 0xa6, 0xa9, 0x5f, 0x0c, 0x66, 0x13, 0x9f, 0x18, 0x58, 0x50,
-	0xfe, 0x2e, 0xcf, 0xef, 0x2b, 0x1c, 0xef, 0x2b, 0x9c, 0xbe, 0xaf, 0x52, 0x8c, 0xac, 0xc7, 0x27,
-	0x31, 0xb2, 0x9e, 0xa7, 0xaf, 0xf8, 0x53, 0xeb, 0x8f, 0x53, 0x98, 0x5a, 0x7b, 0xdc, 0xa9, 0xf5,
-	0x4e, 0x9a, 0x90, 0x29, 0x94, 0x3f, 0xbc, 0x7e, 0x14, 0x00, 0xc5, 0x95, 0xdc, 0x41, 0x69, 0x84,
-	0x62, 0xd0, 0xaa, 0x8d, 0x34, 0x5b, 0x32, 0x7b, 0xd1, 0x4e, 0x50, 0xc3, 0x9d, 0x1d, 0x63, 0x22,
-	0xfb, 0x69, 0x7f, 0x85, 0x4a, 0x4d, 0xdf, 0x5f, 0x52, 0xe6, 0x4a, 0xd2, 0xcf, 0x02, 0x94, 0xe9,
-	0xa8, 0x16, 0x35, 0xf4, 0x59, 0xc8, 0xeb, 0x86, 0xee, 0x74, 0x46, 0xc4, 0x6d, 0x56, 0xf1, 0x25,
-	0xd4, 0x82, 0x35, 0xdd, 0x8b, 0x91, 0x1a, 0x1d, 0xd9, 0xe3, 0x8a, 0x12, 0xd7, 0x47, 0x57, 0x40,
-	0x64, 0x40, 0xb7, 0x44, 0xde, 0x54, 0x8c, 0xe1, 0xf2, 0x57, 0x39, 0x78, 0xb5, 0x67, 0x69, 0xb6,
-	0x1b, 0x34, 0xe1, 0xff, 0x80, 0xf9, 0xee, 0x2d, 0x22, 0xdb, 0x26, 0x9b, 0x52, 0x9e, 0x71, 0x32,
-	0xd7, 0x3e, 0x3a, 0x09, 0xae, 0xbd, 0x1d, 0x3d, 0x13, 0x6f, 0xa7, 0x08, 0x8d, 0x47, 0xb5, 0x63,
-	0x86, 0x6a, 0x77, 0xf9, 0x54, 0xbb, 0x9e, 0xc2, 0x39, 0x0b, 0xc6, 0x89, 0xf6, 0x10, 0xc4, 0xa8,
-	0x0a, 0xba, 0x0b, 0x55, 0x23, 0x90, 0xdd, 0xc5, 0xa0, 0x75, 0xaf, 0xa5, 0xd8, 0xaf, 0x4b, 0x1b,
-	0x2a, 0x11, 0x3f, 0xd2, 0x25, 0x58, 0x61, 0x14, 0x16, 0x75, 0xa3, 0xfc, 0xfb, 0x32, 0xb7, 0x09,
-	0x70, 0xbc, 0x09, 0x70, 0xea, 0x26, 0x48, 0x41, 0x8c, 0x8f, 0x4e, 0x82, 0x18, 0x9f, 0xa3, 0x09,
-	0xf8, 0xbc, 0xf8, 0xdb, 0x29, 0xf0, 0xe2, 0x0e, 0x97, 0x17, 0xd7, 0x53, 0x44, 0xcc, 0x82, 0x31,
-	0x52, 0xd4, 0xa3, 0x8d, 0x85, 0x2d, 0xf7, 0x82, 0x68, 0x50, 0xf2, 0x02, 0x4a, 0xe4, 0xee, 0xc6,
-	0xec, 0xc4, 0x7a, 0x91, 0xbe, 0x15, 0xa0, 0xc2, 0xec, 0xb3, 0xf8, 0x2b, 0x7f, 0xd5, 0xf2, 0x9a,
-	0x7c, 0x9e, 0xc6, 0xcc, 0x71, 0x69, 0x8c, 0x6a, 0xa3, 0x8b, 0x50, 0xa5, 0x20, 0x37, 0xa1, 0xde,
-	0x60, 0x8f, 0xa0, 0xf2, 0xd3, 0x65, 0x40, 0x2d, 0x5b, 0x1b, 0x3a, 0x9a, 0x1b, 0x17, 0x7e, 0xd6,
-	0x67, 0x81, 0xb8, 0xe9, 0x4b, 0xf2, 0x2c, 0xc0, 0x09, 0x8c, 0xc7, 0x5e, 0x07, 0x0c, 0x7b, 0xdd,
-	0xe5, 0xb3, 0x57, 0x33, 0xf9, 0x37, 0xcf, 0xa1, 0x05, 0x2f, 0x03, 0x3f, 0x08, 0xb0, 0x16, 0x53,
-	0x42, 0x7d, 0x6a, 0xee, 0x6a, 0xd3, 0xa0, 0xc9, 0xae, 0x26, 0x6e, 0x47, 0x6f, 0xc4, 0x78, 0x78,
-	0xf6, 0xa1, 0xfb, 0x94, 0x1e, 0xba, 0xda, 0x34, 0x72, 0x37, 0x13, 0x62, 0x77, 0xb3, 0xf3, 0xee,
-	0xd1, 0x1e, 0xeb, 0xa6, 0x41, 0xee, 0x8b, 0xde, 0x21, 0xa5, 0x10, 0x6a, 0x38, 0x67, 0x99, 0xe1,
-	0xec, 0xdd, 0x3a, 0x73, 0xdc, 0x5b, 0xe7, 0xf2, 0x31, 0xb7, 0xce, 0xfc, 0xe2, 0x5b, 0x67, 0x81,
-	0xbd, 0x75, 0x22, 0xc8, 0x59, 0xa6, 0xed, 0x90, 0xfb, 0x64, 0x56, 0x21, 0xff, 0xcb, 0xff, 0xf1,
-	0xba, 0x3b, 0xfd, 0x23, 0x4b, 0xdc, 0xf4, 0x25, 0x79, 0x64, 0xe1, 0x04, 0xc6, 0xa3, 0xe5, 0x5f,
-	0x4f, 0x81, 0x96, 0xef, 0x70, 0x69, 0xb9, 0x99, 0x9c, 0x48, 0xf6, 0x34, 0xc4, 0x58, 0x99, 0x73,
-	0x62, 0xb0, 0xc5, 0x9c, 0x98, 0x90, 0x96, 0xaf, 0x26, 0xee, 0x76, 0x82, 0x9f, 0xa9, 0x3f, 0xbd,
-	0xe0, 0x67, 0xea, 0x06, 0x88, 0x2a, 0x09, 0x30, 0xed, 0x57, 0x6a, 0x4c, 0x1d, 0x5d, 0x86, 0x55,
-	0x1a, 0x0b, 0xbf, 0x51, 0xa3, 0x70, 0xf3, 0xdf, 0x0c, 0x54, 0x3a, 0x54, 0x6e, 0xd0, 0x00, 0xca,
-	0xd3, 0xf0, 0x65, 0x03, 0x5d, 0x48, 0x7a, 0xf1, 0x94, 0x92, 0x34, 0xb0, 0xbc, 0xe4, 0x3a, 0x55,
-	0xc3, 0x9c, 0x47, 0x9d, 0xc6, 0x09, 0x4c, 0x4a, 0xd2, 0x70, 0x9d, 0xde, 0x83, 0xaa, 0xce, 0x5c,
-	0x39, 0xd0, 0xeb, 0x29, 0xee, 0xce, 0x52, 0x0a, 0x25, 0xd7, 0xfb, 0x2e, 0xac, 0x98, 0xf4, 0xf4,
-	0x46, 0x72, 0xf2, 0x27, 0xa3, 0x94, 0xac, 0x83, 0xe5, 0xa5, 0x1b, 0x1a, 0x5c, 0x54, 0xcd, 0x49,
-	0xfd, 0xe0, 0x40, 0xc5, 0xf5, 0x87, 0x13, 0x7b, 0xa4, 0xfa, 0x56, 0xf5, 0x7d, 0xfd, 0x4b, 0xc6,
-	0xc1, 0x8d, 0x35, 0x5a, 0xea, 0xdb, 0xa6, 0x63, 0xf6, 0x85, 0xbd, 0x8b, 0x63, 0xdd, 0xa9, 0x1f,
-	0x98, 0x63, 0x75, 0x64, 0xd4, 0x1d, 0xd3, 0x6a, 0x0c, 0x1f, 0x6a, 0x0d, 0xf2, 0x84, 0x8f, 0x1b,
-	0x63, 0xd3, 0x9c, 0x39, 0xfe, 0xcb, 0xfe, 0x7e, 0x9e, 0x80, 0xeb, 0xff, 0x07, 0x00, 0x00, 0xff,
-	0xff, 0x1f, 0x8f, 0x0e, 0x49, 0x1a, 0x18, 0x00, 0x00,
+	// 1851 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x5a, 0xcd, 0x6f, 0x1b, 0xd7,
+	0x11, 0x27, 0x45, 0x8a, 0x14, 0x87, 0x14, 0xb5, 0x7a, 0xae, 0x5d, 0x76, 0x61, 0x18, 0xf2, 0xba,
+	0xfe, 0xa8, 0xad, 0x92, 0x36, 0x05, 0xb7, 0x05, 0x7a, 0x68, 0x65, 0x8a, 0xb2, 0xd9, 0xaa, 0x14,
+	0xbd, 0x92, 0x2c, 0xcb, 0x1f, 0x30, 0xa8, 0xe5, 0x13, 0xcb, 0x5a, 0xe4, 0x2e, 0xf7, 0xad, 0x6c,
+	0xab, 0xc7, 0xde, 0x6a, 0xbb, 0xee, 0x21, 0x41, 0x0e, 0x39, 0xe4, 0x1a, 0x20, 0x40, 0x82, 0x9c,
+	0x8c, 0x24, 0x48, 0x90, 0x53, 0x6e, 0x39, 0x26, 0x27, 0x1f, 0x72, 0xcd, 0x3f, 0x10, 0x20, 0xa7,
+	0x20, 0xd8, 0xb7, 0x1f, 0xdc, 0xb7, 0xfb, 0x56, 0xbb, 0x72, 0x08, 0xc1, 0x27, 0x69, 0xe6, 0xcd,
+	0xcc, 0x9b, 0x9d, 0x99, 0xf7, 0x9b, 0x7d, 0xb3, 0x84, 0xdf, 0xf4, 0x74, 0x75, 0xd0, 0x53, 0x2a,
+	0xd6, 0x9f, 0x35, 0xac, 0x3f, 0xc2, 0x7a, 0x59, 0xd3, 0x55, 0x43, 0x45, 0x05, 0x2f, 0x4f, 0x3c,
+	0xc1, 0x08, 0xd6, 0xd4, 0xbe, 0x25, 0x25, 0xfd, 0x2f, 0x05, 0xe8, 0xa6, 0xbe, 0xdf, 0x54, 0x3b,
+	0xb8, 0x31, 0xd8, 0x51, 0x65, 0x55, 0x35, 0x64, 0x3c, 0x44, 0x77, 0x60, 0x46, 0x51, 0x07, 0x86,
+	0xde, 0x56, 0x0c, 0x9b, 0x55, 0x4a, 0xce, 0x25, 0x2f, 0xe4, 0xab, 0x97, 0xcb, 0xcc, 0x56, 0x41,
+	0xd5, 0x72, 0x8d, 0xd5, 0x93, 0xfd, 0x86, 0xc4, 0xff, 0x26, 0x61, 0xc6, 0x27, 0x84, 0x2a, 0x90,
+	0x35, 0x14, 0xcd, 0xe4, 0xda, 0xfb, 0x1c, 0x2f, 0x8f, 0x3c, 0x5d, 0xb7, 0x56, 0x4c, 0x63, 0x8e,
+	0x14, 0xaa, 0x43, 0x96, 0x3c, 0x52, 0xa8, 0xc2, 0x04, 0x55, 0xb8, 0x14, 0xe9, 0xd8, 0x9a, 0x25,
+	0x4f, 0xcd, 0xd8, 0xba, 0xa2, 0x02, 0x30, 0x62, 0xa3, 0x0d, 0x98, 0xd6, 0xf1, 0x70, 0x0f, 0x13,
+	0x63, 0x75, 0xfb, 0x5f, 0x58, 0x71, 0x7c, 0xa9, 0x44, 0x9a, 0xf6, 0xb2, 0xf0, 0x50, 0x66, 0xad,
+	0x88, 0x17, 0xa1, 0xc8, 0x0a, 0xa0, 0x12, 0x64, 0x07, 0x26, 0xd9, 0x21, 0xa5, 0xe4, 0x5c, 0xea,
+	0x42, 0x4e, 0x76, 0x48, 0xe9, 0x87, 0xa9, 0x60, 0x3e, 0x88, 0x16, 0xc8, 0x07, 0xd1, 0xe2, 0xe5,
+	0x83, 0x68, 0x6c, 0x3e, 0x88, 0x26, 0xfb, 0x0d, 0x05, 0xf3, 0x41, 0xb4, 0x78, 0xf9, 0x20, 0xda,
+	0xeb, 0xe7, 0x83, 0x68, 0x6e, 0x3e, 0x4c, 0x33, 0x4e, 0x3e, 0x5e, 0x26, 0x47, 0x09, 0x21, 0x1a,
+	0xba, 0x0a, 0xa0, 0x63, 0xb2, 0xb7, 0x6b, 0xd4, 0xd4, 0x0e, 0xa6, 0x9e, 0x14, 0x19, 0x4f, 0x64,
+	0x77, 0x51, 0xf6, 0x08, 0xa2, 0x93, 0x90, 0xb3, 0xa8, 0x7f, 0x90, 0x2e, 0x75, 0x27, 0x27, 0x8f,
+	0x18, 0x68, 0x0d, 0x0a, 0x16, 0x61, 0x27, 0x39, 0x15, 0x27, 0xc9, 0x44, 0x63, 0x58, 0x44, 0x93,
+	0x19, 0x23, 0xe2, 0x16, 0x9b, 0x63, 0xa2, 0xa1, 0xeb, 0x90, 0x1b, 0xd8, 0xa4, 0x95, 0xe5, 0x7c,
+	0xf5, 0x77, 0x91, 0x7b, 0xb8, 0xf4, 0x48, 0x57, 0x7c, 0x99, 0x82, 0x29, 0x87, 0x8f, 0x4e, 0x40,
+	0xc6, 0x2a, 0x15, 0x1a, 0x8d, 0x9c, 0x6c, 0x53, 0xe8, 0x2f, 0x90, 0x21, 0x46, 0xdb, 0xd8, 0x23,
+	0xf4, 0x79, 0x8b, 0xd5, 0xf3, 0xd1, 0xe1, 0xa7, 0xe2, 0xb2, 0xad, 0x86, 0x8a, 0x30, 0xd1, 0xd3,
+	0x68, 0x2c, 0x72, 0xf2, 0x44, 0x4f, 0x43, 0x22, 0x4c, 0xed, 0x11, 0xac, 0x37, 0xdb, 0x7d, 0x5c,
+	0x4a, 0x53, 0xae, 0x4b, 0x9b, 0x6b, 0x5a, 0x9b, 0x90, 0xc7, 0xaa, 0xde, 0x29, 0x4d, 0x5a, 0x6b,
+	0x0e, 0x6d, 0x96, 0x76, 0xbf, 0xad, 0x2c, 0x76, 0x3a, 0x7a, 0x29, 0x43, 0x97, 0x1c, 0x12, 0x9d,
+	0x02, 0xe8, 0xf5, 0xdb, 0x5d, 0xac, 0xd3, 0xc5, 0x2c, 0x5d, 0xf4, 0x70, 0xcc, 0x75, 0x42, 0xbd,
+	0xa5, 0xeb, 0x53, 0xd6, 0xfa, 0x88, 0x83, 0xfe, 0x0c, 0xd3, 0x43, 0x7d, 0x7f, 0x94, 0xf2, 0x52,
+	0xee, 0xa0, 0x7a, 0x60, 0x65, 0x91, 0x04, 0x05, 0x97, 0x61, 0x56, 0x05, 0x50, 0xf3, 0x0c, 0x0f,
+	0x35, 0x21, 0xaf, 0xa9, 0x8f, 0xb1, 0x6e, 0x45, 0xa6, 0x94, 0xa7, 0xe6, 0xe7, 0x23, 0x03, 0xd9,
+	0x1a, 0xe9, 0xc8, 0x5e, 0x03, 0xd2, 0x32, 0xe4, 0x3d, 0x6b, 0x68, 0x06, 0xf2, 0x1b, 0xcd, 0xa5,
+	0xfa, 0x72, 0xa3, 0x59, 0x5f, 0x7a, 0x70, 0x45, 0x48, 0xa0, 0x3c, 0x64, 0x5b, 0xab, 0x9b, 0x75,
+	0x79, 0xb5, 0x29, 0x24, 0x51, 0x01, 0xa6, 0x2c, 0x62, 0x79, 0x59, 0x98, 0x30, 0x97, 0x36, 0x9a,
+	0x7f, 0x6f, 0xae, 0x6e, 0x36, 0x85, 0x94, 0xb4, 0x0d, 0x19, 0x9e, 0x89, 0xaa, 0x90, 0x40, 0x39,
+	0x48, 0x37, 0x37, 0x56, 0x56, 0x84, 0x1f, 0x01, 0x15, 0x20, 0x5b, 0x93, 0xeb, 0x8b, 0xeb, 0xf5,
+	0x25, 0xe1, 0x6d, 0x40, 0x45, 0xc8, 0x2d, 0xd5, 0x5b, 0x2b, 0xab, 0x5b, 0x8d, 0xe6, 0x75, 0xe1,
+	0xe3, 0x1c, 0x9a, 0x85, 0x82, 0x45, 0x2f, 0x2f, 0x36, 0x56, 0xea, 0x4b, 0xc2, 0xd7, 0x53, 0x28,
+	0x0f, 0x99, 0xc5, 0xda, 0x7a, 0xe3, 0x56, 0x5d, 0xf8, 0x3e, 0x2b, 0x7d, 0x9b, 0x86, 0xe3, 0x8d,
+	0x01, 0x31, 0xda, 0xbb, 0xbb, 0xe6, 0xf3, 0xad, 0xed, 0x13, 0x07, 0x9a, 0xef, 0x87, 0xb5, 0x82,
+	0x05, 0x36, 0x32, 0x5c, 0xed, 0xe8, 0x6e, 0xf0, 0x7c, 0x1c, 0xdd, 0xe0, 0x86, 0x1f, 0x7d, 0xca,
+	0x71, 0x7c, 0xe3, 0x35, 0x84, 0x1e, 0xd3, 0x10, 0xee, 0xf2, 0x1b, 0xc2, 0xd5, 0x38, 0xd6, 0x7d,
+	0xdc, 0x60, 0x5b, 0x30, 0x60, 0x36, 0x20, 0x83, 0x1e, 0x80, 0x60, 0x9d, 0x7c, 0xba, 0xe0, 0x05,
+	0x8f, 0x58, 0xe1, 0x6e, 0xb2, 0xba, 0x72, 0xc0, 0x98, 0xd8, 0x87, 0x19, 0x9f, 0x50, 0x28, 0xa6,
+	0x9c, 0x84, 0x1c, 0x3d, 0x9e, 0xf4, 0x3c, 0xda, 0x30, 0xea, 0x32, 0xd0, 0x6f, 0x61, 0x9a, 0x12,
+	0xb5, 0x7f, 0x62, 0xe5, 0xe1, 0xda, 0x5e, 0xdf, 0xc6, 0x0e, 0x96, 0x29, 0xbd, 0x95, 0xe1, 0xd6,
+	0x15, 0xd1, 0x02, 0x75, 0xe5, 0xb6, 0xb4, 0xe8, 0x07, 0x8d, 0xd3, 0xd5, 0x9e, 0x8f, 0xa3, 0xab,
+	0xbd, 0x46, 0x5d, 0x85, 0x34, 0xb6, 0x2f, 0x8e, 0xa0, 0xb1, 0xdd, 0xe1, 0x36, 0xb6, 0x3f, 0xc4,
+	0x71, 0xd9, 0xc3, 0xe5, 0xf7, 0xb7, 0x77, 0x93, 0x80, 0x82, 0x42, 0x66, 0x2f, 0x1d, 0x8c, 0x48,
+	0xa7, 0x54, 0x2b, 0x71, 0xb6, 0x64, 0xf6, 0xf2, 0x1a, 0x41, 0x15, 0xb3, 0xbd, 0x74, 0x29, 0x6d,
+	0x87, 0xfd, 0x98, 0x27, 0x34, 0x2d, 0x7b, 0x49, 0x76, 0x85, 0xc4, 0x8f, 0x92, 0x90, 0xf7, 0x7a,
+	0x15, 0x56, 0xd0, 0x27, 0x20, 0xd3, 0x1b, 0xf4, 0x8c, 0x46, 0x87, 0x9a, 0x4d, 0xc9, 0x36, 0x85,
+	0x6a, 0x30, 0xdb, 0xb3, 0x7c, 0xf4, 0x74, 0x97, 0xd4, 0x41, 0x49, 0x09, 0xca, 0xa3, 0x8b, 0x20,
+	0x30, 0x4c, 0x33, 0x45, 0x56, 0xe3, 0x0c, 0xf0, 0xa5, 0xff, 0xa4, 0xe1, 0x57, 0xab, 0x1a, 0xd6,
+	0x4d, 0xa7, 0x69, 0x8b, 0x70, 0x90, 0xef, 0x5e, 0x18, 0xd8, 0x56, 0xd9, 0x90, 0xf2, 0x94, 0xa3,
+	0xb1, 0xf6, 0xd9, 0x38, 0xb0, 0xf6, 0xba, 0xff, 0x4c, 0xfc, 0x3e, 0x86, 0x6b, 0x3c, 0xa8, 0xed,
+	0x32, 0x50, 0xbb, 0xc5, 0x87, 0xda, 0x85, 0x18, 0xc6, 0x59, 0x66, 0x10, 0x68, 0x77, 0x41, 0xf0,
+	0x8b, 0xa0, 0xdb, 0x50, 0x1c, 0x38, 0xb4, 0xb9, 0xe8, 0x94, 0xee, 0xe5, 0x18, 0xfb, 0x35, 0xbd,
+	0x8a, 0xb2, 0xcf, 0x8e, 0x78, 0x1e, 0xa6, 0x19, 0x81, 0xb0, 0x6a, 0x94, 0x3e, 0x9f, 0xe4, 0x15,
+	0x01, 0xd1, 0x02, 0x45, 0xe0, 0x22, 0x63, 0x64, 0x11, 0xc4, 0x01, 0xc6, 0x67, 0xe3, 0x00, 0xc6,
+	0xc3, 0x17, 0x41, 0x08, 0x2e, 0x7e, 0x76, 0x04, 0xb8, 0xb8, 0xc9, 0xc5, 0xc5, 0x85, 0x18, 0x1e,
+	0xb3, 0xcc, 0x00, 0x28, 0xf6, 0xfc, 0x85, 0x45, 0x34, 0xf3, 0x0e, 0x39, 0xf0, 0xd0, 0x21, 0x90,
+	0xc8, 0xdd, 0x8d, 0xd9, 0x89, 0xb5, 0x22, 0xfe, 0x3f, 0x09, 0x05, 0x66, 0x9f, 0xf0, 0x8b, 0xc0,
+	0x8c, 0x66, 0x15, 0xb9, 0x1b, 0xc6, 0x89, 0x83, 0xc2, 0xe8, 0x97, 0x46, 0xe7, 0xa0, 0xe8, 0x61,
+	0x99, 0x01, 0xb5, 0x1a, 0xbb, 0x8f, 0x2b, 0xbd, 0x9a, 0x04, 0x54, 0xd3, 0x71, 0xdb, 0xc0, 0xa6,
+	0x5f, 0xe4, 0xb0, 0x93, 0x83, 0xa0, 0xea, 0x1b, 0x32, 0x39, 0xe0, 0x38, 0xc6, 0x43, 0xaf, 0x1d,
+	0x06, 0xbd, 0x6e, 0xf3, 0xd1, 0xab, 0x1a, 0xfd, 0xcc, 0x2e, 0x2b, 0x64, 0x78, 0xf0, 0x4e, 0x12,
+	0x66, 0x03, 0x42, 0xa8, 0xe5, 0xe9, 0xbb, 0x78, 0xe8, 0x14, 0xd9, 0x7c, 0xe4, 0x76, 0xde, 0x8d,
+	0x18, 0x0b, 0x87, 0x6f, 0xba, 0xaf, 0xbc, 0x4d, 0x17, 0x0f, 0x7d, 0xd7, 0xb7, 0x64, 0xe0, 0xfa,
+	0x76, 0xca, 0x3c, 0xda, 0xdd, 0x9e, 0x3a, 0xa0, 0x57, 0x4a, 0xeb, 0x90, 0x7a, 0x38, 0x9e, 0xe6,
+	0x9c, 0x62, 0x9a, 0xb3, 0x75, 0x31, 0x4d, 0x73, 0x2f, 0xa6, 0x93, 0x07, 0x5c, 0x4c, 0x33, 0xe1,
+	0x17, 0xd3, 0x2c, 0x7b, 0x31, 0x45, 0x90, 0xd6, 0x54, 0xdd, 0xa0, 0x57, 0xce, 0x94, 0x4c, 0xff,
+	0x97, 0x7e, 0xe2, 0x54, 0xf7, 0x21, 0xe6, 0x30, 0x41, 0xd5, 0x37, 0x64, 0x0e, 0xc3, 0x71, 0x8c,
+	0x07, 0xcb, 0x9f, 0x1e, 0x01, 0x2c, 0xdf, 0xe2, 0xc2, 0x72, 0x35, 0x3a, 0x90, 0xec, 0x69, 0x08,
+	0xa0, 0x32, 0xe7, 0xc4, 0x10, 0x8d, 0x39, 0x31, 0x23, 0x58, 0x9e, 0x8f, 0xdc, 0x6d, 0x8c, 0xaf,
+	0xa9, 0x1f, 0xfc, 0xc2, 0xd7, 0xd4, 0x45, 0x10, 0x14, 0xea, 0x60, 0xdc, 0xb7, 0xd4, 0x80, 0x38,
+	0xba, 0x00, 0x33, 0x5e, 0xde, 0xe8, 0x1d, 0xd5, 0xcf, 0x96, 0xbe, 0x4b, 0xc3, 0xaf, 0x65, 0xcc,
+	0x1f, 0x09, 0x3c, 0x08, 0xc3, 0x78, 0xdf, 0xc5, 0x38, 0x44, 0x3f, 0x1a, 0xe8, 0x5f, 0x8c, 0x03,
+	0xe8, 0xff, 0xe6, 0x3f, 0x0a, 0x97, 0xe3, 0x79, 0xc7, 0x43, 0xfb, 0x87, 0x0c, 0xda, 0xdf, 0xe7,
+	0xa3, 0xfd, 0x1f, 0xe3, 0xd9, 0x8f, 0x1c, 0x0c, 0x3c, 0xe2, 0x0d, 0x06, 0xda, 0xa1, 0x83, 0x81,
+	0x98, 0x41, 0x7f, 0xe3, 0x46, 0x03, 0x5f, 0x65, 0x42, 0x2a, 0x8c, 0x68, 0x81, 0x0a, 0x73, 0x71,
+	0x36, 0xce, 0xc3, 0xc6, 0x01, 0xdb, 0x17, 0xe3, 0x00, 0xdb, 0xd7, 0xaa, 0xb0, 0x10, 0xc4, 0xfd,
+	0xf2, 0x08, 0x10, 0xf7, 0x1e, 0x17, 0x71, 0xff, 0x14, 0xcf, 0xe9, 0xc8, 0x11, 0xc1, 0x7b, 0xfc,
+	0x11, 0xc1, 0x26, 0x17, 0x78, 0x17, 0xe2, 0x6d, 0x2a, 0xe3, 0x31, 0xe2, 0xef, 0x37, 0x49, 0x98,
+	0x66, 0x0c, 0x9a, 0xe1, 0x52, 0x77, 0x3b, 0x4d, 0x6f, 0x85, 0x8f, 0x18, 0xe6, 0xea, 0x00, 0x3f,
+	0xb6, 0x57, 0xed, 0x60, 0xba, 0x8c, 0xd0, 0xf7, 0x15, 0xee, 0x30, 0x21, 0x3d, 0x86, 0x61, 0xc2,
+	0x64, 0xc8, 0x30, 0xe1, 0x59, 0x0a, 0x8e, 0xdd, 0xd4, 0xf7, 0x6f, 0xe0, 0xb6, 0x6e, 0x6c, 0xe3,
+	0xb6, 0x0b, 0x98, 0x77, 0xc3, 0x50, 0xfa, 0x4a, 0x60, 0xa4, 0xed, 0xd7, 0x8d, 0x46, 0xe8, 0xa7,
+	0xe3, 0x40, 0xe8, 0x65, 0xff, 0xf9, 0x99, 0x8f, 0xf6, 0x8c, 0x87, 0xce, 0x98, 0x41, 0xe7, 0x4d,
+	0x3e, 0x3a, 0xc7, 0x78, 0x6a, 0x86, 0x17, 0xc4, 0xe5, 0x33, 0x30, 0xe3, 0x93, 0x40, 0x02, 0xa4,
+	0x74, 0x3b, 0xae, 0x39, 0xd9, 0xfc, 0x57, 0x7a, 0x3f, 0xc3, 0xc9, 0x06, 0xd1, 0x02, 0xd9, 0x70,
+	0x11, 0x2d, 0xca, 0xaf, 0x38, 0x68, 0xf6, 0x74, 0x1c, 0x68, 0x76, 0xe8, 0x6c, 0x84, 0x20, 0xd9,
+	0x27, 0x47, 0x80, 0x64, 0x1b, 0x5c, 0x24, 0x8b, 0x11, 0x4a, 0x86, 0x17, 0x80, 0x30, 0xcd, 0x97,
+	0x61, 0x3a, 0xa6, 0x16, 0x94, 0xdd, 0x3d, 0x62, 0x60, 0x9d, 0x22, 0xd4, 0x40, 0xc1, 0x0e, 0x84,
+	0xc5, 0x49, 0x1c, 0xab, 0x29, 0x07, 0x4c, 0x89, 0x2f, 0xcd, 0xcc, 0xb1, 0x4c, 0xda, 0x5c, 0x35,
+	0xb3, 0x91, 0x62, 0x42, 0x1c, 0x54, 0x72, 0x19, 0x68, 0x0e, 0xf2, 0xb6, 0x15, 0xcf, 0x45, 0xca,
+	0xcb, 0x42, 0x0d, 0xc8, 0xb5, 0x35, 0xcd, 0xfe, 0x8a, 0x65, 0xbd, 0x20, 0x5e, 0x8a, 0xf6, 0x75,
+	0xd1, 0x51, 0x91, 0x47, 0xda, 0xf4, 0xd2, 0x84, 0x09, 0x69, 0x77, 0x9d, 0x8f, 0x80, 0x0e, 0x29,
+	0xfd, 0x15, 0x72, 0xae, 0x06, 0x9a, 0x86, 0x9c, 0xfb, 0x5d, 0xca, 0xfa, 0xb0, 0xb5, 0xb6, 0xbe,
+	0xda, 0x6a, 0xd5, 0x97, 0x84, 0x24, 0x02, 0xf7, 0x33, 0x13, 0xfb, 0x59, 0xab, 0xfa, 0x61, 0x1a,
+	0x0a, 0x0d, 0x8f, 0x57, 0x68, 0x0d, 0xf2, 0xc3, 0xd1, 0xe7, 0x35, 0x34, 0x17, 0xf5, 0xd9, 0x5d,
+	0x9c, 0x8b, 0xfa, 0x36, 0x27, 0x25, 0x4c, 0xa3, 0xca, 0xe8, 0xad, 0xde, 0x6f, 0x34, 0x78, 0x45,
+	0x16, 0xe7, 0xa2, 0xae, 0x04, 0x52, 0x02, 0xdd, 0x83, 0x62, 0x8f, 0xe9, 0x57, 0xe8, 0x4c, 0x8c,
+	0xaf, 0x33, 0xe2, 0x99, 0x18, 0x73, 0x71, 0x29, 0x81, 0xb6, 0x41, 0xd0, 0x7d, 0xfd, 0x10, 0x9d,
+	0x8d, 0xf5, 0x92, 0x27, 0x9e, 0x8d, 0xd5, 0x56, 0xa5, 0x04, 0xda, 0x82, 0x69, 0xd5, 0x3b, 0x83,
+	0x42, 0x52, 0xf4, 0xe0, 0x53, 0x94, 0xa2, 0x87, 0x58, 0x52, 0xc2, 0xbc, 0xd7, 0x0d, 0x3d, 0xf5,
+	0x85, 0x4e, 0x47, 0x02, 0xaf, 0x78, 0x3a, 0xb2, 0x3c, 0xa5, 0xc4, 0x35, 0x0c, 0xe7, 0x14, 0xb5,
+	0x5f, 0xde, 0xd9, 0x51, 0x48, 0xf9, 0x49, 0x5f, 0xef, 0x28, 0xb6, 0x52, 0x79, 0xbb, 0xf7, 0x6f,
+	0x46, 0xff, 0xda, 0xac, 0x97, 0x6a, 0xe9, 0xaa, 0xa1, 0xb6, 0x92, 0x77, 0xce, 0x75, 0x7b, 0x46,
+	0x79, 0x47, 0xed, 0x2a, 0x9d, 0x41, 0xd9, 0x50, 0xb5, 0x4a, 0xfb, 0x09, 0xae, 0xd0, 0xdf, 0xc0,
+	0x90, 0x4a, 0x57, 0x55, 0xf7, 0x0c, 0xfb, 0xa7, 0x31, 0xdb, 0x19, 0xca, 0x5c, 0xf8, 0x39, 0x00,
+	0x00, 0xff, 0xff, 0x06, 0x36, 0x55, 0x37, 0x5b, 0x23, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -2220,13 +3246,17 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type IronicServerClient interface {
 	// 裸金属节点状态查询
-	QryNodeInfo(ctx context.Context, in *QryNodeInfoRootReq, opts ...grpc.CallOption) (*QryNodeInfoRootRes, error)
+	QryNodeInfo(ctx context.Context, in *QryNodeInfoRootReq, opts ...grpc.CallOption) (*QryNodeInfoRootRsp, error)
 	// 创建裸金属节点
-	CreateNodes(ctx context.Context, in *CreateNodesRootReq, opts ...grpc.CallOption) (*CreateNodesRootRes, error)
+	CreateNodes(ctx context.Context, in *CreateNodesRootReq, opts ...grpc.CallOption) (*CreateNodesRootRsp, error)
 	// 安装裸金属系统
-	InstallNodeSys(ctx context.Context, in *InstallNodeSysRootReq, opts ...grpc.CallOption) (*InstallNodeSysRootRes, error)
+	InstallNodeSys(ctx context.Context, in *InstallNodeSysRootReq, opts ...grpc.CallOption) (*InstallNodeSysRootRsp, error)
+	// 重装裸金属系统
+	ReInstallNodeSys(ctx context.Context, in *ReInstallNodeSysRootReq, opts ...grpc.CallOption) (*ReInstallNodeSysRootRsp, error)
 	// 操作裸金属实例电源
-	OperNodePower(ctx context.Context, in *OperNodePowerRootReq, opts ...grpc.CallOption) (*OperNodePowerRootRes, error)
+	OperNodePower(ctx context.Context, in *OperNodePowerRootReq, opts ...grpc.CallOption) (*OperNodePowerRootRsp, error)
+	// 健康监测
+	QryHeartbeat(ctx context.Context, in *QryHeartbeatRootReq, opts ...grpc.CallOption) (*QryHeartbeatRootRsp, error)
 }
 
 type ironicServerClient struct {
@@ -2237,8 +3267,8 @@ func NewIronicServerClient(cc *grpc.ClientConn) IronicServerClient {
 	return &ironicServerClient{cc}
 }
 
-func (c *ironicServerClient) QryNodeInfo(ctx context.Context, in *QryNodeInfoRootReq, opts ...grpc.CallOption) (*QryNodeInfoRootRes, error) {
-	out := new(QryNodeInfoRootRes)
+func (c *ironicServerClient) QryNodeInfo(ctx context.Context, in *QryNodeInfoRootReq, opts ...grpc.CallOption) (*QryNodeInfoRootRsp, error) {
+	out := new(QryNodeInfoRootRsp)
 	err := c.cc.Invoke(ctx, "/ironicServer.IronicServer/qryNodeInfo", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -2246,8 +3276,8 @@ func (c *ironicServerClient) QryNodeInfo(ctx context.Context, in *QryNodeInfoRoo
 	return out, nil
 }
 
-func (c *ironicServerClient) CreateNodes(ctx context.Context, in *CreateNodesRootReq, opts ...grpc.CallOption) (*CreateNodesRootRes, error) {
-	out := new(CreateNodesRootRes)
+func (c *ironicServerClient) CreateNodes(ctx context.Context, in *CreateNodesRootReq, opts ...grpc.CallOption) (*CreateNodesRootRsp, error) {
+	out := new(CreateNodesRootRsp)
 	err := c.cc.Invoke(ctx, "/ironicServer.IronicServer/createNodes", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -2255,8 +3285,8 @@ func (c *ironicServerClient) CreateNodes(ctx context.Context, in *CreateNodesRoo
 	return out, nil
 }
 
-func (c *ironicServerClient) InstallNodeSys(ctx context.Context, in *InstallNodeSysRootReq, opts ...grpc.CallOption) (*InstallNodeSysRootRes, error) {
-	out := new(InstallNodeSysRootRes)
+func (c *ironicServerClient) InstallNodeSys(ctx context.Context, in *InstallNodeSysRootReq, opts ...grpc.CallOption) (*InstallNodeSysRootRsp, error) {
+	out := new(InstallNodeSysRootRsp)
 	err := c.cc.Invoke(ctx, "/ironicServer.IronicServer/installNodeSys", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -2264,9 +3294,27 @@ func (c *ironicServerClient) InstallNodeSys(ctx context.Context, in *InstallNode
 	return out, nil
 }
 
-func (c *ironicServerClient) OperNodePower(ctx context.Context, in *OperNodePowerRootReq, opts ...grpc.CallOption) (*OperNodePowerRootRes, error) {
-	out := new(OperNodePowerRootRes)
+func (c *ironicServerClient) ReInstallNodeSys(ctx context.Context, in *ReInstallNodeSysRootReq, opts ...grpc.CallOption) (*ReInstallNodeSysRootRsp, error) {
+	out := new(ReInstallNodeSysRootRsp)
+	err := c.cc.Invoke(ctx, "/ironicServer.IronicServer/reInstallNodeSys", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ironicServerClient) OperNodePower(ctx context.Context, in *OperNodePowerRootReq, opts ...grpc.CallOption) (*OperNodePowerRootRsp, error) {
+	out := new(OperNodePowerRootRsp)
 	err := c.cc.Invoke(ctx, "/ironicServer.IronicServer/operNodePower", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ironicServerClient) QryHeartbeat(ctx context.Context, in *QryHeartbeatRootReq, opts ...grpc.CallOption) (*QryHeartbeatRootRsp, error) {
+	out := new(QryHeartbeatRootRsp)
+	err := c.cc.Invoke(ctx, "/ironicServer.IronicServer/qryHeartbeat", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2276,30 +3324,40 @@ func (c *ironicServerClient) OperNodePower(ctx context.Context, in *OperNodePowe
 // IronicServerServer is the server API for IronicServer service.
 type IronicServerServer interface {
 	// 裸金属节点状态查询
-	QryNodeInfo(context.Context, *QryNodeInfoRootReq) (*QryNodeInfoRootRes, error)
+	QryNodeInfo(context.Context, *QryNodeInfoRootReq) (*QryNodeInfoRootRsp, error)
 	// 创建裸金属节点
-	CreateNodes(context.Context, *CreateNodesRootReq) (*CreateNodesRootRes, error)
+	CreateNodes(context.Context, *CreateNodesRootReq) (*CreateNodesRootRsp, error)
 	// 安装裸金属系统
-	InstallNodeSys(context.Context, *InstallNodeSysRootReq) (*InstallNodeSysRootRes, error)
+	InstallNodeSys(context.Context, *InstallNodeSysRootReq) (*InstallNodeSysRootRsp, error)
+	// 重装裸金属系统
+	ReInstallNodeSys(context.Context, *ReInstallNodeSysRootReq) (*ReInstallNodeSysRootRsp, error)
 	// 操作裸金属实例电源
-	OperNodePower(context.Context, *OperNodePowerRootReq) (*OperNodePowerRootRes, error)
+	OperNodePower(context.Context, *OperNodePowerRootReq) (*OperNodePowerRootRsp, error)
+	// 健康监测
+	QryHeartbeat(context.Context, *QryHeartbeatRootReq) (*QryHeartbeatRootRsp, error)
 }
 
 // UnimplementedIronicServerServer can be embedded to have forward compatible implementations.
 type UnimplementedIronicServerServer struct {
 }
 
-func (*UnimplementedIronicServerServer) QryNodeInfo(ctx context.Context, req *QryNodeInfoRootReq) (*QryNodeInfoRootRes, error) {
+func (*UnimplementedIronicServerServer) QryNodeInfo(ctx context.Context, req *QryNodeInfoRootReq) (*QryNodeInfoRootRsp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method QryNodeInfo not implemented")
 }
-func (*UnimplementedIronicServerServer) CreateNodes(ctx context.Context, req *CreateNodesRootReq) (*CreateNodesRootRes, error) {
+func (*UnimplementedIronicServerServer) CreateNodes(ctx context.Context, req *CreateNodesRootReq) (*CreateNodesRootRsp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateNodes not implemented")
 }
-func (*UnimplementedIronicServerServer) InstallNodeSys(ctx context.Context, req *InstallNodeSysRootReq) (*InstallNodeSysRootRes, error) {
+func (*UnimplementedIronicServerServer) InstallNodeSys(ctx context.Context, req *InstallNodeSysRootReq) (*InstallNodeSysRootRsp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method InstallNodeSys not implemented")
 }
-func (*UnimplementedIronicServerServer) OperNodePower(ctx context.Context, req *OperNodePowerRootReq) (*OperNodePowerRootRes, error) {
+func (*UnimplementedIronicServerServer) ReInstallNodeSys(ctx context.Context, req *ReInstallNodeSysRootReq) (*ReInstallNodeSysRootRsp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReInstallNodeSys not implemented")
+}
+func (*UnimplementedIronicServerServer) OperNodePower(ctx context.Context, req *OperNodePowerRootReq) (*OperNodePowerRootRsp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method OperNodePower not implemented")
+}
+func (*UnimplementedIronicServerServer) QryHeartbeat(ctx context.Context, req *QryHeartbeatRootReq) (*QryHeartbeatRootRsp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method QryHeartbeat not implemented")
 }
 
 func RegisterIronicServerServer(s *grpc.Server, srv IronicServerServer) {
@@ -2360,6 +3418,24 @@ func _IronicServer_InstallNodeSys_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _IronicServer_ReInstallNodeSys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReInstallNodeSysRootReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IronicServerServer).ReInstallNodeSys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ironicServer.IronicServer/ReInstallNodeSys",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IronicServerServer).ReInstallNodeSys(ctx, req.(*ReInstallNodeSysRootReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _IronicServer_OperNodePower_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(OperNodePowerRootReq)
 	if err := dec(in); err != nil {
@@ -2374,6 +3450,24 @@ func _IronicServer_OperNodePower_Handler(srv interface{}, ctx context.Context, d
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(IronicServerServer).OperNodePower(ctx, req.(*OperNodePowerRootReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IronicServer_QryHeartbeat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QryHeartbeatRootReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IronicServerServer).QryHeartbeat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ironicServer.IronicServer/QryHeartbeat",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IronicServerServer).QryHeartbeat(ctx, req.(*QryHeartbeatRootReq))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2395,8 +3489,16 @@ var _IronicServer_serviceDesc = grpc.ServiceDesc{
 			Handler:    _IronicServer_InstallNodeSys_Handler,
 		},
 		{
+			MethodName: "reInstallNodeSys",
+			Handler:    _IronicServer_ReInstallNodeSys_Handler,
+		},
+		{
 			MethodName: "operNodePower",
 			Handler:    _IronicServer_OperNodePower_Handler,
+		},
+		{
+			MethodName: "qryHeartbeat",
+			Handler:    _IronicServer_QryHeartbeat_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

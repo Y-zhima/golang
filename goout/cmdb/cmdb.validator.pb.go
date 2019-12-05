@@ -75,7 +75,17 @@ func (this *InstanceTopologyResponse) Validate() error {
 	}
 	return nil
 }
+func (this *HostCloudInfo) Validate() error {
+	return nil
+}
 func (this *HostObject) Validate() error {
+	for _, item := range this.BkCloudId {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("BkCloudId", err)
+			}
+		}
+	}
 	return nil
 }
 func (this *ModuleObject) Validate() error {
@@ -616,6 +626,17 @@ func (this *UpdateHostStateRequest) Validate() error {
 	return nil
 }
 func (this *UpdateHostStateResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}
+func (this *UpdateVipStateRequest) Validate() error {
+	return nil
+}
+func (this *UpdateVipStateResponse) Validate() error {
 	if this.Status != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)

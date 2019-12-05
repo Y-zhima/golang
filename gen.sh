@@ -30,7 +30,7 @@ gen_swagger() {
       "http",
       "https"
     ],
-    "host": "192.168.0.129:9001",
+    "host": "axe-develop.fogcdn.top:8969",
     "swagger": "2.0",
     "info": {
       "description": "AXE运维平台RESTful API",

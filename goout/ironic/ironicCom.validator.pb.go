@@ -5,10 +5,10 @@ package ironic
 
 import (
 	fmt "fmt"
-	math "math"
 	proto "github.com/golang/protobuf/proto"
 	_ "github.com/golang/protobuf/ptypes/timestamp"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
+	math "math"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -43,10 +43,10 @@ func (this *TcpContReq) Validate() error {
 	}
 	return nil
 }
-func (this *TcpContRes) Validate() error {
-	if this.ReqTime != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.ReqTime); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("ReqTime", err)
+func (this *TcpContRsp) Validate() error {
+	if this.RspTime != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.RspTime); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("RspTime", err)
 		}
 	}
 	return nil
