@@ -48,4 +48,6 @@ enum StatusCode {
     INVALID_ARGUMENT = 400;
     // 访问拒绝
     ACCESS_DENIED = 403;
+    // 内部错误
+    INTERNAL_ERROR = 500;
 }
