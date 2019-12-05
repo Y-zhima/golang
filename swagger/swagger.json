@@ -848,6 +848,7 @@
         "parameters": [
           {
             "enum": [
+              "ALL",
               "NATION_CENTER",
               "REGION_CENTER",
               "PROVINCE_EDGE",
@@ -855,7 +856,7 @@
               "COUNTY_EDGE"
             ],
             "type": "string",
-            "default": "NATION_CENTER",
+            "default": "ALL",
             "description": "指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘.\n\n - NATION_CENTER: 0-全国中心\n - REGION_CENTER: 1-区域中心\n - PROVINCE_EDGE: 2-省边缘\n - CITY_EDGE: 3-地市边缘\n - COUNTY_EDGE: 4-区县边缘",
             "name": "level",
             "in": "query"
@@ -886,6 +887,13 @@
             "format": "int32",
             "description": "总记录数.",
             "name": "paging.total_record",
+            "in": "query"
+          },
+          {
+            "type": "boolean",
+            "format": "boolean",
+            "description": "默认返回主机的ipv4地址，可以选择返回ipv6地址.",
+            "name": "ipv6",
             "in": "query"
           }
         ],
@@ -997,6 +1005,33 @@
         }
       }
     },
+    "/v1/cmdb/updateHostState": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "修改主机上下线状态",
+        "operationId": "UpdateHostState",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateHostStateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateHostStateResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/cmdb/updateInst": {
       "post": {
         "tags": [
@@ -1019,6 +1054,33 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/cmdbUpdateInstResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/cmdb/updateLakeState": {
+      "post": {
+        "tags": [
+          "Cmdb"
+        ],
+        "summary": "修改lake节点上下线状态",
+        "operationId": "UpdateLakeState",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateLakeStateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateLakeStateResponse"
             }
           }
         }
@@ -2941,8 +3003,9 @@
       "description": "- NATION_CENTER: 0-全国中心\n - REGION_CENTER: 1-区域中心\n - PROVINCE_EDGE: 2-省边缘\n - CITY_EDGE: 3-地市边缘\n - COUNTY_EDGE: 4-区县边缘",
       "type": "string",
       "title": "节点层次",
-      "default": "NATION_CENTER",
+      "default": "ALL",
       "enum": [
+        "ALL",
         "NATION_CENTER",
         "REGION_CENTER",
         "PROVINCE_EDGE",
@@ -3014,7 +3077,7 @@
       "title": "level下的主机ip列表",
       "properties": {
         "level": {
-          "title": "lake节点level",
+          "title": "LakeNodeLevel 节点层级",
           "$ref": "#/definitions/cmdbLakeNodeLevel"
         },
         "values": {
@@ -3049,6 +3112,17 @@
           "title": "父节点id"
         }
       }
+    },
+    "cmdbOnlineState": {
+      "description": "- UNDEFINEDSTATE: 0-未定义\n - OFFLINE: 1-下线\n - ONLINE: 2-上线",
+      "type": "string",
+      "title": "上下线状态:0-未定义 1-下线 2-上线",
+      "default": "UNDEFINEDSTATE",
+      "enum": [
+        "UNDEFINEDSTATE",
+        "OFFLINE",
+        "ONLINE"
+      ]
     },
     "cmdbRoomObject": {
       "type": "object",
@@ -3270,9 +3344,9 @@
           "$ref": "#/definitions/commonPaging"
         },
         "result": {
-          "type": "array",
-          "title": "level下的主机ip列表",
-          "items": {
+          "type": "object",
+          "title": "LakeNodeLevel 下的主机ip列表",
+          "additionalProperties": {
             "$ref": "#/definitions/cmdbLevelHost"
           }
         },
@@ -3511,6 +3585,39 @@
         }
       }
     },
+    "cmdbUpdateHostStateRequest": {
+      "type": "object",
+      "title": "修改主机上下线状态的请求体",
+      "properties": {
+        "ipv4": {
+          "type": "array",
+          "title": "ipv4,可传多个",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ipv6": {
+          "type": "array",
+          "title": "ipv6,可传多个",
+          "items": {
+            "type": "string"
+          }
+        },
+        "state": {
+          "title": "主机上下线状态",
+          "$ref": "#/definitions/cmdbOnlineState"
+        }
+      }
+    },
+    "cmdbUpdateHostStateResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
     "cmdbUpdateInstRequest": {
       "type": "object",
       "title": "实体 host，lake，vip的更新请求",
@@ -3540,6 +3647,32 @@
         }
       }
     },
+    "cmdbUpdateLakeStateRequest": {
+      "type": "object",
+      "title": "修改lake节点上下线状态的请求体",
+      "properties": {
+        "construct_state": {
+          "title": "lake节点的节点建设状态",
+          "$ref": "#/definitions/cmdbOnlineState"
+        },
+        "node_code": {
+          "type": "array",
+          "title": "lake节点的节点编码列表",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "cmdbUpdateLakeStateResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "title": "返回的请求状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
     "cmdbVipObject": {
       "type": "object",
       "title": "VIP对象",
@@ -3556,6 +3689,10 @@
         "bk_inst_name": {
           "type": "string",
           "title": "ip的ipv4地址"
+        },
+        "state": {
+          "type": "string",
+          "title": "vip的state"
         },
         "vip_ipv4": {
           "type": "string",

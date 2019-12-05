@@ -783,13 +783,14 @@
             "required": false,
             "type": "string",
             "enum": [
+              "ALL",
               "NATION_CENTER",
               "REGION_CENTER",
               "PROVINCE_EDGE",
               "CITY_EDGE",
               "COUNTY_EDGE"
             ],
-            "default": "NATION_CENTER"
+            "default": "ALL"
           },
           {
             "name": "paging.total_page",
@@ -822,6 +823,14 @@
             "required": false,
             "type": "integer",
             "format": "int32"
+          },
+          {
+            "name": "ipv6",
+            "description": "默认返回主机的ipv4地址，可以选择返回ipv6地址.",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "format": "boolean"
           }
         ],
         "tags": [
@@ -935,6 +944,33 @@
         ]
       }
     },
+    "/v1/cmdb/updateHostState": {
+      "post": {
+        "summary": "修改主机上下线状态",
+        "operationId": "UpdateHostState",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateHostStateResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateHostStateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Cmdb"
+        ]
+      }
+    },
     "/v1/cmdb/updateInst": {
       "post": {
         "summary": "实体的更新,包括 host，lake，vip列表",
@@ -954,6 +990,33 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/cmdbUpdateInstRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Cmdb"
+        ]
+      }
+    },
+    "/v1/cmdb/updateLakeState": {
+      "post": {
+        "summary": "修改lake节点上下线状态",
+        "operationId": "UpdateLakeState",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateLakeStateResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cmdbUpdateLakeStateRequest"
             }
           }
         ],
@@ -1478,13 +1541,14 @@
     "cmdbLakeNodeLevel": {
       "type": "string",
       "enum": [
+        "ALL",
         "NATION_CENTER",
         "REGION_CENTER",
         "PROVINCE_EDGE",
         "CITY_EDGE",
         "COUNTY_EDGE"
       ],
-      "default": "NATION_CENTER",
+      "default": "ALL",
       "description": "- NATION_CENTER: 0-全国中心\n - REGION_CENTER: 1-区域中心\n - PROVINCE_EDGE: 2-省边缘\n - CITY_EDGE: 3-地市边缘\n - COUNTY_EDGE: 4-区县边缘",
       "title": "节点层次"
     },
@@ -1552,7 +1616,7 @@
       "properties": {
         "level": {
           "$ref": "#/definitions/cmdbLakeNodeLevel",
-          "title": "lake节点level"
+          "title": "LakeNodeLevel 节点层级"
         },
         "values": {
           "type": "array",
@@ -1587,6 +1651,17 @@
         }
       },
       "title": "模块"
+    },
+    "cmdbOnlineState": {
+      "type": "string",
+      "enum": [
+        "UNDEFINEDSTATE",
+        "OFFLINE",
+        "ONLINE"
+      ],
+      "default": "UNDEFINEDSTATE",
+      "description": "- UNDEFINEDSTATE: 0-未定义\n - OFFLINE: 1-下线\n - ONLINE: 2-上线",
+      "title": "上下线状态:0-未定义 1-下线 2-上线"
     },
     "cmdbRoomObject": {
       "type": "object",
@@ -1803,11 +1878,11 @@
       "type": "object",
       "properties": {
         "result": {
-          "type": "array",
-          "items": {
+          "type": "object",
+          "additionalProperties": {
             "$ref": "#/definitions/cmdbLevelHost"
           },
-          "title": "level下的主机ip列表"
+          "title": "LakeNodeLevel 下的主机ip列表"
         },
         "paging": {
           "$ref": "#/definitions/commonPaging",
@@ -2035,6 +2110,39 @@
       },
       "title": "业务拓扑对象"
     },
+    "cmdbUpdateHostStateRequest": {
+      "type": "object",
+      "properties": {
+        "ipv4": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "ipv4,可传多个"
+        },
+        "ipv6": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "ipv6,可传多个"
+        },
+        "state": {
+          "$ref": "#/definitions/cmdbOnlineState",
+          "title": "主机上下线状态"
+        }
+      },
+      "title": "修改主机上下线状态的请求体"
+    },
+    "cmdbUpdateHostStateResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        }
+      }
+    },
     "cmdbUpdateInstRequest": {
       "type": "object",
       "properties": {
@@ -2064,6 +2172,32 @@
       },
       "title": "实体 host，lake，vip的更新返回"
     },
+    "cmdbUpdateLakeStateRequest": {
+      "type": "object",
+      "properties": {
+        "node_code": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "lake节点的节点编码列表"
+        },
+        "construct_state": {
+          "$ref": "#/definitions/cmdbOnlineState",
+          "title": "lake节点的节点建设状态"
+        }
+      },
+      "title": "修改lake节点上下线状态的请求体"
+    },
+    "cmdbUpdateLakeStateResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "返回的请求状态"
+        }
+      }
+    },
     "cmdbVipObject": {
       "type": "object",
       "properties": {
@@ -2087,6 +2221,10 @@
         "vip_ipv4": {
           "type": "string",
           "title": "vip的ipv4地址"
+        },
+        "state": {
+          "type": "string",
+          "title": "vip的state"
         }
       },
       "title": "VIP对象"

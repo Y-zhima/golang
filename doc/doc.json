@@ -739,29 +739,57 @@
           "description": "节点层次",
           "values": [
             {
-              "name": "NATION_CENTER",
+              "name": "ALL",
               "number": "0",
+              "description": ""
+            },
+            {
+              "name": "NATION_CENTER",
+              "number": "1",
               "description": "0-全国中心"
             },
             {
               "name": "REGION_CENTER",
-              "number": "1",
+              "number": "2",
               "description": "1-区域中心"
             },
             {
               "name": "PROVINCE_EDGE",
-              "number": "2",
+              "number": "3",
               "description": "2-省边缘"
             },
             {
               "name": "CITY_EDGE",
-              "number": "3",
+              "number": "4",
               "description": "3-地市边缘"
             },
             {
               "name": "COUNTY_EDGE",
-              "number": "4",
+              "number": "5",
               "description": "4-区县边缘"
+            }
+          ]
+        },
+        {
+          "name": "OnlineState",
+          "longName": "OnlineState",
+          "fullName": "cmdb.OnlineState",
+          "description": "上下线状态:0-未定义 1-下线 2-上线",
+          "values": [
+            {
+              "name": "UNDEFINEDSTATE",
+              "number": "0",
+              "description": "0-未定义"
+            },
+            {
+              "name": "OFFLINE",
+              "number": "1",
+              "description": "1-下线"
+            },
+            {
+              "name": "ONLINE",
+              "number": "2",
+              "description": "2-上线"
             }
           ]
         },
@@ -2624,7 +2652,7 @@
           "fields": [
             {
               "name": "level",
-              "description": "lake节点level",
+              "description": "LakeNodeLevel 节点层级",
               "label": "",
               "type": "LakeNodeLevel",
               "longType": "LakeNodeLevel",
@@ -3305,6 +3333,16 @@
               "fullType": "common.Paging",
               "ismap": false,
               "defaultValue": ""
+            },
+            {
+              "name": "ipv6",
+              "description": "默认返回主机的ipv4地址，可以选择返回ipv6地址",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "defaultValue": ""
             }
           ]
         },
@@ -3319,12 +3357,12 @@
           "fields": [
             {
               "name": "result",
-              "description": "level下的主机ip列表",
+              "description": "LakeNodeLevel 下的主机ip列表",
               "label": "repeated",
-              "type": "LevelHost",
-              "longType": "LevelHost",
-              "fullType": "cmdb.LevelHost",
-              "ismap": false,
+              "type": "ResultEntry",
+              "longType": "SearchLevelHostResponse.ResultEntry",
+              "fullType": "cmdb.SearchLevelHostResponse.ResultEntry",
+              "ismap": true,
               "defaultValue": ""
             },
             {
@@ -3344,6 +3382,37 @@
               "type": "ResponseStatus",
               "longType": "common.ResponseStatus",
               "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ResultEntry",
+          "longName": "SearchLevelHostResponse.ResultEntry",
+          "fullName": "cmdb.SearchLevelHostResponse.ResultEntry",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "key",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "value",
+              "description": "",
+              "label": "",
+              "type": "LevelHost",
+              "longType": "LevelHost",
+              "fullType": "cmdb.LevelHost",
               "ismap": false,
               "defaultValue": ""
             }
@@ -3861,6 +3930,68 @@
           ]
         },
         {
+          "name": "UpdateHostStateRequest",
+          "longName": "UpdateHostStateRequest",
+          "fullName": "cmdb.UpdateHostStateRequest",
+          "description": "修改主机上下线状态的请求体",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "ipv4",
+              "description": "ipv4,可传多个",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ipv6",
+              "description": "ipv6,可传多个",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "state",
+              "description": "主机上下线状态",
+              "label": "",
+              "type": "OnlineState",
+              "longType": "OnlineState",
+              "fullType": "cmdb.OnlineState",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "UpdateHostStateResponse",
+          "longName": "UpdateHostStateResponse",
+          "fullName": "cmdb.UpdateHostStateResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "返回的请求状态",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
           "name": "UpdateInstRequest",
           "longName": "UpdateInstRequest",
           "fullName": "cmdb.UpdateInstRequest",
@@ -3906,6 +4037,58 @@
           "longName": "UpdateInstResponse",
           "fullName": "cmdb.UpdateInstResponse",
           "description": "实体 host，lake，vip的更新返回",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "返回的请求状态",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "UpdateLakeStateRequest",
+          "longName": "UpdateLakeStateRequest",
+          "fullName": "cmdb.UpdateLakeStateRequest",
+          "description": "修改lake节点上下线状态的请求体",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "node_code",
+              "description": "lake节点的节点编码列表",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "construct_state",
+              "description": "lake节点的节点建设状态",
+              "label": "",
+              "type": "OnlineState",
+              "longType": "OnlineState",
+              "fullType": "cmdb.OnlineState",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "UpdateLakeStateResponse",
+          "longName": "UpdateLakeStateResponse",
+          "fullName": "cmdb.UpdateLakeStateResponse",
+          "description": "",
           "hasExtensions": false,
           "hasFields": true,
           "extensions": [],
@@ -3974,6 +4157,16 @@
             {
               "name": "vip_ipv4",
               "description": "vip的ipv4地址",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "state",
+              "description": "vip的state",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -4420,6 +4613,52 @@
                     {
                       "method": "GET",
                       "pattern": "/v1/cmdb/searchLevelHost"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "UpdateLakeState",
+              "description": "修改lake节点上下线状态",
+              "requestType": "UpdateLakeStateRequest",
+              "requestLongType": "UpdateLakeStateRequest",
+              "requestFullType": "cmdb.UpdateLakeStateRequest",
+              "requestStreaming": false,
+              "responseType": "UpdateLakeStateResponse",
+              "responseLongType": "UpdateLakeStateResponse",
+              "responseFullType": "cmdb.UpdateLakeStateResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "POST",
+                      "pattern": "/v1/cmdb/updateLakeState",
+                      "body": "*"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "UpdateHostState",
+              "description": "修改主机上下线状态",
+              "requestType": "UpdateHostStateRequest",
+              "requestLongType": "UpdateHostStateRequest",
+              "requestFullType": "cmdb.UpdateHostStateRequest",
+              "requestStreaming": false,
+              "responseType": "UpdateHostStateResponse",
+              "responseLongType": "UpdateHostStateResponse",
+              "responseFullType": "cmdb.UpdateHostStateResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "POST",
+                      "pattern": "/v1/cmdb/updateHostState",
+                      "body": "*"
                     }
                   ]
                 }
@@ -11502,7 +11741,7 @@
             },
             {
               "name": "Delete",
-              "description": "删除作业模板\n\noption (google.api.http) = {\n           post: \"/v1/template/delete/{template_id}\"\n       };",
+              "description": "删除作业模板\n\noption (google.api.http) = {\r\n           post: \"/v1/template/delete/{template_id}\"\r\n       };",
               "requestType": "DeleteRequest",
               "requestLongType": "DeleteRequest",
               "requestFullType": "template.DeleteRequest",

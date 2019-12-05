@@ -162,8 +162,23 @@ service Cmdb {
             get: "/v1/cmdb/searchLevelHost"
         };
     }
-}
 
+    // 修改lake节点上下线状态
+    rpc UpdateLakeState (UpdateLakeStateRequest) returns (UpdateLakeStateResponse) {
+        option (google.api.http) = {
+            post: "/v1/cmdb/updateLakeState"
+            body: "*"
+        };
+    }
+
+    // 修改主机上下线状态
+    rpc UpdateHostState (UpdateHostStateRequest) returns (UpdateHostStateResponse) {
+        option (google.api.http) = {
+            post: "/v1/cmdb/updateHostState"
+            body: "*"
+        };
+    }
+}
 
 // 实体 host，lake，vip的查询请求
 message SearchInstRequest {
@@ -701,7 +716,6 @@ message ImportHistoryResponse {
 
 // 节点层次
 enum LakeNodeLevel {
-    //
     ALL = 0;
     // 0-全国中心
     NATION_CENTER = 1;
@@ -714,8 +728,6 @@ enum LakeNodeLevel {
     // 4-区县边缘
     COUNTY_EDGE = 5;
 }
-
-
 
 //// LAKE节点服务状态
 //enum ServiceState {
@@ -777,6 +789,8 @@ message VipObject {
     string vip_ipv6 = 4;
     // vip的ipv4地址
     string vip_ipv4 = 5;
+    // vip的state
+    string state = 6;
 }
 
 // 机房对象
@@ -969,7 +983,8 @@ message ImportReviewRequest {
     };
 
     // 导入记录id
-    int32 import_id = 1 [(validator.field) = {int_gt: 0, human_error: "导入记录ID不能为空"}];
+    int32 import_id = 1 [(validator.field) = {int_gt: 0, human_error: "导入记录ID不能为空"
+                        }];
     // 指定审批结果，只处理通过，不通过和撤销
     ImportStatus import_status = 2;
     // 操作描述
@@ -991,7 +1006,8 @@ message ImportDetailRequest {
     };
 
     // 导入记录id
-    int32 import_id = 1 [(validator.field) = {int_gt: 0, human_error: "导入记录ID不能为空"}];
+    int32 import_id = 1 [(validator.field) = {int_gt: 0, human_error: "导入记录ID不能为空"
+                        }];
     // 指定查看实体类型
     string bk_obj_id = 2;
     // 分页信息
@@ -1010,16 +1026,18 @@ message ImportDetailResponse {
 
 // 按level查询lake节点下主机列表请求
 message SearchLevelHostRequest {
-    // 指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘
+    // 指定level：0-全部 1-全国中心 2-区域中心 3-省边缘 4-地市边缘 5-区县边缘
     LakeNodeLevel level = 1;
     // 分页信息
     common.Paging paging = 2;
+    // 默认返回主机的ipv4地址，可以选择返回ipv6地址
+    bool ipv6 = 3;
 }
 
 // 按level查询lake节点下主机列表响应
 message SearchLevelHostResponse {
-    // level下的主机ip列表
-    repeated LevelHost result = 1;
+    // LakeNodeLevel 下的主机ip列表
+    map<string, LevelHost> result = 1;
     // 分页信息
     common.Paging paging = 2;
     // 返回的请求状态
@@ -1028,8 +1046,47 @@ message SearchLevelHostResponse {
 
 // level下的主机ip列表
 message LevelHost {
-    // lake节点level
+    // LakeNodeLevel 节点层级
     LakeNodeLevel level = 1;
     // 对应的ip列表
     repeated string values = 2;
 }
+
+// 上下线状态:0-未定义 1-下线 2-上线
+enum OnlineState {
+    // 0-未定义
+    UNDEFINEDSTATE = 0;
+    // 1-下线
+    OFFLINE = 1;
+    // 2-上线
+    ONLINE = 2;
+}
+
+// 修改lake节点上下线状态的请求体
+message UpdateLakeStateRequest {
+    // lake节点的节点编码列表
+    repeated string node_code = 1;
+    // lake节点的节点建设状态
+    OnlineState construct_state = 2;
+}
+
+message UpdateLakeStateResponse {
+    // 返回的请求状态
+    common.ResponseStatus status = 1;
+}
+
+// 修改主机上下线状态的请求体
+message UpdateHostStateRequest {
+    // ipv4,可传多个
+    repeated string ipv4 = 1;
+    // ipv6,可传多个
+    repeated string ipv6 = 2;
+    // 主机上下线状态
+    OnlineState state = 3;
+}
+
+message UpdateHostStateResponse {
+    // 返回的请求状态
+    common.ResponseStatus status = 1;
+}
+

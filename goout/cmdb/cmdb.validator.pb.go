@@ -585,13 +585,7 @@ func (this *SearchLevelHostRequest) Validate() error {
 	return nil
 }
 func (this *SearchLevelHostResponse) Validate() error {
-	for _, item := range this.Result {
-		if item != nil {
-			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Result", err)
-			}
-		}
-	}
+	// Validation of proto3 map<> fields is unsupported.
 	if this.Paging != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Paging); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Paging", err)
@@ -605,5 +599,27 @@ func (this *SearchLevelHostResponse) Validate() error {
 	return nil
 }
 func (this *LevelHost) Validate() error {
+	return nil
+}
+func (this *UpdateLakeStateRequest) Validate() error {
+	return nil
+}
+func (this *UpdateLakeStateResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
+	return nil
+}
+func (this *UpdateHostStateRequest) Validate() error {
+	return nil
+}
+func (this *UpdateHostStateResponse) Validate() error {
+	if this.Status != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
+		}
+	}
 	return nil
 }
