@@ -43,13 +43,13 @@ service Auth {
     // 对外提供资源列表的接口
     rpc GetResourceList (GetResourceListRequest) returns (GetResourceListResponse) {
         option (google.api.http) = {
-            get: "/v1/auth/getResourceList"
+            post: "/v1/auth/getResourceList"
         };
     }
     // 对外提供动作列表的接口
     rpc GetActionList (GetActionListRequest) returns (GetActionListResponse) {
         option (google.api.http) = {
-            get: "/v1/auth/getActionList"
+            post: "/v1/auth/getActionList"
         };
     }
 }
@@ -124,6 +124,7 @@ message GetUserInfoResponse {
     common.ResponseStatus status = 2;
 }
 
+// 资源动作条目（命名适配IAM）
 message ResourceActionItem {
     // ID
     int64 id = 1;
@@ -134,24 +135,29 @@ message ResourceActionItem {
     // 表达式
     string expr = 4;
     // 父节点ID
-    int64 parent_id = 5;
+    int64 parentId = 5;
     // 资源类型
-    string resource_type = 6;   
+    string resourceType = 6;   
 }
 
+// 资源动作数据列表
 message ResourceActionData {
-	repeated ResourceActionItem list = 1;
+    string code = 1;
+    string reason = 2;
+    repeated ResourceActionItem list = 3;
 }
 
+// 资源列表请求（命名适配IAM）
 message GetResourceListRequest {
     // 服务ID
-    string service_id = 1;
+    string serviceId = 1;
     // 工作区ID
-    string workspace_id = 2;
+    string workspaceId = 2;
     // 服务类型
-    string service_type = 3;
+    string serviceType = 3;
 }
 
+// 资源列表响应
 message GetResourceListResponse {
     // 响应信息
     ResourceActionData data = 1;
@@ -159,13 +165,15 @@ message GetResourceListResponse {
     common.ResponseStatus status = 2;
 }
 
+// 动作列表请求（命名适配IAM）
 message GetActionListRequest {
     // 服务ID
-    string service_id = 1;
+    string serviceId = 1;
     // 工作区ID
-    string workspace_id = 2;
+    string workspaceId = 2;
 }
 
+// 动作列表响应
 message GetActionListResponse {
     // 响应信息
     ResourceActionData data = 1;
