@@ -75,6 +75,46 @@ func (mr *MockAuthClientMockRecorder) Check(arg0, arg1 interface{}, arg2 ...inte
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Check", reflect.TypeOf((*MockAuthClient)(nil).Check), varargs...)
 }
 
+// GetActionList mocks base method
+func (m *MockAuthClient) GetActionList(arg0 context.Context, arg1 *auth.GetActionListRequest, arg2 ...grpc.CallOption) (*auth.GetActionListResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "GetActionList", varargs...)
+	ret0, _ := ret[0].(*auth.GetActionListResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// GetActionList indicates an expected call of GetActionList
+func (mr *MockAuthClientMockRecorder) GetActionList(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetActionList", reflect.TypeOf((*MockAuthClient)(nil).GetActionList), varargs...)
+}
+
+// GetResourceList mocks base method
+func (m *MockAuthClient) GetResourceList(arg0 context.Context, arg1 *auth.GetResourceListRequest, arg2 ...grpc.CallOption) (*auth.GetResourceListResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "GetResourceList", varargs...)
+	ret0, _ := ret[0].(*auth.GetResourceListResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// GetResourceList indicates an expected call of GetResourceList
+func (mr *MockAuthClientMockRecorder) GetResourceList(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetResourceList", reflect.TypeOf((*MockAuthClient)(nil).GetResourceList), varargs...)
+}
+
 // GetUserInfo mocks base method
 func (m *MockAuthClient) GetUserInfo(arg0 context.Context, arg1 *auth.GetUserInfoRequest, arg2 ...grpc.CallOption) (*auth.GetUserInfoResponse, error) {
 	m.ctrl.T.Helper()

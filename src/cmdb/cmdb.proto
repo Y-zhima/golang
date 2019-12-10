@@ -630,22 +630,14 @@ message ImportLakeResponse {
 
 // 机房对象
 message RoomObject {
-    // 业务ID
+    // 机房ID
     int32 bk_inst_id = 1;
-    // 业务名称
-    string bk_inst_name = 2;
-    // 对象ID
-    string bk_obj_id = 3;
     // 机房名称
-    string room_name = 4;
-    // 城市
-    string city = 5;
-    // 省份
-    string prov = 6;
-    // 地区编码
-    string area_code = 7;
+    string bk_inst_name = 2;
+    // uuid (bk_obj_id + _ + bk_inst_id/area_code)
+    string uuid = 3;
     // 子对象
-    repeated RoomObject child = 8;
+    repeated RoomObject child = 4;
 }
 
 // 机房拓扑请求
@@ -704,20 +696,24 @@ message ServerObject {
     ServerInstallState install_state = 10;
     // 裸金属uuid
     string uuid = 11;
+    // 主机内网IP
+    string bk_host_innerip = 12;
 }
 
 // 裸金属列表请求
 message ServerListRequest {
     option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
         json_schema: {
-          required: ["room_id"]
+          required: ["bk_inst_id","bk_obj_id"]
         }
     };
 
-    // 机房id，相当于 RoomObject 中的 bk_inst_id
-    int32 room_id = 1;
+    // roomId或areaCode
+    repeated int32 bk_inst_id = 1;
+    // 对象类型
+    string bk_obj_id = 2;
     // 分页信息
-    common.Paging paging = 2;
+    common.Paging paging = 3;
 }
 
 // 裸金属列表响应

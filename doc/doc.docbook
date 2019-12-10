@@ -34,6 +34,181 @@
       
     </section>
     
+    <section id="auth.GetActionListRequest">
+      <title>GetActionListRequest</title>
+      <para>动作列表请求（命名适配IAM）</para>
+      
+      <table frame="all">
+        <title><classname>GetActionListRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>serviceId</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>服务ID</para></entry>
+            </row>
+            
+            <row>
+              <entry>workspaceId</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>工作区ID</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="auth.GetActionListResponse">
+      <title>GetActionListResponse</title>
+      <para>动作列表响应</para>
+      
+      <table frame="all">
+        <title><classname>GetActionListResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>data</entry>
+              <entry><link linkend="auth.ResourceActionData">ResourceActionData</link></entry>
+              <entry></entry>
+              <entry><para>响应信息</para></entry>
+            </row>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>响应状态</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="auth.GetResourceListRequest">
+      <title>GetResourceListRequest</title>
+      <para>资源列表请求（命名适配IAM）</para>
+      
+      <table frame="all">
+        <title><classname>GetResourceListRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>serviceId</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>服务ID</para></entry>
+            </row>
+            
+            <row>
+              <entry>workspaceId</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>工作区ID</para></entry>
+            </row>
+            
+            <row>
+              <entry>serviceType</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>服务类型</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="auth.GetResourceListResponse">
+      <title>GetResourceListResponse</title>
+      <para>资源列表响应</para>
+      
+      <table frame="all">
+        <title><classname>GetResourceListResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>data</entry>
+              <entry><link linkend="auth.ResourceActionData">ResourceActionData</link></entry>
+              <entry></entry>
+              <entry><para>响应信息</para></entry>
+            </row>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para>响应状态</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
     <section id="auth.GetUserInfoRequest">
       <title>GetUserInfoRequest</title>
       <para>获取用户信息请求</para>
@@ -135,6 +310,125 @@
     <section id="auth.LogoutResponse">
       <title>LogoutResponse</title>
       <para>用户登出接口响应，返回301状态码</para>
+      
+      
+    </section>
+    
+    <section id="auth.ResourceActionData">
+      <title>ResourceActionData</title>
+      <para>资源动作数据列表</para>
+      
+      <table frame="all">
+        <title><classname>ResourceActionData</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>code</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+            <row>
+              <entry>reason</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+            <row>
+              <entry>list</entry>
+              <entry><link linkend="auth.ResourceActionItem">ResourceActionItem</link></entry>
+              <entry>repeated</entry>
+              <entry><para></para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="auth.ResourceActionItem">
+      <title>ResourceActionItem</title>
+      <para>资源动作条目（命名适配IAM）</para>
+      
+      <table frame="all">
+        <title><classname>ResourceActionItem</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>id</entry>
+              <entry><link linkend="int64">int64</link></entry>
+              <entry></entry>
+              <entry><para>ID</para></entry>
+            </row>
+            
+            <row>
+              <entry>name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>名称</para></entry>
+            </row>
+            
+            <row>
+              <entry>note</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>说明</para></entry>
+            </row>
+            
+            <row>
+              <entry>expr</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>表达式</para></entry>
+            </row>
+            
+            <row>
+              <entry>parentId</entry>
+              <entry><link linkend="int64">int64</link></entry>
+              <entry></entry>
+              <entry><para>父节点ID</para></entry>
+            </row>
+            
+            <row>
+              <entry>resourceType</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>资源类型</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
       
       
     </section>
@@ -302,6 +596,20 @@
               <entry><link linkend="auth.GetUserInfoRequest">GetUserInfoRequest</link></entry>
               <entry><link linkend="auth.GetUserInfoResponse">GetUserInfoResponse</link></entry>
               <entry><para>获取用户信息接口</para></entry>
+            </row>
+            
+            <row>
+              <entry>GetResourceList</entry>
+              <entry><link linkend="auth.GetResourceListRequest">GetResourceListRequest</link></entry>
+              <entry><link linkend="auth.GetResourceListResponse">GetResourceListResponse</link></entry>
+              <entry><para>对外提供资源列表的接口</para></entry>
+            </row>
+            
+            <row>
+              <entry>GetActionList</entry>
+              <entry><link linkend="auth.GetActionListRequest">GetActionListRequest</link></entry>
+              <entry><link linkend="auth.GetActionListResponse">GetActionListResponse</link></entry>
+              <entry><para>对外提供动作列表的接口</para></entry>
             </row>
             
           </tbody>
@@ -2910,49 +3218,21 @@
               <entry>bk_inst_id</entry>
               <entry><link linkend="int32">int32</link></entry>
               <entry></entry>
-              <entry><para>业务ID</para></entry>
+              <entry><para>机房ID</para></entry>
             </row>
             
             <row>
               <entry>bk_inst_name</entry>
               <entry><link linkend="string">string</link></entry>
               <entry></entry>
-              <entry><para>业务名称</para></entry>
-            </row>
-            
-            <row>
-              <entry>bk_obj_id</entry>
-              <entry><link linkend="string">string</link></entry>
-              <entry></entry>
-              <entry><para>对象ID</para></entry>
-            </row>
-            
-            <row>
-              <entry>room_name</entry>
-              <entry><link linkend="string">string</link></entry>
-              <entry></entry>
               <entry><para>机房名称</para></entry>
             </row>
             
             <row>
-              <entry>city</entry>
+              <entry>uuid</entry>
               <entry><link linkend="string">string</link></entry>
               <entry></entry>
-              <entry><para>城市</para></entry>
-            </row>
-            
-            <row>
-              <entry>prov</entry>
-              <entry><link linkend="string">string</link></entry>
-              <entry></entry>
-              <entry><para>省份</para></entry>
-            </row>
-            
-            <row>
-              <entry>area_code</entry>
-              <entry><link linkend="string">string</link></entry>
-              <entry></entry>
-              <entry><para>地区编码</para></entry>
+              <entry><para>uuid (bk_obj_id + _ + bk_inst_id/area_code)</para></entry>
             </row>
             
             <row>
@@ -3824,10 +4104,17 @@
           <tbody>
             
             <row>
-              <entry>room_id</entry>
+              <entry>bk_inst_id</entry>
               <entry><link linkend="int32">int32</link></entry>
+              <entry>repeated</entry>
+              <entry><para>roomId或areaCode</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_obj_id</entry>
+              <entry><link linkend="string">string</link></entry>
               <entry></entry>
-              <entry><para>机房id，相当于 RoomObject 中的 bk_inst_id</para></entry>
+              <entry><para>对象类型</para></entry>
             </row>
             
             <row>
@@ -3989,6 +4276,13 @@
               <entry><link linkend="string">string</link></entry>
               <entry></entry>
               <entry><para>裸金属uuid</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_host_innerip</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>主机内网IP</para></entry>
             </row>
             
           </tbody>
@@ -6159,6 +6453,12 @@
               <entry>ACCESS_DENIED</entry>
               <entry>403</entry>
               <entry><para>访问拒绝</para></entry>
+            </row>
+            
+            <row>
+              <entry>INTERNAL_ERROR</entry>
+              <entry>500</entry>
+              <entry><para>内部错误</para></entry>
             </row>
             
           </tbody>

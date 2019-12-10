@@ -216,10 +216,11 @@
       "enum": [
         "SUCCESS",
         "INVALID_ARGUMENT",
-        "ACCESS_DENIED"
+        "ACCESS_DENIED",
+        "INTERNAL_ERROR"
       ],
       "default": "SUCCESS",
-      "description": "- SUCCESS: 成功\n - INVALID_ARGUMENT: 参数错误\n - ACCESS_DENIED: 访问拒绝",
+      "description": "- SUCCESS: 成功\n - INVALID_ARGUMENT: 参数错误\n - ACCESS_DENIED: 访问拒绝\n - INTERNAL_ERROR: 内部错误",
       "title": "请求返回状态码"
     }
   }
