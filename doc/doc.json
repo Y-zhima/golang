@@ -3434,8 +3434,8 @@
               "defaultValue": ""
             },
             {
-              "name": "uuid",
-              "description": "uuid (bk_obj_id + _ + bk_inst_id/area_code)",
+              "name": "bk_obj_id",
+              "description": "对象ID",
               "label": "",
               "type": "string",
               "longType": "string",

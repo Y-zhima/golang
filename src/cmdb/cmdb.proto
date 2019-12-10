@@ -634,8 +634,8 @@ message RoomObject {
     int32 bk_inst_id = 1;
     // 机房名称
     string bk_inst_name = 2;
-    // uuid (bk_obj_id + _ + bk_inst_id/area_code)
-    string uuid = 3;
+    // 对象ID
+    string bk_obj_id = 3;
     // 子对象
     repeated RoomObject child = 4;
 }

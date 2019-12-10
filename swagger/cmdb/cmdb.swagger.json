@@ -2111,9 +2111,9 @@
           "type": "string",
           "title": "机房名称"
         },
-        "uuid": {
+        "bk_obj_id": {
           "type": "string",
-          "title": "uuid (bk_obj_id + _ + bk_inst_id/area_code)"
+          "title": "对象ID"
         },
         "child": {
           "type": "array",

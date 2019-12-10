@@ -1541,7 +1541,7 @@ level下的主机ip列表
 | ----- | ---- | ----- | ----------- |
 | bk_inst_id | [int32](#int32) |  | 机房ID |
 | bk_inst_name | [string](#string) |  | 机房名称 |
-| uuid | [string](#string) |  | uuid (bk_obj_id &#43; _ &#43; bk_inst_id/area_code) |
+| bk_obj_id | [string](#string) |  | 对象ID |
 | child | [RoomObject](#cmdb.RoomObject) | repeated | 子对象 |
 
 
