@@ -1903,6 +1903,7 @@ level下的主机ip列表
 | power_state | [ServerPowerState](#cmdb.ServerPowerState) |  | 电源状态 |
 | install_state | [ServerInstallState](#cmdb.ServerInstallState) |  | 装机状态 |
 | uuid | [string](#string) |  | 裸金属uuid |
+| bk_host_innerip | [string](#string) |  | 主机内网IP |
 
 
 

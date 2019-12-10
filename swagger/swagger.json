@@ -3969,6 +3969,10 @@
           "type": "string",
           "title": "IPMI账号"
         },
+        "bk_host_innerip": {
+          "type": "string",
+          "title": "主机内网IP"
+        },
         "bk_inst_id": {
           "type": "integer",
           "format": "int32",

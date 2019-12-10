@@ -4299,6 +4299,13 @@
               <entry><para>裸金属uuid</para></entry>
             </row>
             
+            <row>
+              <entry>bk_host_innerip</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>主机内网IP</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>

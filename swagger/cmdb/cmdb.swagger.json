@@ -2417,6 +2417,10 @@
         "uuid": {
           "type": "string",
           "title": "裸金属uuid"
+        },
+        "bk_host_innerip": {
+          "type": "string",
+          "title": "主机内网IP"
         }
       },
       "title": "物理机对象"
