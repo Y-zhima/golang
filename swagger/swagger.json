@@ -1192,10 +1192,13 @@
         "operationId": "ServerList",
         "parameters": [
           {
-            "type": "integer",
-            "format": "int32",
-            "description": "机房id，相当于 RoomObject 中的 bk_inst_id.",
-            "name": "room_id",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "description": "包含room_roomId或area_areaCode.",
+            "name": "uuid",
             "in": "query"
           },
           {
@@ -3669,10 +3672,6 @@
       "type": "object",
       "title": "机房对象",
       "properties": {
-        "area_code": {
-          "type": "string",
-          "title": "地区编码"
-        },
         "bk_inst_id": {
           "type": "integer",
           "format": "int32",
@@ -3682,10 +3681,6 @@
           "type": "string",
           "title": "机房名称"
         },
-        "bk_obj_id": {
-          "type": "string",
-          "title": "对象ID"
-        },
         "child": {
           "type": "array",
           "title": "子对象",
@@ -3693,18 +3688,9 @@
             "$ref": "#/definitions/cmdbRoomObject"
           }
         },
-        "city": {
-          "type": "string",
-          "title": "城市"
-        },
-        "prov": {
-          "type": "string",
-          "title": "省份"
-        },
         "uuid": {
           "type": "string",
-          "format": "int64",
-          "title": "uuid"
+          "title": "uuid (bk_obj_id + _ + bk_inst_id/area_code)"
         }
       }
     },

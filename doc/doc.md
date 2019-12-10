@@ -1541,11 +1541,7 @@ level下的主机ip列表
 | ----- | ---- | ----- | ----------- |
 | bk_inst_id | [int32](#int32) |  | 机房ID |
 | bk_inst_name | [string](#string) |  | 机房名称 |
-| bk_obj_id | [string](#string) |  | 对象ID |
-| uuid | [int64](#int64) |  | uuid |
-| city | [string](#string) |  | 城市 |
-| prov | [string](#string) |  | 省份 |
-| area_code | [string](#string) |  | 地区编码 |
+| uuid | [string](#string) |  | uuid (bk_obj_id &#43; _ &#43; bk_inst_id/area_code) |
 | child | [RoomObject](#cmdb.RoomObject) | repeated | 子对象 |
 
 
@@ -1859,7 +1855,7 @@ level下的主机ip列表
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| room_id | [int32](#int32) |  | 机房id，相当于 RoomObject 中的 bk_inst_id |
+| uuid | [string](#string) | repeated | 包含room_roomId或area_areaCode |
 | paging | [common.Paging](#common.Paging) |  | 分页信息 |
 
 

@@ -3434,48 +3434,8 @@
               "defaultValue": ""
             },
             {
-              "name": "bk_obj_id",
-              "description": "对象ID",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
               "name": "uuid",
-              "description": "uuid",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "city",
-              "description": "城市",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "prov",
-              "description": "省份",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "area_code",
-              "description": "地区编码",
+              "description": "uuid (bk_obj_id + _ + bk_inst_id/area_code)",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -4214,12 +4174,12 @@
           "extensions": [],
           "fields": [
             {
-              "name": "room_id",
-              "description": "机房id，相当于 RoomObject 中的 bk_inst_id",
-              "label": "",
-              "type": "int32",
-              "longType": "int32",
-              "fullType": "int32",
+              "name": "uuid",
+              "description": "包含room_roomId或area_areaCode",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "defaultValue": ""
             },

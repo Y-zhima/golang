@@ -4550,38 +4550,10 @@
                 </tr>
               
                 <tr>
-                  <td>bk_obj_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>对象ID </p></td>
-                </tr>
-              
-                <tr>
                   <td>uuid</td>
-                  <td><a href="#int64">int64</a></td>
-                  <td></td>
-                  <td><p>uuid </p></td>
-                </tr>
-              
-                <tr>
-                  <td>city</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>城市 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>prov</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>省份 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>area_code</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>地区编码 </p></td>
+                  <td><p>uuid (bk_obj_id &#43; _ &#43; bk_inst_id/area_code) </p></td>
                 </tr>
               
                 <tr>
@@ -5284,10 +5256,10 @@
             <tbody>
               
                 <tr>
-                  <td>room_id</td>
-                  <td><a href="#int32">int32</a></td>
-                  <td></td>
-                  <td><p>机房id，相当于 RoomObject 中的 bk_inst_id </p></td>
+                  <td>uuid</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>包含room_roomId或area_areaCode </p></td>
                 </tr>
               
                 <tr>

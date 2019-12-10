@@ -3229,38 +3229,10 @@
             </row>
             
             <row>
-              <entry>bk_obj_id</entry>
-              <entry><link linkend="string">string</link></entry>
-              <entry></entry>
-              <entry><para>对象ID</para></entry>
-            </row>
-            
-            <row>
               <entry>uuid</entry>
-              <entry><link linkend="int64">int64</link></entry>
-              <entry></entry>
-              <entry><para>uuid</para></entry>
-            </row>
-            
-            <row>
-              <entry>city</entry>
               <entry><link linkend="string">string</link></entry>
               <entry></entry>
-              <entry><para>城市</para></entry>
-            </row>
-            
-            <row>
-              <entry>prov</entry>
-              <entry><link linkend="string">string</link></entry>
-              <entry></entry>
-              <entry><para>省份</para></entry>
-            </row>
-            
-            <row>
-              <entry>area_code</entry>
-              <entry><link linkend="string">string</link></entry>
-              <entry></entry>
-              <entry><para>地区编码</para></entry>
+              <entry><para>uuid (bk_obj_id + _ + bk_inst_id/area_code)</para></entry>
             </row>
             
             <row>
@@ -4132,10 +4104,10 @@
           <tbody>
             
             <row>
-              <entry>room_id</entry>
-              <entry><link linkend="int32">int32</link></entry>
-              <entry></entry>
-              <entry><para>机房id，相当于 RoomObject 中的 bk_inst_id</para></entry>
+              <entry>uuid</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry>repeated</entry>
+              <entry><para>包含room_roomId或area_areaCode</para></entry>
             </row>
             
             <row>
