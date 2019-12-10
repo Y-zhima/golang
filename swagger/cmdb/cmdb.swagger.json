@@ -1920,7 +1920,7 @@
         },
         "status": {
           "$ref": "#/definitions/commonResponseStatus",
-          "title": "TopologyObject instance = 1;\n状态码"
+          "title": "TopologyObject instance = 1;\r\n状态码"
         }
       },
       "title": "拓扑实例请求返回"
@@ -2094,19 +2094,20 @@
         "bk_inst_id": {
           "type": "integer",
           "format": "int32",
-          "title": "业务ID"
+          "title": "机房ID"
         },
         "bk_inst_name": {
           "type": "string",
-          "title": "业务名称"
+          "title": "机房名称"
         },
         "bk_obj_id": {
           "type": "string",
           "title": "对象ID"
         },
-        "room_name": {
+        "uuid": {
           "type": "string",
-          "title": "机房名称"
+          "format": "int64",
+          "title": "uuid"
         },
         "city": {
           "type": "string",

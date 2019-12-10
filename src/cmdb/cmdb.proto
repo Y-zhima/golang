@@ -630,14 +630,14 @@ message ImportLakeResponse {
 
 // 机房对象
 message RoomObject {
-    // 业务ID
+    // 机房ID
     int32 bk_inst_id = 1;
-    // 业务名称
+    // 机房名称
     string bk_inst_name = 2;
     // 对象ID
     string bk_obj_id = 3;
-    // 机房名称
-    string room_name = 4;
+    // uuid
+    int64 uuid = 4;
     // 城市
     string city = 5;
     // 省份

@@ -195,6 +195,22 @@
                 </li>
               
                 <li>
+                  <a href="#auth.GetActionListRequest"><span class="badge">M</span>GetActionListRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#auth.GetActionListResponse"><span class="badge">M</span>GetActionListResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#auth.GetResourceListRequest"><span class="badge">M</span>GetResourceListRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#auth.GetResourceListResponse"><span class="badge">M</span>GetResourceListResponse</a>
+                </li>
+              
+                <li>
                   <a href="#auth.GetUserInfoRequest"><span class="badge">M</span>GetUserInfoRequest</a>
                 </li>
               
@@ -216,6 +232,14 @@
               
                 <li>
                   <a href="#auth.LogoutResponse"><span class="badge">M</span>LogoutResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#auth.ResourceActionData"><span class="badge">M</span>ResourceActionData</a>
+                </li>
+              
+                <li>
+                  <a href="#auth.ResourceActionItem"><span class="badge">M</span>ResourceActionItem</a>
                 </li>
               
                 <li>
@@ -1580,6 +1604,137 @@
 
         
       
+        <h3 id="auth.GetActionListRequest">GetActionListRequest</h3>
+        <p>动作列表请求（命名适配IAM）</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>serviceId</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>服务ID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>workspaceId</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>工作区ID </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="auth.GetActionListResponse">GetActionListResponse</h3>
+        <p>动作列表响应</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#auth.ResourceActionData">ResourceActionData</a></td>
+                  <td></td>
+                  <td><p>响应信息 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#common.ResponseStatus">common.ResponseStatus</a></td>
+                  <td></td>
+                  <td><p>响应状态 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="auth.GetResourceListRequest">GetResourceListRequest</h3>
+        <p>资源列表请求（命名适配IAM）</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>serviceId</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>服务ID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>workspaceId</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>工作区ID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>serviceType</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>服务类型 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="auth.GetResourceListResponse">GetResourceListResponse</h3>
+        <p>资源列表响应</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#auth.ResourceActionData">ResourceActionData</a></td>
+                  <td></td>
+                  <td><p>响应信息 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#common.ResponseStatus">common.ResponseStatus</a></td>
+                  <td></td>
+                  <td><p>响应状态 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="auth.GetUserInfoRequest">GetUserInfoRequest</h3>
         <p>获取用户信息请求</p>
 
@@ -1660,6 +1815,103 @@
         <p>用户登出接口响应，返回301状态码</p>
 
         
+
+        
+      
+        <h3 id="auth.ResourceActionData">ResourceActionData</h3>
+        <p>资源动作数据列表</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>code</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>reason</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>list</td>
+                  <td><a href="#auth.ResourceActionItem">ResourceActionItem</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="auth.ResourceActionItem">ResourceActionItem</h3>
+        <p>资源动作条目（命名适配IAM）</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>ID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>名称 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>note</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>说明 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>expr</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>表达式 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>parentId</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>父节点ID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>resourceType</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>资源类型 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
 
         
       
@@ -1794,6 +2046,20 @@
                 <td><p>获取用户信息接口</p></td>
               </tr>
             
+              <tr>
+                <td>GetResourceList</td>
+                <td><a href="#auth.GetResourceListRequest">GetResourceListRequest</a></td>
+                <td><a href="#auth.GetResourceListResponse">GetResourceListResponse</a></td>
+                <td><p>对外提供资源列表的接口</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetActionList</td>
+                <td><a href="#auth.GetActionListRequest">GetActionListRequest</a></td>
+                <td><a href="#auth.GetActionListResponse">GetActionListResponse</a></td>
+                <td><p>对外提供动作列表的接口</p></td>
+              </tr>
+            
           </tbody>
         </table>
 
@@ -1858,6 +2124,26 @@
                 <td>GetUserInfo</td>
                 <td>GET</td>
                 <td>/v1/auth/getUserInfo</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetResourceList</td>
+                <td>POST</td>
+                <td>/v1/auth/getResourceList</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetActionList</td>
+                <td>POST</td>
+                <td>/v1/auth/getActionList</td>
                 <td></td>
               </tr>
               
@@ -4253,14 +4539,14 @@
                   <td>bk_inst_id</td>
                   <td><a href="#int32">int32</a></td>
                   <td></td>
-                  <td><p>业务ID </p></td>
+                  <td><p>机房ID </p></td>
                 </tr>
               
                 <tr>
                   <td>bk_inst_name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>业务名称 </p></td>
+                  <td><p>机房名称 </p></td>
                 </tr>
               
                 <tr>
@@ -4271,10 +4557,10 @@
                 </tr>
               
                 <tr>
-                  <td>room_name</td>
-                  <td><a href="#string">string</a></td>
+                  <td>uuid</td>
+                  <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>机房名称 </p></td>
+                  <td><p>uuid </p></td>
                 </tr>
               
                 <tr>
@@ -7165,6 +7451,12 @@
                 <td>ACCESS_DENIED</td>
                 <td>403</td>
                 <td><p>访问拒绝</p></td>
+              </tr>
+            
+              <tr>
+                <td>INTERNAL_ERROR</td>
+                <td>500</td>
+                <td><p>内部错误</p></td>
               </tr>
             
           </tbody>

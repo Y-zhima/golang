@@ -8,12 +8,18 @@
     - [CallbackResponse](#auth.CallbackResponse)
     - [CheckRequest](#auth.CheckRequest)
     - [CheckResponse](#auth.CheckResponse)
+    - [GetActionListRequest](#auth.GetActionListRequest)
+    - [GetActionListResponse](#auth.GetActionListResponse)
+    - [GetResourceListRequest](#auth.GetResourceListRequest)
+    - [GetResourceListResponse](#auth.GetResourceListResponse)
     - [GetUserInfoRequest](#auth.GetUserInfoRequest)
     - [GetUserInfoResponse](#auth.GetUserInfoResponse)
     - [LoginRequest](#auth.LoginRequest)
     - [LoginResponse](#auth.LoginResponse)
     - [LogoutRequest](#auth.LogoutRequest)
     - [LogoutResponse](#auth.LogoutResponse)
+    - [ResourceActionData](#auth.ResourceActionData)
+    - [ResourceActionItem](#auth.ResourceActionItem)
     - [UserInfo](#auth.UserInfo)
   
     - [SourceCode](#auth.SourceCode)
@@ -451,6 +457,71 @@
 
 
 
+<a name="auth.GetActionListRequest"></a>
+
+### GetActionListRequest
+动作列表请求（命名适配IAM）
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| serviceId | [string](#string) |  | 服务ID |
+| workspaceId | [string](#string) |  | 工作区ID |
+
+
+
+
+
+
+<a name="auth.GetActionListResponse"></a>
+
+### GetActionListResponse
+动作列表响应
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| data | [ResourceActionData](#auth.ResourceActionData) |  | 响应信息 |
+| status | [common.ResponseStatus](#common.ResponseStatus) |  | 响应状态 |
+
+
+
+
+
+
+<a name="auth.GetResourceListRequest"></a>
+
+### GetResourceListRequest
+资源列表请求（命名适配IAM）
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| serviceId | [string](#string) |  | 服务ID |
+| workspaceId | [string](#string) |  | 工作区ID |
+| serviceType | [string](#string) |  | 服务类型 |
+
+
+
+
+
+
+<a name="auth.GetResourceListResponse"></a>
+
+### GetResourceListResponse
+资源列表响应
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| data | [ResourceActionData](#auth.ResourceActionData) |  | 响应信息 |
+| status | [common.ResponseStatus](#common.ResponseStatus) |  | 响应状态 |
+
+
+
+
+
+
 <a name="auth.GetUserInfoRequest"></a>
 
 ### GetUserInfoRequest
@@ -522,6 +593,43 @@
 
 
 
+<a name="auth.ResourceActionData"></a>
+
+### ResourceActionData
+资源动作数据列表
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [string](#string) |  |  |
+| reason | [string](#string) |  |  |
+| list | [ResourceActionItem](#auth.ResourceActionItem) | repeated |  |
+
+
+
+
+
+
+<a name="auth.ResourceActionItem"></a>
+
+### ResourceActionItem
+资源动作条目（命名适配IAM）
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [int64](#int64) |  | ID |
+| name | [string](#string) |  | 名称 |
+| note | [string](#string) |  | 说明 |
+| expr | [string](#string) |  | 表达式 |
+| parentId | [int64](#int64) |  | 父节点ID |
+| resourceType | [string](#string) |  | 资源类型 |
+
+
+
+
+
+
 <a name="auth.UserInfo"></a>
 
 ### UserInfo
@@ -572,6 +680,8 @@
 | Logout | [LogoutRequest](#auth.LogoutRequest) | [LogoutResponse](#auth.LogoutResponse) | 用户登出接口 |
 | Callback | [CallbackRequest](#auth.CallbackRequest) | [CallbackResponse](#auth.CallbackResponse) | 登陆回调接口 |
 | GetUserInfo | [GetUserInfoRequest](#auth.GetUserInfoRequest) | [GetUserInfoResponse](#auth.GetUserInfoResponse) | 获取用户信息接口 |
+| GetResourceList | [GetResourceListRequest](#auth.GetResourceListRequest) | [GetResourceListResponse](#auth.GetResourceListResponse) | 对外提供资源列表的接口 |
+| GetActionList | [GetActionListRequest](#auth.GetActionListRequest) | [GetActionListResponse](#auth.GetActionListResponse) | 对外提供动作列表的接口 |
 
  
 
@@ -1429,10 +1539,10 @@ level下的主机ip列表
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| bk_inst_id | [int32](#int32) |  | 业务ID |
-| bk_inst_name | [string](#string) |  | 业务名称 |
+| bk_inst_id | [int32](#int32) |  | 机房ID |
+| bk_inst_name | [string](#string) |  | 机房名称 |
 | bk_obj_id | [string](#string) |  | 对象ID |
-| room_name | [string](#string) |  | 机房名称 |
+| uuid | [int64](#int64) |  | uuid |
 | city | [string](#string) |  | 城市 |
 | prov | [string](#string) |  | 省份 |
 | area_code | [string](#string) |  | 地区编码 |
@@ -2547,6 +2657,7 @@ The greeting service definition.
 | SUCCESS | 0 | 成功 |
 | INVALID_ARGUMENT | 400 | 参数错误 |
 | ACCESS_DENIED | 403 | 访问拒绝 |
+| INTERNAL_ERROR | 500 | 内部错误 |
 
 
  
