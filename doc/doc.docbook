@@ -3229,10 +3229,10 @@
             </row>
             
             <row>
-              <entry>uuid</entry>
+              <entry>bk_obj_id</entry>
               <entry><link linkend="string">string</link></entry>
               <entry></entry>
-              <entry><para>uuid (bk_obj_id + _ + bk_inst_id/area_code)</para></entry>
+              <entry><para>对象ID</para></entry>
             </row>
             
             <row>

@@ -3688,16 +3688,16 @@
           "type": "string",
           "title": "机房名称"
         },
+        "bk_obj_id": {
+          "type": "string",
+          "title": "对象ID"
+        },
         "child": {
           "type": "array",
           "title": "子对象",
           "items": {
             "$ref": "#/definitions/cmdbRoomObject"
           }
-        },
-        "uuid": {
-          "type": "string",
-          "title": "uuid (bk_obj_id + _ + bk_inst_id/area_code)"
         }
       }
     },
