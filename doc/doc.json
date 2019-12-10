@@ -4174,9 +4174,19 @@
           "extensions": [],
           "fields": [
             {
-              "name": "uuid",
-              "description": "包含room_roomId或area_areaCode",
+              "name": "bk_inst_id",
+              "description": "roomId或areaCode",
               "label": "repeated",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_obj_id",
+              "description": "对象类型",
+              "label": "",
               "type": "string",
               "longType": "string",
               "fullType": "string",

@@ -1194,11 +1194,18 @@
           {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "collectionFormat": "multi",
-            "description": "包含room_roomId或area_areaCode.",
-            "name": "uuid",
+            "description": "roomId或areaCode.",
+            "name": "bk_inst_id",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "对象类型.",
+            "name": "bk_obj_id",
             "in": "query"
           },
           {

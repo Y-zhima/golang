@@ -4104,10 +4104,17 @@
           <tbody>
             
             <row>
-              <entry>uuid</entry>
-              <entry><link linkend="string">string</link></entry>
+              <entry>bk_inst_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
               <entry>repeated</entry>
-              <entry><para>包含room_roomId或area_areaCode</para></entry>
+              <entry><para>roomId或areaCode</para></entry>
+            </row>
+            
+            <row>
+              <entry>bk_obj_id</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>对象类型</para></entry>
             </row>
             
             <row>

@@ -1129,15 +1129,23 @@
         },
         "parameters": [
           {
-            "name": "uuid",
-            "description": "包含room_roomId或area_areaCode.",
+            "name": "bk_inst_id",
+            "description": "roomId或areaCode.",
             "in": "query",
             "required": false,
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "collectionFormat": "multi"
+          },
+          {
+            "name": "bk_obj_id",
+            "description": "对象类型.",
+            "in": "query",
+            "required": false,
+            "type": "string"
           },
           {
             "name": "paging.total_page",

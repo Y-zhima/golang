@@ -1855,7 +1855,8 @@ level下的主机ip列表
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| uuid | [string](#string) | repeated | 包含room_roomId或area_areaCode |
+| bk_inst_id | [int32](#int32) | repeated | roomId或areaCode |
+| bk_obj_id | [string](#string) |  | 对象类型 |
 | paging | [common.Paging](#common.Paging) |  | 分页信息 |
 
 

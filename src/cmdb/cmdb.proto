@@ -704,14 +704,16 @@ message ServerObject {
 message ServerListRequest {
     option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
         json_schema: {
-          required: ["uuid"]
+          required: ["bk_inst_id","bk_obj_id"]
         }
     };
 
-    // 包含room_roomId或area_areaCode
-   repeated  string uuid = 1;
+    // roomId或areaCode
+    repeated int32 bk_inst_id = 1;
+    // 对象类型
+    string bk_obj_id = 2;
     // 分页信息
-    common.Paging paging = 2;
+    common.Paging paging = 3;
 }
 
 // 裸金属列表响应
