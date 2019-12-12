@@ -1,12 +1,12 @@
 syntax = "proto3";
 
-package jump;
+package jumpserver;
 
 option java_multiple_files = true;
 option java_package = "com.ffcs.xmrdc.ironic.mirror.grpc.jumpCom";
 option java_outer_classname = "jumpComProto";
 
-option go_package = "git.fogcdn.top/axe/protos/goout/jump";
+option go_package = "git.fogcdn.top/axe/protos/goout/jumpserver";
 
 import "google/protobuf/timestamp.proto";
 
