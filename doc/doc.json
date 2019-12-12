@@ -71,6 +71,140 @@
           "fields": []
         },
         {
+          "name": "GetActionListRequest",
+          "longName": "GetActionListRequest",
+          "fullName": "auth.GetActionListRequest",
+          "description": "动作列表请求（命名适配IAM）",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "serviceId",
+              "description": "服务ID",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "workspaceId",
+              "description": "工作区ID",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "GetActionListResponse",
+          "longName": "GetActionListResponse",
+          "fullName": "auth.GetActionListResponse",
+          "description": "动作列表响应",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "data",
+              "description": "响应信息",
+              "label": "",
+              "type": "ResourceActionData",
+              "longType": "ResourceActionData",
+              "fullType": "auth.ResourceActionData",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "status",
+              "description": "响应状态",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "GetResourceListRequest",
+          "longName": "GetResourceListRequest",
+          "fullName": "auth.GetResourceListRequest",
+          "description": "资源列表请求（命名适配IAM）",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "serviceId",
+              "description": "服务ID",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "workspaceId",
+              "description": "工作区ID",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "serviceType",
+              "description": "服务类型",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "GetResourceListResponse",
+          "longName": "GetResourceListResponse",
+          "fullName": "auth.GetResourceListResponse",
+          "description": "资源列表响应",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "data",
+              "description": "响应信息",
+              "label": "",
+              "type": "ResourceActionData",
+              "longType": "ResourceActionData",
+              "fullType": "auth.ResourceActionData",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "status",
+              "description": "响应状态",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
           "name": "GetUserInfoRequest",
           "longName": "GetUserInfoRequest",
           "fullName": "auth.GetUserInfoRequest",
@@ -161,6 +295,118 @@
           "hasFields": false,
           "extensions": [],
           "fields": []
+        },
+        {
+          "name": "ResourceActionData",
+          "longName": "ResourceActionData",
+          "fullName": "auth.ResourceActionData",
+          "description": "资源动作数据列表",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "code",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "reason",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "list",
+              "description": "",
+              "label": "repeated",
+              "type": "ResourceActionItem",
+              "longType": "ResourceActionItem",
+              "fullType": "auth.ResourceActionItem",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ResourceActionItem",
+          "longName": "ResourceActionItem",
+          "fullName": "auth.ResourceActionItem",
+          "description": "资源动作条目（命名适配IAM）",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "ID",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "名称",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "note",
+              "description": "说明",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "expr",
+              "description": "表达式",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "parentId",
+              "description": "父节点ID",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "resourceType",
+              "description": "资源类型",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
         },
         {
           "name": "UserInfo",
@@ -346,6 +592,50 @@
                     {
                       "method": "GET",
                       "pattern": "/v1/auth/getUserInfo"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "GetResourceList",
+              "description": "对外提供资源列表的接口",
+              "requestType": "GetResourceListRequest",
+              "requestLongType": "GetResourceListRequest",
+              "requestFullType": "auth.GetResourceListRequest",
+              "requestStreaming": false,
+              "responseType": "GetResourceListResponse",
+              "responseLongType": "GetResourceListResponse",
+              "responseFullType": "auth.GetResourceListResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "POST",
+                      "pattern": "/v1/auth/getResourceList"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "GetActionList",
+              "description": "对外提供动作列表的接口",
+              "requestType": "GetActionListRequest",
+              "requestLongType": "GetActionListRequest",
+              "requestFullType": "auth.GetActionListRequest",
+              "requestStreaming": false,
+              "responseType": "GetActionListResponse",
+              "responseLongType": "GetActionListResponse",
+              "responseFullType": "auth.GetActionListResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "POST",
+                      "pattern": "/v1/auth/getActionList"
                     }
                   ]
                 }
@@ -2758,7 +3048,7 @@
             },
             {
               "name": "status",
-              "description": "TopologyObject instance = 1;\n状态码",
+              "description": "TopologyObject instance = 1;\r\n状态码",
               "label": "",
               "type": "ResponseStatus",
               "longType": "common.ResponseStatus",
@@ -3125,7 +3415,7 @@
           "fields": [
             {
               "name": "bk_inst_id",
-              "description": "业务ID",
+              "description": "机房ID",
               "label": "",
               "type": "int32",
               "longType": "int32",
@@ -3135,7 +3425,7 @@
             },
             {
               "name": "bk_inst_name",
-              "description": "业务名称",
+              "description": "机房名称",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -3146,46 +3436,6 @@
             {
               "name": "bk_obj_id",
               "description": "对象ID",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "room_name",
-              "description": "机房名称",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "city",
-              "description": "城市",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "prov",
-              "description": "省份",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "area_code",
-              "description": "地区编码",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -3924,12 +4174,22 @@
           "extensions": [],
           "fields": [
             {
-              "name": "room_id",
-              "description": "机房id，相当于 RoomObject 中的 bk_inst_id",
-              "label": "",
+              "name": "bk_inst_id",
+              "description": "roomId或areaCode",
+              "label": "repeated",
               "type": "int32",
               "longType": "int32",
               "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_obj_id",
+              "description": "对象类型",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "defaultValue": ""
             },
@@ -4098,6 +4358,16 @@
             {
               "name": "uuid",
               "description": "裸金属uuid",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bk_host_innerip",
+              "description": "主机内网IP",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -5811,6 +6081,11 @@
               "name": "ACCESS_DENIED",
               "number": "403",
               "description": "访问拒绝"
+            },
+            {
+              "name": "INTERNAL_ERROR",
+              "number": "500",
+              "description": "内部错误"
             }
           ]
         }
@@ -12681,7 +12956,7 @@
             },
             {
               "name": "GetLog",
-              "description": "获取作业任务详细执行过程\n\noption (google.api.http) = {\n           get: \"/v1/task/{task_id}/logs\"\n       };",
+              "description": "获取作业任务详细执行过程\n\noption (google.api.http) = {\r\n           get: \"/v1/task/{task_id}/logs\"\r\n       };",
               "requestType": "GetLogRequest",
               "requestLongType": "GetLogRequest",
               "requestFullType": "task.GetLogRequest",
@@ -13647,7 +13922,7 @@
             },
             {
               "name": "Delete",
-              "description": "删除作业模板\n\noption (google.api.http) = {\n           post: \"/v1/template/delete/{template_id}\"\n       };",
+              "description": "删除作业模板\n\noption (google.api.http) = {\r\n           post: \"/v1/template/delete/{template_id}\"\r\n       };",
               "requestType": "DeleteRequest",
               "requestLongType": "DeleteRequest",
               "requestFullType": "template.DeleteRequest",

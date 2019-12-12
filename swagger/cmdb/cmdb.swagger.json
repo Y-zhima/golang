@@ -1129,12 +1129,23 @@
         },
         "parameters": [
           {
-            "name": "room_id",
-            "description": "机房id，相当于 RoomObject 中的 bk_inst_id.",
+            "name": "bk_inst_id",
+            "description": "roomId或areaCode.",
             "in": "query",
             "required": false,
-            "type": "integer",
-            "format": "int32"
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "bk_obj_id",
+            "description": "对象类型.",
+            "in": "query",
+            "required": false,
+            "type": "string"
           },
           {
             "name": "paging.total_page",
@@ -1920,7 +1931,7 @@
         },
         "status": {
           "$ref": "#/definitions/commonResponseStatus",
-          "title": "TopologyObject instance = 1;\n状态码"
+          "title": "TopologyObject instance = 1;\r\n状态码"
         }
       },
       "title": "拓扑实例请求返回"
@@ -2094,31 +2105,15 @@
         "bk_inst_id": {
           "type": "integer",
           "format": "int32",
-          "title": "业务ID"
+          "title": "机房ID"
         },
         "bk_inst_name": {
           "type": "string",
-          "title": "业务名称"
+          "title": "机房名称"
         },
         "bk_obj_id": {
           "type": "string",
           "title": "对象ID"
-        },
-        "room_name": {
-          "type": "string",
-          "title": "机房名称"
-        },
-        "city": {
-          "type": "string",
-          "title": "城市"
-        },
-        "prov": {
-          "type": "string",
-          "title": "省份"
-        },
-        "area_code": {
-          "type": "string",
-          "title": "地区编码"
         },
         "child": {
           "type": "array",
@@ -2416,6 +2411,10 @@
         "uuid": {
           "type": "string",
           "title": "裸金属uuid"
+        },
+        "bk_host_innerip": {
+          "type": "string",
+          "title": "主机内网IP"
         }
       },
       "title": "物理机对象"

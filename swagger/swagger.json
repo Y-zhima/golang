@@ -51,6 +51,40 @@
         }
       }
     },
+    "/v1/auth/getActionList": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "对外提供动作列表的接口",
+        "operationId": "GetActionList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authGetActionListResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1/auth/getResourceList": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "对外提供资源列表的接口",
+        "operationId": "GetResourceList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authGetResourceListResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/auth/getUserInfo": {
       "get": {
         "tags": [
@@ -1158,10 +1192,20 @@
         "operationId": "ServerList",
         "parameters": [
           {
-            "type": "integer",
-            "format": "int32",
-            "description": "机房id，相当于 RoomObject 中的 bk_inst_id.",
-            "name": "room_id",
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "collectionFormat": "multi",
+            "description": "roomId或areaCode.",
+            "name": "bk_inst_id",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "对象类型.",
+            "name": "bk_obj_id",
             "in": "query"
           },
           {
@@ -1433,7 +1477,7 @@
           "Playbook"
         ],
         "summary": "创建playbook项目",
-        "operationId": "Create",
+        "operationId": "CreateMixin14",
         "parameters": [
           {
             "name": "body",
@@ -1460,7 +1504,7 @@
           "Playbook"
         ],
         "summary": "筛选playbook项目",
-        "operationId": "Filter",
+        "operationId": "FilterMixin14",
         "parameters": [
           {
             "type": "integer",
@@ -1513,7 +1557,7 @@
           "Playbook"
         ],
         "summary": "获取playbook项目",
-        "operationId": "Get",
+        "operationId": "GetMixin14",
         "parameters": [
           {
             "type": "integer",
@@ -1540,7 +1584,7 @@
           "Playbook"
         ],
         "summary": "更新playbook项目",
-        "operationId": "Update",
+        "operationId": "UpdateMixin14",
         "parameters": [
           {
             "type": "integer",
@@ -1575,7 +1619,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin12",
+        "operationId": "CreateMixin9",
         "parameters": [
           {
             "name": "body",
@@ -1602,7 +1646,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin12",
+        "operationId": "FilterMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -1676,7 +1720,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin12",
+        "operationId": "GetMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -1738,7 +1782,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "UpdateMixin12",
+        "operationId": "Update",
         "parameters": [
           {
             "type": "integer",
@@ -1800,7 +1844,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "CreateMixin15",
+        "operationId": "Create",
         "parameters": [
           {
             "name": "body",
@@ -1881,7 +1925,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "FilterMixin15",
+        "operationId": "Filter",
         "parameters": [
           {
             "type": "integer",
@@ -1948,7 +1992,7 @@
           "Task"
         ],
         "summary": "获取作业任务",
-        "operationId": "GetMixin15",
+        "operationId": "Get",
         "parameters": [
           {
             "type": "string",
@@ -2110,7 +2154,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin16",
+        "operationId": "CreateMixin11",
         "parameters": [
           {
             "name": "body",
@@ -2137,7 +2181,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin16",
+        "operationId": "FilterMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -2196,7 +2240,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin16",
+        "operationId": "GetMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -2223,7 +2267,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin16",
+        "operationId": "UpdateMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -2605,6 +2649,34 @@
       "type": "object",
       "title": "服务鉴权入口响应，返回200、401、403等状态码"
     },
+    "authGetActionListResponse": {
+      "type": "object",
+      "title": "动作列表响应",
+      "properties": {
+        "data": {
+          "title": "响应信息",
+          "$ref": "#/definitions/authResourceActionData"
+        },
+        "status": {
+          "title": "响应状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
+    "authGetResourceListResponse": {
+      "type": "object",
+      "title": "资源列表响应",
+      "properties": {
+        "data": {
+          "title": "响应信息",
+          "$ref": "#/definitions/authResourceActionData"
+        },
+        "status": {
+          "title": "响应状态",
+          "$ref": "#/definitions/commonResponseStatus"
+        }
+      }
+    },
     "authGetUserInfoResponse": {
       "type": "object",
       "properties": {
@@ -2625,6 +2697,56 @@
     "authLogoutResponse": {
       "type": "object",
       "title": "用户登出接口响应，返回301状态码"
+    },
+    "authResourceActionData": {
+      "type": "object",
+      "title": "资源动作数据列表",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/authResourceActionItem"
+          }
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "authResourceActionItem": {
+      "type": "object",
+      "title": "资源动作条目（命名适配IAM）",
+      "properties": {
+        "expr": {
+          "type": "string",
+          "title": "表达式"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64",
+          "title": "ID"
+        },
+        "name": {
+          "type": "string",
+          "title": "名称"
+        },
+        "note": {
+          "type": "string",
+          "title": "说明"
+        },
+        "parentId": {
+          "type": "string",
+          "format": "int64",
+          "title": "父节点ID"
+        },
+        "resourceType": {
+          "type": "string",
+          "title": "资源类型"
+        }
+      }
     },
     "authSourceCode": {
       "description": "- NONE: 不依赖外部系统\n - IAM: IAM系统",
@@ -3385,7 +3507,7 @@
           }
         },
         "status": {
-          "title": "TopologyObject instance = 1;\n状态码",
+          "title": "TopologyObject instance = 1;\r\n状态码",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
@@ -3557,18 +3679,14 @@
       "type": "object",
       "title": "机房对象",
       "properties": {
-        "area_code": {
-          "type": "string",
-          "title": "地区编码"
-        },
         "bk_inst_id": {
           "type": "integer",
           "format": "int32",
-          "title": "业务ID"
+          "title": "机房ID"
         },
         "bk_inst_name": {
           "type": "string",
-          "title": "业务名称"
+          "title": "机房名称"
         },
         "bk_obj_id": {
           "type": "string",
@@ -3580,18 +3698,6 @@
           "items": {
             "$ref": "#/definitions/cmdbRoomObject"
           }
-        },
-        "city": {
-          "type": "string",
-          "title": "城市"
-        },
-        "prov": {
-          "type": "string",
-          "title": "省份"
-        },
-        "room_name": {
-          "type": "string",
-          "title": "机房名称"
         }
       }
     },
@@ -3855,6 +3961,10 @@
         "account": {
           "type": "string",
           "title": "IPMI账号"
+        },
+        "bk_host_innerip": {
+          "type": "string",
+          "title": "主机内网IP"
         },
         "bk_inst_id": {
           "type": "integer",
@@ -4557,14 +4667,15 @@
       }
     },
     "imageStatusCode": {
-      "description": "- SUCCESS: 成功\n - INVALID_ARGUMENT: 参数错误\n - ACCESS_DENIED: 访问拒绝",
+      "description": "- SUCCESS: 成功\n - INVALID_ARGUMENT: 参数错误\n - ACCESS_DENIED: 访问拒绝\n - INTERNAL_ERROR: 内部错误",
       "type": "string",
       "title": "请求返回状态码",
       "default": "SUCCESS",
       "enum": [
         "SUCCESS",
         "INVALID_ARGUMENT",
-        "ACCESS_DENIED"
+        "ACCESS_DENIED",
+        "INTERNAL_ERROR"
       ]
     },
     "ironicComAppKey": {

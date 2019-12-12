@@ -49,6 +49,40 @@
         ]
       }
     },
+    "/v1/auth/getActionList": {
+      "post": {
+        "summary": "对外提供动作列表的接口",
+        "operationId": "GetActionList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authGetActionListResponse"
+            }
+          }
+        },
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/v1/auth/getResourceList": {
+      "post": {
+        "summary": "对外提供资源列表的接口",
+        "operationId": "GetResourceList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authGetResourceListResponse"
+            }
+          }
+        },
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
     "/v1/auth/getUserInfo": {
       "get": {
         "summary": "获取用户信息接口",
@@ -120,6 +154,34 @@
       "type": "object",
       "title": "服务鉴权入口响应，返回200、401、403等状态码"
     },
+    "authGetActionListResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/authResourceActionData",
+          "title": "响应信息"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "响应状态"
+        }
+      },
+      "title": "动作列表响应"
+    },
+    "authGetResourceListResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/authResourceActionData",
+          "title": "响应信息"
+        },
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus",
+          "title": "响应状态"
+        }
+      },
+      "title": "资源列表响应"
+    },
     "authGetUserInfoResponse": {
       "type": "object",
       "properties": {
@@ -140,6 +202,56 @@
     "authLogoutResponse": {
       "type": "object",
       "title": "用户登出接口响应，返回301状态码"
+    },
+    "authResourceActionData": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/authResourceActionItem"
+          }
+        }
+      },
+      "title": "资源动作数据列表"
+    },
+    "authResourceActionItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64",
+          "title": "ID"
+        },
+        "name": {
+          "type": "string",
+          "title": "名称"
+        },
+        "note": {
+          "type": "string",
+          "title": "说明"
+        },
+        "expr": {
+          "type": "string",
+          "title": "表达式"
+        },
+        "parentId": {
+          "type": "string",
+          "format": "int64",
+          "title": "父节点ID"
+        },
+        "resourceType": {
+          "type": "string",
+          "title": "资源类型"
+        }
+      },
+      "title": "资源动作条目（命名适配IAM）"
     },
     "authSourceCode": {
       "type": "string",
