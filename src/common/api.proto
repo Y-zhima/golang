@@ -34,3 +34,21 @@ enum StatusCode {
     // 访问拒绝
     ACCESS_DENIED = 403;
 }
+
+// 通过名称查询
+message RequestKey {
+    // 关键字
+    string key = 1;
+    // 分页
+    Paging paging = 2;
+}
+
+// 返回字符串数组
+message ResponseStrings {
+    // 状态码
+    StatusCode code = 1;
+    // 信息
+    repeated string data = 2;
+    // 分页
+    Paging paging = 3;
+}

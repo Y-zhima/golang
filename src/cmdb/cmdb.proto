@@ -83,7 +83,7 @@ service Cmdb {
     }
 
     // 查询模块
-    rpc SearchModule (SearchMoudleRequest) returns (SearchMoudleResponse) {
+    rpc SearchModule (SearchModuleRequest) returns (SearchMoudleResponse) {
         option (google.api.http) = {
             get: "/v1/cmdb/searchModule"
         };
@@ -192,6 +192,20 @@ service Cmdb {
         option (google.api.http) = {
             post: "/v1/cmdb/serviceTest"
             body: "*"
+        };
+    }
+
+    // 查询全部模块
+    rpc SearchAllModule (common.RequestKey) returns (common.ResponseStrings) {
+        option (google.api.http) = {
+            get: "/v1/cmdb/searchAllModule"
+        };
+    }
+
+    // 查询全部模块
+    rpc SearchModuleHost (common.RequestKey) returns (moduleHostResponse) {
+        option (google.api.http) = {
+            get: "/v1/cmdb/searchModuleHost"
         };
     }
 }
@@ -416,7 +430,6 @@ message HostObject {
     // 主机域信息
     repeated HostCloudInfo bk_cloud_id = 41;
 }
-
 
 // 模块
 message ModuleObject {
@@ -735,7 +748,7 @@ message ServerListResponse {
 }
 
 // 查询模块请求
-message SearchMoudleRequest {
+message SearchModuleRequest {
     option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
         json_schema: {
           required: ["cmdb_search_request"]
@@ -1209,4 +1222,17 @@ message UpdateVipStateRequest {
 message UpdateVipStateResponse {
     // 返回的请求状态
     common.ResponseStatus status = 1;
+}
+
+// 模块主机ip列表[{模块名，[ip]}]
+message ModuleHostResponse {
+    repeated ModuleHost data = 1;
+}
+
+// 模块下主机ip列表
+message ModuleHost {
+    // 模块名
+    string module_name = 1;
+    // ip列表
+    repeated string value = 2;
 }
