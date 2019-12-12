@@ -187,14 +187,6 @@ service Cmdb {
         };
     }
 
-    // 服务测试
-    rpc ServiceTest (SearchInstRequest) returns (SearchInstResponse) {
-        option (google.api.http) = {
-            post: "/v1/cmdb/serviceTest"
-            body: "*"
-        };
-    }
-
     // 查询全部模块
     rpc SearchAllModule (common.RequestKey) returns (common.ResponseStrings) {
         option (google.api.http) = {
