@@ -96,7 +96,7 @@ service Cmdb {
         };
     }
 
-    // 实体的查询,包括 host，lake，vip列表
+    // 实体的查询,包括 host，lake，vip，room列表
     rpc SearchInst (SearchInstRequest) returns (SearchInstResponse) {
         option (google.api.http) = {
             post: "/v1/cmdb/searchInst"
@@ -226,7 +226,7 @@ message UpdateInstResponse {
     common.ResponseStatus status = 1;
 }
 
-// 实体类型:0-undefined 1-HOST 2-LAKE 3-vip
+// 实体类型:0-undefined 1-HOST 2-LAKE 3-vip  4-ROOM
 enum InstType {
     // 0-undefined
     UNDEFINED_INST = 0;
@@ -236,6 +236,8 @@ enum InstType {
     LAKE_INST = 2;
     // 3-VIP
     VIP_INST = 3;
+    // 4-ROOM
+    ROOM_INST = 4;
 }
 
 // 导入状态: 0-正在导入 1-导入完成 2-导入失败 3-待审核 4-审核通过 5-审核不通过 6-撤销 7-回滚失败
@@ -902,6 +904,10 @@ message ServerRoomObject {
     int32 up_bandwidth = 8;
     // 保底带宽
     int32 min_bandwidth = 9;
+    // 维护人
+    string maintainer = 10;
+    // 联系方式
+    string mobile = 11;
 }
 
 // LAKE节点对象
