@@ -815,7 +815,7 @@
     },
     "/v1/cmdb/searchInst": {
       "post": {
-        "summary": "实体的查询,包括 host，lake，vip列表",
+        "summary": "实体的查询,包括 host，lake，vip，room列表",
         "operationId": "SearchInst",
         "responses": {
           "200": {
@@ -1008,7 +1008,7 @@
         "parameters": [
           {
             "name": "level",
-            "description": "指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘.\n\n - NATION_CENTER: 0-全国中心\n - REGION_CENTER: 1-区域中心\n - PROVINCE_EDGE: 2-省边缘\n - CITY_EDGE: 3-地市边缘\n - COUNTY_EDGE: 4-区县边缘",
+            "description": "指定level：0-全部 1-全国中心 2-区域中心 3-省边缘 4-地市边缘 5-区县边缘.\n\n - NATION_CENTER: 0-全国中心\n - REGION_CENTER: 1-区域中心\n - PROVINCE_EDGE: 2-省边缘\n - CITY_EDGE: 3-地市边缘\n - COUNTY_EDGE: 4-区县边缘",
             "in": "query",
             "required": false,
             "type": "string",
@@ -1110,6 +1110,48 @@
             "collectionFormat": "multi"
           }
         ],
+        "tags": [
+          "Cmdb"
+        ]
+      }
+    },
+    "/v1/cmdb/searchModuleHost": {
+      "get": {
+        "summary": "查询全部模块",
+        "operationId": "SearchModuleHost",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbSearchModuleHostResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "module_name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Cmdb"
+        ]
+      }
+    },
+    "/v1/cmdb/searchModuleList": {
+      "get": {
+        "summary": "查询全部模块",
+        "operationId": "SearchModuleList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cmdbSearchModuleListResponse"
+            }
+          }
+        },
         "tags": [
           "Cmdb"
         ]
@@ -1913,11 +1955,12 @@
         "UNDEFINED_INST",
         "HOST_INST",
         "LAKE_INST",
-        "VIP_INST"
+        "VIP_INST",
+        "ROOM_INST"
       ],
       "default": "UNDEFINED_INST",
-      "description": "- UNDEFINED_INST: 0-undefined\n - HOST_INST: 1-主机\n - LAKE_INST: 2-LAKE\n - VIP_INST: 3-VIP",
-      "title": "实体类型:0-undefined 1-HOST 2-LAKE 3-vip"
+      "description": "- UNDEFINED_INST: 0-undefined\n - HOST_INST: 1-主机\n - LAKE_INST: 2-LAKE\n - VIP_INST: 3-VIP\n - ROOM_INST: 4-ROOM",
+      "title": "实体类型:0-undefined 1-HOST 2-LAKE 3-vip  4-ROOM"
     },
     "cmdbInstanceTopologyResponse": {
       "type": "object",
@@ -2063,6 +2106,23 @@
         }
       },
       "title": "level下的主机ip列表"
+    },
+    "cmdbModuleHost": {
+      "type": "object",
+      "properties": {
+        "module_name": {
+          "type": "string",
+          "title": "业务模块名，biz##set##module"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "ip列表"
+        }
+      },
+      "title": "模块下主机ip列表，{业务模块名，[ip]}"
     },
     "cmdbModuleObject": {
       "type": "object",
@@ -2315,6 +2375,36 @@
       },
       "title": "按level查询lake节点下主机列表响应"
     },
+    "cmdbSearchModuleHostResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/cmdbModuleHost"
+          }
+        }
+      },
+      "title": "查询指定模块名下的全部主机请求返回，[{业务模块名，[ip]}]"
+    },
+    "cmdbSearchModuleListResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/commonResponseStatus"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "查询全部模块返回"
+    },
     "cmdbSearchMoudleResponse": {
       "type": "object",
       "properties": {
@@ -2471,6 +2561,14 @@
           "type": "integer",
           "format": "int32",
           "title": "保底带宽"
+        },
+        "maintainer": {
+          "type": "string",
+          "title": "维护人"
+        },
+        "mobile": {
+          "type": "string",
+          "title": "联系方式"
         }
       },
       "title": "机房对象"

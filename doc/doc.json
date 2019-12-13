@@ -998,7 +998,7 @@
           "name": "InstType",
           "longName": "InstType",
           "fullName": "cmdb.InstType",
-          "description": "实体类型:0-undefined 1-HOST 2-LAKE 3-vip",
+          "description": "实体类型:0-undefined 1-HOST 2-LAKE 3-vip  4-ROOM",
           "values": [
             {
               "name": "UNDEFINED_INST",
@@ -1019,6 +1019,11 @@
               "name": "VIP_INST",
               "number": "3",
               "description": "3-VIP"
+            },
+            {
+              "name": "ROOM_INST",
+              "number": "4",
+              "description": "4-ROOM"
             }
           ]
         },
@@ -3354,6 +3359,37 @@
           ]
         },
         {
+          "name": "ModuleHost",
+          "longName": "ModuleHost",
+          "fullName": "cmdb.ModuleHost",
+          "description": "模块下主机ip列表，{业务模块名，[ip]}",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "module_name",
+              "description": "业务模块名，biz##set##module",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "value",
+              "description": "ip列表",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
           "name": "ModuleObject",
           "longName": "ModuleObject",
           "fullName": "cmdb.ModuleObject",
@@ -3967,7 +4003,7 @@
           "fields": [
             {
               "name": "level",
-              "description": "指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘",
+              "description": "指定level：0-全部 1-全国中心 2-区域中心 3-省边缘 4-地市边缘 5-区县边缘",
               "label": "",
               "type": "LakeNodeLevel",
               "longType": "LakeNodeLevel",
@@ -4070,9 +4106,114 @@
           ]
         },
         {
-          "name": "SearchMoudleRequest",
-          "longName": "SearchMoudleRequest",
-          "fullName": "cmdb.SearchMoudleRequest",
+          "name": "SearchModuleHostRequest",
+          "longName": "SearchModuleHostRequest",
+          "fullName": "cmdb.SearchModuleHostRequest",
+          "description": "查询指定模块名下的全部主机请求",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "module_name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": "",
+              "options": {
+                "validator.field": [
+                  {
+                    "name": "human_error",
+                    "value": "模块名不能为空"
+                  },
+                  {
+                    "name": "string_not_empty",
+                    "value": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "SearchModuleHostResponse",
+          "longName": "SearchModuleHostResponse",
+          "fullName": "cmdb.SearchModuleHostResponse",
+          "description": "查询指定模块名下的全部主机请求返回，[{业务模块名，[ip]}]",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "data",
+              "description": "",
+              "label": "repeated",
+              "type": "ModuleHost",
+              "longType": "ModuleHost",
+              "fullType": "cmdb.ModuleHost",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "SearchModuleListRequest",
+          "longName": "SearchModuleListRequest",
+          "fullName": "cmdb.SearchModuleListRequest",
+          "description": "查询全部模块请求",
+          "hasExtensions": false,
+          "hasFields": false,
+          "extensions": [],
+          "fields": []
+        },
+        {
+          "name": "SearchModuleListResponse",
+          "longName": "SearchModuleListResponse",
+          "fullName": "cmdb.SearchModuleListResponse",
+          "description": "查询全部模块返回",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "ResponseStatus",
+              "longType": "common.ResponseStatus",
+              "fullType": "common.ResponseStatus",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "data",
+              "description": "",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "SearchModuleRequest",
+          "longName": "SearchModuleRequest",
+          "fullName": "cmdb.SearchModuleRequest",
           "description": "查询模块请求",
           "hasExtensions": false,
           "hasFields": true,
@@ -4473,6 +4614,26 @@
               "type": "int32",
               "longType": "int32",
               "fullType": "int32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "maintainer",
+              "description": "维护人",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "mobile",
+              "description": "联系方式",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "defaultValue": ""
             }
@@ -5118,9 +5279,9 @@
             {
               "name": "SearchModule",
               "description": "查询模块",
-              "requestType": "SearchMoudleRequest",
-              "requestLongType": "SearchMoudleRequest",
-              "requestFullType": "cmdb.SearchMoudleRequest",
+              "requestType": "SearchModuleRequest",
+              "requestLongType": "SearchModuleRequest",
+              "requestFullType": "cmdb.SearchModuleRequest",
               "requestStreaming": false,
               "responseType": "SearchMoudleResponse",
               "responseLongType": "SearchMoudleResponse",
@@ -5161,7 +5322,7 @@
             },
             {
               "name": "SearchInst",
-              "description": "实体的查询,包括 host，lake，vip列表",
+              "description": "实体的查询,包括 host，lake，vip，room列表",
               "requestType": "SearchInstRequest",
               "requestLongType": "SearchInstRequest",
               "requestFullType": "cmdb.SearchInstRequest",
@@ -5429,6 +5590,50 @@
                   ]
                 }
               }
+            },
+            {
+              "name": "SearchModuleList",
+              "description": "查询全部模块",
+              "requestType": "SearchModuleListRequest",
+              "requestLongType": "SearchModuleListRequest",
+              "requestFullType": "cmdb.SearchModuleListRequest",
+              "requestStreaming": false,
+              "responseType": "SearchModuleListResponse",
+              "responseLongType": "SearchModuleListResponse",
+              "responseFullType": "cmdb.SearchModuleListResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/cmdb/searchModuleList"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "SearchModuleHost",
+              "description": "查询全部模块",
+              "requestType": "SearchModuleHostRequest",
+              "requestLongType": "SearchModuleHostRequest",
+              "requestFullType": "cmdb.SearchModuleHostRequest",
+              "requestStreaming": false,
+              "responseType": "SearchModuleHostResponse",
+              "responseLongType": "SearchModuleHostResponse",
+              "responseFullType": "cmdb.SearchModuleHostResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/cmdb/searchModuleHost"
+                    }
+                  ]
+                }
+              }
             }
           ]
         }
@@ -5469,6 +5674,78 @@
       ],
       "extensions": [],
       "messages": [
+        {
+          "name": "Condition",
+          "longName": "Condition",
+          "fullName": "common.Condition",
+          "description": "指定CMDB类型条件",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "bk_obj_id",
+              "description": "实体类型",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "fields",
+              "description": "指定查找返回数据，如bk_inst_name,id，默认全部",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "MongoCondition",
+          "longName": "MongoCondition",
+          "fullName": "common.MongoCondition",
+          "description": "MongoDB型条件，如{\"name\", \"$regex\", \"小明\"}",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "field",
+              "description": "指定筛选字段",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "operator",
+              "description": "筛选操作符，如$eq，$in，$ne等，默认$regex",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "value",
+              "description": "筛选值",
+              "label": "",
+              "type": "Any",
+              "longType": "google.protobuf.Any",
+              "fullType": "google.protobuf.Any",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
         {
           "name": "Paging",
           "longName": "Paging",
@@ -13922,7 +14199,7 @@
             },
             {
               "name": "Delete",
-              "description": "删除作业模板\n\noption (google.api.http) = {\r\n           post: \"/v1/template/delete/{template_id}\"\r\n       };",
+              "description": "删除作业模板\n\noption (google.api.http) = {\n           post: \"/v1/template/delete/{template_id}\"\n       };",
               "requestType": "DeleteRequest",
               "requestLongType": "DeleteRequest",
               "requestFullType": "template.DeleteRequest",

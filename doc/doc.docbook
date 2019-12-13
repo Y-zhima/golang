@@ -3137,6 +3137,48 @@
       
     </section>
     
+    <section id="cmdb.ModuleHost">
+      <title>ModuleHost</title>
+      <para>模块下主机ip列表，{业务模块名，[ip]}</para>
+      
+      <table frame="all">
+        <title><classname>ModuleHost</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>module_name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>业务模块名，biz##set##module</para></entry>
+            </row>
+            
+            <row>
+              <entry>value</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry>repeated</entry>
+              <entry><para>ip列表</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
     <section id="cmdb.ModuleObject">
       <title>ModuleObject</title>
       <para>模块</para>
@@ -3848,7 +3890,7 @@
               <entry>level</entry>
               <entry><link linkend="cmdb.LakeNodeLevel">LakeNodeLevel</link></entry>
               <entry></entry>
-              <entry><para>指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘</para></entry>
+              <entry><para>指定level：0-全部 1-全国中心 2-区域中心 3-省边缘 4-地市边缘 5-区县边缘</para></entry>
             </row>
             
             <row>
@@ -3963,12 +4005,138 @@
       
     </section>
     
-    <section id="cmdb.SearchMoudleRequest">
-      <title>SearchMoudleRequest</title>
+    <section id="cmdb.SearchModuleHostRequest">
+      <title>SearchModuleHostRequest</title>
+      <para>查询指定模块名下的全部主机请求</para>
+      
+      <table frame="all">
+        <title><classname>SearchModuleHostRequest</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>module_name</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="cmdb.SearchModuleHostResponse">
+      <title>SearchModuleHostResponse</title>
+      <para>查询指定模块名下的全部主机请求返回，[{业务模块名，[ip]}]</para>
+      
+      <table frame="all">
+        <title><classname>SearchModuleHostResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+            <row>
+              <entry>data</entry>
+              <entry><link linkend="cmdb.ModuleHost">ModuleHost</link></entry>
+              <entry>repeated</entry>
+              <entry><para></para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="cmdb.SearchModuleListRequest">
+      <title>SearchModuleListRequest</title>
+      <para>查询全部模块请求</para>
+      
+      
+    </section>
+    
+    <section id="cmdb.SearchModuleListResponse">
+      <title>SearchModuleListResponse</title>
+      <para>查询全部模块返回</para>
+      
+      <table frame="all">
+        <title><classname>SearchModuleListResponse</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>status</entry>
+              <entry><link linkend="common.ResponseStatus">common.ResponseStatus</link></entry>
+              <entry></entry>
+              <entry><para></para></entry>
+            </row>
+            
+            <row>
+              <entry>data</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry>repeated</entry>
+              <entry><para></para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="cmdb.SearchModuleRequest">
+      <title>SearchModuleRequest</title>
       <para>查询模块请求</para>
       
       <table frame="all">
-        <title><classname>SearchMoudleRequest</classname> Fields</title>
+        <title><classname>SearchModuleRequest</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -4374,6 +4542,20 @@
               <entry><link linkend="int32">int32</link></entry>
               <entry></entry>
               <entry><para>保底带宽</para></entry>
+            </row>
+            
+            <row>
+              <entry>maintainer</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>维护人</para></entry>
+            </row>
+            
+            <row>
+              <entry>mobile</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>联系方式</para></entry>
             </row>
             
           </tbody>
@@ -5155,7 +5337,7 @@
     
     <section id="cmdb.InstType">
       <title>InstType</title>
-      <para>实体类型:0-undefined 1-HOST 2-LAKE 3-vip</para>
+      <para>实体类型:0-undefined 1-HOST 2-LAKE 3-vip  4-ROOM</para>
       <table frame="all">
         <title><classname>InstType</classname> Values</title>
         <tgroup cols="3">
@@ -5193,6 +5375,12 @@
               <entry>VIP_INST</entry>
               <entry>3</entry>
               <entry><para>3-VIP</para></entry>
+            </row>
+            
+            <row>
+              <entry>ROOM_INST</entry>
+              <entry>4</entry>
+              <entry><para>4-ROOM</para></entry>
             </row>
             
           </tbody>
@@ -5457,7 +5645,7 @@
             
             <row>
               <entry>SearchModule</entry>
-              <entry><link linkend="cmdb.SearchMoudleRequest">SearchMoudleRequest</link></entry>
+              <entry><link linkend="cmdb.SearchModuleRequest">SearchModuleRequest</link></entry>
               <entry><link linkend="cmdb.SearchMoudleResponse">SearchMoudleResponse</link></entry>
               <entry><para>查询模块</para></entry>
             </row>
@@ -5473,7 +5661,7 @@
               <entry>SearchInst</entry>
               <entry><link linkend="cmdb.SearchInstRequest">SearchInstRequest</link></entry>
               <entry><link linkend="cmdb.SearchInstResponse">SearchInstResponse</link></entry>
-              <entry><para>实体的查询,包括 host，lake，vip列表</para></entry>
+              <entry><para>实体的查询,包括 host，lake，vip，room列表</para></entry>
             </row>
             
             <row>
@@ -5553,6 +5741,20 @@
               <entry><para>VIP的状态更新</para></entry>
             </row>
             
+            <row>
+              <entry>SearchModuleList</entry>
+              <entry><link linkend="cmdb.SearchModuleListRequest">SearchModuleListRequest</link></entry>
+              <entry><link linkend="cmdb.SearchModuleListResponse">SearchModuleListResponse</link></entry>
+              <entry><para>查询全部模块</para></entry>
+            </row>
+            
+            <row>
+              <entry>SearchModuleHost</entry>
+              <entry><link linkend="cmdb.SearchModuleHostRequest">SearchModuleHostRequest</link></entry>
+              <entry><link linkend="cmdb.SearchModuleHostResponse">SearchModuleHostResponse</link></entry>
+              <entry><para>查询全部模块</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>
@@ -5563,6 +5765,97 @@
   <section>
     <title>common/api.proto</title>
     <para></para>
+    
+    <section id="common.Condition">
+      <title>Condition</title>
+      <para>指定CMDB类型条件</para>
+      
+      <table frame="all">
+        <title><classname>Condition</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>bk_obj_id</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>实体类型</para></entry>
+            </row>
+            
+            <row>
+              <entry>fields</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry>repeated</entry>
+              <entry><para>指定查找返回数据，如bk_inst_name,id，默认全部</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
+    
+    <section id="common.MongoCondition">
+      <title>MongoCondition</title>
+      <para>MongoDB型条件，如{"name", "$regex", "小明"}</para>
+      
+      <table frame="all">
+        <title><classname>MongoCondition</classname> Fields</title>
+        <tgroup cols="4">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="0.5*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Field</entry>
+              <entry>Type</entry>
+              <entry>Label</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>field</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>指定筛选字段</para></entry>
+            </row>
+            
+            <row>
+              <entry>operator</entry>
+              <entry><link linkend="string">string</link></entry>
+              <entry></entry>
+              <entry><para>筛选操作符，如$eq，$in，$ne等，默认$regex</para></entry>
+            </row>
+            
+            <row>
+              <entry>value</entry>
+              <entry><link linkend="google.protobuf.Any">google.protobuf.Any</link></entry>
+              <entry></entry>
+              <entry><para>筛选值</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+      
+      
+    </section>
     
     <section id="common.Paging">
       <title>Paging</title>
