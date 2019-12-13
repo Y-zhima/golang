@@ -77,6 +77,8 @@ message AssetInfo {
     string admin_user_id = 6;
     // 登录协议
     Protocol protocol = 7;
+    // 节点层级关系，比如a/b/c/d
+    string node_path = 8;
 }
 
 // 登录协议 ssh/rdp/telnet/vnc
