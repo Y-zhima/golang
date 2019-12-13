@@ -5808,6 +5808,13 @@
               <entry><para>指定查找返回数据，如bk_inst_name,id，默认全部</para></entry>
             </row>
             
+            <row>
+              <entry>condition</entry>
+              <entry><link linkend="common.MongoCondition">MongoCondition</link></entry>
+              <entry>repeated</entry>
+              <entry><para>实体内具体的筛选条件</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>

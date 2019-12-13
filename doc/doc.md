@@ -2394,6 +2394,7 @@ VIP对象
 | ----- | ---- | ----- | ----------- |
 | bk_obj_id | [string](#string) |  | 实体类型 |
 | fields | [string](#string) | repeated | 指定查找返回数据，如bk_inst_name,id，默认全部 |
+| condition | [MongoCondition](#common.MongoCondition) | repeated | 实体内具体的筛选条件 |
 
 
 

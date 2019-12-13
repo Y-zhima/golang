@@ -23,6 +23,13 @@ func (this *ResponseStatus) Validate() error {
 	return nil
 }
 func (this *Condition) Validate() error {
+	for _, item := range this.Condition {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Condition", err)
+			}
+		}
+	}
 	return nil
 }
 func (this *MongoCondition) Validate() error {
