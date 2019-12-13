@@ -1580,6 +1580,10 @@
               
               
                 <li>
+                  <a href="#template.ReleaseCode"><span class="badge">E</span>ReleaseCode</a>
+                </li>
+              
+                <li>
                   <a href="#template.TemplateState"><span class="badge">E</span>TemplateState</a>
                 </li>
               
@@ -5417,6 +5421,13 @@
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>物理机ipmi的ip </p></td>
+                </tr>
+              
+                <tr>
+                  <td>bk_inst_id</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>实体主键id </p></td>
                 </tr>
               
             </tbody>
@@ -14657,6 +14668,13 @@ option (google.api.http) = {
                   <td><p>额外变量JSON String 例如： {&#34;key&#34;:&#34;testKey&#34;,&#34;value&#34;:&#34;testVal&#34;,&#34;description&#34;:&#34;测试描述&#34;} </p></td>
                 </tr>
               
+                <tr>
+                  <td>release_code</td>
+                  <td><a href="#template.ReleaseCode">ReleaseCode</a></td>
+                  <td></td>
+                  <td><p>模板发布状态码，用于标记某些特定的模板，相同release code默认使用最进更新的template </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -14911,6 +14929,13 @@ option (google.api.http) = {
                   <td><p>模板ID </p></td>
                 </tr>
               
+                <tr>
+                  <td>release_code</td>
+                  <td><a href="#template.ReleaseCode">ReleaseCode</a></td>
+                  <td></td>
+                  <td><p>模板发布状态码，用于标记某些特定的模板，相同release code默认获取最新的template(优先匹配template_id) </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -15036,6 +15061,13 @@ option (google.api.http) = {
                   <td><p>模板状态开关标识 </p></td>
                 </tr>
               
+                <tr>
+                  <td>release_code</td>
+                  <td><a href="#template.ReleaseCode">ReleaseCode</a></td>
+                  <td></td>
+                  <td><p>模板发布状态码，用于标记某些特定的模板，相同release code默认使用最进更新的template </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -15079,6 +15111,13 @@ option (google.api.http) = {
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>额外变量JSON String 例如： {&#34;key&#34;:&#34;testKey&#34;,&#34;value&#34;:&#34;testVal&#34;,&#34;description&#34;:&#34;测试描述&#34;} </p></td>
+                </tr>
+              
+                <tr>
+                  <td>release_code</td>
+                  <td><a href="#template.ReleaseCode">ReleaseCode</a></td>
+                  <td></td>
+                  <td><p>模板发布状态码，用于标记某些特定的模板，相同release code默认使用最进更新的template </p></td>
                 </tr>
               
             </tbody>
@@ -15259,6 +15298,35 @@ option (google.api.http) = {
         
       
 
+      
+        <h3 id="template.ReleaseCode">ReleaseCode</h3>
+        <p>系统模板的Release code</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>RELEASE_CODE_UNDEFINED</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>RELEASE_CODE_SERVER_COMPARE</td>
+                <td>1</td>
+                <td><p>服务器巡检模板</p></td>
+              </tr>
+            
+              <tr>
+                <td>RELEASE_CODE_IRONIC_APP</td>
+                <td>2</td>
+                <td><p>裸金属服务</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
       
         <h3 id="template.TemplateState">TemplateState</h3>
         <p>模板状态</p>

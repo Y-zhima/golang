@@ -407,6 +407,7 @@
     - [UpdateStateRequest](#template.UpdateStateRequest)
     - [UpdateStateResponse](#template.UpdateStateResponse)
   
+    - [ReleaseCode](#template.ReleaseCode)
     - [TemplateState](#template.TemplateState)
   
   
@@ -1921,6 +1922,7 @@ level下的主机ip列表
 | ----- | ---- | ----- | ----------- |
 | uuid | [string](#string) |  | 裸金属uuid |
 | ipmi_ip | [string](#string) |  | 物理机ipmi的ip |
+| bk_inst_id | [int32](#int32) |  | 实体主键id |
 
 
 
@@ -5533,6 +5535,7 @@ option (google.api.http) = { get: &#34;/v1/task/{task_id}/logs&#34; }; |
 | playbook_entrypoint_id | [int32](#int32) |  | 选择的playbook入口yml文件 |
 | description | [string](#string) |  | 模板描述 |
 | extra_var | [string](#string) |  | 额外变量JSON String 例如： {&#34;key&#34;:&#34;testKey&#34;,&#34;value&#34;:&#34;testVal&#34;,&#34;description&#34;:&#34;测试描述&#34;} |
+| release_code | [ReleaseCode](#template.ReleaseCode) |  | 模板发布状态码，用于标记某些特定的模板，相同release code默认使用最进更新的template |
 
 
 
@@ -5629,6 +5632,7 @@ option (google.api.http) = { get: &#34;/v1/task/{task_id}/logs&#34; }; |
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | template_id | [int32](#int32) |  | 模板ID |
+| release_code | [ReleaseCode](#template.ReleaseCode) |  | 模板发布状态码，用于标记某些特定的模板，相同release code默认获取最新的template(优先匹配template_id) |
 
 
 
@@ -5670,6 +5674,7 @@ option (google.api.http) = { get: &#34;/v1/task/{task_id}/logs&#34; }; |
 | created | [string](#string) |  | 创建时间 |
 | updated | [string](#string) |  | 更新时间 |
 | state | [TemplateState](#template.TemplateState) |  | 模板状态开关标识 |
+| release_code | [ReleaseCode](#template.ReleaseCode) |  | 模板发布状态码，用于标记某些特定的模板，相同release code默认使用最进更新的template |
 
 
 
@@ -5688,6 +5693,7 @@ option (google.api.http) = { get: &#34;/v1/task/{task_id}/logs&#34; }; |
 | name | [string](#string) |  | 模板名 |
 | description | [string](#string) |  | 模板描述 |
 | extra_var | [string](#string) |  | 额外变量JSON String 例如： {&#34;key&#34;:&#34;testKey&#34;,&#34;value&#34;:&#34;testVal&#34;,&#34;description&#34;:&#34;测试描述&#34;} |
+| release_code | [ReleaseCode](#template.ReleaseCode) |  | 模板发布状态码，用于标记某些特定的模板，相同release code默认使用最进更新的template |
 
 
 
@@ -5741,6 +5747,19 @@ option (google.api.http) = { get: &#34;/v1/task/{task_id}/logs&#34; }; |
 
 
  
+
+
+<a name="template.ReleaseCode"></a>
+
+### ReleaseCode
+系统模板的Release code
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| RELEASE_CODE_UNDEFINED | 0 |  |
+| RELEASE_CODE_SERVER_COMPARE | 1 | 服务器巡检模板 |
+| RELEASE_CODE_IRONIC_APP | 2 | 裸金属服务 |
+
 
 
 <a name="template.TemplateState"></a>

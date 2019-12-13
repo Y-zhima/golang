@@ -1518,7 +1518,7 @@
           "Playbook"
         ],
         "summary": "创建playbook项目",
-        "operationId": "CreateMixin14",
+        "operationId": "Create",
         "parameters": [
           {
             "name": "body",
@@ -1545,7 +1545,7 @@
           "Playbook"
         ],
         "summary": "筛选playbook项目",
-        "operationId": "FilterMixin14",
+        "operationId": "Filter",
         "parameters": [
           {
             "type": "integer",
@@ -1598,7 +1598,7 @@
           "Playbook"
         ],
         "summary": "获取playbook项目",
-        "operationId": "GetMixin14",
+        "operationId": "Get",
         "parameters": [
           {
             "type": "integer",
@@ -1625,7 +1625,7 @@
           "Playbook"
         ],
         "summary": "更新playbook项目",
-        "operationId": "UpdateMixin14",
+        "operationId": "Update",
         "parameters": [
           {
             "type": "integer",
@@ -1660,7 +1660,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin9",
+        "operationId": "CreateMixin12",
         "parameters": [
           {
             "name": "body",
@@ -1687,7 +1687,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin9",
+        "operationId": "FilterMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -1761,7 +1761,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin9",
+        "operationId": "GetMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -1823,7 +1823,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "Update",
+        "operationId": "UpdateMixin12",
         "parameters": [
           {
             "type": "integer",
@@ -1885,7 +1885,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "Create",
+        "operationId": "CreateMixin15",
         "parameters": [
           {
             "name": "body",
@@ -1966,7 +1966,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "Filter",
+        "operationId": "FilterMixin15",
         "parameters": [
           {
             "type": "integer",
@@ -2033,7 +2033,7 @@
           "Task"
         ],
         "summary": "获取作业任务",
-        "operationId": "Get",
+        "operationId": "GetMixin15",
         "parameters": [
           {
             "type": "string",
@@ -2195,7 +2195,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin11",
+        "operationId": "CreateMixin16",
         "parameters": [
           {
             "name": "body",
@@ -2222,7 +2222,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin11",
+        "operationId": "FilterMixin16",
         "parameters": [
           {
             "type": "integer",
@@ -2281,7 +2281,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin11",
+        "operationId": "GetMixin16",
         "parameters": [
           {
             "type": "integer",
@@ -2290,6 +2290,18 @@
             "name": "template_id",
             "in": "path",
             "required": true
+          },
+          {
+            "enum": [
+              "RELEASE_CODE_UNDEFINED",
+              "RELEASE_CODE_SERVER_COMPARE",
+              "RELEASE_CODE_IRONIC_APP"
+            ],
+            "type": "string",
+            "default": "RELEASE_CODE_UNDEFINED",
+            "description": "模板发布状态码，用于标记某些特定的模板，相同release code默认获取最新的template(优先匹配template_id).\n\n - RELEASE_CODE_SERVER_COMPARE: 服务器巡检模板\n - RELEASE_CODE_IRONIC_APP: 裸金属服务",
+            "name": "release_code",
+            "in": "query"
           }
         ],
         "responses": {
@@ -2308,7 +2320,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin11",
+        "operationId": "UpdateMixin16",
         "parameters": [
           {
             "type": "integer",
@@ -3549,7 +3561,7 @@
           }
         },
         "status": {
-          "title": "TopologyObject instance = 1;\r\n状态码",
+          "title": "TopologyObject instance = 1;\n状态码",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
@@ -4001,6 +4013,11 @@
       "type": "object",
       "title": "物理机传入信息",
       "properties": {
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "实体主键id"
+        },
         "ipmi_ip": {
           "type": "string",
           "title": "物理机ipmi的ip"
@@ -6453,6 +6470,10 @@
           "type": "integer",
           "format": "int32",
           "title": "playbook 项目id"
+        },
+        "release_code": {
+          "title": "模板发布状态码，用于标记某些特定的模板，相同release code默认使用最进更新的template",
+          "$ref": "#/definitions/templateReleaseCode"
         }
       }
     },
@@ -6520,6 +6541,17 @@
         }
       }
     },
+    "templateReleaseCode": {
+      "description": "- RELEASE_CODE_SERVER_COMPARE: 服务器巡检模板\n - RELEASE_CODE_IRONIC_APP: 裸金属服务",
+      "type": "string",
+      "title": "系统模板的Release code",
+      "default": "RELEASE_CODE_UNDEFINED",
+      "enum": [
+        "RELEASE_CODE_UNDEFINED",
+        "RELEASE_CODE_SERVER_COMPARE",
+        "RELEASE_CODE_IRONIC_APP"
+      ]
+    },
     "templateTemplateObject": {
       "type": "object",
       "title": "模板实例",
@@ -6557,6 +6589,10 @@
           "type": "integer",
           "format": "int32",
           "title": "选择的playbook项目对应的playbook_file"
+        },
+        "release_code": {
+          "title": "模板发布状态码，用于标记某些特定的模板，相同release code默认使用最进更新的template",
+          "$ref": "#/definitions/templateReleaseCode"
         },
         "state": {
           "title": "模板状态开关标识",
@@ -6602,6 +6638,10 @@
         "name": {
           "type": "string",
           "title": "模板名"
+        },
+        "release_code": {
+          "title": "模板发布状态码，用于标记某些特定的模板，相同release code默认使用最进更新的template",
+          "$ref": "#/definitions/templateReleaseCode"
         },
         "template_id": {
           "type": "integer",

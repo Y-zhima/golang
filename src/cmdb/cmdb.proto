@@ -593,6 +593,9 @@ message Server {
     string uuid = 1;
     // 物理机ipmi的ip
     string ipmi_ip = 2;
+    // 实体主键id
+    int32 bk_inst_id = 3;
+
 }
 
 // 选择物理机请求

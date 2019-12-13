@@ -668,6 +668,17 @@
       },
       "title": "更新请求返回"
     },
+    "templateReleaseCode": {
+      "type": "string",
+      "enum": [
+        "RELEASE_CODE_UNDEFINED",
+        "RELEASE_CODE_SERVER_COMPARE",
+        "RELEASE_CODE_IRONIC_APP"
+      ],
+      "default": "RELEASE_CODE_UNDEFINED",
+      "description": "- RELEASE_CODE_SERVER_COMPARE: 服务器巡检模板\n - RELEASE_CODE_IRONIC_APP: 裸金属服务",
+      "title": "系统模板的Release code"
+    },
     "templateTemplateObject": {
       "type": "object",
       "properties": {
@@ -717,6 +728,10 @@
         "state": {
           "$ref": "#/definitions/templateTemplateState",
           "title": "模板状态开关标识"
+        },
+        "release_code": {
+          "$ref": "#/definitions/templateReleaseCode",
+          "title": "模板发布状态码，用于标记某些特定的模板，相同release code默认使用最进更新的template"
         }
       },
       "title": "模板实例"

@@ -4243,6 +4243,13 @@
               <entry><para>物理机ipmi的ip</para></entry>
             </row>
             
+            <row>
+              <entry>bk_inst_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>实体主键id</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>
@@ -14532,6 +14539,13 @@
               <entry><para>额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}</para></entry>
             </row>
             
+            <row>
+              <entry>release_code</entry>
+              <entry><link linkend="template.ReleaseCode">ReleaseCode</link></entry>
+              <entry></entry>
+              <entry><para>模板发布状态码，用于标记某些特定的模板，相同release code默认使用最进更新的template</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>
@@ -14784,6 +14798,13 @@
               <entry><para>模板ID</para></entry>
             </row>
             
+            <row>
+              <entry>release_code</entry>
+              <entry><link linkend="template.ReleaseCode">ReleaseCode</link></entry>
+              <entry></entry>
+              <entry><para>模板发布状态码，用于标记某些特定的模板，相同release code默认获取最新的template(优先匹配template_id)</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>
@@ -14931,6 +14952,13 @@
               <entry><para>模板状态开关标识</para></entry>
             </row>
             
+            <row>
+              <entry>release_code</entry>
+              <entry><link linkend="template.ReleaseCode">ReleaseCode</link></entry>
+              <entry></entry>
+              <entry><para>模板发布状态码，用于标记某些特定的模板，相同release code默认使用最进更新的template</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>
@@ -14985,6 +15013,13 @@
               <entry><link linkend="string">string</link></entry>
               <entry></entry>
               <entry><para>额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}</para></entry>
+            </row>
+            
+            <row>
+              <entry>release_code</entry>
+              <entry><link linkend="template.ReleaseCode">ReleaseCode</link></entry>
+              <entry></entry>
+              <entry><para>模板发布状态码，用于标记某些特定的模板，相同release code默认使用最进更新的template</para></entry>
             </row>
             
           </tbody>
@@ -15113,6 +15148,47 @@
       
     </section>
     
+    
+    <section id="template.ReleaseCode">
+      <title>ReleaseCode</title>
+      <para>系统模板的Release code</para>
+      <table frame="all">
+        <title><classname>ReleaseCode</classname> Values</title>
+        <tgroup cols="3">
+          <colspec colwidth="*"/>
+          <colspec colwidth="*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row>
+              <entry>Name</entry>
+              <entry>Number</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            
+            <row>
+              <entry>RELEASE_CODE_UNDEFINED</entry>
+              <entry>0</entry>
+              <entry><para></para></entry>
+            </row>
+            
+            <row>
+              <entry>RELEASE_CODE_SERVER_COMPARE</entry>
+              <entry>1</entry>
+              <entry><para>服务器巡检模板</para></entry>
+            </row>
+            
+            <row>
+              <entry>RELEASE_CODE_IRONIC_APP</entry>
+              <entry>2</entry>
+              <entry><para>裸金属服务</para></entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
     
     <section id="template.TemplateState">
       <title>TemplateState</title>

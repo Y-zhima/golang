@@ -127,6 +127,19 @@
             "required": true,
             "type": "integer",
             "format": "int32"
+          },
+          {
+            "name": "release_code",
+            "description": "模板发布状态码，用于标记某些特定的模板，相同release code默认获取最新的template(优先匹配template_id).\n\n - RELEASE_CODE_SERVER_COMPARE: 服务器巡检模板\n - RELEASE_CODE_IRONIC_APP: 裸金属服务",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "RELEASE_CODE_UNDEFINED",
+              "RELEASE_CODE_SERVER_COMPARE",
+              "RELEASE_CODE_IRONIC_APP"
+            ],
+            "default": "RELEASE_CODE_UNDEFINED"
           }
         ],
         "tags": [
@@ -388,6 +401,10 @@
         "extra_var": {
           "type": "string",
           "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
+        },
+        "release_code": {
+          "$ref": "#/definitions/templateReleaseCode",
+          "title": "模板发布状态码，用于标记某些特定的模板，相同release code默认使用最进更新的template"
         }
       },
       "title": "创建模板请求",
@@ -462,6 +479,17 @@
       },
       "title": "获取模板请求返回"
     },
+    "templateReleaseCode": {
+      "type": "string",
+      "enum": [
+        "RELEASE_CODE_UNDEFINED",
+        "RELEASE_CODE_SERVER_COMPARE",
+        "RELEASE_CODE_IRONIC_APP"
+      ],
+      "default": "RELEASE_CODE_UNDEFINED",
+      "description": "- RELEASE_CODE_SERVER_COMPARE: 服务器巡检模板\n - RELEASE_CODE_IRONIC_APP: 裸金属服务",
+      "title": "系统模板的Release code"
+    },
     "templateTemplateObject": {
       "type": "object",
       "properties": {
@@ -511,6 +539,10 @@
         "state": {
           "$ref": "#/definitions/templateTemplateState",
           "title": "模板状态开关标识"
+        },
+        "release_code": {
+          "$ref": "#/definitions/templateReleaseCode",
+          "title": "模板发布状态码，用于标记某些特定的模板，相同release code默认使用最进更新的template"
         }
       },
       "title": "模板实例"
@@ -544,6 +576,10 @@
         "extra_var": {
           "type": "string",
           "title": "额外变量JSON String 例如： {\"key\":\"testKey\",\"value\":\"testVal\",\"description\":\"测试描述\"}"
+        },
+        "release_code": {
+          "$ref": "#/definitions/templateReleaseCode",
+          "title": "模板发布状态码，用于标记某些特定的模板，相同release code默认使用最进更新的template"
         }
       },
       "title": "更新模板请求",

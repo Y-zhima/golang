@@ -107,6 +107,11 @@
         "ipmi_ip": {
           "type": "string",
           "title": "物理机ipmi的ip"
+        },
+        "bk_inst_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "实体主键id"
         }
       },
       "title": "物理机传入信息"

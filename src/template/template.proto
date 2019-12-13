@@ -80,6 +80,9 @@ message TemplateObject {
     string updated = 10;
     // 模板状态开关标识
     TemplateState state = 11;
+    // 模板发布状态码，用于标记某些特定的模板，相同release code默认使用最进更新的template
+    ReleaseCode release_code = 12;
+
 }
 
 // 创建模板请求
@@ -101,6 +104,9 @@ message CreateRequest {
     string description = 5;
     // 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
     string extra_var = 6;
+    // 模板发布状态码，用于标记某些特定的模板，相同release code默认使用最进更新的template
+    ReleaseCode release_code = 7;
+
 }
 
 // 创建模板请求返回
@@ -121,6 +127,9 @@ message GetRequest {
     };
     // 模板ID
     int32 template_id = 1;
+    // 模板发布状态码，用于标记某些特定的模板，相同release code默认获取最新的template(优先匹配template_id)
+    ReleaseCode release_code = 2;
+
 }
 
 // 获取模板请求返回
@@ -166,6 +175,9 @@ message UpdateRequest {
     string description = 3;
     // 额外变量JSON String 例如： {"key":"testKey","value":"testVal","description":"测试描述"}
     string extra_var = 4;
+    // 模板发布状态码，用于标记某些特定的模板，相同release code默认使用最进更新的template
+    ReleaseCode release_code = 5;
+
 }
 
 // 更新请求返回
@@ -216,3 +228,13 @@ enum TemplateState {
     // 运行
     ON = 1;
 }
+
+// 系统模板的Release code
+enum ReleaseCode {
+    RELEASE_CODE_UNDEFINED = 0;
+    // 服务器巡检模板
+    RELEASE_CODE_SERVER_COMPARE = 1;
+    // 裸金属服务
+    RELEASE_CODE_IRONIC_APP = 2;
+}
+
