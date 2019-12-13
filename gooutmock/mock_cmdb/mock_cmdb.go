@@ -336,7 +336,7 @@ func (mr *MockCmdbClientMockRecorder) SearchLevelHost(arg0, arg1 interface{}, ar
 }
 
 // SearchModule mocks base method
-func (m *MockCmdbClient) SearchModule(arg0 context.Context, arg1 *cmdb.SearchMoudleRequest, arg2 ...grpc.CallOption) (*cmdb.SearchMoudleResponse, error) {
+func (m *MockCmdbClient) SearchModule(arg0 context.Context, arg1 *cmdb.SearchModuleRequest, arg2 ...grpc.CallOption) (*cmdb.SearchMoudleResponse, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{arg0, arg1}
 	for _, a := range arg2 {
@@ -353,6 +353,46 @@ func (mr *MockCmdbClientMockRecorder) SearchModule(arg0, arg1 interface{}, arg2 
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{arg0, arg1}, arg2...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SearchModule", reflect.TypeOf((*MockCmdbClient)(nil).SearchModule), varargs...)
+}
+
+// SearchModuleHost mocks base method
+func (m *MockCmdbClient) SearchModuleHost(arg0 context.Context, arg1 *cmdb.SearchModuleHostRequest, arg2 ...grpc.CallOption) (*cmdb.SearchModuleHostResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "SearchModuleHost", varargs...)
+	ret0, _ := ret[0].(*cmdb.SearchModuleHostResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// SearchModuleHost indicates an expected call of SearchModuleHost
+func (mr *MockCmdbClientMockRecorder) SearchModuleHost(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SearchModuleHost", reflect.TypeOf((*MockCmdbClient)(nil).SearchModuleHost), varargs...)
+}
+
+// SearchModuleList mocks base method
+func (m *MockCmdbClient) SearchModuleList(arg0 context.Context, arg1 *cmdb.SearchModuleListRequest, arg2 ...grpc.CallOption) (*cmdb.SearchModuleListResponse, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "SearchModuleList", varargs...)
+	ret0, _ := ret[0].(*cmdb.SearchModuleListResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// SearchModuleList indicates an expected call of SearchModuleList
+func (mr *MockCmdbClientMockRecorder) SearchModuleList(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SearchModuleList", reflect.TypeOf((*MockCmdbClient)(nil).SearchModuleList), varargs...)
 }
 
 // ServerList mocks base method
