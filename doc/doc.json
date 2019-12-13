@@ -3053,7 +3053,7 @@
             },
             {
               "name": "status",
-              "description": "TopologyObject instance = 1;\n状态码",
+              "description": "TopologyObject instance = 1;\r\n状态码",
               "label": "",
               "type": "ResponseStatus",
               "longType": "common.ResponseStatus",
@@ -4513,6 +4513,16 @@
               "type": "string",
               "longType": "string",
               "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "room_id",
+              "description": "机房id",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
               "ismap": false,
               "defaultValue": ""
             }

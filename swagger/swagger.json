@@ -3549,7 +3549,7 @@
           }
         },
         "status": {
-          "title": "TopologyObject instance = 1;\n状态码",
+          "title": "TopologyObject instance = 1;\r\n状态码",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
@@ -4091,6 +4091,11 @@
         "power_state": {
           "title": "电源状态",
           "$ref": "#/definitions/cmdbServerPowerState"
+        },
+        "room_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "机房id"
         },
         "uuid": {
           "type": "string",

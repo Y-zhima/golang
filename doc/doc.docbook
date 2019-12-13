@@ -4453,6 +4453,13 @@
               <entry><para>主机内网IP</para></entry>
             </row>
             
+            <row>
+              <entry>room_id</entry>
+              <entry><link linkend="int32">int32</link></entry>
+              <entry></entry>
+              <entry><para>机房id</para></entry>
+            </row>
+            
           </tbody>
         </tgroup>
       </table>

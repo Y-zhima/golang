@@ -713,6 +713,8 @@ message ServerObject {
     string uuid = 11;
     // 主机内网IP
     string bk_host_innerip = 12;
+    // 机房id
+    int32 room_id = 13;
 }
 
 // 裸金属列表请求
