@@ -1518,7 +1518,7 @@
           "Playbook"
         ],
         "summary": "创建playbook项目",
-        "operationId": "Create",
+        "operationId": "CreateMixin14",
         "parameters": [
           {
             "name": "body",
@@ -1545,7 +1545,7 @@
           "Playbook"
         ],
         "summary": "筛选playbook项目",
-        "operationId": "Filter",
+        "operationId": "FilterMixin14",
         "parameters": [
           {
             "type": "integer",
@@ -1598,7 +1598,7 @@
           "Playbook"
         ],
         "summary": "获取playbook项目",
-        "operationId": "Get",
+        "operationId": "GetMixin14",
         "parameters": [
           {
             "type": "integer",
@@ -1625,7 +1625,7 @@
           "Playbook"
         ],
         "summary": "更新playbook项目",
-        "operationId": "Update",
+        "operationId": "UpdateMixin14",
         "parameters": [
           {
             "type": "integer",
@@ -1660,7 +1660,7 @@
           "Schedule"
         ],
         "summary": "创建定时任务",
-        "operationId": "CreateMixin12",
+        "operationId": "CreateMixin9",
         "parameters": [
           {
             "name": "body",
@@ -1687,7 +1687,7 @@
           "Schedule"
         ],
         "summary": "筛选定时任务",
-        "operationId": "FilterMixin12",
+        "operationId": "FilterMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -1761,7 +1761,7 @@
           "Schedule"
         ],
         "summary": "获取定时任务",
-        "operationId": "GetMixin12",
+        "operationId": "GetMixin9",
         "parameters": [
           {
             "type": "integer",
@@ -1823,7 +1823,7 @@
           "Schedule"
         ],
         "summary": "更新定时任务",
-        "operationId": "UpdateMixin12",
+        "operationId": "Update",
         "parameters": [
           {
             "type": "integer",
@@ -1885,7 +1885,7 @@
           "Task"
         ],
         "summary": "创建作业任务(执行作业模板)",
-        "operationId": "CreateMixin15",
+        "operationId": "Create",
         "parameters": [
           {
             "name": "body",
@@ -1966,7 +1966,7 @@
           "Task"
         ],
         "summary": "筛选作业任务",
-        "operationId": "FilterMixin15",
+        "operationId": "Filter",
         "parameters": [
           {
             "type": "integer",
@@ -2033,7 +2033,7 @@
           "Task"
         ],
         "summary": "获取作业任务",
-        "operationId": "GetMixin15",
+        "operationId": "Get",
         "parameters": [
           {
             "type": "string",
@@ -2195,7 +2195,7 @@
           "Template"
         ],
         "summary": "创建作业模板",
-        "operationId": "CreateMixin16",
+        "operationId": "CreateMixin11",
         "parameters": [
           {
             "name": "body",
@@ -2222,7 +2222,7 @@
           "Template"
         ],
         "summary": "筛选作业模板",
-        "operationId": "FilterMixin16",
+        "operationId": "FilterMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -2281,7 +2281,7 @@
           "Template"
         ],
         "summary": "获取作业模板",
-        "operationId": "GetMixin16",
+        "operationId": "GetMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -2308,7 +2308,7 @@
           "Template"
         ],
         "summary": "更新作业模板",
-        "operationId": "UpdateMixin16",
+        "operationId": "UpdateMixin11",
         "parameters": [
           {
             "type": "integer",
@@ -3549,7 +3549,7 @@
           }
         },
         "status": {
-          "title": "TopologyObject instance = 1;\n状态码",
+          "title": "TopologyObject instance = 1;\r\n状态码",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
@@ -4091,6 +4091,11 @@
         "power_state": {
           "title": "电源状态",
           "$ref": "#/definitions/cmdbServerPowerState"
+        },
+        "room_id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "机房id"
         },
         "uuid": {
           "type": "string",
