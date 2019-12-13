@@ -41,7 +41,7 @@ enum StatusCode {
 message Condition {
     string bk_obj_id = 1; // 实体类型
     repeated string fields = 2; // 指定查找返回数据，如bk_inst_name,id，默认全部
-
+    repeated MongoCondition condition = 3; // 实体内具体的筛选条件
 }
 // MongoDB型条件，如{"name", "$regex", "小明"}
 message MongoCondition {

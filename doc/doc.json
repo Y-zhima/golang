@@ -5712,6 +5712,16 @@
               "fullType": "string",
               "ismap": false,
               "defaultValue": ""
+            },
+            {
+              "name": "condition",
+              "description": "实体内具体的筛选条件",
+              "label": "repeated",
+              "type": "MongoCondition",
+              "longType": "MongoCondition",
+              "fullType": "common.MongoCondition",
+              "ismap": false,
+              "defaultValue": ""
             }
           ]
         },
