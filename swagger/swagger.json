@@ -1177,7 +1177,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/cmdbSearchMoudleResponse"
+              "$ref": "#/definitions/cmdbSearchModuleResponse"
             }
           }
         }
@@ -3549,7 +3549,7 @@
           }
         },
         "status": {
-          "title": "TopologyObject instance = 1;\r\n状态码",
+          "title": "TopologyObject instance = 1;\n状态码",
           "$ref": "#/definitions/commonResponseStatus"
         }
       }
@@ -3980,7 +3980,7 @@
         }
       }
     },
-    "cmdbSearchMoudleResponse": {
+    "cmdbSearchModuleResponse": {
       "type": "object",
       "title": "查询模块请求返回",
       "properties": {

@@ -103,7 +103,7 @@
     - [SearchModuleListRequest](#cmdb.SearchModuleListRequest)
     - [SearchModuleListResponse](#cmdb.SearchModuleListResponse)
     - [SearchModuleRequest](#cmdb.SearchModuleRequest)
-    - [SearchMoudleResponse](#cmdb.SearchMoudleResponse)
+    - [SearchModuleResponse](#cmdb.SearchModuleResponse)
     - [Server](#cmdb.Server)
     - [ServerListRequest](#cmdb.ServerListRequest)
     - [ServerListResponse](#cmdb.ServerListResponse)
@@ -1895,9 +1895,9 @@ level下的主机ip列表
 
 
 
-<a name="cmdb.SearchMoudleResponse"></a>
+<a name="cmdb.SearchModuleResponse"></a>
 
-### SearchMoudleResponse
+### SearchModuleResponse
 查询模块请求返回
 
 
@@ -2355,7 +2355,7 @@ VIP对象
 | ImportLake | [ImportLakeRequest](#cmdb.ImportLakeRequest) | [ImportLakeResponse](#cmdb.ImportLakeResponse) | 导入lake节点 |
 | RoomTopology | [RoomTopologyRequest](#cmdb.RoomTopologyRequest) | [RoomTopologyResponse](#cmdb.RoomTopologyResponse) | 机房拓扑 |
 | ServerList | [ServerListRequest](#cmdb.ServerListRequest) | [ServerListResponse](#cmdb.ServerListResponse) | 裸金属列表 |
-| SearchModule | [SearchModuleRequest](#cmdb.SearchModuleRequest) | [SearchMoudleResponse](#cmdb.SearchMoudleResponse) | 查询模块 |
+| SearchModule | [SearchModuleRequest](#cmdb.SearchModuleRequest) | [SearchModuleResponse](#cmdb.SearchModuleResponse) | 查询模块 |
 | ImportHistory | [ImportHistoryRequest](#cmdb.ImportHistoryRequest) | [ImportHistoryResponse](#cmdb.ImportHistoryResponse) | 查询导入历史记录列表 |
 | SearchInst | [SearchInstRequest](#cmdb.SearchInstRequest) | [SearchInstResponse](#cmdb.SearchInstResponse) | 实体的查询,包括 host，lake，vip，room列表 |
 | UpdateInst | [UpdateInstRequest](#cmdb.UpdateInstRequest) | [UpdateInstResponse](#cmdb.UpdateInstResponse) | 实体的更新,包括 host，lake，vip列表 |

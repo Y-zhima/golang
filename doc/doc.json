@@ -3053,7 +3053,7 @@
             },
             {
               "name": "status",
-              "description": "TopologyObject instance = 1;\r\n状态码",
+              "description": "TopologyObject instance = 1;\n状态码",
               "label": "",
               "type": "ResponseStatus",
               "longType": "common.ResponseStatus",
@@ -4244,9 +4244,9 @@
           ]
         },
         {
-          "name": "SearchMoudleResponse",
-          "longName": "SearchMoudleResponse",
-          "fullName": "cmdb.SearchMoudleResponse",
+          "name": "SearchModuleResponse",
+          "longName": "SearchModuleResponse",
+          "fullName": "cmdb.SearchModuleResponse",
           "description": "查询模块请求返回",
           "hasExtensions": false,
           "hasFields": true,
@@ -5283,9 +5283,9 @@
               "requestLongType": "SearchModuleRequest",
               "requestFullType": "cmdb.SearchModuleRequest",
               "requestStreaming": false,
-              "responseType": "SearchMoudleResponse",
-              "responseLongType": "SearchMoudleResponse",
-              "responseFullType": "cmdb.SearchMoudleResponse",
+              "responseType": "SearchModuleResponse",
+              "responseLongType": "SearchModuleResponse",
+              "responseFullType": "cmdb.SearchModuleResponse",
               "responseStreaming": false,
               "options": {
                 "google.api.http": {
