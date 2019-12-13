@@ -457,6 +457,10 @@
                 </li>
               
                 <li>
+                  <a href="#cmdb.ModuleHost"><span class="badge">M</span>ModuleHost</a>
+                </li>
+              
+                <li>
                   <a href="#cmdb.ModuleObject"><span class="badge">M</span>ModuleObject</a>
                 </li>
               
@@ -525,7 +529,23 @@
                 </li>
               
                 <li>
-                  <a href="#cmdb.SearchMoudleRequest"><span class="badge">M</span>SearchMoudleRequest</a>
+                  <a href="#cmdb.SearchModuleHostRequest"><span class="badge">M</span>SearchModuleHostRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#cmdb.SearchModuleHostResponse"><span class="badge">M</span>SearchModuleHostResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#cmdb.SearchModuleListRequest"><span class="badge">M</span>SearchModuleListRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#cmdb.SearchModuleListResponse"><span class="badge">M</span>SearchModuleListResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#cmdb.SearchModuleRequest"><span class="badge">M</span>SearchModuleRequest</a>
                 </li>
               
                 <li>
@@ -646,6 +666,14 @@
           <li>
             <a href="#common%2fapi.proto">common/api.proto</a>
             <ul>
+              
+                <li>
+                  <a href="#common.Condition"><span class="badge">M</span>Condition</a>
+                </li>
+              
+                <li>
+                  <a href="#common.MongoCondition"><span class="badge">M</span>MongoCondition</a>
+                </li>
               
                 <li>
                   <a href="#common.Paging"><span class="badge">M</span>Paging</a>
@@ -4480,6 +4508,37 @@
 
         
       
+        <h3 id="cmdb.ModuleHost">ModuleHost</h3>
+        <p>模块下主机ip列表，{业务模块名，[ip]}</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>module_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>业务模块名，biz##set##module </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>ip列表 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="cmdb.ModuleObject">ModuleObject</h3>
         <p>模块</p>
 
@@ -5037,7 +5096,7 @@
                   <td>level</td>
                   <td><a href="#cmdb.LakeNodeLevel">LakeNodeLevel</a></td>
                   <td></td>
-                  <td><p>指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘 </p></td>
+                  <td><p>指定level：0-全部 1-全国中心 2-区域中心 3-省边缘 4-地市边缘 5-区县边缘 </p></td>
                 </tr>
               
                 <tr>
@@ -5130,7 +5189,129 @@
 
         
       
-        <h3 id="cmdb.SearchMoudleRequest">SearchMoudleRequest</h3>
+        <h3 id="cmdb.SearchModuleHostRequest">SearchModuleHostRequest</h3>
+        <p>查询指定模块名下的全部主机请求</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>module_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>module_name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>human_error: 模块名不能为空</li>
+                    
+                      <li>string_not_empty: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="cmdb.SearchModuleHostResponse">SearchModuleHostResponse</h3>
+        <p>查询指定模块名下的全部主机请求返回，[{业务模块名，[ip]}]</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#common.ResponseStatus">common.ResponseStatus</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#cmdb.ModuleHost">ModuleHost</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="cmdb.SearchModuleListRequest">SearchModuleListRequest</h3>
+        <p>查询全部模块请求</p>
+
+        
+
+        
+      
+        <h3 id="cmdb.SearchModuleListResponse">SearchModuleListResponse</h3>
+        <p>查询全部模块返回</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#common.ResponseStatus">common.ResponseStatus</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="cmdb.SearchModuleRequest">SearchModuleRequest</h3>
         <p>查询模块请求</p>
 
         
@@ -5493,6 +5674,20 @@
                   <td><a href="#int32">int32</a></td>
                   <td></td>
                   <td><p>保底带宽 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>maintainer</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>维护人 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mobile</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>联系方式 </p></td>
                 </tr>
               
             </tbody>
@@ -6106,7 +6301,7 @@
         </table>
       
         <h3 id="cmdb.InstType">InstType</h3>
-        <p>实体类型:0-undefined 1-HOST 2-LAKE 3-vip</p>
+        <p>实体类型:0-undefined 1-HOST 2-LAKE 3-vip  4-ROOM</p>
         <table class="enum-table">
           <thead>
             <tr><td>Name</td><td>Number</td><td>Description</td></tr>
@@ -6135,6 +6330,12 @@
                 <td>VIP_INST</td>
                 <td>3</td>
                 <td><p>3-VIP</p></td>
+              </tr>
+            
+              <tr>
+                <td>ROOM_INST</td>
+                <td>4</td>
+                <td><p>4-ROOM</p></td>
               </tr>
             
           </tbody>
@@ -6337,7 +6538,7 @@
             
               <tr>
                 <td>SearchModule</td>
-                <td><a href="#cmdb.SearchMoudleRequest">SearchMoudleRequest</a></td>
+                <td><a href="#cmdb.SearchModuleRequest">SearchModuleRequest</a></td>
                 <td><a href="#cmdb.SearchMoudleResponse">SearchMoudleResponse</a></td>
                 <td><p>查询模块</p></td>
               </tr>
@@ -6353,7 +6554,7 @@
                 <td>SearchInst</td>
                 <td><a href="#cmdb.SearchInstRequest">SearchInstRequest</a></td>
                 <td><a href="#cmdb.SearchInstResponse">SearchInstResponse</a></td>
-                <td><p>实体的查询,包括 host，lake，vip列表</p></td>
+                <td><p>实体的查询,包括 host，lake，vip，room列表</p></td>
               </tr>
             
               <tr>
@@ -6431,6 +6632,20 @@
                 <td><a href="#cmdb.UpdateVipStateRequest">UpdateVipStateRequest</a></td>
                 <td><a href="#cmdb.UpdateVipStateResponse">UpdateVipStateResponse</a></td>
                 <td><p>VIP的状态更新</p></td>
+              </tr>
+            
+              <tr>
+                <td>SearchModuleList</td>
+                <td><a href="#cmdb.SearchModuleListRequest">SearchModuleListRequest</a></td>
+                <td><a href="#cmdb.SearchModuleListResponse">SearchModuleListResponse</a></td>
+                <td><p>查询全部模块</p></td>
+              </tr>
+            
+              <tr>
+                <td>SearchModuleHost</td>
+                <td><a href="#cmdb.SearchModuleHostRequest">SearchModuleHostRequest</a></td>
+                <td><a href="#cmdb.SearchModuleHostResponse">SearchModuleHostResponse</a></td>
+                <td><p>查询全部模块</p></td>
               </tr>
             
           </tbody>
@@ -6661,6 +6876,26 @@
               </tr>
               
             
+              
+              
+              <tr>
+                <td>SearchModuleList</td>
+                <td>GET</td>
+                <td>/v1/cmdb/searchModuleList</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>SearchModuleHost</td>
+                <td>GET</td>
+                <td>/v1/cmdb/searchModuleHost</td>
+                <td></td>
+              </tr>
+              
+            
             </tbody>
           </table>
           
@@ -6672,6 +6907,75 @@
       </div>
       <p></p>
 
+      
+        <h3 id="common.Condition">Condition</h3>
+        <p>指定CMDB类型条件</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>bk_obj_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>实体类型 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>fields</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>指定查找返回数据，如bk_inst_name,id，默认全部 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="common.MongoCondition">MongoCondition</h3>
+        <p>MongoDB型条件，如{"name", "$regex", "小明"}</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>field</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>指定筛选字段 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>operator</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>筛选操作符，如$eq，$in，$ne等，默认$regex </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#google.protobuf.Any">google.protobuf.Any</a></td>
+                  <td></td>
+                  <td><p>筛选值 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
       
         <h3 id="common.Paging">Paging</h3>
         <p>分页</p>

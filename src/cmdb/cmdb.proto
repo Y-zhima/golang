@@ -83,7 +83,7 @@ service Cmdb {
     }
 
     // 查询模块
-    rpc SearchModule (SearchMoudleRequest) returns (SearchMoudleResponse) {
+    rpc SearchModule (SearchModuleRequest) returns (SearchMoudleResponse) {
         option (google.api.http) = {
             get: "/v1/cmdb/searchModule"
         };
@@ -182,9 +182,23 @@ service Cmdb {
     // VIP的状态更新
     rpc UpdateVipState (UpdateVipStateRequest) returns (UpdateVipStateResponse) {
         option (google.api.http) = {
-        post: "/v1/cmdb/updateVipState"
-        body: "*"
-    };
+            post: "/v1/cmdb/updateVipState"
+            body: "*"
+        };
+    }
+
+    // 查询全部模块
+    rpc SearchModuleList (SearchModuleListRequest) returns (SearchModuleListResponse) {
+        option (google.api.http) = {
+            get: "/v1/cmdb/searchModuleList"
+        };
+    }
+
+    // 查询全部模块
+    rpc SearchModuleHost (SearchModuleHostRequest) returns (SearchModuleHostResponse) {
+        option (google.api.http) = {
+            get: "/v1/cmdb/searchModuleHost"
+        };
     }
 }
 
@@ -410,7 +424,6 @@ message HostObject {
     // 主机域信息
     repeated HostCloudInfo bk_cloud_id = 41;
 }
-
 
 // 模块
 message ModuleObject {
@@ -729,7 +742,7 @@ message ServerListResponse {
 }
 
 // 查询模块请求
-message SearchMoudleRequest {
+message SearchModuleRequest {
     option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
         json_schema: {
           required: ["cmdb_search_request"]
@@ -1121,7 +1134,7 @@ message ImportDetailResponse {
 
 // 按level查询lake节点下主机列表请求
 message SearchLevelHostRequest {
-    // 指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘
+    // 指定level：0-全部 1-全国中心 2-区域中心 3-省边缘 4-地市边缘 5-区县边缘
     LakeNodeLevel level = 1;
     // 分页信息
     common.Paging paging = 2;
@@ -1207,4 +1220,40 @@ message UpdateVipStateRequest {
 message UpdateVipStateResponse {
     // 返回的请求状态
     common.ResponseStatus status = 1;
+}
+
+// 查询全部模块请求
+message SearchModuleListRequest {
+}
+
+// 查询全部模块返回
+message SearchModuleListResponse {
+    common.ResponseStatus status = 1;
+    repeated string data = 2;
+}
+
+// 查询指定模块名下的全部主机请求
+message SearchModuleHostRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+          required: ["module_name"]
+        }
+    };
+
+    string module_name = 1 [(validator.field) = {string_not_empty: true, human_error: "模块名不能为空"
+                           }];
+}
+
+// 查询指定模块名下的全部主机请求返回，[{业务模块名，[ip]}]
+message SearchModuleHostResponse {
+    common.ResponseStatus status = 1;
+    repeated ModuleHost data = 2;
+}
+
+// 模块下主机ip列表，{业务模块名，[ip]}
+message ModuleHost {
+    // 业务模块名，biz##set##module
+    string module_name = 1;
+    // ip列表
+    repeated string value = 2;
 }

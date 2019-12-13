@@ -5,6 +5,8 @@ package common;
 option go_package = "git.fogcdn.top/axe/protos/goout/common";
 option java_package = "top.fogcdn.axe.protos.common";
 
+import "google/protobuf/any.proto";
+
 // 分页
 message Paging {
     // 总页数
@@ -33,4 +35,17 @@ enum StatusCode {
     INVALID_ARGUMENT = 400;
     // 访问拒绝
     ACCESS_DENIED = 403;
+}
+
+// 指定CMDB类型条件
+message Condition {
+    string bk_obj_id = 1; // 实体类型
+    repeated string fields = 2; // 指定查找返回数据，如bk_inst_name,id，默认全部
+
+}
+// MongoDB型条件，如{"name", "$regex", "小明"}
+message MongoCondition {
+    string field = 1; // 指定筛选字段
+    string operator = 2; // 筛选操作符，如$eq，$in，$ne等，默认$regex
+    google.protobuf.Any value = 3; // 筛选值
 }

@@ -80,6 +80,7 @@
     - [LakeHost](#cmdb.LakeHost)
     - [LakeObject](#cmdb.LakeObject)
     - [LevelHost](#cmdb.LevelHost)
+    - [ModuleHost](#cmdb.ModuleHost)
     - [ModuleObject](#cmdb.ModuleObject)
     - [RoomObject](#cmdb.RoomObject)
     - [RoomTopologyRequest](#cmdb.RoomTopologyRequest)
@@ -97,7 +98,11 @@
     - [SearchLevelHostRequest](#cmdb.SearchLevelHostRequest)
     - [SearchLevelHostResponse](#cmdb.SearchLevelHostResponse)
     - [SearchLevelHostResponse.ResultEntry](#cmdb.SearchLevelHostResponse.ResultEntry)
-    - [SearchMoudleRequest](#cmdb.SearchMoudleRequest)
+    - [SearchModuleHostRequest](#cmdb.SearchModuleHostRequest)
+    - [SearchModuleHostResponse](#cmdb.SearchModuleHostResponse)
+    - [SearchModuleListRequest](#cmdb.SearchModuleListRequest)
+    - [SearchModuleListResponse](#cmdb.SearchModuleListResponse)
+    - [SearchModuleRequest](#cmdb.SearchModuleRequest)
     - [SearchMoudleResponse](#cmdb.SearchMoudleResponse)
     - [Server](#cmdb.Server)
     - [ServerListRequest](#cmdb.ServerListRequest)
@@ -131,6 +136,8 @@
   
 
 - [common/api.proto](#common/api.proto)
+    - [Condition](#common.Condition)
+    - [MongoCondition](#common.MongoCondition)
     - [Paging](#common.Paging)
     - [ResponseStatus](#common.ResponseStatus)
   
@@ -1513,6 +1520,22 @@ level下的主机ip列表
 
 
 
+<a name="cmdb.ModuleHost"></a>
+
+### ModuleHost
+模块下主机ip列表，{业务模块名，[ip]}
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| module_name | [string](#string) |  | 业务模块名，biz##set##module |
+| value | [string](#string) | repeated | ip列表 |
+
+
+
+
+
+
 <a name="cmdb.ModuleObject"></a>
 
 ### ModuleObject
@@ -1758,7 +1781,7 @@ level下的主机ip列表
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| level | [LakeNodeLevel](#cmdb.LakeNodeLevel) |  | 指定level：0-全国中心 1-区域中心 2-省边缘 3-地市边缘 4-区县边缘 |
+| level | [LakeNodeLevel](#cmdb.LakeNodeLevel) |  | 指定level：0-全部 1-全国中心 2-区域中心 3-省边缘 4-地市边缘 5-区县边缘 |
 | paging | [common.Paging](#common.Paging) |  | 分页信息 |
 | ipv6 | [bool](#bool) |  | 默认返回主机的ipv4地址，可以选择返回ipv6地址 |
 
@@ -1800,9 +1823,66 @@ level下的主机ip列表
 
 
 
-<a name="cmdb.SearchMoudleRequest"></a>
+<a name="cmdb.SearchModuleHostRequest"></a>
 
-### SearchMoudleRequest
+### SearchModuleHostRequest
+查询指定模块名下的全部主机请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| module_name | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="cmdb.SearchModuleHostResponse"></a>
+
+### SearchModuleHostResponse
+查询指定模块名下的全部主机请求返回，[{业务模块名，[ip]}]
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [common.ResponseStatus](#common.ResponseStatus) |  |  |
+| data | [ModuleHost](#cmdb.ModuleHost) | repeated |  |
+
+
+
+
+
+
+<a name="cmdb.SearchModuleListRequest"></a>
+
+### SearchModuleListRequest
+查询全部模块请求
+
+
+
+
+
+
+<a name="cmdb.SearchModuleListResponse"></a>
+
+### SearchModuleListResponse
+查询全部模块返回
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [common.ResponseStatus](#common.ResponseStatus) |  |  |
+| data | [string](#string) | repeated |  |
+
+
+
+
+
+
+<a name="cmdb.SearchModuleRequest"></a>
+
+### SearchModuleRequest
 查询模块请求
 
 
@@ -1924,6 +2004,8 @@ level下的主机ip列表
 | room_address | [string](#string) |  | 机房的具体地址 |
 | up_bandwidth | [int32](#int32) |  | 上行带宽 |
 | min_bandwidth | [int32](#int32) |  | 保底带宽 |
+| maintainer | [string](#string) |  | 维护人 |
+| mobile | [string](#string) |  | 联系方式 |
 
 
 
@@ -2188,7 +2270,7 @@ VIP对象
 <a name="cmdb.InstType"></a>
 
 ### InstType
-实体类型:0-undefined 1-HOST 2-LAKE 3-vip
+实体类型:0-undefined 1-HOST 2-LAKE 3-vip  4-ROOM
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
@@ -2196,6 +2278,7 @@ VIP对象
 | HOST_INST | 1 | 1-主机 |
 | LAKE_INST | 2 | 2-LAKE |
 | VIP_INST | 3 | 3-VIP |
+| ROOM_INST | 4 | 4-ROOM |
 
 
 
@@ -2272,9 +2355,9 @@ VIP对象
 | ImportLake | [ImportLakeRequest](#cmdb.ImportLakeRequest) | [ImportLakeResponse](#cmdb.ImportLakeResponse) | 导入lake节点 |
 | RoomTopology | [RoomTopologyRequest](#cmdb.RoomTopologyRequest) | [RoomTopologyResponse](#cmdb.RoomTopologyResponse) | 机房拓扑 |
 | ServerList | [ServerListRequest](#cmdb.ServerListRequest) | [ServerListResponse](#cmdb.ServerListResponse) | 裸金属列表 |
-| SearchModule | [SearchMoudleRequest](#cmdb.SearchMoudleRequest) | [SearchMoudleResponse](#cmdb.SearchMoudleResponse) | 查询模块 |
+| SearchModule | [SearchModuleRequest](#cmdb.SearchModuleRequest) | [SearchMoudleResponse](#cmdb.SearchMoudleResponse) | 查询模块 |
 | ImportHistory | [ImportHistoryRequest](#cmdb.ImportHistoryRequest) | [ImportHistoryResponse](#cmdb.ImportHistoryResponse) | 查询导入历史记录列表 |
-| SearchInst | [SearchInstRequest](#cmdb.SearchInstRequest) | [SearchInstResponse](#cmdb.SearchInstResponse) | 实体的查询,包括 host，lake，vip列表 |
+| SearchInst | [SearchInstRequest](#cmdb.SearchInstRequest) | [SearchInstResponse](#cmdb.SearchInstResponse) | 实体的查询,包括 host，lake，vip，room列表 |
 | UpdateInst | [UpdateInstRequest](#cmdb.UpdateInstRequest) | [UpdateInstResponse](#cmdb.UpdateInstResponse) | 实体的更新,包括 host，lake，vip列表 |
 | SearchLake | [SearchLakeRequest](#cmdb.SearchLakeRequest) | [SearchLakeResponse](#cmdb.SearchLakeResponse) | 查询Lake节点 |
 | SearchLakeHost | [SearchLakeHostRequest](#cmdb.SearchLakeHostRequest) | [SearchLakeHostResponse](#cmdb.SearchLakeHostResponse) | 查询Lake节点下的主机列表 |
@@ -2286,6 +2369,8 @@ VIP对象
 | UpdateLakeState | [UpdateLakeStateRequest](#cmdb.UpdateLakeStateRequest) | [UpdateLakeStateResponse](#cmdb.UpdateLakeStateResponse) | 修改lake节点上下线状态 |
 | UpdateHostState | [UpdateHostStateRequest](#cmdb.UpdateHostStateRequest) | [UpdateHostStateResponse](#cmdb.UpdateHostStateResponse) | 修改主机上下线状态 |
 | UpdateVipState | [UpdateVipStateRequest](#cmdb.UpdateVipStateRequest) | [UpdateVipStateResponse](#cmdb.UpdateVipStateResponse) | VIP的状态更新 |
+| SearchModuleList | [SearchModuleListRequest](#cmdb.SearchModuleListRequest) | [SearchModuleListResponse](#cmdb.SearchModuleListResponse) | 查询全部模块 |
+| SearchModuleHost | [SearchModuleHostRequest](#cmdb.SearchModuleHostRequest) | [SearchModuleHostResponse](#cmdb.SearchModuleHostResponse) | 查询全部模块 |
 
  
 
@@ -2295,6 +2380,39 @@ VIP对象
 <p align="right"><a href="#top">Top</a></p>
 
 ## common/api.proto
+
+
+
+<a name="common.Condition"></a>
+
+### Condition
+指定CMDB类型条件
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| bk_obj_id | [string](#string) |  | 实体类型 |
+| fields | [string](#string) | repeated | 指定查找返回数据，如bk_inst_name,id，默认全部 |
+
+
+
+
+
+
+<a name="common.MongoCondition"></a>
+
+### MongoCondition
+MongoDB型条件，如{&#34;name&#34;, &#34;$regex&#34;, &#34;小明&#34;}
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| field | [string](#string) |  | 指定筛选字段 |
+| operator | [string](#string) |  | 筛选操作符，如$eq，$in，$ne等，默认$regex |
+| value | [google.protobuf.Any](#google.protobuf.Any) |  | 筛选值 |
+
+
+
 
 
 
