@@ -1177,7 +1177,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/cmdbSearchMoudleResponse"
+              "$ref": "#/definitions/cmdbSearchModuleResponse"
             }
           }
         }
@@ -3980,7 +3980,7 @@
         }
       }
     },
-    "cmdbSearchMoudleResponse": {
+    "cmdbSearchModuleResponse": {
       "type": "object",
       "title": "查询模块请求返回",
       "properties": {

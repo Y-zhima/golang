@@ -4166,12 +4166,12 @@
       
     </section>
     
-    <section id="cmdb.SearchMoudleResponse">
-      <title>SearchMoudleResponse</title>
+    <section id="cmdb.SearchModuleResponse">
+      <title>SearchModuleResponse</title>
       <para>查询模块请求返回</para>
       
       <table frame="all">
-        <title><classname>SearchMoudleResponse</classname> Fields</title>
+        <title><classname>SearchModuleResponse</classname> Fields</title>
         <tgroup cols="4">
           <colspec colwidth="*"/>
           <colspec colwidth="*"/>
@@ -5653,7 +5653,7 @@
             <row>
               <entry>SearchModule</entry>
               <entry><link linkend="cmdb.SearchModuleRequest">SearchModuleRequest</link></entry>
-              <entry><link linkend="cmdb.SearchMoudleResponse">SearchMoudleResponse</link></entry>
+              <entry><link linkend="cmdb.SearchModuleResponse">SearchModuleResponse</link></entry>
               <entry><para>查询模块</para></entry>
             </row>
             

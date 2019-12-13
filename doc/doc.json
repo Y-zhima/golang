@@ -4244,9 +4244,9 @@
           ]
         },
         {
-          "name": "SearchMoudleResponse",
-          "longName": "SearchMoudleResponse",
-          "fullName": "cmdb.SearchMoudleResponse",
+          "name": "SearchModuleResponse",
+          "longName": "SearchModuleResponse",
+          "fullName": "cmdb.SearchModuleResponse",
           "description": "查询模块请求返回",
           "hasExtensions": false,
           "hasFields": true,
@@ -5293,9 +5293,9 @@
               "requestLongType": "SearchModuleRequest",
               "requestFullType": "cmdb.SearchModuleRequest",
               "requestStreaming": false,
-              "responseType": "SearchMoudleResponse",
-              "responseLongType": "SearchMoudleResponse",
-              "responseFullType": "cmdb.SearchMoudleResponse",
+              "responseType": "SearchModuleResponse",
+              "responseLongType": "SearchModuleResponse",
+              "responseFullType": "cmdb.SearchModuleResponse",
               "responseStreaming": false,
               "options": {
                 "google.api.http": {
@@ -14209,7 +14209,7 @@
             },
             {
               "name": "Delete",
-              "description": "删除作业模板\n\noption (google.api.http) = {\r\n           post: \"/v1/template/delete/{template_id}\"\r\n       };",
+              "description": "删除作业模板\n\noption (google.api.http) = {\n           post: \"/v1/template/delete/{template_id}\"\n       };",
               "requestType": "DeleteRequest",
               "requestLongType": "DeleteRequest",
               "requestFullType": "template.DeleteRequest",

@@ -83,7 +83,7 @@ service Cmdb {
     }
 
     // 查询模块
-    rpc SearchModule (SearchModuleRequest) returns (SearchMoudleResponse) {
+    rpc SearchModule (SearchModuleRequest) returns (SearchModuleResponse) {
         option (google.api.http) = {
             get: "/v1/cmdb/searchModule"
         };
@@ -755,7 +755,7 @@ message SearchModuleRequest {
 }
 
 // 查询模块请求返回
-message SearchMoudleResponse {
+message SearchModuleResponse {
     // 状态码
     common.ResponseStatus status = 1;
     // 模块对象

@@ -1076,7 +1076,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/cmdbSearchMoudleResponse"
+              "$ref": "#/definitions/cmdbSearchModuleResponse"
             }
           }
         },
@@ -2405,7 +2405,7 @@
       },
       "title": "查询全部模块返回"
     },
-    "cmdbSearchMoudleResponse": {
+    "cmdbSearchModuleResponse": {
       "type": "object",
       "properties": {
         "status": {
