@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package jumpserver;
+
+option java_multiple_files = true;
+option java_package = "com.ffcs.xmrdc.ironic.mirror.grpc.jumpCom";
+option java_outer_classname = "jumpComProto";
+
+option go_package = "git.fogcdn.top/axe/protos/goout/jumpserver";
+
+import "google/protobuf/timestamp.proto";
+
+// 分页信息(每个服务通用的控制信息，当客户端发起请求时，信息填写如下)
+message Paging {
+    // 总页数
+    int32 total_page = 1;
+    // 当前页数
+    int32 page = 2;
+    // 每页显示的记录条数
+    int32 per_page = 3;
+    // 总记录数
+    int32 total_record = 4;
+}
+
+
+// 时间范围信息(用于指定时间范围。如按受理开始时间、受理结束时间查询订单列表。按某个具体时间查询，不使用此对象。)
+message TimeScope {
+
+    // 起始时间
+    google.protobuf.Timestamp begin_date = 1;
+    // 结束时间
+    google.protobuf.Timestamp end_date = 2;
+}
+
+// 请求返回状态
+message ResponseStatus {
+    // 状态码
+    StatusCode code = 1;
+    // 信息
+    string message = 2;
+}
+
+// 请求返回状态码
+enum StatusCode {
+    // 成功
+    SUCCESS = 0;
+    // 参数错误
+    INVALID_ARGUMENT = 400;
+    // 访问拒绝
+    ACCESS_DENIED = 403;
+    // 内部错误
+    INTERNAL_ERROR = 500;
+}

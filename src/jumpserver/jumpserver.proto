@@ -1,0 +1,114 @@
+syntax = "proto3";
+
+package jumpserver;
+
+option java_multiple_files = true;
+option java_package = "com.ffcs.xmrdc.ironic.mirror.grpc.jumpServer";
+option java_outer_classname = "jumpServerProto";
+
+option go_package = "git.fogcdn.top/axe/protos/goout/jumpserver";
+
+import "jumpserver/common.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+
+service Jumpserver {
+    // 登录用户同步接口
+    rpc SyncUsers (SyncUsersRequest) returns (SyncUsersResponse) {
+        option (google.api.http) = {
+            post: "/jumpserver/syncUsers"
+            body: "*"
+        };
+    }
+    // 资产同步接口
+    rpc SyncAssets (SyncAssetsRequest) returns (SyncAssetsResponse) {
+        option (google.api.http) = {
+            post: "/jumpserver/syncAssets"
+            body: "*"
+        };
+    }
+}
+
+// 同步登录用户请求对象
+message SyncUsersRequest {
+     // 登录用户
+     repeated UserInfo user_infos = 1;
+}
+
+// 同步登录用户返回对象
+message SyncUsersResponse {
+    // 响应码
+    jumpserver.ResponseStatus status = 1;
+}
+
+// 登录用户
+message UserInfo {
+    // 登录用户id
+    string user_id = 1;
+    // 登录用户名
+    string user_name = 2;
+}
+
+// 同步资产请求对象
+message SyncAssetsRequest {
+    // 系统用户
+    repeated AssetInfo asset_infos = 1;
+}
+
+// 同步登录用户返回对象
+message SyncAssetsResponse {
+    // 响应码
+    jumpserver.ResponseStatus status = 1;
+}
+
+// 资产
+message AssetInfo {
+    // 资产id
+    string asset_id = 1;
+    // 资产名称
+    string asset_name = 2;
+    // 资产ip
+    string ip = 3;
+    // 协议端口
+    string port = 4;
+    // 操作系统
+    Platform platform = 5;
+    // 管理用户id
+    string admin_user_id = 6;
+    // 登录协议
+    Protocol protocol = 7;
+    // 节点层级关系，比如a/b/c/d
+    string node_path = 8;
+}
+
+// 登录协议 ssh/rdp/telnet/vnc
+enum Protocol {
+    // 未定义
+    JUMPSERVER_PROTOCOL_UNDEFINED = 0;
+    // ssh协议
+    JUMPSERVER_PROTOCOL_SSH = 1;
+    // rdp协议
+    JUMPSERVER_PROTOCOL_RDP = 2;
+    // telnet协议
+    JUMPSERVER_PROTOCOL_TELNET = 3;
+    // vnc协议
+    JUMPSERVER_PROTOCOL_VNC = 4;
+}
+
+// 操作系统 Linux/Unix/MacOS/BSD/Windows/Other
+enum Platform {
+    // 未定义
+    JUMPSERVER_PLATFORM_UNDEFINED = 0;
+    // Linux系统
+    JUMPSERVER_PLATFORM_LINUX = 1;
+    // Unix系统
+    JUMPSERVER_PLATFORM_UNIX = 2;
+    // MacOS系统
+    JUMPSERVER_PLATFORM_MACOS = 3;
+    // BSD系统
+    JUMPSERVER_PLATFORM_BSD = 4;
+    // Windows系统
+    JUMPSERVER_PLATFORM_WINDOWS = 5;
+    // Other
+    JUMPSERVER_PLATFORM_OTHER = 6;
+}
